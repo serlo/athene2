@@ -4,43 +4,11 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/coverage.png?s=1d2264eb2b7376e91de5a8f58574da83fd156045)](https://scrutinizer-ci.com/g/serlo-org/athene2/)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/quality-score.png?s=f163d3b21f6d3aeed19dd082958e71e544d6686e)](https://scrutinizer-ci.com/g/serlo-org/athene2/)
 
-# Commit rules
+# Docs
 
-## Branches
+There is an incomplete guide of Athene2 here: [Athene2 Guide](http://serlo-org.github.com/athene2-guide)
 
-Always open up new branches for your commits.
-Do not commit into `develop` (unstable), `master` (stable) or `ptr` (beta) directly.
-Those branches deploy automatically and may break stuff.
-
-### Branches for issues
-
-If you're fixing an issue name the branch `solves-issueid`.
-
-Examples:
-* `solves-233`
-* `solves-313`
-
-### Branches implementing feature requests
-
-If you're implementing a new feature request, name the branch `implements-issueid`
-
-Example:
-* `implements-233`
-* `implements-131`
-
-### Branches for new features
-
-If you're implementing a new feature name the branch `feature-my-feature`.
-
-Examples: 
-
-* `feature-database-caching`
-* `feature-authorization`
-
-### Create Pull Requests
-
-Use rebase to bring your branches up to speed with the latest develop, master or ptr branch.
-Now you can create a pull request which can be fast-forwarded (no merge necessary) instantly.
+# Contributing
 
 ## Commit Messages
 
