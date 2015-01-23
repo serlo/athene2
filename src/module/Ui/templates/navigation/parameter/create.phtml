@@ -1,0 +1,8 @@
+<?php echo $this->pageHeader('Create parameter')->render(); ?>
+<div class="clearfix">
+    <a class="btn pull-right btn-success" href="<?php echo $this->url('navigation/parameter/key/create'); ?>">
+        <span class="glyphicon glyphicon-plus"></span>
+        <?php echo $this->translate('Key'); ?>
+    </a>
+</div>
+<?php echo $this->form()->render($this->form); ?>

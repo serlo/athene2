@@ -1,0 +1,39 @@
+{% set title = false %}
+{% if entity.getHead() %}
+    {% set title = entity.getHead().get('title') %}
+{% endif %}
+<div class="page-header">
+    <div class="pull-right btn-group hidden-xs">
+        {% include 'entity/view/partials/actions/toggle-controls' %}
+        {{ contexter().renderButton() }}
+    </div>
+    <h1>
+        {% if title %}
+            {{ title }} <small>{{ 'Pending approval' | trans }}</small>
+        {% elseif entity.getHead() %}
+            {{ entity.getId() }} <small>{{ 'Pending approval' | trans }}</small>
+        {% else %}
+            {{ entity.getId() }} <small>{{ 'Dead node' | trans }}</small>
+        {% endif %}
+    </h1>
+    {% include 'entity/view/partials/actions/big' %}
+</div>
+{% include 'entity/page/partials/alerts' %}
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <strong>
+            <span class="glyphicon-warning-sign glyphicon-regular"></span> {{ 'Warning' | trans }}
+        </strong>
+    </div>
+    <div class="panel-body">
+        {% if entity.getHead() %}
+            {% trans %}
+            This content is pending approval and may therefore not be viewed yet.
+            {% endtrans %}
+        {% else %}
+            {% trans %}
+            This content is a dead node and has no content. Please edit or remove it.
+            {% endtrans %}
+        {% endif %}
+    </div>
+</div>

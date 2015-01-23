@@ -1,0 +1,16 @@
+{% set template = 'notification/type/' ~ notification.getEventName() %}
+{% set template = include(template, ignore_missing = true) %}
+{% set type = notification.getEventName() %}
+{% if template %}
+    {{ template | raw }}
+{% else %}
+    <div class="dropdown-menu-item">
+        {% trans %}
+        No template found for notification "{{ type }}"
+        {% endtrans %}
+    </div>
+    {% set name = entity.getType().getName() %}
+    <div class="dropdown-menu-item">
+        {% trans %}No view found for {{ name }}{% endtrans %}
+    </div>
+{% endif %}

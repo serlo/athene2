@@ -1,0 +1,13 @@
+<?php echo $this->pageHeader('Manage navigation')->render(); ?>
+<div class="list-group">
+    <?php /* @var $container \Navigation\Entity\ContainerInterface */ ?>
+    <?php foreach ($this->containers as $container): ?>
+        <a class="list-group-item" href="<?php echo $this->url('navigation/container/get', ['container' => $container->getId()]); ?>">
+            <?php echo $container->getType()->getName(); ?>
+        </a>
+    <?php endforeach ?>
+    <a class="list-group-item" href="<?php echo $this->url('navigation/container/create'); ?>">
+        <span class="glyphicon glyphicon-plus"></span>
+        <?php echo $this->translate('container'); ?>
+    </a>
+</div>

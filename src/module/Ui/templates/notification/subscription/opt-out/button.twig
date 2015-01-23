@@ -1,0 +1,28 @@
+{% if emailsActive %}
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon-regular glyphicon-mute"></span>
+            {{ 'Unsubscribe' | trans }}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ url('subscription/update', {'object': object, 'email': 0}) }}">
+                    <span class="glyphicon-regular glyphicon-volume-down"></span>
+                    {{ 'Stop sending emails' | trans }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('subscription/unsubscribe', {'object': object}) }}">
+                    <span class="glyphicon-regular glyphicon-mute"></span>
+                    {{ 'Unsubscribe' | trans }}
+                </a>
+            </li>
+        </ul>
+    </div>
+{% else %}
+    <div class="btn-group">
+        <span class="glyphicon-regular glyphicon-mute"></span>
+        <a href="{{ url('subscription/unsubscribe', {'object': object}) }}"
+           class="btn btn-primary">{{ 'Unsubscribe' | trans }}</a>
+    </div>
+{% endif %}

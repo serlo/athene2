@@ -1,0 +1,77 @@
+/* Serlo Menu */
+/* top navbar */
+#serlo-menu {
+  //border: none;
+
+  //@include bar();
+
+  //font-size: 0.91em;
+  //border-radius: 0;
+  //min-height: 0;
+
+  .nav.navbar-nav {
+
+    &.navbar-border-right {
+      border-right: 2px solid $backgroundColor;
+    }
+
+    & > li {
+
+      > a.primary {
+        color: $themeColor;
+        font-weight: 700;
+      }
+
+      &.dropdown.open > a {
+        background-color: $themeColor;
+        color: $white;
+      }
+
+      &:hover, &:active {
+        background-color: $themeColor;
+        & > a {
+          color: $white;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      background: white;
+      & > li {
+        &:hover, &:active {
+          & > a {
+            background-color: $themeColor;
+            color: $white;
+          }
+        }
+        & > a {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+
+  .navbar-nav {
+    //float: left;
+    //margin: 0;
+  }
+
+  .navbar-inner {
+    //padding-left: 0;
+    //padding-right: 0;
+  }
+
+  .navbar-collapse.in, .navbar-collapse.collapsing {
+    & li, & .navbar-nav {
+      @media only screen and (max-width: $screen-xs-max) {
+        //float: none;
+      }
+    }
+  }
+
+  .container {
+    // min-width: 750px;
+    // @extend .container;
+  }
+}

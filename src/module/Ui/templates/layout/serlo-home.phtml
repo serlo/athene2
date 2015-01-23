@@ -1,0 +1,54 @@
+<?php
+/**
+ * 
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author  Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license LGPL-3.0
+ * @license http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link        https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+echo $this->doctype();
+?>
+<html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>">
+<?php echo $this->partial('layout/partials/head'); ?>
+
+<!-- @deprecated -->
+<!-- moved to 1-col -->
+
+<body class="serlo-home" itemscope itemtype="http://schema.org/WebPage">
+    <div class="wrap">
+        <header id="header">
+            <?php echo $this->partial('layout/partials/top-bar'); ?>
+        </header>
+        <div id="page" class="container">
+            <section id="main-home">
+                <div id="main-container">
+                    <div id="content-layout">
+                        <div id="content-container">
+                            <div id="serlo-wrapper">
+                                <?php echo $this->brand()->getLogo(); ?>
+                                <?php echo $this->brand()->getBrand(); ?>
+                            </div>
+                            <h1 class="description">
+                                <?php echo $this->brand()->getDescription(); ?>
+                            </h1>
+                            <?php echo $this->partial('layout/partials/notifications'); ?>
+                            <?php echo $this->partial('layout/partials/search'); ?>
+                            <?php echo $this->partial('layout/partials/main'); ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <?php /* sticky footer: */ ?>
+        <!-- <div id="footer-push"></div> -->
+        <?php echo $this->partial('layout/partials/footer'); ?>
+    </div>
+    <?php echo $this->partial('layout/partials/default-modal'); ?>
+    <?php echo $this->placeholder('modals'); ?>
+    <?php echo $this->tracking(); ?>
+    <?php echo $this->partial('layout/partials/noscript'); ?>
+</body>
+</html>

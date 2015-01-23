@@ -1,0 +1,122 @@
+#subject-nav {
+  padding-top: 20px;
+
+  .subject-dropdown {
+    position: relative;
+    z-index: 2;
+    margin-left: 180px;
+    padding: 0px 20px;
+    margin-top: 8px;
+
+    @media only screen and (max-width: $screen-xs-min) {
+      margin-left: 0px;
+      margin-top: 0px;
+      height: 46px;
+      top: 40px;
+      left: 20px;
+    }
+  }
+
+  .subject-dropdown-toggle {
+    display: inline-block;
+
+    line-height: 40px;
+    font-size: 35px;
+
+    color: $themeColor;
+    background: #F2F2F2;
+
+    z-index: 12;
+
+    @include theme-font(600);
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background: #F9F9F9;
+    }
+  }
+
+  .subject-dropdown-menu {
+    display: none;
+
+    position: absolute;
+    top: -15px;
+    left: 13px;
+
+    padding: 75px 20px 20px;
+    width: 360px;
+
+    background: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    border: 1px solid #CCC;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    z-index: -1;
+
+    & .nav-label {
+      @include theme-font(700);
+      font-size: 16px;
+
+      padding: 8px 0px;
+    }
+  }
+
+  .subject-dropdown-title {
+    @include inline-block;
+
+    vertical-align: inherit;
+    border-right: 2px solid #E4E6E6;
+    padding: 3px 18px;
+  }
+
+  .open {
+
+    background: none;
+
+    .subject-dropdown-title {
+      border-color: transparent;
+    }
+
+    .subject-dropdown-toggle {
+      background-color: white;
+      &:hover,
+      &:focus {
+        border-color: white;
+      }
+    }
+
+    .subject-dropdown-menu {
+      display: block;
+    }
+  }
+
+  .caret {
+    margin-left: 5px;
+    border-width: 7px;
+    border-top-color: $themeColor;
+    border-bottom: none;
+  }
+
+  .row {
+    border-top: 1px solid $lighterGray;
+  }
+}
+
+.slogan {
+  @include theme-font(600);
+  position: relative;
+  top: -5px;
+
+  width: 180px;
+
+  color: $grayDark;
+  font-size: 0.9em;
+  text-align: right;
+
+  @media only screen and (max-width: $screen-xs-min) {
+    top: -40px;
+    left: 60px;
+  }
+}
+

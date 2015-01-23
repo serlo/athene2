@@ -1,0 +1,10 @@
+{% set event = notification.getEvents().current() %}
+{% set user = normalize().toAnchor(event.getActor(), true) %}
+{% set term = normalize().toAnchor(event.getObject(), true) %}
+{% set object = normalize().toAnchor(event.getParameter('object'), true) %}
+<div class="dropdown-menu-item">
+    {% trans %}
+    {{ user }} associated {{ term }} with {{ object }}
+    {% endtrans %}
+    <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+</div>

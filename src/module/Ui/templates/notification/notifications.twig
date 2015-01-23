@@ -1,0 +1,26 @@
+<li class="dropdown">
+    <a data-toggle="dropdown" class="dropdown-toggle" href="#" data-trigger="ping"
+       data-href="{{ url('notification/read') }}">
+        <span class="glyphicon glyphicon-bell"></span>
+        {% set seen = notifications().getSeen(notifications) %}
+        {% if seen.count() %}
+            <span class="label label-info">{{ seen.count() }}</span>
+        {% endif %}
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
+        {% for notification in notifications %}
+            {% if notification.getEvents().current() and isGranted('event.log.get', notification.getEvents().current()) %}
+                <li role="presentation" class="{{ notification.getSeen() ? '' : 'bg-info' }}">
+                    {% include 'notification/notification' with {'notification': notification} %}
+                </li>
+            {% endif %}
+        {% else %}
+            <li role="presentation" class="disabled">
+                <div class="dropdown-menu-item">
+                    {{ 'You have no notifications.' | trans }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</li>

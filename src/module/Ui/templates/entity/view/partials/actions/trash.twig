@@ -1,0 +1,8 @@
+{% if isGranted('entity.trash', entity) %}
+    <li>
+        <a href="{{ url('uuid/trash', {'id': entity.getId()}) }}">
+            <span class="glyphicon glyphicon-trash"></span>
+            {% trans %} Move to trash {% endtrans %}
+        </a>
+    </li>
+{% endif %}

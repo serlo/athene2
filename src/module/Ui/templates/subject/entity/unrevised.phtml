@@ -1,0 +1,19 @@
+<?php echo $this->pageHeader('Unrevised learning resources')->setSubtitle($this->subject->getName())->append($this->contexter()->renderButton('right'))->render(); ?>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><?php echo $this->translate('Title'); ?></th>
+			<th><?php echo $this->translate('Type'); ?></th>
+            <th><?php echo $this->translate('Timestamp'); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+        <?php foreach($this->entities as $entity): ?>
+        <tr>
+			<td><a href="<?php echo $this->url($entity->getRouteName(), $entity->getRouteParams()); ?>"><?php echo $entity->getTitle(); ?></a></td>
+            <td><?php echo $this->translate($entity->getType()); ?></td>
+            <td><?php echo $this->timeago()->render($entity->getMetadata()->getCreationDate()); ?></td>
+		</tr>
+        <?php endforeach; ?>
+	</tbody>
+</table>

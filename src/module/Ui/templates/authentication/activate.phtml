@@ -1,0 +1,7 @@
+<?php echo $this->pageHeader('Activate an account')->render(); ?>
+<?php if (!empty($this->messages)) : ?>
+    <?php foreach ($this->messages as $message) : ?>
+        <div><?php echo $message; ?></div>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?php echo $this->form()->render($this->form); ?>

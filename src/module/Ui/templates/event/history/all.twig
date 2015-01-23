@@ -1,0 +1,7 @@
+{{ pageHeader('Event log' | trans) }}
+<ul>
+    {% for event in paginator %}
+        <li>{{ eventLog().renderEvent(event) }}</li>
+    {% endfor %}
+</ul>
+{{ paginationControl(paginator, 'Sliding', 'common/paginator', {'route': 'event/history/all'}) }}

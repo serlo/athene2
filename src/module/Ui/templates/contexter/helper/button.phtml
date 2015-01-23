@@ -1,0 +1,55 @@
+<?php
+/**
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license   LGPL-3.0
+ * @license   http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013-2014 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+?>
+<?php /* @var $router \Contexter\Router\RouterInterface */ ?>
+<?php $router = $this->router; ?>
+<?php if ($router->hasAdapter()): ?>
+    <div class="btn-group<?php echo $this->float ? ' pull-' . $this->float : ''; ?>">
+        <button class="dropdown-toggle btn <?php echo $this->class; ?>" type="button" data-toggle="dropdown">
+            <strong>?</strong>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu">
+            <?php if (!count($this->matches)): ?>
+                <li class="disabled">
+                    <a href="#"><?php echo $this->translate('There is no help available for this page yet.'); ?></a>
+                </li>
+            <?php endif; ?>
+            <?php foreach ($this->matches as $context): ?>
+                <li>
+                    <a href="<?php echo $this->normalize()->toUrl($context->getObject()); ?>">
+                        <?php echo $context->getTitle(); ?>
+                        <small><?php echo $this->translate(ucfirst($context->getType()->getName())); ?></small>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+            <?php if ($this->isGranted('contexter.context.add')): ?>
+                <?php $url = $this->url ? $this->url : $this->url(
+                    $router->getRouteMatch()->getMatchedRouteName(),
+                    $router->getRouteMatch()->getParams(),
+                    [],
+                    false,
+                    false
+                ); ?>
+                <li>
+                    <a href="<?php echo $this->url(
+                        'contexter/add',
+                        array(),
+                        array('query' => array('uri' => $url))
+                    ); ?>">
+                        <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
+                        <?php echo $this->translate('Add'); ?>
+                    </a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </div>
+<?php endif; ?>

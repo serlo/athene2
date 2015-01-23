@@ -1,0 +1,14 @@
+<div class="page-header">
+    <?php echo $this->append; ?>
+    <?php if($this->backLink): ?>
+        <ul class="nav nav-pills pull-left">
+            <li>
+                <a href="<?php echo $this->backLink; ?>"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            </li>
+        </ul>
+    <?php endif; ?>
+    <h1>
+        <?php echo $this->text; ?> <small><?php echo $this->subtext; ?></small>
+    </h1>
+    <?php echo $this->prepend; ?>
+</div>

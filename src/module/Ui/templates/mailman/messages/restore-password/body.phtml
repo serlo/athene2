@@ -1,0 +1,8 @@
+<?php
+echo nl2br(sprintf($this->translate("Hi %s,
+it seems that you want to restore your password. If not, you can ignore this email.
+You can restore your password by clicking the link below:
+
+%s"), $this->user->getUserName(), $this->url('authentication/password/restore', array(
+    'token' => $this->user->getToken()
+), array('force_canonical' => true))));

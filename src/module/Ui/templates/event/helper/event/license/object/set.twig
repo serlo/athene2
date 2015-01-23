@@ -1,0 +1,6 @@
+{% set event = event %}
+{% set user = normalize().toAnchor(event.getActor()) %}
+{% set object = normalize().toAnchor(event.getObject()) %}
+{% trans %}
+    {{ user }} changed the license of {{ object }}
+{% endtrans %}

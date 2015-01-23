@@ -1,0 +1,27 @@
+<div id="horizon">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="pull-left"><strong><?php echo $this->translate('Broaden your horizon'); ?></strong></span>
+            <a class="pull-right" href="<?php echo $this->url('ads/about'); ?>"><?php echo $this->translate(
+                    'What is this?'
+                ); ?></a>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <?php if ($this->ads != null):foreach ($this->ads as $count => $ad) : ?>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <a class="ad" href="<?php echo $this->url('ads/ad/out', array('id' => $ad->getId())); ?>"
+                   target="_blank">
+                    <img alt="<?php echo $ad->getTitle(); ?>" src="<?php echo $ad->getImage()->getLocation(); ?>"
+                         class="img-responsive"/>
+
+                    <div class="caption">
+                        <h4><?php echo $ad->getTitle(); ?></h4>
+                        <?php echo $ad->getContent(); ?>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach;endif; ?>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{% do normalize().headTitle(blog) %}
+<div class="page-header">
+    <div class="pull-right btn-group">
+        {% if isGranted('blog.post.create', blog) %}
+            <a class="btn btn-default btn-sm"
+               href="{{ url('blog/post/create', {'id' : blog.getId()}) }}"><span
+                    class="glyphicon glyphicon-file"></span></a>
+        {% endif %}
+        {% if isGranted('blog.posts.get.unpublished', blog) %}
+            <a href="{{ url('blog/view-all', {'id' : blog.getId()}) }}"
+               class="btn btn-default btn-sm"><span class="glyphicon glyphicon-calendar"></span></a>
+        {% endif %}
+    </div>
+    <h1>{{ 'Blog' | trans }}
+        <small>{{ blog.getName() }}</small>
+    </h1>
+</div>
+{{ partial('blog/blog/view-partial', {'paginator' : paginator, 'blog' : blog}) }}

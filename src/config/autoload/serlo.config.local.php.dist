@@ -1,0 +1,68 @@
+<?php
+return [
+    'brand'    => [
+        'instances' => [
+            'deutsch' => [
+                'name'        => '<div id="serlo-brand">Serlo</div>',
+                'slogan'      => 'Freie Bildung.',
+                'description' => 'Serlo ist eine kostenlose Plattform mit freien Lernmaterialien, die alle mitgestalten können.',
+                'logo'        => '<span id="serlo-logo">V</span>',
+                'head_title'  => 'Serlo.org'
+            ],
+            'english' => [
+                'name'        => '<div id="serlo-brand">Serlo</div>',
+                'slogan'      => 'Open Education.',
+                'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
+                'logo'        => '<span id="serlo-logo">V</span>',
+                'head_title'  => 'Serlo.org'
+            ]
+        ]
+    ],
+    'mailman'  => [
+        'sender'   => 'no-reply@serlo.org',
+        'location' => 'https://www.serlo.org'
+    ],
+    'instance' => [
+        'strategy' => 'Instance\Strategy\DomainStrategy'
+    ],
+    'tracking' => [
+        'instances' => [
+            'deutsch' => [
+                'code' => <<<EOL
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-20283862-3', 'serlo.org');ga('require', 'displayfeatures');ga('require', 'linkid', 'linkid.js');ga('set', 'anonymizeIp', true);ga('send', 'pageview');
+var visitTookTime = false;var didScroll = false;var bounceSent = false;var scrollCount=0;
+function testScroll(){++scrollCount;if(scrollCount==2){didScroll=true}sendNoBounce()}
+function timeElapsed(){visitTookTime=true;sendNoBounce()}
+function sendNoBounce(){if(didScroll&&visitTookTime&&!bounceSent){bounceSent=true;ga("send","event","no bounce","resist","User scrolled and spent 30 seconds on page.")}}
+setTimeout("timeElapsed()",3e4);
+window.addEventListener?window.addEventListener("scroll",testScroll,false):window.attachEvent("onScroll",testScroll);
+(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="//widget.uservoice.com/8JiCjX8pgkFb1do4yZljqg.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();UserVoice=window.UserVoice||[];UserVoice.push(["showTab","classic_widget",{mode:"feedback",primary_color:"#474747",link_color:"#007dc1",forum_id:260043,support_tab_name:"Kontaktiere uns",feedback_tab_name:"Feedback zu Serlo",tab_label:"Feedback",tab_color:"#449d44",tab_position:"middle-right",tab_inverted:false}])
+</script>
+EOL
+            ],
+            'english' => [
+                'code' => <<<EOL
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-20283862-4', 'serlo.org');ga('require', 'displayfeatures');ga('require', 'linkid', 'linkid.js');ga('set', 'anonymizeIp', true);ga('send', 'pageview');
+var visitTookTime = false;var didScroll = false;var bounceSent = false;var scrollCount=0;
+function testScroll(){++scrollCount;if(scrollCount==2){didScroll=true}sendNoBounce()}
+function timeElapsed(){visitTookTime=true;sendNoBounce()}
+function sendNoBounce(){if(didScroll&&visitTookTime&&!bounceSent){bounceSent=true;ga("send","event","no bounce","resist","User scrolled and spent 30 seconds on page.")}}
+setTimeout("timeElapsed()",3e4);
+window.addEventListener?window.addEventListener("scroll",testScroll,false):window.attachEvent("onScroll",testScroll);
+(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="//widget.uservoice.com/8JiCjX8pgkFb1do4yZljqg.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();UserVoice=window.UserVoice||[];UserVoice.push(["showTab","classic_widget",{mode:"feedback",primary_color:"#474747",link_color:"#007dc1",forum_id:260043,support_tab_name:"Kontaktiere uns",feedback_tab_name:"Feedback zu Serlo",tab_label:"Feedback",tab_color:"#449d44",tab_position:"middle-right",tab_inverted:false}])
+</script>
+EOL
+            ]
+        ]
+    ]
+];

@@ -1,0 +1,35 @@
+{% set title = 'text-solution' | trans %}
+{% set revision = entity.getCurrentRevision() %}
+
+<article itemscope itemtype="http://schema.org/Article">
+    <div class="row {{ collapse is defined ? 'collapse' : '' }}" id="solution-{{ entity.getId() }}">
+        <div class="clearfix">
+            <ul class="nav nav-pills nav-right">
+                {% include 'entity/view/partials/actions/small-essential' %}
+            </ul>
+        </div>
+        <section class="col-xs-12">
+            <div itemprop="articleBody" class="blockquote-box blockquote-info blockquote-left">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {% if revision %}
+                            {{ markdown().toHtml(revision.get('content')) | raw }}
+                        {% elseif not entity.getHead() %}
+                            {% trans %} A solution has been created but no content has been added yet or it is pending approval. {% endtrans %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="col-xs-12">
+            {% include 'entity/view/partials/license/minimalistic' %}
+            <div class="blockquote-box blockquote-info blockquote-left">
+                <div class="row">
+                    <div class="col-xs-12 hidden-xs">
+                        {{ discussion(entity).render('minimalistic', 2) }}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</article>

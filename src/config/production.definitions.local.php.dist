@@ -1,0 +1,3 @@
+<?php
+$moduleCache = true;
+$configCache = false;

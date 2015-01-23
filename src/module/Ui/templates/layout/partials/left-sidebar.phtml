@@ -1,0 +1,20 @@
+<aside class="side-navigation side-element">
+    <div class="layout-toggle">
+        <i class="glyphicon glyphicon-list"></i>
+        <i class="glyphicon glyphicon-remove"></i>
+    </div>
+    <div class="side-element-inner">
+        <?php
+        echo $this->partial('layout/partials/search');
+
+        echo $this->navigation('default_navigation')
+                    ->menu()
+                    ->setPartial('layout/navigation/side-navigation')
+                    ->setOnlyActiveBranch(false)
+                    ->setMinDepth(0)
+                    ->setMaxDepth(1)
+                    ->setUlClass('nav clear')
+                    ->render();
+        ?>
+    </div>
+</aside>

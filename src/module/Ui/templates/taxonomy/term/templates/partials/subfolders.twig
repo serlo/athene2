@@ -1,0 +1,38 @@
+{% set hasSubfolders = false %}
+{% set subfolderLimit = 3 %}
+<div>
+    {% for child in term.findChildrenByTrashed(false) %}
+        <div class="blockquote-box blockquote-primary">
+            <div class="row">
+                <div class="square col-sm-4 hidden-xs">
+                    {% set associationCount = taxonomy().countAssociations(child, 'NotTrashed') %}
+                    {% if associationCount %}
+                        <span class="glyphicon-regular glyphicon-lg glyphicon-book-open"></span>
+                        <span class="badge">{{ associationCount }}</span>
+                    {% else %}
+                        <span class="glyphicon-regular glyphicon-lg glyphicon-book"></span>
+                    {% endif %}
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <h4>
+                        <a href="{{ url('taxonomy/term/get', {'term': child.getId()}) }}">{{ child.getName() }}</a>
+                    </h4>
+                    {% if child.getDescription() %}
+                        {{ markdown().toHtml(child.getDescription()) }}
+                    {% endif %}
+                    {% for childsChild in child.findChildrenByTrashed(false) %}
+                        {% if loop.index0 == subfolderLimit %}
+                            {% set subfolders = loop.length - subfolderLimit %}
+                            <a class="label label-info">{% trans %} {{ subfolders }} more ...{% endtrans %}</a>
+                        {% elseif loop.index0 > subfolderLimit %}
+                        {% else %}
+                            <a class="label label-info"
+                               href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">{{ childsChild.getName() }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% set hasSubfolders = true %}
+    {% endfor %}
+</div>

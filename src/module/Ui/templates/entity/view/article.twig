@@ -1,0 +1,12 @@
+{% set title = 'article' | trans %}
+{% set revision = entity.getCurrentRevision() %}
+{% set content = markdown().toHtml(revision.get('content')) %}
+<article>
+    <section>
+        {{ content }}
+    </section>
+    {% include 'entity/view/partials/license' %}
+    <section class="hidden" id="discussion-{{ entity.getId() }}">
+        {{ discussion(entity).render() }}
+    </section>
+</article>

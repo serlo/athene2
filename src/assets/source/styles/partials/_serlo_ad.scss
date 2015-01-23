@@ -1,0 +1,9 @@
+.ad {
+    color: $lightGray;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+        color: $gray;
+    }
+}

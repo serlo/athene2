@@ -1,0 +1,5 @@
+{% set user = normalize().toAnchor(event.getActor()) %}
+{% set term = normalize().toAnchor(event.getObject()) %}
+{% trans %}
+    {{ user }} created {{ term }}
+{% endtrans %}

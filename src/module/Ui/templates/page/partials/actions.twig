@@ -1,0 +1,50 @@
+<ul class="nav nav-pills" role="navigation">
+{% if isGranted('page.revision.create', page) %}
+        <li>
+            <a href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
+                <span class="glyphicon glyphicon-pencil"></span> {% trans %} Edit {% endtrans %}
+            </a>
+        </li>
+    {% endif %}
+    {{ subscribe(page).menuItem() }}
+    <li class="dropdown pull-right">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {% trans %} More {% endtrans %}
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{{ url('page/revision/view-all', {'page': page.getId()}) }}">
+                    <span class="glyphicon glyphicon-time"></span> {% trans %} History {% endtrans %}
+                </a>
+            </li>
+            {% if isGranted('event.log.get', page) %}
+                <li>
+                    <a href="{{ url('event/history/object', {'id': page.getId()}) }}"> <span
+                                class="glyphicon-regular glyphicon-log-book"></span> {% trans %} Log {% endtrans %}
+                    </a>
+                </li>
+            {% endif %}
+            {% if page.getCurrentRevision() is not same as (revision) %}
+                <li>
+                    <a href="{{ url('uuid/trash', {'id': revision.getId()}) }}" class="btn btn-link">
+                        <span class="glyphicon glyphicon-trash"></span> {% trans %} Trash {% endtrans %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}"
+                       class="btn btn-link">
+                        <span class="glyphicon glyphicon-ok"> {% trans %} Set as base revision {% endtrans %} </a>
+                </li>
+            {% endif %}
+            {% if isGranted('page.update', page) %}
+                <li>
+                    <a href="{{ url('page/update', {'page': page.getId()}) }}">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        {% trans %} Settigs {% endtrans %}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </li>
+</ul>

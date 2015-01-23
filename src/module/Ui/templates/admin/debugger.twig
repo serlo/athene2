@@ -1,0 +1,6 @@
+{{ pageHeader('Debugger'|trans) }}
+{% if message %}
+    {{ message }}
+{% else %}
+    {{ form().render(form) }}
+{% endif %}

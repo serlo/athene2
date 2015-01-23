@@ -1,0 +1,21 @@
+<?php /* @var $current \Instance\Entity\InstanceInterface */ ?>
+<?php $current = $this->current; ?>
+<?php /* @var $instances \Instance\Entity\InstanceInterface[] */ ?>
+<?php $instances = $this->instances; ?>
+<ul class="nav navbar-nav pull-right">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <?php echo $current->getName(); ?> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <?php foreach ($instances as $instance): ?>
+                <li role="presentation">
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="<?php echo $this->url('instance/switch', ['instance' => $instance->getId()]); ?>">
+                        <?php echo $instance->getName(); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </li>
+</ul>

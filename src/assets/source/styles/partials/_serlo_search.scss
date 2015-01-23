@@ -1,0 +1,162 @@
+@keyframes searching {
+  // 0% {
+  //     transform: rotate(0deg);
+  // }
+  // 50% {
+  //     transform: rotate(-95deg);
+  // }
+  // 100% {
+  //     transform: rotate(0deg);
+  // }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#search-content {
+  display: block;
+  position: relative;
+
+  width: $navigationWidth;
+  margin-bottom: 0px;
+
+  z-index: 2;
+
+  background: $lighterGray;
+
+  &.is-in-focus {
+    width: 386px;
+
+    #search-help {
+      display: block;
+    }
+  }
+
+  &.has-results {
+
+    #search-results {
+      display: block
+    }
+
+    #search-help {
+      display: none;
+    }
+  }
+
+  .indicator {
+    display: none;
+  }
+
+  &.is-searching {
+    .glyphicon-search {
+      animation: searching 0.5s infinite;
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 43px;
+
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 4px 24px 4px 12px;
+    margin: 0;
+
+    transition: 0.3s background-color 0s;
+
+    line-height: 2;
+
+    z-index: 2;
+
+    background: rgba(white, 0.3);
+
+    // disable iOS input roundings
+    -webkit-appearance: none;
+    border-radius: 0;
+
+    &:focus {
+      outline: 0;
+      box-shadow: none;
+
+      background: $themeColor;
+      color: white;
+
+      @include placeholder-color();
+
+      & + .glyphicon-search {
+        color: white;
+      }
+    }
+  }
+
+  .glyphicon-search {
+    position: absolute;
+    top: 15px;
+    right: 11px;
+
+    color: $gray;
+    transition: 0.3s transform 0s;
+
+    transform-origin: 4px 16px;
+  }
+}
+
+#search-results {
+  display: none;
+  position: absolute;
+  width: 386px;
+
+  z-index: -1;
+  left: 0;
+  top: 0;
+
+  border: 1px solid $lighterGray;
+
+  margin-bottom: 0;
+  padding-top: 44px;
+
+  background: white;
+
+  .active a {
+    background: $lightGray;
+    color: white;
+  }
+
+  a {
+    padding: 6px 12px 6px 24px;
+  }
+
+  .header {
+    padding: 6px 12px;
+    font-weight: bold;
+  }
+}
+
+#search-help {
+  display: none;
+
+  position: absolute;
+
+  z-index: -1;
+  left: 0;
+  top: 0;
+  padding: 12px;
+  width: 386px;
+
+  border: 1px solid $lightGray;
+
+  padding-top: 60px;
+
+  background: white;
+}
+
+.form-search {
+  *[type="submit"] {
+    height: 34px;
+  }
+}

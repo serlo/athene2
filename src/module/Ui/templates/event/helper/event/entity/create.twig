@@ -1,0 +1,6 @@
+{% set user = normalize().toAnchor(event.getActor()) %}
+{% set object = normalize().toAnchor(event.getObject()) %}
+{% set type = normalize().toType(event.getObject()) %}
+{% trans %}
+    {{ user }} created a new {{ type }}: {{ object }}
+{% endtrans %}

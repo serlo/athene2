@@ -1,0 +1,5 @@
+{% if term.getDescription() %}
+    <p>
+        {{ markdown().toHtml(term.getDescription()) }}
+    </p>
+{% endif %}

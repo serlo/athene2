@@ -1,0 +1,56 @@
+<?php
+/**
+* @authors Kanstantsin A Kamkou (2ka.by); Jeroen Herczeg
+* 
+* renders first level menu items as 1of6 columns
+*/
+$html = array(
+    '<ul class="nav nav-pills">',
+);
+
+foreach ($this->container as $page) {
+
+    if (! $page->isVisible() || !$this->navigation()->accept($page)) {
+        continue;
+    }
+
+    // header
+    // $html[] = '<li class="nav-header">';
+    $html[] = '<li>';
+    $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
+    if ($page->get('icon')) {
+        $html[] = '<i class="icon-' . $page->get('icon') . '"></i>';
+    }
+    $html[] = $page->getLabel();
+    $html[] = "</a>";
+    $html[] = "</li>";
+    
+    if (! empty($page->pages)) {
+
+        foreach ($page->pages as $subpage) {
+            // visibility of the sub-page
+            if (! $subpage->isVisible()) {
+                continue;
+            }
+            if ($subpage->getLabel() == 'divider') {
+                $html[] = '<li class="divider"></li>';
+                continue;
+            }
+            $html[] = '<li' . ($subpage->isActive() ? ' class="active"' : '') . '>';
+            $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
+            
+            if ($subpage->get('icon')) {
+                $html[] = '<i class="icon-' . $subpage->get('icon') . '"></i>';
+            }
+            
+            $html[] = $subpage->getLabel();
+            $html[] = "</a>";
+            $html[] = "</li>";
+        }
+    }
+
+}
+
+$html[] = '</ul>';
+
+echo join(' ', $html);

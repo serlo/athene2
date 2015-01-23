@@ -1,0 +1,14 @@
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="glyphicon-regular glyphicon-volume-up"></span> {{ 'Subscribe' | trans }} <span
+                class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="{{ url('subscription/subscribe', {'object': object, 'email': 0}) }}"><span
+                        class="glyphicon-regular glyphicon-volume-down"></span> {{ 'Receive notifications' | trans }}
+            </a></li>
+        <li><a href="{{ url('subscription/subscribe', {'object': object, 'email': 1}) }}"><span
+                        class="glyphicon-regular glyphicon-volume-up"></span> {{ 'Receive notifications and emails' | trans }}
+            </a></li>
+    </ul>
+</li>

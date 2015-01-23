@@ -1,0 +1,52 @@
+{% set entities = term.getAssociated('entities') %}
+{% set entities = entity().getVisible(entities) %}
+{% set types = entity().asTypeCollection(entities) %}
+{% if entities.count() %}
+    {% for i in 0..2 %}
+        {% set type = cycle(['article', 'video', 'course'], i) %}
+        {% if types.get(type) %}
+            <h2 class="heading-content">{{ cycle(['Articles' | trans, 'Videos' | trans, 'Courses' | trans], i) }}</h2>
+            <div class="blockquote-box blockquote-primary">
+                <div class="row">
+                    <div class="square col-sm-2 hidden-xs">
+                        <span class="glyphicon-regular glyphicon-lg glyphicon-{{ cycle(['align-left', 'play-button', 'share-alt'], i) }}"></span>
+                    </div>
+                    <div class="col-xs-12 col-sm-10">
+                        <div class="row">
+                            {% for link in types.get(type) %}
+                                <div class="col-md-3 col-lg-2 col-sm-4 col-xs-12">
+                                    <p>
+                                        {% include 'taxonomy/term/entity/default' with {'entity': link} only %}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div>
+        {% if types.get('text-exercise') or types.get('text-exercise-group') %}
+            <!-- Rest -->
+            <h2 class="heading-content">{% trans %} Exercises {% endtrans %}</h2>
+            <div class="row">
+                <div class="col-xs-12">
+                    {% for entity in entities if entity.getType().getName() in ['text-exercise', 'text-exercise-group'] %}
+                        <div class="blockquote-box blockquote-primary">
+                            <div class="row">
+                                <div class="col-sm-1 hidden-xs">
+                                    <strong>{{ loop.index }}.</strong>
+                                </div>
+                                <div class="col-sm-11 col-xs-12">
+                                    {% include 'taxonomy/term/entity/default' with {'entity': entity} only %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        <!-- Rest end -->
+    </div>
+{% endif %}

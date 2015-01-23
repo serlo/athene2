@@ -1,0 +1,41 @@
+<?php
+/**
+* @authors Kanstantsin A Kamkou (2ka.by); Jeroen Herczeg
+*/
+$html = array(
+    '<ul class="nav nav-list">'
+);
+
+foreach ($this->container as $page) {
+    // show only the current branch and the visible item
+    if (! $page->isVisible() || !$this->navigation()->accept($page)) {
+        continue;
+    }
+    
+    // header
+    $html[] = '<li>';
+
+    if ($page->get('icon')) {
+        if (stristr($page->get('icon'), 'glyphicon-')) {
+            $html[] = '<span class="' . $page->get('icon') . '"></span>';
+        } else {
+            $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+        }
+    }
+
+    $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
+    $html[] = $page->getLabel();
+    $html[] = '</a>';
+    
+    if (! empty($page->pages)) {
+        $html[] = '<ul>';
+        $html[] = $this->partial('layout/navigation/partial/nested-dropdown-navigation-list', array('pages' => $page->pages));
+        $html[] = "</ul>";
+    }
+
+    $html[] = "</li>";
+}
+
+$html[] = '</ul>';
+
+echo join(' ', $html);

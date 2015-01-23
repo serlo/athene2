@@ -1,0 +1,56 @@
+{{ pageHeader('Revisions' | trans).setBacklink(url('page/view', {'page': page.getId()})).render() }}
+<div class="list-group">
+    {% for revision in revisions if not(revision.isTrashed()) %}
+        <div class="list-group-item">
+            <a href="{{ url('page/revision/view', {'revision': revision.getId()}) }}">
+                <table class="table">
+                    <tr>
+                        <td>{% trans %} Title:  {% endtrans %}</td>
+                        <td>{{ revision.getTitle() }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans %} Author:  {% endtrans %}</td>
+                        <td>{{ revision.getAuthor().getUsername() }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans %} Time:  {% endtrans %}</td>
+                        <td>{{ timeago().render(revision.getDate()) }}</td>
+                    </tr>
+                </table>
+            </a>
+            <hr>
+            <div class="btn-group">
+                <!-- edit button -->
+                {% if isGranted('page.revision.create', page) %}
+                    <a href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}" class="btn btn-xs btn-default">
+                        <span class="glyphicon glyphicon-pencil"></span> {% trans %} Use for editing {% endtrans %}
+                    </a>
+                {% endif %}
+                {% if isGranted('event.log.get', revision) %}
+                    <a class="btn btn-xs btn-default" href="{{ url('event/history/object', {'id': revision.getId()}) }}">
+                        <span class="glyphicon-regular glyphicon-log-book"></span> {% trans %} Log {% endtrans %}
+                    </a>
+                {% endif %}
+                {% if revision.getRepository().getCurrentRevision() is not same as(revision) %}
+                    {% if isGranted('page.revision.trash', revision) %}
+                    <a href="{{ url('uuid/trash', {'id': revision.getId()}) }}" class="btn btn-xs btn-default">
+                        <span class="glyphicon glyphicon-trash"></span> {% trans %} Trash {% endtrans %}
+                    </a>
+                    {% endif %}
+                    {% if isGranted('page.revision.checkout', revision) %}
+                        <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}" class="btn btn-xs btn-default">
+                            <span class="glyphicon glyphicon-ok"></span> {% trans %} Set as base {% endtrans %}
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<hr>
+{% if isGranted('page.create', page) %}
+    <a href="{{ url('page/update', {'page': page.getId()}) }}" class="btn btn-xs btn-default">
+        <span class="glyphicon glyphicon-pencil"></span>
+        {% trans %} Edit page {% endtrans %}
+    </a>
+{% endif %}

@@ -1,0 +1,13 @@
+{% set event = notification.getEvents().current() %}
+{% set user = normalize().toAnchor(event.getActor(), true) %}
+{% set term = normalize().toAnchor(event.getObject(), true) %}
+{% if event.getParameter('old') and event.getParameter('new') %}
+    {% set old = normalize().toAnchor(event.getParameter('old'), true) %}
+    {% set new = normalize().toAnchor(event.getParameter('new'), true) %}
+    <div class="dropdown-menu-item">
+        {% trans %}
+        {{ user }} changed {{ term }}'s parent from {{ old }} to {{ new }}
+        {% endtrans %}
+        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+    </div>
+{% endif %}

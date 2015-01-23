@@ -1,0 +1,110 @@
+#main-home {
+  #content-container {
+    background: none;
+    border:     none;
+    padding:    0;
+    min-height: 420px;
+    text-align: center;
+    position:   relative;
+
+    .alert {
+      text-align: left;
+    }
+
+    .brand {
+      margin-top: 0px;
+    }
+
+    h1.description {
+      font-size:  inherit;
+      margin-top: 0px;
+      border:     none;
+    }
+
+    .home-nav {
+      & > div {
+        margin-top: 10px;
+        & > a {
+          background-color: $themeColor;
+          color:            $white;
+          padding:          15px 0;
+          display:          block;
+          &:hover, &:active, &:focus {
+            background-color: darken($themeColor, 10%);
+            text-decoration:  none;
+          }
+          & h2 {
+            font-size: inherit;
+            border:    none;
+            cursor:    pointer;
+            margin:    0;
+          }
+        }
+
+        &:nth-child(3n+2) a {
+          background-color: lighten($themeColor, 5%);
+          &:hover, &:active, &:focus {
+            background-color: darken($themeColor, 5%);
+          }
+        }
+        &:nth-child(3n+3) a {
+          background-color: lighten($themeColor, 10%);
+          &:hover, &:active, &:focus {
+            background-color: $themeColor;
+          }
+        }
+      }
+    }
+  }
+
+  #search-help {
+    width:      inherit;
+    text-align: left;
+  }
+
+  #search-results {
+    width:      inherit;
+    text-align: left;
+  }
+
+  #search-content {
+    position: relative;
+    left:     0;
+    top:      0;
+    margin:   20px 0 0;
+    width:    100%;
+  }
+
+  #content-layout {
+    width:      100%;
+    min-height: 0px;
+    margin:     0 auto;
+    padding:    0;
+  }
+
+  #serlo-brand {
+    font-size: 50px;
+    display:   inline-block;
+  }
+
+  #serlo-logo {
+    font-size:      70px;
+    display:        inline-block;
+    height:         132px;
+    vertical-align: bottom;
+  }
+
+  #serlo-wrapper {
+    margin: 0 auto;
+  }
+}
+
+.serlo-home {
+  #page {
+    max-width: 750px;
+  }
+
+  .wrap {
+    margin-bottom: 0px;
+  }
+}

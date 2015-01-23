@@ -1,0 +1,14 @@
+<section class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-10">
+                <a href="{{ url('license/detail', {'id': entity.getLicense().getId()}) }}">{{ entity.getLicense().getTitle() }}</a>
+            </div>
+            <div class="col-xs-2">
+                <a class="pull-right" href="{{ entity.getLicense().getUrl() }}" rel="license nofollow"><img
+                            alt="{{ entity.getLicense().getTitle() }}"
+                            src="{{ entity.getLicense().getIconHref() }}"></a>
+            </div>
+        </div>
+    </div>
+</section>

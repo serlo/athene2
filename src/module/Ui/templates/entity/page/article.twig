@@ -1,0 +1,18 @@
+{% do normalize().headMeta(entity).headTitle(entity) %}
+<div itemscope itemtype="http://schema.org/Article">
+    <div class="page-header">
+        <div class="pull-right btn-group hidden-xs">
+            {% include 'entity/view/partials/actions/toggle-controls' %}
+            {{ contexter().renderButton() }}
+        </div>
+        <h1><span itemprop="name">{{ entity.getCurrentRevision().get('title') }}</span></h1>
+        {% include 'entity/view/partials/actions/big' %}
+    </div>
+    <div itemprop="articleBody">
+        {% include 'entity/page/partials/alerts' %}
+        {% include 'entity/view/default' %}
+    </div>
+</div>
+{% set taxonomy = include('entity/page/aggregate/taxonomy', {'terms': entity.getTaxonomyTerms()}) %}
+{% set temp = registry().add('rnav', taxonomy) %}
+{% set temp = registry().add('rnav', related(entity)) %}

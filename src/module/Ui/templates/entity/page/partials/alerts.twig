@@ -1,0 +1,14 @@
+{% if entity.isTrashed() %}
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <strong>
+                <span class="glyphicon-warning-sign glyphicon-regular"></span> {{ 'Warning' | trans }}
+            </strong>
+        </div>
+        <div class="panel-body">
+            {% trans %}
+                This content is marked for deletion.
+            {% endtrans %}
+        </div>
+    </div>
+{% endif %}

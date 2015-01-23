@@ -1,0 +1,55 @@
+{{ pageHeader('Ads' | trans).render() }}
+<div class="clearfix">
+    {% if isGranted('ad.create') %}
+        <a href="{{ url('ads/add') }}" class="btn btn-default pull-left">
+            <span class="glyphicon glyphicon-plus"></span>
+            {% trans %} Create ad {% endtrans %}
+        </a>
+        <a href="{{ url('ads/about/editabout') }}" class="btn btn-default pull-left">
+            <span class="glyphicon glyphicon-plus"></span>
+            {% trans %} Edit About Horizon {% endtrans %}
+        </a>
+    {% endif %}
+</div>
+<div class="row">
+    {% for ad in ads %}
+    {% if loop.index % 4 == 0 %}
+</div>
+<div class="row">
+    {% endif %}
+    <div class="col-xs-6 col-sm-3">
+        <div class="thumbnail">
+            <div class="btn-group pull-right">
+                {% if isGranted('ad.update', ad) %}
+                    <a href="{{ url('ads/ad/edit', {'id': ad.getId()}) }}" class="btn btn-success btn-xs"><span
+                        class="glyphicon glyphicon-pencil"></span></a>
+                {% endif %}
+                {% if isGranted('ad.remove', ad) %}
+                    <a href="{{ url('ads/ad/delete', {'id': ad.getId()}) }}" class="btn btn-danger btn-xs"><span
+                        class="glyphicon glyphicon-remove"></span></a>
+                {% endif %}
+            </div>
+            <div>
+                <img alt="{{ ad.getTitle() }}" src="{{ ad.getImage().getLocation() }}"
+                     class="img-responsive img-radio"/>
+            </div>
+            <div class="caption">
+                <h4><a href="{{ ad.getUrl() }}" target="_blank">{{ ad.getTitle() }}</a></h4>
+                {% trans %} Frequency {% endtrans %}
+                {% for i in 1..3 %}
+                    {% if ad.getFrequency() >= i %}
+                        <span class="glyphicon glyphicon-star"></span>
+                    {% else %}
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    {% endif %}
+                {% endfor %}
+                <hr>
+                {% trans %} Clicks {% endtrans %}
+                {{ ad.getClicks() }}
+                <hr>
+                {{ ad.getContent() }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,40 @@
+{% set id = random(100000) %}
+{% if terms.count() %}
+    {% if isChild is not defined or not isChild %}
+        <p>
+            <strong>
+                {% trans %} Please select an appropriate category for your discussion. Choosing the right category helps others to find your discussion faster and to answer you quicker. Thank you! {% endtrans %}
+            </strong>
+        </p>
+    {% endif %}
+    <div class="panel-group" id="fs{{ id }}">
+        {% for term in terms if not term.isTrashed() %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        {% if(term.getTaxonomy().getName() == 'forum') %}
+                            <button class="pull-right select btn btn-xs btn-default" data-action="{{ url('discussion/discussion/start', {'on': on, 'forum': term.getId}) }}" data-loading-text="{% trans %} Saving... {% endtrans %}">
+                                {% trans %} Choose {% endtrans %}
+                            </button>
+                        {% endif %}
+                        {% if term.hasChildren() %}
+                            <a data-toggle="collapse" data-parent="#fs{{ id }}" href="#fsc{{ id ~ term.getId() }}">
+                                {{ term.getName() }}
+                            </a>
+                        {% else %}
+                            {{ term.getName() }}
+                        {% endif %}
+                    </h4>
+                    <small><em>{{ markdown().toHtml(term.getDescription()) }}</em></small>
+                </div>
+                {% if term.hasChildren() %}
+                    <div id="fsc{{ id ~ term.getId() }}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            {% include 'discussion/discussion/select/forum' with {'terms': term.getChildren(), 'isChild': true} %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

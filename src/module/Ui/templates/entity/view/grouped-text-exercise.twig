@@ -1,0 +1,41 @@
+{% set title = 'grouped-text-exercise' | trans %}
+{% set revision = entity.getCurrentRevision() %}
+{% set solution = entity.getChildren('link', 'text-solution').first() %}
+{% set hint = entity.getChildren('link', 'text-hint').first() %}
+<article itemscope itemtype="http://schema.org/Article">
+    <section class="row">
+        <div class="col-xs-10 col-sm-7 col-md-8" itemprop="articleBody">
+            {{ markdown().toHtml(revision.get('content')) | raw }}
+        </div>
+        <div class="col-xs-2 col-sm-5 col-md-4">
+            <ul class="nav nav-pills nav-right">
+                {% include 'entity/view/partials/actions/small-essential' %}
+                {% if(hint) %}
+                    <li data-toggle="tooltip" data-placement="bottom" title="{% trans %} I need a hint {% endtrans %}">
+                        <a data-toggle="collapse" href="#hint-{{ hint.getId() }}">
+                            <span class="glyphicon-regular glyphicon-circle-question-mark"></span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if(solution) %}
+                    <li data-toggle="tooltip" data-placement="bottom"
+                        title="{% trans %} I want to see the solution {% endtrans %}">
+                        <a data-toggle="collapse" href="#solution-{{ solution.getId() }}">
+                            <span class="glyphicon-regular glyphicon-circle-ok"></span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </section>
+    {% if hint %}
+        <section>
+            {% include 'entity/view/default' with {'entity': hint, 'collapse': true} only %}
+        </section>
+    {% endif %}
+    {% if solution %}
+        <section>
+            {% include 'entity/view/default' with {'entity': solution, 'collapse': true} only %}
+        </section>
+    {% endif %}
+</article>

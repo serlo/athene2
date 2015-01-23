@@ -1,0 +1,49 @@
+<?php
+/**
+ * @authors Kanstantsin A Kamkou (2ka.by); Jeroen Herczeg; Timo Klement
+ */
+
+$html = array();
+//$html[] = '<div class="navbar navbar-fixed-top">';
+//$html[] = ' <div class="navbar-inner">';
+//$html[] = ' <div class="container">';
+
+$html[] = '<nav>';
+$html[] = '<div id="navigation-content">';
+$html[] = '<ul id="main-nav" class="nav" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
+
+foreach ($this->container as $page) {
+    // visibility of the page
+    if (!$page->isVisible(false) || !$this->navigation()->accept($page) || !$page->isActive(true)) {
+        continue;
+    }
+
+    // for Login/Logout/Register links:
+    // check if menu item has 'needsIdentidy' set
+    if (!is_null($page->get('needsIdentity'))) {
+        // convert value of key 'needsIdentity' to boolean if necessary
+        $needsIdentity = is_bool($page->get('needsIdentity')) ? $page->get('needsIdentity') : ($page->get('needsIdentity') === 'true');
+        // check if current user is anonymous and compare to 'needsIdentity' value
+        if ($this->isGranted('login') !== $needsIdentity) {
+            continue;
+        }
+    }
+
+    $html[] = '<li class="is-hidden">';
+    $html[] = '<a class="is-hidden" href="' . $page->getHref() . '" itemprop="url">';
+    $html[] = '<span itemprop="title">' . $page->getLabel() . '</span>';
+    $html[] = '</a>';
+    $html[] = '</li>';
+
+    if (!empty($page->pages)) {
+        // $html[] = '<ul class="dropdown-menu">';
+        $html[] = $this->partial('layout/navigation/partial/nested-navigation-list-asynchable', array('pages' => $page->pages));
+        // $html[] = "</ul>";
+    }
+}
+
+$html[] = '</ul>';
+$html[] = '</div>';
+$html[] = '</nav>';
+
+echo join(' ', $html);

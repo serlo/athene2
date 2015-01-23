@@ -1,0 +1,35 @@
+{% set title = 'text-exercise-group' | trans %}
+<article>
+    <section class="row">
+        <div class="col-xs-10 col-sm-7 col-md-8" itemprop="articleBody">
+            {{ markdown().toHtml(entity.getCurrentRevision().get('content')) }}
+        </div>
+        <div class="col-xs-2 col-sm-5 col-md-4">
+            <ul class="nav nav-pills nav-right">
+                {% include 'entity/view/partials/actions/small-essential' %}
+                <li class="hidden-xs" data-toggle="tooltip" data-placement="bottom"
+                    title="{% trans %} I want to comment this {% endtrans %}">
+                    <a data-toggle="collapse" data-parent="#discussions-{{ entity.getId() }}"
+                       href="#discussions-{{ entity.getId() }}">
+                        <span class="glyphicon glyphicon-comment"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="collapse" id="discussions-{{ entity.getId() }}">
+        {{ discussion(entity).render('minimalistic', 2) }}
+    </section>
+    {% set index = 0 %}
+    {% for child in entity.getChildren('link', 'grouped-text-exercise') if not child.isTrashed() and child.hasCurrentRevision() %}
+        <section class="row">
+            <div class="col-sm-1 hidden-xs">
+                <em>{{ toAlpha(index) }}) </em>
+                {% set index = index + 1 %}
+            </div>
+            <div class="col-sm-11 col-xs-12">
+                {% include 'entity/view/default' with {'entity': child, 'parent': entity} only %}
+            </div>
+        </section>
+    {% endfor %}
+</article>

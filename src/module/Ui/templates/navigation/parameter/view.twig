@@ -1,0 +1,28 @@
+<div class="clearfix">
+    <div class="btn-group pull-right">
+        <a class="btn btn-xs btn-default"
+           href="{{ url('navigation/parameter/create', {'page': page.getId(), 'parent': parameter.getId()}) }}">
+            <span class="glyphicon glyphicon-plus"></span></a>
+        <a class="btn btn-xs btn-default"
+           href="{{ url('navigation/parameter/update', {'parameter': parameter.getId()}) }}">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <a class="btn btn-xs btn-danger"
+           href="{{ url('navigation/parameter/remove', {'parameter': parameter.getId()}) }}">
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+    </div>
+    <span class="label label-primary">{{ parameter.getKey() }}</span>
+{% if parameter.hasChildren() %}
+    </div>
+    <ul class="list-group">
+        {% for child in parameter.getChildren() %}
+            <li class="list-group-item">
+                {% include 'navigation/parameter/view' with {'parameter': child, 'page': page} %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+        {{ parameter.getValue() }}
+    </div>
+{% endif %}

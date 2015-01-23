@@ -1,0 +1,38 @@
+<?php
+/**
+ * @authors Kanstantsin A Kamkou (2ka.by); Jeroen Herczeg; Timo Klement
+ */
+$html = array();
+//$html[] = '<div class="navbar navbar-fixed-top">';
+//$html[] = ' <div class="navbar-inner">';
+//$html[] = ' <div class="container">';
+$html[] = ' <div class="row ' . $this->navigation()->menu()->getUlClass() . '">';
+
+foreach ($this->container as $page) {
+
+    // visibility of the page
+    if (!$page->isVisible() || !$this->navigation()->accept($page)) {
+        continue;
+    }
+
+    // li-element without subpages
+    $html[] = '<div class="col-md-4 col-sm-6 col-xs-12">';
+    $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
+
+    if ($page->get('icon')) {
+        if (stristr($page->get('icon'), 'glyphicon-')) {
+            $html[] = '<span class="' . $page->get('icon') . '"></span>';
+        } else {
+            $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+        }
+    }
+
+    $html[] = '<h2>' . $this->translate($page->getLabel()) . '</h2>';
+    $html[] = '</a>';
+
+    $html[] = "</div>";
+}
+
+$html[] = '</div>';
+
+echo implode('', $html);

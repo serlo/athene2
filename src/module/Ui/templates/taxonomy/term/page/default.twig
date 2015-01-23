@@ -1,0 +1,12 @@
+{% do normalize().headMeta(term).headTitle(term) %}
+{% set template = 'taxonomy/term/page/' ~ term.getTaxonomy().getName() %}
+{% set template = include(template, ignore_missing = true) %}
+{% if template %}
+    {{ template | raw }}
+{% else %}
+    <div class="page-header">
+        <h1>{{ term.getName() }}</h1>
+    </div>
+    {% include 'taxonomy/term/page/partials/alerts' %}
+    {% include 'taxonomy/term/templates/default' %}
+{% endif %}

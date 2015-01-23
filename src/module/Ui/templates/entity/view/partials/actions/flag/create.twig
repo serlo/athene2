@@ -1,0 +1,8 @@
+{% if isGranted('flag.create', entity) %}
+    <li>
+        <a href="{{ url('flag/add', {'id': entity.getId()}) }}">
+            <span class="glyphicon glyphicon-flag"></span>
+            {% trans %} Flag content {% endtrans %}
+        </a>
+    </li>
+{% endif %}

@@ -1,0 +1,67 @@
+<?php
+/**
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license   LGPL-3.0
+ * @license   http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013-2014 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+?>
+<?php echo $this->pageHeader('Manage context links')->render(); ?>
+<table class="table">
+    <thead>
+    <tr>
+        <th><?php echo $this->translate('Link'); ?></th>
+        <th><?php echo $this->translate('Matching'); ?></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php /* @var $element \Contexter\Entity\ContextInterface */ ?>
+    <?php foreach ($this->elements as $element): ?>
+        <tr>
+            <td>
+                <a href="<?php echo $this->normalize()->toUrl($element->getObject()); ?>"><?php echo $element->getTitle(); ?></a>
+            </td>
+            <td>
+                <?php foreach ($element->getRoutes() as $route): ?>
+                    <div class="btn-group">
+                        <div class="btn-group">
+                            <div class="btn btn-xs btn-default" role="button" data-toggle="dropdown" data-target="#">
+                                <?php echo $route->getName(); ?> <span class="caret"></span>
+                            </div>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <?php foreach ($route->getParameters() as $parameter): ?>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1"
+                                           href="#">
+                                            <b><?php echo $parameter->getKey(); ?>:</b>
+                                            <?php echo $parameter->getValue(); ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <?php if ($this->isGranted('contexter.route.remove', $element)): ?>
+                            <a class="btn btn-default btn-xs"
+                               href="<?php echo $this->url('contexter/route/remove', array('id' => $route->getId())); ?>">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </td>
+            <td>
+                <?php if ($this->isGranted('contexter.context.remove', $element)): ?>
+                    <a class="btn btn-danger btn-xs"
+                       href="<?php echo $this->url('contexter/remove', array('id' => $element->getId())); ?>">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                <?php endif; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

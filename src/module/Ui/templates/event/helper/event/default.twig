@@ -1,0 +1,8 @@
+{% set template = 'event/helper/event/' ~ event.getName() %}
+{% set template = include(template, ignore_missing = true) %}
+{% if template %}
+    {{ template | raw }}
+{% else %}
+    {{ 'No template found for event %s' | trans | format(event.getName()) }}
+{% endif %}
+<small> - {{ timeago().render(event.getTimestamp()) }}</small>

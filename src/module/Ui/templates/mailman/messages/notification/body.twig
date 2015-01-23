@@ -1,0 +1,12 @@
+{% set user = user.getUsername() %}
+{% set brand = brand().getBrand(true) %}
+{% trans %}
+Hello {{ user }},<br>
+<br>
+here's a heads up of what has happened on {{ brand }}:<br>
+{% endtrans %}
+<ul>
+    {% for notification in notifications %}
+        {% include 'notification/notification' with {'notification': notification} %}
+    {% endfor %}
+</ul>

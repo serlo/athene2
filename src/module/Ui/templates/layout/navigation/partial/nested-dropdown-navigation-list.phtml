@@ -1,0 +1,64 @@
+<?php
+/**
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author      Julian Kempff (julian.kempff@serlo.org)
+ * @license     MIT License
+ * @license     http://opensource.org/licenses/MIT The MIT License (MIT)
+ * @link        https://github.com/serlo-org/athene2 for the canonical source repository
+ */
+foreach ($this->pages as $page) {
+    $liClasses = [];
+    // visibility of the sub-page
+    if (!$page->isVisible() || !$this->navigation()->accept($page)) {
+        continue;
+    }
+    if ($page->getLabel() == 'divider') {
+        $html[] = '<li class="divider"></li>';
+        continue;
+    }
+
+    $dropdown = !empty($page->pages);
+
+    if ($dropdown) {
+        $liClasses[] = 'dropdown-submenu';
+    }
+
+    if ($page->isActive()) {
+        $liClasses[] = 'active';
+    }
+
+    $html[] = '<li' . (count($liClasses) ? (' class="' . implode(' ', $liClasses) . '">') : '>');
+
+    if ($dropdown) {
+        $html[] = '<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="' . $this->alias(
+                $page->getHref()
+            ) . '">';
+    } else {
+        $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
+    }
+
+    if ($page->get('icon')) {
+        if (stristr($page->get('icon'), 'glyphicon-')) {
+            $html[] = '<span class="' . $page->get('icon') . '"></span>';
+        } else {
+            $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+        }
+    }
+
+    $html[] = $page->getLabel();
+    $html[] = "</a>";
+
+    if ($dropdown) {
+        $html[] = '<ul class="dropdown-menu">';
+        $html[] = $this->partial(
+            'layout/navigation/partial/nested-dropdown-navigation-list',
+            array('pages' => $page->pages)
+        );
+        $html[] = '</ul>';
+    }
+
+    $html[] = "</li>";
+}
+
+echo join(' ', $html);

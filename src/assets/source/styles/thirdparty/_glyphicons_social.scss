@@ -1,0 +1,374 @@
+/*!
+ *
+ *  Project:  GLYPHICONS HALFLINGS
+ *  Author:   Jan Kovarik - www.glyphicons.com
+ *  Twitter:  @glyphicons
+ *
+ */
+@font-face {
+  font-family: 'Glyphicons Social Regular';
+  src: url('fonts/glyphicons-social-regular.eot');
+  src: url('fonts/glyphicons-social-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-social-regular.woff') format('woff'), url('fonts/glyphicons-social-regular.ttf') format('truetype'), url('fonts/glyphicons-social-regular.svg#glyphicons_socialregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+.glyphicon-social {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.glyphicon-social:empty {
+  width: 1.01em;
+}
+
+.glyphicon-social:before {
+  font-family: 'Glyphicons Social Regular';
+  font-style: normal;
+  font-weight: normal;
+  *display: inline;
+  *zoom: 1;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased
+}
+
+.glyphicon-social.glyphicon-white:before {
+  color: #fff;
+}
+.glyphicon-social.glyphicon-pinterest:before {
+  content: "\E001";
+}
+.glyphicon-social.glyphicon-dropbox:before {
+  content: "\E002";
+}
+.glyphicon-social.glyphicon-google-plus:before {
+  content: "\E003";
+}
+.glyphicon-social.glyphicon-jolicloud:before {
+  content: "\E004";
+}
+.glyphicon-social.glyphicon-yahoo:before {
+  content: "\E005";
+}
+.glyphicon-social.glyphicon-blogger:before {
+  content: "\E006";
+}
+.glyphicon-social.glyphicon-picasa:before {
+  content: "\E007";
+}
+.glyphicon-social.glyphicon-amazon:before {
+  content: "\E008";
+}
+.glyphicon-social.glyphicon-tumblr:before {
+  content: "\E009";
+}
+.glyphicon-social.glyphicon-wordpress:before {
+  content: "\E010";
+}
+.glyphicon-social.glyphicon-instapaper:before {
+  content: "\E011";
+}
+.glyphicon-social.glyphicon-evernote:before {
+  content: "\E012";
+}
+.glyphicon-social.glyphicon-xing:before {
+  content: "\E013";
+}
+.glyphicon-social.glyphicon-zootool:before {
+  content: "\E014";
+}
+.glyphicon-social.glyphicon-dribbble:before {
+  content: "\E015";
+}
+.glyphicon-social.glyphicon-deviantart:before {
+  content: "\E016";
+}
+.glyphicon-social.glyphicon-read-it-later:before {
+  content: "\E017";
+}
+.glyphicon-social.glyphicon-linked-in:before {
+  content: "\E018";
+}
+.glyphicon-social.glyphicon-forrst:before {
+  content: "\E019";
+}
+.glyphicon-social.glyphicon-pinboard:before {
+  content: "\E020";
+}
+.glyphicon-social.glyphicon-behance:before {
+  content: "\E021";
+}
+.glyphicon-social.glyphicon-github:before {
+  content: "\E022";
+}
+.glyphicon-social.glyphicon-youtube:before {
+  content: "\E023";
+}
+.glyphicon-social.glyphicon-skitch:before {
+  content: "\E024";
+}
+.glyphicon-social.glyphicon-foursquare:before {
+  content: "\E025";
+}
+.glyphicon-social.glyphicon-quora:before {
+  content: "\E026";
+}
+.glyphicon-social.glyphicon-badoo:before {
+  content: "\E027";
+}
+.glyphicon-social.glyphicon-spotify:before {
+  content: "\E028";
+}
+.glyphicon-social.glyphicon-stumbleupon:before {
+  content: "\E029";
+}
+.glyphicon-social.glyphicon-readability:before {
+  content: "\E030";
+}
+.glyphicon-social.glyphicon-facebook:before {
+  content: "\E031";
+}
+.glyphicon-social.glyphicon-twitter:before {
+  content: "\E032";
+}
+.glyphicon-social.glyphicon-instagram:before {
+  content: "\E033";
+}
+.glyphicon-social.glyphicon-posterous-spaces:before {
+  content: "\E034";
+}
+.glyphicon-social.glyphicon-vimeo:before {
+  content: "\E035";
+}
+.glyphicon-social.glyphicon-flickr:before {
+  content: "\E036";
+}
+.glyphicon-social.glyphicon-last-fm:before {
+  content: "\E037";
+}
+.glyphicon-social.glyphicon-rss:before {
+  content: "\E038";
+}
+.glyphicon-social.glyphicon-skype:before {
+  content: "\E039";
+}
+.glyphicon-social.glyphicon-e-mail:before {
+  content: "\E040";
+}
+.glyphicon-social.glyphicon-vine:before {
+  content: "\E041";
+}
+.glyphicon-social.glyphicon-myspace:before {
+  content: "\E042";
+}
+.glyphicon-social.glyphicon-goodreads:before {
+  content: "\E043";
+}
+.glyphicon-social.glyphicon-apple:before {
+  content: "\F8FF";
+}
+.glyphicon-social.glyphicon-windows:before {
+  content: "\E045";
+}
+.glyphicon-social.glyphicon-yelp:before {
+  content: "\E046";
+}
+.glyphicon-social.glyphicon-playstation:before {
+  content: "\E047";
+}
+.glyphicon-social.glyphicon-xbox:before {
+  content: "\E048";
+}
+.glyphicon-social.glyphicon-android:before {
+  content: "\E049";
+}
+.glyphicon-social.glyphicon-ios:before {
+  content: "\E050";
+}
+.glyphicon-social-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: 0 8px 0 0;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url(images/glyphicons_social.svg);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  *display: inline;
+  *zoom: 1;
+  *margin-right: .3em;
+}
+.glyphicon-social-icon _:-o-prefocus,
+.glyphicon-social-icon {
+  background-image: url(images/glyphicons_social.png);
+}
+.no-inlinesvg .glyphicon-social-icon {
+  background-image: url(images/glyphicons_social.png);
+}
+.glyphicon-social-icon.white {
+  background-image: url(images/glyphicons_social-white.svg);
+}
+.glyphicon-social-icon.white _:-o-prefocus,
+.glyphicon-social-icon.white {
+  background-image: url(images/glyphicons_social-white.png);
+}
+.no-inlinesvg .glyphicon-social-icon.white {
+  background-image: url(images/glyphicons_social-white.png);
+}
+.glyphicon-social-icon.pinterest {
+  background-position: 0px 0px;
+}
+.glyphicon-social-icon.dropbox {
+  background-position: -48px 0px;
+}
+.glyphicon-social-icon.google-plus {
+  background-position: -96px 0px;
+}
+.glyphicon-social-icon.jolicloud {
+  background-position: -144px 0px;
+}
+.glyphicon-social-icon.yahoo {
+  background-position: -192px 0px;
+}
+.glyphicon-social-icon.blogger {
+  background-position: -240px 0px;
+}
+.glyphicon-social-icon.picasa {
+  background-position: -288px 0px;
+}
+.glyphicon-social-icon.amazon {
+  background-position: -336px 0px;
+}
+.glyphicon-social-icon.tumblr {
+  background-position: -384px 0px;
+}
+.glyphicon-social-icon.wordpress {
+  background-position: -432px 0px;
+}
+.glyphicon-social-icon.instapaper {
+  background-position: 0px -48px;
+}
+.glyphicon-social-icon.evernote {
+  background-position: -48px -48px;
+}
+.glyphicon-social-icon.xing {
+  background-position: -96px -48px;
+}
+.glyphicon-social-icon.zootool {
+  background-position: -144px -48px;
+}
+.glyphicon-social-icon.dribbble {
+  background-position: -192px -48px;
+}
+.glyphicon-social-icon.deviantart {
+  background-position: -240px -48px;
+}
+.glyphicon-social-icon.read-it-later {
+  background-position: -288px -48px;
+}
+.glyphicon-social-icon.linked-in {
+  background-position: -336px -48px;
+}
+.glyphicon-social-icon.forrst {
+  background-position: -384px -48px;
+}
+.glyphicon-social-icon.pinboard {
+  background-position: -432px -48px;
+}
+.glyphicon-social-icon.behance {
+  background-position: 0px -96px;
+}
+.glyphicon-social-icon.github {
+  background-position: -48px -96px;
+}
+.glyphicon-social-icon.youtube {
+  background-position: -96px -96px;
+}
+.glyphicon-social-icon.skitch {
+  background-position: -144px -96px;
+}
+.glyphicon-social-icon.foursquare {
+  background-position: -192px -96px;
+}
+.glyphicon-social-icon.quora {
+  background-position: -240px -96px;
+}
+.glyphicon-social-icon.badoo {
+  background-position: -288px -96px;
+}
+.glyphicon-social-icon.spotify {
+  background-position: -336px -96px;
+}
+.glyphicon-social-icon.stumbleupon {
+  background-position: -384px -96px;
+}
+.glyphicon-social-icon.readability {
+  background-position: -432px -96px;
+}
+.glyphicon-social-icon.facebook {
+  background-position: 0px -144px;
+}
+.glyphicon-social-icon.twitter {
+  background-position: -48px -144px;
+}
+.glyphicon-social-icon.instagram {
+  background-position: -96px -144px;
+}
+.glyphicon-social-icon.posterous-spaces {
+  background-position: -144px -144px;
+}
+.glyphicon-social-icon.vimeo {
+  background-position: -192px -144px;
+}
+.glyphicon-social-icon.flickr {
+  background-position: -240px -144px;
+}
+.glyphicon-social-icon.last-fm {
+  background-position: -288px -144px;
+}
+.glyphicon-social-icon.rss {
+  background-position: -336px -144px;
+}
+.glyphicon-social-icon.skype {
+  background-position: -384px -144px;
+}
+.glyphicon-social-icon.e-mail {
+  background-position: -432px -144px;
+}
+.glyphicon-social-icon.vine {
+  background-position: 0px -192px;
+}
+.glyphicon-social-icon.myspace {
+  background-position: -48px -192px;
+}
+.glyphicon-social-icon.goodreads {
+  background-position: -96px -192px;
+}
+.glyphicon-social-icon.apple {
+  background-position: -144px -192px;
+}
+.glyphicon-social-icon.windows {
+  background-position: -192px -192px;
+}
+.glyphicon-social-icon.yelp {
+  background-position: -240px -192px;
+}
+.glyphicon-social-icon.playstation {
+  background-position: -288px -192px;
+}
+.glyphicon-social-icon.xbox {
+  background-position: -336px -192px;
+}
+.glyphicon-social-icon.android {
+  background-position: -384px -192px;
+}
+.glyphicon-social-icon.ios {
+  background-position: -432px -192px;
+}

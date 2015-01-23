@@ -1,0 +1,45 @@
+<nav id="serlo-menu" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#top-bar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-bar-collapse">
+            <nav class="navbar-inner">
+                <?php
+                // top left navigation
+                echo $this->navigation('top_left_navigation')
+                    ->menu()
+                    ->setUlClass('nav navbar-nav navbar-border-right')
+                    ->setPartial('layout/navigation/horizontal')
+                    ->render();
+                echo $this->navigation('top_right_navigation')
+                    ->menu()
+                    ->setUlClass('nav navbar-nav navbar-right')
+                    ->setPartial('layout/navigation/horizontal')
+                    ->render();
+                // top right navigation
+                echo $this->navigation('top_auth_navigation')
+                    ->menu()
+                    ->setUlClass('nav navbar-nav navbar-right navbar-border-right')
+                    ->setPartial('layout/navigation/horizontal')
+                    ->render();
+                ?>
+                <ul class="nav navbar-nav pull-right notifications hidden-xs navbar-border-right">
+                    <?php echo $this->notifications()->render(); ?>
+                </ul>
+                <?php //echo $this->instance()->renderSelect(); ?>
+            </nav>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

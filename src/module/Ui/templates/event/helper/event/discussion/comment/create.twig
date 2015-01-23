@@ -1,0 +1,6 @@
+{% set user = normalize().toAnchor(event.getActor()) %}
+{% set discussion = normalize().toAnchor(event.getParameter('discussion')) %}
+{% set content = normalize().toPreview(event.getObject()) %}
+{% trans %}
+    {{ user }} commented {{ discussion }}: {{ content }}
+{% endtrans %}

@@ -1,0 +1,17 @@
+<?php $this->layout('layout/1-col'); ?>
+
+<br>
+
+<div class="jumbotron">
+    <h1><?php echo $this->translate('You cannot pass!'); ?></h1>
+
+    <p><?php echo $this->translate(
+            'I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark fire will not avail you, Flame of Udun! Go back to the shadow. <strong>You shall not pass</strong>!'
+        ); ?></p>
+
+    <p>
+        <a href="<?php echo $this->url('home'); ?>" class="btn btn-primary btn-lg" role="button">
+            <?php echo $this->translate('Okay.'); ?>
+        </a>
+    </p>
+</div>

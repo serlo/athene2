@@ -1,0 +1,58 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource"
+   driver="com.mysql.jdbc.Driver"
+   url="jdbc:mysql://localhost/serlo"
+   user="root"
+   password="athene2"/>
+ 
+	<document name="doc">
+	<!--
+        <entity name="entity_revision_field"
+		query="SELECT erf.id as id, erf.field as field, erf.value as value FROM entity_revision_field AS erf"
+		deltaImportQuery="SELECT erf.id as id, erf.field as field, erf.value as value FROM entity_revision_field AS erf"
+		deltaQuery="SELECT id FROM entity_revision_field"
+	>
+
+            <field column="id" name="id" />
+            <field column="value" name="content" />
+        </entity>
+	-->
+
+        <entity name="entity"
+                query="SELECT ent.id as id,
+ent.instance_id as instance,
+GROUP_CONCAT(erf.value SEPARATOR ';') as value,
+et.name as type,
+(SELECT GROUP_CONCAT(m.value SEPARATOR ', ') FROM metadata AS m WHERE m.uuid_id = ent.id GROUP BY ent.id) as metadata
+FROM entity AS ent
+JOIN entity_revision AS er ON ent.current_revision_id = er.id
+JOIN entity_revision_field AS erf ON erf.entity_revision_id = er.id
+JOIN type as et ON ent.type_id = et.id
+JOIN uuid ON uuid.id = ent.id
+WHERE uuid.trashed = false AND erf.value &lt;&gt; ''
+GROUP BY ent.id, er.id">
+                <field column="id" name="id" />
+                <field column="value" name="content" />
+                <field column="metadata_keywords" name="keywords" />
+                <field column="instance" name="instance" />
+                <field column="type" name="content_type" />
+        </entity>
+
+        <entity name="taxonomy_term"
+                query="SELECT tt.id as id, GetTaxonomyTermAncestors(tt.id) as keywords, description as content, t.name as title, ty.name as type, ta.instance_id as instance
+FROM term_taxonomy as tt
+JOIN uuid as u ON (tt.id = u.id)
+JOIN term as t ON (tt.term_id = t.id)
+JOIN taxonomy as ta ON (tt.taxonomy_id = ta.id)
+JOIN type as ty ON (ta.type_id = ty.id)
+WHERE u.trashed = 0;">
+                <field column="id" name="id" />
+                <field column="title" name="title" />
+                <field column="content" name="content" />
+                <field column="keywords" name="keywords" />
+                <field column="instance" name="instance" />
+                <field column="type" name="content_type" />
+        </entity>
+
+    </document>
+</dataConfig>

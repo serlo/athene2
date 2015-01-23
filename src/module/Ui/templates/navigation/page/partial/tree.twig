@@ -1,0 +1,43 @@
+<ol>
+    {% for page in pages %}
+    <li class="row-fluid">
+        <ul class="list-group">
+            <li class="list-group-item">
+                {% do positionForm.bind(page) %}
+                {% do positionForm.setAttribute('action', url('navigation/page/update', {page: page.getId()})) %}
+                {% do positionForm.prepare() %}
+                {{ form().render(positionForm, 'inline') }}
+            </li>
+            {% for parameter in page.getParameters() %}
+                <li class="list-group-item">
+                    {% include 'navigation/parameter/view' with {'parameter': parameter, 'page': page} %}
+                </li>
+            {% endfor %}
+            <li class="list-group-item">
+                <div class="btn-group">
+                    <a class="btn btn-xs btn-default" href="{{ url('navigation/parameter/create', {'page': page.getId()}) }}">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        {{ 'Add parameter' | trans }}
+                    </a>
+                    <a class="btn btn-xs btn-default"
+                       href="{{ url('navigation/page/create', {'container': page.getContainer().getId(), 'parent': page.getId()}) }}">
+                        <span class="glyphicon glyphicon-plus"></span> {{ 'Add page' | trans }}
+                    </a>
+                    <a class="btn btn-xs btn-default"
+                       href="{{ url('navigation/page/update', {'page': page.getId()}) }}">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        {{ 'Settings' | trans }}
+                    </a>
+                    <a class="btn btn-xs btn-danger"
+                       href="{{ url('navigation/page/remove', {'page': page.getId()}) }}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        {{ 'Remove page' | trans }}
+                    </a>
+                </div>
+        </ul>
+        {% if page.hasChildren() %}
+            {% include 'navigation/page/partial/tree' with {'pages': page.getChildren()} %}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ol>

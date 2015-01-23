@@ -1,0 +1,79 @@
+<?php
+/**
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license   LGPL-3.0
+ * @license   http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013-2014 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+?>
+<?php echo $this->pageHeader('Role')->setSubtitle($this->role->getName())->render(); ?>
+<?php if ($this->isGranted('authorization.identity.grant.role', $this->role)): ?>
+    <div class="pull-right">
+        <a class="btn btn-success btn-xs"
+           href="<?php echo $this->url('authorization/role/user/add', ['role' => $this->role->getId()]); ?>"> <span
+                class="glyphicon glyphicon-plus"></span> </a>
+    </div>
+<?php endif; ?>
+<h3><?php echo $this->translate('Users'); ?></h3>
+<hr/>
+<ul class="list-group">
+    <?php foreach ($this->users as $user): ?>
+        <li class="list-group-item">
+            <?php if ($this->isGranted('authorization.identity.revoke.role', $this->role)): ?>
+                <form action="<?php echo $this->url(
+                    'authorization/role/user/remove',
+                    ['role' => $this->role->getId()]
+                ); ?>" method="post" class="pull-right">
+                    <input type="hidden" name="user" value="<?php echo $user->getUsername() ?>"/>
+                    <button type="submit" class="btn btn-danger btn-xs">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </form>
+            <?php endif; ?>
+            <?php echo $user->getUsername() ?>
+        </li>
+    <?php endforeach; ?>
+</ul>
+<?php if ($this->isGranted('authorization.role.grant.permission')): ?>
+    <div class="pull-right">
+        <a class="btn btn-success btn-xs"
+           href="<?php echo $this->url('authorization/role/permission/add', ['role' => $this->role->getId()]); ?>">
+            <span class="glyphicon glyphicon-plus"></span> </a>
+    </div>
+<?php endif; ?>
+<h3><?php echo $this->translate('Permissions'); ?></h3>
+<hr/>
+<div class="list-group">
+    <?php foreach ($this->role->getPermissions() as $permission): ?>
+        <div class="list-group-item">
+            <?php echo $permission->getName(); ?>
+            <small>
+                (
+                <?php if ($permission->getParameter('instance')): ?>
+                    <?php echo $permission->getParameter('instance'); ?>
+                <?php else: ?>
+                    <?php echo $this->translate('Global'); ?>
+                <?php endif; ?>
+                )
+            </small>
+            <?php if ($this->isGranted('authorization.role.revoke.permission')): ?>
+                <a href="<?php echo $this->url(
+                    'authorization/role/permission/remove',
+                    ['role' => $this->role->getId(), 'permission' => $permission->getId()]
+                ); ?>" class="label label-danger pull-right"> <span class="glyphicon glyphicon-minus"></span> </a>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div><h3><?php echo $this->translate('Inherits from'); ?></h3>
+<hr/>
+<div class="list-group">
+    <?php foreach ($this->role->getChildren() as $child): ?>
+        <a class="list-group-item" href="<?php echo $this->url(
+            'authorization/role/show',
+            ['role' => $child->getId()]
+        ); ?>"><?php echo $child->getName(); ?></a>
+    <?php endforeach; ?>
+</div>

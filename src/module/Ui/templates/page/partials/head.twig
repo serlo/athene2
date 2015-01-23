@@ -1,0 +1,10 @@
+{% do normalize().headMeta(revision).headTitle(revision) %}
+<div class="page-header">
+    <div class="pull-right">
+        {% include 'page/partials/controls' %}
+    </div>
+    <h1 itemprop="name">{{ revision.getTitle() }}</h1>
+    <div class="edit-control hidden">
+        {% include 'page/partials/actions' %}
+    </div>
+</div>

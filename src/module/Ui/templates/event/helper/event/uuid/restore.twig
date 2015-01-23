@@ -1,0 +1,5 @@
+{% set user = normalize().toAnchor(event.getActor()) %}
+{% set object = normalize().toAnchor(event.getObject()) %}
+{% trans %}
+    {{ user }} restored {{ object }}
+{% endtrans %}

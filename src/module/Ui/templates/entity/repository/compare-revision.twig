@@ -1,0 +1,65 @@
+{% set subtitle %}
+<small>
+    {{ timeago().render(revision.getTimestamp()) }} {{ 'by' | trans }} {{ normalize().toAnchor(revision.getAuthor()) }}
+</small>
+{% endset %}
+{{ pageHeader(normalize().toTitle(revision)).setSubtitle(subtitle).append(contexter().renderButton('right')).setBacklink(url('entity/repository/history', {'entity': entity.getId()})).render() }}
+<article class="panel-group">
+    <div class="clearfix">
+    </div>
+    {% if currentRevision and revision is not sameas(currentRevision) %}
+        {% for field in revision.getFields() %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <ul class="nav nav-pills pull-right">
+                        <li class="active"><a href="#source{{ field.getName() }}" data-toggle="tab">{% trans %} Source {% endtrans %}</a></li>
+                        <li><a href="#preview{{ field.getId() }}" data-toggle="tab">{% trans %} Preview {% endtrans %}</a></li>
+                    </ul>
+                    <h4>{{ field.getName()  | trans }}</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="source{{ field.getName() }}">
+                            {% set oldField = currentRevision.get(field.getName()) %}
+                            {% if oldField %}
+                                {{ diff().markdown(oldField, field.getValue()) }}
+                            {% else %}
+                                {{ markdown().toHtml(field.getValue()) }}
+                            {% endif %}
+                        </div>
+                        <div class="tab-pane fade" id="preview{{ field.getId() }}">
+                            {{ markdown().toHtml(field.getValue()) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        {% include 'entity/repository/revision' %}
+    {% endif %}
+    {% if revision is not sameas(currentRevision) %}
+        <footer class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group pull-right">
+                    {% if not revision.isTrashed() and isGranted('entity.revision.checkout', revision) %}
+                        <button class="btn btn-default btn-md" data-toggle="modal" data-target="#revisionAcceptModal">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                    {% endif %}
+                    {% if not revision.isTrashed() and isGranted('entity.revision.trash', revision) %}
+                        <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#revisionRejectModal">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    {% elseif revision.isTrashed() and isGranted('entity.revision.restore', revision) %}
+                        <a class="btn btn-default btn-md" href="{{ url('uuid/restore', {'id': revision.getId()}) }}">
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </footer>
+    {% endif %}
+</article>
+{% set accept = include('entity/repository/modal-accept') %}
+{% set reject = include('entity/repository/modal-reject') %}
+{% set waste = placeholder('modals').append(accept).append(reject) %}

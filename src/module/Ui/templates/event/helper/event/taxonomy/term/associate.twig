@@ -1,0 +1,6 @@
+{% set user   = normalize().toAnchor(event.getActor()) %}
+{% set term   = normalize().toAnchor(event.getObject()) %}
+{% set object = normalize().toAnchor(event.getParameter('object')) %}
+{% trans %}
+    {{ user }} associated {{ object }} with {{ term }}
+{% endtrans %}

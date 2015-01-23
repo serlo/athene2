@@ -1,0 +1,33 @@
+{% set message %}
+<ul class="list-unstyled">
+    <li>
+        <strong>URL</strong>
+        <pre>{{ url("uuid/get", {"uuid": id}, {"force_canonical": true}) }}</pre>
+    </li>
+    <li>
+        <strong>{{ "On this site:" | trans }}</strong>
+        <pre>[{{ "Title" | trans }}]({{ url("uuid/get", {"uuid": id}) }})</pre>
+    </li>
+    <li>
+        <strong>{{ "Directly including in a content on this site" | trans }}</strong>
+        <pre>>[{{ "Title" | trans }}]({{ url("uuid/get", {"uuid": id}) }})</pre>
+    </li>
+    <li>
+        <strong>Markdown</strong>
+        <pre>[{{ "Title" | trans }}]({{ url("uuid/get", {"uuid": id}, {"force_canonical": true}) }})</pre>
+    </li>
+    <li>
+        <strong>MediaWiki</strong>
+        <pre>[{{ url("uuid/get", {"uuid": id}, {"force_canonical": true}) }} {{ "Title" | trans }}]</pre>
+    </li>
+    <li>
+        <strong>BBCode</strong>
+        <pre>[url]{{ url("uuid/get", {"uuid": id}, {"force_canonical": true}) }}[/url]</pre>
+    </li>
+</ul>
+{% endset %}
+<li>
+    <a href="#" role="menuitem" class="dialog" data-content='{{ message }}' data-title="{{ "Share this content" | trans }}" data-type="info" data-cancel="false">
+        <span class="glyphicon glyphicon-link"></span> {{ "Share" | trans }}
+    </a>
+</li>

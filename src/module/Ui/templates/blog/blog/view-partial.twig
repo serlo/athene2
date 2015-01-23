@@ -1,0 +1,27 @@
+{% for post in paginator %}
+    <article>
+        <header>
+            <div class="pull-right btn-group">
+                 {% if isGranted('blog.post.update', post) %}
+                     <a class="btn btn-default btn-xs" href="{{ url('blog/post/update', {'post': post.getId()}) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                 {% endif %}
+                {% if isGranted('blog.post.trash', post) %}
+                     <a class="btn btn-default btn-xs" href="{{ url('uuid/trash', {'id': post.getId()}) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                 {% endif %}
+            </div>
+            <h3><a href="{{ url('blog/post/view', {'post': post.getId()}) }}">
+                    {{ post.getTitle() }}</a>
+                <small>
+                    {{ post.getAuthor().getUsername() }} -
+                    {{ timeago().render(post.getTimestamp()) }}
+                    {% if not post.isPublished() %}
+                        - <i>{{ 'unpublished' | trans }}</i>
+                    {% endif %}
+                </small>
+            </h3>
+        </header>
+        <hr>
+        {{ markdown().toHtml(post.getContent()) }}
+    </article>
+{% endfor %}
+{{ paginationControl(paginator, 'Sliding', 'common/paginator', {'route': 'blog/view', 'params': {'id': blog.getId()}}) }}

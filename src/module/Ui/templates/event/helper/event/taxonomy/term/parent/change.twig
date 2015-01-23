@@ -1,0 +1,7 @@
+{% set user = normalize().toAnchor(event.getActor()) %}
+{% set term = event.getObject().getName() %}
+{% set old = event.getParameter('from').getName() %}
+{% set new = event.getParameter('to').getName() %}
+{% trans %}
+    {{ user }} changed {{ term }} parent from {{ old }} to {{ new }}
+{% endtrans %}

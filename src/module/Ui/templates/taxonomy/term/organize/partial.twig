@@ -1,0 +1,53 @@
+{% if isChild == false and isGranted('taxonomy.term.create', term) %}
+    <div class="pull-right btn-group">
+        <div class="btn-group group-dropdown">
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="glyphicon glyphicon-plus"></span> <span class="caret"></span> </a>
+            <ul class="dropdown-menu">
+                {% for taxonomy in taxonomy().getAllowedChildren(term) %}
+                    <li>
+                        <a href="{{ url('taxonomy/term/create', {'taxonomy' : taxonomy.getId(), 'parent' : term.getId()}) }}">
+                            {{ taxonomy.getName() }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <h3>{{ term.getName() }}</h3>
+<hr>
+<div class="sortable" data-active="false" data-action="{{ url( 'taxonomy/term/order', {'term' : term.getId()}) }}">
+    {% endif %}
+
+    <ol class="sortable-list" data-id="<?php echo $this->term->getId(); ?>">
+        {% for child in term.getChildren() %}
+            <li class="sortable-item" data-id="{{ child.getId() }}">
+                <span class="sortable-handle"></span>
+                <div class="sortable-item-inner">
+                    {{ child.getName() }}
+                    {% include 'taxonomy/term/organize/actions' with {'term' : child} only %}
+                </div>
+                {% include 'taxonomy/term/organize/partial' with {'isChild' : true, 'term' : child} only %}
+            </li>
+        {% endfor %}
+    </ol>
+
+    {% if isChild == false and isGranted('taxonomy.term.sort', term) %}
+    <div class="panel panel-default clearfix">
+        <div class="panel-heading">
+            <h5 class="panel-title">{% trans %} Tools {% endtrans %}</h5>
+        </div>
+        <div class="sortable-actions pull-right panel-body">
+            <button class="btn btn-default sortable-activate-action">
+                {% trans %} Sort {% endtrans %}
+            </button>
+            <button class="btn btn-success sortable-save-action is-hidden">
+                {% trans %} Save new order {% endtrans %}
+            </button>
+            <button class="btn btn-default sortable-abort-action is-hidden">
+                {% trans %} Cancel {% endtrans %}
+            </button>
+        </div>
+    </div>
+</div>
+{% endif %}

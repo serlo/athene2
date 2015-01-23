@@ -1,0 +1,8 @@
+{% set template = 'taxonomy/term/templates/' ~ term.getTaxonomy().getName() %}
+{% set template = include(template, ignore_missing = true) %}
+{% if template %}
+    {{ template | raw }}
+{% else %}
+    {% include 'taxonomy/term/templates/partials/head' %}
+    {% include 'taxonomy/term/templates/partials/subfolders' %}
+{% endif %}

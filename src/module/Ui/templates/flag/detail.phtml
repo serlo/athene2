@@ -1,0 +1,53 @@
+<?php /* @var $flag \Flag\Service\FlagServiceInterface */ ?>
+<?php $flag = $this->flag; ?>
+<?php $left = 'col-md-4'; ?>
+<?php $right = 'col-md-8'; ?>
+<?php echo $this->pageHeader('Flag detail')->setSubtitle($flag->getId())->render(); ?>
+<div class="row">
+    <div class="<?php echo $left; ?>">
+        <strong><?php echo $this->translate('Object'); ?></strong>
+    </div>
+    <div class="<?php echo $right; ?>">
+        <a href="<?php echo $this->normalize()->toUrl($flag->getObject()); ?>"><?php echo $this->normalize()->toTitle($flag->getObject()); ?></a>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="<?php echo $left; ?>">
+        <strong><?php echo $this->translate('Type'); ?></strong>
+    </div>
+    <div class="<?php echo $right; ?>">
+        <?php echo $flag->getType()->getName(); ?>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="<?php echo $left; ?>">
+        <strong><?php echo $this->translate('Timestamp'); ?></strong>
+    </div>
+    <div class="<?php echo $right; ?>">
+        <?php echo $this->timeago()->render($flag->getTimestamp()); ?>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="<?php echo $left; ?>">
+        <strong><?php echo $this->translate('Reporter'); ?></strong>
+    </div>
+    <div class="<?php echo $right; ?>">
+        <a href="<?php echo $this->normalize()->toUrl($flag->getReporter()); ?>"><?php echo $this->normalize()->toTitle($flag->getReporter()); ?></a>        
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="<?php echo $left; ?>">
+        <strong><?php echo $this->translate('Content'); ?></strong>
+    </div>
+    <div class="<?php echo $right; ?>">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?php echo $flag->getContent(); ?>
+            </div>
+        </div>
+    </div>
+</div>

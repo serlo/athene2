@@ -1,0 +1,25 @@
+<?php
+/**
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author      Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license     MIT License
+ * @license     http://opensource.org/licenses/MIT The MIT License (MIT)
+ * @link        https://github.com/serlo-org/athene2 for the canonical source repository
+ */
+namespace Contexter\Router;
+
+interface RouterAwareInterface
+{
+
+    /**
+     * @return RouterInterface
+     */
+    public function getRouter();
+
+    /**
+     * @param RouterInterface $router
+     * @return self
+     */
+    public function setRouter(RouterInterface $router);
+}

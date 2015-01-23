@@ -1,0 +1,43 @@
+<div class="flasher">
+    {% if redir %}
+        <div class="alert alert-info">{{ 'You must be logged in to access this page.' | trans }}</div>
+    {% endif %}
+    {% for message in errorMessages %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+</div>
+
+{{ pageHeader('Log in' | trans) }}
+
+{% do form.prepare() %}
+{{ form().openTag(form) }}
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        {{ formElement(form.get('email')) }}
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        {{ formElement(form.get('password')) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ formElement(form.get('remember')) }}
+</div>
+<div class="form-group">
+    {{ formElement(form.get('submit')) }}
+    <ul class="list-unstyled">
+        <li>
+            {{ 'Are you new here? %sSign up%s!' | trans | format('<a href="' ~ url('user/register') ~ '">', '</a>') }}
+        </li>
+        <li>
+            {{ 'Did you forget your %spassword%s?' | trans | format('<a href="' ~ url('authentication/password/restore') ~ '">', '</a>') }}
+        </li>
+        <li>
+            {{ 'Haven\'t activated your account yet? %sResend activation mail%s!' | trans | format('<a href="' ~ url('authentication/activate') ~ '">', '</a>') }}
+        </li>
+    </ul>
+</div>
+{{ form().closeTag(form) }}

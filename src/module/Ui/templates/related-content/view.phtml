@@ -1,0 +1,25 @@
+<?php if ($this->aggregated->count()): ?>
+    <div class="sidebar-content-group">
+        <ul class="nav nav-aside">
+            <?php /* @var $related \RelatedContent\Result\ResultInterface */ ?>
+            <?php foreach ($this->aggregated as $related): ?>
+                <?php if ($related->getType() == 'category'): ?>
+                    <li class="nav-aside-header">
+                        <h4><?php echo $related->getTitle(); ?></h4>
+                    </li>
+                <?php elseif ($related->getType() == 'internal'): ?>
+                    <li>
+                        <a href="<?php echo $related->getUrl(); ?>">
+                            <?php echo $related->getTitle(); ?></a>
+                    </li>
+                <?php
+                elseif ($related->getType() == 'external'): ?>
+                    <li>
+                        <a href="<?php echo $related->getUrl(); ?>">
+                            <?php echo $related->getTitle(); ?></a>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

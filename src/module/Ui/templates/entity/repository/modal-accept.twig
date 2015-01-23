@@ -1,0 +1,22 @@
+<div class="modal fade" id="revisionAcceptModal" tabindex="-1" role="dialog" aria-labelledby="revisionAcceptModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="revisionAcceptModalLabel">{% trans %} Accept revision {% endtrans %}</h4>
+            </div>
+            <form method="post" action="{{ url('entity/repository/checkout', {'entity': entity.getId(), 'revision': revision.getId()}) }}">
+                <div class="modal-body">
+                    <p class="form-group">
+                        <label for="revision-reject-reason">{% trans %} Please give feedback. {% endtrans %}</label>
+                        <textarea class="form-control" rows="3" name="reason" id="revision-reject-reason"></textarea>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans %} Close {% endtrans %}</button>
+                    <input type="submit" class="btn btn-success" value="{% trans %} Accept {% endtrans %}">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{% include 'entity/view/partials/actions/versioning/edit-essential' %}
+<li class="dropdown edit-control hidden hidden-xs">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu pull-right">
+        {{ subscribe(entity).subMenuItem() }}
+        {% include 'entity/view/partials/actions/versioning/history' %}
+        {% include 'entity/view/partials/actions/license/show' %}
+        {% include 'entity/view/partials/actions/link/add' %}
+        {% include 'entity/view/partials/actions/link/update' %}
+        {% include 'entity/view/partials/actions/taxonomy/update' %}
+        {% include 'entity/view/partials/actions/related-content/manage' %}
+        {% include 'entity/view/partials/actions/license/update' %}
+        {% include 'entity/view/partials/actions/flag/create' %}
+        {% include 'entity/view/partials/actions/event/history' %}
+        {% include 'entity/view/partials/actions/trash' %}
+    </ul>
+</li>

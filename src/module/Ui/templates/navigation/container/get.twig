@@ -1,0 +1,17 @@
+{{ pageHeader('Manage navigation' | trans).setSubtitle(container.getType().getName()).render() }}
+<h3>{{ 'Information' | trans }}</h3>
+<ul>
+    <li>
+        {{ 'Instance: ' | trans }}{{ container.getInstance() }}
+    </li>
+    <li>
+        {{ 'Name: ' | trans }}{{ container.getType() }}
+    </li>
+</ul>
+<a class="pull-right btn btn-xs btn-default"
+   href="{{ url('navigation/page/create', {'container': container.getId()}) }}">
+    <span class="glyphicon glyphicon-plus"></span>
+    {{ 'Page' | trans }}
+</a>
+<h3>{{ 'Pages' | trans }}</h3>
+{% include 'navigation/page/partial/tree' with {'pages': container.getPages()} %}

@@ -1,0 +1,5 @@
+{% set user = normalize().toAnchor(event.getActor()) %}
+{% set discussion = normalize().toAnchor(event.getObject()) %}
+{% trans %}
+    {{ user }} archived {{ discussion }}
+{% endtrans %}

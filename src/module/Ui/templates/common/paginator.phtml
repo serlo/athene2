@@ -1,0 +1,54 @@
+<?php if ($this->pageCount): ?>
+    <div class="text-center">
+        <ul class="pagination">
+            <!-- Previous page link -->
+            <?php $params = $this->params ? : [];
+            $this->options = $this->options ? : [];
+            if (isset($this->previous)): ?>
+                <li>
+                    <?php $options = array_merge_recursive($this->options, ['query' => ['page' => $this->previous]]); ?>
+                    <a href="<?php echo $this->url($this->route, $params, $options); ?>">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </li>
+            <?php else: ?>
+                <li class="disabled">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </li>
+            <?php endif; ?>
+            <!-- Numbered page links -->
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <?php if ($page != $this->current): ?>
+                    <li>
+                        <?php $options = array_merge_recursive($this->options, ['query' => ['page' => $page]]); ?>
+                        <a href="<?php echo $this->url($this->route, $params, $options);?>">
+                            <?php echo $page; ?>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="active">
+                        <a href="#"><?php echo $page; ?></a>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+
+            <!-- Next page link -->
+            <?php if (isset($this->next)): ?>
+                <li>
+                    <?php $options = array_merge_recursive($this->options, ['query' => ['page' => $this->next]]); ?>
+                    <a href="<?php echo $this->url($this->route, $params, $options); ?>">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </li>
+            <?php else: ?>
+                <li class="disabled">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </div>
+<?php endif; ?>

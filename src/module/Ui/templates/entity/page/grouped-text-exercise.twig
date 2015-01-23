@@ -1,0 +1,11 @@
+{{ pageHeader(normalize().toTitle(entity))
+    .setSubtitle('Grouped text exercise' | trans)
+    .setBacklink(normalize().toUrl(entity.getParents('link').first()))
+    .append('<div class="pull-right btn-group hidden-xs">')
+    .append(include('entity/view/partials/actions/toggle-controls'))
+    .append(contexter().renderButton())
+    .append('</div>')
+    .render() }}
+
+{% include 'entity/page/partials/alerts' %}
+{% include 'entity/view/default' %}

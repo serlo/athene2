@@ -1,0 +1,31 @@
+{% for result in container %}
+    <p class="media">
+        <p class="media-body">
+            <h4 class="media-heading">
+                <a href="{{ result.getLink() }}">{{ search().highlight(query, result.getTitle()) }}</a>
+                <small>{{ result.getType() }}</small>
+            </h4>
+            {% if result.getContent() %}
+                {{ result.getContent() }}
+                <br>
+            {% endif %}
+            {% for keyword in result.getKeywords() %}
+                {% if loop.index0 < 5 %}
+                    {% if loop.index0 > 0 %}
+                        <small class="text-muted">|</small>
+                    {% endif %}
+                    <small class="text-muted">{{ keyword }}</small>
+                {% endif %}
+            {% endfor %}
+        </p>
+    </p>
+{% endfor %}
+{% if container is empty %}
+    {% set query = '<strong>' ~ query ~ '</strong>' %}
+    <div class="alert alert-info">
+        {% trans %}
+        No matching results found for {{ query }}.
+        {% endtrans %}
+    </div>
+{% endif %}
+{{ paginationControl(container, 'Sliding', 'common/paginator', {'route': 'search', 'options': {'query': {'q': query}}}) }}

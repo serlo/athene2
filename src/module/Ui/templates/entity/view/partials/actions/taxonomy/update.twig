@@ -1,0 +1,12 @@
+{% set options = entity().getOptions(entity) %}
+{% if options.hasComponent('taxonomy') %}
+    <!-- Change taxonomy term(s) -->
+    {% if isGranted('taxonomy.term.associate', entity) or isGranted('taxonomy.term.dissociate', entity) %}
+        <li>
+            <a href="{{ url('entity/taxonomy/update', {'entity': entity.getId()}) }}">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                {% trans %} Update taxonomy {% endtrans %}
+            </a>
+        </li>
+    {% endif %}
+{% endif %}

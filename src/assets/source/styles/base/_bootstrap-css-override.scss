@@ -1,0 +1,45 @@
+.btn-block {
+  padding: inherit;
+}
+
+.page-header > h1 {
+  font-weight: 500;
+  border: none;
+  margin: 0;
+  line-height: 1.1;
+  font-size: 2.6em;
+}
+
+.glyphicon:empty {
+  width: 1em;
+}
+
+abbr[title], abbr[data-original-title] {
+  cursor: help;
+  border-bottom: none;
+  color: $lightGray;
+}
+
+.input-group .form-control {
+  z-index: 0;
+}
+
+.dropdown-menu-item {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857;
+  color: #333;
+  white-space: nowrap;
+
+  &:hover, &:active {
+    color: #262626;
+    text-decoration: none;
+    background-color: #F5F5F5;
+  }
+}
+
+.nav-right > li {
+  float: right;
+}

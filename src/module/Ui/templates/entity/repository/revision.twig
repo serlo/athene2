@@ -1,0 +1,8 @@
+{% for field in revision.getFields() %}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ field.getName()  | trans }}</div>
+        <div class="panel-body">
+            {{ markdown().toHtml(field.getValue()) }}
+        </div>
+    </div>
+{% endfor %}

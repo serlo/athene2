@@ -1,0 +1,45 @@
+<?php echo $this->pageHeader('Manage flags')->render(); ?>
+<table class="table">
+    <thead>
+        <tr>
+            <th><?php echo $this->translate('#');?></th>
+            <th><?php echo $this->translate('Object');?></th>
+            <th><?php echo $this->translate('Type');?></th>
+            <th><?php echo $this->translate('Timestamp');?></th>
+            <th><?php echo $this->translate('Reporter');?></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php /* @var $flag \Flag\Service\FlagServiceInterface */ ?>
+        <?php foreach($this->flags as $flag): ?>
+            <tr>
+                <td>
+                    <?php echo $flag->getId(); ?>
+                </td>
+                <td>
+                    <a href="<?php echo $this->normalize()->toUrl($flag->getObject()); ?>"><?php echo $this->normalize()->toTitle($flag->getObject()); ?></a>
+                </td>
+                <td>
+                    <?php echo $flag->getType()->getName(); ?>
+                </td>
+                <td>
+                    <?php echo $this->timeago()->render($flag->getTimestamp());?>
+                </td>
+                <td>
+                    <a href="<?php echo $this->normalize()->toUrl($flag->getReporter()); ?>"><?php echo $this->normalize()->toTitle($flag->getReporter()); ?></a>        
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-default btn-xs" href="<?php echo $this->url('flag/detail', array('id' => $flag->getId())); ?>"><span class="glyphicon glyphicon-search"></span></a>
+                        <?php if ($this->isGranted('flag.purge', $flag)): ?>
+                            <a class="btn btn-danger btn-xs" href="<?php echo $this->url('flag/remove', array('id' => $flag->getId())); ?>"><span class="glyphicon glyphicon-trash"></span></a>
+                        <?php endif; ?>
+                    </div>
+                </td>
+            </tr>
+            <?php ?>
+        <?php endforeach; ?>
+    </tbody>
+</table>

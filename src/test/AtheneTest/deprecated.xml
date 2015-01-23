@@ -1,0 +1,43 @@
+
+		<testsuite name="Athene2 User Test Suite">
+			<directory>../../module/User/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 LearningResource Test Suite">
+			<directory>../../module/LearningResource/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Entity Test Suite">
+			<directory>../../module/Entity/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Link Test Suite">
+			<directory>../../module/Link/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Blog Test Suite">
+			<directory>../../module/Blog/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Language Test Suite">
+			<directory>../../module/Language/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Uuid Test Suite">
+			<directory>../../module/Uuid/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Term Test Suite">
+			<directory>../../module/Term/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Versioning Test Suite">
+			<directory>../../module/Versioning/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Subject Test Suite">
+			<directory>../../module/Subject/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 ClassResolver Test Suite">
+			<directory>../../module/ClassResolver/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Common Test Suite">
+			<directory>../../module/Common/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Token Test Suite">
+			<directory>../../module/Token/test</directory>
+		</testsuite>
+		<testsuite name="Athene2 Page Test Suite">
+			<directory>../../module/Page/test</directory>
+		</testsuite>

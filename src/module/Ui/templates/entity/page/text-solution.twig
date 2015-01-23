@@ -1,0 +1,13 @@
+{% set title = entity.getId() %}
+{% do headTitle(title) %}
+<div class="page-header">
+    <div class="pull-right btn-group hidden-xs">
+        {% include 'entity/view/partials/actions/toggle-controls' %}
+        {{ contexter().renderButton() }}
+    </div>
+    <h1>{{ title }}
+        <small>{% trans %} Text solution {% endtrans %}</small>
+    </h1>
+</div>
+{% include 'entity/page/partials/alerts' %}
+{% include 'entity/view/default' %}

@@ -1,0 +1,294 @@
+/* MAIN PAGE LAYOUT */
+
+%pageMargin {
+  padding: 0 $pagePaddingSmall;
+
+  @media only screen and (min-width: $navigationBreakPoint) {
+    padding: 0 $pagePaddingMedium;
+  }
+
+  @media only screen and (min-width: $sidebarBreakPoint) {
+    padding: 0 $pagePaddingLarge;
+  }
+}
+
+body {
+  // min-width: $minWidth;
+  /*@media only screen and (max-width: $minWidth) {
+      overflow-x: auto;
+  }*/
+}
+
+#subject-nav,
+#serlo-menu,
+#page,
+#horizon,
+#footer {
+  @extend %pageMargin;
+}
+
+#subject-nav {
+  position: relative;
+}
+
+#header {
+  clear: both;
+}
+
+#brand-link {
+  color: $grayDark;
+  position: relative;
+  &:hover, &:active, &:focus {
+    color: $grayDark;
+    text-decoration: none;
+  }
+}
+
+#horizon {
+  clear: both;
+  padding: 50px 0 100px 0;
+}
+
+#header {
+  position: relative;
+  z-index: $headerZIndex;
+}
+
+#page {
+  margin-top: 22px;
+
+  &.has-navigation {
+    margin-top: 0;
+
+    @media only screen and (max-width: $navigationBreakPoint) {
+      margin-top: 22px;
+    }
+  }
+}
+
+/* Side Elements (Navigation && Context) */
+
+.side-element {
+  position: relative;
+  z-index: $sideElementZIndex;
+
+  &.visible {
+
+    .side-element-inner {
+      visibility: visible;
+    }
+
+    .layout-toggle {
+      .glyphicon {
+        display: none;
+
+        & + .glyphicon {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .layout-toggle {
+    display: none;
+
+    cursor: pointer;
+    user-select: none;
+
+    .glyphicon {
+      display: block;
+
+      & + .glyphicon {
+        display: none;
+      }
+    }
+  }
+}
+
+/* side element layout toggler */
+.layout-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: $darkGray;
+  color: white;
+
+  html.no-touch & {
+    &:hover {
+      background: $darkerGray;
+    }
+  }
+
+  .glyphicon {
+    display: block;
+
+    margin: 0 auto;
+
+    line-height: $sideElementWidthCollapsed;
+  }
+}
+
+/* Left Navigation */
+.side-navigation {
+  width: $navigationWidth;
+  float: left;
+  margin-top: $sideNavTopOffset;
+
+  @media only screen and (max-width: $navigationBreakPoint) {
+    width: $sideElementWidthCollapsed;
+
+    .side-element-inner {
+      visibility: hidden;
+      margin-left: $sideElementWidthCollapsed;
+    }
+
+    .layout-toggle {
+      display: block;
+    }
+  }
+}
+
+/* Main Container */
+.main {
+  // float: left;
+  position: relative;
+  max-width: $contentMaxWidth;
+
+  .has-navigation & {
+    margin-left: $navigationWidth;
+
+    @media only screen and (max-width: $navigationBreakPoint) {
+      margin-left: $sideElementWidthCollapsed;
+    }
+  }
+
+  .has-context & {
+    margin-right: $sidebarWidth;
+
+    @media only screen and (max-width: $sidebarBreakPoint) {
+      margin-right: $sideElementWidthCollapsed;
+    }
+
+    @media only screen and (min-width: $sidebarBreakPoint + 150px) {
+      margin-right: $sidebarWidth + 150px;
+    }
+
+    // @media only screen and (max-width: $sidebarBreakPoint) {
+    //     margin-right: $sideElementWidthCollapsed;
+    // }
+  }
+}
+
+/* Content */
+#content-layout {
+  //max-width: $contentMaxWidth;
+  width: 100%;
+
+  // For Now
+  min-height: 670px;
+  padding: 0 $contentPadding $contentPadding;
+
+  float: left;
+  // box-sizing: content-box;
+
+  // Hide content that overlaps (MathJax likes to do this)
+  // overflow: hidden;
+
+  line-height: 1.5;
+
+  .has-context & {
+    // margin-right: $sidebarWidth;
+
+    // @media only screen and (max-width: $sidebarBreakPoint) {
+    //     margin-right: $sideElementWidthCollapsed;
+    // }
+
+    // @media only screen and (min-width: $sidebarBreakPoint + 150px) {
+    //     margin-right: $sidebarWidth + 150px;
+    // }
+  }
+}
+
+/* Right Context Area */
+.side-context {
+  width: $sidebarWidth;
+
+  // margin-left: $contentMaxWidth + 2 * $contentPadding;
+
+  background: $lighterGray;
+  top: $sideNavTopOffset;
+  position: absolute;
+  right: -$sidebarWidth;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    @include triangle(right, $white, 13px);
+  }
+
+  @media only screen and (max-width: $sidebarBreakPoint) {
+    width: $sideElementWidthCollapsed;
+    right: -$sideElementWidthCollapsed;
+
+    .side-element-inner {
+      position: relative;
+
+      visibility: hidden;
+      margin-right: $sideElementWidthCollapsed;
+
+      width: 200px;
+      right: 200px;
+      background: $lighterGray;
+    }
+
+    .layout-toggle {
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width: $sidebarBreakPoint + 150px) {
+    width: $sidebarWidth + 150px - $pagePaddingLarge;
+    right: -($sidebarWidth + 150px - $pagePaddingLarge);
+  }
+
+  .nav {
+    &:after,
+    &:before {
+      clear: none;
+      display: none;
+    }
+  }
+}
+
+.page-header {
+  position: relative;
+
+  margin: 0 0 20px 0;
+  padding-top: 20px;
+
+  background-color: $white;
+
+  z-index: 1;
+  // transition: 0.3s transform 0s;
+
+  .nav {
+    min-height: 0;
+    margin: 5px 0 0 0;
+
+    .navbar-collapse {
+      padding: 0px;
+    }
+
+    &.nav-pills > li > a {
+      color: $grayDark;
+    }
+  }
+  & > h1 {
+    margin: 0;
+  }
+}

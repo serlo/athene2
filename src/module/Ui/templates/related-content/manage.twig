@@ -1,0 +1,70 @@
+{% set rows = 3 %}
+{% set col = 12 / rows %}
+{{ pageHeader('Manage related links' | trans) }}
+<div class="row">
+    <div class="col-xs-{{ col }}">
+        <strong>{% trans %} Title {% endtrans %}</strong>
+    </div>
+    <div class="col-xs-{{ col }}">
+        <strong>{% trans %} Type {% endtrans %}</strong>
+    </div>
+    <div class="col-xs-{{ col }}">
+        <strong>{% trans %} Actions {% endtrans %}</strong>
+    </div>
+</div>
+<hr>
+<div class="clearfix sortable" data-action="{{ url('related-content/order') }}" data-depth="1" data-active="false">
+    <ol class="sortable-list">
+        {% for related in aggregated %}
+            <li class="sortable-item" data-id="{{ related.getId() }}">
+                <span class="sortable-handle"></span>
+                <div class="sortable-item-inner row">
+                    <div class="col-xs-{{ col }}">
+                        <a href="{{ related.getUrl() }}">{{ related.getTitle() }}</a>
+                    </div>
+                    <div class="col-xs-{{ col }}">
+                        {{ related.getType()  | trans }}
+                    </div>
+                    {% if isGranted('related.content.purge', container) %}
+                        <div class="col-xs-{{ col }}">
+                            <a href="{{ url('related-content/remove', {'id': related.getId()}) }}"
+                               class="btn btn-xs btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+    {% if isGranted('related.content.create', container) %}
+        <div class="btn-group">
+            <a class="btn btn-default btn-sm btn-labeled"
+               href="{{ url('related-content/add-category', {'id': container.getId()}) }}"><span class="btn-label"><span
+                            class="glyphicon-regular glyphicon-plus"></span></span>{% trans %} Category {% endtrans %}
+            </a>
+            <a class="btn btn-default btn-sm btn-labeled"
+               href="{{ url('related-content/add-internal', {'id': container.getId()}) }}"><span class="btn-label"><span
+                            class="glyphicon-regular glyphicon-plus"></span></span>{% trans %} Internal {% endtrans %}
+            </a>
+            <a class="btn btn-default btn-sm btn-labeled"
+               href="{{ url('related-content/add-external', {'id': container.getId()}) }}"><span class="btn-label"><span
+                            class="glyphicon-regular glyphicon-plus"></span></span>{% trans %} External {% endtrans %}
+            </a>
+        </div>
+    {% endif %}
+    {% if isGranted('related.content.update', container) %}
+        <div class="sortable-actions btn-group">
+            <button class="btn btn-sm btn-default btn-labeled sortable-activate-action">
+                <span class="btn-label"><span class="glyphicon glyphicon-sort"></span></span> {{ 'Sort' | trans }}
+            </button>
+            <button class="btn btn-sm btn-success btn-labeled sortable-save-action is-hidden">
+                <span class="btn-label"><span
+                            class="glyphicon glyphicon-floppy-save"></span></span> {{ 'Save' | trans }}
+            </button>
+            <button class="btn btn-sm btn-danger btn-labeled sortable-abort-action is-hidden">
+                <span class="btn-label"><span class="glyphicon glyphicon-remove"></span></span> {{ 'Abort' | trans }}
+            </button>
+        </div>
+    {% endif %}
+</div>

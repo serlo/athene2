@@ -1,0 +1,9 @@
+{% set template = include(['taxonomy/term/entity/' ~ entity.getType().getName(), 'entity/view/default'], ignore_missing = true) %}
+{% if template %}
+    {{ template }}
+{% else %}
+    {% set name = entity.getType().getName() %}
+    {% trans %}
+        Template for {{ name }} not found.
+    {% endtrans %}
+{% endif %}

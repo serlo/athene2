@@ -1,0 +1,8 @@
+{% if isGranted('event.log.get', entity) %}
+    <li>
+        <a href="{{ url('event/history/object', {'id': entity.getId()}) }}">
+            <span class="glyphicon-regular glyphicon-log-book"></span>
+            {% trans %} Log {% endtrans %}
+        </a>
+    </li>
+{% endif %}

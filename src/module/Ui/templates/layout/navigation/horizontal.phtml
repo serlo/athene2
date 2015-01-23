@@ -1,0 +1,95 @@
+<?php
+/**
+ * @authors Kanstantsin A Kamkou (2ka.by); Jeroen Herczeg; Timo Klement
+ */
+$html = array();
+//$html[] = '<div class="navbar navbar-fixed-top">';
+//$html[] = ' <div class="navbar-inner">';
+//$html[] = ' <div class="container">';
+$html[] = ' <ul class="' . $this->navigation()->menu()->getUlClass() . '">';
+
+foreach ($this->container as $page) {
+
+    // visibility of the page
+    if (!$page->isVisible() || !$this->navigation()->accept($page)) {
+        continue;
+    }
+
+    // for Login/Logout/Register links:
+    // check if menu item has 'needsIdentidy' set
+    if (!is_null($page->get('needsIdentity'))) {
+        // convert value of key 'needsIdentity' to boolean if necessary
+        $needsIdentity = is_bool($page->get('needsIdentity')) ? $page->get('needsIdentity') : ($page->get('needsIdentity') === 'true');
+        // check if current user is anonymous and compare to 'needsIdentity' value
+        if ($this->isGranted('login') !== $needsIdentity) {
+            continue;
+        }
+    }
+
+    // dropdown
+    $dropdown = !empty($page->pages);
+
+    // check for subpages
+    // if exists, insert a dropdown class and a data-toggle attribute
+    // if not exists, let the <li>-attribute and <a>-attribute empty
+    if (count($page->_pages) > 0) {
+        // li-element with subpages
+        $html[] = '<li' . ($dropdown ? ' class="dropdown"' : '') . '>';
+        $html[] = '<a class="' . $page->get('class') . '" href="' . ($dropdown ? '#' :
+                $this->alias($page->getHref())) . '" ' . 'class="dropdown-toggle" data-toggle="dropdown">';
+
+        if ($page->get('icon')) {
+            if (stristr($page->get('icon'), 'glyphicon-')) {
+                $html[] = '<span class="' . $page->get('icon') . '"></span>';
+            } else {
+                $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+            }
+        }
+
+        $html[] = $this->translate($page->getLabel());
+
+        if ($dropdown) {
+            $html[] = '<b class="caret"></b>';
+        }
+
+        $html[] = '</a>';
+    } else {
+        // li-element without subpages
+        $html[] = '<li>';
+        $html[] = '<a href="' . $this->alias($page->getHref()) . '" class="' . $page->get('class') . '">';
+
+        if ($page->get('icon')) {
+            if (stristr($page->get('icon'), 'glyphicon-')) {
+                $html[] = '<span class="' . $page->get('icon') . '"></span>';
+            } else {
+                $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+            }
+        }
+
+        $html[] = $this->translate($page->getLabel());
+        $html[] = '</a>';
+    }
+
+    if (!$dropdown) {
+        $html[] = '</li>';
+        continue;
+    }
+
+    if ($dropdown) {
+        $html[] = '<ul class="dropdown-menu">';
+        $html[] = $this->partial(
+            'layout/navigation/partial/nested-dropdown-navigation-list',
+            array('pages' => $page->pages)
+        );
+        $html[] = "</ul>";
+    }
+
+    $html[] = "</li>";
+}
+
+$html[] = '</ul>';
+//$html[] = '</div>';
+//$html[] = '</div>';
+//$html[] = '</div>';
+
+echo join(' ', $html);

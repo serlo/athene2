@@ -1,0 +1,27 @@
+{% if forums.count() %}
+    <div class="panel-group">
+
+    </div>
+    <div class="panel-group">
+        {% for subforum in forums if not subforum.isTrashed() %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {% if subforum.getType().getName() == 'forum' %}
+                        <a href="{{ url('discussion/discussions/get', {'id': subforum.getId()}) }}">
+                            {% set discussions = discussion().getForumDiscussions(subforum, false) %}
+                            <span class="badge pull-right">{{ discussions.count() }}</span>
+                            {{ subforum.getName() }}
+                        </a>
+                    {% else %}
+                        {{ subforum.getName() }}
+                    {% endif %}
+                </div>
+                {% if subforum.getType().getName() == 'forum-category' %}
+                    <div class="panel-body">
+                        {% include 'discussion/discussions/tree' with {'forums': subforum.getChildren()} only %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

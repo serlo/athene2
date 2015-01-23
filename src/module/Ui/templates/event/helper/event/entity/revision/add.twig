@@ -1,0 +1,6 @@
+{% set user       = normalize().toAnchor(event.getActor()) %}
+{% set revision   = normalize().toAnchor(event.getObject()) %}
+{% set repository = normalize().toAnchor(event.getParameter('repository')) %}
+{% trans %}
+    {{ user }} created a new version of {{ repository }}
+{% endtrans %}

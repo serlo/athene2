@@ -1,0 +1,33 @@
+{% set entities = term.getAssociated('entities') %}
+{% set children = [] %}
+{% for child in term.findChildrenByTrashed(false) %}
+    {% if child.getType().getName() in ['topic-folder' , 'curriculum-topic-folder'] %}
+        {% set children = children | merge([ child ]) %}
+    {% endif %}
+{% endfor %}
+{% if children %}
+    <h2>{% trans %} Subfolders {% endtrans %}</h2>
+    <div class="blockquote-box blockquote-primary">
+        <div class="row">
+            <div class="square col-sm-2 hidden-xs">
+                <span class="glyphicon-regular glyphicon-lg glyphicon-folder"></span>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {% for child in children %}
+                            <h4>
+                                <a href="{{ url('taxonomy/term/get', {'term': child.getId()}) }}">
+                                    <h4>{{ child.getName() }}</h4>
+                                </a>
+                            </h4>
+                            <em>
+                                {{ markdown().toHtml(child.getDescription()) }}
+                            </em>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

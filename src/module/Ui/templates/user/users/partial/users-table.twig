@@ -1,0 +1,25 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>{{ 'Username' | trans }}</td>
+            <td>{{ 'Roles' | trans }}</td>
+            <td>{{ 'Last login' | trans }}</td>
+            <td>{{ 'Logins' | trans }}</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td><a href="{{ url('user/profile', {'id': user.getId()}) }}">{{ user.getUsername() }}</a></td>
+            <td>{{ user.getRoles().toArray() | join(', ') }}</td>
+            {% if user.getLastLogin() %}
+                <td>{{ timeago().render(user.getLastLogin()) }}</td>
+            {% else %}
+                <td>{{ 'Never' | trans }}</td>
+            {% endif %}
+            <td>{{ user.getLogins() }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{{ paginationControl(users, 'Sliding', 'common/paginator', {'route': 'users'}) }}

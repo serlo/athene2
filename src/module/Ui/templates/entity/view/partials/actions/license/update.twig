@@ -1,0 +1,9 @@
+{% set options = entity().getOptions(entity) %}
+{% if options.hasComponent('license') and isGranted('entity.license.update', entity) %}
+    <li>
+        <a href="{{ url('entity/license/update', {'entity': entity.getId()}) }}">
+            <span class="glyphicon glyphicon-leaf"></span>
+            {% trans %} Change license {% endtrans %}
+        </a>
+    </li>
+{% endif %}

@@ -1,0 +1,13 @@
+{% set user       = normalize().toAnchor(event.getActor()) %}
+{% set revision   = normalize().toAnchor(event.getObject()) %}
+{% set repository = normalize().toAnchor(event.getParameter('repository')) %}
+{% set reason = event.getParameter('reason') %}
+{% if reason %}
+    {% trans %}
+    {{ user }} checked out {{ revision }} in {{ repository }}: "{{ reason }}"
+    {% endtrans %}
+{% else %}
+    {% trans %}
+    {{ user }} checked out {{ revision }} in {{ repository }}
+    {% endtrans %}
+{% endif %}

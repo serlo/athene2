@@ -1,0 +1,11 @@
+{% set event = notification.getEvents().current() %}
+{% set user = normalize().toAnchor(event.getActor(), true) %}
+{% set discussion = normalize().toAnchor(event.getObject(), true) %}
+{% set object = normalize().toAnchor(event.getParameter('on'), true) %}
+{% set title = normalize().toTitle(event.getObject()) %}
+<div class="dropdown-menu-item">
+    {% trans %}
+    {{ user }} started {{ discussion }} on {{ object }}: {{ title }}
+    {% endtrans %}
+    <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+</div>

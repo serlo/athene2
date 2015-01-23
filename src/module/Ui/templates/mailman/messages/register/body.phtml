@@ -1,0 +1,11 @@
+<?php
+echo nl2br(sprintf($this->translate("Hello %s,
+
+thank you for your registration on %s.
+
+Please confirm your account by clicking the following link:
+%s
+
+We are looking forward to your contribution to %s!
+
+Your community support"), $this->user->getUsername(), $this->brand()->getBrand(true), $this->url('authentication/activate', ['token' => $this->user->getToken()], array('force_canonical' => true)), $this->brand()->getBrand(true)));

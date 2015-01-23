@@ -1,0 +1,18 @@
+{% set title = 'video' | trans %}
+{% set description = markdown().toHtml(entity.getCurrentRevision().get('description')) %}
+<article>
+    <section>
+        {% set id = entity.getCurrentRevision().get('content') %}
+        <p class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/{{ (id|split('?v='))|slice(1)|join }}?html5=1"></iframe>
+        </p>
+    </section>
+    <section itemprop="description">
+        {{ description }}
+    </section>
+    {% include 'entity/view/partials/license' %}
+    <section class="hidden" id="discussion-{{ entity.getId() }}">
+        {{ discussion(entity).render() }}
+    </section>
+</article>

@@ -1,0 +1,36 @@
+{{ pageHeader('Pages' | trans).render() }}
+<div class="list-group">
+    {% for page in pages %}
+        <div class="list-group-item">
+            <a href="{{ url('page/view', {'page': page.getId()}) }}">
+                {% if(page.hasCurrentRevision()) %}
+                    {{ page.getCurrentRevision().getTitle() }}
+                {% else %}
+                    {% trans %}
+                    No revision checked out yet.
+                    {% endtrans %}
+                {% endif %}
+            </a>
+            <hr>
+            <div class="btn-group">
+                {% if isGranted('page.update', page) %}
+                    <a class="btn btn-xs btn-default" href="{{ url('page/update', {'page': page.getId()}) }}">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        {% trans %} Edit {% endtrans %}
+                    </a>
+                {% endif %}
+                {% if isGranted('page.trash', page) %}
+                    <a class="btn btn-xs btn-default" href="{{ url('uuid/trash', {'id': page.getId()}) }}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        {% trans %} Trash {% endtrans %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% if isGranted('page.create') %}
+        <a class="list-group-item" href="{{ url('page/create') }}">
+            <span class="glyphicon glyphicon-plus"></span> {% trans %} Create a new page {% endtrans %}
+        </a>
+    {% endif %}
+</div>

@@ -1,0 +1,9 @@
+{% if forum %}
+    {{ pageHeader(forum.getName()).setSubtitle('Discussions' | trans).render() }}
+{% else %}
+    {{ pageHeader('Discussions' | trans).render() }}
+{% endif %}
+{% include 'discussion/discussions/tree' %}
+{% if forum %}
+    {% include 'discussion/discussions/discussions' %}
+{% endif %}

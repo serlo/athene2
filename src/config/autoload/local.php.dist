@@ -1,0 +1,55 @@
+<?php
+$dbParams = array(
+		'host' => 'localhost',
+		'port' => '3306',
+		'user' => 'root',
+		'password' => 'athene2',
+		'database' => 'serlo'
+);
+
+return [
+    'doctrine'     => [
+        'connection' => [
+            'orm_default' => [
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params'      => [
+                    'host'     => $dbParams['host'],
+                    'port'     => $dbParams['port'],
+                    'user'     => $dbParams['user'],
+                    'password' => $dbParams['password'],
+                    'dbname'   => $dbParams['database']
+                ]
+            ]
+        ]
+    ],
+    'solarium'     => [
+        'endpoint' => [
+            'default' => [
+                'host'    => 'localhost',
+                'port'    => 8080,
+                'path'    => '/solr',
+                'core'    => '',
+                'timeout' => 5
+            ]
+        ]
+    ],
+    'instance'     => [
+        'strategy' => 'Instance\Strategy\CookieStrategy'
+    ],
+    'dbParams'     => array(
+        'host'     => $dbParams['host'],
+        'port'     => $dbParams['port'],
+        'username' => $dbParams['user'],
+        'password' => $dbParams['password'],
+        'database' => $dbParams['database']
+    ),
+    'smtp_options' => [
+    	'name' => 'localhost.localdomain',
+		'host' => '127.0.0.1',
+		'connection_class' => 'login',
+        'connection_config' => [
+			'username' => 'user',
+			'password' => 'pass'
+        ]
+    ]
+];

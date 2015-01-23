@@ -1,0 +1,17 @@
+{
+    "An error occured, please reload." : "",
+    "Close" : "",
+    "Visit %s overview" : "",
+    "Order successfully saved" : "",
+    "Your browser doesnt support the following technologies: %s <br>Please update your browser!" : "",
+    "When asynchronously trying to load a ressource, I came across an error: %s" : "",
+    "You are using an outdated web browser. Please consider an update!" : "",
+    "No results found." : "",
+    "No results found for \"%s\"." : "",
+    "Illegal injection found" : "",
+    "Could not load injection" : "",
+    "You\'re almost done!" : "",
+    "Show overview" : "",
+    "Show %d contents for \"%s\"" : "",
+    "Abort": ""
+}

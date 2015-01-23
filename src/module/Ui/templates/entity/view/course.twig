@@ -1,0 +1,97 @@
+{% set title = 'course' | trans %}
+{% set subtitle = 'course-page' | trans %}
+{% set pages = entity.getChildren('link', 'course-page') %}
+<div id="course-{{ entity.getId() }}" class="carousel-tabbed carousel slide">
+    <!-- End Carousel Inner -->
+    <div class="controls">
+        <ul class="nav">
+            <li data-target="#course-{{ entity.getId() }}" data-slide-to="0" class="active">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="square square-primary">
+                            <span class="glyphicon-regular glyphicon-show-big-thumbnails"></span>
+                            <span class="badge">1</span>
+                        </div>
+                        {{ 'Table of contents' | trans }}
+                    </div>
+                </div>
+            </li>
+            {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
+                {% set revision = page.getCurrentRevision() %}
+                <li data-target="#course-{{ entity.getId() }}" data-slide-to="{{ loop.index0+1 }}">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="square square-primary">
+                                <span class="glyphicon-regular glyphicon-{{ revision.get('icon', 'book-open') }}"></span>
+                                <span class="badge">{{ loop.index+1 }}</span>
+                            </div>
+                            {{ revision.get('title') }}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <article class="item active">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="heading-content">{{ 'Table of contents' | trans }}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ markdown().toHtml(entity.getCurrentRevision().get('content')) | raw }}
+                    </div>
+                    <div class="col-xs-12">
+                        {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
+                            {% set revision = page.getCurrentRevision() %}
+                            <div class="is-pointable blockquote-box blockquote-primary"
+                                 data-target="#course-{{ entity.getId() }}" data-slide-to="{{ loop.index0+1 }}">
+                                <div class="row">
+                                    <div class="square col-sm-2 hidden-xs">
+                                        <span class="glyphicon-lg glyphicon-regular glyphicon-{{ revision.get('icon', 'book-open') }}"></span>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-10">
+                                        <h4>
+                                            {{ revision.get('title') }}
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
+            {% set revision = page.getCurrentRevision() %}
+            <article class="item">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="pull-right">
+                                {% include 'entity/view/partials/actions/small' with {'entity': page} only %}
+                            </div>
+                            <h2 class="heading-content">{{ revision.get('title') }}</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{ markdown().toHtml(revision.get('content')) | raw }}
+                        </div>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</div>
+<!-- End Carousel -->
+
+{% include 'entity/view/partials/license' %}
+<section class="hidden" id="discussion-{{ entity.getId() }}">
+    {{ discussion(entity).render() }}
+</section>

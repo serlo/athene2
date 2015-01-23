@@ -1,0 +1,18 @@
+<?php echo $this->pageHeader('Order content')->setSubtitle($this->term->getName())->append($this->contexter()->renderButton('right')); ?>
+<div class="sortable" data-depth="1" data-active="false" data-action="<?php echo $this->url('taxonomy/term/sort-associated', array('term' => $this->term->getId(), 'association' => $this->association)); ?>">
+    <ol class="sortable-list">
+        <?php foreach($this->associations as $associated):?>
+            <li class="sortable-item" data-id="<?php echo $associated->getId(); ?>">
+                <span class="sortable-handle"></span>
+                <div class="sortable-item-inner">
+                    <?php echo $this->normalize()->toTitle($associated); ?> <sup><small><?php echo $this->normalize()->toType($associated); ?></small></sup>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+    <div class="sortable-actions">
+        <button class="btn btn-default sortable-activate-action"><?php print $this->translate('Sort'); ?></button>
+        <button class="btn btn-success sortable-save-action is-hidden"><?php print $this->translate('Save new order'); ?></button>
+        <button class="btn btn-default sortable-abort-action is-hidden"><?php print $this->translate('Cancel'); ?></button>
+    </div>
+</div>

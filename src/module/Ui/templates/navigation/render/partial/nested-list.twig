@@ -1,0 +1,54 @@
+{% if currentDepth is defined %}
+    {% set currentDepth = currentDepth + 1 %}
+{% else %}
+    {% set currentDepth = 0 %}
+{% endif %}
+{% if not activeDepth is defined %}
+    {% set activePage = navigation().menu().findActive(container, 0, 9999) %}
+    {% if not activePage %}
+        {% set activeDepth = 9999 %}
+    {% else %}
+        {% set activeDepth = attribute(activePage, 'depth') %}
+    {% endif %}
+{% endif %}
+{% set start = navigation().menu().getMinDepth() %}
+{% set end = start + navigation().menu().getMaxDepth() %}
+
+{% if currentDepth >= start %}
+    <ul>
+{% endif %}
+    {% for page in container if page.isVisible() and (currentDepth > activeDepth or page.isActive(true)) and navigation().accept(page) and currentDepth < end %}
+        {% if currentDepth >= start %}
+            {% if page.getLabel() == 'divider' %}
+                <li class="divider"></li>
+            {% else %}
+                <li
+                    {% if page.get('elements') %}
+                        data-element-count="{{ page.get('elements') }}"
+                    {% endif %}
+                    {% if page.isActive() %}
+                        class="active"
+                    {% endif %}
+                >
+                <a
+                    href="{{ alias(page.getHref()) }}"
+                    >
+                    {% if page.get('icon') %}
+                        <span class="glyphicon glyphicon-{{ page.get('icon') }}"></span>
+                    {% endif %}
+                    {{ page.getLabel() }}
+                </a>
+                {% if page.pages %}
+                    {% include 'navigation/render/partial/nested-list' with {'container': page.pages} %}
+                {% endif %}
+                </li>
+            {% endif %}
+        {% else %}
+            {% if page.pages %}
+                {% include 'navigation/render/partial/nested-list' with {'container': page.pages} %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% if currentDepth >= start %}
+    </ul>
+{% endif %}

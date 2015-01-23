@@ -1,0 +1,12 @@
+{% set event = notification.getEvents().current() %}{% set user = normalize().toAnchor(event.getActor(), true) %}
+{% set object = normalize().toAnchor(event.getObject(), true) %}
+{% set parent = event.getParameter('parent') %}
+{% if parent %}
+    {% set parent = normalize().toAnchor(parent, true) %}
+    <div class="dropdown-menu-item">
+        {% trans %}
+        {{ user }} added {{ object }} to {{ parent }}
+        {% endtrans %}
+        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+    </div>
+{% endif %}

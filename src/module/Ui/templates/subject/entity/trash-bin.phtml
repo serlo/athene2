@@ -1,0 +1,47 @@
+<?php
+/**
+ *
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license	LGPL-3.0
+ * @license	http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link		https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+?>
+<div class="page-header">
+	<h1>
+	   <?php echo $this->translate('Trashed learning resources'); ?><small> <?php echo $this->translate( $this->subject->getName() ); ?></small>
+	</h1>
+</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><?php echo $this->translate('Title'); ?></th>
+			<th><?php echo $this->translate('Type'); ?></th>
+			<th><?php echo $this->translate('Action'); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+        <?php foreach($this->entities as $entity): ?>
+            <tr>
+			<td><a href="<?php echo $this->url($entity->getRouteName(), $entity->getRouteParams()); ?>"><?php echo $entity->getTitle(); ?></a></td>
+			<td><?php echo $entity->getType(); ?></td>
+			<td>
+				<div class="btn-group">
+					<a class="btn btn-success btn-xs"
+						href="<?php echo $this->url('uuid/restore', array('id' => $entity->getId())); ?>"><span
+						class="glyphicon glyphicon-floppy-open"></span></a>
+					<button class="dialog btn btn-danger btn-xs"
+						href="<?php echo $this->url('uuid/purge', array('id' => $entity->getId())); ?>"
+						data-content="<?php echo $this->translate('Do you really want to purge this item? It and all references to it will be lost forever!'); ?>"
+						data-type="danger">
+						<span class="glyphicon glyphicon-fire"></span>
+					</button>
+				</div>
+			</td>
+		</tr>
+        <?php endforeach; ?>
+	</tbody>
+</table>

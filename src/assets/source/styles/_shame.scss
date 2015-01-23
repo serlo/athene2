@@ -1,0 +1,66 @@
+// Put quick fixes / try-outs / dirty stuff here
+// ...and feel ashamed!
+
+.nav-header {
+  font-weight: bold;
+}
+
+// aeneaspls
+img.license-intext {
+  max-height: 18px;
+  opacity: 0.5;
+}
+
+// I feel ashamed already super hack wow omg
+// See https://github.com/twbs/bootstrap/issues/10000
+.form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.r img {
+  cursor: pointer;
+}
+
+#serlo-menu {
+  .container-fluid {
+    padding: 0;
+  }
+  .notifications.nav {
+    /* this is really hacky */
+    .dropdown-menu {
+      word-wrap: normal;
+      min-width: 500px;
+      max-width: 500px;
+      max-height: 300px;
+
+      overflow-y: scroll;
+
+      > li > a, > li > .dropdown-menu-item {
+        white-space: normal;
+      }
+    }
+  }
+}
+
+#content-container {
+  .panel-group {
+    .panel {
+      overflow: visible; // Do not crop contents (solves #383)
+    }
+  }
+}
+
+/* Geogebra Popups aren't visible otherwise.. */
+.GeoGebraPopup,
+.DialogBox,
+.gwt-PopupPanel,
+.gwt-SuggestBoxPopup {
+  z-index: 120;
+}
+
+// Hack for anchored links and fixed page headers
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+  margin-top: -50px;
+  padding-top: 80px;
+}

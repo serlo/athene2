@@ -1,0 +1,36 @@
+#footer {
+  // @include bar('bottom');
+
+  // font-size: 0.9em;
+  position: absolute;
+  bottom:   0;
+  width:    100%;
+  padding:  0;
+
+  .navbar {
+    margin: 0;
+  }
+
+  small {
+    color: $gray;
+  }
+
+  a {
+    //padding-left: 0;
+    //color: $gray;
+
+    //@include theme-font(600);
+
+    &:hover {
+      //background: none;
+      //text-decoration: underline;
+    }
+  }
+}
+
+#footer,
+#footer-push {
+  @media only screen and (max-width: $screen-sm) {
+    height:                          auto;
+  }
+}

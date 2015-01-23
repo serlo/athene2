@@ -1,0 +1,33 @@
+<?php
+/**
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license   LGPL-3.0
+ * @license   http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013-2014 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+?>
+<?php echo $this->pageHeader('Roles')->render(); ?>
+<div class="list-group">
+    <?php foreach ($this->roles as $role): ?>
+        <a class="list-group-item"
+           href="<?php echo $this->url('authorization/role/show', array('role' => $role->getId())); ?>">
+            <h4 class="list-group-item-heading">
+                <span class="badge pull-right"><?php echo $role->getUsers()->count(); ?></span>
+                <?php echo $role->getName(); ?>
+            </h4>
+
+            <p class="list-group-item-text"><?php echo $role->getDescription(); ?></p>
+        </a>
+    <?php endforeach; ?>
+    <?php if($this->isGranted('authorization.role.create')): ?>
+        <div class="list-group-item clearfix">
+            <a class="btn btn-success pull-right" href="<?php echo $this->url('authorization/role/create'); ?>">
+                <span class="glyphicon glyphicon-plus"></span>
+                <?php echo $this->translate('role'); ?>
+            </a>
+        </div>
+    <?php endif; ?>
+</div>
