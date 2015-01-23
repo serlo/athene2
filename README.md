@@ -1,10 +1,8 @@
 # Status
 
-| Branch  | Status        | Coverage  | Quality |
-| ------- | ------------- | --------- | ------- |
-| Master        | [![Build Status](https://magnum.travis-ci.com/serlo-org/athene2.png?token=gtodfPz6nLDS6xphYxdJ&branch=master)](https://magnum.travis-ci.com/serlo-org/athene2)              | [![Code Coverage](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/coverage.png?s=1d2264eb2b7376e91de5a8f58574da83fd156045)](https://scrutinizer-ci.com/g/serlo-org/athene2/)          | [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/quality-score.png?s=f163d3b21f6d3aeed19dd082958e71e544d6686e)](https://scrutinizer-ci.com/g/serlo-org/athene2/)        |
-| PTR        | [![Build Status](https://magnum.travis-ci.com/serlo-org/athene2.png?token=gtodfPz6nLDS6xphYxdJ&branch=ptr)](https://magnum.travis-ci.com/serlo-org/athene2)              | [![Code Coverage](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/coverage.png?s=1d2264eb2b7376e91de5a8f58574da83fd156045)](https://scrutinizer-ci.com/g/serlo-org/athene2/)          | [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/quality-score.png?s=f163d3b21f6d3aeed19dd082958e71e544d6686e)](https://scrutinizer-ci.com/g/serlo-org/athene2/)       |
-| Develop        | [![Build Status](https://magnum.travis-ci.com/serlo-org/athene2.png?token=gtodfPz6nLDS6xphYxdJ&branch=develop)](https://magnum.travis-ci.com/serlo-org/athene2)              | [![Code Coverage](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/coverage.png?s=1d2264eb2b7376e91de5a8f58574da83fd156045)](https://scrutinizer-ci.com/g/serlo-org/athene2/)          | [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/quality-score.png?s=f163d3b21f6d3aeed19dd082958e71e544d6686e)](https://scrutinizer-ci.com/g/serlo-org/athene2/)        |
+[![Build Status](https://magnum.travis-ci.com/serlo-org/athene2.png?token=gtodfPz6nLDS6xphYxdJ&branch=master)](https://magnum.travis-ci.com/serlo-org/athene2)
+[![Code Coverage](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/coverage.png?s=1d2264eb2b7376e91de5a8f58574da83fd156045)](https://scrutinizer-ci.com/g/serlo-org/athene2/)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/serlo-org/athene2/badges/quality-score.png?s=f163d3b21f6d3aeed19dd082958e71e544d6686e)](https://scrutinizer-ci.com/g/serlo-org/athene2/)
 
 # Commit rules
 
