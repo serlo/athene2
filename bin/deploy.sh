@@ -32,7 +32,8 @@ sh templatemap_generator.sh
 #     sh classmap_generator.sh
 #     sh templatemap_generator.sh
 sh build.sh
-pm2 kill
+pm2 stop server
+pm2 delete server
 cd ../src/assets/
 npm update
 pm2 start node_modules/athene2-editor/server/server.js
