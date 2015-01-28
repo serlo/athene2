@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     :group => "www-data",
     type: "rsync",
     rsync__auto: "true",
-    rsync__exclude: [".git/", ".idea/", "src/data/", "src/assets/build/", "src/assets/tmp/", "src/assets/source/bower_components", "src/assets/node_modules"],
+    rsync__exclude: [".git/", ".idea/", "src/data/", "src/vendor", "src/assets/build/", "src/assets/tmp/", "src/assets/source/bower_components", "src/assets/node_modules"],
     rsync__args: ["--verbose", "-r", "-l", "--delete", "--stats"]
 
   config.vm.provider :virtualbox do |vb|
