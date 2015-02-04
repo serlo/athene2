@@ -96,7 +96,7 @@ class ApiController extends AbstractController
         }
 
         foreach ($term->getAssociated('entities') as $child) {
-            $data['children'][] = [
+            $data['items'][] = [
                 'id'   => $child->getId(),
                 'type' => 'entity'
             ];
