@@ -51,7 +51,7 @@
   }
 
   &.is-searching {
-    .glyphicon-search {
+    .fa-search {
       animation: searching 0.5s infinite;
     }
   }
@@ -81,20 +81,20 @@
 
     &:focus {
       outline: 0;
-      box-shadow: none;
+      box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.24);
 
       background: $themeColor;
       color: white;
 
       @include placeholder-color();
 
-      & + .glyphicon-search {
+      & + .fa-search {
         color: white;
       }
     }
   }
 
-  .glyphicon-search {
+  .fa-search {
     position: absolute;
     top: 15px;
     right: 11px;

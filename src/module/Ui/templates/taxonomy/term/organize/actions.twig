@@ -2,7 +2,7 @@
     {% if(isGranted('taxonomy.term.create', term)) %}
     <div class="btn-group group-dropdown">
         <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
-            <span class="glyphicon glyphicon-plus"></span> <span class="caret"></span> </a>
+            <span class="fa fa-plus"></span> <span class="caret"></span> </a>
         <ul class="dropdown-menu">
             {% for taxonomy in taxonomy().getAllowedChildren(term) %}
                 <li>
@@ -17,21 +17,21 @@
 
     {% if(isGranted('taxonomy.term.update', term)) %}
         <a href="{{ url('taxonomy/term/update', {'term':term.getId()}) }}" class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-pencil"></span> </a>
+            <span class="fa fa-pencil"></span> </a>
     {% endif %}
 
     <a class="btn btn-default btn-xs" href="{{ url('event/history/object', {'id':term.getId()}) }}">
-        <span class="glyphicon-regular glyphicon-log-book"></span></a>
+        <span class="fa fa-heartbeat"></span></a>
 
     {% if term.isTrashed() %}
         {% if(isGranted('taxonomy.term.restore', term)) %}
             <a href="{{ url('uuid/restore', {'id':term.getId()}) }}" class="btn btn-warning btn-xs">
-                <span class="glyphicon glyphicon-refresh"></span> </a>
+                <span class="fa fa-refresh"></span> </a>
         {% endif %}
     {% else %}
         {% if(isGranted('taxonomy.term.trash', term)) %}
             <a href="{{ url('uuid/trash', {'id':term.getId()}) }}"
-               class="btn btn-default btn-xs"> <span class="glyphicon glyphicon-trash"></span> </a>
+               class="btn btn-default btn-xs"> <span class="fa fa-trash"></span> </a>
         {% endif %}
     {% endif %}
 </div>

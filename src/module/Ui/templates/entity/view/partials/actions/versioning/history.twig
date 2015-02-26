@@ -2,7 +2,7 @@
 {% if options.hasComponent('repository') and isGranted('entity.repository.history', entity) %}
     <li>
         <a href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
-            <span class="glyphicon glyphicon-time"></span>
+            <span class="fa fa-clock-o"></span>
             {% trans %} History {% endtrans %}
             {% if entity.isUnrevised() %}
                 <span class="label label-warning">{{ entity.countUnrevised() }}</span>

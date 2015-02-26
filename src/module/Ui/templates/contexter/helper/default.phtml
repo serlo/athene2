@@ -31,7 +31,7 @@
                 <?php $url = $this->url ?: $this->url($router->getRouteMatch()->getMatchedRouteName(), $router->getRouteMatch()->getParams(), [], false, false); ?>
                 <li>
                     <a href="<?php echo $this->url('contexter/add', array(), array('query' => array('uri' => $url))); ?>">
-                        <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
+                        <span class="fa fa-plus-sign"></span>&nbsp;
                         <?php echo $this->translate('Add'); ?>
                     </a>
                 </li>

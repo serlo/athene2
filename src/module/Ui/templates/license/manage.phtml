@@ -13,16 +13,16 @@
         <?php foreach($this->licenses as $license): ?>
             <tr>
                 <td><?php echo $license->getTitle(); ?></td>
-                <td><?php echo $license->isDefault() ? '<span class="glyphicon glyphicon-ok"></span>' : ''; ?></td>
+                <td><?php echo $license->isDefault() ? '<span class="fa fa-check"></span>' : ''; ?></td>
                 <td><a href="<?php echo $license->getUrl(); ?>"><?php echo $license->getUrl(); ?></a></td>
                 <td>
                     <div class="btn-group">
-                        <a class="btn btn-xs btn-default" href="<?php echo $this->url('license/detail', array('id' => $license->getId())); ?>"><span class="glyphicon glyphicon-search"></span></a>
+                        <a class="btn btn-xs btn-default" href="<?php echo $this->url('license/detail', array('id' => $license->getId())); ?>"><span class="fa fa-search"></span></a>
                         <?php if ($this->isGranted('license.update', $license)): ?>
-                            <a class="btn btn-xs btn-default" href="<?php echo $this->url('license/update', array('id' => $license->getId())); ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a class="btn btn-xs btn-default" href="<?php echo $this->url('license/update', array('id' => $license->getId())); ?>"><span class="fa fa-pencil"></span></a>
                         <?php endif; ?>
                         <?php if ($this->isGranted('license.purge', $license)): ?>
-                            <button class="btn btn-xs btn-danger dialog" href="<?php echo $this->url('license/remove', array('id' => $license->getId())); ?>" data-content="<?php echo $this->translate('Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE'); ?>" data-title="<?php echo $this->translate('DANGER: You are going to delete all contents associated with this license!'); ?>" data-type="danger"><span class="glyphicon glyphicon-trash"></span></button>
+                            <button class="btn btn-xs btn-danger dialog" href="<?php echo $this->url('license/remove', array('id' => $license->getId())); ?>" data-content="<?php echo $this->translate('Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE'); ?>" data-title="<?php echo $this->translate('DANGER: You are going to delete all contents associated with this license!'); ?>" data-type="danger"><span class="fa fa-trash"></span></button>
                         <?php endif; ?>
                     </div>
                 </td>
@@ -31,5 +31,5 @@
 	</tbody>
 </table>
 <div class="clearfix">
-    <a class="pull-right btn btn-sm btn-success" href="<?php echo $this->url('license/add'); ?>"><span class="glyphicon glyphicon-file"></span></a>
+    <a class="pull-right btn btn-sm btn-success" href="<?php echo $this->url('license/add'); ?>"><span class="fa fa-file"></span></a>
 </div>

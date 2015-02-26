@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="square square-primary">
-                            <span class="glyphicon-regular glyphicon-show-big-thumbnails"></span>
+                            <span class="fa fa-th-large"></span>
                             <span class="badge">1</span>
                         </div>
                         {{ 'Table of contents' | trans }}
@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="square square-primary">
-                                <span class="glyphicon-regular glyphicon-{{ revision.get('icon', 'book-open') }}"></span>
+                                <span class="fa fa-{{ revision.get('icon', 'book') }}"></span>
                                 <span class="badge">{{ loop.index+1 }}</span>
                             </div>
                             {{ revision.get('title') }}
@@ -53,7 +53,7 @@
                                  data-target="#course-{{ entity.getId() }}" data-slide-to="{{ loop.index0+1 }}">
                                 <div class="row">
                                     <div class="square col-sm-2 hidden-xs">
-                                        <span class="glyphicon-lg glyphicon-regular glyphicon-{{ revision.get('icon', 'book-open') }}"></span>
+                                        <span class="fa fa-{{ revision.get('icon', 'book') }}"></span>
                                     </div>
                                     <div class="col-xs-12 col-sm-10">
                                         <h4>

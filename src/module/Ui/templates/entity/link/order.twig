@@ -1,0 +1,34 @@
+{{ pageHeader('Sort' | trans).setSubtitle(normalize().toTitle(entity)).render() }}
+<div class="sortable" data-action="{{ url('entity/link/order', {entity: entity.getId(), type: scope}) }}" data-depth="1"
+     data-active="false">
+    <div class="sortable-actions">
+        <button class="btn btn-default sortable-activate-action">
+            {{ 'Sort' | trans }}
+        </button>
+        <button class="btn btn-success sortable-save-action is-hidden">
+            {{ 'Save' | trans }}
+        </button>
+        <button class="btn btn-danger sortable-abort-action is-hidden">
+            {{ 'Abort' | trans }}
+        </button>
+    </div>
+    <hr>
+    <ol class="sortable-list">
+        {% for child in children %}
+            <li class="sortable-item" data-id="{{ child.getId() }}">
+                <span class="sortable-handle"></span>
+
+                <div class="sortable-item-inner">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{ normalize().toTitle(child) }}
+                        </div>
+                        <div class="col-xs-12">
+                            <small>{{ normalize().toPreview(child) }}</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+</div>

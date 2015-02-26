@@ -117,7 +117,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                 .appendTo(self.$el);
 
             if (self.data.icon) {
-                $a.html('<span class="glyphicon glyphicon-' + self.data.icon + '"></span> <span>' + self.data.title + '</span>');
+                $a.html('<span class="fa fa-' + self.data.icon + '"></span> <span>' + self.data.title + '</span>');
             }
 
             if (self.data.cssClass) {
@@ -218,7 +218,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                 parentData = level[0].data.parent.data;
                 if (parentData.level === 0) {
                     backBtn = new MenuItem({
-                        icon: 'remove-circle',
+                        icon: 'times',
                         cssClass: 'sub-nav-header',
                         title: t('Close'),
                         url: '#',
@@ -244,7 +244,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                         }
 
                         parentLink = new MenuItem($.extend({}, parentData, {
-                            icon: 'eye-open',
+                            icon: 'eye',
                             cssClass: 'sub-nav-footer',
                             level: -1,
                             title: msg
@@ -259,7 +259,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                     }
 
                     backBtn = new MenuItem($.extend({}, parentData, {
-                        icon: 'circle-arrow-left',
+                        icon: 'arrow-left',
                         cssClass: 'sub-nav-header'
                     }));
 
@@ -670,10 +670,10 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
      **/
     SideNavigation.prototype.setActiveBranch = function () {
         var self = this,
-            position,
-            parents,
-            siblings,
-            $rootMenuItem;
+            position;
+            //parents,
+            //siblings,
+            //$rootMenuItem;
 
         if (self.active) {
             position = self.active.data.position;
@@ -684,42 +684,43 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                 .addClass(self.options.activeClass);
 
             // set the original root elements activeClass
-            $rootMenuItem = $('> li', self.$el).eq(position[0]).addClass(self.options.activeClass);
+            // $rootMenuItem = $('> li', self.$el).eq(position[0]).addClass(self.options.activeClass);
+            $('> li', self.$el).eq(position[0]).addClass(self.options.activeClass);
 
             // Create 'breadcrumbs'
-            parents = self.hierarchy.getParents(position).reverse();
+            // parents = self.hierarchy.getParents(position).reverse();
 
-            parents.shift();
-            parents.pop();
+            // parents.shift();
+            // parents.pop();
 
-            siblings = self.hierarchy.getSiblings(position);
+            //siblings = self.hierarchy.getSiblings(position);
 
             // set siblings activeClass
-            _.each(siblings, function (menuItem) {
-                if (_.isEqual(menuItem.data.position, position)) {
-                    menuItem.data.cssClass = self.options.activeClass;
-                }
-            });
+            //_.each(siblings, function (menuItem) {
+            //    if (_.isEqual(menuItem.data.position, position)) {
+            //        menuItem.data.cssClass = self.options.activeClass;
+            //    }
+            //});
 
-            if (self.options.breadcrumbDepth) {
-                parents = parents.splice(-1 * self.options.breadcrumbDepth);
-            }
+            //if (self.options.breadcrumbDepth) {
+            //    parents = parents.splice(-1 * self.options.breadcrumbDepth);
+            //}
 
-            if (!parents.length) {
-                parents = siblings;
-                siblings = [];
-            }
+            //if (!parents.length) {
+            //    parents = siblings;
+            //    siblings = [];
+            //}
 
-            if (parents.length && !self.$breadcrumbs.html().length) {
-                _.each(parents, function (menuItem, key) {
-                    var breadcrumb,
-                        breadCrumbOptions = {
-                        icon: false,
-                        needsFetching: false,
-                        renderedChildren: (key === parents.length - 1) ? siblings : false
-                    };
+            //if (parents.length && !self.$breadcrumbs.html().length) {
+                //_.each(parents, function (menuItem, key) {
+                    //var breadcrumb,
+                    //    breadCrumbOptions = {
+                    //    icon: false,
+                    //    needsFetching: false,
+                    //    renderedChildren: (key === parents.length - 1) ? siblings : false
+                    //};
 
-                    breadcrumb = new MenuItem(_.extend({}, menuItem.data, breadCrumbOptions));
+                    //breadcrumb = new MenuItem(_.extend({}, menuItem.data, breadCrumbOptions));
 
                     // breadcrumb.addEventListener('click', function (e) {
                     //     var parentMenuItem = self.hierarchy.getParent(e.menuItem);
@@ -728,15 +729,15 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                     //     self.jumpTo(parentMenuItem);
                     // });
 
-                    breadcrumb.addEventListener('reload', function () {
-                        self.force = true;
-                    });
+                    //breadcrumb.addEventListener('reload', function () {
+                    //   self.force = true;
+                    //});
 
-                    self.$breadcrumbs.append(breadcrumb.$el);
-                });
+                    //self.$breadcrumbs.append(breadcrumb.$el);
+                //});
 
-                self.$breadcrumbs.insertAfter($rootMenuItem);
-            }
+                //self.$breadcrumbs.insertAfter($rootMenuItem);
+            //}
         }
         return self;
     };

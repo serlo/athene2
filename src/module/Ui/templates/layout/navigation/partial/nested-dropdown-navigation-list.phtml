@@ -39,10 +39,10 @@ foreach ($this->pages as $page) {
     }
 
     if ($page->get('icon')) {
-        if (stristr($page->get('icon'), 'glyphicon-')) {
+        if (stristr($page->get('icon'), 'fa-')) {
             $html[] = '<span class="' . $page->get('icon') . '"></span>';
         } else {
-            $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+            $html[] = '<span class="fa fa-' . $page->get('icon') . '"></span>';
         }
     }
 

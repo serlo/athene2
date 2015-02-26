@@ -8,6 +8,7 @@
 namespace Link\Entity;
 
 use Type\Entity\TypeInterface;
+use Doctrine\Common\Collections\Collection;
 
 interface LinkableInterface
 {
@@ -28,12 +29,12 @@ interface LinkableInterface
     public function createLink();
 
     /**
-     * @return LinkInterface[]
+     * @return LinkInterface[]|Collection
      */
     public function getParentLinks();
 
     /**
-     * @return LinkInterface[]
+     * @return LinkInterface[]|Collection
      */
     public function getChildLinks();
 }

@@ -330,7 +330,7 @@ define(['jquery', 'common'], function ($, Common) {
                         .attr('href', '#')
                         .addClass('close-overlay')
                         .addClass('root-tab')
-                        .html('<i class="glyphicon glyphicon-remove"></i> ' + self.title));
+                        .html('<i class="fa fa-trash"></i> ' + self.title));
         self.$tabs.append($li);
 
         if (self.options.tabLimit > 0) {

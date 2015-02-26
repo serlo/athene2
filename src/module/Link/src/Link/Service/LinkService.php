@@ -26,7 +26,7 @@ class LinkService implements LinkServiceInterface
         LinkableInterface $parent,
         LinkableInterface $child,
         LinkOptionsInterface $parentOptions,
-        $position = 0
+        $position = null
     ) {
         $this->assertGranted($parentOptions->getPermission('create'), $child);
 
@@ -35,6 +35,10 @@ class LinkService implements LinkServiceInterface
         $typeName = $parentOptions->getLinkType();
         $type     = $this->getTypeManager()->findTypeByName($typeName);
         $link     = $parent->createLink();
+
+        if ($position === null) {
+            $position = $parent->getChildLinks()->count();
+        }
 
         $link->setParent($parent);
         $link->setChild($child);
@@ -58,8 +62,7 @@ class LinkService implements LinkServiceInterface
     public function dissociate(
         LinkableInterface $parent,
         LinkableInterface $child,
-        LinkOptionsInterface $parentOptions,
-        $position = 0
+        LinkOptionsInterface $parentOptions
     ) {
         $this->assertGranted($parentOptions->getPermission('purge'), $child);
 

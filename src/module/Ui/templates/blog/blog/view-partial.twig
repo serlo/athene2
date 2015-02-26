@@ -3,10 +3,10 @@
         <header>
             <div class="pull-right btn-group">
                  {% if isGranted('blog.post.update', post) %}
-                     <a class="btn btn-default btn-xs" href="{{ url('blog/post/update', {'post': post.getId()}) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                     <a class="btn btn-default btn-xs" href="{{ url('blog/post/update', {'post': post.getId()}) }}"><span class="fa fa-pencil"></span></a>
                  {% endif %}
                 {% if isGranted('blog.post.trash', post) %}
-                     <a class="btn btn-default btn-xs" href="{{ url('uuid/trash', {'id': post.getId()}) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                     <a class="btn btn-default btn-xs" href="{{ url('uuid/trash', {'id': post.getId()}) }}"><span class="fa fa-trash"></span></a>
                  {% endif %}
             </div>
             <h3><a href="{{ url('blog/post/view', {'post': post.getId()}) }}">

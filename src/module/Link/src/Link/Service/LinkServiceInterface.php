@@ -17,28 +17,26 @@ interface LinkServiceInterface
      * @param LinkableInterface    $parent
      * @param LinkableInterface    $child
      * @param LinkOptionsInterface $parentOptions
-     * @param number               $position
+     * @param number|null          $position
      * @return self
      */
     public function associate(
         LinkableInterface $parent,
         LinkableInterface $child,
         LinkOptionsInterface $parentOptions,
-        $position = 0
+        $position = null
     );
 
     /**
      * @param LinkableInterface    $parent
      * @param LinkableInterface    $child
      * @param LinkOptionsInterface $parentOptions
-     * @param number               $position
      * @return self
      */
     public function dissociate(
         LinkableInterface $parent,
         LinkableInterface $child,
-        LinkOptionsInterface $parentOptions,
-        $position = 0
+        LinkOptionsInterface $parentOptions
     );
 
     /**

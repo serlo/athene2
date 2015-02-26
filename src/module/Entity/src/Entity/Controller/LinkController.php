@@ -64,18 +64,27 @@ class LinkController extends AbstractController
     public function orderChildrenAction()
     {
         $entity = $this->getEntity();
+        $scope  = $this->params('type');
         $this->assertGranted('entity.link.order', $entity);
 
         if ($this->getRequest()->isPost()) {
-            $scope = $this->params('type');
-            $data  = $this->params()->fromPost()['sortable'];
-            $data  = $this->prepareDataForOrdering($data);
+            $data = $this->params()->fromPost()['sortable'];
+            $data = $this->prepareDataForOrdering($data);
 
             $this->getLinkService()->sortChildren($entity, $scope, $data);
             $this->getEntityManager()->flush();
+            $this->flashMessenger()->addSuccessMessage('Your changes have been saved.');
+            return $this->redirect()->toUrl($this->referer()->fromStorage());
+        } else {
+            $this->referer()->store();
+
         }
 
-        return false;
+        $children = $entity->getChildren($scope);
+        $view     = new ViewModel(['entity' => $entity, 'children' => $children, 'scope' => $scope]);
+        $view->setTemplate('entity/link/order');
+        $this->layout('layout/1-col');
+        return $view;
     }
 
     protected function prepareDataForOrdering($data)

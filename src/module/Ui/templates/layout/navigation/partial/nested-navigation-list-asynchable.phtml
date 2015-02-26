@@ -54,14 +54,6 @@ foreach ($this->pages as $page) {
 
     $html[] = '<a href="' . $this->alias($page->getHref()) . '"' . ($breadcrumb ? ' itemprop="url"' : '') . '>';
 
-    if ($page->get('icon')) {
-        if (stristr($page->get('icon'), 'glyphicon-')) {
-            $html[] = '<span class="' . $page->get('icon') . '"></span>';
-        } else {
-            $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
-        }
-    }
-
     if ($breadcrumb) {
         $html[] = '<span itemprop="title">' . $page->getLabel() . '</span>';
     } else {

@@ -32,9 +32,9 @@
                 </td>
                 <td>
                     <div class="btn-group">
-                        <a class="btn btn-default btn-xs" href="<?php echo $this->url('flag/detail', array('id' => $flag->getId())); ?>"><span class="glyphicon glyphicon-search"></span></a>
+                        <a class="btn btn-default btn-xs" href="<?php echo $this->url('flag/detail', array('id' => $flag->getId())); ?>"><span class="fa fa-search"></span></a>
                         <?php if ($this->isGranted('flag.purge', $flag)): ?>
-                            <a class="btn btn-danger btn-xs" href="<?php echo $this->url('flag/remove', array('id' => $flag->getId())); ?>"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a class="btn btn-danger btn-xs" href="<?php echo $this->url('flag/remove', array('id' => $flag->getId())); ?>"><span class="fa fa-trash"></span></a>
                         <?php endif; ?>
                     </div>
                 </td>

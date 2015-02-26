@@ -24,12 +24,12 @@ echo $this->doctype();
                 <div id="editor-actions" class="btn-group">
                     <button class="helper btn btn-success btn-labeled" data-toggle="tooltip" data-placement="bottom"
                             title="Save changes">
-                        <span class="btn-label"><span class="glyphicon-regular glyphicon-ok-2"></span></span>Save
+                        <span class="btn-label"><span class="fa fa-check"></span></span>Save
                     </button>
                     <?php if ($this->ref): ?>
                         <a class="helper btn btn-danger btn-labeled" data-toggle="tooltip" data-placement="bottom"
                            title="Reject changes" href="<?php $this->ref; ?>">
-                        <span class="btn-label"><span class="glyphicon-regular glyphicon-remove-2"></span></span>Cancel
+                        <span class="btn-label"><span class="fa fa-trash"></span></span>Cancel
                     </a>
                     <?php endif; ?>
                 </div>

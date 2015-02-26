@@ -8,13 +8,13 @@
                 <li>
                     <?php $options = array_merge_recursive($this->options, ['query' => ['page' => $this->previous]]); ?>
                     <a href="<?php echo $this->url($this->route, $params, $options); ?>">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="fa fa-chevron-left"></span>
                     </a>
                 </li>
             <?php else: ?>
                 <li class="disabled">
                     <a href="#">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="fa fa-chevron-left"></span>
                     </a>
                 </li>
             <?php endif; ?>
@@ -39,13 +39,13 @@
                 <li>
                     <?php $options = array_merge_recursive($this->options, ['query' => ['page' => $this->next]]); ?>
                     <a href="<?php echo $this->url($this->route, $params, $options); ?>">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="fa fa-chevron-right"></span>
                     </a>
                 </li>
             <?php else: ?>
                 <li class="disabled">
                     <a href="#">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="fa fa-chevron-right"></span>
                     </a>
                 </li>
             <?php endif; ?>

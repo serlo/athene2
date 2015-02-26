@@ -2,19 +2,19 @@
     <div class="row">
         <div class="col-xs-{{ leftWidth }}">
             <div class="square square-sm blockquote-info">
-            <span class="glyphicon-regular glyphicon-lg glyphicon-unshare"></span>
+            <span class="fa fa-2x fa-share"></span>
             </div>
             <div class="discussion-actions btn-group">
                 {% if isGranted('flag.create', comment) %}
                     <a class="btn btn-xs btn-default"
                        href="{{ url('flag/add', {'id': comment.getId()}) }}">
-                        <span class="glyphicon glyphicon-flag"></span> </a>
+                        <span class="fa fa-flag"></span> </a>
                 {% endif %}
                 {% if isGranted('discussion.comment.trash', comment) %}
                     <a href="{{ url('uuid/trash', {'id': comment.getId()}) }}"
                        class="btn btn-xs btn-default dialog"
                        data-content="{% trans %} Do you really want to delete this comment? {% endtrans %}">
-                        <span class="glyphicon glyphicon-trash"></span> </a>
+                        <span class="fa fa-trash"></span> </a>
                 {% endif %}
             </div>
         </div>

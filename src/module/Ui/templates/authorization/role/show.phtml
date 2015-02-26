@@ -14,7 +14,7 @@
     <div class="pull-right">
         <a class="btn btn-success btn-xs"
            href="<?php echo $this->url('authorization/role/user/add', ['role' => $this->role->getId()]); ?>"> <span
-                class="glyphicon glyphicon-plus"></span> </a>
+                class="fa fa-plus"></span> </a>
     </div>
 <?php endif; ?>
 <h3><?php echo $this->translate('Users'); ?></h3>
@@ -29,7 +29,7 @@
                 ); ?>" method="post" class="pull-right">
                     <input type="hidden" name="user" value="<?php echo $user->getUsername() ?>"/>
                     <button type="submit" class="btn btn-danger btn-xs">
-                        <span class="glyphicon glyphicon-minus"></span>
+                        <span class="fa fa-minus"></span>
                     </button>
                 </form>
             <?php endif; ?>
@@ -41,7 +41,7 @@
     <div class="pull-right">
         <a class="btn btn-success btn-xs"
            href="<?php echo $this->url('authorization/role/permission/add', ['role' => $this->role->getId()]); ?>">
-            <span class="glyphicon glyphicon-plus"></span> </a>
+            <span class="fa fa-plus"></span> </a>
     </div>
 <?php endif; ?>
 <h3><?php echo $this->translate('Permissions'); ?></h3>
@@ -63,7 +63,7 @@
                 <a href="<?php echo $this->url(
                     'authorization/role/permission/remove',
                     ['role' => $this->role->getId(), 'permission' => $permission->getId()]
-                ); ?>" class="label label-danger pull-right"> <span class="glyphicon glyphicon-minus"></span> </a>
+                ); ?>" class="label label-danger pull-right"> <span class="fa fa-minus"></span> </a>
             <?php endif; ?>
         </div>
     <?php endforeach; ?>

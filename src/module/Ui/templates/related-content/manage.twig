@@ -29,7 +29,7 @@
                         <div class="col-xs-{{ col }}">
                             <a href="{{ url('related-content/remove', {'id': related.getId()}) }}"
                                class="btn btn-xs btn-danger">
-                                <span class="glyphicon glyphicon-trash"></span>
+                                <span class="fa fa-trash"></span>
                             </a>
                         </div>
                     {% endif %}
@@ -41,29 +41,29 @@
         <div class="btn-group">
             <a class="btn btn-default btn-sm btn-labeled"
                href="{{ url('related-content/add-category', {'id': container.getId()}) }}"><span class="btn-label"><span
-                            class="glyphicon-regular glyphicon-plus"></span></span>{% trans %} Category {% endtrans %}
+                            class="fa fa-plus"></span></span>{% trans %} Category {% endtrans %}
             </a>
             <a class="btn btn-default btn-sm btn-labeled"
                href="{{ url('related-content/add-internal', {'id': container.getId()}) }}"><span class="btn-label"><span
-                            class="glyphicon-regular glyphicon-plus"></span></span>{% trans %} Internal {% endtrans %}
+                            class="fa fa-plus"></span></span>{% trans %} Internal {% endtrans %}
             </a>
             <a class="btn btn-default btn-sm btn-labeled"
                href="{{ url('related-content/add-external', {'id': container.getId()}) }}"><span class="btn-label"><span
-                            class="glyphicon-regular glyphicon-plus"></span></span>{% trans %} External {% endtrans %}
+                            class="fa fa-plus"></span></span>{% trans %} External {% endtrans %}
             </a>
         </div>
     {% endif %}
     {% if isGranted('related.content.update', container) %}
         <div class="sortable-actions btn-group">
             <button class="btn btn-sm btn-default btn-labeled sortable-activate-action">
-                <span class="btn-label"><span class="glyphicon glyphicon-sort"></span></span> {{ 'Sort' | trans }}
+                <span class="btn-label"><span class="fa fa-sort"></span></span> {{ 'Sort' | trans }}
             </button>
             <button class="btn btn-sm btn-success btn-labeled sortable-save-action is-hidden">
                 <span class="btn-label"><span
-                            class="glyphicon glyphicon-floppy-save"></span></span> {{ 'Save' | trans }}
+                            class="fa fa-floppy-o"></span></span> {{ 'Save' | trans }}
             </button>
             <button class="btn btn-sm btn-danger btn-labeled sortable-abort-action is-hidden">
-                <span class="btn-label"><span class="glyphicon glyphicon-remove"></span></span> {{ 'Abort' | trans }}
+                <span class="btn-label"><span class="fa fa-trash-o"></span></span> {{ 'Abort' | trans }}
             </button>
         </div>
     {% endif %}

@@ -39,10 +39,10 @@ foreach ($this->container as $page) {
                 $this->alias($page->getHref())) . '" ' . 'class="dropdown-toggle" data-toggle="dropdown">';
 
         if ($page->get('icon')) {
-            if (stristr($page->get('icon'), 'glyphicon-')) {
+            if (stristr($page->get('icon'), 'fa-')) {
                 $html[] = '<span class="' . $page->get('icon') . '"></span>';
             } else {
-                $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+                $html[] = '<span class="fa fa-' . $page->get('icon') . '"></span>';
             }
         }
 
@@ -59,10 +59,10 @@ foreach ($this->container as $page) {
         $html[] = '<a href="' . $this->alias($page->getHref()) . '" class="' . $page->get('class') . '">';
 
         if ($page->get('icon')) {
-            if (stristr($page->get('icon'), 'glyphicon-')) {
+            if (stristr($page->get('icon'), 'fa-')) {
                 $html[] = '<span class="' . $page->get('icon') . '"></span>';
             } else {
-                $html[] = '<span class="glyphicon-regular glyphicon-' . $page->get('icon') . '"></span>';
+                $html[] = '<span class="fa fa-' . $page->get('icon') . '"></span>';
             }
         }
 

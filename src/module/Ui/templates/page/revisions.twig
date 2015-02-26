@@ -23,23 +23,23 @@
                 <!-- edit button -->
                 {% if isGranted('page.revision.create', page) %}
                     <a href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}" class="btn btn-xs btn-default">
-                        <span class="glyphicon glyphicon-pencil"></span> {% trans %} Use for editing {% endtrans %}
+                        <span class="fa fa-pencil"></span> {% trans %} Use for editing {% endtrans %}
                     </a>
                 {% endif %}
                 {% if isGranted('event.log.get', revision) %}
                     <a class="btn btn-xs btn-default" href="{{ url('event/history/object', {'id': revision.getId()}) }}">
-                        <span class="glyphicon-regular glyphicon-log-book"></span> {% trans %} Log {% endtrans %}
+                        <span class="fa fa-heartbeat"></span> {% trans %} Log {% endtrans %}
                     </a>
                 {% endif %}
                 {% if revision.getRepository().getCurrentRevision() is not same as(revision) %}
                     {% if isGranted('page.revision.trash', revision) %}
                     <a href="{{ url('uuid/trash', {'id': revision.getId()}) }}" class="btn btn-xs btn-default">
-                        <span class="glyphicon glyphicon-trash"></span> {% trans %} Trash {% endtrans %}
+                        <span class="fa fa-trash"></span> {% trans %} Trash {% endtrans %}
                     </a>
                     {% endif %}
                     {% if isGranted('page.revision.checkout', revision) %}
                         <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}" class="btn btn-xs btn-default">
-                            <span class="glyphicon glyphicon-ok"></span> {% trans %} Set as base {% endtrans %}
+                            <span class="fa fa-check"></span> {% trans %} Set as base {% endtrans %}
                         </a>
                     {% endif %}
                 {% endif %}
@@ -50,7 +50,7 @@
 <hr>
 {% if isGranted('page.create', page) %}
     <a href="{{ url('page/update', {'page': page.getId()}) }}" class="btn btn-xs btn-default">
-        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="fa fa-pencil"></span>
         {% trans %} Edit page {% endtrans %}
     </a>
 {% endif %}

@@ -204,7 +204,7 @@ return [
                             'order' => [
                                 'type'    => 'segment',
                                 'options' => [
-                                    'route'       => '/order/:type/:entity',
+                                    'route'       => '/order/:entity/:type',
                                     'defaults'    => [
                                         'action' => 'orderChildren'
                                     ],

@@ -83,14 +83,10 @@ class EntityLink implements LinkInterface
     public function setChild(LinkableInterface $child)
     {
         $this->child = $child;
-
-        return $this;
     }
 
     public function setParent(LinkableInterface $parent)
     {
         $this->parent = $parent;
-
-        return $this;
     }
 }

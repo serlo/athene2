@@ -43,16 +43,16 @@
                 <div class="btn-group pull-right">
                     {% if not revision.isTrashed() and isGranted('entity.revision.checkout', revision) %}
                         <button class="btn btn-default btn-md" data-toggle="modal" data-target="#revisionAcceptModal">
-                            <span class="glyphicon glyphicon-ok"></span>
+                            <span class="fa fa-check"></span>
                         </button>
                     {% endif %}
                     {% if not revision.isTrashed() and isGranted('entity.revision.trash', revision) %}
                         <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#revisionRejectModal">
-                            <span class="glyphicon glyphicon-trash"></span>
+                            <span class="fa fa-trash"></span>
                         </button>
                     {% elseif revision.isTrashed() and isGranted('entity.revision.restore', revision) %}
                         <a class="btn btn-default btn-md" href="{{ url('uuid/restore', {'id': revision.getId()}) }}">
-                            <span class="glyphicon glyphicon-refresh"></span>
+                            <span class="fa fa-refresh"></span>
                         </a>
                     {% endif %}
                 </div>

@@ -93,13 +93,13 @@
 
     &:hover {
       text-decoration: none;
-      .glyphicon {
+      .fa {
         color: $lighterGray;
       }
     }
   }
 
-  .glyphicon {
+  .fa {
     position: absolute;
     top: 9px;
     right: 15px;
@@ -112,7 +112,7 @@
     padding: 16px 0 0;
     margin-left: 24px;
 
-    .glyphicon {
+    .fa {
       top: 28px;
       left: -10px;
     }

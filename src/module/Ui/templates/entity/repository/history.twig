@@ -22,7 +22,7 @@
                 (<a href="{{ url('entity/repository/compare', {'entity': entity.getId(), 'revision': revision.getId()}) }}">{% trans %}
                     show {% endtrans %}</a>)
             </td>
-            <td>{{ isCurrent ? '<span class="glyphicon glyphicon-ok"></span>' : '' }}</td>
+            <td>{{ isCurrent ? '<span class="fa fa-check"></span>' : '' }}</td>
             <td>{{ normalize().toAnchor(revision.getAuthor()) }}</td>
             <td>{{ timeago().render(revision.getTimestamp()) }}</td>
         </tr>
