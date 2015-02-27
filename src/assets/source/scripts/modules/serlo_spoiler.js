@@ -9,11 +9,11 @@ define(['jquery'], function ($) {
                 .unbind('click')
                 .first()
                 .click(function (e) {
-                    var glyphicon = $(this).find('.glyphicon-regular');
+                    var glyphicon = $(this).find('.fa');
                     e.preventDefault();
                     $(this).next('.spoiler-content').slideToggle();
-                    glyphicon.toggleClass('glyphicon-expand');
-                    glyphicon.toggleClass('glyphicon-collapse-top');
+                    glyphicon.toggleClass('fa-plus');
+                    glyphicon.toggleClass('fa-minus');
                     return;
                 });
         });

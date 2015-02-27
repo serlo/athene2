@@ -1,8 +1,5 @@
 <div class="page-header">
-    <div class="pull-right btn-group hidden-xs">
-        {% include 'taxonomy/term/templates/partials/controls' %}
-        {{ contexter().renderButton() }}
-    </div>
+    {% include 'taxonomy/term/templates/partials/controls' %}
     {% if term.hasParent() %}
         <ul class="nav nav-pills pull-left">
             <li>
@@ -13,10 +10,6 @@
         </ul>
     {% endif %}
     <h1>{{ term.getName() }}</h1>
-
-    <div class="edit-control hidden">
-        {% include 'taxonomy/term/templates/partials/actions' %}
-    </div>
 </div>
 {% include 'taxonomy/term/page/partials/alerts' %}
 {% include 'taxonomy/term/templates/default' %}

@@ -5,16 +5,16 @@
             {{ markdown().toHtml(entity.getCurrentRevision().get('content')) }}
         </div>
         <div class="col-xs-2 col-sm-5 col-md-4">
-            <ul class="nav nav-pills nav-right">
-                {% include 'entity/view/partials/actions/small-essential' %}
-                <li class="hidden-xs" data-toggle="tooltip" data-placement="bottom"
-                    title="{% trans %} I want to comment this {% endtrans %}">
+            <div class="pull-right">
+                <div class="hidden-xs btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom"
+                     title="{% trans %} I want to comment this {% endtrans %}">
                     <a data-toggle="collapse" data-parent="#discussions-{{ entity.getId() }}"
                        href="#discussions-{{ entity.getId() }}">
                         <span class="fa fa-comments"></span>
                     </a>
-                </li>
-            </ul>
+                </div>
+                {% include 'entity/view/partials/actions/small-essential' %}
+            </div>
         </div>
     </section>
     <section class="collapse" id="discussions-{{ entity.getId() }}">

@@ -1,9 +1,9 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') %}
-    <li class="edit-control hidden hidden-xs" data-toggle="tooltip" data-placement="bottom"
+    <div class="btn btn-default btn-xs hidden-xs" data-toggle="tooltip" data-placement="bottom"
         title="{% trans %} I want to edit this {% endtrans %}">
         <a href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
             <span class="fa fa-pencil"></span>
         </a>
-    </li>
+    </div>
 {% endif %}

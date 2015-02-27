@@ -2,7 +2,7 @@
 {% if options.hasComponent('license') %}
     <li>
         <a href="{{ url('license/detail', {'id': entity.getLicense().getId()}) }}">
-            <img class="license-intext" alt="{% trans %} License {% endtrans %}" src="{{ entity.getLicense().getIconHref() }}">
+            <span class="fa fa-leaf"></span>
             {% trans %} License {% endtrans %}
         </a>
     </li>

@@ -1,58 +1,42 @@
 {% set subject = term.findAncestorByTypeName('subject') %}
 {% set entities = term.getAssociated('entities') %}
-<ul class="nav nav-pills" role="navigation">
-{% if isGranted('taxonomy.term.update', term) %}
-        <li>
-            <a href="{{ url('taxonomy/term/update', {'term': term.getId()}) }}">
-                <span class="fa fa-pencil"></span> {% trans %} Edit {% endtrans %}
-            </a>
-        </li>
-    {% endif %}
-    {{ subscribe(term).menuItem() }}
-    {% include 'common/share' with {'id': term.getId()} %}
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            {% trans %} More {% endtrans %}
-            <span class="caret"></span>
+
+{{ subscribe(term).subMenuItem() }}
+{% include 'common/share' with {'id': term.getId()} %}
+{% if isGranted('taxonomy.term.create', term) %}
+    <li>
+        <a href="{{ url('taxonomy/term/organize', {'term': term.getId()}) }}">
+            <span class="fa fa-th-list"></span> {% trans %} Organize {% endtrans %}
+        </a>
+    </li>
+{% endif %}
+{% if isGranted('event.log.get', term) %}
+    <li>
+        <a href="{{ url('event/history/object', {'id': term.getId()}) }}">
+            <span class="fa fa-heartbeat"></span> {% trans %} Log {% endtrans %}
+        </a>
+    </li>
+{% endif %}
+{% if taxonomy().getOptions(term).isAssociationAllowed('Entity\\Entity\\EntityInterface') and isGranted('entity.create', term) and isGranted('taxonomy.term.associate', term) %}
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">
+            <span class="fa fa-file"></span> {% trans %} Add content {% endtrans %}
         </a>
         <ul class="dropdown-menu">
-            {% if isGranted('taxonomy.term.create', term) %}
+            {% for type in subject().getOptions(subject).getAllowedEntities() %}
                 <li>
-                    <a href="{{ url('taxonomy/term/organize', {'term': term.getId()}) }}">
-                        <span class="fa fa-th-list"></span> {% trans %} Organize {% endtrans %}
+                    <a href="{{ url('entity/create', {'type': type}, {'query': {'taxonomy': {'term': term.getId() }}}) }}">
+                        {{ type  | trans }}
                     </a>
                 </li>
-            {% endif %}
-            {% if isGranted('event.log.get', term) %}
-                <li>
-                    <a href="{{ url('event/history/object', {'id': term.getId()}) }}">
-                        <span class="fa fa-heartbeat"></span> {% trans %} Log {% endtrans %}
-                    </a>
-                </li>
-            {% endif %}
-            {% if taxonomy().getOptions(term).isAssociationAllowed('Entity\\Entity\\EntityInterface') and isGranted('entity.create', term) and isGranted('taxonomy.term.associate', term) %}
-                <li class="dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="fa fa-file"></span> {% trans %} Add content {% endtrans %}
-                    </a>
-                    <ul class="dropdown-menu">
-                        {% for type in subject().getOptions(subject).getAllowedEntities() %}
-                            <li>
-                                <a href="{{ url('entity/create', {'type': type}, {'query': {'taxonomy': {'term': term.getId() }}}) }}">
-                                    {{ type  | trans }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endif %}
-            {% if isGranted('taxonomy.term.associated.sort', term) %}
-                <li>
-                    <a href="{{ url('taxonomy/term/sort-associated', {'association': 'entities', 'term': term.getId()}) }}">
-                        <span class="fa fa-sort"></span> {% trans %} Order content {% endtrans %}
-                    </a>
-                </li>
-            {% endif %}
+            {% endfor %}
         </ul>
     </li>
-</ul>
+{% endif %}
+{% if isGranted('taxonomy.term.associated.sort', term) %}
+    <li>
+        <a href="{{ url('taxonomy/term/sort-associated', {'association': 'entities', 'term': term.getId()}) }}">
+            <span class="fa fa-sort"></span> {% trans %} Order content {% endtrans %}
+        </a>
+    </li>
+{% endif %}

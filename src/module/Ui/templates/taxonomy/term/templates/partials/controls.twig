@@ -1,4 +1,23 @@
-<div class="btn btn-default" data-toggle="edit-controls"><span class="fa fa-pencil"></span></div>
-<div class="btn btn-default" data-toggle="discussions" data-target="#discussion-{{ term.getId() }}">
-    <span class="fa fa-comments"></span>
+<div class="pull-right hidden-xs">
+    <div class="btn-group">
+        {% if isGranted('taxonomy.term.update', term) %}
+            <a class="btn btn-default" href="{{ url('taxonomy/term/update', {'term': term.getId()}) }}">
+                <span class="fa fa-pencil"></span>
+            </a>
+        {% endif %}
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">{{ 'Toggle Dropdown' | trans }}</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            {% include 'taxonomy/term/templates/partials/actions' %}
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <div class="btn btn-default" data-toggle="discussions" data-target="#discussion-{{ term.getId() }}">
+            <span class="fa fa-comments"></span>
+        </div>
+        {{ contexter().renderButton() }}
+    </div>
 </div>

@@ -1,10 +1,7 @@
 {% set title = entity.getId() %}
 {% do headTitle(title) %}
 <div class="page-header">
-    <div class="pull-right btn-group hidden-xs">
-        {% include 'entity/view/partials/actions/toggle-controls' %}
-        {{ contexter().renderButton() }}
-    </div>
+    {% include 'entity/view/partials/actions/controls' %}
     <h1>{{ title }}
         <small>{% trans %} Text exercise group {% endtrans %}</small>
     </h1>

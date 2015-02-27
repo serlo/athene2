@@ -3,13 +3,13 @@
 
 <article itemscope itemtype="http://schema.org/Article">
     <div class="row {{ collapse is defined ? 'collapse' : '' }}" id="solution-{{ entity.getId() }}">
-        <div class="clearfix">
-            <ul class="nav nav-pills nav-right">
-                {% include 'entity/view/partials/actions/small-essential' %}
-            </ul>
-        </div>
         <section class="col-xs-12">
             <div itemprop="articleBody" class="blockquote-box blockquote-info blockquote-left">
+                <div class="clearfix">
+                    <div class="pull-right">
+                        {% include 'entity/view/partials/actions/small-essential' %}
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-xs-12">
                         {% if revision %}

@@ -4,9 +4,9 @@
     <section class="{{ collapse is defined ? 'collapse' : '' }} panel panel-default" id="hint-{{ entity.getId() }}">
         <div class="panel-body">
             <strong>
-                <ul class="nav nav-pills pull-right">
+                <div class="pull-right">
                     {% include 'entity/view/partials/actions/small-essential' %}
-                </ul>
+                </div>
                 <span class="fa fa-question-sign"></span>
                 {% trans %} Hint {% endtrans %}
             </strong>

@@ -8,24 +8,24 @@
             {{ markdown().toHtml(revision.get('content')) | raw }}
         </div>
         <div class="col-xs-2 col-sm-5 col-md-4">
-            <ul class="nav nav-pills nav-right">
-                {% include 'entity/view/partials/actions/small-essential' %}
-                {% if(hint) %}
-                    <li data-toggle="tooltip" data-placement="bottom" title="{% trans %} I need a hint {% endtrans %}">
+            <div class="pull-right">
+                {% if hint %}
+                    <div class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="{% trans %} I need a hint {% endtrans %}">
                         <a data-toggle="collapse" href="#hint-{{ hint.getId() }}">
                             <span class="fa fa-question-circle"></span>
                         </a>
-                    </li>
+                    </div>
                 {% endif %}
                 {% if(solution) %}
-                    <li data-toggle="tooltip" data-placement="bottom"
-                        title="{% trans %} I want to see the solution {% endtrans %}">
+                    <div class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom"
+                         title="{% trans %} I want to see the solution {% endtrans %}">
                         <a data-toggle="collapse" href="#solution-{{ solution.getId() }}">
                             <span class="fa fa-check-circle"></span>
                         </a>
-                    </li>
+                    </div>
                 {% endif %}
-            </ul>
+                {% include 'entity/view/partials/actions/small-essential' %}
+            </div>
         </div>
     </section>
     {% if hint %}
