@@ -9,7 +9,8 @@
     <thead>
     <tr>
         <th>{% trans %} # {% endtrans %}</th>
-        <th>{% trans %} Current {% endtrans %}</th>
+        <th>{% trans %} Current {% endtrans %}
+        <th>{% trans %} Changes {% endtrans %}</th>
         <th>{% trans %} Author {% endtrans %}</th>
         <th>{% trans %} Timestamp {% endtrans %}</th>
     </tr>
@@ -23,6 +24,7 @@
                     show {% endtrans %}</a>)
             </td>
             <td>{{ isCurrent ? '<span class="fa fa-check"></span>' : '' }}</td>
+            <th>{{ revision.get('changes') }}</th>
             <td>{{ normalize().toAnchor(revision.getAuthor()) }}</td>
             <td>{{ timeago().render(revision.getTimestamp()) }}</td>
         </tr>
