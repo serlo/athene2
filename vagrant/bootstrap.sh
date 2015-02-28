@@ -115,7 +115,7 @@ sudo sed -i "s/bind-address.*=.*/bind-address=0.0.0.0/" /etc/mysql/my.cnf
 # Php hacks
 sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
 sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/apache2/php.ini
-sudo sed -i "s/\memory\_limit=128M/memory\_limit=512M/" /etc/php5/apache2/php.ini
+sudo sed -i "s/\memory\_limit=128M/memory\_limit=1024M/" /etc/php5/apache2/php.ini
 sudo sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /etc/php5/apache2/php.ini
 sudo sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php5/apache2/php.ini
 sudo echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
