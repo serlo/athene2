@@ -14,7 +14,7 @@
             </ul>
         </div>
     </div>
-    <h3>{{ term.getName() }}</h3>
+    <h3>{{ term.getName() }} <small>{{ term.getTaxonomy().getName() | trans }}</small></h3>
 <hr>
 <div class="sortable" data-active="false" data-action="{{ url( 'taxonomy/term/order', {'term' : term.getId()}) }}">
     {% endif %}
@@ -24,7 +24,7 @@
             <li class="sortable-item" data-id="{{ child.getId() }}">
                 <span class="sortable-handle"></span>
                 <div class="sortable-item-inner">
-                    {{ child.getName() }}
+                    {{ child.getName() }} <small>{{ child.getTaxonomy().getName() | trans }}</small>
                     {% include 'taxonomy/term/organize/actions' with {'term' : child} only %}
                 </div>
                 {% include 'taxonomy/term/organize/partial' with {'isChild' : true, 'term' : child} only %}
