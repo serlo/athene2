@@ -1,11 +1,11 @@
 .discussions {
   .archived-toggle span:after {
-    font-family: 'Glyphicons Halflings';
-    content: "\e113";
+    font-family: 'FontAwesome';
+    content: "\f077";
   }
 
   .archived-toggle.collapsed span:after {
-    content: "\e114";
+    content: "\f078";
   }
 
   .discussion-actions {
