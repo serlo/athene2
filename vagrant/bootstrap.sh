@@ -96,6 +96,7 @@ exec /home/vagrant/bin/boot.sh
 sed -i '$ a\xdebug.max_nesting_level = 500' /etc/php5/apache2/php.ini
 
 ln -s /vagrant/bin/ /home/vagrant/bin
+mkdir /var/www/src/data/
 
 # Enable apache mods
 a2enmod rewrite proxy proxy_fcgi
@@ -115,7 +116,7 @@ sudo sed -i "s/bind-address.*=.*/bind-address=0.0.0.0/" /etc/mysql/my.cnf
 # Php hacks
 sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
 sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/apache2/php.ini
-sudo sed -i "s/\memory\_limit=128M/memory\_limit=1024M/" /etc/php5/apache2/php.ini
+sudo sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /etc/php5/apache2/php.ini
 sudo sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /etc/php5/apache2/php.ini
 sudo sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php5/apache2/php.ini
 sudo echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
@@ -128,10 +129,11 @@ sudo a2dissite 000-default
 sudo service apache2 restart
 
 chmod +x /home/vagrant/bin/*
+chown www-data:www-data /var/www/src/data/
 sudo /home/vagrant/bin/clean-caches.sh
 sudo /home/vagrant/bin/clean-ui.sh
 sudo /home/vagrant/bin/boot.sh
 sudo /home/vagrant/bin/update-mysql.sh
 
 # Restart apache
-service apache2 restart
+sudo service apache2 restart
