@@ -88,7 +88,9 @@ define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
                     try {
                         data = JSON.parse(data);
                         if (data.response) {
-                            $that.html(data.response);
+                            $that.html('<div class="panel panel-default"><div class="panel-body">'
+                            + data.response
+                            + '</div></div>');
                             Common.trigger('new context', $that);
                         } else {
                             notSupportedYet($that);

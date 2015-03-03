@@ -1,17 +1,9 @@
 #!/bin/sh
 
-# sudo cp /var/www/dist/solr/data-config.xml /etc/solr/config/data-config.xml
-# sudo cp /var/www/dist/solr/data-config.xml /etc/solr/config/data-config.xml
-# sudo su - root -c "(cd /var/www/src/assets;npm cache clean)"
-# sudo su - root -c "cd /home/vagrant/athene2-assets/;npm update"
-# sudo su - www-data -c "(cd /var/www/src/assets;bower cache clean)"
-# sudo su - www-data -c "(cd /var/www/src/assets;bower update)"
-# sudo su - root -c "(cd /var/www/src/assets;grunt build)"
-# sudo sh restart-hhvm.sh
-
-rm /var/www/src/data -rf
-mkdir /var/www/src/data
-chown www-data:www-data /var/www/src/data
+mkdir /var/www/src/public/assets
+rm /var/www/src/data/* -rf
+chown www-data:www-data /var/www/* -R
+chmod 777 /var/www/* -R
 sudo su - www-data -c "(cd /var/www/src/assets;npm cache clean)"
 sudo su - www-data -c "(cd /var/www/src/assets;npm install)"
 sudo su - www-data -c "(cd /var/www/src/assets;npm update)"
