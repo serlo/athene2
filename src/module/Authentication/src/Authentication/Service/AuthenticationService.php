@@ -118,10 +118,19 @@ class AuthenticationService extends ZendAuthenticationService
     protected function hasIndicator()
     {
         $cookie = $this->request->getCookie();
+        if (!is_object($cookie)) {
+            return false;
+        }
+
         if ($cookie->offsetExists($this->cookieName) && $cookie->offsetGet($this->cookieName)) {
             return true;
         }
+
         $cookies = $this->response->getCookie();
+        if (!is_array($cookies)) {
+            return false;
+        }
+
         foreach ($cookies as $cookie) {
             if ($cookie->getName() === $this->cookieName && $cookie->getValue() === true) {
                 return true;
