@@ -1,7 +1,9 @@
 <div class="btn-group">
+    {% if isGranted('page.revision.create', page) %}
      <a class="btn btn-default" href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
          <span class="fa fa-pencil"></span>
      </a>
+    {% endif %}
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="caret"></span>
         <span class="sr-only">{{ 'Toggle Dropdown' | trans }}</span>
