@@ -1,3 +1,6 @@
+# Allow API calls from mobile app
+Header set Access-Control-Allow-Origin "http://localhost:9000"
+
 RewriteEngine On
 
 # Redirect index.php Requests
