@@ -46,13 +46,6 @@ npm -g install grunt-cli
 npm -g install pm2 --unsafe-perm
 npm -g install dnode
 
-# HHVM
-sudo add-apt-repository ppa:mapnik/boost
-wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add -
-echo deb http://dl.hhvm.com/ubuntu precise main | sudo tee /etc/apt/sources.list.d/hhvm.list
-sudo apt-get update
-sudo apt-get install -y hhvm
-
 # VirtualHost setup
 echo "<VirtualHost *:80>
 	ServerAdmin webmaster@localhost
@@ -128,8 +121,11 @@ sudo su - www-data -c "(cd /var/www/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.
 sudo a2dissite 000-default
 sudo service apache2 restart
 
+# chmod stuff
 chmod +x /home/vagrant/bin/*
 chown www-data:www-data /var/www/src/data/
+
+# execute scripts
 sudo /home/vagrant/bin/clean-caches.sh
 sudo /home/vagrant/bin/clean-ui.sh
 sudo /home/vagrant/bin/boot.sh
