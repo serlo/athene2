@@ -132,9 +132,13 @@ class ApiController extends AbstractController
 
     public function entityAction()
     {
-        $id     = $this->params('id');
         $format = $this->params()->fromQuery('format', 'html');
-        $entity = $this->getEntity($id);
+        $entity = $this->getEntity();
+
+        if (!$entity) {
+            return false;
+        }
+
         $item   = [
             'id'      => $entity->getId(),
             'type'    => $entity->getType()->getName(),

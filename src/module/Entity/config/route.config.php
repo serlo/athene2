@@ -25,7 +25,7 @@ return [
                     'entities' => [
                         'type'    => 'segment',
                         'options' => [
-                            'route'    => '/:id',
+                            'route'    => '/:entity',
                             'defaults' => [
                                 'action' => 'entity'
                             ]
