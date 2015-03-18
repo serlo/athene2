@@ -75,11 +75,12 @@
                     {% endfor %}
                 {% endif %}
                 {% if exerciseCount %}
+                    {% set ecount = exerciseCount %}
                     {% set exercises %}
                         <div class="col-xs-12">
                             <a href="{{ url('taxonomy/term/get', {'term': child.getId()}) }}">
                                 {% trans %}
-                                Show {{ exerciseCount }} exercises...
+                                Show {{ ecount }} exercises...
                                 {% endtrans %}
                             </a>
                         </div>
