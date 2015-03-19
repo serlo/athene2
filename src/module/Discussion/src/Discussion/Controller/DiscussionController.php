@@ -64,19 +64,6 @@ class DiscussionController extends AbstractController
         return $this->redirect()->toReferer();
     }
 
-    public function selectForumAction()
-    {
-        $instance = $this->getInstanceManager()->getInstanceFromRequest();
-        $terms    = $this->taxonomyManager->findTaxonomyByName('forum-category', $instance)->getChildren();
-        $view     = new ViewModel([
-            'terms' => $terms,
-            'on'    => $this->params('on')
-        ]);
-        $view->setTerminal(true);
-        $view->setTemplate('discussion/discussion/select/forum');
-        return $view;
-    }
-
     public function commentAction()
     {
         $discussion = $this->getDiscussion($this->params('discussion'));
@@ -109,8 +96,6 @@ class DiscussionController extends AbstractController
 
         $view = new ViewModel(['form' => $form, 'discussion' => $discussion, 'ref' => $ref]);
         $view->setTemplate('discussion/discussion/comment');
-        //$this->layout('editor/layout');
-
         return $view;
     }
 
@@ -133,7 +118,7 @@ class DiscussionController extends AbstractController
 
     public function startAction()
     {
-        $form     = $this->getForm('discussion', $this->params('on'), $this->params('forum'));
+        $form     = $this->getForm('discussion', $this->params('on'));
         $instance = $this->getInstanceManager()->getInstanceFromRequest();
         $author   = $this->getUserManager()->getUserFromAuthenticator();
         $url      = $this->url()->fromRoute('uuid/get', ['uuid' => $this->params('on')]);
@@ -145,7 +130,6 @@ class DiscussionController extends AbstractController
             $data = [
                 'instance' => $instance,
                 'author'   => $author,
-                'terms'    => $this->params('forum'),
                 'object'   => $this->params('on')
             ];
             $form->setData(array_merge($this->params()->fromPost(), $data));
@@ -209,25 +193,11 @@ class DiscussionController extends AbstractController
         }
     }
 
-    protected function getForm($type, $id, $forum = null)
+    protected function getForm($type, $id)
     {
         switch ($type) {
             case 'discussion':
                 $form = clone $this->discussionForm;
-                if ($forum) {
-                    $form->setAttribute(
-                        'action',
-                        $this->url()->fromRoute(
-                            'discussion/discussion/start',
-                            ['on' => $id, 'forum' => $forum]
-                        )
-                    );
-                } else {
-                    $form->setAttribute(
-                        'data-select-forum-href',
-                        $this->url()->fromRoute('discussion/discussion/select/forum', ['on' => $id])
-                    );
-                }
                 return $form;
                 break;
             case 'comment':

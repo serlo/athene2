@@ -21,38 +21,16 @@ class DiscussionsController extends AbstractController
 
     public function indexAction()
     {
-        $forums = $this->getTaxonomy()->getChildren();
-        $forum = null;
-
-        try {
-            $forum = $this->getTermService();
-        } catch (TermNotFoundException $e) {
-        }
-
-        if (is_object($forum)) {
-            $forums = $forum->getChildren();
-        }
+        $instance    = $this->getInstanceManager()->getInstanceFromRequest();
+        $page        = $this->params()->fromQuery('page', 1);
+        $discussions = $this->getDiscussionManager()->findDiscussionsByInstance($instance, $page);
 
         $view = new ViewModel([
-            'forums' => $forums,
-            'forum'  => $forum,
-            'user'   => $this->getUserManager()->getUserFromAuthenticator()
+            'discussions' => $discussions,
+            'user'        => $this->getUserManager()->getUserFromAuthenticator()
         ]);
 
         $view->setTemplate('discussion/discussions/index');
-
         return $view;
-    }
-
-    protected function getTaxonomy()
-    {
-        $instance = $this->getInstanceManager()->getInstanceFromRequest();
-        return $this->getTaxonomyManager()->findTaxonomyByName('forum-category', $instance);
-    }
-
-    protected function getTermService($id = null)
-    {
-        $id = $this->params('id', $id);
-        return $id ? $this->getTaxonomyManager()->getTerm($id) : null;
     }
 }

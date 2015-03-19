@@ -65,16 +65,6 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
     protected $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Discussion\Entity\Comment", mappedBy="terms")
-     * @ORM\JoinTable(name="term_taxonomy_comment",
-     * joinColumns={@ORM\JoinColumn(name="term_taxonomy_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="comment_id", referencedColumnName="id")}
-     * )
-     * @ORM\OrderBy({"id"="DESC"})
-     */
-    protected $comments;
-
-    /**
      * @ORM\OneToMany(
      * targetEntity="TaxonomyTermEntity",
      * mappedBy="termTaxonomy",
@@ -92,7 +82,6 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
     protected $blogPosts;
 
     protected $allowedRelations = [
-        'comments',
         'entities' => 'termTaxonomyEntities',
         'termTaxonomyEntities',
         'blogPosts'
@@ -103,7 +92,6 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
         $this->children             = new ArrayCollection();
         $this->entities             = new ArrayCollection();
         $this->blogPosts            = new ArrayCollection();
-        $this->comments             = new ArrayCollection();
         $this->termTaxonomyEntities = new ArrayCollection();
         $this->weight               = 0;
     }
@@ -125,7 +113,6 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
         if ($field === null) {
             $count     = 0;
             $relations = [
-                'comments',
                 'entities',
                 'blogPosts'
             ];
@@ -187,7 +174,6 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
         if ($field === null) {
             $elements = [];
             $fields   = [
-                'comments',
                 'entities',
                 'blogPosts'
             ];
@@ -365,8 +351,6 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
     {
         if ($object instanceof EntityInterface) {
             return 'entities';
-        } elseif ($object instanceof CommentInterface) {
-            return 'comments';
         } elseif ($object instanceof PostInterface) {
             return 'blogPosts';
         } else {

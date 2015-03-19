@@ -56,15 +56,6 @@ class Comment extends Uuid implements CommentInterface
     protected $author;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Taxonomy\Entity\TaxonomyTerm", inversedBy="comments")
-     * @ORM\JoinTable(name="term_taxonomy_comment",
-     * inverseJoinColumns={@ORM\JoinColumn(name="term_taxonomy_id", referencedColumnName="id")},
-     * joinColumns={@ORM\JoinColumn(name="comment_id", referencedColumnName="id")}
-     * )
-     */
-    protected $terms;
-
-    /**
      * @ORM\Column(type="datetime", options={"default"="CURRENT_TIMESTAMP"})
      */
     protected $date;

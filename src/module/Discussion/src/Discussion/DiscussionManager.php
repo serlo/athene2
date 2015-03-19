@@ -12,6 +12,7 @@ namespace Discussion;
 use Authorization\Service\AuthorizationAssertionTrait;
 use ClassResolver\ClassResolverAwareTrait;
 use ClassResolver\ClassResolverInterface;
+use Common\Paginator\DoctrinePaginatorFactory;
 use Common\Traits\FlushableTrait;
 use Common\Traits\ObjectManagerAwareTrait;
 use Discussion\Entity\CommentInterface;
@@ -25,7 +26,12 @@ use Uuid\Entity\UuidInterface;
 use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\EventManager\EventManagerAwareTrait;
 use Zend\Form\FormInterface;
+use Zend\Paginator\Adapter\ArrayAdapter;
+use Zend\Paginator\Paginator;
 use ZfcRbac\Service\AuthorizationService;
+
+use Doctrine\ORM\Query;
+use Doctrine\ORM\EntityManager;
 
 class DiscussionManager implements DiscussionManagerInterface
 {
@@ -81,16 +87,35 @@ class DiscussionManager implements DiscussionManagerInterface
         return $comment;
     }
 
-    public function findDiscussionsByInstance(InstanceInterface $instance)
+    public function findDiscussionsByInstance(InstanceInterface $instance, $page, $limit = 20)
     {
         $this->assertGranted('discussion.get', $instance);
-        $className        = $this->getClassResolver()->resolveClassName($this->entityInterface);
-        $objectRepository = $this->getObjectManager()->getRepository($className);
-        $discussions      = $objectRepository->findAll(['instance' => $instance->getId()]);
+        $className     = $this->getClassResolver()->resolveClassName($this->entityInterface);
+        $voteClassName = $this->getClassResolver()->resolveClassName('Discussion\Entity\VoteInterface');
 
-        $collection = new ArrayCollection($discussions);
-        return $this->sortDiscussions($collection);
+        $offset = ($page - 1) * $limit;
+        /* @var $om EntityManager */
+        $om    = $this->objectManager;
+        $results = $om->createQueryBuilder()->select('c')->addSelect('SUM(v.vote) AS votes')->from($className, 'c')
+            ->leftJoin($voteClassName, 'v', 'WITH', 'v.comment = c')
+            ->groupBy('c.id')->addGroupBy('v.comment')->orderBy('c.archived', 'ASC')->addOrderBy('c.date', 'DESC')
+            ->addOrderBy('votes', 'DESC')->where('c.instance = :instance_id')->andWhere('c.parent IS NULL')
+            ->setParameter('instance_id', $instance->getId())
+            // TODO This could cause performance issues
+            //->setMaxResults($limit)->setFirstResult($offset)
+            ->getQuery()->getResult();
+
+        $purified = [];
+        foreach($results as $result) {
+            $purified[] = $result[0];
+        }
+
+        $paginator = new Paginator(new ArrayAdapter($purified));
+        $paginator->setCurrentPageNumber($page);
+        $paginator->setItemCountPerPage($limit);
+        return $paginator;
     }
+
 
     public function findDiscussionsOn(UuidInterface $uuid, $archived = null)
     {

@@ -26,9 +26,11 @@ interface DiscussionManagerInterface extends Flushable
 
     /**
      * @param InstanceInterface $instance
+     * @param int               $page
+     * @param int               $limit
      * @return CommentInterface[]|Collection
      */
-    public function findDiscussionsByInstance(InstanceInterface $instance);
+    public function findDiscussionsByInstance(InstanceInterface $instance, $page, $limit = 20);
 
     /**
      * Finds discussions on a uuid

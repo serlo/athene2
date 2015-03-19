@@ -45,4 +45,14 @@ class DoctrinePaginatorFactory
         $zendPaginator->setItemCountPerPage($limit);
         return $zendPaginator;
     }
+
+    public function createPaginatorFromQuery($query, $page, $limit)
+    {
+        $paginator     = new Paginator($query);
+        $adapter       = new DoctrinePaginatorAdapter($paginator);
+        $zendPaginator = new ZendPaginator($adapter);
+        $zendPaginator->setCurrentPageNumber($page);
+        $zendPaginator->setItemCountPerPage($limit);
+        return $zendPaginator;
+    }
 }

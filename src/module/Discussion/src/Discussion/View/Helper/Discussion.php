@@ -121,20 +121,13 @@ class Discussion extends AbstractHelper
         switch ($type) {
             case 'discussion':
                 $form = clone $this->discussionForm;
-                if ($forum) {
-                    $form->setAttribute(
-                        'action',
-                        $view->url(
-                            'discussion/discussion/start',
-                            ['on' => $object->getId(), 'forum' => $forum->getId()]
-                        )
-                    );
-                } else {
-                    $form->setAttribute(
-                        'data-select-forum-href',
-                        $view->url('discussion/discussion/select/forum', ['on' => $object->getId()])
-                    );
-                }
+                $form->setAttribute(
+                    'action',
+                    $view->url(
+                        'discussion/discussion/start',
+                        ['on' => $object->getId()]
+                    )
+                );
                 return $form;
                 break;
             case 'comment':
@@ -162,23 +155,6 @@ class Discussion extends AbstractHelper
     {
         $this->forum = $forum;
         return $this;
-    }
-
-    public function getForumDiscussions(TaxonomyTermInterface $forum, $recursive = true)
-    {
-        if ($recursive) {
-            $collection = $forum->getAssociatedRecursive('comments', ['forum', 'forum-category']);
-        } else {
-            $collection = $forum->getAssociated('comments');
-        }
-
-        $collection = $collection->filter(
-            function (CommentInterface $comment) {
-                return !$comment->isTrashed();
-            }
-        );
-
-        return $this->sortDiscussions($collection);
     }
 
     public function getObject()

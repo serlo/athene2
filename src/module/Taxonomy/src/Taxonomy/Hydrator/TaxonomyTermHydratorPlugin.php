@@ -48,7 +48,7 @@ class TaxonomyTermHydratorPlugin extends AbstractHydratorPlugin
 
         $metadata = $this->objectManager->getClassMetadata(get_class($object));
         foreach ($data as $field => $value) {
-            if ($metadata->hasAssociation($field)) {
+            if ($metadata->hasAssociation($field) && is_object($value)) {
                 $target = $metadata->getAssociationTargetClass($field);
                 if ($target == 'Taxonomy\Entity\TaxonomyTerm') {
                     $this->taxonomyManager->associateWith($value, $object);

@@ -80,7 +80,7 @@ return [
                     'view'        => [
                         'type'    => 'segment',
                         'options' => [
-                            'route'    => '/discussion/:id',
+                            'route'    => '/discussions',
                             'defaults' => [
                                 'controller' => 'Discussion\Controller\DiscussionController',
                                 'action'     => 'show'
