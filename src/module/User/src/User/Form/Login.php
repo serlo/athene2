@@ -27,12 +27,23 @@ class Login extends Form
         $filter = new InputFilter();
         $this->setInputFilter($filter);
 
-        $this->add((new Text('email'))->setLabel('Email address:')->setAttribute('placeholder', 'Email'));
-        $this->add((new Password('password'))->setLabel('Password:')->setAttribute('placeholder', 'Password'));
-        $this->add((new Checkbox('remember'))->setLabel('Remember me')->setChecked(true));
+        $this->add((new Text('email'))
+            ->setAttribute('type','email')
+            ->setLabel('Email address:')
+            ->setAttribute('required','required')
+        );
+        $this->add((new Password('password'))
+            ->setLabel('Password:')
+            ->setAttribute('required','required')
+        );
+        $this->add((new Checkbox('remember'))
+            ->setLabel('Remember me')
+            ->setChecked(true)
+        );
 
-        $this->add(
-            (new Submit('submit'))->setValue('Login')->setAttribute('class', 'btn btn-success pull-right')
+        $this->add((new Submit('submit'))
+            ->setValue('Login')
+            ->setAttribute('class', 'btn btn-success pull-right')
         );
 
         $filter->add(

@@ -1,0 +1,73 @@
+{#<div class="flasher">
+    {% if redir %}
+        <div class="alert alert-info">{{ 'You must be logged in to access this page.' | trans }}</div>
+    {% endif %}
+    {% for message in errorMessages %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+</div>#}
+
+{{ pageHeader('Sign up' | trans) }}
+
+{% set usernameErrors        = formElementErrors(form.get('username')) %}
+{% set emailErrors           = formElementErrors(form.get('email')) %}
+{% set emailConfirmErrors    = formElementErrors(form.get('emailConfirm')) %}
+{% set passwordErrors        = formElementErrors(form.get('password')) %}
+{% set passwordConfirmErrors = formElementErrors(form.get('passwordConfirm')) %}
+{% set tosErrors             = formElementErrors(form.get('tos')) %}
+
+{% do form.prepare() %}
+{{ form().openTag(form) }}
+<fieldset>
+    <legend>{{ "Username"|trans }}</legend>
+    <div class="form-group{{ usernameErrors ? ' has-error' }}">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            {{ formElement(form.get('username').setAttribute('placeholder', 'Username'|trans)) }}
+        </div>
+        {{ usernameErrors }}
+    </div>
+</fieldset>
+<fieldset>
+    <legend>{{ "Email"|trans }}</legend>
+    <div class="form-group{{ emailErrors ? ' has-error' }}">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            {{ formElement(form.get('email').setAttribute('placeholder', 'Email'|trans)) }}
+        </div>
+        {{ emailErrors }}
+    </div>
+    <div class="form-group{{ emailConfirmErrors ? ' has-error' }}">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            {{ formElement(form.get('emailConfirm').setAttribute('placeholder', 'Confirm email'|trans)) }}
+        </div>
+        {{ emailConfirmErrors }}
+    </div>
+</fieldset>
+<fieldset>
+    <legend>{{ "Password"|trans }}</legend>
+    <div class="form-group{{ passwordErrors ? ' has-error' }}">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            {{ formElement(form.get('password').setAttribute(
+            'placeholder', 'Password'|trans)) }}
+        </div>
+        {{ passwordErrors }}
+    </div>
+    <div class="form-group{{ passwordConfirmErrors ? ' has-error' }}">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            {{ formElement(form.get('passwordConfirm').setAttribute('placeholder', 'Confirm password'|trans)) }}
+        </div>
+        {{ passwordConfirmErrors }}
+    </div>
+</fieldset>
+<div class="form-group{{ tosErrors ? ' has-error' }}">
+    {{ formElement(form.get('tos')) }}
+    {{ tosErrors }}
+</div>
+<div class="form-group">
+    {{ formElement(form.get('submit')) }}
+</div>
+{{ form().closeTag(form) }}
