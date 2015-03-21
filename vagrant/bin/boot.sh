@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo cp -R /var/www/dist/solr/* /etc/solr/conf/
+sudo service tomcat6 restart
 mkdir /var/www/src/public/assets
 rm /var/www/src/data/* -rf
 chown www-data:www-data /var/www/* -R
