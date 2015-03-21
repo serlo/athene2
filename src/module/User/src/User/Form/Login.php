@@ -19,7 +19,7 @@ use Zend\InputFilter\InputFilter;
 class Login extends Form
 {
 
-    public function __construct()
+    public function __construct($translator)
     {
         parent::__construct('login');
         $this->setAttribute('method', 'post');
@@ -31,10 +31,12 @@ class Login extends Form
             ->setAttribute('type', 'email')
             ->setLabel('Email address:')
             ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Email address:'))
         );
         $this->add((new Password('password'))
             ->setLabel('Password:')
             ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Password:'))
         );
         $this->add((new Checkbox('remember'))
             ->setLabel('Remember me')

@@ -19,7 +19,7 @@ use Zend\Form\Form;
 class Register extends Form
 {
 
-    public function __construct($entityManager)
+    public function __construct($entityManager, $translator)
     {
         parent::__construct('signUp');
 
@@ -32,26 +32,31 @@ class Register extends Form
         $this->add((new Text('username'))
             ->setLabel('Username:')
             ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Enter username'))
         );
         
         $this->add((new Text('email'))
             ->setAttribute('type', 'email')
             ->setLabel('Email:')
             ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Enter email'))
         );
         $this->add((new Text('emailConfirm'))
             ->setAttribute('type', 'email')
             ->setLabel('Confirm email:')
             ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Confirm email'))
         );
         
         $this->add((new Password('password'))
             ->setLabel('Password:')
             ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Enter password'))
         );
         $this->add((new Password('passwordConfirm'))
             ->setLabel('Confirm password:')
             ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Confirm password'))
         );
         
         $this->add((new Checkbox('tos'))

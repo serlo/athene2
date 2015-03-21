@@ -14,7 +14,7 @@
     <div class="form-group{{ usernameErrors ? ' has-error' }}">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            {{ formElement(form.get('username').setAttribute('placeholder', 'Username'|trans)) }}
+            {{ formElement(form.get('username')) }}
         </div>
         {{ usernameErrors }}
     </div>
@@ -24,14 +24,14 @@
     <div class="form-group{{ emailErrors ? ' has-error' }}">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-            {{ formElement(form.get('email').setAttribute('placeholder', 'Email'|trans)) }}
+            {{ formElement(form.get('email')) }}
         </div>
         {{ emailErrors }}
     </div>
     <div class="form-group{{ emailConfirmErrors ? ' has-error' }}">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-            {{ formElement(form.get('emailConfirm').setAttribute('placeholder', 'Confirm email'|trans)) }}
+            {{ formElement(form.get('emailConfirm')) }}
         </div>
         {{ emailConfirmErrors }}
     </div>
@@ -41,15 +41,14 @@
     <div class="form-group{{ passwordErrors ? ' has-error' }}">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            {{ formElement(form.get('password').setAttribute(
-            'placeholder', 'Password'|trans)) }}
+            {{ formElement(form.get('password')) }}
         </div>
         {{ passwordErrors }}
     </div>
     <div class="form-group{{ passwordConfirmErrors ? ' has-error' }}">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            {{ formElement(form.get('passwordConfirm').setAttribute('placeholder', 'Confirm password'|trans)) }}
+            {{ formElement(form.get('passwordConfirm')) }}
         </div>
         {{ passwordConfirmErrors }}
     </div>
