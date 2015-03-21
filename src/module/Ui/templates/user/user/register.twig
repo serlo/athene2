@@ -1,12 +1,3 @@
-{#<div class="flasher">
-    {% if redir %}
-        <div class="alert alert-info">{{ 'You must be logged in to access this page.' | trans }}</div>
-    {% endif %}
-    {% for message in errorMessages %}
-        <div class="alert alert-danger">{{ message }}</div>
-    {% endfor %}
-</div>#}
-
 {{ pageHeader('Sign up' | trans) }}
 
 {% set usernameErrors        = formElementErrors(form.get('username')) %}

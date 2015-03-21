@@ -31,32 +31,32 @@ class Register extends Form
         
         $this->add((new Text('username'))
             ->setLabel('Username:')
-            ->setAttribute('required','required')
+            ->setAttribute('required', 'required')
         );
         
         $this->add((new Text('email'))
-            ->setAttribute('type','email')
+            ->setAttribute('type', 'email')
             ->setLabel('Email:')
-            ->setAttribute('required','required')
+            ->setAttribute('required', 'required')
         );
         $this->add((new Text('emailConfirm'))
-            ->setAttribute('type','email')
+            ->setAttribute('type', 'email')
             ->setLabel('Confirm email:')
-            ->setAttribute('required','required')
+            ->setAttribute('required', 'required')
         );
         
         $this->add((new Password('password'))
             ->setLabel('Password:')
-            ->setAttribute('required','required')
+            ->setAttribute('required', 'required')
         );
         $this->add((new Password('passwordConfirm'))
             ->setLabel('Confirm password:')
-            ->setAttribute('required','required')
+            ->setAttribute('required', 'required')
         );
         
         $this->add((new Checkbox('tos'))
             ->setLabel('I\'ve read and understood the terms of service.')
-            // ->setAttribute('required','required')
+            // ->setAttribute('required', 'required')
         );
         
         $this->add((new Submit('submit'))

@@ -28,13 +28,13 @@ class Login extends Form
         $this->setInputFilter($filter);
 
         $this->add((new Text('email'))
-            ->setAttribute('type','email')
+            ->setAttribute('type', 'email')
             ->setLabel('Email address:')
-            ->setAttribute('required','required')
+            ->setAttribute('required', 'required')
         );
         $this->add((new Password('password'))
             ->setLabel('Password:')
-            ->setAttribute('required','required')
+            ->setAttribute('required', 'required')
         );
         $this->add((new Checkbox('remember'))
             ->setLabel('Remember me')
