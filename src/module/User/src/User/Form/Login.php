@@ -15,11 +15,12 @@ use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
+use Zend\Mvc\I18n\Translator;
 
 class Login extends Form
 {
 
-    public function __construct()
+    public function __construct(Translator $translator)
     {
         parent::__construct('login');
         $this->setAttribute('method', 'post');
@@ -27,12 +28,25 @@ class Login extends Form
         $filter = new InputFilter();
         $this->setInputFilter($filter);
 
-        $this->add((new Text('email'))->setLabel('Email address:')->setAttribute('placeholder', 'Email'));
-        $this->add((new Password('password'))->setLabel('Password:')->setAttribute('placeholder', 'Password'));
-        $this->add((new Checkbox('remember'))->setLabel('Remember me')->setChecked(true));
+        $this->add((new Text('email'))
+            ->setAttribute('type', 'email')
+            ->setLabel('Email address:')
+            ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Email address'))
+        );
+        $this->add((new Password('password'))
+            ->setLabel('Password:')
+            ->setAttribute('required', 'required')
+            ->setAttribute('placeholder', $translator->translate('Password'))
+        );
+        $this->add((new Checkbox('remember'))
+            ->setLabel('Remember me')
+            ->setChecked(true)
+        );
 
-        $this->add(
-            (new Submit('submit'))->setValue('Login')->setAttribute('class', 'btn btn-success pull-right')
+        $this->add((new Submit('submit'))
+            ->setValue('Login')
+            ->setAttribute('class', 'btn btn-success pull-right')
         );
 
         $filter->add(

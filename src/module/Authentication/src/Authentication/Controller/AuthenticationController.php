@@ -143,7 +143,7 @@ class AuthenticationController extends AbstractActionController
             return $this->redirect()->toRoute('home');
         }
 
-        $form     = new Login();
+        $form     = new Login($this->getServiceLocator()->get('MvcTranslator'));
         $messages = [];
 
         $this->layout('layout/1-col');
