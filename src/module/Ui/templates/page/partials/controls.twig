@@ -1,17 +1,14 @@
 <div class="btn-group">
-    <button type="button" class="btn btn-default"><span class="fa fa-pencil"></span></button>
+    {% if isGranted('page.revision.create', page) %}
+     <a class="btn btn-default" href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
+         <span class="fa fa-pencil"></span>
+     </a>
+    {% endif %}
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="caret"></span>
         <span class="sr-only">{{ 'Toggle Dropdown' | trans }}</span>
     </button>
     <ul class="dropdown-menu pull-right" role="menu">
-        {% if isGranted('page.revision.create', page) %}
-            <li>
-                <a href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
-                    <span class="fa fa-pencil"></span> {% trans %} Edit {% endtrans %}
-                </a>
-            </li>
-        {% endif %}
         {{ subscribe(page).subMenuItem() }}
         <li>
             <a href="{{ url('page/revision/view-all', {'page': page.getId()}) }}">
