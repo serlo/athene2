@@ -15,11 +15,13 @@ use Zend\Form\Element\Password;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
+use Zend\Mvc\I18n\Translator;
+use Doctrine\ORM\EntityManager;
 
 class Register extends Form
 {
 
-    public function __construct($entityManager, $translator)
+    public function __construct(EntityManager $entityManager, Translator $translator)
     {
         parent::__construct('signUp');
 
@@ -39,13 +41,13 @@ class Register extends Form
             ->setAttribute('type', 'email')
             ->setLabel('Email:')
             ->setAttribute('required', 'required')
-            ->setAttribute('placeholder', $translator->translate('Enter email'))
+            ->setAttribute('placeholder', $translator->translate('Enter email address'))
         );
         $this->add((new Text('emailConfirm'))
             ->setAttribute('type', 'email')
             ->setLabel('Confirm email:')
             ->setAttribute('required', 'required')
-            ->setAttribute('placeholder', $translator->translate('Confirm email'))
+            ->setAttribute('placeholder', $translator->translate('Confirm email address'))
         );
         
         $this->add((new Password('password'))

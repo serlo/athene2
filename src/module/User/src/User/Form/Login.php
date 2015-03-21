@@ -15,11 +15,12 @@ use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
+use Zend\Mvc\I18n\Translator;
 
 class Login extends Form
 {
 
-    public function __construct($translator)
+    public function __construct(Translator $translator)
     {
         parent::__construct('login');
         $this->setAttribute('method', 'post');
@@ -31,12 +32,12 @@ class Login extends Form
             ->setAttribute('type', 'email')
             ->setLabel('Email address:')
             ->setAttribute('required', 'required')
-            ->setAttribute('placeholder', $translator->translate('Email address:'))
+            ->setAttribute('placeholder', $translator->translate('Email address'))
         );
         $this->add((new Password('password'))
             ->setLabel('Password:')
             ->setAttribute('required', 'required')
-            ->setAttribute('placeholder', $translator->translate('Password:'))
+            ->setAttribute('placeholder', $translator->translate('Password'))
         );
         $this->add((new Checkbox('remember'))
             ->setLabel('Remember me')
