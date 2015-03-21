@@ -31,6 +31,12 @@ interface TaxonomyTermInterface extends InstanceProviderInterface, UuidInterface
     public function countAssociations($association = null, FilterInterface $filter = null);
 
     /**
+     * @param TaxonomyTermAwareInterface $object
+     * @return string
+     */
+    public function getAssociationFieldName(TaxonomyTermAwareInterface $object);
+
+    /**
      * @param string $name
      * @return TaxonomyTermInterface
      */

@@ -25,7 +25,6 @@ class EntityManagerListener extends AbstractSharedListenerAggregate
 
         if (array_key_exists('taxonomy', $data)) {
             $options = $data['taxonomy'];
-
             $this->getTaxonomyManager()->associateWith($options['term'], $entity);
         }
     }

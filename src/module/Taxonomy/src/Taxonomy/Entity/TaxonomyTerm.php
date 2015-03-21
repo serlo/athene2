@@ -347,7 +347,7 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
         $entity->addTaxonomyTerm($this, $rel);
     }
 
-    protected function getAssociationFieldName(TaxonomyTermAwareInterface $object)
+    public function getAssociationFieldName(TaxonomyTermAwareInterface $object)
     {
         if ($object instanceof EntityInterface) {
             return 'entities';

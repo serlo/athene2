@@ -95,6 +95,9 @@ class TaxonomyManager implements TaxonomyManagerInterface
         $term->associateObject($object);
         if ($position !== null) {
             $term->positionAssociatedObject($object, (int)$position);
+        } else {
+            $field = $term->getAssociationFieldName($object);
+            $term->positionAssociatedObject($object, $term->countAssociations($field) + 1);
         }
         $this->getEventManager()->trigger('associate', $this, ['object' => $object, 'term' => $term]);
         $this->getObjectManager()->persist($term);
@@ -148,7 +151,6 @@ class TaxonomyManager implements TaxonomyManagerInterface
             $this->assertGranted('taxonomy.get', $entity);
 
         }
-
         return $entities;
     }
 
@@ -174,7 +176,6 @@ class TaxonomyManager implements TaxonomyManagerInterface
         }
 
         $this->assertGranted('taxonomy.get', $entity);
-
         return $entity;
     }
 
@@ -246,7 +247,6 @@ class TaxonomyManager implements TaxonomyManagerInterface
         if (!is_object($entity)) {
             throw new Exception\RuntimeException(sprintf('Term with id %s not found', $id));
         }
-
         return $entity;
     }
 
@@ -258,9 +258,7 @@ class TaxonomyManager implements TaxonomyManagerInterface
         if (!is_object($entity)) {
             throw new Exception\TermNotFoundException(sprintf('Term with id %s not found', $id));
         }
-
         $this->assertGranted('taxonomy.term.get', $entity);
-
         return $entity;
     }
 
@@ -269,14 +267,12 @@ class TaxonomyManager implements TaxonomyManagerInterface
         if (!$term instanceof TaxonomyTermInterface) {
             $term = $this->getTerm($term);
         }
-
         $taxonomy = $term->getTaxonomy();
         $this->assertGranted('taxonomy.term.associate', $term);
 
         if (!$this->getModuleOptions()->getType($taxonomy->getName())->isAssociationAllowed($object)) {
             return false;
         }
-
         return true;
     }
 
