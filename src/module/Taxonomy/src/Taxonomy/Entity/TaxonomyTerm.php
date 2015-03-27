@@ -311,7 +311,7 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
         $method = 'order' . ucfirst($association);
 
         if (!method_exists($this, $method)) {
-            throw new Exception\RuntimeException(sprintf(
+            throw new Exception\SortingNotSupported(sprintf(
                 'Association `%s` does not support sorting. You\'d have to implement a node',
                 $association
             ));

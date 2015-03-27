@@ -93,11 +93,16 @@ class TaxonomyManager implements TaxonomyManagerInterface
         }
 
         $term->associateObject($object);
-        if ($position !== null) {
-            $term->positionAssociatedObject($object, (int)$position);
-        } else {
-            $field = $term->getAssociationFieldName($object);
-            $term->positionAssociatedObject($object, $term->countAssociations($field) + 1);
+
+        try {
+            if ($position !== null) {
+                $term->positionAssociatedObject($object, (int)$position);
+            } else {
+                $field = $term->getAssociationFieldName($object);
+                $term->positionAssociatedObject($object, $term->countAssociations($field) + 1);
+            }
+        } catch (Exception\SortingNotSupported $e) {
+            // Sorting obviously not supported...nothing to do
         }
         $this->getEventManager()->trigger('associate', $this, ['object' => $object, 'term' => $term]);
         $this->getObjectManager()->persist($term);
