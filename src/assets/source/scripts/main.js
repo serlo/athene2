@@ -14,6 +14,7 @@ require.config({
     paths: {
         "jquery": "../bower_components/jquery/jquery",
         "jquery-ui": "../bower_components/jquery-ui/ui/jquery-ui",
+        "webcomponentsjs": "../bower_components/webcomponentsjs/webcomponents",
         "underscore": "../bower_components/underscore/underscore",
         "bootstrap": "../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap",
         "moment": "../bower_components/momentjs/min/moment.min",
@@ -73,7 +74,7 @@ require.config({
             deps: ['jquery']
         },
         ATHENE2: {
-            deps: ['bootstrap', 'easing', 'nestable', 'historyjs', 'polyfills', 'datepicker', 'event_extensions', 'jasny']
+            deps: ['bootstrap', 'easing', 'nestable', 'historyjs', 'polyfills', 'datepicker', 'event_extensions', 'jasny', 'webcomponentsjs']
         }
     },
     waitSeconds: 2
