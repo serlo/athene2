@@ -1,6 +1,6 @@
 <div class="pull-right hidden-xs">
     <link rel="import" href="https://cdn.ory.am/webcomponents/starred/elements/ory-star.html">
-    <ory-star endpoint="https://starred.ory.am/" object="{{ entity.getId() }}"></ory-star>
+    <ory-star endpoint="https://starred.ory.am/" object="serlo-{{ entity.getId() }}"></ory-star>
 
     <div class="btn-group">
         {% include 'entity/view/partials/actions/versioning/edit' %}
