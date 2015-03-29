@@ -1,4 +1,7 @@
 <div class="pull-right hidden-xs">
+    <link rel="import" href="https://cdn.ory.am/webcomponents/starred/elements/ory-star.html">
+    <ory-star endpoint="https://starred.ory.am/" object="serlo-{{ term.getId() }}"></ory-star>
+
     <div class="btn-group">
         {% if isGranted('taxonomy.term.update', term) %}
             <a class="btn btn-default" href="{{ url('taxonomy/term/update', {'term': term.getId()}) }}">
