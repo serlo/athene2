@@ -97,7 +97,6 @@ return [
         'basePath'         => 'assets',
         'default'          => [
             'assets'  => [
-                '@webcomponents',
                 '@libs',
                 '@scripts',
                 '@styles'
