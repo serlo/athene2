@@ -12,26 +12,45 @@
 ?>
 <header id="header">
     <?php echo $this->partial('layout/partials/top-bar'); ?>
-
-    <nav id="subject-nav">
+    
+    <nav id="header-nav">
+        <a id="mobile-menu-toggle"><i class="fa fa-fw fa-bars"></i></a>
         <a id="brand-link" href="<?php echo $this->url('home'); ?>">
             <?php echo $this->brand()->getLogo(); ?>
             <?php echo $this->brand()->getBrand(); ?>
         </a>
-        <div class="subject-dropdown is-inline-block">
-            <span class="subject-dropdown-toggle" href="#">
-                <span class="subject-dropdown-title">
-                    <?php echo $this->navigation('default_navigation')
-                                    ->menu()
-                                    ->setPartial('layout/navigation/partial/active-subject')
-                                    ->setOnlyActiveBranch(true)
-                                    ->setMinDepth(0)
-                                    ->setMaxDepth(0)
-                                    ->render();
-                    ?>
-                </span>
-            </span>
+        <span class="subject-title"><?php echo $this->navigation('default_navigation')
+            ->menu()
+            ->setPartial('layout/navigation/partial/active-subject')
+            ->setOnlyActiveBranch(true)
+            ->setMinDepth(0)
+            ->setMaxDepth(0)
+            ->render();
+        ?></span>
+        <?php /*<div class="slogan"><?php echo $this->translate($this->brand()->getSlogan()); ?></div> */ ?>
+    </nav>
+    
+    <nav id="subject-nav">
+        <a class="subject-anchor"><?php echo $this->navigation('default_navigation')
+                ->menu()
+                ->setPartial('layout/navigation/partial/active-subject')
+                ->setOnlyActiveBranch(true)
+                ->setMinDepth(0)
+                ->setMaxDepth(0)
+                ->render();
+            ?></a>
+        
+        <div class="subject-nav-center">
+            <div class="serlo-header-tools">
+                <a><i class="fa fa-fw fa-lg fa-pencil"></i></a>
+            </div>
+            <ol class="breadcrumbs">
+                <li><a href="">Mother</a></li
+                ><li><a href="">Fucking</a></li
+                ><li><span>Breadcrumbs</span></li>
+            </ol>
         </div>
-        <div class="slogan"><?php echo $this->translate($this->brand()->getSlogan()); ?></div>
+        
+        <?php echo $this->partial('layout/partials/search'); ?>
     </nav>
 </header>
