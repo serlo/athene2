@@ -97,6 +97,7 @@ return [
         'basePath'         => 'assets',
         'default'          => [
             'assets'  => [
+                '@webcomponents',
                 '@libs',
                 '@scripts',
                 '@styles'
@@ -156,7 +157,12 @@ return [
                     'libs'           => [
                         'assets' => [
                             'bower_components/modernizr/modernizr.js',
-                            'bower_components/requirejs/require.js',
+                            'bower_components/requirejs/require.js'
+                        ]
+                    ],
+                    'webcomponents' => [
+                        'assets' => [
+                            'bower_components/webcomponentsjs/webcomponents.js'
                         ]
                     ],
                     'scripts'        => [

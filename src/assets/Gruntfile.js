@@ -220,6 +220,13 @@ module.exports = function (grunt) {
                 dest: '<%= serlo.tmp %>/styles/',
                 src: '{,*/}*.css'
             },
+            webcomponentsjs: {
+                expand: true,
+                dot: true,
+                cwd: '<%= serlo.app %>/bower_components/webcomponentsjs',
+                dest: '<%= serlo.tmp %>/bower_components/webcomponentsjs',
+                src: 'webcomponents.js'
+            },
             requirejs: {
                 expand: true,
                 dot: true,
@@ -256,16 +263,19 @@ module.exports = function (grunt) {
             server: [
                 'compass',
                 'copy:styles',
-                'copy:requirejs'
+                'copy:requirejs',
+                'copy:webcomponentsjs'
             ],
             test: [
                 'copy:styles',
-                'copy:requirejs'
+                'copy:requirejs',
+                'copy:webcomponentsjs'
             ],
             tmp: [
                 'compass',
                 'copy:styles',
                 'copy:requirejs',
+                'copy:webcomponentsjs',
                 'svgmin'
             ],
             dist: [
@@ -327,6 +337,7 @@ module.exports = function (grunt) {
             'requirejs:production',
             'copy:tmp',
             'copy:modernizr',
+            'copy:webcomponentsjs',
             'clean:dist',
             'copy:dist',
             'watch'
@@ -342,6 +353,7 @@ module.exports = function (grunt) {
         'cssmin',
         'imagemin',
         'requirejs:production',
+        'copy:webcomponentsjs',
         'modernizr',
         'uglify',
         'clean:dist',
