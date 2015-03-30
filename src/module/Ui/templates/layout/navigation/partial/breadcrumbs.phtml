@@ -1,0 +1,33 @@
+<?php
+/**
+ *
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author  Jonas Keinholz (jonas.keinholz@serlo.org)
+ * @license LGPL-3.0
+ * @license http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link        https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+$pagesCount = count($this->pages);
+foreach ($this->pages as $i => $page) {
+    $html = [];
+    $html[] = '<li>';
+
+    if ($i + 1 < $pagesCount) {
+        $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
+        $html[] = '<span>' . $page->getLabel() . '</span>';
+        $html[] = '</a>';
+    } else {
+        $html[] = '<span>' . $page->getLabel() . '</span>';
+    }
+
+    $html[] = '</li>';
+
+    echo join(' ', $html);
+}
+
+// Show custom breadcrumbs if there are no default breadcrumbs
+if ($pagesCount === 0) {
+    echo $this->placeholder('breadcrumbs');
+}

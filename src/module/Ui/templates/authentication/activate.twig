@@ -1,4 +1,6 @@
-{{ pageHeader('Update password' | trans) }}
+{% do placeholder('hideSubjectNav').set(true) %}
+
+{{ pageHeader('Activate an account' | trans) }}
 <ul>
     {% for message in messages %}
         <li>{{ message | trans }}</li>

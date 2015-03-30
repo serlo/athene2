@@ -30,6 +30,10 @@ img.license-intext {
   .container-fluid {
     padding: 0;
   }
+}
+
+#serlo-menu,
+#header-nav {
   .notifications.nav {
     /* this is really hacky */
     .dropdown-menu {
@@ -37,6 +41,12 @@ img.license-intext {
       min-width: 500px;
       max-width: 500px;
       max-height: 300px;
+
+      @media screen and (max-width: $screen-xs-max) {
+        min-width: 250px;
+        max-width: 250px;
+        max-height: 150px;
+      }
 
       overflow-y: scroll;
 

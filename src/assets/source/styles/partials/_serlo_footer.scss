@@ -30,7 +30,7 @@
 
 #footer,
 #footer-push {
-  @media only screen and (max-width: $screen-sm) {
+  @media only screen and (max-width: $screen-sm-max) {
     height:                          auto;
   }
 }

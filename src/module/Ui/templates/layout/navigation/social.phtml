@@ -1,0 +1,44 @@
+<?php
+/**
+ * @authors Kanstantsin A Kamkou (2ka.by); Jeroen Herczeg; Timo Klement; Jonas Keinholz
+ */
+
+$html = array();
+$html[] = '<ul id="side-navigation-social">';
+
+
+foreach ($this->container as $page) {
+    // visibility of the page
+    if (!$page->isVisible(false) || !$this->navigation()->accept($page)) {
+        echo 'skip it!';
+        continue;
+    }
+
+    // for Login/Logout/Register links:
+    // check if menu item has 'needsIdentity' set
+    if (!is_null($page->get('needsIdentity'))) {
+        // convert value of key 'needsIdentity' to boolean if necessary
+        $needsIdentity = is_bool($page->get('needsIdentity')) ? $page->get('needsIdentity') : ($page->get('needsIdentity') === 'true');
+        // check if current user is anonymous and compare to 'needsIdentity' value
+        if ($this->isGranted('login') !== $needsIdentity) {
+            continue;
+        }
+    }
+
+    $html[] = '<li' . (($page->get('icon') && !$page->get('label')) ? ' class="icon-only"' : '') . '>';
+    $html[] = '<a href="' . $this->alias($page->getHref()) . '" class="' . $page->get('class') . '">';
+
+    if ($page->get('icon')) {
+        if (stristr($page->get('icon'), 'fa-')) {
+            $html[] = '<span class="' . $page->get('icon') . '"></span>';
+        } else {
+            $html[] = '<span class="fa fa-' . $page->get('icon') . '"></span>';
+        }
+    }
+
+    $html[] = $page->getLabel();
+    $html[] = '</a>';
+}
+
+$html[] = '</ul>';
+echo join(' ', $html);

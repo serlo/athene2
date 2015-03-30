@@ -1,3 +1,9 @@
+.container {
+  @media screen and (max-width: $screen-xs-max) {
+    padding: 0;
+  }
+}
+
 .btn-block {
   padding: inherit;
 }
@@ -42,4 +48,17 @@ abbr[title], abbr[data-original-title] {
 
 .nav-right > li {
   float: right;
+}
+
+.open > a .caret {
+  border-top: none;
+  border-bottom: $caret-width-base dashed;
+}
+
+.dropdown-menu {
+  padding: 0;
+
+  > li > a {
+    padding: 14px 12px 12px;
+  }
 }

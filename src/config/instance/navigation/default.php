@@ -11,17 +11,6 @@
 return [
     'navigation' => [
         'default' => [
-            'search'     => [
-                'label' => 'Search',
-                'route' => 'search',
-                'pages' => [
-                    [
-                        'label' => 'Search',
-                        'route' => 'search',
-                        'icon'  => 'search'
-                    ]
-                ]
-            ],
             'restricted' => [
                 'label'         => 'Backend',
                 'uri'           => '#',
@@ -149,7 +138,7 @@ return [
                     ]
                 ]
             ],
-            'blog'       => [
+            'blog' => [
                 'label' => 'Blog',
                 'route' => 'blog',
                 'pages' => [
@@ -163,7 +152,7 @@ return [
                     ]
                 ]
             ],
-            'me'         => [
+            'me' => [
                 'label' => 'Me',
                 'uri'   => '#',
                 'pages' => [
@@ -197,8 +186,7 @@ return [
                     ]
                 ]
             ],
-            'home'       => [
-                'label' => 'Home',
+            'home' => [
                 'route' => 'home',
                 'pages' => [
                     [

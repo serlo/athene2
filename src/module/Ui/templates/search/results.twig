@@ -1,3 +1,5 @@
+{% do placeholder('hideSubjectNav').set(true) %}
+
 {{ pageHeader('Search results'|trans).setSubtitle(query).render() }}
 {% include 'search/form' %}
 {% include 'search/container' with {'container': container} %}

@@ -1,37 +1,34 @@
-#serlo-brand {
+.serlo-brand {
   font-family: 'serlo';
   & > * {
     font-family: $themeFont;
   }
 }
 
-#serlo-logo {
+.serlo-logo {
   font-family: 'serlo';
   font-size: 70px;
+  color: $themeColor;
 }
 
-#subject-nav {
-  #serlo-logo {
+#header-nav {
+  .serlo-logo {
     position: absolute;
     top: -56px;
     left: 20px;
     font-size: 50px;
-
-    @media only screen and (max-width: $screen-xs-min) {
-      top: -60px;
-      left: -10px;
-    }
   }
 
-  #serlo-brand {
+  .serlo-brand {
     position: absolute;
     top: -9px;
     left: 85px;
     margin: 0;
-    font-size: 36px;
-    @media only screen and (max-width: $screen-xs-min) {
-      top: -30px;
-      left: 55px;
+  }
+
+  @media only screen and (min-width: $navigationBreakPoint-min) {
+    .serlo-logo, .serlo-brand {
+      margin-top: 11px;
     }
   }
 }

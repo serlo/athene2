@@ -1,0 +1,9 @@
+{% do placeholder('hideSubjectNav').set(true) %}
+
+{{ pageHeader('Restore password' | trans) }}
+<ul>
+    {% for message in messages %}
+    <li>{{ message | trans }}</li>
+    {% endfor %}
+</ul>
+{{ form().render(form) }}

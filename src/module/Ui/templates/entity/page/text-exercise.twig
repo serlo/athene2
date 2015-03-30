@@ -1,8 +1,10 @@
 {% set title = entity.getId() %}
 {% set exerciseText = "Text exercise" | trans %}
 {% do headTitle(title) %}
+{% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
 <div class="page-header">
-    {% include 'entity/view/partials/actions/controls' %}
+    {% set controls = include('entity/view/partials/actions/controls') %}
+    {% do placeholder('controls').set(controls) %}
     <h1>{{ title }}
         <small>{% trans %} Text exercise {% endtrans %}</small>
     </h1>

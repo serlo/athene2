@@ -1,5 +1,8 @@
 $icon-font-path: '/assets/styles/fonts/';
 
+/* Colors */
+$brand-success: $serloGreen;
+
 /* Override Base Styles */
 $base-border-radius: 2px;
 $border-radius-large: 3px;
@@ -14,10 +17,10 @@ $alert-border-radius: 0;
 //$screen-xs: $navigationBreakPoint;
 
 // Small screen / tablet
-//$screen-sm: $sidebarBreakPoint;
+//$screen-sm: 600px;
 
 // Medium screen / desktop
-//$screen-md: $fullStackBreakPoint;
+//$screen-md: 800px;
 
 // Large screen / wide desktop
 //$screen-lg: $screen-md;
@@ -26,12 +29,19 @@ $alert-border-radius: 0;
 $gridGutterWidth: 24px;
 $gridColumnWidth: 73px;
 
+/* Container sizes */
+$container-tablet: 100%;
+$container-desktop: 100%;
+
 /* Override Navbar Styles */
 $navbarHeight: 25px;
 
 /* Base Font */
 $sansFontFamily: 'Open Sans', sans-serif;
 
-.btn-block {
-  padding: inherit;
-}
+/* Carets for dropdowns */
+$caret-width-base: 5px;
+$caret-width-large: 7px;
+
+/* We don't use Bootstrap's navbar collapsing, so we set the breaking point to 0 (e.g. for right dropdown usage) */
+$grid-float-breakpoint: 1px;

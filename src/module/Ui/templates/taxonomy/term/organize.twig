@@ -1,2 +1,6 @@
-{{ pageHeader(term.getName()).setSubTitle('Organize' | trans).append(contexter().renderButton('right')).render() }}
+{% set title = term.getName() %}
+{{ pageHeader(title).setSubTitle('Organize' | trans).render() }}
+{% set controls = contexter().renderButton() %}
+{% do placeholder('controls').set(controls) %}
+{% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
 {% include 'taxonomy/term/organize/partial' with {'isChild' : false} %}

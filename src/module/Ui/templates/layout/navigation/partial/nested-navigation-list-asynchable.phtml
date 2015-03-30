@@ -22,6 +22,14 @@ foreach ($this->pages as $page) {
 foreach ($this->pages as $page) {
     $liClasses = [];
     $recActive = $page->isActive(true);
+
+    // check whether given link is a community link
+    if (!is_null($page->get('community'))) {
+        if (is_bool($page->get('community')) ? $page->get('community') : ($page->get('community') === 'true')) {
+            $liClasses[] = 'is-community';
+        }
+    }
+
     // visibility of the sub-page
     if (!$page->isVisible() || !($depth <= $maxDepth || $recActive || $siblingIsActive)
         || !$this->navigation()->accept(
@@ -48,7 +56,7 @@ foreach ($this->pages as $page) {
     $breadcrumb = ($recActive && $useBreadCrumbs) ? 'itemscope itemtype="http://data-vocabulary.org/Breadcrumb"' : false;
     $child      = $breadcrumb ? 'itemprop="child"' : '';
     $rich       = $breadcrumb ? ' ' . $child . ' ' . $breadcrumb . ' ' : '';
-    $needsFetching = ($depth >= $maxDepth - 1 && !empty($page->pages)) ? ' data-needs-fetching="true" ' : '';
+    $needsFetching = ($depth >= $maxDepth - 1 && !empty($page->pages) && ($page->get('needsFetching') !== 'false')) ? ' data-needs-fetching="true" ' : '';
 
     $html[] = '<li' . $needsFetching . $rich . $elements . (count($liClasses) ? (' class="' . implode(' ', $liClasses) . '"') : '') . ' data-identifier="' . $page->get('identifier') . '">';
 

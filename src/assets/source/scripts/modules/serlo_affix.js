@@ -35,7 +35,7 @@ define(['jquery', 'underscore'], function ($, _) {
             height = $elem[0].clientHeight,
             targetTop;
 
-        // Case 1: element has more height than window 
+        // Case 1: element has more height than window
         // && Case 2: element height is lower than stickToElements height
         if (height > windowHeight || height > stickToHeight) {
             targetTop = 0;
@@ -126,6 +126,9 @@ define(['jquery', 'underscore'], function ($, _) {
             }
         });
     };
+
+    // refresh when the custom event 'affix-refresh' is triggered on document
+    $(document).bind('affix-refresh', affixOnResize);
 
     $.fn.SerloAffix = SerloAffix;
 });

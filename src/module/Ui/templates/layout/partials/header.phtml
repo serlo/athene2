@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author  Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -10,28 +10,70 @@
  * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
  */
 ?>
+
 <header id="header">
     <?php echo $this->partial('layout/partials/top-bar'); ?>
 
-    <nav id="subject-nav">
-        <a id="brand-link" href="<?php echo $this->url('home'); ?>">
-            <?php echo $this->brand()->getLogo(); ?>
-            <?php echo $this->brand()->getBrand(); ?>
-        </a>
-        <div class="subject-dropdown is-inline-block">
-            <span class="subject-dropdown-toggle" href="#">
-                <span class="subject-dropdown-title">
-                    <?php echo $this->navigation('default_navigation')
-                                    ->menu()
-                                    ->setPartial('layout/navigation/partial/active-subject')
-                                    ->setOnlyActiveBranch(true)
-                                    ->setMinDepth(0)
-                                    ->setMaxDepth(0)
-                                    ->render();
-                    ?>
-                </span>
-            </span>
-        </div>
-        <div class="slogan"><?php echo $this->translate($this->brand()->getSlogan()); ?></div>
-    </nav>
+    <div class="container">
+        <nav id="header-nav">
+            <div id="mobile-nav-toggle">
+                <button>
+                    <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+                <?php echo $this->brand()->getLogo(); ?>
+                <?php echo $this->brand()->getBrand(); ?>
+                <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
+                        ->menu()
+                        ->setPartial('layout/navigation/partial/active-subject')
+                        ->setOnlyActiveBranch(true)
+                        ->setMinDepth(0)
+                        ->setMaxDepth(0)
+                        ->render();
+                    ?></span>
+            </div>
+
+            <div id="mobile-nav-right">
+                <ul class="authentification nav navbar-nav">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                            <span class="fa fa-user"></span>
+                        </a>
+                        <?php
+                        echo $this->navigation('top_auth_navigation')
+                            ->menu()
+                            ->setUlClass('dropdown-menu dropdown-menu-right')
+                            ->setPartial('layout/navigation/horizontal')
+                            ->render();
+                        ?>
+                    </li>
+                </ul>
+                <ul class="notifications nav navbar-nav">
+                    <?php echo $this->notifications()->render(); ?>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="mobile-nav"></div>
+
+        <?php if (empty($this->placeholder('hideSubjectNav')->getValue())): ?>
+        <nav id="subject-nav">
+            <div id="subject-nav-wrapper">
+                <div class="subject-nav-center">
+                    <div class="pull-right controls">
+                        <?php echo $this->placeholder('controls'); ?>
+                    </div>
+                    <ol id="breadcrumbs">
+                        <?php echo $this->navigation('default_navigation')
+                            ->breadcrumbs()
+                            ->setPartial('layout/navigation/partial/breadcrumbs')
+                            ->render();
+                        ?>
+                    </ol>
+                </div>
+                <?php echo $this->partial('layout/partials/search'); ?>
+            </div>
+        </nav>
+        <?php endif; ?>
+    </div>
 </header>
