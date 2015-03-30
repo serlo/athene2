@@ -1,122 +1,175 @@
-#subject-nav {
-  padding-top: 20px;
-
-  .subject-dropdown {
-    position: relative;
-    z-index: 2;
-    margin-left: 180px;
-    padding: 0px 20px;
-    margin-top: 8px;
-
-    @media only screen and (max-width: $screen-xs-min) {
-      margin-left: 0px;
-      margin-top: 0px;
-      height: 46px;
-      top: 40px;
-      left: 20px;
-    }
-  }
-
-  .subject-dropdown-toggle {
+#header-nav {
+  // padding-top: 20px;
+  font-size: 36px;
+  height: 75px;
+  line-height: 75px;
+  margin-top: 50px;
+  
+  #mobile-menu-toggle {
     display: inline-block;
+    font-size: .9em;
+    
+    height: 1.5em;
+    line-height: 1.5em;
+    // vertical-align: middle;
+    vertical-align: baseline;
+    
+    width: 1.5em;
+    text-align: center;
+    
+    background-color: $grayDark;
+    color: $lighterGray;
+    @media only screen and (min-width: $navigationBreakPoint) {
+      display: none !important;
+    }
+    @media only screen and (max-width: $sidebarBreakPoint) {
+      margin-left: $pagePaddingMedium;
+    }
+  }
 
-    line-height: 40px;
-    font-size: 35px;
-
-    color: $themeColor;
-    background: #F2F2F2;
-
-    z-index: 12;
-
-    @include theme-font(600);
-
-    &:hover,
-    &:focus {
+  #brand-link {
+    color: $grayDark;
+    position: relative;
+    &:hover, &:active, &:focus {
+      color: $grayDark;
       text-decoration: none;
-      background: #F9F9F9;
     }
   }
 
-  .subject-dropdown-menu {
-    display: none;
+  // .slogan {
+  //   @include theme-font(600);
+  //   position: relative;
+  //   top: -5px;
 
-    position: absolute;
-    top: -15px;
-    left: 13px;
+  //   width: 180px;
 
-    padding: 75px 20px 20px;
-    width: 360px;
+  //   color: $grayDark;
+  //   font-size: 0.9em;
+  //   text-align: right;
 
-    background: white;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    border: 1px solid #CCC;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+  //   @media only screen and (max-width: $screen-xs-min) {
+  //     top: -40px;
+  //     left: 60px;
+  //   }
+  // }
 
-    z-index: -1;
-
-    & .nav-label {
-      @include theme-font(700);
-      font-size: 16px;
-
-      padding: 8px 0px;
-    }
+  .subject-title {
+    display: inline-block;
+    margin-left: ($sidebarWidth + $sidebarGap);
   }
-
-  .subject-dropdown-title {
-    @include inline-block;
-
-    vertical-align: inherit;
-    border-right: 2px solid #E4E6E6;
-    padding: 3px 18px;
-  }
-
-  .open {
-
-    background: none;
-
-    .subject-dropdown-title {
-      border-color: transparent;
-    }
-
-    .subject-dropdown-toggle {
-      background-color: white;
-      &:hover,
-      &:focus {
-        border-color: white;
+  
+  @media only screen and (max-width: $navigationBreakPoint) {
+    
+    font-size: 28px;
+    line-height: 66px;
+    margin-top: 0;
+    
+    #brand-link {
+      #serlo-logo {
+        display: none;
+      }
+      #serlo-brand {
+        position: static;
+        display: inline-block;
       }
     }
-
-    .subject-dropdown-menu {
-      display: block;
+    .subject-title {
+      margin: 0;
     }
-  }
-
-  .caret {
-    margin-left: 5px;
-    border-width: 7px;
-    border-top-color: $themeColor;
-    border-bottom: none;
-  }
-
-  .row {
-    border-top: 1px solid $lighterGray;
   }
 }
 
-.slogan {
-  @include theme-font(600);
+#subject-nav {
   position: relative;
-  top: -5px;
-
-  width: 180px;
-
-  color: $grayDark;
-  font-size: 0.9em;
-  text-align: right;
-
-  @media only screen and (max-width: $screen-xs-min) {
-    top: -40px;
-    left: 60px;
+  padding: 0;
+  
+  .subject-anchor,
+  .subject-nav-center,
+  #search-content
+  {
+    @include block-shadow;
   }
+  
+  .subject-anchor {
+    display: block;
+    float: left;
+    width: $sidebarWidth;
+    padding: 14px 12px 12px;
+    background-color: $serloGray;
+    color: white;
+    font-weight: bold;
+    margin-right: $sidebarGap;
+  }
+  
+  .subject-nav-center {
+    display: block;
+    margin: 0 ($sidebarWidth + $sidebarGap);
+    background-color: $white;
+    
+    .breadcrumbs {
+      display: inline-block;
+      margin: 0 14px;
+      padding: 0;
+      li {
+        display: inline-block;
+        &::before {
+          content: "\f104";
+          font-family: "FontAwesome";
+          display: inline-block;
+          text-align: center;
+          padding: 0 10px;
+        }
+        &:first-child::before {
+          display: none;
+        }
+        a,
+        span
+        {
+          display: inline-block;
+          padding: 14px 0 12px;
+        }
+      }
+    }
+    .serlo-header-tools {
+      display: block;
+      float: right;
+      a {
+        display: inline-block;
+        padding: 14px 14px 12px;
+        background-color: $serloGreen;
+        .fa {
+          width: 100%;
+          color: white;
+        }
+      }
+    }
+  }
+  
+  @media only screen and (max-width: $navigationBreakPoint) {
+    .subject-anchor {
+      display: none;
+    }
+    .subject-nav-center {
+      margin-left: 0;
+    }
+  }
+  
+  #search-content {
+    @include bottom-frame($serloBlue);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: $sidebarWidth;
+    margin-left: $sidebarGap;
+    
+    background: transparent;
+    input {
+      position: absolute;
+      background: transparent;
+      color: $black;
+    }
+  }
+  
 }
 

@@ -1,14 +1,12 @@
 /* Serlo Menu */
 /* top navbar */
 #serlo-menu {
-  //border: none;
-
-  //@include bar();
-
-  //font-size: 0.91em;
-  //border-radius: 0;
-  //min-height: 0;
-
+  @include block-shadow;
+  
+  @media only screen and (max-width: $navigationBreakPoint) {
+    display: none;
+  }
+  
   .nav.navbar-nav {
 
     &.navbar-border-right {
