@@ -40,3 +40,10 @@
         </a>
     </li>
 {% endif %}
+{% if isGranted('taxonomy.term.associate', term) %}
+    <li>
+        <a href="{{ url('taxonomy/term/batch-copy', {'term': term.getId()}) }}">
+            <span class="fa fa-files-o"></span> {% trans %} Batch copy items {% endtrans %}
+        </a>
+    </li>
+{% endif %}

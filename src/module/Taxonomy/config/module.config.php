@@ -206,6 +206,15 @@ return [
                                         'action' => 'orderAssociated'
                                     ]
                                 ]
+                            ],
+                            'batch-copy' => [
+                                'type'    => 'segment',
+                                'options' => [
+                                    'route'    => '/copy/batch/:term',
+                                    'defaults' => [
+                                        'action' => 'batchCopy'
+                                    ]
+                                ]
                             ]
                         ]
                     ]

@@ -6,6 +6,9 @@
                 <span class="sortable-handle"></span>
                 <div class="sortable-item-inner">
                     <?php echo $this->normalize()->toTitle($associated); ?> <sup><small><?php echo $this->normalize()->toType($associated); ?></small></sup>
+                    <p>
+                        <?php echo $this->normalize()->toPreview($associated); ?>
+                    </p>
                 </div>
             </li>
         <?php endforeach; ?>

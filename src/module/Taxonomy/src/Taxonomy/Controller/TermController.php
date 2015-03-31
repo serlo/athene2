@@ -9,11 +9,39 @@
  */
 namespace Taxonomy\Controller;
 
+use Entity\Manager\EntityManagerAwareTrait;
+use Entity\Manager\EntityManagerInterface;
+use Instance\Manager\InstanceManagerInterface;
+use Normalizer\NormalizerAwareTrait;
+use Normalizer\NormalizerInterface;
+use Taxonomy\Form\BatchCopyForm;
+use Taxonomy\Form\TermForm;
+use Taxonomy\Manager\TaxonomyManagerInterface;
 use Zend\View\Model\ViewModel;
 use ZfcRbac\Exception\UnauthorizedException;
 
 class TermController extends AbstractController
 {
+    use EntityManagerAwareTrait;
+
+    /**
+     * @param InstanceManagerInterface $instanceManager
+     * @param EntityManagerInterface   $entityManager
+     * @param TaxonomyManagerInterface $taxonomyManager
+     * @param TermForm                 $termForm
+     */
+    public function __construct(
+        InstanceManagerInterface $instanceManager,
+        EntityManagerInterface $entityManager,
+        TaxonomyManagerInterface $taxonomyManager,
+        TermForm $termForm
+    ) {
+        $this->instanceManager = $instanceManager;
+        $this->taxonomyManager = $taxonomyManager;
+        $this->termForm        = $termForm;
+        $this->entityManager   = $entityManager;
+    }
+
     public function createAction()
     {
         $this->assertGranted('taxonomy.term.create');
@@ -42,6 +70,49 @@ class TermController extends AbstractController
         $view = new ViewModel(['form' => $form, 'isUpdating' => false]);
         $this->layout('editor/layout');
         $view->setTemplate('taxonomy/term/create');
+        return $view;
+    }
+
+    public function batchCopyAction()
+    {
+        // TODO Currently only with entities...
+
+        $term     = $this->getTaxonomyManager()->getTerm($this->params('term'));
+        $elements = $term->getAssociated('entities');
+        $options  = [];
+        foreach ($elements as $element) {
+            $options[$element->getId()] = $element;
+        }
+        $form = new BatchCopyForm($options);
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->params()->fromPost();
+            $data = array_merge(
+                $data,
+                [
+                    'taxonomy' => $this->params('taxonomy'),
+                    'parent'   => $this->params('parent', null)
+
+                ]
+            );
+            $form->setData($data);
+            if ($form->isValid()) {
+                $data        = $form->getData();
+                $destination = $this->getTaxonomyManager()->getTerm($data['destination']);
+                foreach ($data['associations'] as $element) {
+                    $entity = $this->getEntityManager()->getEntity($element);
+                    $this->getTaxonomyManager()->associateWith($destination, $entity);
+                }
+                $this->getTaxonomyManager()->flush();
+                $this->flashMessenger()->addSuccessMessage('Items copied successfully!');
+                return $this->redirect()->toRoute('taxonomy/term/get', ['term' => $destination->getId()]);
+            }
+        }
+
+        $view = new ViewModel([
+            'form' => $form
+        ]);
+        $view->setTemplate('taxonomy/term/batch-copy');
         return $view;
     }
 
@@ -77,9 +148,9 @@ class TermController extends AbstractController
 
         $associations = $term->getAssociated($association);
         $view         = new ViewModel([
-            'term' => $term,
+            'term'         => $term,
             'associations' => $associations,
-            'association' => $association
+            'association'  => $association
         ]);
         $view->setTemplate('taxonomy/term/order-associated');
         return $view;
@@ -88,7 +159,8 @@ class TermController extends AbstractController
     public function organizeAction()
     {
         $term = $this->getTerm();
-        if ($this->assertGranted('taxonomy.term.create', $term) || $this->assertGranted(
+        if ($this->assertGranted('taxonomy.term.create', $term)
+            || $this->assertGranted(
                 'taxonomy.term.update',
                 $term
             )
