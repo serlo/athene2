@@ -22,7 +22,6 @@
     "evil"    : true,
     "forin"   : false,
     "immed"   : true,
-    "laxbreak": false,
     "newcap"  : true,
     "noarg"   : true,
     "noempty" : false,
@@ -35,5 +34,9 @@
     "sub"     : true,
     "strict"  : false,
     "white"   : true,
-    "unused"  : true
+    "unused"  : true,
+    
+    "laxbreak": true,
+    "laxcomma": true,
+    "-W014": true
 }

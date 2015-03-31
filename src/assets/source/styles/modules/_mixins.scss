@@ -51,3 +51,54 @@
   zoom: 1;
   *display: inline;
 }
+
+
+/* main layout boxes */
+@mixin block-shadow {
+  box-shadow: 0 3px 0 lighten($serloGray, 55%);
+}
+@mixin no-block-shadow {
+  box-shadow: none;
+}
+
+// for search & comment input
+@mixin bottom-frame($color) {
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 10px;
+    z-index: 100;
+    border: 3px solid $color;
+    border-top-width: 0;
+  }
+  input {
+    box-shadow: none;
+    &::-webkit-input-placeholder {
+      color: $color;
+      font-weight: bold;
+      opacity: 1;
+    }
+    &:-moz-placeholder { // FF 18-
+      color: $color;
+      font-weight: bold;
+      opacity: 1;
+    }
+    &::-moz-placeholder { // FF 19+
+      color: $color;
+      font-weight: bold;
+      opacity: 1;
+    }
+    &:-ms-input-placeholder {
+      color: $color;
+      font-weight: bold;
+      opacity: 1;
+    }
+  }
+  .fa {
+    color: $color;
+  }
+}
