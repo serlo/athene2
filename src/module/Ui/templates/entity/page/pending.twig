@@ -2,6 +2,7 @@
 {% if entity.getHead() %}
     {% set title = entity.getHead().get('title') %}
 {% endif %}
+{% do headTitle(entity.getId()) %}
 <div class="page-header">
     <div class="pull-right btn-group hidden-xs">
         {% include 'entity/view/partials/actions/controls' %}
