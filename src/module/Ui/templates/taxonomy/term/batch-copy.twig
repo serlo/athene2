@@ -8,7 +8,7 @@
             <li class="list-group-item">
                 <label>
                     <input type="checkbox" name="{{ element.getName() }}[]" value="{{ v.getId() }}">
-                    <strong>{{ normalize().toTitle(v) }}</strong>
+                    <strong>{{ normalize().toTitle(v) }}</strong> <sup><small>{{ normalize().toType(v) }}</small></sup>
                     <p>{{ normalize().toPreview(v) }}</p>
                 </label>
             </li>
