@@ -22,6 +22,7 @@ use Uuid\Exception;
  * "taxonomyTerm" = "Taxonomy\Entity\TaxonomyTerm",
  * "user" = "User\Entity\User",
  * "attachment" = "Attachment\Entity\Container",
+ * "uuid" = "Uuid\Entity\Uuid",
  * "blogPost" = "Blog\Entity\Post",
  * "entity" = "Entity\Entity\Entity",
  * "entityRevision" = "Entity\Entity\Revision",
