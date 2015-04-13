@@ -1,7 +1,8 @@
 {% do normalize().headMeta(entity).headTitle(entity) %}
 <div itemscope itemtype="http://schema.org/VideoObject">
     <div class="page-header">
-        {% include 'entity/view/partials/actions/controls' %}
+        {% set controls = include('entity/view/partials/actions/controls') %}
+        {% do placeholder('controls').set(controls) %}
         <h1><span itemprop="name">{{ entity.getCurrentRevision().get('title') }}</span></h1>
         {% include 'entity/view/partials/actions/big' %}
     </div>

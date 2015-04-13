@@ -4,19 +4,19 @@
   height: 75px;
   line-height: 75px;
   margin-top: 50px;
-  
+
   #mobile-menu-toggle {
     display: inline-block;
     font-size: .9em;
-    
+
     height: 1.5em;
     line-height: 1.5em;
     // vertical-align: middle;
     vertical-align: baseline;
-    
+
     width: 1.5em;
     text-align: center;
-    
+
     background-color: $grayDark;
     color: $lighterGray;
     @media only screen and (min-width: $navigationBreakPoint) {
@@ -57,13 +57,13 @@
     display: inline-block;
     margin-left: ($sidebarWidth + $sidebarGap);
   }
-  
+
   @media only screen and (max-width: $navigationBreakPoint) {
-    
+
     font-size: 28px;
     line-height: 66px;
     margin-top: 0;
-    
+
     #brand-link {
       #serlo-logo {
         display: none;
@@ -82,14 +82,14 @@
 #subject-nav {
   position: relative;
   padding: 0;
-  
+
   .subject-anchor,
   .subject-nav-center,
   #search-content
   {
     @include block-shadow;
   }
-  
+
   .subject-anchor {
     display: block;
     float: left;
@@ -100,12 +100,12 @@
     font-weight: bold;
     margin-right: $sidebarGap;
   }
-  
+
   .subject-nav-center {
     display: block;
     margin: 0 ($sidebarWidth + $sidebarGap);
     background-color: $white;
-    
+
     .breadcrumbs {
       display: inline-block;
       margin: 0 14px;
@@ -130,6 +130,21 @@
         }
       }
     }
+
+    .btn-group {
+      height: 100%;
+
+      .btn {
+        padding: 14px 14px 12px;
+        border-width: 0 0 0 1px;
+        @include border-radius(0px);
+      }
+
+      .btn-default {
+        display: block;
+      }
+    }
+
     .serlo-header-tools {
       display: block;
       float: right;
@@ -144,7 +159,7 @@
       }
     }
   }
-  
+
   @media only screen and (max-width: $navigationBreakPoint) {
     .subject-anchor {
       display: none;
@@ -153,7 +168,7 @@
       margin-left: 0;
     }
   }
-  
+
   #search-content {
     @include bottom-frame($serloBlue);
     position: absolute;
@@ -162,7 +177,7 @@
     bottom: 0;
     width: $sidebarWidth;
     margin-left: $sidebarGap;
-    
+
     background: transparent;
     input {
       position: absolute;
@@ -170,6 +185,6 @@
       color: $black;
     }
   }
-  
+
 }
 

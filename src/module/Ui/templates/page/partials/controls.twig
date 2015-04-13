@@ -1,48 +1,49 @@
-<link rel="import" href="https://cdn.ory.am/webcomponents/starred/elements/ory-star.html">
-<ory-star endpoint="https://starred.ory.am/" object="serlo-{{ page.getId() }}"></ory-star>
-<div class="btn-group">
-    {% if isGranted('page.revision.create', page) %}
-     <a class="btn btn-default" href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
-         <span class="fa fa-pencil"></span>
-     </a>
-    {% endif %}
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-        <span class="caret"></span>
-        <span class="sr-only">{{ 'Toggle Dropdown' | trans }}</span>
-    </button>
-    <ul class="dropdown-menu pull-right" role="menu">
-        {{ subscribe(page).subMenuItem() }}
-        <li>
-            <a href="{{ url('page/revision/view-all', {'page': page.getId()}) }}">
-                <span class="fa fa-clock-o"></span> {% trans %} History {% endtrans %}
-            </a>
-        </li>
-        {% if isGranted('event.log.get', page) %}
+<div class="pull-right hidden-xs">
+
+    <div class="btn-group btn-group-community">
+        {% if isGranted('page.revision.create', page) %}
+         <a class="btn btn-default" href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
+             <span class="fa fa-pencil"></span>
+         </a>
+        {% endif %}
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">{{ 'Toggle Dropdown' | trans }}</span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu">
+            {{ subscribe(page).subMenuItem() }}
             <li>
-                <a href="{{ url('event/history/object', {'id': page.getId()}) }}"> <span
-                            class="fa fa-heartbeat"></span> {% trans %} Log {% endtrans %}
+                <a href="{{ url('page/revision/view-all', {'page': page.getId()}) }}">
+                    <span class="fa fa-clock-o"></span> {% trans %} History {% endtrans %}
                 </a>
             </li>
-        {% endif %}
-        {% if page.getCurrentRevision() is not same as (revision) %}
-            <li>
-                <a href="{{ url('uuid/trash', {'id': revision.getId()}) }}" class="btn btn-link">
-                    <span class="fa fa-trash"></span> {% trans %} Trash {% endtrans %}
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}"
-                   class="btn btn-link">
-                    <span class="fa fa-check"> {% trans %} Set as base revision {% endtrans %} </a>
-            </li>
-        {% endif %}
-        {% if isGranted('page.update', page) %}
-            <li>
-                <a href="{{ url('page/update', {'page': page.getId()}) }}">
-                    <span class="fa fa-cog"></span>
-                    {% trans %} Settings {% endtrans %}
-                </a>
-            </li>
-        {% endif %}
-    </ul>
+            {% if isGranted('event.log.get', page) %}
+                <li>
+                    <a href="{{ url('event/history/object', {'id': page.getId()}) }}"> <span
+                                class="fa fa-heartbeat"></span> {% trans %} Log {% endtrans %}
+                    </a>
+                </li>
+            {% endif %}
+            {% if page.getCurrentRevision() is not same as (revision) %}
+                <li>
+                    <a href="{{ url('uuid/trash', {'id': revision.getId()}) }}" class="btn btn-link">
+                        <span class="fa fa-trash"></span> {% trans %} Trash {% endtrans %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}"
+                       class="btn btn-link">
+                        <span class="fa fa-check"> {% trans %} Set as base revision {% endtrans %} </a>
+                </li>
+            {% endif %}
+            {% if isGranted('page.update', page) %}
+                <li>
+                    <a href="{{ url('page/update', {'page': page.getId()}) }}">
+                        <span class="fa fa-cog"></span>
+                        {% trans %} Settings {% endtrans %}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
 </div>
