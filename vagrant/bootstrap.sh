@@ -92,7 +92,7 @@ ln -s /vagrant/bin/ /home/vagrant/bin
 mkdir /var/www/src/data/
 
 # Enable apache mods
-a2enmod rewrite proxy proxy_fcgi
+a2enmod rewrite proxy proxy_fcgi headers
 a2ensite athene2
 
 # Restart apache
