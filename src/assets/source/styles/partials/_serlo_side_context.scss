@@ -46,6 +46,11 @@
       color: $serloGray;
       font-size: 14px;
 
+      &:hover {
+        color: $themeColor;
+        text-decoration: none;
+      }
+
       > span {
         font-size: 24px;
       }

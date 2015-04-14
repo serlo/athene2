@@ -25,11 +25,13 @@ return [
                 'label'         => 'Log in',
                 'route'         => 'authentication/login',
                 'icon'          => 'user',
+                'class'         => 'is-edge',
                 'needsIdentity' => false
             ],
             [
                 'label'         => 'Log out',
                 'route'         => 'authentication/logout',
+                'class'         => 'is-edge',
                 'needsIdentity' => true
             ]
         ]

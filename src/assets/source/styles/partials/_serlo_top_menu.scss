@@ -7,9 +7,15 @@
     display: none;
   }
 
-  .nav-home {
-    padding-left: 30px;
-    padding-right: 30px;
+  .is-edge {
+    background-color: $backgroundColor;
+    color: $serloGray;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &:hover {
+      background-color: $themeColor;
+    }
   }
 
   .navbar-collapse {

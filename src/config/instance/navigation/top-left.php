@@ -14,7 +14,7 @@ return [
                 'label' => '',
                 'route' => 'home',
                 'icon' => 'home',
-                'class' => 'nav-home'
+                'class' => 'is-edge'
             ]
         ]
     ]
