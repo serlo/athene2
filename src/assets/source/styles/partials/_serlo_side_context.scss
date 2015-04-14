@@ -11,8 +11,8 @@
       font-style: italic;
     }
     h1, h2, h3, h4, h5, h6 {
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -25,6 +25,30 @@
     &:focus {
       color: $grayDark;
       background: $white;
+    }
+  }
+}
+
+#side-navigation-social {
+  margin-top: 20px;
+  padding-left: 20px;
+  list-style: none;
+
+  > li {
+    position: relative;
+    display: block;
+    float: left;
+    line-height: 24px;
+    padding-left: 0;
+    padding-right: 20px;
+
+    > a {
+      color: $serloGray;
+      font-size: 14px;
+
+      > span {
+        font-size: 24px;
+      }
     }
   }
 }

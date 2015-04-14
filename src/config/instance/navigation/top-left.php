@@ -11,8 +11,10 @@ return [
     'navigation' => [
         'top-left' => [
             [
-                'label' => 'Home',
-                'route' => 'home'
+                'label' => '',
+                'route' => 'home',
+                'icon' => 'home',
+                'class' => 'nav-home'
             ]
         ]
     ]

@@ -30,9 +30,9 @@
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  
+
   max-width: $maxWidth;
-  
+
   margin: 0 auto -1 * $footerHeight; /* the bottom margin is the negative value of the footer's height */
   padding: 0 $pagePaddingLarge 70px;
 
@@ -148,9 +148,7 @@
   margin-right: $sidebarGap;
   float: left;
   margin-top: $sideNavTopOffset;
-  
-  @include block-shadow;
-  
+
   @media only screen and (max-width: $navigationBreakPoint) {
     display: none;
     // width: $sideElementWidthCollapsed;
@@ -171,9 +169,9 @@
   // float: left;
   position: relative;
   // max-width: $contentMaxWidth;
-  
+
   @include block-shadow;
-  
+
   margin: 0 ($sidebarWidth + $sidebarGap);
   @media only screen and (max-width: $navigationBreakPoint) {
     margin-left: 0;
@@ -238,7 +236,7 @@
 
 /* Right Context Area */
 .side-context {
-  
+
   position: absolute;
   top: $sideNavTopOffset;
   right: -$sidebarWidth;
@@ -246,10 +244,10 @@
   right: -($sidebarWidth + $sidebarGap);
   // margin-left: $contentMaxWidth + 2 * $contentPadding;
   // margin-left: $sidebarGap;
-  
+
   background: $lighterGray;
   @include block-shadow;
-  
+
   &:before {
     content: ' ';
     position: absolute;
@@ -257,18 +255,18 @@
     top: 12px;
     @include triangle(right, $white, 13px);
   }
-  
+
   // hide it completely? - philer
   @media only screen and (max-width: $sidebarBreakPoint) {
     width: $sideElementWidthCollapsed;
     right: -$sideElementWidthCollapsed;
-    
+
     .side-element-inner {
       position: relative;
-      
+
       visibility: hidden;
       margin-right: $sideElementWidthCollapsed;
-      
+
       width: $sidebarWidth;
       right: $sidebarWidth;
       background: $lighterGray;

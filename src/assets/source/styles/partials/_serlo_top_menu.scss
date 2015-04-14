@@ -2,11 +2,21 @@
 /* top navbar */
 #serlo-menu {
   @include block-shadow;
-  
+
   @media only screen and (max-width: $navigationBreakPoint) {
     display: none;
   }
-  
+
+  .nav-home {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 15px;
+  }
+
   .nav.navbar-nav {
 
     &.navbar-border-right {
@@ -16,8 +26,13 @@
     & > li {
 
       > a.primary {
-        color: $themeColor;
+        background-color: $themeColor;
+        color: $white;
         font-weight: 700;
+
+        &:hover {
+          background-color: lighten($themeColor, 5%);
+        }
       }
 
       &.dropdown.open > a {
