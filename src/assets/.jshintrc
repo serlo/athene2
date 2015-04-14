@@ -35,8 +35,6 @@
     "strict"  : false,
     "white"   : true,
     "unused"  : true,
-    
-    "laxbreak": true,
     "laxcomma": true,
     "-W014": true
 }
