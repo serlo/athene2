@@ -3,9 +3,17 @@
 }
 
 .btn-group-community {
+  &.open>.btn-default.dropdown-toggle {
+    background-color: darken($serloGreen, 5%);
+  }
+
   .btn-default {
     background-color: $serloGreen;
     border-color: #fff;
+
+    &:hover, .open>.dropdown-toggle {
+      background-color: lighten($serloGreen, 5%);
+    }
 
     span {
       color: #fff;

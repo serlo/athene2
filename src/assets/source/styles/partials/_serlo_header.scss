@@ -109,10 +109,14 @@
     .btn-group {
       height: 100%;
 
-      .btn {
+      >.btn {
         padding: 14px 14px 12px;
         border-width: 0 0 0 1px;
         @include border-radius(0px);
+
+        &:hover, &:focus, &:active, &.active {
+          z-index: 0;
+        }
       }
 
       .btn-default {
