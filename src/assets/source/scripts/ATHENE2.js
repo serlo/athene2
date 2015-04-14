@@ -36,7 +36,7 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'translator', 'side_el
             });
             // initialize contextuals whenever a new context is added
 
-            $('.side-element, .page-header').SerloAffix();
+            $('#subject-nav').SerloAffix();
 
             Content.add(function ($context) {
                 var elements = $('.math, .mathInline', $context).filter(':visible').toArray();
