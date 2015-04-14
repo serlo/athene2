@@ -11,50 +11,50 @@
   z-index: 12;
 }
 
+#main-nav > li > a, #subject-nav > .subject-anchor {
+  padding: 14px 12px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: $gray;
+
+  &:hover {
+    background: $themeColor;
+    color: white;
+  }
+
+  .caret {
+    float: right;
+    margin-top: 8px;
+
+    border-top-color: white;
+    border-bottom-color: white;
+  }
+}
+
 #main-nav {
   @include theme-font();
 
   margin-left: 0; // IE7 :)))
   width: $navigationWidth;
 
+
   > li {
-    > a {
-      padding: 14px 12px 12px;
-      font-size: 14px;
-      font-weight: bold;
-
-      color: white;
-
-      background: $gray;
-      //@include background(linear-gradient(right, darken($gray, 3%), $gray 12px, $gray));
-
-      &:hover {
-        background: $themeColor;
-        //@include background(linear-gradient(right, darken($themeColor, 4%), $themeColor 12px, $themeColor));
-        color: white;
-      }
-
-      .caret {
-        float: right;
-        margin-top: 8px;
-
-        border-top-color: white;
-        border-bottom-color: white;
-      }
+    + li {
+      margin-top: 2px;
     }
 
     &.is-hidden {
       display: none;
-    }
 
-    + li {
-      margin-top: 2px;
+      + li {
+        margin-top: 0;
+      }
     }
   }
 
   .is-active > a {
     background: $themeColor;
-    //@include background(linear-gradient(right, darken($themeColor, 4%), $themeColor 12px, $themeColor));
     color: white;
     &:hover, &:active, &:focus {
       background: lighten($themeColor, 5%);
@@ -207,7 +207,7 @@
       a {
       display: block;
       padding: 8px 15px 8px 30px;
-      
+
       @include theme-font(600);
 
       background: $parentColor;
@@ -226,7 +226,7 @@
     }
   }
 
-  
+
   + li {
     margin-top: 2px;
   }
@@ -252,7 +252,7 @@
     display: block;
     padding: 5px 0;
     background: $siblingsColor;
-    
+
     &:after {
       content: '';
       position: absolute;
@@ -265,10 +265,10 @@
 
     > li {
       list-style: none;
-      
+
       &.is-active {
         position: relative;
-        
+
         &:after {
           content: " ";
           position: absolute;

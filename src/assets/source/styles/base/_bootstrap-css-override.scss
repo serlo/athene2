@@ -54,3 +54,12 @@ abbr[title], abbr[data-original-title] {
 .nav-right > li {
   float: right;
 }
+
+.breadcrumb {
+  margin-bottom: 0;
+  margin-left: 10px;
+
+  & > li + li:before {
+    font-family: "FontAwesome";
+  }
+}

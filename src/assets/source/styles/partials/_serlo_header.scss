@@ -94,42 +94,17 @@
     display: block;
     float: left;
     width: $sidebarWidth;
-    padding: 14px 12px 12px;
-    background-color: $serloGray;
-    color: white;
-    font-weight: bold;
     margin-right: $sidebarGap;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .subject-nav-center {
     display: block;
     margin: 0 ($sidebarWidth + $sidebarGap);
     background-color: $white;
-
-    .breadcrumbs {
-      display: inline-block;
-      margin: 0 14px;
-      padding: 0;
-      li {
-        display: inline-block;
-        &::before {
-          content: "\f104";
-          font-family: "FontAwesome";
-          display: inline-block;
-          text-align: center;
-          padding: 0 10px;
-        }
-        &:first-child::before {
-          display: none;
-        }
-        a,
-        span
-        {
-          display: inline-block;
-          padding: 14px 0 12px;
-        }
-      }
-    }
 
     .btn-group {
       height: 100%;
@@ -142,20 +117,6 @@
 
       .btn-default {
         display: block;
-      }
-    }
-
-    .serlo-header-tools {
-      display: block;
-      float: right;
-      a {
-        display: inline-block;
-        padding: 14px 14px 12px;
-        background-color: $serloGreen;
-        .fa {
-          width: 100%;
-          color: white;
-        }
       }
     }
   }
