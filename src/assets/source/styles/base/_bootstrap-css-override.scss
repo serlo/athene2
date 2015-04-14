@@ -59,7 +59,13 @@ abbr[title], abbr[data-original-title] {
   margin-bottom: 0;
   margin-left: 10px;
 
-  & > li + li:before {
-    font-family: "FontAwesome";
+  > li {
+    + li:before {
+      font-family: "FontAwesome";
+      font-weight: bold;
+    }
+    > span {
+      font-weight: bold;
+    }
   }
 }
