@@ -1,0 +1,21 @@
+<ol class="breadcrumb">
+<?php
+    foreach ($this->pages as $i => $page) {
+        $html = [];
+        $html[] = '<li>';
+
+        if ($i + 1 < count($this->pages)) {
+            $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
+            $html[] = $page->getLabel();
+            $html[] = '</a>';
+        } else {
+            $html[] = '<span>';
+            $html[] = $page->getLabel();
+            $html[] = '</san>';
+        }
+        $html[] = '</li>';
+
+        echo join(' ', $html);
+    }
+?>
+</ol>
