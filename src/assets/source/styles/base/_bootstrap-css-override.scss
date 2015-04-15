@@ -64,8 +64,8 @@ abbr[title], abbr[data-original-title] {
 }
 
 .breadcrumb {
-  margin-bottom: 0;
-  margin-left: 10px;
+  padding: 14px 10px 11px;
+  margin: 0 10px;
 
   > li {
     + li:before {
