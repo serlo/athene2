@@ -335,5 +335,34 @@
       }
     }
   }
-
 }
+
+#side-navigation-social {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style: none;
+
+  > li {
+    position: relative;
+    display: block;
+    float: left;
+    line-height: 24px;
+    padding-left: 0;
+    padding-right: 20px;
+
+    > a {
+      color: $serloGray;
+      font-size: 14px;
+
+      &:hover {
+        color: $themeColor;
+        text-decoration: none;
+      }
+
+      > span {
+        font-size: 24px;
+      }
+    }
+  }
+}
+

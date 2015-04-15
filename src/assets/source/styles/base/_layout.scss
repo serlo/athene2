@@ -256,6 +256,15 @@
     @include triangle(right, $white, 13px);
   }
 
+  .side-element-inner {
+    > .fa {
+      color: $themeColor;
+      font-weight: bold;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+  }
+
   // hide it completely? - philer
   @media only screen and (max-width: $sidebarBreakPoint) {
     width: $sideElementWidthCollapsed;

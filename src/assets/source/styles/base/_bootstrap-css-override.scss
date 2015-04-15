@@ -71,6 +71,7 @@ abbr[title], abbr[data-original-title] {
     + li:before {
       font-family: "FontAwesome";
       font-weight: bold;
+      padding-right: 0;
     }
     > span {
       font-weight: bold;

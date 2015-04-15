@@ -3,9 +3,9 @@
   line-height: 20px;
 
   li.nav-aside-header {
-    padding: 13px 10px 5px 20px;
+    padding: 5px 10px;
     font-size: 14px;
-    margin: 0px;
+    margin: 0;
     border-bottom: 1px solid $white;
     small {
       font-style: italic;
@@ -16,8 +16,8 @@
     }
   }
 
-  & > li > a {
-    padding: 3px 10px 3px 20px;
+  > li > a {
+    padding: 3px 10px;
     font-size: 13px;
 
     &.active,
@@ -29,31 +29,3 @@
   }
 }
 
-#side-navigation-social {
-  margin-top: 10px;
-  padding-left: 20px;
-  list-style: none;
-
-  > li {
-    position: relative;
-    display: block;
-    float: left;
-    line-height: 24px;
-    padding-left: 0;
-    padding-right: 20px;
-
-    > a {
-      color: $serloGray;
-      font-size: 14px;
-
-      &:hover {
-        color: $themeColor;
-        text-decoration: none;
-      }
-
-      > span {
-        font-size: 24px;
-      }
-    }
-  }
-}
