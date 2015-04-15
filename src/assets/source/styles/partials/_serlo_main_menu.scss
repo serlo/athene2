@@ -61,6 +61,17 @@
     }
   }
 
+  .is-community {
+    &, &.is-active, &.is-nav-active {
+      > a {
+        background: $serloGreen;
+        &:hover, &:active, &:focus {
+          background: lighten($serloGreen, 5%);
+        }
+      }
+    }
+  }
+
   li ul {
     display: none;
   }
@@ -74,7 +85,7 @@
 
 #serlo-side-sub-navigation {
   position: absolute;
-  top: -3px;
+  top: 0;
   left: $navigationWidth;
   background: $themeColor;
   width: 300px;
@@ -154,6 +165,7 @@
     margin: 0;
   }
 
+
   li {
     position: relative;
 
@@ -180,6 +192,28 @@
         background-color: $themeColor;
       }
     }
+  }
+
+  .is-community {
+    li {
+      a {
+        &, &.is-nav-active {
+          background: $serloGreen;
+
+          &:hover, &:active, &:focus {
+            background-color: lighten($serloGreen, 5%);
+          }
+        }
+      }
+
+      &.sub-nav-header > a {
+        &:hover, &:active, &:focus {
+          background-color: $serloGreen;
+        }
+      }
+    }
+
+    background: $serloGreen;
   }
 }
 
