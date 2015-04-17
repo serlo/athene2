@@ -3,21 +3,57 @@
 $baseFont: Arial, serif;
 $themeFont: 'Open Sans', sans-serif;
 
-// $themeColor: #008FAB;
-$themeColor: #007EC1;
-// $themeColor: #00A0DF; //visionsummit-logo blue
-$themeColorLight: lighten($themeColor, 5%);
 
+// COLORS
+// $themeColor: #008FAB;
+
+/**
+ * Logofarbe, wichtigeres Blau, professionell, seriös
+ */
+$serloBlue: #007EC1;
+// $serloBlue: #00A0DF;     //visionsummit-logo blue
+
+/**
+ * "Notfall-Blau" vorerst $serloBlau bevorzugen
+ */
+$serloBlueAlternative: #00B4D5;
+
+/**
+ * Mittmach-Grün
+ * Farbe für Interaktion, alles was Beteiligung ermöglicht
+ */
+$serloGreen: #86C656;
+
+/**
+ * Flächen, Icons, Logo, große Schriften
+ */
+$serloGray: #404040;
+
+/**
+ * Hellere Abstufungen der Grundfarben.
+ * Generell sind alle echten Tonwertabstufungen der Grundfarben erlaubt.
+ */
+$serloBlueLight:            lighten($serloBlue, 35%);
+$serloBlueAlternativeLight: lighten($serloBlueAlternative, 35%);
+$serloGreenLight:           lighten($serloGreen, 35%);
+$serloGrayLight:            lighten($serloGray, 35%);
+
+
+$themeColor: $serloBlue;
+$themeColorLight: lighten($themeColor, 5%);
 $secondaryColor: #2f6c61;
+$backgroundColor: #E4E6E6;
 
 $white: white;
+$black: black;
 $grayDark: #333333;
 $gray: #4B4D4C;
 $darkGray: darken($gray, 8%);
 $darkerGray: darken($gray, 18%);
 $lightGray: lighten($gray, 34%);
 $lighterGray: #F8F8F8;
-$backgroundColor: #E4E6E6;
+
+
 
 // TOP NAV BAR
 $navbarBackground: #FBFBFB;
@@ -31,15 +67,22 @@ $border-radius-base: 2px;
 $border-radius-large: 4px;
 $border-radius-small: 1px;
 
+
+
 // MAIN LAYOUT
 $minWidth: 400px;
+$maxWidth: 1350px;
 
-$navigationWidth: 200px;
-$navigationMargin: 0;
-$contentWidth: 700px;
-$contentPadding: 20px;
 $sidebarWidth: 200px;
-$contentMaxWidth: 1050px;
+$sidebarGap: 7px;
+
+// $contentWidth: 700px;
+// $contentMaxWidth: $maxWidth - 2*$sidebarWidth - 2*$sidebarGap;
+$contentPadding: 20px;
+
+$navigationWidth: $sidebarWidth;
+$navigationMargin: 0;
+
 $headerBreakPoint: 600px;
 
 $footerHeight: 320px;
@@ -47,16 +90,20 @@ $footerHeight: 320px;
 $sideElementWidthCollapsed: 40px;
 
 // Navigation Breakpoint Grid
-$navigationBreakPoint: 1002px;
+// $navigationBreakPoint: 1002px;
+$navigationBreakPoint: 1200px;
 
 // Sidebar Breakpoint Grid
-$sidebarBreakPoint: 1200px;
+// $sidebarBreakPoint: 1200px;
+$sidebarBreakPoint: 1002px;
 
 // Full Stack Breakpoint Grid
 $fullStackBreakPoint: 1350px;
 
-$pagePaddingSmall: 15px;
-$pagePaddingMedium: 20px;
+// $pagePaddingSmall: 15px;
+// $pagePaddingMedium: 20px;
+$pagePaddingSmall: 0px;
+$pagePaddingMedium: 15px;
 $pagePaddingLarge: 30px;
 
 // NAVBAR LIGHT
@@ -84,7 +131,8 @@ $sideElementZIndex: 12;
 $headerZIndex: 13;
 
 /* SIDE NAVS */
-$sideNavTopOffset: 26px;
+// $sideNavTopOffset: 26px;
+$sideNavTopOffset: 0;
 
 /* GRID BOXES */
 $gridBoxWidth: 200px;

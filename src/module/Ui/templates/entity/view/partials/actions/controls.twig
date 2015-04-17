@@ -1,8 +1,5 @@
 <div class="pull-right hidden-xs">
-    <link rel="import" href="https://cdn.ory.am/webcomponents/starred/elements/ory-star.html">
-    <ory-star endpoint="https://starred.ory.am/" object="serlo-{{ entity.getId() }}"></ory-star>
-
-    <div class="btn-group">
+    <div class="btn-group btn-group-community">
         {% include 'entity/view/partials/actions/versioning/edit' %}
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="caret"></span>
@@ -22,8 +19,5 @@
             {% include 'entity/view/partials/actions/event/history' %}
             {% include 'entity/view/partials/actions/trash' %}
         </ul>
-    </div>
-    <div class="btn-group">
-        {{ contexter().renderButton() }}
     </div>
 </div>

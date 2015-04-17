@@ -15,13 +15,13 @@
         "LGPL-3.0+"
     ],
     "require": {
-        "doctrine/doctrine-orm-module": "0.8.*",
+        "doctrine/doctrine-orm-module": "0.8.0",
         "widmogrod/zf2-assetic-module": "1.3.*",
         "zf-commons/zfc-rbac": "2.3",
         "php": ">=5.5",
         "zf-commons/zfc-base": "0.*",
         "zendframework/zendframework": "2.3.*",
-        "neilime/zf2-twb-bundle": "2.*@stable",
+        "neilime/zf2-twb-bundle": "2.3.0",
         "zendframework/zend-developer-tools": "~0.0.2",
         "dnode/dnode": "dev-master",
         "stroker/cache": "dev-master",

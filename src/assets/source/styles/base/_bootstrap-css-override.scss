@@ -2,6 +2,25 @@
   padding: inherit;
 }
 
+.btn-group-community {
+  &.open>.btn-default.dropdown-toggle {
+    background-color: darken($serloGreen, 5%);
+  }
+
+  .btn-default {
+    background-color: $serloGreen;
+    border-color: #fff;
+
+    &:hover, .open>.dropdown-toggle {
+      background-color: lighten($serloGreen, 5%);
+    }
+
+    span {
+      color: #fff;
+    }
+  }
+}
+
 .page-header > h1 {
   font-weight: 500;
   border: none;
@@ -42,4 +61,20 @@ abbr[title], abbr[data-original-title] {
 
 .nav-right > li {
   float: right;
+}
+
+.breadcrumb {
+  padding: 14px 10px 11px;
+  margin: 0 10px;
+
+  > li {
+    + li:before {
+      font-family: "FontAwesome";
+      font-weight: bold;
+      padding-right: 0;
+    }
+    > span {
+      font-weight: bold;
+    }
+  }
 }

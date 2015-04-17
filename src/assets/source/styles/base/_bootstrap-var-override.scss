@@ -32,6 +32,8 @@ $navbarHeight: 25px;
 /* Base Font */
 $sansFontFamily: 'Open Sans', sans-serif;
 
-.btn-block {
-  padding: inherit;
-}
+/* Breadcrumbs */
+$breadcrumb-bg: transparent;
+$breadcrumb-color: $themeColor;
+$breadcrumb-active-color: inherit;
+$breadcrumb-separator: "\f104";

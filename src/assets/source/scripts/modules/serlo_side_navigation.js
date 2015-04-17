@@ -1,14 +1,14 @@
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author  Julian Kempff (julian.kempff@serlo.org)
  * @license LGPL-3.0
  * @license http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- * 
+ *
  * The Main Navigation
- * 
+ *
  */
 
 /*global define*/
@@ -28,6 +28,8 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
         activeClass: 'is-active',
         // the item which zf2 returns as the current route match
         routeMatchClass: 'active',
+        // class given to community menu items
+        communityClass: 'is-community',
         // class given to menu items the user is navigating through
         activeNavigatorClass: 'is-nav-active',
         // width of the subnavigation
@@ -56,7 +58,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
      * @function deepFlatten
      * @param {Array} the array
      * @return {UnderscoreChain}
-     * 
+     *
      * Helper function
      **/
     function deepFlatten(array) {
@@ -92,7 +94,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
 
     /**
      * @method render
-     * 
+     *
      * Renders the a <li> and <a> tag on MenuItem.$el
      **/
     MenuItem.prototype.render = function () {
@@ -287,6 +289,10 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                 $ul.append(menuItem.render().$el);
             });
 
+            if (self.levels[0][0].data.parent.data.community) {
+                $div.addClass('is-community');
+            }
+
             $div.addClass('sub-nav-slider').append($ul);
             self.$el.append($div);
         });
@@ -314,7 +320,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
     /**
      * @method fetchFromDom
      * @param {jQueryObject} $root
-     * 
+     *
      * Loops through $root and creates an hierarchial array of objects
      **/
     Hierarchy.prototype.fetchFromDom = function ($root) {
@@ -361,6 +367,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                     parent: parent,
                     icon: icon,
                     active: $listItem.hasClass(defaults.routeMatchClass),
+                    community: $listItem.hasClass(defaults.communityClass),
                     needsFetching: needsFetching,
                     elementCount: $listItem.data('element-count'),
                     identifier: $listItem.data(defaults.asyncNav.identifier)
@@ -444,7 +451,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
      * @method findByUrl
      * @param {String} url
      * @return {Object} The first found menu item
-     * 
+     *
      * Searches for a menu item by URL
      **/
     Hierarchy.prototype.findByUrl = function (url) {
@@ -521,7 +528,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
     /**
      * @method findLastAvailableUrl
      * @return {Object} The first found menu item matching on the last ReferrerHistory entries.
-     * 
+     *
      * Searches menu items by URL
      **/
     Hierarchy.prototype.findLastAvailableUrl = function () {
@@ -633,7 +640,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
     /**
      * @class SideNavigation
      * @param {Object} options See defaults
-     * 
+     *
      * Main constructor
      **/
     SideNavigation = function (options) {
@@ -651,6 +658,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
         // this.$mover = $('<div id="serlo-side-sub-navigation-mover">');
         // this.$nav.append(this.$mover);
         // this.$mover.css('left', 0);
+
         this.$breadcrumbs = $('<ul id="serlo-side-navigation-breadcrumbs" class="nav">');
 
         this.hierarchy = new Hierarchy();
@@ -665,7 +673,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
 
     /**
      * @method setActiveBranch
-     * 
+     *
      * Sets options.activeClass for active menu item and its parents
      **/
     SideNavigation.prototype.setActiveBranch = function () {
@@ -744,7 +752,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
 
     /**
      * @method setActiveNavigator
-     * 
+     *
      * Sets the options.activeNavigatorClass for menu items the user is navigating with
      **/
     SideNavigation.prototype.setActiveNavigator = function () {
@@ -1013,7 +1021,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
     /**
      * @method setMoverHeight
      * @param {Number} level
-     * 
+     *
      **/
     SideNavigation.prototype.setMoverHeight = function (level) {
         var self = this,

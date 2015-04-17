@@ -18,24 +18,28 @@
                 // top left navigation
                 echo $this->navigation('top_left_navigation')
                     ->menu()
-                    ->setUlClass('nav navbar-nav navbar-border-right')
+                    ->setUlClass('nav navbar-nav')
                     ->setPartial('layout/navigation/horizontal')
                     ->render();
+                // top right navigation
+                ?>
+                <?php
+                echo $this->navigation('top_auth_navigation')
+                    ->menu()
+                    ->setUlClass('nav navbar-nav navbar-right')
+                    ->setPartial('layout/navigation/horizontal')
+                    ->render();
+                ?>
+                <ul class="nav navbar-nav pull-right notifications hidden-xs">
+                    <?php echo $this->notifications()->render(); ?>
+                </ul>
+                <?php
                 echo $this->navigation('top_right_navigation')
                     ->menu()
                     ->setUlClass('nav navbar-nav navbar-right')
                     ->setPartial('layout/navigation/horizontal')
                     ->render();
-                // top right navigation
-                echo $this->navigation('top_auth_navigation')
-                    ->menu()
-                    ->setUlClass('nav navbar-nav navbar-right navbar-border-right')
-                    ->setPartial('layout/navigation/horizontal')
-                    ->render();
                 ?>
-                <ul class="nav navbar-nav pull-right notifications hidden-xs navbar-border-right">
-                    <?php echo $this->notifications()->render(); ?>
-                </ul>
                 <?php //echo $this->instance()->renderSelect(); ?>
             </nav>
         </div>

@@ -1,122 +1,155 @@
-#subject-nav {
-  padding-top: 20px;
+#header-nav {
+  // padding-top: 20px;
+  font-size: 36px;
+  height: 75px;
+  line-height: 75px;
+  margin-top: 50px;
 
-  .subject-dropdown {
-    position: relative;
-    z-index: 2;
-    margin-left: 180px;
-    padding: 0px 20px;
-    margin-top: 8px;
-
-    @media only screen and (max-width: $screen-xs-min) {
-      margin-left: 0px;
-      margin-top: 0px;
-      height: 46px;
-      top: 40px;
-      left: 20px;
-    }
-  }
-
-  .subject-dropdown-toggle {
+  #mobile-menu-toggle {
     display: inline-block;
+    font-size: .9em;
 
-    line-height: 40px;
-    font-size: 35px;
+    height: 1.5em;
+    line-height: 1.5em;
+    // vertical-align: middle;
+    vertical-align: baseline;
 
-    color: $themeColor;
-    background: #F2F2F2;
+    width: 1.5em;
+    text-align: center;
 
-    z-index: 12;
+    background-color: $grayDark;
+    color: $lighterGray;
+    @media only screen and (min-width: $navigationBreakPoint) {
+      display: none !important;
+    }
+    @media only screen and (max-width: $sidebarBreakPoint) {
+      margin-left: $pagePaddingMedium;
+    }
+  }
 
-    @include theme-font(600);
-
-    &:hover,
-    &:focus {
+  #brand-link {
+    color: $grayDark;
+    position: relative;
+    &:hover, &:active, &:focus {
+      color: $grayDark;
       text-decoration: none;
-      background: #F9F9F9;
     }
   }
 
-  .subject-dropdown-menu {
-    display: none;
+  // .slogan {
+  //   @include theme-font(600);
+  //   position: relative;
+  //   top: -5px;
 
-    position: absolute;
-    top: -15px;
-    left: 13px;
+  //   width: 180px;
 
-    padding: 75px 20px 20px;
-    width: 360px;
+  //   color: $grayDark;
+  //   font-size: 0.9em;
+  //   text-align: right;
 
-    background: white;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    border: 1px solid #CCC;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+  //   @media only screen and (max-width: $screen-xs-min) {
+  //     top: -40px;
+  //     left: 60px;
+  //   }
+  // }
 
-    z-index: -1;
-
-    & .nav-label {
-      @include theme-font(700);
-      font-size: 16px;
-
-      padding: 8px 0px;
-    }
+  .subject-title {
+    display: inline-block;
+    margin-left: ($sidebarWidth + $sidebarGap);
   }
 
-  .subject-dropdown-title {
-    @include inline-block;
+  @media only screen and (max-width: $navigationBreakPoint) {
 
-    vertical-align: inherit;
-    border-right: 2px solid #E4E6E6;
-    padding: 3px 18px;
-  }
+    font-size: 28px;
+    line-height: 66px;
+    margin-top: 0;
 
-  .open {
-
-    background: none;
-
-    .subject-dropdown-title {
-      border-color: transparent;
-    }
-
-    .subject-dropdown-toggle {
-      background-color: white;
-      &:hover,
-      &:focus {
-        border-color: white;
+    #brand-link {
+      #serlo-logo {
+        display: none;
+      }
+      #serlo-brand {
+        position: static;
+        display: inline-block;
       }
     }
-
-    .subject-dropdown-menu {
-      display: block;
+    .subject-title {
+      margin: 0;
     }
-  }
-
-  .caret {
-    margin-left: 5px;
-    border-width: 7px;
-    border-top-color: $themeColor;
-    border-bottom: none;
-  }
-
-  .row {
-    border-top: 1px solid $lighterGray;
   }
 }
 
-.slogan {
-  @include theme-font(600);
+#subject-nav {
   position: relative;
-  top: -5px;
+  padding: 0;
 
-  width: 180px;
-
-  color: $grayDark;
-  font-size: 0.9em;
-  text-align: right;
-
-  @media only screen and (max-width: $screen-xs-min) {
-    top: -40px;
-    left: 60px;
+  .subject-anchor,
+  .subject-nav-center,
+  #search-content
+  {
+    @include block-shadow;
   }
+
+  .subject-anchor {
+    display: block;
+    float: left;
+    width: $sidebarWidth;
+    margin-right: $sidebarGap;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .subject-nav-center {
+    display: block;
+    margin: 0 ($sidebarWidth + $sidebarGap);
+    background-color: $white;
+
+    .btn-group {
+      height: 100%;
+
+      >.btn {
+        padding: 14px 14px 12px;
+        border-width: 0 0 0 1px;
+        @include border-radius(0px);
+
+        &:hover, &:focus, &:active, &.active {
+          z-index: 0;
+        }
+      }
+
+      .btn-default {
+        display: block;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $navigationBreakPoint) {
+    .subject-anchor {
+      display: none;
+    }
+    .subject-nav-center {
+      margin-left: 0;
+    }
+  }
+
+  #search-content {
+    @include bottom-frame($serloBlue);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: $sidebarWidth;
+    margin-left: $sidebarGap;
+
+    background: transparent;
+    input {
+      position: absolute;
+      background: transparent;
+      color: $black;
+    }
+  }
+
 }
 

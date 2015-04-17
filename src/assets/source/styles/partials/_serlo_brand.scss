@@ -8,31 +8,32 @@
 #serlo-logo {
   font-family: 'serlo';
   font-size: 70px;
+  color: $themeColor;
 }
 
-#subject-nav {
+#header-nav {
   #serlo-logo {
     position: absolute;
     top: -56px;
     left: 20px;
     font-size: 50px;
-
-    @media only screen and (max-width: $screen-xs-min) {
-      top: -60px;
-      left: -10px;
-    }
+    
+    // @media only screen and (max-width: $screen-xs-min) {
+    //   top: -60px;
+    //   left: -10px;
+    // }
   }
-
+  
   #serlo-brand {
     position: absolute;
     top: -9px;
     left: 85px;
     margin: 0;
-    font-size: 36px;
-    @media only screen and (max-width: $screen-xs-min) {
-      top: -30px;
-      left: 55px;
-    }
+    // font-size: 36px;
+    // @media only screen and (max-width: $screen-xs-min) {
+    //   top: -30px;
+    //   left: 55px;
+    // }
   }
 }
 

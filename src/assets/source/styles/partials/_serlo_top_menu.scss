@@ -1,13 +1,27 @@
 /* Serlo Menu */
 /* top navbar */
 #serlo-menu {
-  //border: none;
+  @include block-shadow;
 
-  //@include bar();
+  @media only screen and (max-width: $navigationBreakPoint) {
+    display: none;
+  }
 
-  //font-size: 0.91em;
-  //border-radius: 0;
-  //min-height: 0;
+  .is-edge {
+    background-color: $backgroundColor;
+    color: $serloGray;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &:hover {
+      background-color: $themeColor;
+    }
+  }
+
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 15px;
+  }
 
   .nav.navbar-nav {
 
@@ -18,8 +32,13 @@
     & > li {
 
       > a.primary {
-        color: $themeColor;
+        background-color: $themeColor;
+        color: $white;
         font-weight: 700;
+
+        &:hover {
+          background-color: lighten($themeColor, 5%);
+        }
       }
 
       &.dropdown.open > a {
