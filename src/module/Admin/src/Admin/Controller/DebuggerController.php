@@ -11,14 +11,25 @@
 namespace Admin\Controller;
 
 use Admin\Form\DebuggerForm;
+use Instance\Manager\InstanceManagerInterface;
+use Instance\Manager\InstanceManagerAwareTrait;
 use Ui\View\Helper\Encrypt;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class DebuggerController extends AbstractActionController
-{
+class DebuggerController extends AbstractActionController {
+    use InstanceManagerAwareTrait;
+
+    public function __construct(InstanceManagerInterface $instanceManager) {
+        $this->instanceManager = $instanceManager;
+    }
+
+
     public function indexAction()
     {
+        $instance = $this->getInstanceManager()->getInstanceFromRequest();
+        $this->assertGranted('admin.debugger.use', $instance);
+
         $form    = new DebuggerForm();
         $message = false;
 
