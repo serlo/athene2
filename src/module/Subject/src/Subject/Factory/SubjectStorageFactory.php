@@ -30,7 +30,7 @@ class SubjectStorageFactory implements FactoryInterface
                     'name'    => 'apc',
                     'options' => [
                         'namespace' => __NAMESPACE__,
-                        'ttl'       => 60 * 60
+                        'ttl'       => 60 * 5
                     ]
                 ],
                 'plugins' => [
