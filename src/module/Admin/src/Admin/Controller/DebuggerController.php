@@ -19,6 +19,8 @@ class DebuggerController extends AbstractActionController
 {
     public function indexAction()
     {
+        $this->assertGranted('debugger.use');
+
         $form    = new DebuggerForm();
         $message = false;
 
