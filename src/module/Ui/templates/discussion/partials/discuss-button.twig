@@ -1,0 +1,11 @@
+{% if isGranted('discussion.create') %}
+    <button class="discussion-start btn btn-success pull-right" data-toggle="collapse"
+            data-target="#discussion-form-container-{{ object.getId() }}">
+        <span class="fa fa-comments"></span> {{ 'Discuss' | trans }}
+    </button>
+{% else %}
+    <a class="discussion-start btn btn-success pull-right"
+       href="{{ url('authentication/login', [], {'query': {'ref': form.getAttribute('action') }}) }}">
+        <span class="fa fa-comments"></span> {{ 'Discuss' | trans }}
+    </a>
+{% endif %}
