@@ -58,6 +58,19 @@ interface RepositoryManagerInterface extends EventManagerAwareInterface, Flushab
      */
     public function findRevision(RepositoryInterface $repository, $id);
 
+    /**
+     * Finds the revision previous to the specified revision.
+     *
+     * <code>
+     * $repositoryManager->findPreviousRevision($repository,$revision);
+     * </code>
+     *
+     * @param RepositoryInterface $repository
+     * @param RevisionInterface $revision
+     * @return RevisionInterface
+     */
+    public function findPreviousRevision(RepositoryInterface $repository, RevisionInterface $revision);
+
 
     /**
      * Rejects a revision (opposite of checkoutRevision).
