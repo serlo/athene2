@@ -2,15 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
 "POT-Creation-Date: 2015-03-18 18:25+0100\n"
-"PO-Revision-Date: 2015-03-18 18:28+0100\n"
+"PO-Revision-Date: 2015-04-24 15:00+0100\n"
 "Last-Translator: Serlo <community-de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;pageHeader;setSubtitle;addMessage;addSuccessMessage;addErrorMessage;setLabel;setLegend;t\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;pageHeader;"
+"setSubtitle;addMessage;addSuccessMessage;addErrorMessage;setLabel;setLegend;"
+"t\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -83,20 +85,32 @@ msgid "Your account has been activated, you may now log in."
 msgstr "Dein Konto wurde aktiviert. Du kannst dich jetzt anmelden."
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:66
-msgid "I couldn't find an account by that token. You can now try to re-activate your account."
-msgstr "Es konnte kein Konto mit diesem Token gefunden werden. Du kannst jetzt versuchen, dein Konto zu reaktivieren."
+msgid ""
+"I couldn't find an account by that token. You can now try to re-activate "
+"your account."
+msgstr ""
+"Es konnte kein Konto mit diesem Token gefunden werden. Du kannst jetzt "
+"versuchen, dein Konto zu reaktivieren."
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:84
-msgid "Your have been sent an activation email. Please check your spam folder as well."
-msgstr "Wir haben dir eine Aktivierungsmail geschickt. Überprüfe gegebenenfalls deinen Spam-Ordner."
+msgid ""
+"Your have been sent an activation email. Please check your spam folder as "
+"well."
+msgstr ""
+"Wir haben dir eine Aktivierungsmail geschickt. Überprüfe gegebenenfalls "
+"deinen Spam-Ordner."
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:122
 msgid "Your password has successfully been changed."
 msgstr "Dein Passwort wurde erfolgreich geändert."
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:228
-msgid "You have been sent an email with instructions on how to restore your password! Please check your spam folder as well."
-msgstr "Wir haben dir eine E-Mail mit Anweisungen geschickt, wie du dein Passwort zurücksetzen kannst! Überprüfe gegebenenfalls deinen Spam-Ordner."
+msgid ""
+"You have been sent an email with instructions on how to restore your "
+"password! Please check your spam folder as well."
+msgstr ""
+"Wir haben dir eine E-Mail mit Anweisungen geschickt, wie du dein Passwort "
+"zurücksetzen kannst! Überprüfe gegebenenfalls deinen Spam-Ordner."
 
 #: ../module/Authentication/src/Authentication/Form/ActivateForm.php:27
 #: ../module/User/src/User/Form/Register.php:39
@@ -182,8 +196,11 @@ msgid "Your changes have been saved."
 msgstr "Deine Änderungen wurden gespeichert."
 
 #: ../module/Entity/src/Entity/Controller/RepositoryController.php:52
-msgid "Your revision has been saved, it will be available once it get's approved"
-msgstr "Deine Bearbeitung wurde gespeichert und ist verfügbar, sobald sie überprüft wurde"
+msgid ""
+"Your revision has been saved, it will be available once it get's approved"
+msgstr ""
+"Deine Bearbeitung wurde gespeichert und ist verfügbar, sobald sie überprüft "
+"wurde"
 
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:32
 #: ../module/Entity/src/Entity/Form/ModuleForm.php:32
@@ -298,8 +315,12 @@ msgid "The object you are trying to subscribe to does not exist."
 msgstr "Das Objekt, das du abonnieren möchtest, existiert nicht."
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:105
-msgid "You can't update your subscription because you did not subscribe to this object."
-msgstr "Dein Abonnement kann nicht aktualisiert werden, da Du dieses Objekt noch nicht abonniert hast."
+msgid ""
+"You can't update your subscription because you did not subscribe to this "
+"object."
+msgstr ""
+"Dein Abonnement kann nicht aktualisiert werden, da Du dieses Objekt noch "
+"nicht abonniert hast."
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:130
 msgid "You are no longer receiving notifications for this content."
@@ -334,8 +355,12 @@ msgid "description:"
 msgstr "Beschreibung:"
 
 #: ../module/User/src/User/Controller/UserController.php:88
-msgid "You have registered successfully andwill soon receive an email with instructions onhow to activate your account."
-msgstr "Du hast dich erfolgreich registierst. In Kürze erhältst du eine E-Mail mit Anweisungen, wie du deinen Account aktivieren kannst."
+msgid ""
+"You have registered successfully andwill soon receive an email with "
+"instructions onhow to activate your account."
+msgstr ""
+"Du hast dich erfolgreich registierst. In Kürze erhältst du eine E-Mail mit "
+"Anweisungen, wie du deinen Account aktivieren kannst."
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:28
 msgid "Current password:"
@@ -374,7 +399,8 @@ msgstr "E-Mail-Adresse wiederholen:"
 
 #: ../module/User/src/User/Form/Register.php:58
 msgid "I've read and understood the terms of service."
-msgstr "Ich habe die Nutzungsbedingungen gelesen, verstanden und stimme ihnen zu."
+msgstr ""
+"Ich habe die Nutzungsbedingungen gelesen, verstanden und stimme ihnen zu."
 
 #: ../module/User/src/User/Form/RegisterFilter.php:44
 msgid "This email address is already in use. Please use a different one."
@@ -382,14 +408,21 @@ msgstr "Diese E-Mail-Adresse wird bereits verwendet. Bitte wähle eine andere."
 
 #: ../module/User/src/User/Form/RegisterFilter.php:65
 msgid "This username is already taken. Please use a different one."
-msgstr "Dieser Benutzername ist leider schon vergeben. Bitte wähle einen anderen."
+msgstr ""
+"Dieser Benutzername ist leider schon vergeben. Bitte wähle einen anderen."
 
 #: ../module/User/src/User/Form/RegisterFilter.php:76
-msgid "Your username may only contain letters, digits, underscores (_) and hyphens (-). Please use a different one."
-msgstr "Der Benutzername darf nur aus Buchstaben, Ziffern, Unterstrichen (_) und Bindestrichen (-) bestehen. Bitte wähle einen anderen."
+msgid ""
+"Your username may only contain letters, digits, underscores (_) and hyphens "
+"(-). Please use a different one."
+msgstr ""
+"Der Benutzername darf nur aus Buchstaben, Ziffern, Unterstrichen (_) und "
+"Bindestrichen (-) bestehen. Bitte wähle einen anderen."
 
 #: ../module/User/src/User/Form/RegisterFilter.php:97
-msgid "The email address entered does not match the confirmation address. Ensure the addresses entered are identical."
+msgid ""
+"The email address entered does not match the confirmation address. Ensure "
+"the addresses entered are identical."
 msgstr "Die beiden angegebenen E-Mail-Adressen stimmen nicht überein."
 
 #: ../module/User/src/User/Form/RegisterFilter.php:114
@@ -397,12 +430,18 @@ msgid "Your password needs to be at least 6 characters long."
 msgstr "Dein Passwort muss mindestens 6 Zeichen lang sein."
 
 #: ../module/User/src/User/Form/RegisterFilter.php:122
-msgid "The password entered does not match the confirmation password. Ensure the passwords entered are identical."
+msgid ""
+"The password entered does not match the confirmation password. Ensure the "
+"passwords entered are identical."
 msgstr "Die beiden angegebenen Passwörter stimmen nicht überein."
 
 #: ../module/User/src/User/Form/RegisterFilter.php:158
-msgid "Please confirm that you have read, understood and accepted our terms of service."
-msgstr "Bitte bestätige, dass du die Nutzungsbedingungen gelesen und verstanden hast, und ihnen zustimmst."
+msgid ""
+"Please confirm that you have read, understood and accepted our terms of "
+"service."
+msgstr ""
+"Bitte bestätige, dass du die Nutzungsbedingungen gelesen und verstanden "
+"hast, und ihnen zustimmst."
 
 #: ../module/Uuid/src/Uuid/Controller/UuidController.php:32
 msgid "The content has been trashed."
@@ -565,8 +604,14 @@ msgid "You cannot pass!"
 msgstr "Zugriff verboten!"
 
 #: ../module/Ui/templates/error/403.phtml:9
-msgid "I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark fire will not avail you, Flame of Udun! Go back to the shadow. <strong>You shall not pass</strong>!"
-msgstr "I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark fire will not avail you, Flame of Udun! Go back to the shadow. <strong>You shall not pass</strong>!"
+msgid ""
+"I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark "
+"fire will not avail you, Flame of Udun! Go back to the shadow. <strong>You "
+"shall not pass</strong>!"
+msgstr ""
+"I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark "
+"fire will not avail you, Flame of Udun! Go back to the shadow. <strong>You "
+"shall not pass</strong>!"
 
 #: ../module/Ui/templates/error/403.phtml:14
 #: ../module/Ui/templates/error/404.phtml:14
@@ -578,16 +623,23 @@ msgid "That page does not exist!"
 msgstr "Diese Seite existiert nicht!"
 
 #: ../module/Ui/templates/error/404.phtml:12
-msgid "It seems like we can't find the page you were looking for. Try checking the URL for errors, then hit the refresh button on your browser."
-msgstr "Es scheint, als könnten wir die Seite die du gesucht hast, nicht finden. Überprüfe die URL für Fehler und lade die Seite erneut."
+msgid ""
+"It seems like we can't find the page you were looking for. Try checking the "
+"URL for errors, then hit the refresh button on your browser."
+msgstr ""
+"Es scheint, als könnten wir die Seite die du gesucht hast, nicht finden. "
+"Überprüfe die URL für Fehler und lade die Seite erneut."
 
 #: ../module/Ui/templates/error/404.phtml:31
 msgid "The requested controller was unable to dispatch the request."
 msgstr "Der angeforderte Controller konnte die Anforderung nicht bearbeiten."
 
 #: ../module/Ui/templates/error/404.phtml:35
-msgid "The requested controller could not be mapped to an existing controller class."
-msgstr "Der angeforderte Controller konnte nicht zu einer vorhandenen Controller-Klasse zugeordnet werden."
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr ""
+"Der angeforderte Controller konnte nicht zu einer vorhandenen Controller-"
+"Klasse zugeordnet werden."
 
 #: ../module/Ui/templates/error/404.phtml:39
 msgid "The requested controller was not dispatchable."
@@ -599,7 +651,8 @@ msgstr "Die angeforderte URL konnte nicht zugeordnet werden."
 
 #: ../module/Ui/templates/error/404.phtml:45
 msgid "We cannot determine at this time why a 404 was generated."
-msgstr "Im Moment können wir nicht festellen warum ein 404 Fehler aufgetreten ist."
+msgstr ""
+"Im Moment können wir nicht festellen warum ein 404 Fehler aufgetreten ist."
 
 #: ../module/Ui/templates/error/404.phtml:57
 msgid "Controller"
@@ -777,12 +830,21 @@ msgid "Actions"
 msgstr "Aktionen"
 
 #: ../module/Ui/templates/license/manage.phtml:25
-msgid "Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE"
-msgstr "Achtung! Das Löschen einer Lizenz hat schwerwiegende Folgen. Du bist dabei eine große Menge an Inhalt zu löschen, du solltest genau wissen was du tust. Das Löschen kann nicht rückgängig gemacht werden!"
+msgid ""
+"Caution, deleting a license has serious consequences. You are going to "
+"delete a great amount of content, you need to know exactly what you are "
+"doing! THIS ACTION CAN NOT BE UNDONE"
+msgstr ""
+"Achtung! Das Löschen einer Lizenz hat schwerwiegende Folgen. Du bist dabei "
+"eine große Menge an Inhalt zu löschen, du solltest genau wissen was du tust. "
+"Das Löschen kann nicht rückgängig gemacht werden!"
 
 #: ../module/Ui/templates/license/manage.phtml:25
-msgid "DANGER: You are going to delete all contents associated with this license!"
-msgstr "ACHTUNG! Du bist dabei alle Inhalte, die mit der Lizenz verbunden sind zu löschen!"
+msgid ""
+"DANGER: You are going to delete all contents associated with this license!"
+msgstr ""
+"ACHTUNG! Du bist dabei alle Inhalte, die mit der Lizenz verbunden sind zu "
+"löschen!"
 
 #: ../module/Ui/templates/mailman/messages/register/body.phtml:2
 #, php-format
@@ -813,13 +875,15 @@ msgstr ""
 #, php-format
 msgid ""
 "Hi %s,\n"
-"it seems that you want to restore your password. If not, you can ignore this email.\n"
+"it seems that you want to restore your password. If not, you can ignore this "
+"email.\n"
 "You can restore your password by clicking the link below:\n"
 "\n"
 "%s"
 msgstr ""
 "Hallo %s,\n"
-" es scheint du möchtest dein Passwort zurücksetzen. Wenn nicht kannst du diese Nachricht ignorieren. \n"
+" es scheint du möchtest dein Passwort zurücksetzen. Wenn nicht kannst du "
+"diese Nachricht ignorieren. \n"
 "Du kannst dein Passwort zurücksetzen indem du auf den Link unten klickst:\n"
 "\n"
 "%s"
@@ -868,8 +932,12 @@ msgid "Action"
 msgstr "Aktion"
 
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:38
-msgid "Do you really want to purge this item? It and all references to it will be lost forever!"
-msgstr "Möchtest du wirklich diese Datei löschen? Die Datei und alle Verweise darauf werden unwiderruflich gelöscht."
+msgid ""
+"Do you really want to purge this item? It and all references to it will be "
+"lost forever!"
+msgstr ""
+"Möchtest du wirklich diese Datei löschen? Die Datei und alle Verweise darauf "
+"werden unwiderruflich gelöscht."
 
 #: ../module/Ui/templates/subject/entity/unrevised.phtml:1
 msgid "Unrevised learning resources"
@@ -968,7 +1036,9 @@ msgstr "Häufigkeit"
 #: /tmp/cache/5509b51e222fb/23/d2/de1f13492306f628e4f95d83d5f76f1b6215df68daa597780d4b7a317d8e.php:102
 #, php-format
 msgid "Haven't activated your account yet? %sResend activation mail%s!"
-msgstr "Hast du deinen Account noch nicht aktiviert? %sFordere die Aktivierungs E-Mail an%s!"
+msgstr ""
+"Hast du deinen Account noch nicht aktiviert? %sFordere die Aktivierungs E-"
+"Mail an%s!"
 
 #: /tmp/cache/5509b51e222fb/23/d2/de1f13492306f628e4f95d83d5f76f1b6215df68daa597780d4b7a317d8e.php:48
 msgid "Log in"
@@ -987,8 +1057,14 @@ msgid "Please enter the id of the adPage"
 msgstr "Bitte gib die ID der Ad Seite an"
 
 #: /tmp/cache/5509b51e222fb/c9/7f/3ea30775e07a6755f789adf17e58fb83f121ada84a3fa678efd025a0daca.php:30
-msgid "Please select an appropriate category for your discussion. Choosing the right category helps others to find your discussion faster and to answer you quicker. Thank you!"
-msgstr "Bitte wähle eine passende Kategorie für deine Diskussion. Die Auswahl der richtigen Kategorie hilft anderen, deine Diskussion schneller zu finden und zu beantworten. Vielen Dank!"
+msgid ""
+"Please select an appropriate category for your discussion. Choosing the "
+"right category helps others to find your discussion faster and to answer you "
+"quicker. Thank you!"
+msgstr ""
+"Bitte wähle eine passende Kategorie für deine Diskussion. Die Auswahl der "
+"richtigen Kategorie hilft anderen, deine Diskussion schneller zu finden und "
+"zu beantworten. Vielen Dank!"
 
 #: /tmp/cache/5509b51e222fb/c9/7f/3ea30775e07a6755f789adf17e58fb83f121ada84a3fa678efd025a0daca.php:63
 msgid "Saving..."
@@ -1045,7 +1121,7 @@ msgstr "Diskussion archivieren"
 #: /tmp/cache/5509b51e6661e/3a/d6/e0e9f5bfb0310084dd21954b8aa40932866fe39da2229c6691d0dc0d3ca2.php:35
 #: /tmp/cache/5509b51e6661e/3a/d6/e0e9f5bfb0310084dd21954b8aa40932866fe39da2229c6691d0dc0d3ca2.php:48
 msgid "Discuss"
-msgstr "Diskutieren"
+msgstr "Kommentieren"
 
 #: /tmp/cache/5509b51e6661e/42/54/e942d85abc4ce081c3091762a712dbd5501c55327aede43e2f685c14d905.php:26
 #: /tmp/cache/5509b51e6661e/c8/15/048baf3d300da4645a446657a30d25cc4e77507870d00ec2dd3b390153f0.php:22
@@ -1220,15 +1296,21 @@ msgstr "Text-Lösung"
 
 #: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:28
 msgid ""
-"There are multiple recent revisions for this object. Please be aware that they may be of very\n"
-"        different nature. Consider reviewing all of them before accepting or merging."
+"There are multiple recent revisions for this object. Please be aware that "
+"they may be of very\n"
+"        different nature. Consider reviewing all of them before accepting or "
+"merging."
 msgstr ""
-"Es gibt mehrere Bearbeitungen für dieses Objekt. Bitte beachte, dass sich diese groß\n"
-" unterscheiden könnten. Schaue dir daher bitte alle Bearbeitungen an, bevor du sie akzeptierst oder zusammenführst."
+"Es gibt mehrere Bearbeitungen für dieses Objekt. Bitte beachte, dass sich "
+"diese groß\n"
+" unterscheiden könnten. Schaue dir daher bitte alle Bearbeitungen an, bevor "
+"du sie akzeptierst oder zusammenführst."
 
 #: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:95
-msgid "This content is a dead node and has no content. Please edit or remove it."
-msgstr "Dies ist ein toter Datenknoten ohne Inhalt. Bitte bearbeite oder lösche ihn."
+msgid ""
+"This content is a dead node and has no content. Please edit or remove it."
+msgstr ""
+"Dies ist ein toter Datenknoten ohne Inhalt. Bitte bearbeite oder lösche ihn."
 
 #: /tmp/cache/5509b51ea7a77/ea/c2/51f689f1405df9e3cebfe89d6892428aa6f6e491186714be0dab7673588d.php:33
 #: /tmp/cache/5509b5203ec43/36/16/0fef62a4db18077499a0ceb2de797dc9d7f4ac9f241bb8698dd500460b03.php:33
@@ -1237,7 +1319,9 @@ msgstr "Dieser Inhalt wurde zum Löschen markiert."
 
 #: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:89
 msgid "This content is pending approval and may therefore not be viewed yet."
-msgstr "Dieser Inhalt muss noch bestätigt werden und kann daher noch nicht angezeigt werden."
+msgstr ""
+"Dieser Inhalt muss noch bestätigt werden und kann daher noch nicht angezeigt "
+"werden."
 
 #: /tmp/cache/5509b51ea7a77/ea/c2/51f689f1405df9e3cebfe89d6892428aa6f6e491186714be0dab7673588d.php:26
 #: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:79
@@ -1348,12 +1432,20 @@ msgid "%user% started a new discussion %discussion% on %on%"
 msgstr "%user% hat eine neue Diskussion %discussion% zu %on% erstellt"
 
 #: /tmp/cache/5509b51f20cac/62/47/b8f0ac6e180c73ecc33de11d120e729bb9fe44840aae8c6603b8c7eb376a.php:59
-msgid "A hint has been created but no content has been added yet or it is pending approval."
-msgstr "Ein Hinweis wurde erstellt, jedoch noch kein Inhalt hinzugefügt oder noch nicht akzeptiert."
+msgid ""
+"A hint has been created but no content has been added yet or it is pending "
+"approval."
+msgstr ""
+"Ein Hinweis wurde erstellt, jedoch noch kein Inhalt hinzugefügt oder noch "
+"nicht akzeptiert."
 
 #: /tmp/cache/5509b51f20cac/5f/48/abda882a9fd76f2b6e889104fb2ef076d0edb1a6371dc71f9d41f2071ad9.php:55
-msgid "A solution has been created but no content has been added yet or it is pending approval."
-msgstr "Eine Lösung wurde erstellt, aber ihr noch kein Inhalt hinzugefügt oder noch nicht akzeptiert."
+msgid ""
+"A solution has been created but no content has been added yet or it is "
+"pending approval."
+msgstr ""
+"Eine Lösung wurde erstellt, aber ihr noch kein Inhalt hinzugefügt oder noch "
+"nicht akzeptiert."
 
 #: /tmp/cache/5509b51f20cac/62/47/b8f0ac6e180c73ecc33de11d120e729bb9fe44840aae8c6603b8c7eb376a.php:41
 msgid "Hint"
@@ -1774,7 +1866,7 @@ msgstr "Gruppen"
 #: /tmp/cache/5509b52070ace/49/cf/f5a4374c07533d7f52d3ac957eb563655186f15d86b18c4a1b8621b35a76.php:248
 #, php-format
 msgid "Show %ecount% exercises..."
-msgstr ""
+msgstr "Zeige %ecount% Aufgaben..."
 
 #: /tmp/cache/5509b52070ace/4a/90/008ac7f143aefdde783f4f6d4387b62eeef8bf25c62463779a78f8bd0b0a.php:48
 msgid "Videos"
