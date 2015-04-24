@@ -1,19 +1,10 @@
 {% set discussions = discussion().getDiscussions(object) %}
 {% set form = discussion().getForm('discussion', object, forum) %}
 <div class="h1 heading-content">
-    {% if isGranted('discussion.create') %}
-        <button class="discussion-start btn btn-success pull-right" data-toggle="collapse"
-                data-target="#discussion-form-container-{{ object.getId() }}">
-            <span class="fa fa-comments"></span> {{ 'Discuss' | trans }}
-        </button>
-    {% else %}
-        <a class="discussion-start btn btn-success pull-right"
-           href="{{ url('authentication/login', [], {'query': {'ref': form.getAttribute('action') }}) }}">
-            <span class="fa fa-comments"></span> {{ 'Discuss' | trans }}
-        </a>
-    {% endif %}
+    {% include 'discussion/partials/discuss-button' %}
     <span>{{ 'Discussions' | trans }}</span>
 </div>
+{% include 'discussion/partials/info-text' %}
 <div class="collapse" id="discussion-form-container-{{ object.getId() }}">
     <div class="blockquote blockquote-primary blockquote-box">
         <div class="row">
@@ -23,16 +14,11 @@
         </div>
     </div>
 </div>
+{% if not discussions is empty %}
+    <hr/>
+{% endif %}
 <div class="discussions">
     {% for discussion in discussions %}
         {% include 'discussion/helper/default/discussion' with {'discussion': discussion, 'blockquoteClass': ''} %}
-    {% else %}
-        <div class="list-group">
-            <div class="list-group-item">
-                <div class="discussion-text">
-                    <span class="text-muted">{% trans %} There are no discussions here yet. {% endtrans %}</span>
-                </div>
-            </div>
-        </div>
     {% endfor %}
 </div>
