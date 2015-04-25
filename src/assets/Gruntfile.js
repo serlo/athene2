@@ -289,7 +289,8 @@ module.exports = function (grunt) {
                     mainConfigFile: "source/scripts/main.js",
                     out: "<%= serlo.tmp %>/scripts/main.js",
                     preserveLicenseComments: false,
-                    optimize: 'none'
+                    optimize: 'none',
+                    _buildPathToModuleIndex: {}
                 }
             },
             testing: {
@@ -299,7 +300,8 @@ module.exports = function (grunt) {
                     mainConfigFile: "source/tests/modules/specRunner.js",
                     out: "<%= serlo.tmp %>/scripts/main.js",
                     preserveLicenseComments: false,
-                    optimize: 'none'
+                    optimize: 'none',
+                    _buildPathToModuleIndex: {}
                 }
             }
         },

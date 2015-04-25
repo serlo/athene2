@@ -71,9 +71,6 @@ require.config({
         },
         historyjs: {
             deps: ['jquery']
-        },
-        ATHENE2: {
-            deps: ['bootstrap', 'easing', 'nestable', 'historyjs', 'polyfills', 'datepicker', 'event_extensions', 'jasny']
         }
     },
     waitSeconds: 2
