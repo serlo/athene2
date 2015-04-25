@@ -178,8 +178,8 @@ require(['jquery', 'ATHENE2', 'support'], function ($, App, Supporter) {
     if (typeof MathJax !== undefined) {
         MathJax.Hub.Config({
             displayAlign: 'left',
-            extensions: ["tex2jax.js"],
-            jax: ["input/TeX", "output/HTML-CSS"],
+            extensions: ["tex2jax.js", "CHTML-preview.js"],
+            jax: ["input/TeX", "output/SVG", "output/CommonHTML"],
             skipStartupTypeset: true,
             tex2jax: {
                 inlineMath: [

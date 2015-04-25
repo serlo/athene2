@@ -14,4 +14,4 @@ sudo su - www-data -c "pm2 start /var/www/src/assets/node_modules/athene2-editor
 sudo su - www-data -c "(cd /var/www/src/assets;bower --config.analytics=false update)"
 sudo su - www-data -c "(cd /var/www/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar install -o)"
 sudo su - www-data -c "(cd /var/www/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar update -o)"
-# sudo su - www-data -c "grunt dev &"
+sudo grunt dev &
