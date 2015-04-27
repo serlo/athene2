@@ -329,7 +329,10 @@ class AliasManager implements AliasManagerInterface
         foreach (explode('/', $text) as $token) {
             $text        = $slugify->filter($token);
             $text        = $shortify->filter($text);
-            $slugified[] = $text;
+
+            if ($text != false) {
+                $slugified[] = $text;
+            }
         }
 
         $text = implode('/', $slugified);
