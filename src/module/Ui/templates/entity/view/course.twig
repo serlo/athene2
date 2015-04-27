@@ -85,6 +85,9 @@
                         </div>
                     </div>
                 </div>
+                <section id="discussion-{{ page.getId() }}">
+                    {{ discussion(page).render() }}
+                </section>
             </article>
         {% endfor %}
     </div>
