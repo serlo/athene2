@@ -49,4 +49,9 @@ interface RevisionInterface
      * @return bool
      */
     public function isTrashed();
+
+    /**
+     * @return DateTime
+     */
+    public function getTimestamp();
 }
