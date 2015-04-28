@@ -66,6 +66,9 @@
                     </div>
                 </div>
             </div>
+            <section id="discussion-{{ entity.getId() }}">
+                {{ discussion(entity).render() }}
+            </section>
         </article>
         {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
             {% set revision = page.getCurrentRevision() %}
@@ -85,6 +88,9 @@
                         </div>
                     </div>
                 </div>
+                <section id="discussion-{{ page.getId() }}">
+                    {{ discussion(page).render() }}
+                </section>
             </article>
         {% endfor %}
     </div>
@@ -92,6 +98,3 @@
 <!-- End Carousel -->
 
 {% include 'entity/view/partials/license' %}
-<section id="discussion-{{ entity.getId() }}">
-    {{ discussion(entity).render() }}
-</section>

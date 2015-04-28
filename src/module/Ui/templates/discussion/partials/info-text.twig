@@ -1,0 +1,19 @@
+{% if discussions is empty %}
+    <div class="alert alert-info">
+        {% trans %} There are no discussions on this topic yet {% endtrans %}
+    </div>
+{% endif %}
+<div class="top-buffer-10">
+    <div class="panel panel-default">
+        <div class="panel-body">
+                <span class="text-muted">
+                    {% trans %}
+                    Is there anything you want to know?
+                        Or do you have an idea how this page could be improved?
+                        <br/>
+                        Start a discussion and share your ideas and suggestions with the community
+                    {% endtrans %}
+                </span>
+        </div>
+    </div>
+</div>

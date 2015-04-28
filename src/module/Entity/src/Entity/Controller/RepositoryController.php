@@ -12,6 +12,7 @@ namespace Entity\Controller;
 
 use Entity\Entity\EntityInterface;
 use Entity\Options\ModuleOptions;
+use Versioning\Entity\RevisionInterface;
 use Versioning\Exception\RevisionNotFoundException;
 use Versioning\RepositoryManagerAwareTrait;
 use Zend\Form\Form;
@@ -90,7 +91,7 @@ class RepositoryController extends AbstractController
         }
 
         $revision        = $this->getRevision($entity, $this->params('revision'));
-        $currentRevision = $this->getRevision($entity);
+        $currentRevision = $this->getPreviousRevision($entity, $revision);
 
         if (!$revision) {
             $this->getResponse()->setStatusCode(404);
@@ -199,5 +200,15 @@ class RepositoryController extends AbstractController
         } catch (RevisionNotFoundException $e) {
             return null;
         }
+    }
+
+    /**
+     * @param EntityInterface $entity
+     * @param RevisionInterface $revision
+     * @return RevisionInterface
+     */
+    protected function getPreviousRevision(EntityInterface $entity, RevisionInterface $revision)
+    {
+        return $this->getRepositoryManager()->findPreviousRevision($entity, $revision);
     }
 }
