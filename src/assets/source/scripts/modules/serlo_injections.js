@@ -9,14 +9,21 @@
  */
 
 /*global define, require, window, Modernizr*/
-define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
+//require(['http://www.geogebratube.org/scripts/deployggb.js']);
+
+define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, Common, t) {
     "use strict";
     var Injections,
         cache = {},
         ggbApplets = {},
         ggbAppletsCount = 0,
         geogebraScriptSource = 'https://www.geogebra.org/web/4.4/web/web.nocache.js',
-        $geogebraTemplate = $('<article class="geogebraweb" data-param-width="700" data-param-height="525" data-param-usebrowserforjs="true" data-param-enableRightClick="false"></article>');
+        $geogebraTemplate = $('<article class="geogebraweb" data-param-width="700" data-param-height="525" data-param-usebrowserforjs="true" data-param-enableRightClick="false"></article>'),
+        //gtApplets = {},
+        //geogebraTubeScriptSource = 'http://www.geogebratube.org/scripts/deployggb.js',
+        gtAppletsCount = 0,
+        $geogebraTubeTemplate = $('<div style="width:100% overflow:hidden"></div>');
+        //$geogebraTubeTemplate = $('<div style="width:100%"><embed/></div>');
 
     // terrible geogebra oninit handler..
     // that doesnt work.....
@@ -68,6 +75,40 @@ define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
                 }
             }
 
+            function initGeogebraTube() {
+                //console.log(href.substr(0, 34));
+                if (href.substr(0, 34) !== "http://tube.geogebra.org/student/m") {
+                    return false;
+                }
+                var gtAppletID = 'gtApplet' + gtAppletsCount, applet, transform,
+                    $clone = $geogebraTubeTemplate.clone();
+
+                //if (gtAppletsCount === 0)
+                //    require([geogebraTubeScriptSource]);
+                gtAppletsCount += 1;
+
+                $clone.attr('id', gtAppletID);
+
+                $that.html($clone);
+
+                applet = new GGBApplet({material_id: href.substr(34)}, true);
+
+                applet.inject(gtAppletID, 'preferHTML5');
+
+                transform = function () {
+                    //$clone.find("div:first").css("transform", "none");
+                    $clone.parent().width($clone.find("div:first").width() * $clone.find("div:first > article").attr("data-param-scale"));
+                    $clone.parent().height($clone.find("div:first").height() * $clone.find("div:first > article").attr("data-param-scale"));
+                    //$clone.parent().css("overflow", "hidden");
+                    //console.log($clone.find("div:first > article").attr("data-param-scale"));
+                };
+                setTimeout(transform, 20000);
+                setTimeout(transform, 5000);
+
+                // web();
+                return true;
+            }
+
             function notSupportedYet($context) {
                 Common.log('Illegal injection found: ' + href);
                 $context.html('<div class="alert alert-info">' + t('Illegal injection found') + '</div>');
@@ -80,21 +121,23 @@ define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
                 };
 
                 // check if it is geogebra xml
-                if (data.documentElement && data.documentElement.nodeName === 'geogebra') {
-                    initGeogebraApplet(data.documentElement.outerHTML);
-                } else if (contentType === 'image/jpeg' || contentType === 'image/png') {
-                    $that.html('<img src="' + href + '" title="' + title + '" />');
-                } else {
-                    try {
-                        data = JSON.parse(data);
-                        if (data.response) {
-                            $that.html('<div class="panel panel-default"><div class="panel-body">' + data.response + '</div></div>');
-                            Common.trigger('new context', $that);
-                        } else {
+                if (! initGeogebraTube()) {
+                    if (data.documentElement && data.documentElement.nodeName === 'geogebra') {
+                        initGeogebraApplet(data.documentElement.outerHTML);
+                    } else if (contentType === 'image/jpeg' || contentType === 'image/png') {
+                        $that.html('<img src="' + href + '" title="' + title + '" />');
+                    } else {
+                        try {
+                            data = JSON.parse(data);
+                            if (data.response) {
+                                $that.html(data.response);
+                                Common.trigger('new context', $that);
+                            } else {
+                                notSupportedYet($that);
+                            }
+                        } catch (e) {
                             notSupportedYet($that);
                         }
-                    } catch (e) {
-                        notSupportedYet($that);
                     }
                 }
             }
