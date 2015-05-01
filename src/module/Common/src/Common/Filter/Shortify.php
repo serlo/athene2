@@ -19,9 +19,9 @@ class Shortify implements FilterInterface
      */
     static protected function shortify($text)
     {
-        $text = preg_replace('@-(\w{1,3})-@isU', '-', $text);
-        $text = preg_replace('@-(\w{1,3})/@isU', '/', $text);
-        $text = preg_replace('@/(\w{1,3})-@isU', '/', $text);
+        $words = preg_split('\[\\W]+\u', $text);
+
+
 
         if (empty($text)) {
             return false;
