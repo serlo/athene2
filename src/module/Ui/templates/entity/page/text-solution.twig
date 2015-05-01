@@ -1,16 +1,10 @@
-{% set title = entity.getId() %}
-{% do headTitle(title) %}
+{{ pageHeader(normalize().toTitle(entity))
+.setSubtitle('Text solution' | trans)
+.setBacklink(normalize().toUrl(entity.getParents('link').first()))
+.append('<div class="pull-right btn-group hidden-xs">')
+.append(include('entity/view/partials/actions/controls'))
+.append('</div>')
+.render() }}
 
-<div class="page-header">
-    {% include 'entity/view/partials/actions/controls' %}
-    <ul class="nav nav-pills pull-left">
-        <li>
-            <a href="{{ normalize().toUrl(entity.getParents('link').first()) }}"><span class="fa fa-chevron-left"></span></a>
-        </li>
-    </ul>
-    <h1>{{ title}}
-        <small>{% trans %} Text solution {% endtrans %}</small>
-    </h1>
-</div>
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}
