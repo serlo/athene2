@@ -8,8 +8,7 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 
-/*global define, require, window, Modernizr*/
-//require(['http://www.geogebratube.org/scripts/deployggb.js']);
+/*global define, require, window, Modernizr, GGBApplet*/
 
 define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, Common, t) {
     "use strict";
@@ -22,8 +21,7 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
         //gtApplets = {},
         //geogebraTubeScriptSource = 'http://www.geogebratube.org/scripts/deployggb.js',
         gtAppletsCount = 0,
-        $geogebraTubeTemplate = $('<div style="width:100% overflow:hidden"></div>');
-        //$geogebraTubeTemplate = $('<div style="width:100%"><embed/></div>');
+        $geogebraTubeTemplate = $('<div style="width:100%; overflow:hidden"></div>');
 
     // terrible geogebra oninit handler..
     // that doesnt work.....
@@ -76,37 +74,26 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
             }
 
             function initGeogebraTube() {
-                //console.log(href.substr(0, 34));
-                if (href.substr(0, 34) !== "http://tube.geogebra.org/student/m") {
-                    return false;
-                }
-                var gtAppletID = 'gtApplet' + gtAppletsCount, applet, transform,
+                var gtAppletID = 'gtApplet' + gtAppletsCount, applet, hrefSplit,
                     $clone = $geogebraTubeTemplate.clone();
 
-                //if (gtAppletsCount === 0)
-                //    require([geogebraTubeScriptSource]);
-                gtAppletsCount += 1;
+                gtAppletsCount++;
 
                 $clone.attr('id', gtAppletID);
 
                 $that.html($clone);
 
-                applet = new GGBApplet({material_id: href.substr(34)}, true);
+                hrefSplit = href.split('/');
+                applet = new GGBApplet({material_id: hrefSplit[4].substr(1)}, true);
 
                 applet.inject(gtAppletID, 'preferHTML5');
 
                 transform = function () {
-                    //$clone.find("div:first").css("transform", "none");
                     $clone.parent().width($clone.find("div:first").width() * $clone.find("div:first > article").attr("data-param-scale"));
                     $clone.parent().height($clone.find("div:first").height() * $clone.find("div:first > article").attr("data-param-scale"));
-                    //$clone.parent().css("overflow", "hidden");
-                    //console.log($clone.find("div:first > article").attr("data-param-scale"));
                 };
                 setTimeout(transform, 20000);
                 setTimeout(transform, 5000);
-
-                // web();
-                return true;
             }
 
             function notSupportedYet($context) {
@@ -120,26 +107,28 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
                     contentType: contentType
                 };
 
-                // check if it is geogebra xml
-                if (! initGeogebraTube()) {
-                    if (data.documentElement && data.documentElement.nodeName === 'geogebra') {
-                        initGeogebraApplet(data.documentElement.outerHTML);
-                    } else if (contentType === 'image/jpeg' || contentType === 'image/png') {
-                        $that.html('<img src="' + href + '" title="' + title + '" />');
-                    } else {
-                        try {
-                            data = JSON.parse(data);
-                            if (data.response) {
-                                $that.html(data.response);
-                                Common.trigger('new context', $that);
-                            } else {
-                                notSupportedYet($that);
-                            }
-                        } catch (e) {
+                // check if it is geogebra
+                var hrefSplit = href.split('/');
+                if (hrefSplit[2] === 'tube.geogebra.org' && hrefSplit[3] === 'student' && hrefSplit[4]){
+                    initGeogebraTube();
+                } else if (data.documentElement && data.documentElement.nodeName === 'geogebra') {
+                    initGeogebraApplet(data.documentElement.outerHTML);
+                } else if (contentType === 'image/jpeg' || contentType === 'image/png') {
+                    $that.html('<img src="' + href + '" title="' + title + '" />');
+                } else {
+                    try {
+                        data = JSON.parse(data);
+                        if (data.response) {
+                            $that.html('<div class="panel panel-default"><div class="panel-body">' + data.response + '</div></div>');
+                            Common.trigger('new context', $that);
+                        } else {
                             notSupportedYet($that);
                         }
+                    } catch (e) {
+                        notSupportedYet($that);
                     }
                 }
+                
             }
 
             if (cache[href]) {
