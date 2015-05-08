@@ -8,15 +8,20 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 
-/*global define, require, window, Modernizr*/
-define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
+/*global define, require, window, Modernizr, GGBApplet*/
+
+define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, Common, t) {
     "use strict";
     var Injections,
         cache = {},
         ggbApplets = {},
         ggbAppletsCount = 0,
         geogebraScriptSource = 'https://www.geogebra.org/web/4.4/web/web.nocache.js',
-        $geogebraTemplate = $('<article class="geogebraweb" data-param-width="700" data-param-height="525" data-param-usebrowserforjs="true" data-param-enableRightClick="false"></article>');
+        $geogebraTemplate = $('<article class="geogebraweb" data-param-width="700" data-param-height="525" data-param-usebrowserforjs="true" data-param-enableRightClick="false"></article>'),
+        //gtApplets = {},
+        //geogebraTubeScriptSource = 'http://www.geogebratube.org/scripts/deployggb.js',
+        gtAppletsCount = 0,
+        $geogebraTubeTemplate = $('<div style="width:100%; overflow:hidden"></div>');
 
     // terrible geogebra oninit handler..
     // that doesnt work.....
@@ -68,6 +73,29 @@ define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
                 }
             }
 
+            function initGeogebraTube() {
+                var gtAppletID = 'gtApplet' + gtAppletsCount, applet, hrefSplit,
+                    $clone = $geogebraTubeTemplate.clone();
+
+                gtAppletsCount++;
+
+                $clone.attr('id', gtAppletID);
+
+                $that.html($clone);
+
+                hrefSplit = href.split('/');
+                applet = new GGBApplet({material_id: hrefSplit[4].substr(1)}, true);
+
+                applet.inject(gtAppletID, 'preferHTML5');
+
+                transform = function () {
+                    $clone.parent().width($clone.find("div:first").width() * $clone.find("div:first > article").attr("data-param-scale"));
+                    $clone.parent().height($clone.find("div:first").height() * $clone.find("div:first > article").attr("data-param-scale"));
+                };
+                setTimeout(transform, 20000);
+                setTimeout(transform, 5000);
+            }
+
             function notSupportedYet($context) {
                 Common.log('Illegal injection found: ' + href);
                 $context.html('<div class="alert alert-info">' + t('Illegal injection found') + '</div>');
@@ -79,8 +107,11 @@ define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
                     contentType: contentType
                 };
 
-                // check if it is geogebra xml
-                if (data.documentElement && data.documentElement.nodeName === 'geogebra') {
+                // check if it is geogebra
+                var hrefSplit = href.split('/');
+                if (hrefSplit[2] === 'tube.geogebra.org' && hrefSplit[3] === 'student' && hrefSplit[4]){
+                    initGeogebraTube();
+                } else if (data.documentElement && data.documentElement.nodeName === 'geogebra') {
                     initGeogebraApplet(data.documentElement.outerHTML);
                 } else if (contentType === 'image/jpeg' || contentType === 'image/png') {
                     $that.html('<img src="' + href + '" title="' + title + '" />');
@@ -97,6 +128,7 @@ define(['jquery', 'common', 'translator', 'content'], function ($, Common, t) {
                         notSupportedYet($that);
                     }
                 }
+                
             }
 
             if (cache[href]) {
