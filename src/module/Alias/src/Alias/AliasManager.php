@@ -328,9 +328,6 @@ class AliasManager implements AliasManagerInterface
 
         $text = $shortify->filter($text);
 
-        echo 'text afetr shortify:';
-        var_dump($text);
-
         foreach (explode('/', $text) as $token) {
             $token = $slugify->filter($token);
             if (empty($token)) {
