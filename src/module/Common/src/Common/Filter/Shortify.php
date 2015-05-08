@@ -14,54 +14,60 @@ use Zend\Filter\FilterInterface;
 class Shortify implements FilterInterface
 {
     /*
-     * Stop words can be found for example on
+     * A collection of stop words can be found for example on
      * https://code.google.com/p/stop-words/
      *
      * Please use the smallest possible bundle for a language
      */
     static $stopWords = [
         'en' => [
-            'I' => true, 'a' => true, 'about' => true, 'an',
-            'are' => true, 'as' => true, 'at' => true, 'be',
-            'by' => true, 'com' => true, 'for' => true, 'from',
-            'how' => true, 'in' => true, 'is' => true, 'it',
-            'of' => true, 'on' => true, 'or' => true, 'that',
-            'the' => true, 'this' => true, 'to' => true, 'was',
-            'what' => true, 'when' => true, 'where' => true, 'who',
-            'will' => true, 'with' => true, 'the' => true, 'www'
+            'I', 'a', 'about', 'an',
+            'are', 'as', 'at', 'be',
+            'by', 'com', 'for', 'from',
+            'how', 'in', 'is', 'it',
+            'of', 'on', 'or', 'that',
+            'the', 'this', 'to', 'was',
+            'what', 'when', 'where', 'who',
+            'will', 'with', 'the', 'www'
         ],
         'de' => [
-            'aber' => true, 'als' => true, 'am' => true, 'an' => true, 'auch' => true, 'auf' => true, 'aus' => true, 'bei',
-            'bin' => true, 'bis' => true, 'bist' => true, 'da' => true, 'dadurch' => true, 'daher' => true, 'darum' => true, 'das',
-            'da' => true, 'dass' => true, 'dein' => true, 'deine' => true, 'dem' => true, 'den' => true, 'der' => true, 'des',
-            'dessen' => true, 'deshalb' => true, 'die' => true, 'dies' => true, 'dieser' => true, 'dieses' => true, 'doch' => true, 'dort',
-            'du' => true, 'durch' => true, 'ein' => true, 'eine' => true, 'einem' => true, 'einen' => true, 'einer' => true, 'eines' => true, 'er',
-            'es' => true, 'euer' => true, 'eure' => true, 'für' => true, 'hatte' => true, 'hatten' => true, 'hattest' => true, 'hattet',
-            'hier' => true, 'hinter' => true, 'ich' => true, 'ihr' => true, 'ihre' => true, 'im' => true, 'in' => true, 'ist',
-            'ja' => true, 'jede' => true, 'jedem' => true, 'jeden' => true, 'jeder' => true, 'jedes' => true, 'jener' => true, 'jenes',
-            'jetzt' => true, 'kann' => true, 'kannst' => true, 'können' => true, 'könnt' => true, 'machen' => true, 'mein' => true, 'meine',
-            'mit' => true, 'muß' => true, 'mußt' => true, 'musst' => true, 'müssen' => true, 'müßt' => true, 'nach' => true, 'nachdem',
-            'nein' => true, 'nicht' => true, 'nun' => true, 'oder' => true, 'seid' => true, 'sein' => true, 'seine' => true, 'sich',
-            'sie' => true, 'sind' => true, 'soll' => true, 'sollen' => true, 'sollst' => true, 'sollt' => true, 'sonst' => true, 'soweit',
-            'sowie' => true, 'und' => true, 'unser' => true, 'unsere' => true, 'unter' => true, 'vom' => true, 'von' => true, 'vor',
-            'wann' => true, 'warum' => true, 'was' => true, 'weiter' => true, 'weitere' => true, 'wenn' => true, 'wer' => true, 'werde',
-            'werden' => true, 'werdet' => true, 'weshalb' => true, 'wie' => true, 'wieder' => true, 'wieso' => true, 'wir',
-            'wird' => true, 'wirst' => true, 'wo' => true, 'woher' => true, 'wohin' => true, 'zu' => true, 'zum' => true, 'zur' => true, 'über'
+            'aber', 'als', 'am', 'an', 'auch', 'auf', 'aus', 'bei',
+            'bin', 'bis', 'bist', 'da', 'dadurch', 'daher', 'darum', 'das',
+            'da', 'dass', 'dein', 'deine', 'dem', 'den', 'der', 'des',
+            'dessen', 'deshalb', 'die', 'dies', 'dieser', 'dieses', 'doch', 'dort',
+            'du', 'durch', 'ein', 'eine', 'einem', 'einen', 'einer', 'eines', 'er',
+            'es', 'euer', 'eure', 'für', 'hatte', 'hatten', 'hattest', 'hattet',
+            'hier', 'hinter', 'ich', 'ihr', 'ihre', 'im', 'in', 'ist',
+            'ja', 'jede', 'jedem', 'jeden', 'jeder', 'jedes', 'jener', 'jenes',
+            'jetzt', 'kann', 'kannst', 'können', 'könnt', 'machen', 'mein', 'meine',
+            'mit', 'muß', 'mußt', 'musst', 'müssen', 'müßt', 'nach', 'nachdem',
+            'nein', 'nicht', 'nun', 'oder', 'seid', 'sein', 'seine', 'sich',
+            'sie', 'sind', 'soll', 'sollen', 'sollst', 'sollt', 'sonst', 'soweit',
+            'sowie', 'und', 'unser', 'unsere', 'unter', 'vom', 'von', 'vor',
+            'wann', 'warum', 'was', 'weiter', 'weitere', 'wenn', 'wer', 'werde',
+            'werden', 'werdet', 'weshalb', 'wie', 'wieder', 'wieso', 'wir',
+            'wird', 'wirst', 'wo', 'woher', 'wohin', 'zu', 'zum', 'zur', 'über'
         ]
     ];
 
-    /**
-     * @param string $word
-     * @return bool
-     */
-    static protected function isStopWord($word)
-    {
-        $lowerCased = strtolower($word);
+    static $regex = null;
 
-        foreach (self::$stopWords as $lang) {
-            if (array_key_exists($lowerCased, $lang)) return true;
+    /**
+     * @return string
+     */
+    static protected function getRegex() {
+        if (self::$regex === null) {
+            $words = '';
+            foreach (self::$stopWords as $lang) {
+                if (!empty($words)) {
+                    $words .= '|';
+                }
+                $words .= implode('|', $lang);
+            }
+
+            self::$regex = '@[\W_]+(' . $words . ')[\W_]+@isU';
         }
-        return false;
+        return self::$regex;
     }
 
     /**
@@ -70,21 +76,8 @@ class Shortify implements FilterInterface
      */
     static protected function shortify($text)
     {
-        $words = preg_split('/[\W]+/u', $text);
-
-        $filtered = [];
-
-        foreach ($words as $word) {
-            if (!self::isStopWord($word)) {
-                $filtered[] = $word;
-            }
-        }
-
-        if (empty($filtered)) {
-            return false;
-        }
-
-        return implode(' ', $filtered);
+        $text = preg_replace(self::getRegex(), ' ', $text);
+        return trim($text);
     }
 
     /**
