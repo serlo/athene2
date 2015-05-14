@@ -21,7 +21,7 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
         //gtApplets = {},
         //geogebraTubeScriptSource = 'http://www.geogebratube.org/scripts/deployggb.js',
         gtAppletsCount = 0,
-        $geogebraTubeTemplate = $('<div style="width:100%; overflow:hidden"></div>');
+        $geogebraTubeTemplate = $('<div class="hidden-sm hidden-xs"; style="transform-origin:top left"></div><a class="hidden-md hidden-lg">hi</a>');
 
     // terrible geogebra oninit handler..
     // that doesnt work.....
@@ -74,7 +74,7 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
             }
 
             function initGeogebraTube() {
-                var transform, gtAppletID = 'gtApplet' + gtAppletsCount, applet,
+                var transform, scale, gtAppletID = 'gtApplet' + gtAppletsCount, applet,
                     $clone = $geogebraTubeTemplate.clone();
 
                 gtAppletsCount++;
@@ -87,11 +87,18 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
                 applet.inject(gtAppletID, 'preferHTML5');
 
                 transform = function () {
-                    $clone.parent().width($clone.find("div:first").width() * $clone.find("div:first > article").attr("data-param-scale"));
-                    $clone.parent().height($clone.find("div:first").height() * $clone.find("div:first > article").attr("data-param-scale"));
+                    setTimeout(transform, 1000);
+                    scale = $clone.parent().width() / ($clone.find("div:first").width() * $clone.find("div:first > article").attr("data-param-scale"));
+                    $($clone[0]).css("transform", "scale(" + scale + ")");
+                    //$clone.first().css("position", "relative");
+                    $($clone[0]).height($clone.find("div:first").height() * scale * $clone.find("div:first > article").attr("data-param-scale"));
+                    $($clone[0]).parent().height("100%");
                 };
-                setTimeout(transform, 20000);
-                setTimeout(transform, 5000);
+                //setTimeout(transform, 20000);
+                //setTimeout(transform, 5000);
+                transform();
+                $($clone[1]).attr("href", "http://tube.geogebra.org/student/m" + href.substr(5));
+                $($clone[1]).text(title);
             }
 
             function notSupportedYet($context) {

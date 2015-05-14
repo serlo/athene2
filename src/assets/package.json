@@ -2,7 +2,7 @@
     "name"           : "athene2-assets",
     "version"        : "0.0.0",
     "dependencies"   : {
-        "athene2-editor": "0.2.24"
+        "athene2-editor": "0.2.26"
     },
     "devDependencies": {
         "grunt"                  : "~0.4.1",
