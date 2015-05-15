@@ -10,12 +10,12 @@
             <div class="pull-right">
                 {% if hint %}
                     <div class="btn btn-default btn-xs" data-toggle="collapse" data-target="#hint-{{ hint.getId() }}">
-                        <span>{% trans %} Show hint {% endtrans %}</span>
+                        {% trans %} Show hint {% endtrans %}
                     </div>
                 {% endif %}
                 {% if solution %}
                     <div class="btn btn-default btn-xs" data-toggle="collapse" data-target="#solution-{{ solution.getId() }}">
-                        <span>{% trans %} Show solution {% endtrans %}</span>
+                        {% trans %} Show solution {% endtrans %}
                     </div>
                 {% endif %}
                 {% include 'entity/view/partials/actions/small-essential' %}
