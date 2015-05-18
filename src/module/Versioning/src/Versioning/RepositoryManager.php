@@ -133,6 +133,28 @@ class RepositoryManager implements RepositoryManagerInterface
     /**
      * {@inheritDoc}
      */
+    public function findPreviousRevision(RepositoryInterface $repository, RevisionInterface $revision)
+    {
+        $date = $revision->getTimestamp();
+
+        $previousTimestamp = null;
+        $previousRevision = $revision;
+
+        foreach($repository->getRevisions() as $revision){
+            $timestamp = $revision->getTimestamp();
+            if($timestamp < $date){
+                if($previousTimestamp === null || $previousTimestamp < $timestamp) {
+                    $previousTimestamp = $timestamp;
+                    $previousRevision = $revision;
+                }
+            }
+        }
+        return $previousRevision;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function flush()
     {
         $this->objectManager->flush();
