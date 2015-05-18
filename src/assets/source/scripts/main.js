@@ -41,6 +41,7 @@ require.config({
         "side_element": "modules/serlo_side_element",
         "content": "modules/serlo_content",
         "spoiler": "modules/serlo_spoiler",
+        "deployggb": "thirdparty/deployggb",
         "injections": "modules/serlo_injections",
         "search": "modules/serlo_search",
         "slider": "modules/serlo_slider",
@@ -71,6 +72,9 @@ require.config({
         },
         historyjs: {
             deps: ['jquery']
+        },
+        injections: {
+            deps: ['deployggb']
         }
     },
     waitSeconds: 2
