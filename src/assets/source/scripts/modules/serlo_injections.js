@@ -21,7 +21,7 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
         //gtApplets = {},
         //geogebraTubeScriptSource = 'http://www.geogebratube.org/scripts/deployggb.js',
         gtAppletsCount = 0,
-        $geogebraTubeTemplate = $('<div class="hidden-sm hidden-xs"; style="transform-origin:top left"></div><a class="hidden-md hidden-lg">hi</a>');
+        $geogebraTubeTemplate = $('<div class="hidden-sm hidden-xs" style="transform-origin:top left"></div><a class="hidden-md hidden-lg">hi</a>');
 
     // terrible geogebra oninit handler..
     // that doesnt work.....
@@ -94,8 +94,6 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
                     $($clone[0]).height($clone.find("div:first").height() * scale * $clone.find("div:first > article").attr("data-param-scale"));
                     $($clone[0]).parent().height("100%");
                 };
-                //setTimeout(transform, 20000);
-                //setTimeout(transform, 5000);
                 transform();
                 $($clone[1]).attr("href", "http://tube.geogebra.org/student/m" + href.substr(5));
                 $($clone[1]).text(title);
