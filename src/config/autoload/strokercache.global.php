@@ -15,6 +15,7 @@ return [
             'enabled' => [
                 'StrokerCache\Strategy\RouteName' => [
                     'routes' => [
+                        'home',
                         'taxonomy/term/get',
                         'entity/page',
                         'page/view',
