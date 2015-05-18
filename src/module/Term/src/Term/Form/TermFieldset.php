@@ -13,6 +13,8 @@ namespace Term\Form;
 use Zend\Form\Element\Text;
 use Zend\Form\Fieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
+use Zend\Validator\NotEmpty;
+use Zend\Validator\Regex;
 
 class TermFieldset extends Fieldset implements InputFilterProviderInterface
 {
@@ -36,12 +38,20 @@ class TermFieldset extends Fieldset implements InputFilterProviderInterface
                 ],
                 'validators' => [
                     [
-                        'name'    => 'NotEmpty'
+                        'name'    => 'NotEmpty',
+                        'options' => [
+                            'messages' => [
+                                'isEmpty' => 'The title can\'t be empty'
+                            ]
+                        ]
                     ],
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.]+$~'
+                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.]*$~',
+                            'messages' => [
+                                'regexNotMatch' => 'Title should not contain special characters'
+                            ]
                         ]
                     ]
                 ]

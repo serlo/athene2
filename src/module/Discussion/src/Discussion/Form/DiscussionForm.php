@@ -84,7 +84,12 @@ class DiscussionForm extends AbstractForm
                 'validators' => [
                     [
                         'name'    => 'Regex',
-                        'options' => ['pattern' => '~^[a-zA-Z\-_ /0-9äöüÄÖÜ?!.,]*$~']
+                        'options' => [
+                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.]*$~',
+                            'messages' => [
+                                'regexNotMatch' => 'Title should not contain special characters'
+                            ]
+                        ]
                     ]
                 ]
             ]
