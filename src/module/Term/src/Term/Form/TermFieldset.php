@@ -41,7 +41,7 @@ class TermFieldset extends Fieldset implements InputFilterProviderInterface
                         'name'    => 'NotEmpty',
                         'options' => [
                             'messages' => [
-                                'isEmpty' => 'The title can\'t be empty'
+                                NotEmpty::IS_EMPTY => 'The title can\'t be empty'
                             ]
                         ]
                     ],
@@ -50,7 +50,7 @@ class TermFieldset extends Fieldset implements InputFilterProviderInterface
                         'options' => [
                             'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.]*$~',
                             'messages' => [
-                                'regexNotMatch' => 'Title should not contain special characters'
+                                Regex::NOT_MATCH => 'Title should not contain special characters'
                             ]
                         ]
                     ]

@@ -17,6 +17,7 @@ use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\InputFilter\InputFilter;
+use Zend\Validator\Regex;
 
 class DiscussionForm extends AbstractForm
 {
@@ -87,7 +88,7 @@ class DiscussionForm extends AbstractForm
                         'options' => [
                             'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.]*$~',
                             'messages' => [
-                                'regexNotMatch' => 'Title should not contain special characters'
+                                Regex::NOT_MATCH => 'Title should not contain special characters'
                             ]
                         ]
                     ]
