@@ -5,6 +5,10 @@ define(['jquery'], function ($) {
 
     Tracking = function ($context) {
         this.$context = $context;
+        if (ga === undefined) {
+            return;
+        }
+
         this.trackCollapse();
         this.trackControls();
         this.trackSideNavigation();
@@ -37,7 +41,7 @@ define(['jquery'], function ($) {
 
     return function ($context) {
         ga = window[window['GoogleAnalyticsObject'] || 'ga'];
-        if (ga) {
+        if (ga !== undefined) {
             ga('provide', 'advancedTracking', Tracking);
         }
         return new Tracking($context);
