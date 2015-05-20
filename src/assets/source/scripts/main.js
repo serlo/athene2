@@ -29,6 +29,8 @@ require.config({
         "event_extensions": "libs/event_extensions",
         "referrer_history": "modules/serlo_referrer_history",
         "side_navigation": "modules/serlo_side_navigation",
+        "mobile_navigation": "modules/serlo_mobile_navigation",
+        "breadcrumbs": "modules/serlo_breadcrumbs",
         "ajax_overlay": "modules/serlo_ajax_overlay",
         "sortable_list": "modules/serlo_sortable_list",
         "timeago": "modules/serlo_timeago",

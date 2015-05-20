@@ -1,13 +1,16 @@
 <div id="search-content">
-    <input id="search-input" class="input-search" type="search" placeholder="<?php echo $this->translate('Search'); ?>" tabindex="1"/><i class="fa fa-search"></i>
-    <ul id="search-results" class="nav"></ul>
-    <div id="search-help">
-        <div class="row">
-            <div class="col-xs-12">
-                <p>
-                    <?php echo $this->translate('Start typing, hit enter and receive matching results.'); ?>
-                </p>
+
+<form method="get" class="form-search inline" role="search" action="http://localhost:4567/search">
+    <div class="form-group">
+        <div class="input-group">
+            <input id="search-input" type="search" placeholder="<?php echo $this->translate('Search'); ?>" tabindex="1" name="q" />
+            <div class="input-group-addon">
+                <button type="submit" class="btn"><i class="fa fa-lg fa-search"></i>
+                </button>
             </div>
         </div>
     </div>
+</form>
+
 </div>
+

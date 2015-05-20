@@ -23,18 +23,3 @@ body {
 
   @include theme-font(normal);
 }
-
-.wrap {
-  padding-bottom: 70px;
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -1 * $footerHeight; /* the bottom margin is the negative value of the footer's height */
-
-  position: relative;
-  z-index: 1;
-
-  @media only screen and (max-width: $screen-sm) {
-    margin: 0 auto;
-  }
-}

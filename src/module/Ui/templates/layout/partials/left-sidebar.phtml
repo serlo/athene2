@@ -5,8 +5,6 @@
     </div>
     <div class="side-element-inner">
         <?php
-        echo $this->partial('layout/partials/search');
-
         echo $this->navigation('default_navigation')
                     ->menu()
                     ->setPartial('layout/navigation/side-navigation')
@@ -15,6 +13,13 @@
                     ->setMaxDepth(1)
                     ->setUlClass('nav clear')
                     ->render();
+        ?>
+        <?php
+        echo $this->navigation('social_navigation')
+            ->menu()
+            ->setPartial('layout/navigation/social')
+            ->setUlClass('nav clear')
+            ->render();
         ?>
     </div>
 </aside>

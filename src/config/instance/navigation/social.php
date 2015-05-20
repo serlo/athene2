@@ -9,12 +9,7 @@
  */
 return [
     'navigation' => [
-        'top-left' => [
-            [
-                'label' => '',
-                'route' => 'home',
-                'icon' => 'home',
-            ]
+        'social' => [
         ]
     ]
 ];

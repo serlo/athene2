@@ -16,10 +16,10 @@ echo $this->doctype();
 <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <!--<![endif]-->
 <?php print $this->partial('layout/partials/head'); ?>
 <body itemscope itemtype="http://schema.org/WebPage">
-<div class="wrap">
+<div class="wrap has-navigation has-context">
     <?php echo $this->partial('layout/partials/header'); ?>
 
-    <div id="page" class="has-navigation has-context col-3 clearfix">
+    <div id="page" class="container clearfix">
         <?php echo $this->partial('layout/partials/left-sidebar'); ?>
         <section class="main clearfix">
             <div id="content-layout" class="content clearfix">

@@ -66,6 +66,7 @@ return [
             'subject_navigation'                                    => __NAMESPACE__ . '\Factory\SubjectNavigationFactory',
             'frontpage_navigation'                                  => __NAMESPACE__ . '\Factory\FrontPageNavigationFactory',
             'default_navigation'                                    => __NAMESPACE__ . '\Factory\UniqueDefaultNavigationFactory',
+            'social_navigation'                                     => __NAMESPACE__ . '\Factory\SocialNavigationFactory',
         ]
     ],
     'view_helpers'       => [

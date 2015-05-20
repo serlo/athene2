@@ -1,3 +1,5 @@
+{% do placeholder('hideSubjectNav').set(true) %}
+
 {{ pageHeader('Sign up' | trans) }}
 
 {% set usernameErrors        = formElementErrors(form.get('username')) %}

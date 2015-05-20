@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author  Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -21,7 +21,21 @@ echo $this->doctype();
     <div class="wrap">
         <header id="header">
             <?php echo $this->partial('layout/partials/top-bar'); ?>
+
+            <div class="container">
+                <nav id="header-nav">
+                    <div id="mobile-nav-toggle">
+                        <button>
+                            <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+
+            <div id="mobile-nav"></div>
         </header>
+
         <div id="page" class="container">
             <section id="main-home">
                 <div id="main-container">

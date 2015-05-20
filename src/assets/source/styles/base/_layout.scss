@@ -1,47 +1,25 @@
 /* MAIN PAGE LAYOUT */
+.wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
 
-%pageMargin {
-  padding: 0 $pagePaddingSmall;
+  margin: 0 auto (-$footerHeight); /* the bottom margin is the negative value of the footer's height */
+  position: relative;
+  z-index: 1;
 
-  @media only screen and (min-width: $navigationBreakPoint) {
+  @media only screen and (max-width: $navigationBreakPoint-max) {
     padding: 0 $pagePaddingMedium;
   }
-
-  @media only screen and (min-width: $sidebarBreakPoint) {
-    padding: 0 $pagePaddingLarge;
+  @media only screen and (max-width: $sidebarBreakPoint-max) {
+    padding: 0 $pagePaddingSmall;
   }
-}
-
-body {
-  // min-width: $minWidth;
-  /*@media only screen and (max-width: $minWidth) {
-      overflow-x: auto;
-  }*/
-}
-
-#subject-nav,
-#serlo-menu,
-#page,
-#horizon,
-#footer {
-  @extend %pageMargin;
-}
-
-#subject-nav {
-  position: relative;
 }
 
 #header {
-  clear: both;
-}
-
-#brand-link {
-  color: $grayDark;
   position: relative;
-  &:hover, &:active, &:focus {
-    color: $grayDark;
-    text-decoration: none;
-  }
+  z-index: $headerZIndex;
+  clear: both;
 }
 
 #horizon {
@@ -49,25 +27,11 @@ body {
   padding: 50px 0 100px 0;
 }
 
-#header {
-  position: relative;
-  z-index: $headerZIndex;
-}
-
 #page {
-  margin-top: 22px;
-
-  &.has-navigation {
-    margin-top: 0;
-
-    @media only screen and (max-width: $navigationBreakPoint) {
-      margin-top: 22px;
-    }
-  }
+  margin-top: 10px;
 }
 
 /* Side Elements (Navigation && Context) */
-
 .side-element {
   position: relative;
 
@@ -132,51 +96,27 @@ body {
 /* Left Navigation */
 .side-navigation {
   width: $navigationWidth;
+  margin-right: $sidebarGap;
   float: left;
   margin-top: $sideNavTopOffset;
 
-  @media only screen and (max-width: $navigationBreakPoint) {
-    width: $sideElementWidthCollapsed;
-
-    .side-element-inner {
-      visibility: hidden;
-      margin-left: $sideElementWidthCollapsed;
-    }
-
-    .layout-toggle {
-      display: block;
-    }
+  @media only screen and (max-width: $navigationBreakPoint-max) {
+    display: none;
   }
 }
 
 /* Main Container */
 .main {
-  // float: left;
   position: relative;
-  max-width: $contentMaxWidth;
 
-  .has-navigation & {
-    margin-left: $navigationWidth;
+  @include block-shadow;
 
-    @media only screen and (max-width: $navigationBreakPoint) {
-      margin-left: $sideElementWidthCollapsed;
-    }
+  margin: 0 ($sidebarWidth + $sidebarGap);
+  @media only screen and (max-width: $navigationBreakPoint-max) {
+    margin-left: 0;
   }
-
-  .has-context & {
-    margin-right: $sidebarWidth;
-
-    @media only screen and (max-width: $sidebarBreakPoint) {
-      margin-right: $sideElementWidthCollapsed;
-    }
-
-    @media only screen and (min-width: $sidebarBreakPoint + 150px) {
-      margin-right: $sidebarWidth + 150px;
-    }
-
-    // @media only screen and (max-width: $sidebarBreakPoint) {
-    //     margin-right: $sideElementWidthCollapsed;
-    // }
+  @media only screen and (max-width: $sidebarBreakPoint-max) {
+    margin-right: 0;
   }
 }
 
@@ -212,14 +152,17 @@ body {
 
 /* Right Context Area */
 .side-context {
-  width: $sidebarWidth;
 
+  position: absolute;
+  top: $sideNavTopOffset;
+  right: -$sidebarWidth;
+  width: $sidebarWidth;
+  right: -($sidebarWidth + $sidebarGap);
   // margin-left: $contentMaxWidth + 2 * $contentPadding;
+  // margin-left: $sidebarGap;
 
   background: $lighterGray;
-  top: $sideNavTopOffset;
-  position: absolute;
-  right: -$sidebarWidth;
+  @include block-shadow;
 
   &:before {
     content: ' ';
@@ -229,7 +172,16 @@ body {
     @include triangle(right, $white, 13px);
   }
 
-  @media only screen and (max-width: $sidebarBreakPoint) {
+  .side-element-inner {
+    > .fa {
+      color: $themeColor;
+      font-weight: bold;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+  }
+
+  @media only screen and (max-width: $sidebarBreakPoint-max) {
     width: $sideElementWidthCollapsed;
     right: -$sideElementWidthCollapsed;
 
@@ -239,19 +191,14 @@ body {
       visibility: hidden;
       margin-right: $sideElementWidthCollapsed;
 
-      width: 200px;
-      right: 200px;
+      width: $sidebarWidth;
+      right: $sidebarWidth;
       background: $lighterGray;
     }
 
     .layout-toggle {
       display: block;
     }
-  }
-
-  @media only screen and (min-width: $sidebarBreakPoint + 150px) {
-    width: $sidebarWidth + 150px - $pagePaddingLarge;
-    right: -($sidebarWidth + 150px - $pagePaddingLarge);
   }
 
   .nav {

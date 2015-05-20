@@ -94,15 +94,15 @@
     }
   }
 
-  .fa-search {
-    position: absolute;
-    top: 15px;
-    right: 11px;
+  .input-group-addon {
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
 
-    color: $gray;
-    transition: 0.3s transform 0s;
-
-    transform-origin: 4px 16px;
+  .form-search *[type="submit"] {
+    background: transparent;
+    border: none;
   }
 }
 

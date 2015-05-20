@@ -26,10 +26,10 @@
                 <!-- Sub folders -->
                 {% if subfolders %}
                     <div class="row bottom-buffer-15">
-                        <div class="col-xs-1 text-center text-theme">
+                        <div class="col-xs-2 text-center text-theme">
                             <span class="fa fa-1-5x fa-chevron-right"></span>
                         </div>
-                        <div class="col-xs-11">
+                        <div class="col-xs-10">
                             <div class="row">
                                 {{ subfolders }}
                             </div>
@@ -44,10 +44,10 @@
                         {% set type = cycle(['course', 'article', 'video'], i) %}
                         {% if types.get(type) %}
                             <div class="row bottom-buffer-15">
-                                <div class="col-xs-1 text-center">
+                                <div class="col-xs-2 text-center">
                                     <span class="fa fa-1-5x fa-{{ cycle(['graduation-cap', 'newspaper-o', 'play-circle'], i) }}"></span>
                                 </div>
-                                <div class="col-xs-11">
+                                <div class="col-xs-10">
                                     <div class="row">
                                         {% for link in types.get(type) %}
                                             <div class="col-xs-12">
@@ -89,10 +89,10 @@
                 {% endif %}
                 {% if group %}
                     <div class="row bottom-buffer-15">
-                        <div class="col-xs-1 text-center">
+                        <div class="col-xs-2 text-center">
                             <span class="fa fa-1-5x fa-files-o"></span>
                         </div>
-                        <div class="col-xs-11">
+                        <div class="col-xs-10">
                             <div class="row">
                                 {{ group }}
                             </div>
