@@ -57,11 +57,13 @@ define('breadcrumbs', ['jquery'], function ($) {
 
         elements = this.$breadcrumbs.children().slice(0, -1);
 
+        // queue of shown elements
+        self.shownElements = [];
+        // stack of hidden elements
+        self.hiddenElements = [];
+
         if (elements.length > 0) {
-            // queue of shown elements
             self.shownElements = new Array(elements.length - 1);
-            // stack of hidden elements
-            self.hiddenElements = [];
 
             elements.each(function (i, el) {
                 if (i === 0) {
