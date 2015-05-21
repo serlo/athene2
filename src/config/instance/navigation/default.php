@@ -171,7 +171,7 @@ return [
                     ],
                     [
                         'route' => 'user/settings',
-                        'label' => 'Settings',
+                        'label' => 'Edit profile',
                         'icon'  => 'wrench'
                     ],
                     [
