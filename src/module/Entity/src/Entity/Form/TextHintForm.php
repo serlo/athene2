@@ -26,11 +26,18 @@ class TextHintForm extends Form
         $this->setAttribute('class', 'clearfix');
 
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
+        $this->add(
+            (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
+                'class',
+                'plain'
+            )
+        );
         $this->add(new AgreementFieldset($license));
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('text-solution');
         $inputFilter->add(['name' => 'content', 'required' => true]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }
 }
