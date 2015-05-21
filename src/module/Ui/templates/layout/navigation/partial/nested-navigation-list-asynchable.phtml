@@ -56,7 +56,7 @@ foreach ($this->pages as $page) {
     $breadcrumb = ($recActive && $useBreadCrumbs) ? 'itemscope itemtype="http://data-vocabulary.org/Breadcrumb"' : false;
     $child      = $breadcrumb ? 'itemprop="child"' : '';
     $rich       = $breadcrumb ? ' ' . $child . ' ' . $breadcrumb . ' ' : '';
-    $needsFetching = ($depth >= $maxDepth - 1 && !empty($page->pages) && ($page->get('needsFetching') !== 'false')) ? ' data-needs-fetching="true" ' : '';
+    $needsFetching = ($depth >= $maxDepth - 1 && !empty($page->pages) && ($page->get('needsFetching') !== 'false')) ? ' data-needs-fetching="true" ' : ' data-needs-fetching="false" ';
 
     $html[] = '<li' . $needsFetching . $rich . $elements . (count($liClasses) ? (' class="' . implode(' ', $liClasses) . '"') : '') . ' data-identifier="' . $page->get('identifier') . '">';
 
