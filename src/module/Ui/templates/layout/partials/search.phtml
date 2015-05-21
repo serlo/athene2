@@ -1,6 +1,6 @@
 <div id="search-content">
 
-<form method="get" class="form-search inline" role="search" action="http://localhost:4567/search">
+<form method="get" class="form-search inline" role="search" action="<?php echo $this->url('search'); ?>">
     <div class="form-group">
         <div class="input-group">
             <input id="search-input" type="search" placeholder="<?php echo $this->translate('Search'); ?>" tabindex="1" name="q" />
@@ -13,4 +13,3 @@
 </form>
 
 </div>
-
