@@ -19,6 +19,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Event\Exception;
 use Event\Filter\PersistentEventLogFilterChain;
 use Instance\Entity\InstanceInterface;
+use User\Entity\UserInterface;
 use Uuid\Entity\UuidInterface;
 use ZfcRbac\Exception\UnauthorizedException;
 use ZfcRbac\Service\AuthorizationService;
@@ -52,6 +53,18 @@ class EventManager implements EventManagerInterface
         $this->persistentEventLogFilterChain = new PersistentEventLogFilterChain($objectManager);
         $this->classResolver                 = $classResolver;
         $this->setAuthorizationService($authorizationService);
+    }
+
+    public function findEventsByNamesAndActor(UserInterface $user, array $names){
+        $events = [];
+        foreach ($names as $name) {
+            $event = $this->findTypeByName($name);
+            $className  = $this->getClassResolver()->resolveClassName('Event\Entity\EventLogInterface');
+            $repository = $this->getObjectManager()->getRepository($className);
+            $results    = $repository->findBy(['actor' => $user, 'event' => $event]);
+            $events = array_merge($results, $events);
+        }
+        return new ArrayCollection($events);
     }
 
     public function findEventsByActor($userId, $limit = 50)

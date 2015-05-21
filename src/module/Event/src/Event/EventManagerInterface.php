@@ -13,6 +13,7 @@ use Doctrine\Common\Collections\Collection;
 use Event\Entity\EventInterface;
 use Event\Entity\EventLogInterface;
 use Instance\Entity\InstanceInterface;
+use User\Entity\UserInterface;
 use Uuid\Entity\UuidInterface;
 use Zend\Paginator\Paginator;
 
@@ -45,6 +46,13 @@ interface EventManagerInterface
      * @return EventLogInterface
      */
     public function getEvent($id);
+
+    /**
+     * @param UserInterface $user
+     * @param array $names
+     * @return EventLogInterface[]|Collection
+     */
+    public function findEventsByNamesAndActor(UserInterface $user, array $names);
 
     /**
      * @param int $page

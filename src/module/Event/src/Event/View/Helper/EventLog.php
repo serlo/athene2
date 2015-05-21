@@ -13,6 +13,7 @@ use Event\Entity\EventLogInterface;
 use Event\EventManagerAwareTrait;
 use Event\EventManagerInterface;
 use Event\Exception;
+use User\Entity\UserInterface;
 use Zend\View\Helper\AbstractHelper;
 
 class EventLog extends AbstractHelper
@@ -59,6 +60,10 @@ class EventLog extends AbstractHelper
         }
 
         return $this->getView()->partial($this->eventTemplate, ['event' => $event]);
+    }
+
+    public function countEventsFoundByActorAndNames(UserInterface $user, array $names) {
+        return $this->getEventManager()->findEventsByNamesAndActor($user, $names)->count();
     }
 
     public function renderObjectLog($id)

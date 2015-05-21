@@ -1,10 +1,9 @@
 <?php
 /**
- *
- * @author Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
  * @copyright 2013 by www.serlo.org
- * @license LGPL
- * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
+ * @license   LGPL
+ * @license   http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
  */
 namespace User\Entity;
 
@@ -55,6 +54,11 @@ class User extends Uuid implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $token;
 
     /**
@@ -70,10 +74,10 @@ class User extends Uuid implements UserInterface
 
     public function __construct()
     {
-        $this->roles = new ArrayCollection();
+        $this->roles       = new ArrayCollection();
         $this->ads_enabled = true;
-        $this->removed = false;
-        $this->logins = 0;
+        $this->removed     = false;
+        $this->logins      = 0;
         $this->generateToken();
     }
 
@@ -171,20 +175,6 @@ class User extends Uuid implements UserInterface
         return $this->roles;
     }
 
-    public function populate(array $data = [])
-    {
-        $this->injectArray('email', $data);
-        $this->injectArray('password', $data);
-        $this->injectArray('username', $data);
-        $this->injectArray('logins', $data);
-        $this->injectArray('ads_enabled', $data);
-        $this->injectArray('removed', $data);
-        $this->injectArray('lastname', $data);
-        $this->injectArray('givenname', $data);
-        $this->injectArray('gender', $data);
-        return $this;
-    }
-
     public function updateLoginData()
     {
         $this->setLogins($this->getLogins() + 1);
@@ -196,4 +186,15 @@ class User extends Uuid implements UserInterface
     {
         return $this->getRoles()->contains($role);
     }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
 }
