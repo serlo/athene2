@@ -180,7 +180,6 @@ class RepositoryController extends AbstractController
         $license   = $entity->getLicense();
         $agreement = $license->getAgreement() ? $license->getAgreement() : $license->getTitle();
         $form->get('license')->get('agreement')->setLabel($agreement);
-        $form->get('changes')->setValue();
 
         return $form;
     }
