@@ -90,8 +90,9 @@ class RepositoryController extends AbstractController
             return false;
         }
 
-        $revision        = $this->getRevision($entity, $this->params('revision'));
-        $currentRevision = $this->getPreviousRevision($entity, $revision);
+        $revision = $this->getRevision($entity, $this->params('revision'));
+        $currentRevision = $this->getRevision($entity);
+        $previousRevision = $this->getPreviousRevision($entity, $revision);
 
         if (!$revision) {
             $this->getResponse()->setStatusCode(404);
@@ -100,6 +101,7 @@ class RepositoryController extends AbstractController
 
         $view = new ViewModel([
             'currentRevision' => $currentRevision,
+            'compareRevision' => $previousRevision,
             'revision'        => $revision,
             'entity'          => $entity
         ]);
