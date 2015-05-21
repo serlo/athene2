@@ -33,10 +33,9 @@ apt-get install -y solr-tomcat
 # Install nodejs related stuff
 
 apt-get install -y nodejs
-apt-get install -y npm --unsafe-perm
+apt-get install -y npm
 apt-get install -y ruby-sass
 apt-get install -y ruby-compass
-usermod -a -G vagrant www-data
 
 # Install npm dependencies
 
@@ -54,17 +53,17 @@ echo "<VirtualHost *:80>
 
 	DocumentRoot /var/www/src/public/
 
-	# ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://127.0.0.1:9000/var/www/src/public
+	# ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://127.0.0.1:9000/vagrant/src/public
 
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
 	</Directory>
-	<Directory /var/www/src/public/>
+	<Directory /var/www/src/public>
 		Options Indexes FollowSymLinks MultiViews
 		AllowOverride All
 		Order allow,deny
-		allow from all
+		Allow from all
 	</Directory>
 
 	Alias /phpmyadmin /usr/share/phpmyadmin
@@ -82,14 +81,23 @@ echo '
 start on vagrant-mounted
 stop on runlevel [!2345]
 
-exec /home/vagrant/bin/boot.sh
+exec su vagrant -c /home/vagrant/bin/vagrant/boot.sh
 ' > /etc/init/athene2startup.conf
 
 # Xdebug fix
 sed -i '$ a\xdebug.max_nesting_level = 500' /etc/php5/apache2/php.ini
 
-ln -s /vagrant/bin/ /home/vagrant/bin
-mkdir /var/www/src/data/
+# Change Apache User to vagrant
+sed -i 's/www-data/vagrant/g' /etc/apache2/envvars
+# Just to be safe...
+usermod -a -G vagrant www-data
+
+# Setup /vagrant
+rm -rf /var/www
+ln -s /vagrant /var/www
+mkdir /vagrant/src/data/ /vagrant/src/public/assets /vagrant/src/logs/
+chown -R vagrant:vagrant /vagrant
+chmod -R 777 /vagrant
 
 # Enable apache mods
 a2enmod rewrite proxy proxy_fcgi headers
@@ -102,7 +110,7 @@ service apache2 restart
 sudo sed -i "s/bind-address.*=.*/bind-address=0.0.0.0/" /etc/mysql/my.cnf
 
 # Install crontab
-# echo "*/10 * * * * cd /var/www/src && php public/index.php notification worker" >> cron
+# echo "*/10 * * * * cd /vagrant/src && php public/index.php notification worker" >> cron
 # crontab cron
 # rm cron
 
@@ -115,21 +123,17 @@ sudo sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php5/apache2
 sudo echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
 sudo echo "apc.enable_cli = 1" >> /etc/php5/cli/php.ini
 
-sudo su - www-data -c "(cd /var/www/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar install)"
+sudo su - vagrant -c "(cd /vagrant/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar install)"
 
 # Restart apache
 sudo a2dissite 000-default
 sudo service apache2 restart
 
-# chmod stuff
-chmod +x /home/vagrant/bin/*
-chown www-data:www-data /var/www/src/data/
-
 # execute scripts
-sudo /home/vagrant/bin/clean-caches.sh
-sudo /home/vagrant/bin/clean-ui.sh
-sudo /home/vagrant/bin/boot.sh
-sudo /home/vagrant/bin/update-mysql.sh
+su vagrant - -c "/vagrant/bin/vagrant/clean-caches.sh"
+su vagrant - -c "/vagrant/bin/vagrant/clean-ui.sh"
+su vagrant - -c "/vagrant/bin/vagrant/boot.sh"
+su vagrant - -c "/vagrant/bin/vagrant/update-mysql.sh"
 
 # Restart apache
 sudo service apache2 restart
