@@ -145,17 +145,22 @@ class UserController extends AbstractUserController
             if ($form->isValid()) {
                 $data = $form->getData();
                 $user->setEmail($data['email']);
+                $user->setDescription($data['description']);
 
                 $this->getUserManager()->persist($user);
                 $this->getUserManager()->flush();
             }
         } else {
-            $data = ['email' => $user->getEmail()];
+            $data = [
+                'email' => $user->getEmail(),
+                'description' => $user->getDescription()
+            ];
             $form->setData($data);
         }
 
         $view = new ViewModel(['user' => $user, 'form' => $form]);
         $view->setTemplate('user/user/settings');
+        $this->layout('athene2-editor');
 
         return $view;
     }

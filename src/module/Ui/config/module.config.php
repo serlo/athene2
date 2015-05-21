@@ -147,6 +147,12 @@ return [
                 '@editor_scripts',
                 '@styles',
                 '@editor_styles'
+            ],
+            'user/settings'               => [
+                '@libs',
+                '@editor_scripts',
+                '@styles',
+                '@editor_styles'
             ]
         ],
         'modules'          => [

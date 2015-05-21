@@ -109,4 +109,15 @@ interface UserInterface extends UuidInterface, IdentityInterface
      * @param RoleInterface $role
      */
     public function hasRole(RoleInterface $role);
+
+    /**
+     * @param string $description
+     * @return void
+     */
+    public function setDescription($description);
+
+    /**
+     * @return string
+     */
+    public function getDescription();
 }
