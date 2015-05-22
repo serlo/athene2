@@ -137,3 +137,6 @@ su vagrant - -c "/vagrant/bin/vagrant/update-mysql.sh"
 
 # Restart apache
 sudo service apache2 restart
+
+# change to src directory on vagrant ssh
+echo "cd /vagrant" >> /home/vagrant/.bashrc

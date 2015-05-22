@@ -17,12 +17,13 @@ return [
                 'needsIdentity' => true,
                 'pages'         => [
                     [
-                        'label' => 'Home',
+                        'label' => t('Home'),
                         'icon'  => 'home',
-                        'route' => 'backend'
+                        'route' => 'backend',
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Pages',
+                        'label' => t('Pages'),
                         'route' => 'pages',
                         'icon'  => 'paperclip',
                         'pages' => [
@@ -34,10 +35,11 @@ return [
                                 'route'   => 'page/update',
                                 'visible' => false
                             ]
-                        ]
+                        ],
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Taxonomy',
+                        'label' => t('Taxonomy'),
                         'route' => 'taxonomy/term/organize-all',
                         'icon'  => 'book',
                         'pages' => [
@@ -57,15 +59,17 @@ return [
                                 'route'   => 'taxonomy/term/sort-associated',
                                 'visible' => false
                             ]
-                        ]
+                        ],
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Authorization',
+                        'label' => t('Authorization'),
                         'icon'  => 'lock',
-                        'route' => 'authorization/roles'
+                        'route' => 'authorization/roles',
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Navigation',
+                        'label' => t('Navigation'),
                         'icon'  => 'list-alt',
                         'route' => 'navigation/manage',
                         'pages' => [
@@ -77,10 +81,11 @@ return [
                                 'route'   => 'navigation/page/get',
                                 'visible' => false
                             ]
-                        ]
+                        ],
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Users',
+                        'label' => t('Users'),
                         'icon'  => 'user',
                         'route' => 'users',
                         'pages' => [
@@ -88,15 +93,17 @@ return [
                                 'route'   => 'authorization/role/show',
                                 'visible' => false
                             ]
-                        ]
+                        ],
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Recycle bin',
+                        'label' => t('Recycle bin'),
                         'icon'  => 'trash',
-                        'route' => 'uuid/recycle-bin'
+                        'route' => 'uuid/recycle-bin',
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Flags',
+                        'label' => t('Flags'),
                         'icon'  => 'flag',
                         'route' => 'flag/manage',
                         'pages' => [
@@ -104,10 +111,11 @@ return [
                                 'route'   => 'flag/detail',
                                 'visible' => false
                             ]
-                        ]
+                        ],
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Licenses',
+                        'label' => t('Licenses'),
                         'icon'  => 'tags',
                         'route' => 'license/manage',
                         'pages' => [
@@ -119,10 +127,11 @@ return [
                                 'route'   => 'license/update',
                                 'visible' => false
                             ]
-                        ]
+                        ],
+                        'translate' => true
                     ],
                     [
-                        'label' => 'Horizon',
+                        'label' => t('Horizon'),
                         'icon'  => 'globe',
                         'route' => 'ads',
                         'pages' => [
@@ -134,12 +143,13 @@ return [
                                 'route'   => 'ads/ad/edit',
                                 'visible' => false
                             ]
-                        ]
+                        ],
+                        'translate' => true
                     ]
                 ]
             ],
             'blog' => [
-                'label' => 'Blog',
+                'label' => t('Blog'),
                 'route' => 'blog',
                 'pages' => [
                     [
@@ -150,15 +160,16 @@ return [
                         'route'   => 'blog/post/view',
                         'visible' => false
                     ]
-                ]
+                ],
+                'translate' => true
             ],
             'me' => [
-                'label' => 'Me',
+                'label' => t('Me'),
                 'uri'   => '#',
                 'pages' => [
                     [
                         'route'   => 'user/login',
-                        'visible' => false
+                        'visible' => false,
                     ],
                     [
                         'route'   => 'user/register',
@@ -166,25 +177,30 @@ return [
                     ],
                     [
                         'route' => 'user/me',
-                        'label' => 'Profile',
-                        'icon'  => 'user'
+                        'label' => t('Profile'),
+                        'icon'  => 'user',
+                        'translate' => true
                     ],
                     [
                         'route' => 'user/settings',
-                        'label' => 'Edit profile',
-                        'icon'  => 'wrench'
+                        'label' => t('Edit profile'),
+                        'icon'  => 'wrench',
+                        'translate' => true
                     ],
                     [
                         'route' => 'authentication/password/change',
-                        'label' => 'Update password',
-                        'icon'  => 'lock'
+                        'label' => t('Update password'),
+                        'icon'  => 'lock',
+                        'translate' => true
                     ],
                     [
                         'route' => 'subscriptions/manage',
-                        'label' => 'Subscriptions',
-                        'icon'  => 'eye-open'
+                        'label' => t('Subscriptions'),
+                        'icon'  => 'eye-open',
+                        'translate' => true
                     ]
-                ]
+                ],
+                'translate' => true
             ],
             'home' => [
                 'route' => 'home',
