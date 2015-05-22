@@ -36,7 +36,7 @@ pm2 stop server
 pm2 delete server
 cd ../src/assets/
 npm update
-pm2 start node_modules/athene2-editor/server/server.js
+pm2 start node_modules/athene2-editor/server/server.js --node-args="--expose-gc"
 # on error????
 bower update
 grunt build
