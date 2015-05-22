@@ -56,10 +56,7 @@ $backgroundColor: #E4E6E6;
 
 $white: white;
 $black: black;
-$grayDark: #333333;
-$gray: #4B4D4C;
-$darkGray: darken($gray, 8%);
-$darkerGray: darken($gray, 18%);
+$gray: $serloGray;
 $lightGray: lighten($gray, 34%);
 $lighterGray: #F8F8F8;
 

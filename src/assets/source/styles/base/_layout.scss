@@ -77,12 +77,12 @@
   bottom: 0;
   text-align: center;
 
-  background: $darkGray;
+  background: $gray;
   color: white;
 
   html.no-touch & {
     &:hover {
-      background: $darkerGray;
+      background: darken($gray, 5%);
     }
   }
 
@@ -218,7 +218,6 @@
 
   background-color: $white;
 
-  z-index: 1;
   // transition: 0.3s transform 0s;
 
   .nav {
@@ -230,7 +229,7 @@
     }
 
     &.nav-pills > li > a {
-      color: $grayDark;
+      color: $gray;
     }
   }
   & > h1 {

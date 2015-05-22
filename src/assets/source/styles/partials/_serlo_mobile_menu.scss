@@ -193,10 +193,10 @@ $mobile-serlo-nav-bg: darken($lighterGray, 3%);
 
      .dropdown-menu {
        li a {
-         background: lighten($gray, 5%);
+         background: #686868;
 
          &:hover {
-           background: lighten($gray, 10%);
+           background: lighten(#686868, 5%);
          }
        }
      }
