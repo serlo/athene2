@@ -41,7 +41,6 @@ function timeElapsed(){visitTookTime=true;sendNoBounce()}
 function sendNoBounce(){if(didScroll&&visitTookTime&&!bounceSent){bounceSent=true;ga("send","event","no bounce","resist","User scrolled and spent 30 seconds on page.")}}
 setTimeout("timeElapsed()",3e4);
 window.addEventListener?window.addEventListener("scroll",testScroll,false):window.attachEvent("onScroll",testScroll);
-(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="//widget.uservoice.com/8JiCjX8pgkFb1do4yZljqg.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();UserVoice=window.UserVoice||[];UserVoice.push(["showTab","classic_widget",{mode:"feedback",primary_color:"#474747",link_color:"#007dc1",forum_id:260043,support_tab_name:"Kontaktiere uns",feedback_tab_name:"Feedback zu Serlo",tab_label:"Feedback",tab_color:"#449d44",tab_position:"middle-right",tab_inverted:false}])
 </script>
 EOL
             ],
@@ -59,7 +58,6 @@ function timeElapsed(){visitTookTime=true;sendNoBounce()}
 function sendNoBounce(){if(didScroll&&visitTookTime&&!bounceSent){bounceSent=true;ga("send","event","no bounce","resist","User scrolled and spent 30 seconds on page.")}}
 setTimeout("timeElapsed()",3e4);
 window.addEventListener?window.addEventListener("scroll",testScroll,false):window.attachEvent("onScroll",testScroll);
-(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="//widget.uservoice.com/8JiCjX8pgkFb1do4yZljqg.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();UserVoice=window.UserVoice||[];UserVoice.push(["showTab","classic_widget",{mode:"feedback",primary_color:"#474747",link_color:"#007dc1",forum_id:260043,support_tab_name:"Kontaktiere uns",feedback_tab_name:"Feedback zu Serlo",tab_label:"Feedback",tab_color:"#449d44",tab_position:"middle-right",tab_inverted:false}])
 </script>
 EOL
             ]

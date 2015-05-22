@@ -73,7 +73,8 @@ class NavigationManager implements NavigationManagerInterface
         'top-center',
         'top-left',
         'front-page',
-        'top-right'
+        'top-right',
+        'social'
     ];
 
     public function __construct(

@@ -11,6 +11,7 @@ namespace User\Controller;
 
 use Instance\Manager\InstanceManagerAwareTrait;
 use User\Exception\UserNotFoundException;
+use User\Form\SettingsForm;
 use Zend\Form\Form;
 use Zend\View\Model\ViewModel;
 use ZfcRbac\Exception\UnauthorizedException;
@@ -133,7 +134,6 @@ class UserController extends AbstractUserController
 
     public function settingsAction()
     {
-        $form = $this->getForm('settings');
         $user = $this->getUserManager()->getUserFromAuthenticator();
         if (!$user) {
             throw new UnauthorizedException;
@@ -141,6 +141,7 @@ class UserController extends AbstractUserController
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
+            $form = new SettingsForm($this->getUserManager()->getObjectManager(), $data['email'] === $user->getEmail());
             $form->setData($data);
             if ($form->isValid()) {
                 $data = $form->getData();
@@ -151,6 +152,7 @@ class UserController extends AbstractUserController
                 $this->getUserManager()->flush();
             }
         } else {
+            $form = new SettingsForm($this->getUserManager()->getObjectManager());
             $data = [
                 'email' => $user->getEmail(),
                 'description' => $user->getDescription()

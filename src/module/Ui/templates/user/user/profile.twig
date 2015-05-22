@@ -1,4 +1,63 @@
 {{ pageHeader(user.getUsername()).setSubtitle('Profile'|trans).append('<div class="pull-right">' ~ subscribe(user).button() ~ '</div>') }}
+<div class="row">
+    <div class="col-xs-12">
+        {{ markdown().toHtml(user.getDescription()) | raw }}
+    </div>
+</div>
+<h1 class="heading-content">{{ 'Statistics' | trans }}</h1>
+<div class="row">
+    <div class="col-xs-3">
+        {{ 'Comments:' | trans }}
+    </div>
+    <div class="col-xs-9">
+        {{ eventLog().countEventsFoundByActorAndNames(user, ['discussion/create', 'discussion/comment/create']) }}
+    </div>
+</div>
+<hr noshade>
+<div class="row">
+    <div class="col-xs-3">
+        {{ 'Edits:' | trans }}
+    </div>
+    <div class="col-xs-9">
+        {{ eventLog().countEventsFoundByActorAndNames(user, ['entity/revision/add']) }}
+    </div>
+</div>
+<hr noshade>
+<div class="row">
+    <div class="col-xs-3">
+        {{ 'Reviews:' | trans }}
+    </div>
+    <div class="col-xs-9">
+        {{ eventLog().countEventsFoundByActorAndNames(user, ['entity/revision/reject', 'entity/revision/accept']) }}
+    </div>
+</div>
+<hr noshade>
+<div class="row">
+    <div class="col-xs-3">
+        {{ 'Taxonomy associations:' | trans }}
+    </div>
+    <div class="col-xs-9">
+        {{ eventLog().countEventsFoundByActorAndNames(user, ['taxonomy/term/associate', 'taxonomy/term/dissociate']) }}
+    </div>
+</div>
+<hr noshade>
+<div class="row">
+    <div class="col-xs-3">
+        {{ 'Taxonomy changes:' | trans }}
+    </div>
+    <div class="col-xs-9">
+        {{ eventLog().countEventsFoundByActorAndNames(user, ['taxonomy/term/create', 'taxonomy/term/update', 'taxonomy/term/parent/change']) }}
+    </div>
+</div>
+<hr noshade>
+<div class="row">
+    <div class="col-xs-3">
+        {{ 'Total deletions:' | trans }}
+    </div>
+    <div class="col-xs-9">
+        {{ eventLog().countEventsFoundByActorAndNames(user, ['uuid/delete']) }}
+    </div>
+</div>
 {{ discussion(user).render() }}
 <h1 class="heading-content">{{ 'Recent activities' | trans }}</h1>
 <div class="row">
