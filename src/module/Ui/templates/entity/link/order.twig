@@ -1,4 +1,7 @@
-{{ pageHeader('Sort' | trans).setSubtitle(normalize().toTitle(entity)).render() }}
+{{ pageHeader('Sort' | trans)
+    .setSubtitle(normalize().toTitle(entity))
+    .setBacklink(normalize().toUrl(entity))
+    .render() }}
 <div class="sortable" data-action="{{ url('entity/link/order', {entity: entity.getId(), type: scope}) }}" data-depth="1"
      data-active="false">
     <div class="sortable-actions">
