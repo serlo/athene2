@@ -29,7 +29,7 @@
       width: 1.8em;
       text-align: center;
 
-      background-color: $grayDark;
+      background-color: $gray;
       color: $lighterGray;
 
       @media only screen and (min-width: $navigationBreakPoint-min) {
@@ -54,7 +54,7 @@
 
   //   width: 180px;
 
-  //   color: $grayDark;
+  //   color: $gray;
   //   font-size: 0.9em;
   //   text-align: right;
 
@@ -143,6 +143,7 @@
   .subject-nav-center {
     display: block;
     margin: 0 ($sidebarWidth + $sidebarGap) 0 0;
+
     background-color: $white;
 
     .btn-group {
@@ -164,13 +165,21 @@
     }
   }
 
+  .controls {
+    padding-left: $pagePaddingMedium;
+  }
+
   #subject-nav-wrapper {
     background: $backgroundColor;
   }
 
-  @media only screen and (max-width: $navigationBreakPoint-max) {
+  @media screen and (max-width: $screen-xs-max) {
     .subject-nav-center {
-      margin-left: 0;
+      margin-right: $sidebarWidth + 2*$sidebarGap + $pagePaddingMedium;
+    }
+
+    #search-content {
+      margin-right: $sidebarGap;
     }
   }
 
