@@ -29,9 +29,12 @@ foreach ($this->container as $page) {
         }
     }
 
+    $translate = is_bool($page->get('translate')) ? $page->get('translate') : $page->get('translate') === 'true';
+    $label = $translate ? $this->translate($page->getLabel()) : $page->getLabel();
+
     $html[] = '<li class="is-hidden">';
     $html[] = '<a class="is-hidden" href="' . $page->getHref() . '" itemprop="url">';
-    $html[] = '<span itemprop="title">' . $page->getLabel() . '</span>';
+    $html[] = '<span itemprop="title">' . $label . '</span>';
     $html[] = '</a>';
     $html[] = '</li>';
 
