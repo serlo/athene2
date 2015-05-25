@@ -152,25 +152,15 @@
 
 /* Right Context Area */
 .side-context {
-
   position: absolute;
   top: $sideNavTopOffset;
-  right: -$sidebarWidth;
-  width: $sidebarWidth;
   right: -($sidebarWidth + $sidebarGap);
+  width: $sidebarWidth;
   // margin-left: $contentMaxWidth + 2 * $contentPadding;
   // margin-left: $sidebarGap;
 
   background: $lighterGray;
   @include block-shadow;
-
-  &:before {
-    content: ' ';
-    position: absolute;
-    left: 0px;
-    top: 12px;
-    @include triangle(right, $white, 13px);
-  }
 
   .side-element-inner {
     > .fa {

@@ -24,7 +24,20 @@ class GetController extends AbstractController
             return false;
         }
 
-        $view = new ViewModel(['term' => $term]);
+        $siblings = [];
+
+        if ($term->hasParent()) {
+            $siblings = $term->getParent()->findChildrenByTrashed(false)->filter(function ($item) use (&$term) {
+                return $item->getTaxonomy()->getName() === $term->getTaxonomy()->getName() && $item->getId() != $term->getId();
+
+            });
+        }
+
+        if (count($siblings) > 0) {
+            $this->layout('layout/3-col');
+        }
+
+        $view = new ViewModel(['term' => $term, 'siblings' => $siblings]);
 
         $view->setTemplate('taxonomy/term/page/default');
         return $view;
