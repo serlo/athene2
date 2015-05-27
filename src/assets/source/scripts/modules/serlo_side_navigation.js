@@ -84,6 +84,10 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
             data.needsFetching = true;
         }
 
+        if (data.sidenav === undefined) {
+            data.sidenav = true;
+        }
+
         eventScope(this);
 
         this.data = data;
@@ -159,7 +163,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
      * OnClick handler for MenuItem
      **/
     MenuItem.prototype.onClick = function (e) {
-        if ((this.data.needsFetching || this.children) && !this.alwaysReload) {
+        if (this.data.sidenav && (this.data.needsFetching || this.children) && !this.alwaysReload) {
             e.preventDefault();
             e.stopPropagation();
             this.trigger('click', {
@@ -351,6 +355,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                     position = [].concat(deepness),
                     hasChildren = $listItem.children().filter('ul').find('> li').length,
                     needsFetching = $listItem.data('needs-fetching') !== undefined,
+                    sidenav = $listItem.data('sidenav') === undefined,
                     icon;
 
                 if (hasChildren) {
@@ -369,6 +374,7 @@ define("side_navigation", ["jquery", "underscore", "referrer_history", "events",
                     active: $listItem.hasClass(defaults.routeMatchClass),
                     community: $listItem.hasClass(defaults.communityClass),
                     needsFetching: needsFetching,
+                    sidenav: sidenav,
                     elementCount: $listItem.data('element-count'),
                     identifier: $listItem.data(defaults.asyncNav.identifier)
                 });
