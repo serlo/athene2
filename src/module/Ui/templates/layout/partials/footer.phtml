@@ -1,32 +1,38 @@
-<footer id="footer" class="hidden-xs">
-    <div class="navbar navbar-default" role="navigation">
+<footer id="footer">
+    <nav class="navbar-default" role="navigation">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#footer-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <div class="logo-wrapper">
+                <?php echo $this->brand()->getLogo(); ?>
+                <?php echo $this->brand()->getBrand(); ?>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="footer-collapse">
-                <nav class="navbar-inner">
+            <nav>
+                <div class="footer-left">
                     <?php
-                    echo $this->navigation('footer_navigation')
+                    echo $this->navigation('footer_left_navigation')
                         ->menu()
-                        ->setUlClass('nav navbar-nav')
-                        ->setPartial('layout/navigation/horizontal')
+                        ->setPartial('layout/navigation/vertical')
                         ->render();
                     ?>
-                </nav>
-            </div>
+                    <?php
+                    echo $this->navigation('social_navigation')
+                        ->menu()
+                        ->setPartial('layout/navigation/vertical')
+                        ->render();
+                    ?>
+                </div>
+                <div class="footer-right">
+                    <?php
+                    echo $this->navigation('footer_right_navigation')
+                        ->menu()
+                        ->setPartial('layout/navigation/vertical')
+                        ->render();
+                    ?>
+                </div>
+            </nav>
         </div>
-    </div>
+    </nav>
 </footer>
 <?php echo $this->headScript(); ?>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <?php echo $this->inlineScript(); ?>

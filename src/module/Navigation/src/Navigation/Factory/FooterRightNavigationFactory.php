@@ -9,10 +9,10 @@
  */
 namespace Navigation\Factory;
 
-class FooterNavigationFactory extends ProvideableNavigationFactory
+class FooterRightNavigationFactory extends ProvideableNavigationFactory
 {
     protected function getName()
     {
-        return 'footer';
+        return 'footer_right';
     }
 }

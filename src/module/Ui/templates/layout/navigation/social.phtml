@@ -34,9 +34,11 @@ foreach ($this->container as $page) {
         } else {
             $html[] = '<span class="fa fa-' . $page->get('icon') . '"></span>';
         }
+        $html[] = '<span class="sr-only">' . $page->getLabel() . '</span>';
+    } else {
+        $html[] = $page->getLabel();
     }
 
-    $html[] = $page->getLabel();
     $html[] = '</a>';
 }
 

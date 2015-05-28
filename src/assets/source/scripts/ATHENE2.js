@@ -115,6 +115,14 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
             new Breadcrumbs();
             // initialize the side navigation
             new SideNavigation();
+            // initialize the footer
+            $('#footer-push').css('height', $('#footer').height());
+            $('.wrap').css('margin-bottom', -$('#footer').height());
+            $(window).resize(function () {
+                $('#footer-push').css('height', $('#footer').height());
+                $('.wrap').css('margin-bottom', -$('#footer').height());
+            });
+
             // initialize the search
             // new Search();
             // initialize ajax overlay
