@@ -12,16 +12,11 @@ return [
     'navigation' => [
         'default' => [
             'restricted' => [
-                'label'         => 'Backend',
-                'uri'           => '#',
+                'label'         => t('Backend'),
+                'route'         => 'backend',
                 'needsIdentity' => true,
+                'translate'     => true,
                 'pages'         => [
-                    [
-                        'label' => t('Home'),
-                        'icon'  => 'home',
-                        'route' => 'backend',
-                        'translate' => true
-                    ],
                     [
                         'label' => t('Pages'),
                         'route' => 'pages',

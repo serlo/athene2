@@ -14,7 +14,7 @@ foreach ($this->pages as $i => $page) {
     $html = [];
     $html[] = '<li>';
 
-    if ($i + 1 < $pagesCount) {
+    if ($i + 1 < $pagesCount && $page->isVisible()) {
         $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
         $html[] = '<span>' . $page->getLabel() . '</span>';
         $html[] = '</a>';
