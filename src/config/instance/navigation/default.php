@@ -74,8 +74,10 @@ return [
                         'route' => 'navigation/manage',
                         'pages' => [
                             [
-                                'route'   => 'navigation/container/get',
-                                'visible' => false
+                                'label'     => t('Manage navigation'),
+                                'route'     => 'navigation/container/get',
+                                'visible'   => false,
+                                'translate' => true
                             ],
                             [
                                 'route'   => 'navigation/page/get',
