@@ -64,6 +64,10 @@ define(['jquery', 'underscore'], function ($, _) {
         $self.unbind('slide.bs.carousel', slideTabNav);
         $self.bind('slide.bs.carousel', slideTabNav);
 
+        $self.bind('slid.bs.carousel', function () {
+            $self.carousel('pause');
+        });
+
         $self.carousel(parseInt(getTab(id), 10));
         $self.carousel('pause');
     };
