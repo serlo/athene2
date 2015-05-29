@@ -3,10 +3,10 @@
 {% set hint = entity.getChildren('link', 'text-hint').first() %}
 <article itemscope itemtype="http://schema.org/Article">
     <section class="row">
-        <div class="col-xs-10 col-sm-7 col-md-8" itemprop="articleBody">
+        <div class="col-xs-10 col-sm-7 col-md-6" itemprop="articleBody">
             {{ markdown().toHtml(revision.get('content')) | raw }}
         </div>
-        <div class="col-xs-2 col-sm-5 col-md-4">
+        <div class="col-xs-2 col-sm-5 col-md-6">
             <div class="pull-right">
                 {% if hint %}
                     <div class="btn btn-default btn-xs" data-toggle="collapse" data-target="#hint-{{ hint.getId() }}">
