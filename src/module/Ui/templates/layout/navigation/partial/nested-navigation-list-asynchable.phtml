@@ -57,7 +57,7 @@ foreach ($this->pages as $page) {
     $child      = $breadcrumb ? 'itemprop="child"' : '';
     $rich       = $breadcrumb ? ' ' . $child . ' ' . $breadcrumb . ' ' : '';
     $needsFetching = ($depth >= $maxDepth - 1 && !empty($page->pages)) ? ' data-needs-fetching="true" ' : '';
-    $sidenav = (is_bool($page->get('hideSidebar')) ? $page->get('hideSidebar') : ($page->get('hideSidebar') === 'true')) ? ' data-sidenav="false" ' : '';
+    $sidenav = (is_bool($page->get('hideSidenav')) ? $page->get('hideSidenav') : ($page->get('hideSidenav') === 'true')) ? ' data-sidenav="false" ' : '';
     $translate = is_bool($page->get('translate')) ? $page->get('translate') : $page->get('translate') === 'true';
     $label = $translate ? $this->translate($page->getLabel()) : $page->getLabel();
 
