@@ -1,5 +1,11 @@
 {% set title = entity.getCurrentRevision().get('title') %}
 {% set tmp = headTitle(title) %}
-{{ pageHeader(title).setSubtitle('Module page'|trans).append(contexter().renderButton()).render() }}
+{{ pageHeader(title)
+.setSubtitle('course-page' | trans)
+.setBacklink(normalize().toUrl(entity.getParents('link').first()))
+.append('<div class="pull-right btn-group hidden-xs">')
+    .append(include('entity/view/partials/actions/controls'))
+    .append('</div>')
+.render() }}
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}
