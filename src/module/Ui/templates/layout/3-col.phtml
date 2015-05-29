@@ -19,7 +19,7 @@ echo $this->doctype();
 <div class="wrap has-navigation has-context">
     <?php echo $this->partial('layout/partials/header'); ?>
 
-    <div id="page" class="container clearfix">
+    <div id="page" class="container clearfix<?php echo (!empty($this->registry()->get('rnav')) ? ' has-sidebar' : '') ?>">
         <?php echo $this->partial('layout/partials/left-sidebar'); ?>
         <section class="main clearfix">
             <div id="content-layout" class="content clearfix">
@@ -30,10 +30,9 @@ echo $this->doctype();
             <?php echo $this->horizon(3); ?>
         </section>
     </div>
-    <?php /* sticky footer: */ ?>
-    <!-- <div id="footer-push"></div> -->
-    <?php echo $this->partial('layout/partials/footer'); ?>
+    <div id="footer-push"></div>
 </div>
+<?php echo $this->partial('layout/partials/footer'); ?>
 <?php echo $this->partial('layout/partials/default-modal'); ?>
 <?php echo $this->placeholder('modals'); ?>
 <?php echo $this->tracking(); ?>
