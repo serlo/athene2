@@ -1,0 +1,19 @@
+{{ pageHeader('Move associations' | trans).render() }}
+{{ form().openTag(form) }}
+{{ formRow(form.get('destination')) }}
+{% set element = form.get('associations') %}
+<div class="checkbox">
+    <ul class="list-group">
+        {% for v in form.get('associations').getValueOptions() %}
+            <li class="list-group-item">
+                <label>
+                    <input type="checkbox" name="{{ element.getName() }}[]" value="{{ v.getId() }}">
+                    <strong>{{ normalize().toTitle(v) }}</strong> <sup><small>{{ normalize().toType(v) }}</small></sup>
+                    <p>{{ normalize().toPreview(v) }}</p>
+                </label>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{{ formRow(form.get('submit')) }}
+{{ form().closeTag() }}

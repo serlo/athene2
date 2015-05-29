@@ -215,6 +215,15 @@ return [
                                         'action' => 'batchCopy'
                                     ]
                                 ]
+                            ],
+                            'batch-move' => [
+                                'type'    => 'segment',
+                                'options' => [
+                                    'route'    => '/move/batch/:term',
+                                    'defaults' => [
+                                        'action' => 'batchMove'
+                                    ]
+                                ]
                             ]
                         ]
                     ]
