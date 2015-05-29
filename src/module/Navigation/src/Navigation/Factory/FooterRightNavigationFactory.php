@@ -13,6 +13,6 @@ class FooterRightNavigationFactory extends ProvideableNavigationFactory
 {
     protected function getName()
     {
-        return 'footer_right';
+        return 'footer-right';
     }
 }
