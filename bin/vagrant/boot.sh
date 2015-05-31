@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# sudo cp -R /vagrant/dist/solr/* /etc/solr/conf/
+sudo cp -R /vagrant/dist/solr/* /etc/solr/conf/
 sudo service tomcat6 restart
 # mkdir /vagrant/src/public/assets
 rm /vagrant/src/data/* -rf

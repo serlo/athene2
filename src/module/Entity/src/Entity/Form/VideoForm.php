@@ -17,6 +17,7 @@ use Zend\Form\Element\Textarea;
 use Zend\Form\Element\Url;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
+use Zend\Validator\Regex;
 
 class VideoForm extends Form
 {
@@ -44,7 +45,27 @@ class VideoForm extends Form
 
         $inputFilter = new InputFilter('video');
         $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'content', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(
+            [
+                'name' => 'content',
+                'required' => true,
+                'filters' => [
+                    [
+                        'name' => 'StripTags'
+                    ]
+                ],
+                'validators' => [
+                    [
+                        'name'  => 'Regex',
+                        'options' => [
+                            'pattern' => '~^(https?:\/\/)?(.*?(youtube.com\/watch\?v=.+|youtu.be\/.+|vimeo.com\/.+))~',
+                            'messages' => [
+                                Regex::NOT_MATCH => 'Video-URL invalid, supported platforms are Youtube and Vimeo'
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
         $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
