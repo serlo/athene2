@@ -12,16 +12,11 @@ return [
     'navigation' => [
         'default' => [
             'restricted' => [
-                'label'         => 'Backend',
-                'uri'           => '#',
+                'label'         => t('Backend'),
+                'route'         => 'backend',
                 'needsIdentity' => true,
+                'translate'     => true,
                 'pages'         => [
-                    [
-                        'label' => t('Home'),
-                        'icon'  => 'home',
-                        'route' => 'backend',
-                        'translate' => true
-                    ],
                     [
                         'label' => t('Pages'),
                         'route' => 'pages',
@@ -74,8 +69,10 @@ return [
                         'route' => 'navigation/manage',
                         'pages' => [
                             [
-                                'route'   => 'navigation/container/get',
-                                'visible' => false
+                                'label'     => t('Manage navigation'),
+                                'route'     => 'navigation/container/get',
+                                'visible'   => false,
+                                'translate' => true
                             ],
                             [
                                 'route'   => 'navigation/page/get',
