@@ -28,7 +28,6 @@ class FlagController extends AbstractActionController
     {
         $this->assertGranted('flag.create');
 
-        $this->layout('layout/1-col');
         $types = $this->getFlagManager()->findAllTypes();
         $form  = new FlagForm($types);
         if ($this->getRequest()->isPost()) {

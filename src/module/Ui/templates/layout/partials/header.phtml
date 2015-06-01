@@ -66,6 +66,7 @@
                     <ol id="breadcrumbs">
                         <?php echo $this->navigation('default_navigation')
                             ->breadcrumbs()
+                            ->setRenderInvisible(true)
                             ->setPartial('layout/navigation/partial/breadcrumbs')
                             ->render();
                         ?>
