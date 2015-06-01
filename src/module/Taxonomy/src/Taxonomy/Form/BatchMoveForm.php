@@ -32,7 +32,7 @@ class BatchMoveForm extends Form
             (new Text('destination'))
                 ->setAttribute('id', 'destination')
                 ->setAttribute('placeholder', 'ID (12345)')
-                ->setLabel('Copy to:')
+                ->setLabel('Move to:')
         );
 
         $multiCheckbox = new MultiCheckbox('associations');
