@@ -114,4 +114,20 @@ class TaxonomyHelper extends AbstractHelper
 
         return $this->moduleOptions->getType($name);
     }
+
+    /**
+     * @param TaxonomyTermInterface $term
+     * @return TaxonomyTermInterface[]
+     */
+    public function flattenAncestors(TaxonomyTermInterface $term){
+        $ancestors = [];
+        $current = $term;
+        $i=0;
+        while($current->hasParent() && $current->getParent()->hasParent()){
+            $current = $current->getParent();
+            $ancestors[$i] = $current;
+            $i++;
+        }
+        return $ancestors;
+    }
 }
