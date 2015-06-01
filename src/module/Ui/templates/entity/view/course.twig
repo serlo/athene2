@@ -82,15 +82,8 @@
                     <div class="pull-right">
                         {% include 'entity/view/partials/actions/small' with {'entity': page} only %}
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            {{ markdown().toHtml(revision.get('content')) | raw }}
-                        </div>
-                    </div>
+                    {% include 'entity/view/default' with { 'entity': page, 'parent': entity} only %}
                 </div>
-                <section id="discussion-{{ page.getId() }}">
-                    {{ discussion(page).render() }}
-                </section>
             </article>
         {% endfor %}
     </div>

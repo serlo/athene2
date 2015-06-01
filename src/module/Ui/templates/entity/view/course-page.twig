@@ -1,0 +1,11 @@
+{% set title = 'course-page' | trans %}
+{% set revision = entity.getCurrentRevision() %}
+{% set content = markdown().toHtml(revision.get('content')) | raw %}
+<div class="row">
+    <div class="col-xs-12">
+        {{ content }}
+    </div>
+</div>
+<section id="discussion-{{ entity.getId() }}">
+    {{ discussion(entity).render() }}
+</section>
