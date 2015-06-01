@@ -173,16 +173,6 @@
     background: $backgroundColor;
   }
 
-  @media screen and (max-width: $screen-xs-max) {
-    .subject-nav-center {
-      margin-right: $sidebarWidth + 2*$sidebarGap + $pagePaddingMedium;
-    }
-
-    #search-content {
-      margin-right: $sidebarGap;
-    }
-  }
-
   #breadcrumbs {
     padding: 14px 10px 11px;
     margin: 0 10px;
@@ -247,8 +237,8 @@
 
     #search-content {
       width: 100%;
-      margin-right: -52px;
-      padding-right: 52px;
+      margin-right: 0;
+      padding-left: 52px;
     }
   }
 
