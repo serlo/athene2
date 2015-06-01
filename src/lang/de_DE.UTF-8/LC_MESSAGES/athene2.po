@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
 "POT-Creation-Date: 2015-05-25 13:19+0100\n"
-"PO-Revision-Date: 2015-05-26 21:46+0100\n"
+"PO-Revision-Date: 2015-06-01 11:15+0100\n"
 "Last-Translator: Serlo <community-de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;pageHeader;setSubtitle;addMessage;addSuccessMessage;addErrorMessage;setLabel;setLegend;t\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1930,7 +1930,7 @@ msgstr "Aktuelle Aktivitäten"
 
 #: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:67
 msgid "Reviews:"
-msgstr "Bewertungen:"
+msgstr "Überprüfungen:"
 
 #: /tmp/cache/556305507ee36/2f/e7/2f0b515004b59e946b309b21d14ff794390e2775ff15fd7f45b7e7440bc7.php:248
 #, php-format
