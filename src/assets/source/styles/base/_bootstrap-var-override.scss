@@ -28,10 +28,12 @@ $alert-border-radius: 0;
 /* Override Default Grid */
 $gridGutterWidth: 24px;
 $gridColumnWidth: 73px;
+$screen-lg: 1240px;
 
 /* Container sizes */
 $container-tablet: 100%;
 $container-desktop: 100%;
+$container-large-desktop: 1210px;
 
 /* Override Navbar Styles */
 $navbarHeight: 25px;
