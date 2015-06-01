@@ -1,11 +1,18 @@
 {% set title = entity.getCurrentRevision().get('title') %}
-{% set tmp = headTitle(title) %}
+{% set parent = entity.getParents('link').first() %}
 {{ pageHeader(title)
 .setSubtitle('course-page' | trans)
-.setBacklink(normalize().toUrl(entity.getParents('link').first()))
-.append('<div class="pull-right btn-group hidden-xs">')
-    .append(include('entity/view/partials/actions/controls'))
-    .append('</div>')
+.setBacklink(normalize().toUrl(parent))
 .render() }}
+
+{% set controls = include('entity/view/partials/actions/controls') %}
+{% do placeholder('controls').set(controls) %}
+{% do placeholder('breadcrumbs').set('<li><a href="' ~ normalize().toUrl(parent) ~ '"><span>' ~ parent.getCurrentRevision().get('title') ~
+'</span></a></li> <li><span>'~title~'</span></li>') %}
+
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}
+
+{% set taxonomy = include('entity/page/aggregate/taxonomy', {'terms': entity.getTaxonomyTerms()}) %}
+{% set temp = registry().add('rnav', taxonomy) %}
+{% set temp = registry().add('rnav', related(entity)) %}
