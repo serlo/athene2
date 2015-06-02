@@ -1,10 +1,10 @@
 <div class="hidden-xs btn-group">
-    {% include 'entity/view/partials/actions/versioning/edit-essential' %}
     <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="caret"></span>
         <span class="sr-only">Toggle Dropdown</span>
     </button>
     <ul class="dropdown-menu" role="menu">
+        {% include "entity/view/partials/actions/versioning/edit-essential" %}
         {{ subscribe(entity).subMenuItem() }}
         {% include 'entity/view/partials/actions/versioning/history' %}
         {% include 'entity/view/partials/actions/license/show' %}

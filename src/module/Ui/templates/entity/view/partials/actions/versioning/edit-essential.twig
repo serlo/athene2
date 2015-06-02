@@ -1,6 +1,9 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') %}
-    <a class="btn btn-default btn-xs hidden-xs" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
-        {% trans %} Edit {% endtrans %}
-    </a>
+    <li>
+        <a href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
+            <span class="fa fa-pencil"></span>
+            {% trans %} Edit {% endtrans %}
+        </a>
+    </li>
 {% endif %}
