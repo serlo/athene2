@@ -8,6 +8,7 @@
         </div>
         <div class="col-xs-2 col-sm-4 col-md-4">
             <div class="pull-right">
+                <div class="btn-group">
                 {% if hint %}
                     <div class="btn btn-default btn-xs" data-toggle="collapse" data-target="#hint-{{ hint.getId() }}">
                         {% trans %} Show hint {% endtrans %}
@@ -19,6 +20,7 @@
                     </div>
                 {% endif %}
                 {% include 'entity/view/partials/actions/small-essential' %}
+                    </div>
             </div>
         </div>
     </section>
