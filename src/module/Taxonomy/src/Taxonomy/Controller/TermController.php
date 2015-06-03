@@ -73,6 +73,50 @@ class TermController extends AbstractController
         return $view;
     }
 
+    public function batchMoveAction()
+    {
+        // TODO Currently only with entities...
+
+        $term     = $this->getTaxonomyManager()->getTerm($this->params('term'));
+        $elements = $term->getAssociated('entities');
+        $options  = [];
+        foreach ($elements as $element) {
+            $options[$element->getId()] = $element;
+        }
+        $form = new BatchCopyForm($options);
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->params()->fromPost();
+            $data = array_merge(
+                $data,
+                [
+                    'taxonomy' => $this->params('taxonomy'),
+                    'parent'   => $this->params('parent', null)
+
+                ]
+            );
+            $form->setData($data);
+            if ($form->isValid()) {
+                $data        = $form->getData();
+                $destination = $this->getTaxonomyManager()->getTerm($data['destination']);
+                foreach ($data['associations'] as $element) {
+                    $entity = $this->getEntityManager()->getEntity($element);
+                    $this->getTaxonomyManager()->associateWith($destination, $entity);
+                    $this->getTaxonomyManager()->removeAssociation($term, $entity);
+                }
+                $this->getTaxonomyManager()->flush();
+                $this->flashMessenger()->addSuccessMessage('Items moved successfully!');
+                return $this->redirect()->toRoute('taxonomy/term/get', ['term' => $destination->getId()]);
+            }
+        }
+
+        $view = new ViewModel([
+            'form' => $form
+        ]);
+        $view->setTemplate('taxonomy/term/batch-move');
+        return $view;
+    }
+
     public function batchCopyAction()
     {
         // TODO Currently only with entities...

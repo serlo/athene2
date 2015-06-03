@@ -1,0 +1,10 @@
+<div class="sidebar-content-group">
+    <ul class="nav nav-aside">
+        <li class="nav-aside-header">
+            <h4>{% trans %} Further exercises {% endtrans %}</h4>
+        </li>
+        {% for term in siblings %}
+            <li itemprop="relatedLink">{{ normalize().toAnchor(term) }}</li>
+        {% endfor %}
+    </ul>
+</div>

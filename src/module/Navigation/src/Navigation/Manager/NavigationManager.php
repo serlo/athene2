@@ -69,7 +69,8 @@ class NavigationManager implements NavigationManagerInterface
      */
     protected $types = [
         'default',
-        'footer',
+        'footer-left',
+        'footer-right',
         'top-center',
         'top-left',
         'front-page',

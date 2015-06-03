@@ -87,11 +87,10 @@ interface TaxonomyManagerInterface extends Flushable, EventManagerAwareInterface
     public function isAssociableWith($term, TaxonomyTermAwareInterface $object);
 
     /**
-     * @param int                        $id
+     * @param int|TaxonomyTermInterface  $term
      * @param TaxonomyTermAwareInterface $object
-     * @return self
      */
-    public function removeAssociation($id, TaxonomyTermAwareInterface $object);
+    public function removeAssociation($term, TaxonomyTermAwareInterface $object);
 
     /**
      * @param FormInterface $form

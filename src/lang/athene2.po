@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Athene2\n"
-"POT-Creation-Date: 2015-03-18 18:25+0100\n"
-"PO-Revision-Date: 2015-03-18 18:25+0100\n"
+"POT-Creation-Date: 2015-05-25 13:19+0100\n"
+"PO-Revision-Date: 2015-05-25 13:19+0100\n"
 "Last-Translator: Aeneas Rekkas <aeneas.rekkas@serlo.org>\n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;pageHeader;"
 "setSubtitle;addMessage;addSuccessMessage;addErrorMessage;setLabel;setLegend;"
 "t\n"
@@ -17,6 +17,78 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: ./../module\n"
+"X-Poedit-SearchPath-1: ./../config\n"
+
+#: ../config/instance/navigation/default.php:20
+msgid "Home"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:26
+#: /tmp/cache/5563054ec20e0/43/a1/8e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:54
+#: /tmp/cache/5563054f7d968/04/3b/9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:19
+msgid "Pages"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:42
+msgid "Taxonomy"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:66
+msgid "Authorization"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:72
+msgid "Navigation"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:88
+#: ../module/Ui/templates/authorization/role/show.phtml:20
+#: /tmp/cache/556305507ee36/27/31/9e303595527c214e058ab82e2945a742b61394cfb62afe21fee9a23631a5.php:19
+msgid "Users"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:100
+msgid "Recycle bin"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:106
+msgid "Flags"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:118
+msgid "Licenses"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:134
+msgid "Horizon"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:152
+#: /tmp/cache/5563054c94545/47/a3/0ac564dadd8d5b95b50b11193dd62584a51a6fcdc2626ab9e6000fb92a3f.php:49
+msgid "Blog"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:167
+msgid "Me"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:180
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:19
+msgid "Profile"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:186
+msgid "Edit profile"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:192
+#: /tmp/cache/5563054c94545/d7/0d/4940f0c56e62c9205c0410d0b7315d5c5f5c823939e978b8ba00795aae2b.php:19
+msgid "Update password"
+msgstr ""
+
+#: ../config/instance/navigation/default.php:198
+msgid "Subscriptions"
+msgstr ""
 
 #: ../module/Admin/src/Admin/Form/DebuggerForm.php:25
 msgid "Message:"
@@ -35,7 +107,7 @@ msgstr ""
 #: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:28
 #: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:29
 #: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:29
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:38
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:38
 msgid "Title:"
 msgstr ""
 
@@ -104,9 +176,9 @@ msgid ""
 msgstr ""
 
 #: ../module/Authentication/src/Authentication/Form/ActivateForm.php:27
-#: ../module/User/src/User/Form/Register.php:39
+#: ../module/User/src/User/Form/Register.php:42
 #: ../module/User/src/User/Form/SelectUserForm.php:29
-#: ../module/User/src/User/Form/SettingsForm.php:28
+#: ../module/User/src/User/Form/SettingsForm.php:29
 msgid "Email:"
 msgstr ""
 
@@ -123,12 +195,12 @@ msgid "Instance:"
 msgstr ""
 
 #: ../module/Authorization/src/Authorization/Form/RoleForm.php:44
-#: ../module/Term/src/Term/Form/TermFieldset.php:24
+#: ../module/Term/src/Term/Form/TermFieldset.php:26
 msgid "Name:"
 msgstr ""
 
 #: ../module/Authorization/src/Authorization/Form/UserForm.php:25
-#: ../module/User/src/User/Form/Register.php:33
+#: ../module/User/src/User/Form/Register.php:35
 msgid "Username:"
 msgstr ""
 
@@ -157,27 +229,27 @@ msgstr ""
 msgid "Uri:"
 msgstr ""
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:103
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:90
 msgid "Your comment has been saved."
 msgstr ""
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:156
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:140
 msgid "Your discussion has been started."
 msgstr ""
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:185
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:169
 msgid "You have downvoted this comment."
 msgstr ""
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:187
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:171
 msgid "You can't downvote this comment."
 msgstr ""
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:191
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:175
 msgid "You have upvoted this comment."
 msgstr ""
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:193
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:177
 msgid "You can't upvote this comment."
 msgstr ""
 
@@ -186,7 +258,7 @@ msgstr ""
 msgid "Your changes have been saved."
 msgstr ""
 
-#: ../module/Entity/src/Entity/Controller/RepositoryController.php:52
+#: ../module/Entity/src/Entity/Controller/RepositoryController.php:53
 msgid ""
 "Your revision has been saved, it will be available once it get's approved"
 msgstr ""
@@ -203,6 +275,7 @@ msgstr ""
 #: ../module/Entity/src/Entity/Form/ModulePageForm.php:55
 #: ../module/Entity/src/Entity/Form/TextExerciseForm.php:30
 #: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:30
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:30
 #: ../module/Entity/src/Entity/Form/TextSolutionForm.php:30
 #: ../module/Entity/src/Entity/Form/VideoForm.php:37
 msgid "Changes:"
@@ -329,19 +402,31 @@ msgstr ""
 msgid "Reference:"
 msgstr ""
 
-#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:36
+#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:64
 msgid "The node has been added successfully!"
 msgstr ""
 
-#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:116
+#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:107
+msgid "Items copied successfully!"
+msgstr ""
+
+#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:188
 msgid "Your changes have been saved!"
+msgstr ""
+
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:36
+msgid "Copy to:"
+msgstr ""
+
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:40
+msgid "Elements"
 msgstr ""
 
 #: ../module/Taxonomy/src/Taxonomy/Form/TermForm.php:59
 msgid "description:"
 msgstr ""
 
-#: ../module/User/src/User/Controller/UserController.php:88
+#: ../module/User/src/User/Controller/UserController.php:89
 msgid ""
 "You have registered successfully andwill soon receive an email with "
 "instructions onhow to activate your account."
@@ -357,20 +442,29 @@ msgid "New password:"
 msgstr ""
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:30
-#: ../module/User/src/User/Form/Register.php:53
+#: ../module/User/src/User/Form/Register.php:59
 msgid "Confirm password:"
 msgstr ""
 
-#: ../module/User/src/User/Form/Login.php:30
+#: ../module/User/src/User/Form/Login.php:33
 msgid "Email address:"
 msgstr ""
 
-#: ../module/User/src/User/Form/Login.php:31
-#: ../module/User/src/User/Form/Register.php:49
+#: ../module/User/src/User/Form/Login.php:35
+msgid "Email address"
+msgstr ""
+
+#: ../module/User/src/User/Form/Login.php:38
+#: ../module/User/src/User/Form/Register.php:54
 msgid "Password:"
 msgstr ""
 
-#: ../module/User/src/User/Form/Login.php:32
+#: ../module/User/src/User/Form/Login.php:40
+#: /tmp/cache/556305507ee36/92/9e/d964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:111
+msgid "Password"
+msgstr ""
+
+#: ../module/User/src/User/Form/Login.php:43
 msgid "Remember me"
 msgstr ""
 
@@ -378,11 +472,31 @@ msgstr ""
 msgid "Repeat new password:"
 msgstr ""
 
+#: ../module/User/src/User/Form/Register.php:37
+msgid "Enter username"
+msgstr ""
+
 #: ../module/User/src/User/Form/Register.php:44
+msgid "Enter email address"
+msgstr ""
+
+#: ../module/User/src/User/Form/Register.php:48
 msgid "Confirm email:"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:58
+#: ../module/User/src/User/Form/Register.php:50
+msgid "Confirm email address"
+msgstr ""
+
+#: ../module/User/src/User/Form/Register.php:56
+msgid "Enter password"
+msgstr ""
+
+#: ../module/User/src/User/Form/Register.php:61
+msgid "Confirm password"
+msgstr ""
+
+#: ../module/User/src/User/Form/Register.php:65
 msgid "I've read and understood the terms of service."
 msgstr ""
 
@@ -422,6 +536,10 @@ msgid ""
 "service."
 msgstr ""
 
+#: ../module/User/src/User/Form/SettingsForm.php:30
+msgid "About me:"
+msgstr ""
+
 #: ../module/Uuid/src/Uuid/Controller/UuidController.php:32
 msgid "The content has been trashed."
 msgstr ""
@@ -450,38 +568,30 @@ msgstr ""
 msgid "What is this?"
 msgstr ""
 
-#: ../module/Ui/templates/authentication/activate.phtml:1
-msgid "Activate an account"
-msgstr ""
-
-#: ../module/Ui/templates/authentication/reset-password/restore.phtml:1
-#: ../module/Ui/templates/authentication/reset-password/select.phtml:1
-msgid "Restore password"
-msgstr ""
-
 #: ../module/Ui/templates/authorization/role/create.phtml:2
 msgid "Create role"
 msgstr ""
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:16
-#: /tmp/cache/5509b520a8dd1/ff/9c/c3f806e3aa99b7ae24500f75b720fabdb889a60169938440b5a23a1798cd.php:24
+#: /tmp/cache/556305507ee36/92/9e/d964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:51
+#: /tmp/cache/556305507ee36/8e/b2/c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:24
 msgid "Username"
 msgstr ""
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:17
 #: ../module/Ui/templates/authorization/role/roles.phtml:12
-#: /tmp/cache/5509b520a8dd1/04/9f/d18211a7a0da1aa4f171d116c9bc6fb70d0b8ca85dd0631fbe78bf65e26e.php:56
-#: /tmp/cache/5509b520a8dd1/ff/9c/c3f806e3aa99b7ae24500f75b720fabdb889a60169938440b5a23a1798cd.php:28
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:157
+#: /tmp/cache/556305507ee36/8e/b2/c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:28
 msgid "Roles"
 msgstr ""
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:18
-#: /tmp/cache/5509b520a8dd1/ff/9c/c3f806e3aa99b7ae24500f75b720fabdb889a60169938440b5a23a1798cd.php:32
+#: /tmp/cache/556305507ee36/8e/b2/c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:32
 msgid "Last login"
 msgstr ""
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:19
-#: /tmp/cache/5509b520a8dd1/ff/9c/c3f806e3aa99b7ae24500f75b720fabdb889a60169938440b5a23a1798cd.php:36
+#: /tmp/cache/556305507ee36/8e/b2/c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:36
 msgid "Logins"
 msgstr ""
 
@@ -495,11 +605,6 @@ msgstr ""
 
 #: ../module/Ui/templates/authorization/role/show.phtml:12
 msgid "Role"
-msgstr ""
-
-#: ../module/Ui/templates/authorization/role/show.phtml:20
-#: /tmp/cache/5509b520a8dd1/39/05/435f7a4a22efd3ceda220db4de8eea581e66d57c18deceb405957bb6a7da.php:19
-msgid "Users"
 msgstr ""
 
 #: ../module/Ui/templates/authorization/role/show.phtml:47
@@ -682,7 +787,7 @@ msgid "Read the following, if you're really good with computers:"
 msgstr ""
 
 #: ../module/Ui/templates/flag/add.phtml:1
-#: /tmp/cache/5509b51ee41d0/d0/c5/b3ab101ee2082e5ebd2150d61c68182f42aa6e725d0d0aaaca814502528c.php:29
+#: /tmp/cache/5563054dc6394/2c/c8/b2c76d8e3177d93ca396c554b8f862af4919d21ff3222e888d1f82fb7d85.php:29
 msgid "Flag content"
 msgstr ""
 
@@ -692,7 +797,7 @@ msgstr ""
 
 #: ../module/Ui/templates/flag/detail.phtml:8
 #: ../module/Ui/templates/flag/manage.phtml:6
-#: /tmp/cache/5509b51f8668f/61/cd/bd6e9efd9591c49970993b811f340ce5a6b20361b7f519f8c0b8c281f40d.php:26
+#: /tmp/cache/5563054ec20e0/7e/74/b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:26
 msgid "Object"
 msgstr ""
 
@@ -701,14 +806,14 @@ msgstr ""
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:22
 #: ../module/Ui/templates/subject/entity/unrevised.phtml:6
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:7
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:41
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:41
 msgid "Type"
 msgstr ""
 
 #: ../module/Ui/templates/flag/detail.phtml:26
 #: ../module/Ui/templates/flag/manage.phtml:8
 #: ../module/Ui/templates/subject/entity/unrevised.phtml:7
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:55
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:55
 msgid "Timestamp"
 msgstr ""
 
@@ -726,18 +831,23 @@ msgid "Manage flags"
 msgstr ""
 
 #: ../module/Ui/templates/flag/manage.phtml:5
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:40
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:40
 msgid "#"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:10
-#: /tmp/cache/5509b51ea7a77/4c/67/5cd104ed48a5058d56b3af21fa38b2810ea7913fe2fd2a999a1c997895aa.php:45
-#: /tmp/cache/5509b51ea7a77/07/dc/3aaa870a8e90cd113e287e731517c4e27f29e773b03623ecbb410f3eb118.php:45
+#: /tmp/cache/5563054d6efde/e9/c4/5c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:45
+#: /tmp/cache/5563054d6efde/f1/00/af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:45
 msgid "Close"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:11
 msgid "Okay"
+msgstr ""
+
+#: ../module/Ui/templates/layout/partials/header.phtml:21
+#: ../module/Ui/templates/layout/serlo-home.phtml:29
+msgid "Toggle navigation"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/noscript.phtml:7
@@ -752,13 +862,10 @@ msgstr ""
 msgid "Show me how to enable JavaScript"
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/search.phtml:2
-#: /tmp/cache/5509b52001c65/3d/6e/51dbe91cabb9da267dbdbc8f872f848f26129c0add8a1eacf092d34a7781.php:19
+#: ../module/Ui/templates/layout/partials/search.phtml:6
+#: /tmp/cache/5563054fd3b3c/81/d2/720b271ea83445e36bffb8ff3b998ab40972d70919700aaca28aca107370.php:23
+#: /tmp/cache/5563054fd3b3c/e9/ed/d14f30b9fa533f7c9edd50226e8328e5d1a4e5a2a8486c91c1a2d89b068b.php:24
 msgid "Search"
-msgstr ""
-
-#: ../module/Ui/templates/layout/partials/search.phtml:8
-msgid "Start typing, hit enter and receive matching results."
 msgstr ""
 
 #: ../module/Ui/templates/license/add.phtml:1
@@ -766,7 +873,7 @@ msgid "Add license"
 msgstr ""
 
 #: ../module/Ui/templates/license/detail.phtml:3
-#: /tmp/cache/5509b51ee41d0/f2/73/c5f167c184f3c676682abc0f8e1193cc16b85dff98a1a6c2d369caecb247.php:31
+#: /tmp/cache/5563054dc6394/ad/e9/7147a193ffe3ee565a646e330379f699371bc5329a9a922e987f8315a05f.php:31
 msgid "License"
 msgstr ""
 
@@ -778,11 +885,11 @@ msgstr ""
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:21
 #: ../module/Ui/templates/subject/entity/unrevised.phtml:5
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:6
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:36
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:48
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:57
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:68
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:32
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:36
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:48
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:57
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:68
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:32
 msgid "Title"
 msgstr ""
 
@@ -796,7 +903,7 @@ msgstr ""
 
 #: ../module/Ui/templates/license/manage.phtml:8
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:8
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:50
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:50
 msgid "Actions"
 msgstr ""
 
@@ -848,7 +955,7 @@ msgid "Create container"
 msgstr ""
 
 #: ../module/Ui/templates/navigation/containers.phtml:1
-#: /tmp/cache/5509b51f8668f/39/17/f59c58e1c5f6d8d272ce82e3feb6137ac17fd05b5da2033d2cb8954a37ab.php:19
+#: /tmp/cache/5563054ec20e0/43/a1/8e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:19
 msgid "Manage navigation"
 msgstr ""
 
@@ -892,34 +999,30 @@ msgid "Unrevised learning resources"
 msgstr ""
 
 #: ../module/Ui/templates/taxonomy/term/order-associated.phtml:1
-#: /tmp/cache/5509b52070ace/d4/04/29215dd7105548ba9d0d1dcffccc6b7d6258e65ee263f0318e03f0fe1c78.php:111
+#: /tmp/cache/5563055038407/ec/b1/2413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:111
 msgid "Order content"
 msgstr ""
 
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:14
-#: /tmp/cache/5509b51e6661e/98/12/c84b669aef6e78b4123360c717774fe64a0189b2c8485c90e9037752f917.php:19
-#: /tmp/cache/5509b51e6661e/98/12/c84b669aef6e78b4123360c717774fe64a0189b2c8485c90e9037752f917.php:30
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:164
-#: /tmp/cache/5509b5203ec43/7d/13/3217c44523e7e20a5c76929fedfe9052692f8fd8cd4e413fb040da6bbd3b.php:118
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:17
+#: /tmp/cache/5563054d06a76/c4/3a/d14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:19
+#: /tmp/cache/5563054d06a76/c4/3a/d14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:33
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:164
+#: /tmp/cache/5563054fd3b3c/ca/1c/9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:118
 msgid "Sort"
 msgstr ""
 
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:15
-#: /tmp/cache/5509b5203ec43/7d/13/3217c44523e7e20a5c76929fedfe9052692f8fd8cd4e413fb040da6bbd3b.php:124
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:18
+#: /tmp/cache/5563054fd3b3c/ca/1c/9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:124
 msgid "Save new order"
 msgstr ""
 
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:16
-#: /tmp/cache/5509b5203ec43/7d/13/3217c44523e7e20a5c76929fedfe9052692f8fd8cd4e413fb040da6bbd3b.php:130
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:19
+#: /tmp/cache/5563054fd3b3c/ca/1c/9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:130
 msgid "Cancel"
 msgstr ""
 
 #: ../module/Ui/templates/upload/form.phtml:2
 msgid "Upload a file"
-msgstr ""
-
-#: ../module/Ui/templates/user/user/register.phtml:2
-msgid "Sign up"
 msgstr ""
 
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:1
@@ -930,314 +1033,312 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/08/86/5ba2b7a2b3ce1402d7938a6be730b7447a6b0d35c877a2102c68f9f1f7f0.php:19
+#: /tmp/cache/5563054c94545/ab/d4/86401ab00580fe0dd91aaaf72ef6a02ed427bb8a4411838e6eb2ca35b66f.php:24
+msgid "Activate an account"
+msgstr ""
+
+#: /tmp/cache/5563054c94545/38/43/1cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:19
 msgid "Ads"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/23/d2/de1f13492306f628e4f95d83d5f76f1b6215df68daa597780d4b7a317d8e.php:90
+#: /tmp/cache/5563054c94545/7a/ff/e9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:93
 #, php-format
 msgid "Are you new here? %sSign up%s!"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/ce/04/005ac5d06c77535060855861217e5b4c1c1d5f15041049a5591a9ba18dfb.php:49
-msgid "Blog"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/c9/7f/3ea30775e07a6755f789adf17e58fb83f121ada84a3fa678efd025a0daca.php:67
-msgid "Choose"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/08/86/5ba2b7a2b3ce1402d7938a6be730b7447a6b0d35c877a2102c68f9f1f7f0.php:147
+#: /tmp/cache/5563054c94545/38/43/1cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:147
 msgid "Clicks"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/08/40/eeb17b883e4ab5f33bd0a2fcf909d10887d13e2c9b74337e2a460b6b17b5.php:19
-msgid "Comment on a discussion"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/08/86/5ba2b7a2b3ce1402d7938a6be730b7447a6b0d35c877a2102c68f9f1f7f0.php:32
-#: /tmp/cache/5509b51e222fb/33/f6/2647deecd5a50d1e09c137664dcb421a93c0cf44dac1c48148251243c68e.php:19
+#: /tmp/cache/5563054c94545/38/43/1cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:32
+#: /tmp/cache/5563054c94545/e7/9c/c1c7593f13bb4dacce6b2fb741d2dd940f8b0b4f0c532e1109a5c3bcf044.php:19
 msgid "Create ad"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/3d/0c/03cbe9079d21ce893f2d1bf74c75a4bd51d6c420b99cdf244af4ea242991.php:19
+#: /tmp/cache/5563054c94545/fd/fd/000e37bab831d7314ee56f6b66ba914d3e063c290779011d510e3c387293.php:19
 msgid "Debugger"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/23/d2/de1f13492306f628e4f95d83d5f76f1b6215df68daa597780d4b7a317d8e.php:96
+#: /tmp/cache/5563054c94545/7a/ff/e9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:99
 #, php-format
 msgid "Did you forget your %spassword%s?"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:44
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:44
 msgid "Directly including in a content on this site"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/08/86/5ba2b7a2b3ce1402d7938a6be730b7447a6b0d35c877a2102c68f9f1f7f0.php:42
+#: /tmp/cache/5563054c94545/38/43/1cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:42
 msgid "Edit About Horizon"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/08/86/5ba2b7a2b3ce1402d7938a6be730b7447a6b0d35c877a2102c68f9f1f7f0.php:120
+#: /tmp/cache/5563054c94545/38/43/1cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:120
 msgid "Frequency"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/23/d2/de1f13492306f628e4f95d83d5f76f1b6215df68daa597780d4b7a317d8e.php:102
+#: /tmp/cache/5563054c94545/7a/ff/e9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:105
 #, php-format
 msgid "Haven't activated your account yet? %sResend activation mail%s!"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/23/d2/de1f13492306f628e4f95d83d5f76f1b6215df68daa597780d4b7a317d8e.php:48
+#: /tmp/cache/5563054c94545/7a/ff/e9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:51
 msgid "Log in"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/32/43/ed4162707d922dde6906c9d95d5709913336b8e7ec224fd2ea3163a1c581.php:22
+#: /tmp/cache/5563054c94545/93/2d/4afae805fb2101be851e5dcd9f8d20091afc3c13ae7e99cadbbd6ed67403.php:22
 msgid "Log out"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:32
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:32
 msgid "On this site:"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/46/14/e5875e608bd6e4efa041e9e67569d8ddbe048214f1bb7a4400e8f6963691.php:19
+#: /tmp/cache/5563054c94545/c5/0f/b8d793967f5658be1e1bd16f2e2a89f3619343c10db0bd923fc7afb5a2b6.php:19
 msgid "Please enter the id of the adPage"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/c9/7f/3ea30775e07a6755f789adf17e58fb83f121ada84a3fa678efd025a0daca.php:30
+#: /tmp/cache/5563054c94545/5f/f4/4a55f1429150f60a8459638e7a9eaf0487b999e7f801d5c31138ecca018d.php:24
+#: /tmp/cache/5563054c94545/f9/34/cff9f781e88ff8b61aeb618ff0834983639af7e4a6c53566af67e4bcf32e.php:24
+msgid "Restore password"
+msgstr ""
+
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:91
+msgid "Share"
+msgstr ""
+
+#: /tmp/cache/5563054c94545/1b/10/3a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:87
+msgid "Share this content"
+msgstr ""
+
+#: /tmp/cache/5563054c94545/e4/28/fe932b0ede9558de7f82ba1d68c82a93b298b3f93ece99607ac6a7a2bfab.php:19
+msgid "Unpublished"
+msgstr ""
+
+#: /tmp/cache/5563054c94545/63/30/fdb7b3cac448cace9e6f1a53a8c97895ab0f9af451c572c1c5c37fad6ad1.php:19
+msgid "Update ad"
+msgstr ""
+
+#: /tmp/cache/5563054c94545/7a/ff/e9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:28
+msgid "You must be logged in to access this page."
+msgstr ""
+
+#: /tmp/cache/5563054c94545/4d/3b/d2214ec96fbfd68c853f4bac63ccb113723150ef7aed1644b6c5fb1b1172.php:68
+msgid "unpublished"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/69/e6/28f6e2e202803c76bc574f4dd3d198f0e301e420610ef3de7c1ac68a3c4d.php:78
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:239
+msgid "%author% %time%"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/c4/3a/d14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:45
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:177
+msgid "Abort"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/fb/17/3fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:273
+msgid "Answer discussion:"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:130
+msgid "Archive discussion"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/21/47/76dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:67
+msgid "Choose"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/cd/e2/77ee1ffea7f701f64ad81dea0815f6f8fe319175181f8353cddacc0cd4b6.php:19
+msgid "Comment on a discussion"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/0c/42/63250563aff6958d6f951c018de8e8cb740ffbb5a66903ea17b0c007328f.php:28
+#: /tmp/cache/5563054d06a76/0c/42/63250563aff6958d6f951c018de8e8cb740ffbb5a66903ea17b0c007328f.php:41
+msgid "Discuss"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/67/19/bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:26
+#: /tmp/cache/5563054d06a76/f0/75/8bcd46b5d3207d9f01bb78e3e0bdb581d4b0c9ab6814a70e570a261a15e0.php:19
+#: /tmp/cache/5563054d06a76/f0/22/a9195793149bf12bc3d9f3063fe19deca654fc9cd7c8de2fb5968c305101.php:29
+msgid "Discussions"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/fb/17/3fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:249
+#: /tmp/cache/5563054d06a76/69/e6/28f6e2e202803c76bc574f4dd3d198f0e301e420610ef3de7c1ac68a3c4d.php:53
+msgid "Do you really want to delete this comment?"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/fb/17/3fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:183
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:169
+msgid "Do you really want to delete this discussion?"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:151
+msgid "Flag discussion"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/7b/16/ec985c9e45a988d5128be101c93ee54303a5fcc10ba118de318620fa19e5.php:36
+msgid ""
+"Is there anything you want to know?\n"
+"                        Or do you have an idea how this page could be "
+"improved?\n"
+"                        <br/>\n"
+"                        Start a discussion and share your ideas and "
+"suggestions with the community"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/fb/17/3fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:55
+msgid "On"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:232
+msgid "On %type% %object%: %title%"
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/21/47/76dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:30
 msgid ""
 "Please select an appropriate category for your discussion. Choosing the "
 "right category helps others to find your discussion faster and to answer you "
 "quicker. Thank you!"
 msgstr ""
 
-#: /tmp/cache/5509b51e222fb/c9/7f/3ea30775e07a6755f789adf17e58fb83f121ada84a3fa678efd025a0daca.php:63
-msgid "Saving..."
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:91
-msgid "Share"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/cb/eb/80df355d554508ce661f9da0d9c49d89e9c8c8a2a2d4fdae4ba8445542d7.php:87
-msgid "Share this content"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/fd/6c/55df2d7d6f5aab89a28bc3c705a63183b2429a67f7ded8d70e60935419d7.php:19
-msgid "Unpublished"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/f9/01/1da7686610b079672ec0de54e947b2796b0da4f4589a18ee2008f867aeee.php:19
-msgid "Update ad"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/c5/60/f033f218487351d4172048326ceed02af0553257854329af74aaf9ed62c6.php:19
-msgid "Update password"
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/23/d2/de1f13492306f628e4f95d83d5f76f1b6215df68daa597780d4b7a317d8e.php:25
-msgid "You must be logged in to access this page."
-msgstr ""
-
-#: /tmp/cache/5509b51e222fb/19/eb/faf5f983bba13156d46b55abc52a3c7cb6fc8d9e06c1ab75bc76422e2473.php:68
-msgid "unpublished"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/85/cc/517192a68591a4070485033cc2fecf52c8a3a7daea59e0c54b949b4f789d.php:78
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:239
-msgid "%author% %time%"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/98/12/c84b669aef6e78b4123360c717774fe64a0189b2c8485c90e9037752f917.php:42
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:177
-msgid "Abort"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/83/2e/fb3029cc8913bc2b60ffc8cc9a4f843da95a2cba4242d54822c478c6e126.php:273
-msgid "Answer discussion:"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:130
-msgid "Archive discussion"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/d9/8b/2d925b5d083c7f8253b095187f24f29f88d8156cff8f353844736bb82546.php:35
-#: /tmp/cache/5509b51e6661e/d9/8b/2d925b5d083c7f8253b095187f24f29f88d8156cff8f353844736bb82546.php:48
-#: /tmp/cache/5509b51e6661e/3a/d6/e0e9f5bfb0310084dd21954b8aa40932866fe39da2229c6691d0dc0d3ca2.php:35
-#: /tmp/cache/5509b51e6661e/3a/d6/e0e9f5bfb0310084dd21954b8aa40932866fe39da2229c6691d0dc0d3ca2.php:48
-msgid "Discuss"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/42/54/e942d85abc4ce081c3091762a712dbd5501c55327aede43e2f685c14d905.php:26
-#: /tmp/cache/5509b51e6661e/c8/15/048baf3d300da4645a446657a30d25cc4e77507870d00ec2dd3b390153f0.php:22
-#: /tmp/cache/5509b51e6661e/c8/15/048baf3d300da4645a446657a30d25cc4e77507870d00ec2dd3b390153f0.php:28
-#: /tmp/cache/5509b51e6661e/d9/8b/2d925b5d083c7f8253b095187f24f29f88d8156cff8f353844736bb82546.php:55
-msgid "Discussions"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/83/2e/fb3029cc8913bc2b60ffc8cc9a4f843da95a2cba4242d54822c478c6e126.php:249
-#: /tmp/cache/5509b51e6661e/85/cc/517192a68591a4070485033cc2fecf52c8a3a7daea59e0c54b949b4f789d.php:53
-msgid "Do you really want to delete this comment?"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/83/2e/fb3029cc8913bc2b60ffc8cc9a4f843da95a2cba4242d54822c478c6e126.php:183
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:169
-msgid "Do you really want to delete this discussion?"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:151
-msgid "Flag discussion"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/74/29/b19f39808e01eea8a64ae10d6ae6f961cf0f498a1702dec0640ca0874b59.php:23
-msgid "Module page"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/5d/4a/516ee2b4119d4c0fd9502780d66d7522e1e05531654d8eff2ef788010566.php:35
-#: /tmp/cache/5509b51ea7a77/27/49/1ded4b9851a72af595ad4c649ec62a9b0ca540bc95aeb2ca38e0983871d3.php:35
-msgid "Now view found for %name%"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/83/2e/fb3029cc8913bc2b60ffc8cc9a4f843da95a2cba4242d54822c478c6e126.php:55
-msgid "On"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:232
-msgid "On %type% %object%: %title%"
-msgstr ""
-
-#: /tmp/cache/5509b51e6661e/76/c6/a58d713e63c94e06c995773b9a1899ae23f76806f7e439a75e76cbedc0bf.php:24
+#: /tmp/cache/5563054d06a76/1c/f6/59322218286f3cd686172af08db8cb6df65c078da6083483f5c172e86511.php:24
 msgid "Related taxonomies"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:298
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:312
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:298
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:312
 msgid "Reply"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/98/12/c84b669aef6e78b4123360c717774fe64a0189b2c8485c90e9037752f917.php:36
-#: /tmp/cache/5509b51ea7a77/fb/1e/08bf4fcbaf1f109b7810154ace1e59bbe7aa9d8e47378394df4133ccfbf1.php:102
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:171
+#: /tmp/cache/5563054d06a76/c4/3a/d14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:39
+#: /tmp/cache/5563054dc6394/e9/95/6846e228fdcfc0deb1b5d8a89cc1a8eb34e5d5c37a0bfe112acace903431.php:102
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:171
 msgid "Save"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/fa/26/f8ade2a68a9ea1f787feb77354493c267e99a973be7f5ff69750fe38577a.php:19
-#: /tmp/cache/5509b51e6661e/42/54/e942d85abc4ce081c3091762a712dbd5501c55327aede43e2f685c14d905.php:47
+#: /tmp/cache/5563054d06a76/21/47/76dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:63
+msgid "Saving..."
+msgstr ""
+
+#: /tmp/cache/5563054d06a76/53/1b/6752ea2f6a38d41c9839410361db347c804716eb987adb6d56f50d53096b.php:19
+#: /tmp/cache/5563054d06a76/67/19/bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:47
 msgid "Start a new discussion"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/d9/8b/2d925b5d083c7f8253b095187f24f29f88d8156cff8f353844736bb82546.php:115
-#: /tmp/cache/5509b51e6661e/3a/d6/e0e9f5bfb0310084dd21954b8aa40932866fe39da2229c6691d0dc0d3ca2.php:112
-msgid "There are no discussions here yet."
+#: /tmp/cache/5563054d06a76/7b/16/ec985c9e45a988d5128be101c93ee54303a5fcc10ba118de318620fa19e5.php:24
+msgid "There are no discussions on this topic yet"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/42/54/e942d85abc4ce081c3091762a712dbd5501c55327aede43e2f685c14d905.php:82
+#: /tmp/cache/5563054d06a76/67/19/bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:82
 msgid "There are no discussions on this topic yet."
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:174
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:174
 msgid "Trash discussion"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/fa/c4/4c2ef7d8a195c0e1dd97eb8d51aedfd88fc8cf13b3e6c236d986a6067d48.php:124
+#: /tmp/cache/5563054d06a76/2e/10/e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:124
 msgid "Unarchive discussion"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/83/2e/fb3029cc8913bc2b60ffc8cc9a4f843da95a2cba4242d54822c478c6e126.php:46
+#: /tmp/cache/5563054d06a76/fb/17/3fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:46
 msgid "archived"
 msgstr ""
 
-#: /tmp/cache/5509b51e6661e/83/2e/fb3029cc8913bc2b60ffc8cc9a4f843da95a2cba4242d54822c478c6e126.php:65
-#: /tmp/cache/5509b51e6661e/83/2e/fb3029cc8913bc2b60ffc8cc9a4f843da95a2cba4242d54822c478c6e126.php:209
-#: /tmp/cache/5509b51ea7a77/24/18/18288177601868361cecbc8db059ca46d323332cecbb45d90751f0eaa4af.php:26
+#: /tmp/cache/5563054d06a76/fb/17/3fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:65
+#: /tmp/cache/5563054d06a76/fb/17/3fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:209
+#: /tmp/cache/5563054d6efde/04/6c/7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:26
 msgid "by"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/4c/67/5cd104ed48a5058d56b3af21fa38b2810ea7913fe2fd2a999a1c997895aa.php:49
+#: /tmp/cache/5563054d6efde/e9/c4/5c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:49
 msgid "Accept"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/4c/67/5cd104ed48a5058d56b3af21fa38b2810ea7913fe2fd2a999a1c997895aa.php:26
+#: /tmp/cache/5563054d6efde/e9/c4/5c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:26
 msgid "Accept revision"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/fb/1e/08bf4fcbaf1f109b7810154ace1e59bbe7aa9d8e47378394df4133ccfbf1.php:22
-msgid "Assign resource"
-msgstr ""
-
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:51
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:51
 msgid "Author"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:47
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:47
 msgid "Changes"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:44
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:44
 msgid "Current"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:59
+#: /tmp/cache/5563054d6efde/be/47/1659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:61
 msgid "Dead node"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/c9/9d/7b41b551fcfba5dc160a6da5453b4343c3fced46a227bb8a234dc0c3e031.php:19
+#: /tmp/cache/5563054d6efde/08/93/9d45abb3041cdda215c0d43dec40f3e7a96f605697798c3dcdb5fc98f6ca.php:19
 msgid "Grouped text exercise"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:19
-#: /tmp/cache/5509b51f20cac/ad/98/efe847fb692f9e15346ba0b342ea7eb838f9165051660812ec6e40be9510.php:31
-#: /tmp/cache/5509b52001c65/9c/08/658d2d315208ebcfa6ff4edc4dba374cda0a79dbbbaf31bbcfb86436c20d.php:57
-#: /tmp/cache/5509b52001c65/50/d3/5dbdab5338bedd3ce50a5dc59b545c6725c387d04535277d99fe10c6b242.php:57
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:19
+#: /tmp/cache/5563054e21878/fd/e2/e8dd2a2b6bf97ed1925d7754b6d4f55e8b10b0581970c1ccdb7d39fa1673.php:31
+#: /tmp/cache/5563054f7d968/18/8c/07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:57
+#: /tmp/cache/5563054f7d968/98/38/a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:51
 msgid "History"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:42
-#: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:51
+#: /tmp/cache/5563054d6efde/6a/9c/25b899a702b37587a346f15f81b2a465a6dc1fdb77e3fd7de271694302af.php:23
+msgid "Module page"
+msgstr ""
+
+#: /tmp/cache/5563054d6efde/5a/8e/813d1f7b9eca1cf9960a5eb2760f1868667631041bfc75af389d85557e71.php:35
+#: /tmp/cache/5563054dc6394/d2/62/6cef57bb891877e33781386037a6e614cabfae53bb39152a5fd2989c4983.php:35
+msgid "Now view found for %name%"
+msgstr ""
+
+#: /tmp/cache/5563054d6efde/be/47/1659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:44
+#: /tmp/cache/5563054d6efde/be/47/1659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:53
 msgid "Pending approval"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/4c/67/5cd104ed48a5058d56b3af21fa38b2810ea7913fe2fd2a999a1c997895aa.php:37
+#: /tmp/cache/5563054d6efde/e9/c4/5c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:37
 msgid "Please give feedback."
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/07/dc/3aaa870a8e90cd113e287e731517c4e27f29e773b03623ecbb410f3eb118.php:37
+#: /tmp/cache/5563054d6efde/f1/00/af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:37
 msgid "Please specify why you are rejecting the submission."
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/24/18/18288177601868361cecbc8db059ca46d323332cecbb45d90751f0eaa4af.php:61
+#: /tmp/cache/5563054d6efde/04/6c/7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:61
 msgid "Preview"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/07/dc/3aaa870a8e90cd113e287e731517c4e27f29e773b03623ecbb410f3eb118.php:49
+#: /tmp/cache/5563054d6efde/f1/00/af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:49
 msgid "Reject"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/07/dc/3aaa870a8e90cd113e287e731517c4e27f29e773b03623ecbb410f3eb118.php:26
+#: /tmp/cache/5563054d6efde/f1/00/af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:26
 msgid "Reject revision"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/24/18/18288177601868361cecbc8db059ca46d323332cecbb45d90751f0eaa4af.php:55
+#: /tmp/cache/5563054d6efde/04/6c/7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:55
 msgid "Source"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/c8/21/a41fa65ddecae80787066986d420a134acc21775559d36bd1f91d3188c95.php:43
-#: /tmp/cache/5509b51ea7a77/c8/21/a41fa65ddecae80787066986d420a134acc21775559d36bd1f91d3188c95.php:109
-msgid "Table of contents"
-msgstr ""
-
-#: /tmp/cache/5509b51ea7a77/e3/ca/d2936aa165593ac124d3526d36cb36ad3d426cc234af490e2567f77c6c4c.php:21
-#: /tmp/cache/5509b51ea7a77/e3/ca/d2936aa165593ac124d3526d36cb36ad3d426cc234af490e2567f77c6c4c.php:35
+#: /tmp/cache/5563054d6efde/99/eb/37c1373ce8c6936db1692203d034c9c4d393fb681f5e957a295924520bf9.php:21
+#: /tmp/cache/5563054d6efde/99/eb/37c1373ce8c6936db1692203d034c9c4d393fb681f5e957a295924520bf9.php:40
 msgid "Text exercise"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/2e/0d/bc7288743d27d66bc16b661b5b299d575f19baeb6bae8cc3f4c224ba0d1a.php:33
+#: /tmp/cache/5563054d6efde/5f/06/8c8dcc02918d183c78b7d8d13203a5cc35222fefbc08b3243f086a32d600.php:39
 msgid "Text exercise group"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/36/65/9eeba5e4998cb956e7894d8e3d9d0432ce0e1494f137d83ec57a54c8f291.php:33
+#: /tmp/cache/5563054d6efde/12/84/e707a5bfc5c8b69e8e0e7d5a79f3f2154a21929155bbad627141b60a7470.php:21
 msgid "Text solution"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:28
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:28
 msgid ""
 "There are multiple recent revisions for this object. Please be aware that "
 "they may be of very\n"
@@ -1245,610 +1346,652 @@ msgid ""
 "merging."
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:95
+#: /tmp/cache/5563054d6efde/be/47/1659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:97
 msgid ""
 "This content is a dead node and has no content. Please edit or remove it."
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/ea/c2/51f689f1405df9e3cebfe89d6892428aa6f6e491186714be0dab7673588d.php:33
-#: /tmp/cache/5509b5203ec43/36/16/0fef62a4db18077499a0ceb2de797dc9d7f4ac9f241bb8698dd500460b03.php:33
+#: /tmp/cache/5563054d6efde/6c/97/22fe54d3c208239138648c0e6c78693e884d4ea408d4363754310d2df0b5.php:33
+#: /tmp/cache/5563055038407/b1/47/97a83817a5c3800f6f249e540fec9b956b374ae19c84c99a21c91400c8d9.php:33
 msgid "This content is marked for deletion."
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:89
+#: /tmp/cache/5563054d6efde/be/47/1659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:91
 msgid "This content is pending approval and may therefore not be viewed yet."
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/ea/c2/51f689f1405df9e3cebfe89d6892428aa6f6e491186714be0dab7673588d.php:26
-#: /tmp/cache/5509b51ea7a77/2e/8f/589648c1deb4d9e650cb70ead96226014ba204e87a0db93d46a1d632b270.php:79
-#: /tmp/cache/5509b5203ec43/36/16/0fef62a4db18077499a0ceb2de797dc9d7f4ac9f241bb8698dd500460b03.php:26
+#: /tmp/cache/5563054d6efde/6c/97/22fe54d3c208239138648c0e6c78693e884d4ea408d4363754310d2df0b5.php:26
+#: /tmp/cache/5563054d6efde/be/47/1659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:81
+#: /tmp/cache/5563055038407/b1/47/97a83817a5c3800f6f249e540fec9b956b374ae19c84c99a21c91400c8d9.php:26
 msgid "Warning"
 msgstr ""
 
-#: /tmp/cache/5509b51ea7a77/96/31/48acea5fec050e55bc53d1e43911981236f4c7de521867c75ccc9d7f1ad6.php:19
-msgid "article"
-msgstr ""
-
-#: /tmp/cache/5509b51ea7a77/c8/21/a41fa65ddecae80787066986d420a134acc21775559d36bd1f91d3188c95.php:19
-msgid "course"
-msgstr ""
-
-#: /tmp/cache/5509b51ea7a77/c8/21/a41fa65ddecae80787066986d420a134acc21775559d36bd1f91d3188c95.php:21
-msgid "course-page"
-msgstr ""
-
-#: /tmp/cache/5509b51ea7a77/42/d1/1d489800feebdc219299fc89b1134c40e0c71f34a5077a2281678ba4f75f.php:81
+#: /tmp/cache/5563054d6efde/c2/0c/75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:81
 msgid "show"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/31/0f/6246ca74fe99b941c63b1e692ad3e96efbbb416ef1b1946b6b7116f40d26.php:48
+#: /tmp/cache/5563054dc6394/de/4e/5bda15080de80594ea1dce5ff700b2e95ccdfa7c6acf6cc5c2cb7c5e9bff.php:48
 msgid "Add %type%"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/99/c5/582c15e9c323c1e92aca208cb13cd237486ca2b5f70daa31b30bfb71a325.php:31
+#: /tmp/cache/5563054dc6394/e9/95/6846e228fdcfc0deb1b5d8a89cc1a8eb34e5d5c37a0bfe112acace903431.php:22
+msgid "Assign resource"
+msgstr ""
+
+#: /tmp/cache/5563054dc6394/10/7d/7d37da6c949661a5edc46abcd2510522487da01c6b01ad5f3876734b0e69.php:31
 msgid "Change license"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/a3/ac/a2409650d5c6448e0732530f3aa0c997a7ac32c2d18b06b68de82141c9b6.php:42
+#: /tmp/cache/5563054dc6394/df/f7/9e6571606c659c85e57f4f6e52ea72e7f9d7b565a70a632c48567d739420.php:42
 msgid "Change parent %name%"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/18/2f/e6760da16105895f4c99a4a8426b236b2ed8baac394086762db98447f987.php:42
-#: /tmp/cache/5509b51f20cac/88/34/6c76a83096febe8cda099eca4838b0e446fde620b9a0473cc5378accbf0a.php:47
-msgid "I need a hint"
-msgstr ""
-
-#: /tmp/cache/5509b51ee41d0/8e/f9/a1967939e22f20b0d6de451e48b29b4dfbad547593343e2f3e3fdbf316d3.php:26
-msgid "I want to edit this"
-msgstr ""
-
-#: /tmp/cache/5509b51ee41d0/18/2f/e6760da16105895f4c99a4a8426b236b2ed8baac394086762db98447f987.php:60
-#: /tmp/cache/5509b51f20cac/88/34/6c76a83096febe8cda099eca4838b0e446fde620b9a0473cc5378accbf0a.php:65
-msgid "I want to see the solution"
-msgstr ""
-
-#: /tmp/cache/5509b51ee41d0/8f/86/109020ed67a9a91383d82df3031b37648e1442ec9579bce6cd61054e7dec.php:29
-#: /tmp/cache/5509b52001c65/9c/08/658d2d315208ebcfa6ff4edc4dba374cda0a79dbbbaf31bbcfb86436c20d.php:72
-#: /tmp/cache/5509b52001c65/50/d3/5dbdab5338bedd3ce50a5dc59b545c6725c387d04535277d99fe10c6b242.php:72
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:93
-#: /tmp/cache/5509b52070ace/d4/04/29215dd7105548ba9d0d1dcffccc6b7d6258e65ee263f0318e03f0fe1c78.php:57
+#: /tmp/cache/5563054dc6394/4c/ab/e034cd4558dd24578f819621b79bee9b637b48d671aaf92d71972cca0d44.php:29
+#: /tmp/cache/5563054f7d968/18/8c/07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:72
+#: /tmp/cache/5563054f7d968/98/38/a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:66
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:93
+#: /tmp/cache/5563055038407/ec/b1/2413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:57
 msgid "Log"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/57/7f/aef49711a13c42e4ed38488d041704f80a711f811e49c38a48ee835f3963.php:31
+#: /tmp/cache/5563054dc6394/d8/de/3b1aa3698c8d90bb7c882020e18c9c61b6d699c8cb9a2d5195cb981c6326.php:31
 msgid "Manage related items"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/db/76/6ace8b596c4ef29910414b665411b6da674a3e9bce3b5fa623eda22b4cd4.php:41
-#: /tmp/cache/5509b52001c65/9c/08/658d2d315208ebcfa6ff4edc4dba374cda0a79dbbbaf31bbcfb86436c20d.php:45
+#: /tmp/cache/5563054dc6394/c5/84/8713cea63cddb503647ac45efa687746c4784611b324922e38d61e7fb980.php:41
+#: /tmp/cache/5563054f7d968/18/8c/07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:45
 msgid "More"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/0e/56/0809277edcbc2052bc3a23b39e36de54bc6a124825b8e9febce919bfa390.php:29
-msgid "Move to trash"
-msgstr ""
-
-#: /tmp/cache/5509b51ee41d0/07/d7/03971494f2f906a9e9441239da0057bf72230204d87abf5350b410945e73.php:34
+#: /tmp/cache/5563054dc6394/b8/46/341ff3bbb243206f61673c435df8f0e185cc4cdf3818dc36a44778a2c66e.php:34
 msgid "Order children"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/47/2a/55d5ffcbd4fb4bfde3284b648b943cd9660cb2730d56ada926a6538ae9ff.php:30
-#: /tmp/cache/5509b52001c65/50/d3/5dbdab5338bedd3ce50a5dc59b545c6725c387d04535277d99fe10c6b242.php:25
-#: /tmp/cache/5509b52070ace/7d/27/ac27aab635c0bf790f9245b225b53149818bc13ef143b3bf2c9a336aea6e.php:37
+#: /tmp/cache/5563054dc6394/1d/62/e49734655fbc89e217be812257ac5cf191b66c22487722829772bbc550ce.php:43
+#: /tmp/cache/5563054dc6394/1d/62/e49734655fbc89e217be812257ac5cf191b66c22487722829772bbc550ce.php:109
+msgid "Table of contents"
+msgstr ""
+
+#: /tmp/cache/5563054dc6394/cd/87/1f53505f267e7cddd4f9b4d2da9f65380b88b5ae6bbb431e919b53f69d33.php:28
+#: /tmp/cache/5563054f7d968/98/38/a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:36
+#: /tmp/cache/5563055038407/bc/15/3aa920ad5de384fcffc53a92e74d36aaa3e7ab6b5644f8335e5339775ffa.php:36
 msgid "Toggle Dropdown"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/8a/7a/92d816fa6a6fbd056b5d1a253e00b037105dacf43c3c8be982d649e15905.php:36
-msgid "Update taxonomy"
+#: /tmp/cache/5563054dc6394/61/72/16a7ab3ffdb22eda1fdc1e74a93a5805029a14356d900bf2cec50b308f63.php:19
+msgid "article"
 msgstr ""
 
-#: /tmp/cache/5509b51ee41d0/18/2f/e6760da16105895f4c99a4a8426b236b2ed8baac394086762db98447f987.php:19
+#: /tmp/cache/5563054dc6394/1d/62/e49734655fbc89e217be812257ac5cf191b66c22487722829772bbc550ce.php:19
+msgid "course"
+msgstr ""
+
+#: /tmp/cache/5563054dc6394/1d/62/e49734655fbc89e217be812257ac5cf191b66c22487722829772bbc550ce.php:21
+msgid "course-page"
+msgstr ""
+
+#: /tmp/cache/5563054dc6394/0c/4d/8f114a0091db60921ec5062323b9076007281d45022b83818ad35b90da32.php:19
 msgid "grouped-text-exercise"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/2c/65/a15d7b775b0157c5a963a5b34996a40ddfdffa68b4d03c15bf929e414bac.php:23
-#: /tmp/cache/5509b51fbe4d8/60/80/b400389a8f0002f74143db4a6fd1b5c493700babba039de26f62b15f74a7.php:28
-msgid "%user% archived %discussion%"
-msgstr ""
-
-#: /tmp/cache/5509b51f20cac/21/77/12c7b49604a8a10fd8a8841c82d4da64cb843c4b2aa8d4a5ebeccdaf43b4.php:25
-msgid "%user% commented %discussion%: %content%"
-msgstr ""
-
-#: /tmp/cache/5509b51f20cac/a8/d6/b2362817c3fe1529b85041101cd1a904798f47c0c0faff875a0977812008.php:25
-msgid "%user% created a new %type%: %object%"
-msgstr ""
-
-#: /tmp/cache/5509b51f20cac/5e/ae/a8780e2be1b25012256fe62123c67febc0c0d2ba82e552cbae7cc1174620.php:25
-msgid "%user% linked %object% with %parent%"
-msgstr ""
-
-#: /tmp/cache/5509b51f20cac/ba/31/4bafa270172bfb6bbd37e7f6f9673d041fb33e0c32249c16ff927859473d.php:25
-msgid "%user% started a new discussion %discussion% on %on%"
-msgstr ""
-
-#: /tmp/cache/5509b51f20cac/62/47/b8f0ac6e180c73ecc33de11d120e729bb9fe44840aae8c6603b8c7eb376a.php:59
+#: /tmp/cache/5563054e21878/bd/9e/2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:59
 msgid ""
 "A hint has been created but no content has been added yet or it is pending "
 "approval."
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/5f/48/abda882a9fd76f2b6e889104fb2ef076d0edb1a6371dc71f9d41f2071ad9.php:55
+#: /tmp/cache/5563054e21878/15/32/80e2f0429aa36f783925eb30e78858ed93c853ee63a8b2381e4c081119c6.php:55
 msgid ""
 "A solution has been created but no content has been added yet or it is "
 "pending approval."
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/62/47/b8f0ac6e180c73ecc33de11d120e729bb9fe44840aae8c6603b8c7eb376a.php:41
+#: /tmp/cache/5563054e21878/58/57/4abb79e8fcd1b063277568a5aff3011f603f7ee97f16243eb40df168a9c0.php:28
+#: /tmp/cache/5563054f7d968/04/3b/9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:62
+#: /tmp/cache/5563054f7d968/18/8c/07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:31
+msgid "Edit"
+msgstr ""
+
+#: /tmp/cache/5563054e21878/bd/9e/2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:41
 msgid "Hint"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/54/a6/d34878fa33a51f9be4add7c298d3ed83335ce55f7dddadd8b903671d568c.php:34
+#: /tmp/cache/5563054e21878/36/dc/4635c6ea4d110e7501dc392d0634ed34fc9328775625d3f77e48a8f4e23b.php:34
 msgid "I want to comment this"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/99/4e/92502428e24c53c07532e1eb1d6b05e2647d014e9a9197a6530fca9cdd0e.php:36
+#: /tmp/cache/5563054e21878/75/91/a701616155b47294d034fa2e7ddb383d334555206c22198d28c195b53e8b.php:36
 msgid "Info"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/ab/d5/e590bdf77bfa7c979c183e9f57534b10429c42b7ac90f823946fc2f69395.php:32
+#: /tmp/cache/5563054e21878/71/d4/5061fcbd9df384179af174011558c4b7f3f1626ad4eac9d11d81395cfb2b.php:29
+msgid "Move to trash"
+msgstr ""
+
+#: /tmp/cache/5563054e21878/7d/4d/767b7e88be51c098444a93846a6a7de146ac11439d5c2378f15b8884be20.php:32
 #, php-format
 msgid "No template found for event %s"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/88/34/6c76a83096febe8cda099eca4838b0e446fde620b9a0473cc5378accbf0a.php:19
+#: /tmp/cache/5563054e21878/20/95/f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:44
+msgid "Show hint"
+msgstr ""
+
+#: /tmp/cache/5563054e21878/20/95/f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:58
+msgid "Show solution"
+msgstr ""
+
+#: /tmp/cache/5563054e21878/b5/14/2daec5e7f6b2266129ba351fee636766e19a8f3cca8895cc07a51636fefd.php:36
+msgid "Update taxonomy"
+msgstr ""
+
+#: /tmp/cache/5563054e21878/fb/e2/b6188122f16da728f7a83ae53c80674cee07382349cbcf07e1fc54fb5b54.php:19
 msgid "text-exercise"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/54/a6/d34878fa33a51f9be4add7c298d3ed83335ce55f7dddadd8b903671d568c.php:19
+#: /tmp/cache/5563054e21878/36/dc/4635c6ea4d110e7501dc392d0634ed34fc9328775625d3f77e48a8f4e23b.php:19
 msgid "text-exercise-group"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/62/47/b8f0ac6e180c73ecc33de11d120e729bb9fe44840aae8c6603b8c7eb376a.php:19
+#: /tmp/cache/5563054e21878/bd/9e/2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:19
 msgid "text-hint"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/5f/48/abda882a9fd76f2b6e889104fb2ef076d0edb1a6371dc71f9d41f2071ad9.php:19
+#: /tmp/cache/5563054e21878/15/32/80e2f0429aa36f783925eb30e78858ed93c853ee63a8b2381e4c081119c6.php:19
 msgid "text-solution"
 msgstr ""
 
-#: /tmp/cache/5509b51f20cac/0f/3b/0d73cda404772ddcc08a6eca962deb81c8e4797fca5e9a7650bea07bf9a2.php:19
+#: /tmp/cache/5563054e21878/56/7a/6243e17b88bac408aa88d7c2cce5b0860447ed5ba89cab3beb12f3965120.php:19
 msgid "video"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/cd/a7/27e0d62e3fe13d3aadb9271ac71ff4e17154d23cc95d8d1b2cecc4348869.php:25
+#: /tmp/cache/5563054e726de/81/01/085f85bdddaf51e7f4119fe56cc71fa229700b3c3b804f81cec2dc283fc5.php:23
+#: /tmp/cache/5563054f238d5/71/aa/bda5a7793bc4e689f2e3d7f25316db5b105cd0b9f57a7d35ec97a500bd91.php:28
+msgid "%user% archived %discussion%"
+msgstr ""
+
+#: /tmp/cache/5563054e726de/ea/2a/a15d393f8cc514699be0d568d9355a5c4ab692ee6df87586c56b615eb80d.php:25
 msgid "%user% associated %object% with %term%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/a9/6c/ffcbd708e1a1c40e1025b64b917eae7f21423af0784bde4f1d61540bd161.php:27
+#: /tmp/cache/5563054e726de/07/f7/939ec435c7cc782935a2e59d89724266adfd4e502fc9096005e1f93c959f.php:27
 msgid "%user% changed %term% parent from %old% to %new%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/4a/7e/ab0becc5e12030b30847c8349b62cf08d37b264d3eed1105ec44d3435c3a.php:25
+#: /tmp/cache/5563054e726de/0c/b2/f9c3a07be8f039e907da1868285a62f5497f931f6af17cfeb31b16d2cbb4.php:25
 msgid "%user% changed the license of %object%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/59/52/79f1e7107ecde80eb1541c776dd438465b9445305f6164af0a0cc02d3d4f.php:35
+#: /tmp/cache/5563054e726de/b9/f2/ffb6bffb31af45b0205e7c167aada0859c30e47eabbb69da9506a41e448d.php:35
 msgid "%user% checked out %revision% in %repository%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/59/52/79f1e7107ecde80eb1541c776dd438465b9445305f6164af0a0cc02d3d4f.php:30
+#: /tmp/cache/5563054e726de/b9/f2/ffb6bffb31af45b0205e7c167aada0859c30e47eabbb69da9506a41e448d.php:30
 msgid "%user% checked out %revision% in %repository%: \"%reason%\""
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/90/39/07757542305185993a5f60c424accd1a256a264079c60bc37f7821242519.php:23
+#: /tmp/cache/5563054e726de/a0/91/99f3ff2f1f4d725972ba214c0a72823c0b94771f8113159456b0e145a35d.php:25
+msgid "%user% commented %discussion%: %content%"
+msgstr ""
+
+#: /tmp/cache/5563054e726de/e1/c1/73983e2fc035bf5b83bc53bca0fac33a8040d3d0d5138def9c11ac6f53bc.php:23
 msgid "%user% created %term%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/76/84/34edb76b02d67e5e490f7c71d240118d2800f4912da169b1c60c7a239c02.php:25
+#: /tmp/cache/5563054e726de/4c/93/b9659e2e947541be9a039d72dd004b3847db99e5cb9737f026921e8e1f73.php:25
+msgid "%user% created a new %type%: %object%"
+msgstr ""
+
+#: /tmp/cache/5563054e726de/7a/d5/3d5960154422bb0424a26b8515965115a981bae58456ca31df583ae8652d.php:25
 msgid "%user% created a new version of %repository%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/79/5b/dec95d7bc701c7828d363616f2722b6741e0ff6eeaf612a873a4e2f519f7.php:25
+#: /tmp/cache/5563054e726de/f7/d4/054b7a466ecc8e72973ccf58358aba7f83ec5df71770581052e420248be1.php:25
 msgid "%user% dissociated %object% from %term%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/5a/36/36522efa05f766a7736f1f5896e86431c5cb86caf5d2b858905e141f045f.php:35
+#: /tmp/cache/5563054e726de/1e/40/4c8f1d37fda17247551da72a377c7f797017b095bd4fc0a0bd444e89ed1b.php:25
+msgid "%user% linked %object% with %parent%"
+msgstr ""
+
+#: /tmp/cache/5563054e726de/0d/e4/2edd4dba838ff511eb7bc819a1eb07df3f8ef8f07a458d246cb04462793c.php:35
 msgid "%user% rejected %revision% in %repository% without a reason"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/5a/36/36522efa05f766a7736f1f5896e86431c5cb86caf5d2b858905e141f045f.php:30
+#: /tmp/cache/5563054e726de/0d/e4/2edd4dba838ff511eb7bc819a1eb07df3f8ef8f07a458d246cb04462793c.php:30
 msgid "%user% rejected %revision% in %repository%: \"%reason%\""
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/45/3f/bcdf11d23dbf074ccf5628083045a3c1e5cd9b46630828b588e2016d05ef.php:23
-#: /tmp/cache/5509b51fbe4d8/39/a7/a4dcfa2d081196210dd85f7597f0f83ef71c91c660690744290f17ef6bd6.php:28
-#: /tmp/cache/5509b51fbe4d8/e5/33/837d4e65d1abf77a43adf6854f17ad2962b7fdbf3ec95491bd52a330add8.php:28
+#: /tmp/cache/5563054e726de/23/9a/00054effba831f441866250cfbc10f10d2d03efbcd9795130d66bf0af286.php:23
+#: /tmp/cache/5563054f238d5/68/6f/4eb58346c70afcba217122e7613caa4be1748c1ce5602b84f48728b9db78.php:28
+#: /tmp/cache/5563054f7d968/71/17/4e8ebf82ae3e5a9dfec2f4b85ee75562f3de92654ffd3fd3a8d42ef0ebea.php:28
 msgid "%user% restored %object%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/20/8e/a69de86da9bd71ecb70c5135764862b55b07b68c2f13f2f5cba8b4d6d816.php:23
-#: /tmp/cache/5509b51fbe4d8/f9/04/6692b08d4a1c505e237f6b3c47f4cfe57286b5b2c4101f8f6d63adc58dee.php:28
+#: /tmp/cache/5563054e726de/ed/34/0b72fb603be3c64363bc68e79cd8d7d92a1b5fcdf432ba14bf379a9bb7f9.php:25
+msgid "%user% started a new discussion %discussion% on %on%"
+msgstr ""
+
+#: /tmp/cache/5563054e726de/9a/77/293b48c78f8138e8bb108909d156973d61a1cdebd64f53e7311f3bd86bc9.php:23
+#: /tmp/cache/5563054f7d968/a2/3d/beec174b2ec80d4f7d58393cb54c629db73f3f3adcc0348b72548aae0de5.php:28
 msgid "%user% trashed %object%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/79/1f/91971a706292a3e7ceb67045dbe7e7850750bba4217b34f0b89cb5d86b58.php:23
+#: /tmp/cache/5563054e726de/5f/dc/a952ad851e8e4b67eaf9a29ddedb1668c8dfafde47ca4affcec06ce08a4e.php:23
 msgid "%user% updated %term%"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/8f/c3/fb91312c2ff0887f08e901203016a92ec259d371b549b24c1e3e487663a7.php:19
-#: /tmp/cache/5509b51f54fbc/70/e1/78495f92e11b44bf19b0f11d5d1d49d8c14b8a1bf90fd6b6d49e0b8392bb.php:19
+#: /tmp/cache/5563054ec20e0/7e/74/b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:73
+msgid "Activate"
+msgstr ""
+
+#: /tmp/cache/5563054ec20e0/c2/b4/06d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:114
+msgid "Add page"
+msgstr ""
+
+#: /tmp/cache/5563054ec20e0/c2/b4/06d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:104
+msgid "Add parameter"
+msgstr ""
+
+#: /tmp/cache/5563054ec20e0/7e/74/b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:61
+msgid "Deactivate"
+msgstr ""
+
+#: /tmp/cache/5563054ec20e0/7e/74/b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:30
+msgid "Emails"
+msgstr ""
+
+#: /tmp/cache/5563054ec20e0/76/7b/e009c113f861ed5704eeea584f47d008c9ed237eede400b3a03833b1ad78.php:19
+#: /tmp/cache/5563054ec20e0/5d/a1/4eda2e78498a776a49de7340a62b4742692cd8d2f2e5f6dfd95916203b53.php:19
 msgid "Event log"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/a8/9d/d3cd4fcdc19991d564bb088138e84797a71a619498de060343bbe163497b.php:23
+#: /tmp/cache/5563054ec20e0/25/23/c33c5e5df5279342c61dded3449341babe725a023b2cefad6b644c997271.php:23
 msgid ""
 "Hello %user%,<br>\n"
 "<br>\n"
 "here's a heads up of what has happened on %brand%:<br>"
 msgstr ""
 
-#: /tmp/cache/5509b51f54fbc/aa/be/e65d2ba6560d35985089ff7a6bfb430c67c625826fd51a2f26addbe999a1.php:21
-msgid "You have unread notifications on %brand%"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/61/cd/bd6e9efd9591c49970993b811f340ce5a6b20361b7f519f8c0b8c281f40d.php:73
-msgid "Activate"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/96/2f/884dd59a75a71cc3b7f4bed81f1b99fd4d915e04b503afd93b79a4fa0279.php:114
-msgid "Add page"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/96/2f/884dd59a75a71cc3b7f4bed81f1b99fd4d915e04b503afd93b79a4fa0279.php:104
-msgid "Add parameter"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/61/cd/bd6e9efd9591c49970993b811f340ce5a6b20361b7f519f8c0b8c281f40d.php:61
-msgid "Deactivate"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/61/cd/bd6e9efd9591c49970993b811f340ce5a6b20361b7f519f8c0b8c281f40d.php:30
-msgid "Emails"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/39/17/f59c58e1c5f6d8d272ce82e3feb6137ac17fd05b5da2033d2cb8954a37ab.php:23
+#: /tmp/cache/5563054ec20e0/43/a1/8e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:23
 msgid "Information"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/39/17/f59c58e1c5f6d8d272ce82e3feb6137ac17fd05b5da2033d2cb8954a37ab.php:29
+#: /tmp/cache/5563054ec20e0/43/a1/8e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:29
 msgid "Instance: "
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/61/cd/bd6e9efd9591c49970993b811f340ce5a6b20361b7f519f8c0b8c281f40d.php:19
+#: /tmp/cache/5563054ec20e0/7e/74/b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:19
 msgid "Manage subscriptions"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/39/17/f59c58e1c5f6d8d272ce82e3feb6137ac17fd05b5da2033d2cb8954a37ab.php:36
+#: /tmp/cache/5563054ec20e0/43/a1/8e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:36
 msgid "Name: "
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/65/f9/83be6e7da17e8ad96116d1bce9e97247ef8cd490400d8540c3aa95706513.php:36
+#: /tmp/cache/5563054ec20e0/b5/c4/1c0fc2c42837b4d01dc02800b5f65bf23f5a1fccbeca42dc3db219b6a1aa.php:36
 msgid "No template found for notification \"%type%\""
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/65/f9/83be6e7da17e8ad96116d1bce9e97247ef8cd490400d8540c3aa95706513.php:47
+#: /tmp/cache/5563054ec20e0/b5/c4/1c0fc2c42837b4d01dc02800b5f65bf23f5a1fccbeca42dc3db219b6a1aa.php:47
 msgid "No view found for %name%"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/39/17/f59c58e1c5f6d8d272ce82e3feb6137ac17fd05b5da2033d2cb8954a37ab.php:49
+#: /tmp/cache/5563054ec20e0/43/a1/8e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:49
 msgid "Page"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/4a/57/e75373fe60485754a3f607f6f28b3992344c8d8a8d99b170f6587aa38e25.php:19
+#: /tmp/cache/5563054ec20e0/49/9b/54b5304af146f225b2e2e9d487256b4d48eae0fef139156059c7b4f3e256.php:19
 msgid "Page settings"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/39/17/f59c58e1c5f6d8d272ce82e3feb6137ac17fd05b5da2033d2cb8954a37ab.php:54
-#: /tmp/cache/5509b52001c65/68/28/5713ce99442e5d1670c26f4e848c2e54dcca8e382b2770698aa26f5a4534.php:19
-msgid "Pages"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/17/ad/41df40f3f59d334573542c613d16b65e9493e8f4728c0fd78c03aef85575.php:36
-#: /tmp/cache/5509b51f8668f/bf/8d/092ed66d31707d6dd1fd3c13b1dbc71e0839da033f2920863fd8d55d89ea.php:34
-#: /tmp/cache/5509b51f8668f/d8/74/b5386758050dce5d1e785fc9d3975c19280c967836c53e34cfe956d697b7.php:31
-msgid "Receive notifications"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/17/ad/41df40f3f59d334573542c613d16b65e9493e8f4728c0fd78c03aef85575.php:47
-#: /tmp/cache/5509b51f8668f/bf/8d/092ed66d31707d6dd1fd3c13b1dbc71e0839da033f2920863fd8d55d89ea.php:43
-#: /tmp/cache/5509b51f8668f/d8/74/b5386758050dce5d1e785fc9d3975c19280c967836c53e34cfe956d697b7.php:40
-msgid "Receive notifications and emails"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/96/2f/884dd59a75a71cc3b7f4bed81f1b99fd4d915e04b503afd93b79a4fa0279.php:136
+#: /tmp/cache/5563054ec20e0/c2/b4/06d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:136
 msgid "Remove page"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/96/2f/884dd59a75a71cc3b7f4bed81f1b99fd4d915e04b503afd93b79a4fa0279.php:125
-#: /tmp/cache/5509b52001c65/9c/08/658d2d315208ebcfa6ff4edc4dba374cda0a79dbbbaf31bbcfb86436c20d.php:118
-#: /tmp/cache/5509b52001c65/50/d3/5dbdab5338bedd3ce50a5dc59b545c6725c387d04535277d99fe10c6b242.php:118
+#: /tmp/cache/5563054ec20e0/c2/b4/06d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:125
+#: /tmp/cache/5563054f7d968/18/8c/07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:118
+#: /tmp/cache/5563054f7d968/98/38/a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:112
 msgid "Settings"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/d0/6b/81451a43c67e8bb0c933d76856cd5e9f5caac84caafa7be7740372f6f024.php:38
-#: /tmp/cache/5509b51f8668f/4e/2f/d27bb807eb9b7bfb0147b50bb6ccbe4a58e6bb936c7b62b5f3d59ad85217.php:36
-#: /tmp/cache/5509b51fbe4d8/64/08/d2df10d5ba58b1e7f0b83a40c2648b38a5963e54d51fc11470f0223a11ba.php:36
-msgid "Stop sending emails"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/17/ad/41df40f3f59d334573542c613d16b65e9493e8f4728c0fd78c03aef85575.php:24
-#: /tmp/cache/5509b51f8668f/bf/8d/092ed66d31707d6dd1fd3c13b1dbc71e0839da033f2920863fd8d55d89ea.php:23
-#: /tmp/cache/5509b51f8668f/d8/74/b5386758050dce5d1e785fc9d3975c19280c967836c53e34cfe956d697b7.php:22
-msgid "Subscribe"
-msgstr ""
-
-#: /tmp/cache/5509b51f8668f/61/cd/bd6e9efd9591c49970993b811f340ce5a6b20361b7f519f8c0b8c281f40d.php:34
+#: /tmp/cache/5563054ec20e0/7e/74/b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:34
 msgid "Subscription"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/61/cd/bd6e9efd9591c49970993b811f340ce5a6b20361b7f519f8c0b8c281f40d.php:83
-#: /tmp/cache/5509b51f8668f/d0/6b/81451a43c67e8bb0c933d76856cd5e9f5caac84caafa7be7740372f6f024.php:26
-#: /tmp/cache/5509b51f8668f/d0/6b/81451a43c67e8bb0c933d76856cd5e9f5caac84caafa7be7740372f6f024.php:50
-#: /tmp/cache/5509b51f8668f/d0/6b/81451a43c67e8bb0c933d76856cd5e9f5caac84caafa7be7740372f6f024.php:67
-#: /tmp/cache/5509b51f8668f/4e/2f/d27bb807eb9b7bfb0147b50bb6ccbe4a58e6bb936c7b62b5f3d59ad85217.php:25
-#: /tmp/cache/5509b51f8668f/4e/2f/d27bb807eb9b7bfb0147b50bb6ccbe4a58e6bb936c7b62b5f3d59ad85217.php:45
-#: /tmp/cache/5509b51f8668f/4e/2f/d27bb807eb9b7bfb0147b50bb6ccbe4a58e6bb936c7b62b5f3d59ad85217.php:60
-#: /tmp/cache/5509b51fbe4d8/64/08/d2df10d5ba58b1e7f0b83a40c2648b38a5963e54d51fc11470f0223a11ba.php:25
-#: /tmp/cache/5509b51fbe4d8/64/08/d2df10d5ba58b1e7f0b83a40c2648b38a5963e54d51fc11470f0223a11ba.php:45
-#: /tmp/cache/5509b51fbe4d8/64/08/d2df10d5ba58b1e7f0b83a40c2648b38a5963e54d51fc11470f0223a11ba.php:60
+#: /tmp/cache/5563054ec20e0/7e/74/b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:83
+#: /tmp/cache/5563054f238d5/8d/02/34ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:26
+#: /tmp/cache/5563054f238d5/8d/02/34ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:50
+#: /tmp/cache/5563054f238d5/8d/02/34ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:67
+#: /tmp/cache/5563054f238d5/3d/43/343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:25
+#: /tmp/cache/5563054f238d5/3d/43/343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:45
+#: /tmp/cache/5563054f238d5/3d/43/343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:60
+#: /tmp/cache/5563054f238d5/e9/8d/06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:25
+#: /tmp/cache/5563054f238d5/e9/8d/06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:45
+#: /tmp/cache/5563054f238d5/e9/8d/06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:60
 msgid "Unsubscribe"
 msgstr ""
 
-#: /tmp/cache/5509b51f8668f/d0/64/9eb00043c432799ecdc6020540ab1f6f4e898eca06483ca4e4f449c1ddbe.php:93
+#: /tmp/cache/5563054ec20e0/42/f8/a446ae98d066407d34ec0f6131297ce386a53fee01e8817321a914cd3b86.php:93
 msgid "You have no notifications."
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/3a/f9/a77e114de2d68fdc945a4a7a9eb677fc5614b4ae8a5eb73a063a536681ab.php:44
+#: /tmp/cache/5563054ec20e0/b3/5f/09ac63a58f3a9edfb53cc43c8487efdf2ac58d913eac056649e091a5c2ae.php:21
+msgid "You have unread notifications on %brand%"
+msgstr ""
+
+#: /tmp/cache/5563054f238d5/70/e4/e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:44
 msgid "%user% accepted a %revision% of %repository% without a reason"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/3a/f9/a77e114de2d68fdc945a4a7a9eb677fc5614b4ae8a5eb73a063a536681ab.php:37
+#: /tmp/cache/5563054f238d5/70/e4/e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:37
 msgid "%user% accepted a %revision% of %repository%: %reason%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/0c/a1/2569d0a898d194b481e844de1d4893bb58c9641ca96765396f03793a5f5b.php:34
+#: /tmp/cache/5563054f238d5/60/c2/2b940a79fec22a0b9ba11f7cb7265e2ecb9c20583d4bfe74e9987d13de84.php:34
 msgid "%user% added %object% to %parent%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/e6/ab/2b24570b5c8e86bf032df7c9ac5de396b635b7240556d8559b200f63e1c1.php:30
+#: /tmp/cache/5563054f238d5/f3/74/0bcebbf0fc2817654c4e859d13a49dcff3bb6b282893c5e6753a079e81ff.php:30
 msgid "%user% associated %term% with %object%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/9a/eb/1b2be519a14b4f6cd2922da68b46f7ef4467e38c15440e70ffb45ddab886.php:36
-msgid "%user% changed %term%'s parent from %old% to %new%"
-msgstr ""
-
-#: /tmp/cache/5509b51fbe4d8/da/df/e11503cc36823dce5ca47450a1e6e9adb83b974c4e84c1bcb16191c0ed3a.php:32
+#: /tmp/cache/5563054f238d5/8d/be/cc4219b50d1b355c6a9a1492a88a18b95f9316051c1db04bd4d2c0fe5b93.php:32
 msgid "%user% commented on %discussion%: %content%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/9b/14/5ffd33eb6bc3da67554cc18633a142d7f5ef4b4d02b24326b7b477a35d50.php:34
+#: /tmp/cache/5563054f238d5/1b/cb/0248d2fd936ac56fee5a801c294f9ee77b44241d81c53967eb3e3e100867.php:34
 msgid "%user% created a %revision% in %repository%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/ef/49/c3b6056477ef5676b86ccbdeb176874485d64e3f2d957ba0e4d26832a665.php:44
+#: /tmp/cache/5563054f238d5/f7/6a/bb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:44
 msgid "%user% rejected a %revision% of %repository% without a reason"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/ef/49/c3b6056477ef5676b86ccbdeb176874485d64e3f2d957ba0e4d26832a665.php:37
+#: /tmp/cache/5563054f238d5/f7/6a/bb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:37
 msgid "%user% rejected a %revision% of %repository%: %reason%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/e5/01/d372bb4d43dd26385c28ff8bb1b99e9b882e38713f27948275669643d024.php:30
+#: /tmp/cache/5563054f238d5/19/00/50328e70b1741163328b11c6889941eaec73358c67ebe411d5540ab38c6f.php:30
 msgid "%user% removed %object% from %object%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/65/81/04e5b0db325f79985036d1f69d6da39cfd745e3bd3feff8d552fcb0ce1df.php:32
+#: /tmp/cache/5563054f238d5/31/06/e8d0811add19dc9d56753dc9219e26ecd02ee030f482590a81a0442db1a7.php:32
 msgid "%user% started %discussion% on %object%: %title%"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/94/8d/765a22350fe71c4471c8685fcf2c5993b44b564312e1860e04494c89edf3.php:28
-msgid "%user% updated %object%"
+#: /tmp/cache/5563054f238d5/13/cd/e258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:36
+#: /tmp/cache/5563054f238d5/72/72/6bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:34
+#: /tmp/cache/5563054f238d5/62/c1/05d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:31
+msgid "Receive notifications"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/9c/4b/a56855febf5ef75c7ebb1a9b257ddaefdc44af7c1f3f4676232f67ff88fc.php:19
-msgid "Create a page"
+#: /tmp/cache/5563054f238d5/13/cd/e258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:47
+#: /tmp/cache/5563054f238d5/72/72/6bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:43
+#: /tmp/cache/5563054f238d5/62/c1/05d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:40
+msgid "Receive notifications and emails"
 msgstr ""
 
-#: /tmp/cache/5509b51fbe4d8/9b/14/5ffd33eb6bc3da67554cc18633a142d7f5ef4b4d02b24326b7b477a35d50.php:29
-#: /tmp/cache/5509b51fbe4d8/3a/f9/a77e114de2d68fdc945a4a7a9eb677fc5614b4ae8a5eb73a063a536681ab.php:29
-#: /tmp/cache/5509b51fbe4d8/ef/49/c3b6056477ef5676b86ccbdeb176874485d64e3f2d957ba0e4d26832a665.php:29
+#: /tmp/cache/5563054f238d5/8d/02/34ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:38
+#: /tmp/cache/5563054f238d5/3d/43/343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:36
+#: /tmp/cache/5563054f238d5/e9/8d/06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:36
+msgid "Stop sending emails"
+msgstr ""
+
+#: /tmp/cache/5563054f238d5/13/cd/e258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:24
+#: /tmp/cache/5563054f238d5/72/72/6bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:23
+#: /tmp/cache/5563054f238d5/62/c1/05d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:22
+msgid "Subscribe"
+msgstr ""
+
+#: /tmp/cache/5563054f238d5/1b/cb/0248d2fd936ac56fee5a801c294f9ee77b44241d81c53967eb3e3e100867.php:29
+#: /tmp/cache/5563054f238d5/70/e4/e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:29
+#: /tmp/cache/5563054f238d5/f7/6a/bb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:29
 msgid "revision"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/4a/80/971b6723e6c8f673c4e67420d38b051658adb2894b1989f463726c44bc31.php:19
+#: /tmp/cache/5563054f7d968/9d/39/c06123d16536c175fbeb544e810f8f255d342ff4f4239452e26fdc4fcd7f.php:36
+msgid "%user% changed %term%'s parent from %old% to %new%"
+msgstr ""
+
+#: /tmp/cache/5563054f7d968/82/6f/afa298efd594e59705660a35aed4ca87f339a857c62782951ecbfdf6d54f.php:28
+msgid "%user% updated %object%"
+msgstr ""
+
+#: /tmp/cache/5563054f7d968/78/10/96c7530d74165b1f86a2e3a3fcbcadb64d0b0866741480d0449c7a72ef13.php:19
 msgid "Add a category"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/24/cb/e7327a8ef481fb8d44ed38f5d9e2593d01003f2fbdad767727be89124114.php:19
+#: /tmp/cache/5563054f7d968/08/b6/4bff2410a7861c570d4b26ed37492100a4c0cc71c214898b48ddfa965a9f.php:19
 msgid "Add external link"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/15/61/acbf9da95b1d0d7702460c3d7cc5f790862f9d047fd9fd41cf2e57cdebdd.php:19
+#: /tmp/cache/5563054f7d968/55/60/a1fc8e574fc8f6d797e29402026e670698a2f07a5943917b6e999e194fa0.php:19
 msgid "Add internal link"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:48
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:48
 msgid "Author:"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:130
-msgid "Category"
-msgstr ""
-
-#: /tmp/cache/5509b52001c65/68/28/5713ce99442e5d1670c26f4e848c2e54dcca8e382b2770698aa26f5a4534.php:99
+#: /tmp/cache/5563054f7d968/04/3b/9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:99
 msgid "Create a new page"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/a7/ec/90b46a6fb979babf96d5e18e02b2bf3bfd39036bea3f3f5797248ec19f8d.php:19
+#: /tmp/cache/5563054f7d968/91/cd/8b9687090e8fbf6c2dad93ee1795f60e7685d89b01a1cf592ebc4ec6b269.php:19
+msgid "Create a page"
+msgstr ""
+
+#: /tmp/cache/5563054f7d968/cc/f1/9b79c4f4569ac5f6eaec78b1f21f886bddfa733db1bd49bade882d158173.php:19
 msgid "Create a revision"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/68/28/5713ce99442e5d1670c26f4e848c2e54dcca8e382b2770698aa26f5a4534.php:62
-#: /tmp/cache/5509b52001c65/9c/08/658d2d315208ebcfa6ff4edc4dba374cda0a79dbbbaf31bbcfb86436c20d.php:31
-#: /tmp/cache/5509b52001c65/50/d3/5dbdab5338bedd3ce50a5dc59b545c6725c387d04535277d99fe10c6b242.php:40
-msgid "Edit"
-msgstr ""
-
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:154
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:154
 msgid "Edit page"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:150
-msgid "External"
-msgstr ""
-
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:140
-msgid "Internal"
-msgstr ""
-
-#: /tmp/cache/5509b52001c65/07/e0/59098c1d3a90defe39f7834e8402b7784b840c0f4314d06430d0ab93b253.php:23
-msgid "Manage related links"
-msgstr ""
-
-#: /tmp/cache/5509b52001c65/94/a7/53de0b03afee8e7a01bf7a650467eb2af89201763bfeef4bf2790b9c89c5.php:112
-msgid "No matching results found for %query%."
-msgstr ""
-
-#: /tmp/cache/5509b52001c65/68/28/5713ce99442e5d1670c26f4e848c2e54dcca8e382b2770698aa26f5a4534.php:44
+#: /tmp/cache/5563054f7d968/04/3b/9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:44
 msgid "No revision checked out yet."
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:19
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:19
 msgid "Revisions"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/66/c3/844ee56d1d8436ed79a33c70d5aff6e2dfab4e130c7b546fb3904d3661dc.php:19
-msgid "Search results"
-msgstr ""
-
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:124
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:124
 msgid "Set as base"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/9c/08/658d2d315208ebcfa6ff4edc4dba374cda0a79dbbbaf31bbcfb86436c20d.php:101
-#: /tmp/cache/5509b52001c65/50/d3/5dbdab5338bedd3ce50a5dc59b545c6725c387d04535277d99fe10c6b242.php:101
+#: /tmp/cache/5563054f7d968/18/8c/07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:101
+#: /tmp/cache/5563054f7d968/98/38/a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:95
 msgid "Set as base revision"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:58
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:58
 msgid "Time:"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/68/28/5713ce99442e5d1670c26f4e848c2e54dcca8e382b2770698aa26f5a4534.php:77
-#: /tmp/cache/5509b52001c65/9c/08/658d2d315208ebcfa6ff4edc4dba374cda0a79dbbbaf31bbcfb86436c20d.php:89
-#: /tmp/cache/5509b52001c65/50/d3/5dbdab5338bedd3ce50a5dc59b545c6725c387d04535277d99fe10c6b242.php:89
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:110
+#: /tmp/cache/5563054f7d968/04/3b/9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:77
+#: /tmp/cache/5563054f7d968/18/8c/07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:89
+#: /tmp/cache/5563054f7d968/98/38/a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:83
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:110
 msgid "Trash"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/4d/ff/35cc0f5793fe972c2d550e7e918b7c7929ac7bfb05d366cea4c71c6d8dfd.php:19
+#: /tmp/cache/5563054f7d968/04/b4/3796e2176095808f4e2341323223128175cab0327a99d8f694340028a1de.php:19
 msgid "Update a page"
 msgstr ""
 
-#: /tmp/cache/5509b52001c65/23/43/7b3322db77e39c83abb1e9301ff8c4ac98fbe788b224321f2c8cf3685a3f.php:79
+#: /tmp/cache/5563054f7d968/06/38/1bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:79
 msgid "Use for editing"
 msgstr ""
 
-#: /tmp/cache/5509b5203ec43/48/0a/4351e3330d8c13d5e8612bfdb123a909dae6c1210dbe127705b00d5b3f37.php:19
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:130
+msgid "Category"
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/ee/e9/3e61f8c52d3852495099aca5aa0ffeb56e26f42e627491779d284fb65e52.php:19
+msgid "Copy associations"
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/73/77/bb8c1db0e220d930996d685319bfe9d5e97b0691b44477467f9a7c842cb9.php:19
 msgid "Create term"
 msgstr ""
 
-#: /tmp/cache/5509b5203ec43/fe/27/eb89b294560474dc4f522512a8800a565868b63c5ec1817b2b3d7e732ada.php:19
-#: /tmp/cache/5509b52070ace/d4/04/29215dd7105548ba9d0d1dcffccc6b7d6258e65ee263f0318e03f0fe1c78.php:41
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:150
+msgid "External"
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/93/c8/7f4ee99e4617e9b2d42a50fe9547e24d2611993ec18176a7847e07a9c158.php:24
+msgid "Further exercises"
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:140
+msgid "Internal"
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/73/31/7544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:23
+msgid "Manage related links"
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/f5/e2/602bb4c2e93a3291c75a742de0c785b09239657dea74609ea13eade0d9bf.php:112
+msgid "No matching results found for %query%."
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/91/77/8b3c058dccc6f82af7a4a85ca6279b9f73d5465ce0e73a719423b7693d27.php:21
+#: /tmp/cache/5563055038407/ec/b1/2413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:41
 msgid "Organize"
 msgstr ""
 
-#: /tmp/cache/5509b5203ec43/e2/8a/52d6f8b835995aee3eecac2595da32b7b29286bba23c320bdac447b09cae.php:23
+#: /tmp/cache/5563054fd3b3c/f3/35/cef104b64e1cede6aede42d51d2183465b682214549e642e7e5b43ef7dd4.php:24
+msgid "Search results"
+msgstr ""
+
+#: /tmp/cache/5563054fd3b3c/99/93/86126c28191c568b48eef4c361f2d969e4b40a14da2e00751dac944e6903.php:23
 msgid "Start learning now!"
 msgstr ""
 
-#: /tmp/cache/5509b5203ec43/2f/29/dea1688c36ee80959f0b3978644334470c1b619457fec327fe193a3d2df7.php:33
+#: /tmp/cache/5563054fd3b3c/4c/40/6d0d3f3787d2212ad28ef8f57f63e99d6bb15218609da2c7fe7b7fca2109.php:33
 msgid "Template for %name% not found."
 msgstr ""
 
-#: /tmp/cache/5509b5203ec43/7d/13/3217c44523e7e20a5c76929fedfe9052692f8fd8cd4e413fb040da6bbd3b.php:111
+#: /tmp/cache/5563054fd3b3c/ca/1c/9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:111
 msgid "Tools"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/d4/04/29215dd7105548ba9d0d1dcffccc6b7d6258e65ee263f0318e03f0fe1c78.php:70
+#: /tmp/cache/5563055038407/ec/b1/2413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:70
 msgid "Add content"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/4a/90/008ac7f143aefdde783f4f6d4387b62eeef8bf25c62463779a78f8bd0b0a.php:48
+#: /tmp/cache/5563055038407/ec/b1/2413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:127
+msgid "Batch copy items"
+msgstr ""
+
+#: /tmp/cache/5563055038407/fd/c5/60036ca3ec9e0e019322723b7506dd2299069c31407d034132c46532b484.php:19
+msgid "curriculum"
+msgstr ""
+
+#: /tmp/cache/5563055038407/08/dc/a70a0edeebcd500efdc21895df9e84d88d86a73d946cebcd40572260b1b9.php:19
+msgid "curriculum-topic"
+msgstr ""
+
+#: /tmp/cache/5563055038407/32/c0/65c0bab471911867dc2fb67722035a945ec52c8e281abaf073523db4e940.php:19
+msgid "curriculum-topic-folder"
+msgstr ""
+
+#: /tmp/cache/5563055038407/79/b6/8b39ce0ba2691aa2b338f22bcdc2803281a60030b02c4f17a61dca424960.php:19
+msgid "locale"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/a9/dd/0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
 msgid "Articles"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/4a/90/008ac7f143aefdde783f4f6d4387b62eeef8bf25c62463779a78f8bd0b0a.php:48
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:37
+msgid "Comments:"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/a9/dd/0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
 msgid "Courses"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/4a/90/008ac7f143aefdde783f4f6d4387b62eeef8bf25c62463779a78f8bd0b0a.php:89
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:52
+msgid "Edits:"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/92/9e/d964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:73
+msgid "Email"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/a9/dd/0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:89
 msgid "Exercises"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/63/3e/cff50d97da26e91eb8c3a443ef65562ab0851ee729b7cb009a5107107675.php:47
+#: /tmp/cache/556305507ee36/db/d9/5d48b6707c3c587d87c539cb0ceba52b5e72ea79eb05da97946ac416518a.php:47
 msgid "Groups"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/49/cf/f5a4374c07533d7f52d3ac957eb563655186f15d86b18c4a1b8621b35a76.php:248
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:143
+msgid "Last seen"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/3d/14/ae2a6d629e882af40cbea4bf15d14a3be13a7c29b3ff17586572563d04b6.php:19
+msgid "My settings"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/8e/b2/c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:69
+msgid "Never"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:128
+msgid "Recent activities"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:67
+msgid "Reviews:"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/2f/e7/2f0b515004b59e946b309b21d14ff794390e2775ff15fd7f45b7e7440bc7.php:248
 #, php-format
 msgid "Show %ecount% exercises..."
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/4a/90/008ac7f143aefdde783f4f6d4387b62eeef8bf25c62463779a78f8bd0b0a.php:48
-msgid "Videos"
+#: /tmp/cache/556305507ee36/92/9e/d964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:24
+msgid "Sign up"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/0b/57/ec8cb08750cbfbb7e48db1da172de116e5a22035eb5449f9f4f1e63ef7af.php:19
-msgid "curriculum"
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:31
+msgid "Statistics"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/48/30/8abc5a855c88f34e23c1ee93e7f9281bae7446372318e8c575f8beb55bd8.php:19
-msgid "curriculum-topic"
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:82
+msgid "Taxonomy associations:"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/ad/3e/bb80be8c6ee4018737613730416d8b266b773f9cab1dc697569d486c25b9.php:19
-msgid "curriculum-topic-folder"
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:97
+msgid "Taxonomy changes:"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/2a/de/e32922c1e5c33d2bfecfe8537d09bd7e0dee9b206b0bbd13d2425b47a0f6.php:19
-msgid "locale"
+#: /tmp/cache/556305507ee36/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:112
+msgid "Total deletions:"
 msgstr ""
 
-#: /tmp/cache/5509b52070ace/8e/d0/e764fe25bd927dffbd4ee1363a6ea01a95760cb3f264af38cf744f09f691.php:19
-msgid "subject"
-msgstr ""
-
-#: /tmp/cache/5509b52070ace/f8/50/29e1cacd9387fffdc795398659be5e9e7b9521bbbcdd720d1bccec20c621.php:19
-msgid "topic-folder"
-msgstr ""
-
-#: /tmp/cache/5509b520a8dd1/04/9f/d18211a7a0da1aa4f171d116c9bc6fb70d0b8ca85dd0631fbe78bf65e26e.php:42
-msgid "Last seen"
-msgstr ""
-
-#: /tmp/cache/5509b520a8dd1/bb/29/1dc28de8698cf75d1a6a265376bab32151c849e3b703c2288f1d238b531e.php:19
-msgid "My settings"
-msgstr ""
-
-#: /tmp/cache/5509b520a8dd1/ff/9c/c3f806e3aa99b7ae24500f75b720fabdb889a60169938440b5a23a1798cd.php:69
-msgid "Never"
-msgstr ""
-
-#: /tmp/cache/5509b520a8dd1/04/9f/d18211a7a0da1aa4f171d116c9bc6fb70d0b8ca85dd0631fbe78bf65e26e.php:19
-msgid "Profile"
-msgstr ""
-
-#: /tmp/cache/5509b520a8dd1/04/9f/d18211a7a0da1aa4f171d116c9bc6fb70d0b8ca85dd0631fbe78bf65e26e.php:27
-msgid "Recent activities"
-msgstr ""
-
-#: /tmp/cache/5509b520a8dd1/8a/94/33f753c1506220a327737945f8734d7149e3aa06e01c988188f3261eefdf.php:19
+#: /tmp/cache/556305507ee36/a3/3a/5f0124ea6930f3bb761c72d967a4ccecd4d96b6bb39065a862cc2b954efe.php:19
 msgid "Update term"
 msgstr ""
 
-#: /tmp/cache/5509b520a8dd1/f0/c0/f8ebfdb04ebd953ef34221dd237e224091dbb5b95f5359cc3419620f1e83.php:19
+#: /tmp/cache/556305507ee36/a9/dd/0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
+msgid "Videos"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/0a/c3/3929433f83a2ce8691e29e61df5c3b4447b613e8c1796c10944bb18b4b41.php:19
+msgid "subject"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/d5/2a/e24cf4e6ff6fd54ae7a0d3ae2941dbc23451b88d66e4d44ffe9cc56f1ad5.php:19
 msgid "topic"
+msgstr ""
+
+#: /tmp/cache/556305507ee36/8b/dc/57c33604f04685bb19635ba474115fdf1397490f025047263f5a8257a928.php:19
+msgid "topic-folder"
 msgstr ""

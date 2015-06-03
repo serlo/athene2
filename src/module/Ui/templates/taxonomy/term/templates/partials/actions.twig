@@ -47,3 +47,10 @@
         </a>
     </li>
 {% endif %}
+{% if isGranted('taxonomy.term.associate', term) %}
+    <li>
+        <a href="{{ url('taxonomy/term/batch-move', {'term': term.getId()}) }}">
+            <span class="fa fa-files-o"></span> {% trans %} Batch move items {% endtrans %}
+        </a>
+    </li>
+{% endif %}

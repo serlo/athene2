@@ -56,16 +56,19 @@ foreach ($this->pages as $page) {
     $breadcrumb = ($recActive && $useBreadCrumbs) ? 'itemscope itemtype="http://data-vocabulary.org/Breadcrumb"' : false;
     $child      = $breadcrumb ? 'itemprop="child"' : '';
     $rich       = $breadcrumb ? ' ' . $child . ' ' . $breadcrumb . ' ' : '';
-    $needsFetching = ($depth >= $maxDepth - 1 && !empty($page->pages) && ($page->get('needsFetching') !== 'false')) ? ' data-needs-fetching="true" ' : ' data-needs-fetching="false" ';
+    $needsFetching = ($depth >= $maxDepth - 1 && !empty($page->pages)) ? ' data-needs-fetching="true" ' : '';
+    $sidenav = (is_bool($page->get('hideSidenav')) ? $page->get('hideSidenav') : ($page->get('hideSidenav') === 'true')) ? ' data-sidenav="false" ' : '';
+    $translate = is_bool($page->get('translate')) ? $page->get('translate') : $page->get('translate') === 'true';
+    $label = $translate ? $this->translate($page->getLabel()) : $page->getLabel();
 
-    $html[] = '<li' . $needsFetching . $rich . $elements . (count($liClasses) ? (' class="' . implode(' ', $liClasses) . '"') : '') . ' data-identifier="' . $page->get('identifier') . '">';
+    $html[] = '<li' . $needsFetching . $sidenav . $rich . $elements . (count($liClasses) ? (' class="' . implode(' ', $liClasses) . '"') : '') . ' data-identifier="' . $page->get('identifier') . '">';
 
     $html[] = '<a href="' . $this->alias($page->getHref()) . '"' . ($breadcrumb ? ' itemprop="url"' : '') . '>';
 
     if ($breadcrumb) {
-        $html[] = '<span itemprop="title">' . $page->getLabel() . '</span>';
+        $html[] = '<span itemprop="title">' . $label . '</span>';
     } else {
-        $html[] = '<span>' . $page->getLabel() . '</span>';
+        $html[] = '<span>' . $label . '</span>';
     }
     $html[] = "</a>";
 

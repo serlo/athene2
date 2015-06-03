@@ -47,6 +47,8 @@ define('mobile_navigation', ['jquery', 'jquery-ui'], function ($) {
             max: 10,
             // attribute name to indicate that this branch has been fetched already
             indicator: 'needs-fetching',
+            // attribute name to decide whether a subnav should be shown
+            sidenav: 'sidenav',
             // attribute name to identify the menuitem
             identifier: 'identifier'
         }
@@ -160,6 +162,7 @@ define('mobile_navigation', ['jquery', 'jquery-ui'], function ($) {
             $.each(navElements, function (i, item) {
                 var li = $('<li>', {
                         dataNeedsFetching: item.needsFetching,
+                        dataSidenav: item.sidenav,
                         dataIdentifier: item.identifier
                     }),
                     a = ($('<a>', {
@@ -191,10 +194,11 @@ define('mobile_navigation', ['jquery', 'jquery-ui'], function ($) {
 
         root.children().each(function () {
             var elem = $(this),
+                sidenav = elem.data(self.options.asyncNav.sidenav) === undefined,
                 id = elem.data(self.options.asyncNav.identifier),
                 fetchUrl = self.options.asyncNav.loc + '/2/10/' + id;
 
-            if (!elem.hasClass(self.options.navHeaderClass) && elem.data(self.options.asyncNav.indicator)) {
+            if (!elem.hasClass(self.options.navHeaderClass) && elem.data(self.options.asyncNav.indicator) && sidenav) {
                 $.getJSON(fetchUrl, function (data) {
                     if (data.length > 0) {
                         loop(elem, data);

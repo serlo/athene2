@@ -9,6 +9,6 @@
  */
 return [
     'navigation' => [
-        'footer' => []
+        'footer-left' => []
     ]
 ];

@@ -4,9 +4,8 @@
   height: auto !important;
   height: 100%;
 
-  margin: 0 auto (-$footerHeight); /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto;
   position: relative;
-  z-index: 1;
 
   @media only screen and (max-width: $navigationBreakPoint-max) {
     padding: 0 $pagePaddingMedium;
@@ -77,12 +76,12 @@
   bottom: 0;
   text-align: center;
 
-  background: $darkGray;
+  background: $gray;
   color: white;
 
   html.no-touch & {
     &:hover {
-      background: $darkerGray;
+      background: darken($gray, 5%);
     }
   }
 
@@ -108,8 +107,6 @@
 /* Main Container */
 .main {
   position: relative;
-
-  @include block-shadow;
 
   margin: 0 ($sidebarWidth + $sidebarGap);
   @media only screen and (max-width: $navigationBreakPoint-max) {
@@ -152,25 +149,15 @@
 
 /* Right Context Area */
 .side-context {
-
   position: absolute;
   top: $sideNavTopOffset;
-  right: -$sidebarWidth;
-  width: $sidebarWidth;
   right: -($sidebarWidth + $sidebarGap);
+  width: $sidebarWidth;
   // margin-left: $contentMaxWidth + 2 * $contentPadding;
   // margin-left: $sidebarGap;
 
   background: $lighterGray;
   @include block-shadow;
-
-  &:before {
-    content: ' ';
-    position: absolute;
-    left: 0px;
-    top: 12px;
-    @include triangle(right, $white, 13px);
-  }
 
   .side-element-inner {
     > .fa {
@@ -218,7 +205,6 @@
 
   background-color: $white;
 
-  z-index: 1;
   // transition: 0.3s transform 0s;
 
   .nav {
@@ -226,11 +212,11 @@
     margin: 5px 0 0 0;
 
     .navbar-collapse {
-      padding: 0px;
+      padding: 0;
     }
 
     &.nav-pills > li > a {
-      color: $grayDark;
+      color: $gray;
     }
   }
   & > h1 {
