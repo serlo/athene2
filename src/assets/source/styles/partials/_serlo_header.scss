@@ -133,6 +133,7 @@
   position: relative;
   padding: 0;
   clear: both;
+  overflow: hidden;
 
   @include block-shadow($backgroundColor, 9px);
 
@@ -237,8 +238,8 @@
 
     #search-content {
       width: 100%;
-      margin-right: 0;
-      padding-left: 52px;
+      margin-right: -52px;
+      padding-right: 52px;
     }
   }
 
