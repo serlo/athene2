@@ -81,7 +81,7 @@ echo '
 start on vagrant-mounted
 stop on runlevel [!2345]
 
-exec su vagrant -c /vagrant/bin/vagrant/boot.sh
+exec su vagrant -c /vagrant/bin/vagrant/boot.sh >> /home/vagrant/boot.log
 ' > /etc/init/athene2startup.conf
 
 # Xdebug fix
