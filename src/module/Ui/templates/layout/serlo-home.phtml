@@ -18,70 +18,198 @@ echo $this->doctype();
 <!-- moved to 1-col -->
 
 <body class="serlo-home" itemscope itemtype="http://schema.org/WebPage">
-    <div class="wrap">
-        <header id="header">
-            <?php echo $this->partial('layout/partials/top-bar'); ?>
+<div class="wrap">
+    <header id="header">
+        <?php echo $this->partial('layout/partials/top-bar'); ?>
 
-            <div class="container">
-                <nav id="header-nav">
-                    <div id="mobile-nav-toggle">
-                        <button>
-                            <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
-                            <i class="fa fa-fw fa-bars"></i>
-                        </button>
-                    </div>
-                    <div id="mobile-nav-right">
-                        <ul class="authentification nav navbar-nav">
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
-                                    <span class="fa fa-user"></span>
-                                </a>
-                                <?php
-                                echo $this->navigation('top_auth_navigation')
-                                    ->menu()
-                                    ->setUlClass('dropdown-menu dropdown-menu-right')
-                                    ->setPartial('layout/navigation/horizontal')
-                                    ->render();
-                                ?>
-                            </li>
-                        </ul>
-                        <ul class="notifications nav navbar-nav">
-                            <?php echo $this->notifications()->render(); ?>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+        <div class="container-fluid">
+            <nav id="header-nav">
+                <div id="mobile-nav-toggle">
+                    <button>
+                        <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <?php echo $this->brand()->getLogo(); ?>
+                    <?php echo $this->brand()->getBrand(); ?>
+                    <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
+                            ->menu()
+                            ->setPartial('layout/navigation/partial/active-subject')
+                            ->setOnlyActiveBranch(true)
+                            ->setMinDepth(0)
+                            ->setMaxDepth(0)
+                            ->render();
+                        ?></span>
+                </div>
+
+                <div id="mobile-nav-right">
+                    <ul class="authentification nav navbar-nav">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                                <span class="fa fa-user"></span>
+                            </a>
+                            <?php
+                            echo $this->navigation('top_auth_navigation')
+                                ->menu()
+                                ->setUlClass('dropdown-menu dropdown-menu-right')
+                                ->setPartial('layout/navigation/horizontal')
+                                ->render();
+                            ?>
+                        </li>
+                    </ul>
+                    <ul class="notifications nav navbar-nav">
+                        <?php echo $this->notifications()->render(); ?>
+                    </ul>
+                </div>
+            </nav>
 
             <div id="mobile-nav"></div>
-        </header>
 
-        <div id="page" class="container">
-            <section id="main-home">
-                <div id="main-container">
-                    <div id="content-layout">
-                        <div id="content-container">
-                            <div id="serlo-wrapper">
-                                <?php echo $this->brand()->getLogo(); ?>
-                                <?php echo $this->brand()->getBrand(); ?>
+            <?php if (empty($this->placeholder('hideSubjectNav')->getValue())): ?>
+                <nav id="subject-nav">
+                    <div id="subject-nav-wrapper">
+                        <div class="subject-nav-center">
+                            <div class="pull-right controls">
+                                <?php echo $this->placeholder('controls'); ?>
                             </div>
-                            <h1 class="description">
-                                <?php echo $this->brand()->getDescription(); ?>
-                            </h1>
-                            <?php echo $this->partial('layout/partials/notifications'); ?>
-                            <?php echo $this->partial('layout/partials/search'); ?>
-                            <?php echo $this->partial('layout/partials/main'); ?>
+                            <ol id="breadcrumbs">
+                            </ol>
+                        </div>
+                        <?php echo $this->partial('layout/partials/search'); ?>
+                    </div>
+                </nav>
+            <?php endif; ?>
+        </div>
+    </header>
+
+    <div id="page">
+        <section class="clearfix">
+            <div id="content-layout" class="clearfix">
+                <?php echo $this->partial('layout/partials/notifications'); ?>
+
+                <div class="home-subject-row clearfix">
+                    <div class="home-column">
+                        <a href="/mathe">Mathematik lernen <i class="fa fa-arrow-circle-right"></i></a><br/>
+
+                        <p>oder <a>Biologie</a>, <a>Chemie</a>, <a>Permakultur</a>, <a>…</a></p>
+                    </div>
+                </div>
+
+                <div class="home-3-col-row clearfix">
+                    <div class="home-column">
+                        <div class="logo-wrapper">
+                            <?php echo $this->brand()->getLogo(); ?>
+                            <?php echo $this->brand()->getBrand(); ?>
+                        </div>
+
+                        <p>
+                            Auf Serlo sammeln wir alles Schulwissen, tausende Aufgaben und Musterlösungen komplett
+                            kostenlos.
+                            Wie
+                            bei Wikipedia können die Nutzer Inhalte verbessern und neue Inhalte hinzufügen. Unsere
+                            Vision ist,
+                            dass
+                            alle Menschen einfachen Zugang zu Bildung haben und entsprechend ihres Potentials lernen
+                            können.
+                        </p>
+                        <a href="/18922">Mehr erfahren <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+
+                    <div class="home-column">
+                        <h2>Hauptpartner</h2>
+                        <ul>
+                            <li><a href="http://www.hanssauerstiftung.de/"><img src="/assets/images/home_logo_sauer.png"
+                                                                                alt="Hans Sauer Stiftung"/></a></li>
+                            <li><a href="http://www.zeidler-forschungs-stiftung.de"><img
+                                        src="/assets/images/home_logo_zeidler.png"
+                                        alt="Zeidler-Forschungs-Stiftung"/></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="home-column">
+                        <h2>Presse</h2>
+                        <blockquote>
+                            Geld für die Mathe-Nachhilfe sparen, dank Serlo.
+                            <footer><a href="https://soundcloud.com/serlo/ndr-radiointerview">NDR Radiobeitrag.</a>
+                            </footer>
+                        </blockquote>
+                        <blockquote>
+                            Social Startups. Ideen, die die Gesellschaft weiterbringen.
+                            <footer><a
+                                    href="http://www.br.de/mediathek/video/sendungen/nachrichten/startup-gesellschaftsrelevant-sozial-100.html#&time=">BR
+                                    Abendnachrichten.</a></footer>
+                        </blockquote>
+                        <blockquote>
+                            Interview mit Serlo-Gründer Simon Köhl.
+                            <footer><a
+                                    href="http://munich.thechanger.org/blog-de/interview-mit-simon-kohl-grunder-von-serlo-fur-mich-hat-engagement-grose-ahnlichkeiten-zu-politischer-kunst/?lang=de">The
+                                    Changer.</a></footer>
+                        </blockquote>
+                        <a href="/presse"><i class="fa fa-plus-circle"></i></a>
+                    </div>
+                </div>
+
+                <div class="home-blue-row clearfix">
+                    <div class="home-column">
+                        <ul>
+                            <li>837 <span>Artikel</span></li>
+                            <li>4621 <span>Aufgaben</span></li>
+                            <li>120 <span>Kurse und Videos</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <img src="/assets/images/home_img_launch.jpg" width="100%"/>
+
+
+                <div class="home-community-wrapper">
+                    <div class="home-community-row clearfix">
+                        <div class="home-column">
+                            <img src="/assets/images/home_participate.svg"/>
+
+                            <h2>Serlo ist ein Wiki:</h2>
+
+                            <p>
+                                Hilf uns Bildung frei verfügbar zu machen und werde Teil der Online-Community von Serlo.
+                                Wir suchen
+                                Hobby- und Profididaktiker mit Begeisterung für ihr Fach.
+                            </p>
+                            <img src="/assets/images/home_commons.svg"/><br/>
+                            <a href="/19869">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                        <div class="home-column">
+                            <img src="/assets/images/home_donate.svg"/>
+
+                            <h2>Serlo ist eine Non-Profit-Organisation:</h2>
+
+                            <p class="text-center">
+                                Softwareentwicklung, Betreuung der Ehrenamtlichen und Aufbau der Organisation kosten
+                                Geld. Wir
+                                freuen
+                                uns sehr, wenn Sie Serlo mit einer Spende unterstützen
+                            </p>
+                            <a href="/21565">Spenden <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="home-community-link-row clearfix">
+                        <div class="home-column">
+                            <a href="/19869">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                        <div class="home-column">
+                            <a href="/21565">Spenden <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <div id="footer-push"></div>
+            </div>
+        </section>
     </div>
+    <div id="footer-push"></div>
+</div>
 
-    <?php echo $this->partial('layout/partials/footer'); ?>
-    <?php echo $this->partial('layout/partials/default-modal'); ?>
-    <?php echo $this->placeholder('modals'); ?>
-    <?php echo $this->tracking(); ?>
-    <?php echo $this->partial('layout/partials/noscript'); ?>
+<?php echo $this->partial('layout/partials/footer'); ?>
+<?php echo $this->partial('layout/partials/default-modal'); ?>
+<?php echo $this->placeholder('modals'); ?>
+<?php echo $this->tracking(); ?>
+<?php echo $this->partial('layout/partials/noscript'); ?>
 </body>
 </html>

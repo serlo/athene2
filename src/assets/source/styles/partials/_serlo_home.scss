@@ -1,106 +1,251 @@
-#main-home {
-  #content-container {
-    background: none;
-    border:     none;
-    padding:    0;
-    min-height: 420px;
-    text-align: center;
-    position:   relative;
+$backgroundColorHome: #efefef;
+$homeColumnWidth: 300px;
+$homeColumnPadding: 30px;
 
-    .alert {
-      text-align: left;
+.home-column {
+  padding: 0 $homeColumnPadding;
+  text-align: center;
+
+  h2 {
+    color: lighten($gray, 10%);
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  > a {
+    font-size: 23px;
+    color: $gray;
+
+    &:focus, &:hover, &:active {
+      text-decoration: none;
+      color: $serloBlue;
     }
 
-    .brand {
-      margin-top: 0px;
+    i {
+      color: $serloBlue;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+}
+
+.home-subject-row, .home-3-col-row, .home-community-row {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-subject-row {
+  max-width: 400px;
+  padding-top: 300px;
+  margin-bottom: 100px;
+  background: url('../images/home_title_maths.svg') no-repeat;
+  background-size: 400px;
+
+  .home-column {
+    > a {
+      font-size: 32px;
     }
 
-    h1.description {
-      font-size:  inherit;
-      margin-top: 0px;
-      border:     none;
+    p > a {
+      font-weight: bold;
     }
+  }
+}
 
-    .home-nav {
-      & > div {
-        margin-top: 10px;
-        & > a {
-          background-color: $themeColor;
-          color:            $white;
-          padding:          15px 0;
-          display:          block;
-          &:hover, &:active, &:focus {
-            background-color: darken($themeColor, 10%);
-            text-decoration:  none;
-          }
-          & h2 {
-            font-size: inherit;
-            border:    none;
-            cursor:    pointer;
-            margin:    0;
-          }
-        }
+.home-3-col-row {
+  max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
+  margin: 50px auto;
 
-        &:nth-child(3n+2) a {
-          background-color: lighten($themeColor, 5%);
-          &:hover, &:active, &:focus {
-            background-color: darken($themeColor, 5%);
-          }
-        }
-        &:nth-child(3n+3) a {
-          background-color: lighten($themeColor, 10%);
-          &:hover, &:active, &:focus {
-            background-color: $themeColor;
-          }
-        }
+  h2 {
+    display: inline-block;
+    width: 2/3 * 100%;
+    border-bottom: 1px solid $lightGray;
+    padding-bottom: 5px;
+  }
+
+  img {
+    max-width: 125px;
+  }
+
+  li {
+    padding: 29px 0;
+  }
+
+  blockquote {
+    border: none;
+    font-size: inherit;
+    margin: 0;
+
+    footer {
+      padding: 5px 0;
+      font-weight: bold;
+      display: inline-block;
+
+      &:before {
+        content: '';
       }
     }
   }
 
-  #search-help {
-    width:      inherit;
-    text-align: left;
-  }
-
-  #search-results {
-    width:      inherit;
-    text-align: left;
-  }
-
-  #search-content {
-    position: relative;
-    left:     0;
-    top:      0;
-    margin:   20px 0 0;
-    width:    100%;
-  }
-
-  #content-layout {
-    width:      100%;
-    min-height: 0px;
-    margin:     0 auto;
-    padding:    0;
+  .serlo-logo {
+    font-size: 60px;
+    line-height: 1;
   }
 
   .serlo-brand {
-    font-size: 50px;
-    display:   inline-block;
+    font-size: 30px;
+    line-height: 1;
+    margin: 10px 0;
+  }
+}
+
+.home-blue-row {
+  background: #0C5997;
+  color: #ffffff;
+  padding: 25px 0;
+
+  .home-column {
+    ul {
+      display: inline-block;
+      font-size: 50px;
+      padding: 50px 600px 50px 0;
+      background: url('../images/home_learn.svg') no-repeat right;
+
+      li {
+        padding: 15px 0;
+        line-height: 1;
+
+        span {
+          display: block;
+          font-size: 25px;
+          color: #bfdeef;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.home-community-wrapper {
+  background: #fff;
+  padding: 50px 0;
+}
+
+.home-community-row, .home-community-link-row {
+  max-width: 2 * ($homeColumnWidth + 2*$homeColumnPadding);
+  margin: 0 auto;
+
+  .home-column {
+    h2 {
+      margin-bottom: 2px;
+    }
+
+    > a {
+      display: block;
+      margin: 30px 0;
+
+      &:focus, &:hover, &:active {
+        color: $serloGreen;
+      }
+
+      i {
+        color: $serloGreen;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .home-3-col-row .home-column {
+    float: left;
+    width: 50%;
   }
 
-  .serlo-logo {
-    font-size:      70px;
-    display:        inline-block;
-    height:         132px;
-    vertical-align: bottom;
+  .home-community-row, .home-community-link-row {
+    .home-column {
+      float: left;
+      width: 50%;
+    }
   }
 
-  #serlo-wrapper {
-    margin: 0 auto;
+  .home-community-row .home-column > a {
+    display: none
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .home-community-row, .home-community-link-row {
+    margin: 0;
+  }
+
+  .home-community-link-row .home-column > a {
+    display: none;
+  }
+
+  #subject-nav #search-content {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .home-3-col-row .home-column {
+    float: left;
+    width: 1/3 * 100%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .home-3-col-row {
+    .home-column + .home-column + .home-column {
+      display: none;
+    }
+  }
+
+  .home-blue-row .home-column ul {
+    background: none;
+    padding: 50px 0;
   }
 }
 
 .serlo-home {
-  #page {
-    max-width: 750px;
+  @media only screen and (min-width: $navigationBreakPoint-min) {
+    #header-nav {
+      display: none;
+    }
+  }
+
+  #serlo-menu {
+    margin-bottom: 1px;
+  }
+
+  #subject-nav {
+    box-shadow: none;
+
+    #subject-nav-wrapper, .subject-nav-center {
+      background: none;
+    }
+
+    #search-content {
+      form {
+        background: none;
+        @include bottom-frame($lightGray);
+      }
+    }
+  }
+
+  #content-layout {
+    padding: 0;
+  }
+
+  #footer .navbar-default {
+    background: $backgroundColorHome;
+  }
+
+  .wrap {
+    background-color: $backgroundColorHome;
   }
 }
+

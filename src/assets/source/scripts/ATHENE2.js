@@ -30,13 +30,15 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
 
             moment.lang(languageFromDOM);
 
-            // create an system notifiction whenever Common.genericError is called
+            // create an system notification whenever Common.genericError is called
             Common.addEventListener('generic error', function () {
                 SystemNotification.error();
             });
             // initialize contextuals whenever a new context is added
 
-            $('#subject-nav').SerloAffix();
+            if (!$('body').hasClass('serlo-home')) {
+                $('#subject-nav').SerloAffix();
+            }
 
             Content.add(function ($context) {
                 var elements = $('.math, .mathInline', $context).filter(':visible').toArray();
