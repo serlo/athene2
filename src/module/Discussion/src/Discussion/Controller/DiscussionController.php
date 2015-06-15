@@ -125,7 +125,13 @@ class DiscussionController extends AbstractController
         $form     = $this->getForm('discussion', $this->params('on'));
         $instance = $this->getInstanceManager()->getInstanceFromRequest();
         $author   = $this->getUserManager()->getUserFromAuthenticator();
+        $url      = $this->url()->fromRoute('uuid/get', ['uuid' => $this->params('on')]);
         $ref      = $this->params()->fromQuery('redirect');
+
+        if ($ref == null) {
+            $ref = $url;
+        }
+
         $view     = new ViewModel(['form' => $form, 'ref' => $ref]);
         $this->assertGranted('discussion.create', $instance);
 
