@@ -68,10 +68,14 @@ class DiscussionController extends AbstractController
     {
         $discussion = $this->getDiscussion($this->params('discussion'));
         $url        = $this->url()->fromRoute('uuid/get', ['uuid' => $this->params('discussion')]);
-        $ref        = $this->referer()->fromStorage($url, 'discussion-comment');
+        $ref        = $this->params()->fromQuery('redirect');
 
         if (!$discussion) {
             return false;
+        }
+
+        if ($ref == null) {
+            $ref = $url;
         }
 
         $form = $this->commentForm;
@@ -121,8 +125,7 @@ class DiscussionController extends AbstractController
         $form     = $this->getForm('discussion', $this->params('on'));
         $instance = $this->getInstanceManager()->getInstanceFromRequest();
         $author   = $this->getUserManager()->getUserFromAuthenticator();
-        $url      = $this->url()->fromRoute('uuid/get', ['uuid' => $this->params('on')]);
-        $ref      = $this->referer()->fromStorage($url);
+        $ref      = $this->params()->fromQuery('redirect');
         $view     = new ViewModel(['form' => $form, 'ref' => $ref]);
         $this->assertGranted('discussion.create', $instance);
 
@@ -138,7 +141,7 @@ class DiscussionController extends AbstractController
                 $this->getDiscussionManager()->flush();
                 if (!$this->getRequest()->isXmlHttpRequest()) {
                     $this->flashMessenger()->addSuccessMessage('Your discussion has been started.');
-                    return $this->redirect()->toUrl($ref, 'discussion-start');
+                    return $this->redirect()->toUrl($ref);
                 }
                 $view->setTerminal(true);
                 return $view;

@@ -8,7 +8,7 @@
     <div class="panel-body">
         <ul class="list-group discussions">
             {% if isGranted('discussion.create') %}
-                {% set form = discussion().getForm('discussion', object, forum) %}
+                {% set form = discussion().getForm('discussion', object, forum, normalize().toUrl(entity)) %}
                 <li class="list-group-item">
                     <div class="discussion-head">
                         <strong>
