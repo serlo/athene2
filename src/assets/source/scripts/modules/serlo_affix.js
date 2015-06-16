@@ -93,6 +93,10 @@ define(['jquery', 'underscore'], function ($, _) {
     });
 
     function affixOnScroll() {
+        if ($stickTo === undefined) {
+            return;
+        }
+
         scrollTop = $('body,html').scrollTop();
         windowHeight = window.outerHeight || $(window).height();
 
