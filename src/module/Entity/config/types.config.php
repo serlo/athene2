@@ -195,7 +195,10 @@ return [
                     'license'         => [],
                     'taxonomy'        => [],
                     'related_content' => [],
-                    'search'          => []
+                    'search'          => [],
+                    'redirect'        => [
+                        'toType' => 'course-page'
+                    ]
                 ]
             ],
             'course-page'           => [

@@ -109,6 +109,9 @@ return [
                 __NAMESPACE__ . '\Controller\PageController'       => [
                     'setEntityManager' => [
                         'required' => true
+                    ],
+                    'setModuleOptions' => [
+                        'required' => true
                     ]
                 ],
                 __NAMESPACE__ . '\Manager\EntityManager'           => [
