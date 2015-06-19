@@ -30,7 +30,7 @@ return [
         'storage_adapter' => [
             'name' => 'Zend\Cache\Storage\Adapter\Apc',
             'options' => [
-               'ttl' => 60*60
+               'ttl' => 1
             ]
         ]
     ]
