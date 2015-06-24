@@ -14,9 +14,11 @@ use Discussion\Exception\RuntimeException;
 use Discussion\Form\CommentForm;
 use Discussion\Form\DiscussionForm;
 use Doctrine\Common\Collections\Collection;
+use Entity\Entity\Entity;
 use Taxonomy\Entity\TaxonomyTermInterface;
 use Taxonomy\Form\TermForm;
 use Uuid\Entity\UuidInterface;
+use Zend\Http\Request;
 use Zend\View\Helper\AbstractHelper;
 use ZfcTwig\View\TwigRenderer;
 
@@ -118,6 +120,8 @@ class Discussion extends AbstractHelper
     public function getForm($type, UuidInterface $object, TaxonomyTermInterface $forum = null)
     {
         $view = $this->getView();
+        $queries = ['query' => ['redirect' => $view->serverUrl(true)]];
+
         switch ($type) {
             case 'discussion':
                 $form = clone $this->discussionForm;
@@ -125,7 +129,8 @@ class Discussion extends AbstractHelper
                     'action',
                     $view->url(
                         'discussion/discussion/start',
-                        ['on' => $object->getId()]
+                        ['on' => $object->getId()],
+                        $queries
                     )
                 );
                 return $form;
@@ -136,7 +141,8 @@ class Discussion extends AbstractHelper
                     'action',
                     $view->url(
                         'discussion/discussion/comment',
-                        ['discussion' => $object->getId()]
+                        ['discussion' => $object->getId()],
+                        $queries
                     )
                 );
                 return $form;
