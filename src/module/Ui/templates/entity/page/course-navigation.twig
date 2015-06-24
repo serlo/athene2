@@ -10,11 +10,12 @@
         </li>
         {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
             {% set revision = page.getCurrentRevision() %}
-            {% if activePage == page %}
+            {% set icon = revision.get('icon', 'book') %}
+            {% if page == activePage %}
                 <li class="nav-course-item active">
                     <div class="nav-bar">
                         <div class="pipe"></div>
-                        <span class="fa fa-{{ revision.get('icon', 'book') }}"></span>
+                        <span class="fa {{ icon == 'video' or icon == 'questionMark' ? 'fa-'~icon :'' }}"></span>
                         <span class="list-item">{{ revision.get('title') }}</span>
                     </div>
                 </li>
@@ -23,7 +24,7 @@
                     <a class="nav-course-link" href="{{ normalize().toUrl(page) }}">
                         <div class="nav-bar">
                             <div class="pipe"></div>
-                            <span class="fa fa-{{ revision.get('icon', 'book') }}"></span>
+                            <span class="fa {{ icon == 'video' or icon == 'questionMark' ? 'fa-'~icon :'' }}"></span>
                             <span class="list-item">{{ revision.get('title') }}</span>
                         </div>
                     </a>
