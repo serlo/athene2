@@ -172,20 +172,57 @@ class Entity extends Uuid implements EntityInterface
         return $this->parentLinks;
     }
 
-    public function getParents($linkyType, $parentType = null)
+    public function getParents($linkType, $parentType = null)
     {
         $collection = new ArrayCollection();
 
         foreach ($this->getParentLinks() as $link) {
             $childTypeName = $link->getChild()->getType()->getName();
             if ($link->getType()->getName(
-                ) === $linkyType && ($parentType === null || ($parentType !== null && $childTypeName === $parentType))
+                ) === $linkType && ($parentType === null || ($parentType !== null && $childTypeName === $parentType))
             ) {
                 $collection->add($link->getParent());
             }
         }
 
         return $collection;
+    }
+
+    public function getNextValidSibling($linkType, EntityInterface $previous)
+    {
+        $children = $this->getChildren($linkType, $previous->getType());
+
+        // Checks if the given entity is a child at all
+        if (($index = $children->indexOf($previous)) == false) {
+            return null;
+        }
+
+        for ($i = $index+1; $i < $children->count(); ++$i) {
+            $child = $children->get($i);
+            if ($child->hasCurrentRevision() && !$child->isTrahsed()) {
+                return $child;
+            }
+        }
+
+        return null;
+    }
+
+    public function getPreviousValidSibling($linkType, EntityInterface $following)
+    {
+        $children = $this->getChildren($linkType, $following->getType());
+
+        if (($index = $children->indexOf($following)) == false) {
+            return null;
+        }
+
+        for ($i = $index-1; $i >= 0; --$i) {
+            $child = $children->get($i);
+            if ($child->hasCurrentRevision() && !$child->isTrahsed()) {
+                return $child;
+            }
+        }
+
+        return null;
     }
 
     public function getRevisions()

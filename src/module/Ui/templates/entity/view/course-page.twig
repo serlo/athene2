@@ -3,6 +3,11 @@
 {% set content = markdown().toHtml(revision.get('content')) | raw %}
 <div class="row">
     <div class="col-xs-12">
+        <h2 class="heading-content">{{ revision.get('title') }}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
         {{ content }}
     </div>
 </div>

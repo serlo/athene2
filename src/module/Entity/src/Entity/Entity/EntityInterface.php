@@ -36,11 +36,11 @@ interface EntityInterface
     /**
      * Returns the children
      *
-     * @param string $linkyType
+     * @param string $linkType
      * @param string $childType
      * @return Collection
      */
-    public function getChildren($linkyType, $childType = null);
+    public function getChildren($linkType, $childType = null);
 
     /**
      * Returns the parents
@@ -50,6 +50,22 @@ interface EntityInterface
      * @return Collection
      */
     public function getParents($linkyType, $parentType = null);
+
+    /**
+     * Returns the entity following the given entity or null
+     *
+     * @param EntityInterface $previous
+     * @return EntityInterface|null
+     */
+    public function getNextValidSibling($linkType, EntityInterface $previous);
+
+    /**
+     * Returns the previous valid sibling or null
+     *
+     * @param EntityInterface $following
+     * @return EntityInterface|null
+     */
+    public function getPreviousValidSibling($linkType, EntityInterface $following);
 
     /**
      * @return bool
