@@ -9,15 +9,20 @@
  */
 namespace Application\Controller;
 
+use Instance\Manager\InstanceManagerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    use InstanceManagerAwareTrait;
+
     public function indexAction()
     {
         $view = new ViewModel();
-        $this->layout('layout/home');
+        $instance = $this->getInstanceManager()->getInstanceFromRequest();
+
+        $this->layout('layout/' . $instance->getSubdomain() . '/home');
 
         return $view;
     }

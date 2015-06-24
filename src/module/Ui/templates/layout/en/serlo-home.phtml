@@ -3,7 +3,7 @@
  *
  * Athene2 - Advanced Learning Resources Manager
  *
- * @author  Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @author  Jonas Keinholz (jonas.keinholz@serlo.org)
  * @license LGPL-3.0
  * @license http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
@@ -14,10 +14,7 @@ echo $this->doctype();
 <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>">
 <?php echo $this->partial('layout/partials/head'); ?>
 
-<!-- @deprecated -->
-<!-- moved to 1-col -->
-
-<body class="serlo-home" itemscope itemtype="http://schema.org/WebPage">
+<body class="serlo-home serlo-en-home" itemscope itemtype="http://schema.org/WebPage">
 <div class="wrap">
     <header id="header">
         <?php echo $this->partial('layout/partials/top-bar'); ?>
@@ -86,15 +83,13 @@ echo $this->doctype();
             <div id="content-layout" class="clearfix">
                 <?php echo $this->partial('layout/partials/notifications'); ?>
 
-                <div class="home-subject-row clearfix">
+                <div class="home-subject-row home-row">
                     <div class="home-column">
-                        <a href="/mathe">Mathematik lernen <i class="fa fa-arrow-circle-right"></i></a><br/>
-
-                        <p>oder <a href="/biologie">Biologie</a>, <a href="/permakultur">Permakultur</a>, <a href="/neue-faecher">…</a></p>
+                        <a href="/23591">Learn maths <i class="fa fa-arrow-circle-right"></i></a><br/>
                     </div>
                 </div>
 
-                <div class="home-3-col-row clearfix">
+                <div class="home-serlo-row home-row">
                     <div class="home-column">
                         <div class="logo-wrapper">
                             <?php echo $this->brand()->getLogo(); ?>
@@ -107,58 +102,19 @@ echo $this->doctype();
                             Unsere Vision ist, dass alle Menschen einfachen Zugang zu Bildung haben und entsprechend
                             ihres Potentials lernen können.
                         </p>
-                        <a href="/18922">Mehr erfahren <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-
-                    <div class="home-column">
-                        <h2>Hauptpartner</h2>
-                        <ul>
-                            <li><a href="http://www.hanssauerstiftung.de/"><img src="/assets/images/home_logo_sauer.png"
-                                                                                alt="Hans Sauer Stiftung"/></a></li>
-                            <li><a href="http://www.zeidler-forschungs-stiftung.de"><img
-                                        src="/assets/images/home_logo_zeidler.png"
-                                        alt="Zeidler-Forschungs-Stiftung"/></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="home-column">
-                        <h2>Presse</h2>
-                        <blockquote>
-                            Geld für die Mathe-Nachhilfe sparen, dank Serlo.
-                            <footer><a href="https://soundcloud.com/serlo/ndr-radiointerview">NDR Radiobeitrag.</a>
-                            </footer>
-                        </blockquote>
-                        <blockquote>
-                            Social Startups. Ideen, die die Gesellschaft weiterbringen.
-                            <footer><a
-                                    href="http://www.br.de/mediathek/video/sendungen/nachrichten/startup-gesellschaftsrelevant-sozial-100.html#&time=">BR
-                                    Abendnachrichten.</a></footer>
-                        </blockquote>
-                        <blockquote>
-                            Interview mit Serlo-Gründer Simon Köhl.
-                            <footer><a
-                                    href="http://munich.thechanger.org/blog-de/interview-mit-simon-kohl-grunder-von-serlo-fur-mich-hat-engagement-grose-ahnlichkeiten-zu-politischer-kunst/?lang=de">The
-                                    Changer.</a></footer>
-                        </blockquote>
-                        <a href="/presse"><i class="fa fa-plus-circle"></i></a>
+                        <a href="/23727">Mehr erfahren <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
-                <div class="home-blue-row clearfix">
-                    <div class="home-column">
-                        <ul>
-                            <li>837 <span>Artikel</span></li>
-                            <li>4621 <span>Aufgaben</span></li>
-                            <li>120 <span>Kurse und Videos</span></li>
-                        </ul>
-                    </div>
+                <div class="home-blue-row home-row">
+                    <div></div>
                 </div>
 
-                <div class="home-launch-img-row"></div>
+                <div class="home-launch-img-row home-row"></div>
 
                 <div class="home-community-wrapper">
-                    <div class="home-community-row clearfix">
-                        <div class="home-column">
+                    <div class="home-community-row home-row">
+                        <div class="home-column home-col-md-3">
                             <img src="/assets/images/home_participate.svg"/>
 
                             <h2>Serlo ist ein Wiki:</h2>
@@ -168,9 +124,9 @@ echo $this->doctype();
                                 Wir suchen Lehrer und Hobbydidaktiker mit Begeisterung für Ihr Fach.
                             </p>
                             <img src="/assets/images/home_commons.svg"/><br/>
-                            <a href="/19869">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/19869" class="home-hide-md">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
-                        <div class="home-column">
+                        <div class="home-column home-col-md-3">
                             <img src="/assets/images/home_donate.svg"/>
 
                             <h2>Serlo ist eine Non-Profit-Organisation:</h2>
@@ -179,16 +135,16 @@ echo $this->doctype();
                                 Softwareentwicklung, Betreuung der Ehrenamtlichen und Aufbau der Organisation kosten
                                 Geld. Wir freuen uns sehr, wenn Sie Serlo mit einer Spende unterstützen.
                             </p>
-                            <a href="/21565">Spenden <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/39837" class="home-hide-md">Spenden <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
 
-                    <div class="home-community-link-row clearfix">
-                        <div class="home-column">
-                            <a href="/19869">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                    <div class="home-community-link-row home-row">
+                        <div class="home-column home-col-md-3">
+                            <a href="/19869" class="home-show-md">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
-                        <div class="home-column">
-                            <a href="/21565">Spenden <i class="fa fa-arrow-circle-right"></i></a>
+                        <div class="home-column home-col-md-3">
+                            <a href="/39837" class="home-show-md">Spenden <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>

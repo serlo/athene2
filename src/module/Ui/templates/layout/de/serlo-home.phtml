@@ -1,0 +1,204 @@
+<?php
+/**
+ *
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author  Jonas Keinholz (jonas.keinholz@serlo.org)
+ * @license LGPL-3.0
+ * @license http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * @link        https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+echo $this->doctype();
+?>
+<html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>">
+<?php echo $this->partial('layout/partials/head'); ?>
+
+<body class="serlo-home serlo-de-home" itemscope itemtype="http://schema.org/WebPage">
+<div class="wrap">
+    <header id="header">
+        <?php echo $this->partial('layout/partials/top-bar'); ?>
+
+        <div class="container-fluid">
+            <nav id="header-nav">
+                <div id="mobile-nav-toggle">
+                    <button>
+                        <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <?php echo $this->brand()->getLogo(); ?>
+                    <?php echo $this->brand()->getBrand(); ?>
+                    <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
+                            ->menu()
+                            ->setPartial('layout/navigation/partial/active-subject')
+                            ->setOnlyActiveBranch(true)
+                            ->setMinDepth(0)
+                            ->setMaxDepth(0)
+                            ->render();
+                        ?></span>
+                </div>
+
+                <div id="mobile-nav-right">
+                    <ul class="authentification nav navbar-nav">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                                <span class="fa fa-user"></span>
+                            </a>
+                            <?php
+                            echo $this->navigation('top_auth_navigation')
+                                ->menu()
+                                ->setUlClass('dropdown-menu dropdown-menu-right')
+                                ->setPartial('layout/navigation/horizontal')
+                                ->render();
+                            ?>
+                        </li>
+                    </ul>
+                    <ul class="notifications nav navbar-nav">
+                        <?php echo $this->notifications()->render(); ?>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="mobile-nav"></div>
+
+            <?php if (empty($this->placeholder('hideSubjectNav')->getValue())): ?>
+                <nav id="subject-nav">
+                    <div id="subject-nav-wrapper">
+                        <div class="subject-nav-center">
+                            <div class="pull-right controls">
+                                <?php echo $this->placeholder('controls'); ?>
+                            </div>
+                            <ol id="breadcrumbs">
+                            </ol>
+                        </div>
+                        <?php echo $this->partial('layout/partials/search'); ?>
+                    </div>
+                </nav>
+            <?php endif; ?>
+        </div>
+    </header>
+
+    <div id="page">
+        <section class="clearfix">
+            <div id="content-layout" class="clearfix">
+                <?php echo $this->partial('layout/partials/notifications'); ?>
+
+                <div class="home-subject-row home-row">
+                    <div class="home-column">
+                        <a href="/mathe">Mathematik lernen <i class="fa fa-arrow-circle-right"></i></a><br/>
+
+                        <p>oder <a href="/biologie">Biologie</a>, <a href="/permakultur">Permakultur</a>, <a href="/neue-faecher">…</a></p>
+                    </div>
+                </div>
+
+                <div class="home-serlo-row home-row">
+                    <div class="home-column home-col-lg-2 home-col-md-3">
+                        <div class="logo-wrapper">
+                            <?php echo $this->brand()->getLogo(); ?>
+                            <?php echo $this->brand()->getBrand(); ?>
+                        </div>
+
+                        <p>
+                            Auf Serlo sammeln wir alles Schulwissen, tausende Aufgaben und Musterlösungen komplett
+                            kostenlos. Wie bei Wikipedia können die Nutzer Inhalte verbessern und neue Inhalte hinzufügen.
+                            Unsere Vision ist, dass alle Menschen einfachen Zugang zu Bildung haben und entsprechend
+                            ihres Potentials lernen können.
+                        </p>
+                        <a href="/18922">Mehr erfahren <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+
+                    <div class="home-column home-col-lg-2 home-col-md-3">
+                        <h2>Hauptpartner</h2>
+                        <ul>
+                            <li><a href="http://www.hanssauerstiftung.de/"><img src="/assets/images/home_logo_sauer.png"
+                                                                                alt="Hans Sauer Stiftung"/></a></li>
+                            <li><a href="http://www.zeidler-forschungs-stiftung.de"><img
+                                        src="/assets/images/home_logo_zeidler.png"
+                                        alt="Zeidler-Forschungs-Stiftung"/></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="home-column home-col-lg-2 home-show-lg">
+                        <h2>Presse</h2>
+                        <blockquote>
+                            Geld für die Mathe-Nachhilfe sparen, dank Serlo.
+                            <footer><a href="https://soundcloud.com/serlo/ndr-radiointerview">NDR Radiobeitrag.</a>
+                            </footer>
+                        </blockquote>
+                        <blockquote>
+                            Social Startups. Ideen, die die Gesellschaft weiterbringen.
+                            <footer><a
+                                    href="http://www.br.de/mediathek/video/sendungen/nachrichten/startup-gesellschaftsrelevant-sozial-100.html#&time=">BR
+                                    Abendnachrichten.</a></footer>
+                        </blockquote>
+                        <blockquote>
+                            Interview mit Serlo-Gründer Simon Köhl.
+                            <footer><a
+                                    href="http://munich.thechanger.org/blog-de/interview-mit-simon-kohl-grunder-von-serlo-fur-mich-hat-engagement-grose-ahnlichkeiten-zu-politischer-kunst/?lang=de">The
+                                    Changer.</a></footer>
+                        </blockquote>
+                        <a href="/presse"><i class="fa fa-plus-circle"></i></a>
+                    </div>
+                </div>
+
+                <div class="home-blue-row home-row">
+                    <div class="home-column">
+                        <ul>
+                            <li>837 <span>Artikel</span></li>
+                            <li>4621 <span>Aufgaben</span></li>
+                            <li>120 <span>Kurse und Videos</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="home-launch-img-row home-row"></div>
+
+                <div class="home-community-wrapper">
+                    <div class="home-community-row home-row">
+                        <div class="home-column home-col-md-3">
+                            <img src="/assets/images/home_participate.svg"/>
+
+                            <h2>Serlo ist ein Wiki:</h2>
+
+                            <p>
+                                Hilf uns Bildung frei verfügbar zu machen und werde Teil der Online-Community von Serlo.
+                                Wir suchen Lehrer und Hobbydidaktiker mit Begeisterung für Ihr Fach.
+                            </p>
+                            <img src="/assets/images/home_commons.svg"/><br/>
+                            <a href="/19869" class="home-hide-md">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                        <div class="home-column home-col-md-3">
+                            <img src="/assets/images/home_donate.svg"/>
+
+                            <h2>Serlo ist eine Non-Profit-Organisation:</h2>
+
+                            <p class="text-center">
+                                Softwareentwicklung, Betreuung der Ehrenamtlichen und Aufbau der Organisation kosten
+                                Geld. Wir freuen uns sehr, wenn Sie Serlo mit einer Spende unterstützen.
+                            </p>
+                            <a href="/21565" class="home-hide-md">Spenden <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="home-community-link-row home-row">
+                        <div class="home-column home-col-md-3">
+                            <a href="/19869" class="home-show-md">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                        <div class="home-column home-col-md-3">
+                            <a href="/21565" class="home-show-md">Spenden <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="footer-push"></div>
+</div>
+
+<?php echo $this->partial('layout/partials/footer'); ?>
+<?php echo $this->partial('layout/partials/default-modal'); ?>
+<?php echo $this->placeholder('modals'); ?>
+<?php echo $this->tracking(); ?>
+<?php echo $this->partial('layout/partials/noscript'); ?>
+</body>
+</html>
