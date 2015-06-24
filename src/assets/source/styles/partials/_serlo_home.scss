@@ -252,7 +252,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 
   #subject-nav {
-    box-shadow: none;
+    @include box-shadow(none);
 
     .subject-nav-center {
       margin-right: 227px;
@@ -260,6 +260,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
     #subject-nav-wrapper, .subject-nav-center {
       background: none;
+      @include box-shadow(none);
     }
 
     #search-content {
@@ -271,6 +272,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
       form {
         background: none;
+        @include box-shadow(none);
         @include bottom-frame($lightGray);
       }
     }
