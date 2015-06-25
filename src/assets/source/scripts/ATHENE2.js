@@ -41,7 +41,8 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
             }
 
             Content.add(function ($context) {
-                var elements = $('.math, .mathInline', $context).filter(':visible').toArray();
+                // var elements = $('.math, .mathInline', $context).toArray(),
+                //    typesets = [];
 
                 // init sortable lists in context
                 $('.sortable', $context).SortableList();
@@ -82,10 +83,7 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
                             verticalFit: true
                         },
                         disableOn: function () {
-                            if ($that.parents('a').length > 0) {
-                                return false;
-                            }
-                            return true;
+                            return $that.parents('a').length > 0;
                         }
                     });
                 });
@@ -95,11 +93,20 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
                 // $('a[href^="/ref"]', $context).addClass('ajax-content');
 
                 // init Mathjax
-                $.each(elements, function (key, element) {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
-                });
+                //$.each(elements, function (key, element) {
+                //    typesets.push(function(){
+                //        MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
+                //    });
+                //});
 
-                $context.MathjaxTrigger();
+                //console.log(typesets);
+                //async.parallel(typesets, function() {
+                //    console.log('Done!');
+                //});
+
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+                //$context.MathjaxTrigger();
             });
 
             // Tooltips opt in
@@ -194,11 +201,17 @@ require(['jquery', 'ATHENE2', 'support'], function ($, App, Supporter) {
             displayAlign: 'left',
             extensions: ["tex2jax.js", "CHTML-preview.js"],
             jax: ["input/TeX", "output/SVG", "output/CommonHTML"],
-            skipStartupTypeset: true,
+            skipStartupTypeset: false,
             tex2jax: {
                 inlineMath: [
+                    ["\\%\\%", "\\%\\%"],
                     ["%%", "%%"]
-                ]
+                ],
+                displayMath: [
+                    ["$$", "$$"]
+                ],
+                processEscapes: true,
+                processClass: "math|mathInline"
             },
             "HTML-CSS": {
                 scale: 100,
@@ -210,7 +223,8 @@ require(['jquery', 'ATHENE2', 'support'], function ($, App, Supporter) {
                 linebreaks: {
                     automatic: true
                 }
-            }
+            },
+            showProcessingMessages: false
         });
     }
 
