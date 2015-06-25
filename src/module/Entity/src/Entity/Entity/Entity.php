@@ -190,33 +190,26 @@ class Entity extends Uuid implements EntityInterface
 
     public function getNextValidSibling($linkType, EntityInterface $previous)
     {
-        $children = $this->getChildren($linkType, $previous->getType());
-
-        var_dump($children);
+        $children = $this->getChildren($linkType, $previous->getType()->getName());
 
         // Checks if the given entity is a child at all
         if (($index = $children->indexOf($previous)) == false) {
             return null;
         }
 
-        var_dump($index);
-
         for ($i = $index+1; $i < $children->count(); ++$i) {
             $child = $children->get($i);
-            if ($child->hasCurrentRevision() && !$child->isTrahsed()) {
-                var_dump($index);
+            if ($child->hasCurrentRevision() && !$child->isTrashed()) {
                 return $child;
             }
         }
-
-        die();
 
         return null;
     }
 
     public function getPreviousValidSibling($linkType, EntityInterface $following)
     {
-        $children = $this->getChildren($linkType, $following->getType());
+        $children = $this->getChildren($linkType, $following->getType()->getName());
 
         if (($index = $children->indexOf($following)) == false) {
             return null;
@@ -224,7 +217,7 @@ class Entity extends Uuid implements EntityInterface
 
         for ($i = $index-1; $i >= 0; --$i) {
             $child = $children->get($i);
-            if ($child->hasCurrentRevision() && !$child->isTrahsed()) {
+            if ($child->hasCurrentRevision() && !$child->isTrashed()) {
                 return $child;
             }
         }
