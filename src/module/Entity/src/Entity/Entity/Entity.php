@@ -192,17 +192,24 @@ class Entity extends Uuid implements EntityInterface
     {
         $children = $this->getChildren($linkType, $previous->getType());
 
+        var_dump($children);
+
         // Checks if the given entity is a child at all
         if (($index = $children->indexOf($previous)) == false) {
             return null;
         }
 
+        var_dump($index);
+
         for ($i = $index+1; $i < $children->count(); ++$i) {
             $child = $children->get($i);
             if ($child->hasCurrentRevision() && !$child->isTrahsed()) {
+                var_dump($index);
                 return $child;
             }
         }
+
+        die();
 
         return null;
     }

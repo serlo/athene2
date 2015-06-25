@@ -4,18 +4,16 @@
 <div id="course-{{ entity.getId() }}" class="carousel-tabbed carousel slide">
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
+        {% set validPages = [] %}
         {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
+            {% set validPages = validPages|merge([page]) %}
+        {% endfor %}
+
+        {% for page in validPages %}
             {% set revision = page.getCurrentRevision() %}
+
             <article class="{{ loop.first ? "item active" : "item" }}">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h2 class="heading-content">{{ revision.get('title') }}</h2>
-                        </div>
-                    </div>
-                    <div class="pull-right">
-                        {% include 'entity/view/partials/actions/small' with {'entity': page} only %}
-                    </div>
                     {% include 'entity/view/default' with { 'entity': page, 'parent': entity} only %}
                 </div>
             </article>

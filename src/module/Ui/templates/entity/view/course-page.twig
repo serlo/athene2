@@ -1,6 +1,19 @@
 {% set title = 'course-page' | trans %}
 {% set revision = entity.getCurrentRevision() %}
 {% set content = markdown().toHtml(revision.get('content')) | raw %}
+
+{% set previous = parent.getPreviousValidSibling('link', entity) %}
+{% set next = parent.getNextValidSibling('link', entity) %}
+
+{% if previous is not null %}
+    <div class="row">
+        <a href="#">
+            <i class="fa fa-arrow-circle-left"></i>
+            <span>{{ previous.getCurrentRevision().get('title') }}</span>
+        </a>
+    </div>
+{% endif %}
+
 <div class="row">
     <div class="col-xs-12">
         <h2 class="heading-content">{{ revision.get('title') }}</h2>
@@ -11,6 +24,16 @@
         {{ content }}
     </div>
 </div>
+
+{% if next is not null %}
+    <div class="row">
+        <a href="#">
+            <i class="fa fa-arrow-circle-left"></i>
+            <span>{{ next.getCurrentRevision().get('title') }}</span>
+        </a>
+    </div>
+{% endif %}
+
 <section id="discussion-{{ entity.getId() }}">
     {{ discussion(entity).render() }}
 </section>
