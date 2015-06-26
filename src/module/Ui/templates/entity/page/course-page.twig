@@ -1,9 +1,6 @@
 {% set title = entity.getCurrentRevision().get('title') %}
 {% set parent = entity.getParents('link').first() %}
-{{ pageHeader(title)
-.setSubtitle('course-page' | trans)
-.setBacklink(normalize().toUrl(parent))
-.render() }}
+{% do headTitle(title) %}
 
 {% set controls = include('entity/view/partials/actions/controls') %}
 {% do placeholder('controls').set(controls) %}
