@@ -168,6 +168,8 @@ hr {
     }
   }
 
+
+
   // Navbar collapse button
   .btn-navbar {
     /*.buttonBackground(darken($navbarLightBackgroundHighlight, 5%), darken($navbarLightBackground, 5%));*/
@@ -205,3 +207,12 @@ hr {
   }
 }
 
+.icon-link {
+  &:hover {
+    text-decoration: none;
+  }
+
+  span:hover {
+    text-decoration: underline;
+  }
+}
