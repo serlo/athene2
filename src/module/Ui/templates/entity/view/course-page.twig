@@ -11,7 +11,7 @@
             <a class="icon-link" href="{{ normalize().toUrl(previous) }}">
                 <h4>
                     <i class="fa fa-arrow-circle-left fa-2x"></i>
-                    <span>{{ previous.getCurrentRevision().get('title') }}</span>
+                    &ensp;<span>{{ previous.getCurrentRevision().get('title') }}</span>
                 </h4>
             </a>
         </div>
@@ -35,7 +35,7 @@
             <div class="pull-right">
                 <a class="icon-link" href="{{ normalize().toUrl(next) }}">
                     <h4>
-                        <span>{{ next.getCurrentRevision().get('title') }}</span>
+                        <span>{{ next.getCurrentRevision().get('title') }}</span>&ensp;
                         <i class="fa fa-arrow-circle-right fa-2x"></i>
                     </h4>
                 </a>
