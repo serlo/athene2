@@ -9,6 +9,7 @@
  */
 namespace Entity\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use DateTime;
 use Instance\Entity\InstanceAwareInterface;
 use License\Entity\LicenseAwareInterface;
@@ -38,7 +39,7 @@ interface EntityInterface
      *
      * @param string $linkType
      * @param string $childType
-     * @return Collection
+     * @return Collection|EntityInterface[]
      */
     public function getChildren($linkType, $childType = null);
 
@@ -47,7 +48,7 @@ interface EntityInterface
      *
      * @param string $linkyType
      * @param string $parentType
-     * @return Collection
+     * @return Collection|EntityInterface[]
      */
     public function getParents($linkyType, $parentType = null);
 

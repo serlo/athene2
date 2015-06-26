@@ -15,7 +15,7 @@
                 <li class="nav-course-item active">
                     <div class="nav-bar">
                         <div class="pipe"></div>
-                        <span class="fa {{ icon == 'video' or icon == 'questionMark' ? 'fa-'~icon :'' }}"></span>
+                        <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
                         <span class="list-item">{{ revision.get('title') }}</span>
                     </div>
                 </li>
@@ -24,7 +24,7 @@
                     <a class="nav-course-link" href="{{ normalize().toUrl(page) }}">
                         <div class="nav-bar">
                             <div class="pipe"></div>
-                            <span class="fa {{ icon == 'video' or icon == 'questionMark' ? 'fa-'~icon :'' }}"></span>
+                            <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
                             <span class="list-item">{{ revision.get('title') }}</span>
                         </div>
                     </a>

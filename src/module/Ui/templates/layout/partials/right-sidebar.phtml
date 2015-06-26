@@ -1,12 +1,15 @@
 <?php if (!empty($this->registry()->get('rnav'))): ?>
-<aside class="side-element side-context">
+<?php if (!empty($this->registry()->get('rnav-is-course'))) : $isCourse = $this->registry()->get('rnav-is-course'); endif; ?>
+<aside class="side-element side-context <?php if (!empty($isCourse) && $isCourse) : echo 'side-context-course'; endif; ?> ">
     <div id="sidebar-toggle" class="layout-toggle">
         <i class="fa fa-bars"></i>
         <i class="fa fa-times"></i>
     </div>
     <div class="side-element-inner">
-        <i class="fa fa-asterisk"></i>
+        <?php if (empty($isCourse) || !$isCourse): ?>
+            <i class="fa fa-asterisk"></i>
+        <?php endif; ?>
         <?php echo $this->registry()->get('rnav'); ?>
     </div>
 </aside>
-<?php endif; ?>
+<?php endif;?>

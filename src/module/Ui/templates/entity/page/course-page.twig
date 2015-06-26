@@ -16,3 +16,4 @@
 
 {% set courseNav = include('entity/page/course-navigation', {'entity': parent, 'activePage': entity}) %}
 {% set temp = registry().add('rnav', courseNav) %}
+{% set temp = registry().add('rnav-is-course', true) %}

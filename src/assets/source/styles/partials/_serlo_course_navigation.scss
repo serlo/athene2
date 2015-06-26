@@ -1,3 +1,7 @@
+.side-context-course{
+  box-shadow: none;
+}
+
 ul.nav-course {
   list-style: outside none none;
   margin: 0 0 0 -7px;
@@ -40,10 +44,10 @@ ul.nav-course {
   .fa {
     position: absolute;
     margin-left: 22px;
-    top: 12px;
+    top: 15px;
     width: 20px;
     height: 16px;
-    padding: 1px 3px;
+    padding: 1px 4px;
     background-color: $serloBlue;
     color: #FFF;
   }
@@ -62,7 +66,7 @@ ul.nav-course {
   color: #FFF;
   .pipe {
     background-color: #FFF;
-    top: 10px;
+    top: 15px;
     bottom: -1px;
   }
 
@@ -75,11 +79,11 @@ ul.nav-course {
 
   .pipe {
     top: auto;
-    bottom: 12px;
+    bottom: 15px;
   }
 
   .fa {
     top: auto;
-    bottom: 12px;
+    bottom: 15px;
   }
 }
