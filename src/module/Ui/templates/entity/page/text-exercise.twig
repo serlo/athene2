@@ -1,6 +1,7 @@
 {% set title = entity.getId() %}
 {% set exerciseText = "Text exercise" | trans %}
 {% do headTitle(title) %}
+{% do placeholder('isLeaf').set(true) %}
 {% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
 <div class="page-header">
     {% set controls = include('entity/view/partials/actions/controls') %}

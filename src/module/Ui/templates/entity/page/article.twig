@@ -4,6 +4,7 @@
     <div class="page-header">
         {% set controls = include('entity/view/partials/actions/controls') %}
         {% do placeholder('controls').set(controls) %}
+        {% do placeholder('isLeaf').set(true) %}
         {% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
         <h1><span itemprop="name">{{ title }}</span></h1>
     </div>
