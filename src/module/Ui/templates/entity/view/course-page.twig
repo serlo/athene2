@@ -8,9 +8,9 @@
 {% if previous is not null %}
     <div class="row">
         <div class="col-xs-12">
-            <a href="{{ normalize().toUrl(previous) }}">
+            <a class="icon-link" href="{{ normalize().toUrl(previous) }}">
                 <h4>
-                    <i class="fa fa-arrow-circle-left fa-2x" style="vertical-align: middle;"></i>
+                    <i class="fa fa-arrow-circle-left fa-2x"></i>
                     <span>{{ previous.getCurrentRevision().get('title') }}</span>
                 </h4>
             </a>
@@ -36,7 +36,7 @@
                 <a class="icon-link" href="{{ normalize().toUrl(next) }}">
                     <h4>
                         <span>{{ next.getCurrentRevision().get('title') }}</span>
-                        <i class="fa fa-arrow-circle-right fa-2x" style="vertical-align: middle;"></i>
+                        <i class="fa fa-arrow-circle-right fa-2x"></i>
                     </h4>
                 </a>
             </div>
