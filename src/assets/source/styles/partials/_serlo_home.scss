@@ -1,6 +1,10 @@
-$backgroundColorHome: #efefef;
+@import "../modules/grid";
+@import "../modules/visibility";
+
+$homeBackgroundColor: #efefef;
 $homeColumnWidth: 300px;
 $homeColumnPadding: 30px;
+
 $homeBreakpoint-md: 600px;
 $homeBreakpoint-md-min: $homeBreakpoint-md;
 $homeBreakpoint-md-max: ($homeBreakpoint-md-min - 1);
@@ -8,6 +12,14 @@ $homeBreakpoint-md-max: ($homeBreakpoint-md-min - 1);
 $homeBreakpoint-lg: 800px;
 $homeBreakpoint-lg-min: $homeBreakpoint-lg;
 $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
+
+@include grid('home', 6, ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
+@include visibility('home', ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
+
+.home-row {
+  margin: 0 auto;
+  text-align: center;
+}
 
 .home-column {
   padding: 0 $homeColumnPadding;
@@ -39,20 +51,16 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
-.home-subject-row, .home-3-col-row, .home-community-row {
-  margin: 0 auto;
-  text-align: center;
-}
-
 .home-subject-row {
   max-width: 400px;
-  padding-top: 300px;
   margin: 25px auto 100px;
   background: url('../images/home_title_maths.svg') no-repeat;
   background-size: 400px;
 
   .home-column {
     > a {
+      padding-top: 300px;
+      display: block;
       font-size: 32px;
     }
 
@@ -62,67 +70,17 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
-.home-3-col-row {
-  max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
+.home-serlo-row {
   margin: 50px auto;
-
-  h2 {
-    display: inline-block;
-    width: 2/3 * 100%;
-    border-bottom: 1px solid $lightGray;
-    padding-bottom: 5px;
-  }
-
-  img {
-    max-width: 125px;
-  }
-
-  li {
-    padding: 29px 0;
-  }
-
-  blockquote {
-    border: none;
-    font-size: inherit;
-    margin: 0;
-
-    footer {
-      padding: 5px 0;
-      font-weight: bold;
-      display: inline-block;
-
-      &:before {
-        content: '';
-      }
-    }
-  }
 
   .home-column {
     margin-bottom: 25px;
 
     @media screen and (min-width: $homeBreakpoint-md-min) {
-      float: left;
-      width: 50%;
-    }
-
-    @media screen and (min-width: $homeBreakpoint-lg-min) {
-      float: left;
-      width: 1/3 * 100%;
-    }
-
-    @media screen and (max-width: $homeBreakpoint-lg-max) {
-      & + .home-column + .home-column {
-          display: none;
-      }
+      margin-bottom: 0;
     }
 
     + .home-column {
-      margin-bottom: 0;
-    }
-  }
-
-  @media screen and (min-width: $homeBreakpoint-md-min) {
-    .home-column {
       margin-bottom: 0;
     }
   }
@@ -137,6 +95,45 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
     line-height: 1;
     margin: 10px 0;
   }
+
+  .serlo-en-home & {
+    max-width: 400px;
+  }
+
+  .serlo-de-home & {
+    max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
+
+    h2 {
+      display: inline-block;
+      width: 2/3 * 100%;
+      border-bottom: 1px solid $lightGray;
+      padding-bottom: 5px;
+    }
+
+    img {
+      max-width: 125px;
+    }
+
+    li {
+      padding: 29px 0;
+    }
+
+    blockquote {
+      border: none;
+      font-size: inherit;
+      margin: 0;
+
+      footer {
+        padding: 5px 0;
+        font-weight: bold;
+        display: inline-block;
+
+        &:before {
+          content: '';
+        }
+      }
+    }
+  }
 }
 
 .home-blue-row {
@@ -144,99 +141,85 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   color: #ffffff;
   padding: 25px 0;
 
-  @media screen and (min-width: $homeBreakpoint-lg-min) {
+  @media (min-width: $homeBreakpoint-lg-min) {
     padding: 50px 0;
   }
 
-  .home-column {
-    ul {
-      display: inline-block;
-      font-size: 50px;
-      padding: 50px 0;
+  .serlo-de-home & {
+    .home-column {
+      ul {
+        display: inline-block;
+        font-size: 50px;
+        padding: 50px 0;
 
-      @media screen and (min-width: $homeBreakpoint-lg-min) {
-        padding: 50px 600px 50px 0;
-        background: url('../images/home_learn.svg') no-repeat right;
-      }
-
-      li {
-        padding: 15px 0;
-        line-height: 1;
-
-        span {
-          display: block;
-          font-size: 25px;
-          color: #bfdeef;
-          padding: 0;
+        @media (min-width: $homeBreakpoint-lg-min) {
+          padding: 50px 600px 50px 0;
+          background: url('../images/de/home_learn.svg') no-repeat right;
         }
+
+        li {
+          padding: 15px 0;
+          line-height: 1;
+
+          span {
+            display: block;
+            font-size: 25px;
+            color: #bfdeef;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .serlo-en-home & {
+    padding: 50px;
+
+    div {
+      background: url('../images/en/home_learn.svg') no-repeat center;
+      background-size: contain;
+      height: 0;
+      width: 100%;
+      max-width: 475px;
+      margin: 0 auto;
+      padding-top: 67%;
+
+      @media screen and (min-width: 525px) {
+        padding-top: 315px;
       }
     }
   }
 }
 
 .home-launch-img-row {
-  background: url('../images/home_img_launch_sm.jpg') no-repeat;
   background-size: contain;
+  background-repeat: no-repeat;
   height: 0;
   width: 100%;
   padding-top: 43.75%;
 
-  @media screen and (min-width: $homeBreakpoint-md-min) {
-    background-image: url('../images/home_img_launch_md.jpg');
-  }
+  .serlo-de-home & {
+    background-image: url('../images/de/home_img_launch_sm.jpg');
 
-  @media screen and (min-width: $homeBreakpoint-lg-min) {
-    background-image: url('../images/home_img_launch_lg.jpg');
-  }
-}
-
-.home-community-wrapper {
-  background: #fff;
-  padding: 50px 0;
-}
-
-.home-community-row, .home-community-link-row {
-  max-width: 2 * ($homeColumnWidth + 2*$homeColumnPadding);
-  margin: 0 auto;
-
-  .home-column {
     @media screen and (min-width: $homeBreakpoint-md-min) {
-      float: left;
-      width: 50%;
+      background-image: url('../images/de/home_img_launch_md.jpg');
     }
 
-    h2 {
-      margin-bottom: 2px;
-    }
-
-    > a {
-      display: block;
-      margin: 30px 0;
-
-      &:focus, &:hover, &:active {
-        color: $serloGreen;
-      }
-
-      i {
-        color: $serloGreen;
-      }
+    @media screen and (min-width: $homeBreakpoint-lg-min) {
+      background-image: url('../images/de/home_img_launch_lg.jpg');
     }
   }
-}
 
-@media screen and (min-width: 600px) {
-  .home-community-row .home-column > a {
-    display: none
-  }
-}
+  .serlo-en-home & {
+    background-image: url('../images/en/home_img_launch_sm.jpg');
 
-@media screen and (max-width: 599px) {
-  .home-community-row, .home-community-link-row {
-    margin: 0;
-  }
+    @media screen and (min-width: $homeBreakpoint-md-min) {
+      background-image: url('../images/en/home_img_launch_md.jpg');
+    }
 
-  .home-community-link-row .home-column > a {
-    display: none;
+    @media screen and (min-width: $homeBreakpoint-lg-min) {
+      background-image: url('../images/en/home_img_launch_lg.jpg');
+    }
   }
 }
 
@@ -283,11 +266,42 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 
   #footer .navbar-default {
-    background: $backgroundColorHome;
+    background: $homeBackgroundColor;
   }
 
   .wrap {
-    background-color: $backgroundColorHome;
+    background-color: $homeBackgroundColor;
   }
 }
 
+.home-community-wrapper {
+  background: #fff;
+  padding: 50px 0;
+}
+
+.home-community-row, .home-community-link-row {
+  max-width: 2 * ($homeColumnWidth + 2*$homeColumnPadding);
+
+  @media screen and (max-width: $homeBreakpoint-md-max) {
+    margin: 0;
+  }
+
+  .home-column {
+    h2 {
+      margin-bottom: 2px;
+    }
+
+    > a {
+      display: block;
+      margin: 30px 0;
+
+      &:focus, &:hover, &:active {
+        color: $serloGreen;
+      }
+
+      i {
+        color: $serloGreen;
+      }
+    }
+  }
+}
