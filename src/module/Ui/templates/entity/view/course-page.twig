@@ -8,9 +8,11 @@
 {% if previous is not null %}
     <div class="row">
         <div class="col-xs-12">
-            <a href="#">
-                <i class="fa fa-arrow-circle-left"></i>
-                <span>{{ previous.getCurrentRevision().get('title') }}</span>
+            <a href="{{ normalize().toUrl(previous) }}">
+                <h4>
+                    <i class="fa fa-arrow-circle-left"></i>
+                    {{ previous.getCurrentRevision().get('title') }}
+                </h4>
             </a>
         </div>
     </div>
@@ -31,9 +33,11 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="pull-right">
-                <a href="#">
-                    <span>{{ next.getCurrentRevision().get('title') }}</span>
-                    <i class="fa fa-arrow-circle-right"></i>
+                <a href="{{ normalize().toUrl(next) }}">
+                    <h4>
+                        {{ next.getCurrentRevision().get('title') }}
+                        <i class="pull-right fa fa-arrow-circle-right"></i>
+                    </h4>
                 </a>
             </div>
         </div>
