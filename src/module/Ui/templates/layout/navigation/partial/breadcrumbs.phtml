@@ -9,7 +9,9 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
  */
-$pagesCount = count($this->pages);
+$isLeaf = !empty($this->placeholder('isLeaf')->getValue());
+$pagesCount = count($this->pages) + ($isLeaf ? 1 : 0);
+
 foreach ($this->pages as $i => $page) {
     $html = [];
     $html[] = '<li>';
@@ -17,7 +19,8 @@ foreach ($this->pages as $i => $page) {
     $translate = is_bool($page->get('translate')) ? $page->get('translate') : $page->get('translate') === 'true';
     $label = $translate ? $this->translate($page->getLabel()) : $page->getLabel();
 
-    if ($i + 1 < $pagesCount && $page->isVisible()) {
+    // All visible items should be links as long as they aren't the last link
+    if (($isLeaf || $i + 1 < $pagesCount) && $page->isVisible()) {
         $html[] = '<a href="' . $this->alias($page->getHref()) . '">';
         $html[] = '<span>' . $label . '</span>';
         $html[] = '</a>';
@@ -30,7 +33,7 @@ foreach ($this->pages as $i => $page) {
     echo join(' ', $html);
 }
 
-// Show custom breadcrumbs if there are no default breadcrumbs
-if ($pagesCount === 0) {
+// Show custom breadcrumbs if there are no default breadcrumbs or the given page is a leaf in the navigation
+if ($isLeaf || $pagesCount === 0) {
     echo $this->placeholder('breadcrumbs');
 }

@@ -7,6 +7,7 @@
 
 {% set controls = include('entity/view/partials/actions/controls') %}
 {% do placeholder('controls').set(controls) %}
+{% do placeholder('isLeaf').set(true) %}
 {% do placeholder('breadcrumbs').set('<li><a href="' ~ normalize().toUrl(parent) ~ '"><span>' ~ parent.getCurrentRevision().get('title') ~
 '</span></a></li> <li><span>'~title~'</span></li>') %}
 
