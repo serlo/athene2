@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     type: "rsync",
     rsync__auto: "true",
     rsync__exclude: ["src/public/assets/", ".git/", "composer.lock", ".idea/", "src/data/", "src/vendor/", "src/assets/build/", "src/assets/tmp/", "src/assets/source/bower_components", "src/assets/node_modules"],
-    rsync__args: ["--verbose", "-r", "-l", "--delete", "--stats"]
+    rsync__args: ["--verbose", "--archive", "--delete", "--stats"]
 
   config.vm.provider :virtualbox do |vb|
     # Solves an issue with dns resolving (nodejs)
@@ -27,4 +27,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
+  config.trigger.after :up do
+    run "vagrant ssh -c 'sh /vagrant/bin/vagrant/boot.sh'"
+    run "vagrant rsync-auto"
+  end
 end
