@@ -150,6 +150,11 @@ class UserController extends AbstractUserController
 
                 $this->getUserManager()->persist($user);
                 $this->getUserManager()->flush();
+                $this->flashMessenger()->addSuccessMessage(
+                    'Your profile has been saved'
+                );
+
+                return $this->redirect()->toRoute('user/me');
             }
         } else {
             $form = new SettingsForm($this->getUserManager()->getObjectManager());
