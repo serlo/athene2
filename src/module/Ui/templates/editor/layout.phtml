@@ -56,8 +56,7 @@ echo $this->doctype();
 
 <?php echo $this->partial('layout/partials/default-modal'); ?>
 <?php echo $this->headScript(); ?>
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<?php echo $this->partial('layout/partials/mathjax'); ?>
 <?php echo $this->inlineScript(); ?>
 <?php echo $this->tracking(); ?>
 </body>
