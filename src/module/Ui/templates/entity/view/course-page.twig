@@ -8,12 +8,14 @@
 {% if previous is not null %}
     <div class="row">
         <div class="col-xs-12">
-            <a class="icon-link" href="{{ normalize().toUrl(previous) }}">
-                <h4>
-                    <i class="fa fa-arrow-circle-left fa-2x"></i>
-                    &ensp;<span>{{ previous.getCurrentRevision().get('title') }}</span>
-                </h4>
-            </a>
+            <div class="icon-link">
+                <a href="{{ normalize().toUrl(previous) }}">
+                    <h4>
+                        <i class="fa fa-arrow-circle-left fa-2x"></i>
+                        &ensp;<span>{{ previous.getCurrentRevision().get('title') }}</span>
+                    </h4>
+                </a>
+            </div>
         </div>
     </div>
 {% endif %}
@@ -33,12 +35,14 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="pull-right">
-                <a class="icon-link" href="{{ normalize().toUrl(next) }}">
-                    <h4>
-                        <span>{{ next.getCurrentRevision().get('title') }}</span>&ensp;
-                        <i class="fa fa-arrow-circle-right fa-2x"></i>
-                    </h4>
-                </a>
+                <div class="icon-link icon-link-lower">
+                    <a href="{{ normalize().toUrl(next) }}">
+                        <h4>
+                            <span>{{ next.getCurrentRevision().get('title') }}</span>&ensp;
+                            <i class="fa fa-arrow-circle-right fa-2x"></i>
+                        </h4>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

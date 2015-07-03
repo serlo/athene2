@@ -207,8 +207,11 @@ hr {
   }
 }
 
+
 .icon-link {
-  &:hover {
+  margin-top: 20px;
+
+  a:hover {
     text-decoration: none;
   }
 
@@ -218,5 +221,9 @@ hr {
 
   i {
     vertical-align: middle;
+  }
+
+  &.icon-link-lower {
+    margin-bottom: 30px;
   }
 }
