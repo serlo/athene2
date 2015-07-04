@@ -1,0 +1,35 @@
+{% set pages = entity.getChildren('link', 'course-page') %}
+<div class="sidebar-content-group">
+    <ul class="nav nav-aside nav-course">
+        <li class="nav-course-item">
+            <div class="nav-bar">
+                <div class="pipe"></div>
+                <div class="fa"></div>
+                <span class="list-item">{{ entity.getCurrentRevision().get('title') }}</span>
+            </div>
+        </li>
+        {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
+            {% set revision = page.getCurrentRevision() %}
+            {% set icon = revision.get('icon', 'book') %}
+            {% if page == activePage %}
+                <li class="nav-course-item active">
+                    <div class="nav-bar">
+                        <div class="pipe"></div>
+                        <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
+                        <span class="list-item">{{ revision.get('title') }}</span>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-course-item">
+                    <a class="nav-course-link" href="{{ normalize().toUrl(page) }}">
+                        <div class="nav-bar">
+                            <div class="pipe"></div>
+                            <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
+                            <span class="list-item">{{ revision.get('title') }}</span>
+                        </div>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

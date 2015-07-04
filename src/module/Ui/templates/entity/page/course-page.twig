@@ -1,11 +1,8 @@
 {% set title = entity.getCurrentRevision().get('title') %}
 {% set parent = entity.getParents('link').first() %}
-{{ pageHeader(title)
-.setSubtitle('course-page' | trans)
-.setBacklink(normalize().toUrl(parent))
-.render() }}
+{% do headTitle(title) %}
 
-{% set controls = include('entity/view/partials/actions/controls') %}
+{% set controls = include('entity/view/partials/actions/course/course-controls-wrapper', {'entity': entity, 'parent': parent}) %}
 {% do placeholder('controls').set(controls) %}
 {% do placeholder('isLeaf').set(true) %}
 {% do placeholder('breadcrumbs').set('<li><a href="' ~ normalize().toUrl(parent) ~ '"><span>' ~ parent.getCurrentRevision().get('title') ~
@@ -14,6 +11,6 @@
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}
 
-{% set taxonomy = include('entity/page/aggregate/taxonomy', {'terms': entity.getTaxonomyTerms()}) %}
-{% set temp = registry().add('rnav', taxonomy) %}
-{% set temp = registry().add('rnav', related(entity)) %}
+{% set courseNav = include('entity/page/course-navigation', {'entity': parent, 'activePage': entity}) %}
+{% set temp = registry().add('rnav', courseNav) %}
+{% set temp = registry().add('rnav-is-course', true) %}
