@@ -52,9 +52,18 @@ return [
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
         ]
     ],
-    'controllers'     => [
-        'invokables' => [
-            'Application\Controller\IndexController' => 'Application\Controller\IndexController'
-        ]
+    'di'              => [
+        'allowed_controllers' => [
+            'Application\Controller\IndexController',
+        ],
+        'definition'          => [
+            'class' => [
+                'Application\Controller\IndexController' => [
+                    'setInstanceManager'   => [
+                        'required' => true
+                    ]
+                ],
+            ]
+        ],
     ]
 ];

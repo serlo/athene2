@@ -10,7 +10,7 @@
 /*global define, require, MathJax*/
 define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
                    'moment', 'ajax_overlay', 'tracking', 'toggle_action', 'modals', 'trigger', 'sortable_list',
-                   'timeago', 'spoiler', 'injections', 'moment_de', 'mathjax_trigger', 'affix', 'forum_select', 'slider',
+                   'timeago', 'spoiler', 'injections', 'moment_de', 'affix', 'forum_select', 'slider',
                    'magnific_popup', 'easing', 'nestable', 'historyjs', 'polyfills', 'datepicker', 'event_extensions', 'jasny'
 ],
     function (
@@ -41,8 +41,6 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
             }
 
             Content.add(function ($context) {
-                var elements = $('.math, .mathInline', $context).filter(':visible').toArray();
-
                 // init sortable lists in context
                 $('.sortable', $context).SortableList();
                 // init timeago fields in context
@@ -82,10 +80,7 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
                             verticalFit: true
                         },
                         disableOn: function () {
-                            if ($that.parents('a').length > 0) {
-                                return false;
-                            }
-                            return true;
+                            return $that.parents('a').length <= 0;
                         }
                     });
                 });
@@ -95,11 +90,7 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
                 // $('a[href^="/ref"]', $context).addClass('ajax-content');
 
                 // init Mathjax
-                $.each(elements, function (key, element) {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
-                });
-
-                $context.MathjaxTrigger();
+                MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
             });
 
             // Tooltips opt in
@@ -188,32 +179,6 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
 
 require(['jquery', 'ATHENE2', 'support'], function ($, App, Supporter) {
     "use strict";
-
-    if (typeof MathJax !== undefined) {
-        MathJax.Hub.Config({
-            displayAlign: 'left',
-            extensions: ["tex2jax.js", "CHTML-preview.js"],
-            jax: ["input/TeX", "output/SVG", "output/CommonHTML"],
-            skipStartupTypeset: true,
-            tex2jax: {
-                inlineMath: [
-                    ["%%", "%%"]
-                ]
-            },
-            "HTML-CSS": {
-                scale: 100,
-                linebreaks: {
-                    automatic: true
-                }
-            },
-            SVG: {
-                linebreaks: {
-                    automatic: true
-                }
-            }
-        });
-    }
-
     $(function () {
         App.initialize($('body'));
         Supporter.check();

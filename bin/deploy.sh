@@ -36,7 +36,7 @@ pm2 stop server
 pm2 delete server
 cd ../src/assets/
 npm update
-pm2 start -i 0 --max-memory-restart 600M ../src/assets/node_modules/athene2-editor/server/server.js --node-args="--expose_gc --gc_global"
+pm2 start -i 0 --max-memory-restart 600M node_modules/athene2-editor/server/server.js --node-args="--expose_gc --gc_global"
 # on error????
 bower update
 grunt build
