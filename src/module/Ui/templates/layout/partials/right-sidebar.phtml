@@ -1,5 +1,5 @@
 <?php if (!empty($this->registry()->get('rnav'))): ?>
-<?php if (!empty($this->registry()->get('rnav-is-course'))) : $isCourse = $this->registry()->get('rnav-is-course'); endif; ?>
+<?php $isCourse = $this->registry()->get('rnav-is-course');?>
 <aside class="side-element side-context <?php if (!empty($isCourse) && $isCourse) : echo 'side-context-course'; endif; ?> ">
     <div id="sidebar-toggle" class="layout-toggle">
         <i class="fa fa-bars"></i>
