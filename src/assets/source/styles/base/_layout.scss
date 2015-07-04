@@ -153,6 +153,8 @@
   top: $sideNavTopOffset;
   right: -($sidebarWidth + $sidebarGap);
   width: $sidebarWidth;
+
+  z-index: $sideElementZIndex;
   // margin-left: $contentMaxWidth + 2 * $contentPadding;
   // margin-left: $sidebarGap;
 
