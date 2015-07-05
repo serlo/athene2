@@ -60,7 +60,9 @@ abstract class AbstractDispatchListener extends AbstractSharedListenerAggregate
         if($terms->isEmpty()){
             foreach($entity->getParents('link') as $parent){
                 $terms = $parent->getTaxonomyTerms();
-                if(!$terms->isEmpty()) break;
+                if(!$terms->isEmpty()) {
+                    break;
+                }
             }
         }
 

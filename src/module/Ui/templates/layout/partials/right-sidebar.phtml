@@ -6,7 +6,7 @@
         <i class="fa fa-times"></i>
     </div>
     <div class="side-element-inner">
-        <?php if (empty($isCourse) || !$isCourse): ?>
+        <?php if (!$isCourse): ?>
             <i class="fa fa-asterisk"></i>
         <?php endif; ?>
         <?php echo $this->registry()->get('rnav'); ?>
