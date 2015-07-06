@@ -74,13 +74,13 @@ class Entity extends Uuid implements EntityInterface
 
     public function __construct()
     {
-        $this->revisions            = new ArrayCollection();
-        $this->childLinks           = new ArrayCollection();
-        $this->parentLinks          = new ArrayCollection();
-        $this->children             = new ArrayCollection();
-        $this->parents              = new ArrayCollection();
-        $this->issues               = new ArrayCollection();
-        $this->terms                = new ArrayCollection();
+        $this->revisions = new ArrayCollection();
+        $this->childLinks = new ArrayCollection();
+        $this->parentLinks = new ArrayCollection();
+        $this->children = new ArrayCollection();
+        $this->parents = new ArrayCollection();
+        $this->issues = new ArrayCollection();
+        $this->terms = new ArrayCollection();
         $this->termTaxonomyEntities = new ArrayCollection();
     }
 
@@ -103,8 +103,8 @@ class Entity extends Uuid implements EntityInterface
 
         return $this->revisions->matching(
             Criteria::create()->where(Criteria::expr()->gt('id', $current))->andWhere(
-                    Criteria::expr()->eq('trashed', false)
-                )
+                Criteria::expr()->eq('trashed', false)
+            )
         )->count();
     }
 
@@ -132,9 +132,8 @@ class Entity extends Uuid implements EntityInterface
 
         foreach ($this->getChildLinks() as $link) {
             $childTypeName = $link->getChild()->getType()->getName();
-            if ($link->getType()->getName(
-                ) === $linkyType && ($childType === null || ($childType !== null && $childTypeName === $childType))
-            ) {
+            if ($link->getType()->getName() === $linkyType
+                && ($childType === null || ($childType !== null && $childTypeName === $childType))) {
                 $collection->add($link->getChild());
             }
         }
@@ -172,20 +171,56 @@ class Entity extends Uuid implements EntityInterface
         return $this->parentLinks;
     }
 
-    public function getParents($linkyType, $parentType = null)
+    public function getParents($linkType, $parentType = null)
     {
         $collection = new ArrayCollection();
 
         foreach ($this->getParentLinks() as $link) {
             $childTypeName = $link->getChild()->getType()->getName();
-            if ($link->getType()->getName(
-                ) === $linkyType && ($parentType === null || ($parentType !== null && $childTypeName === $parentType))
-            ) {
+            if ($link->getType()->getName() === $linkType
+                && ($parentType === null || ($parentType !== null && $childTypeName === $parentType))) {
                 $collection->add($link->getParent());
             }
         }
 
         return $collection;
+    }
+
+    public function getNextValidSibling($linkType, EntityInterface $previous)
+    {
+        $children = $this->getChildren($linkType, $previous->getType()->getName());
+
+        // Checks if the given entity is a child at all
+        if (($index = $children->indexOf($previous)) == false) {
+            return null;
+        }
+
+        for ($i = $index + 1; $i < $children->count(); ++$i) {
+            $child = $children->get($i);
+            if ($child->hasCurrentRevision() && !$child->isTrashed()) {
+                return $child;
+            }
+        }
+
+        return null;
+    }
+
+    public function getPreviousValidSibling($linkType, EntityInterface $following)
+    {
+        $children = $this->getChildren($linkType, $following->getType()->getName());
+
+        if (($index = $children->indexOf($following)) == false) {
+            return null;
+        }
+
+        for ($i = $index - 1; $i >= 0; --$i) {
+            $child = $children->get($i);
+            if ($child->hasCurrentRevision() && !$child->isTrashed()) {
+                return $child;
+            }
+        }
+
+        return null;
     }
 
     public function getRevisions()

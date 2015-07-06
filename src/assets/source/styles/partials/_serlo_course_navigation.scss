@@ -1,0 +1,77 @@
+.side-context-course{
+  box-shadow: none;
+}
+ul.nav-course {
+  list-style: outside none none;
+  margin: 0 0 0 -7px;
+  padding: 0;
+  font-size: 12px;
+}
+.nav-course-item {
+  background-color: $backgroundColor;
+  .nav-course-link {
+    padding: 0;
+    margin: 0;
+    color: #333;
+  }
+  &.active{
+    background-color: #FFF;
+    font-weight: bold;
+  }
+  &:first-child {
+    font-weight: bold;
+    background-color: $serloBlue;
+    color: #FFF;
+    .pipe {
+      background-color: #FFF;
+      top: 15px;
+      bottom: -1px;
+    }
+    .fa {
+      background-color: #FFF;
+    }
+  }
+  &:last-child{
+    .pipe {
+      top: auto;
+      bottom: 15px;
+    }
+    .fa {
+      top: auto;
+      bottom: 15px;
+    }
+  }
+}
+.nav-bar {
+  position: relative;
+  display: block;
+  height: 100%;
+  top: 0;
+  .pipe {
+    background-color: $serloBlue;
+    bottom: auto;
+    height: 100%;
+    padding-top: 2px;
+    position: absolute;
+    left: 18px;
+    width: 4px;
+    right: auto;
+    top: -1px;
+  }
+  .fa {
+    position: absolute;
+    margin-left: 22px;
+    top: 15px;
+    width: 20px;
+    height: 16px;
+    text-align: center;
+    background-color: $serloBlue;
+    color: #FFF;
+  }
+  .list-item {
+    box-sizing: border-box;
+    padding: 12px 15px 12px 50px;
+    vertical-align: middle;
+    display: table-cell;
+  }
+}
