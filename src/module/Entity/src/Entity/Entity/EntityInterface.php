@@ -18,7 +18,6 @@ use Taxonomy\Entity\TaxonomyTermAwareInterface;
 use Type\Entity\TypeAwareInterface;
 use Uuid\Entity\UuidInterface;
 use Versioning\Entity\RepositoryInterface;
-use Doctrine\Common\Collections\Collection;
 
 interface EntityInterface
     extends UuidInterface, InstanceAwareInterface, RepositoryInterface, LinkableInterface, LicenseAwareInterface,
