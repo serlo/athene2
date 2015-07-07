@@ -210,7 +210,9 @@ return [
                     ],
                     'images'         => [
                         'assets'  => [
-                            'images/*'
+                            'images/*',
+                            'images/de/*',
+                            'images/en/*'
                         ],
                         'options' => [
                             'move_raw' => true
