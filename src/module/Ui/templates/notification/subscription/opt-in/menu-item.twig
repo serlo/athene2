@@ -1,13 +1,13 @@
 <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <a rel="nofollow" href="#" class="dropdown-toggle" data-toggle="dropdown">
         <span class="fa fa-volume-up"></span> {{ 'Subscribe' | trans }} <span
                 class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-        <li><a href="{{ url('subscription/subscribe', {'object': object, 'email': 0}) }}"><span
+        <li><a rel="nofollow" href="{{ url('subscription/subscribe', {'object': object, 'email': 0}) }}"><span
                         class="fa fa-volume-down"></span> {{ 'Receive notifications' | trans }}
             </a></li>
-        <li><a href="{{ url('subscription/subscribe', {'object': object, 'email': 1}) }}"><span
+        <li><a rel="nofollow" href="{{ url('subscription/subscribe', {'object': object, 'email': 1}) }}"><span
                         class="fa fa-volume-up"></span> {{ 'Receive notifications and emails' | trans }}
             </a></li>
     </ul>

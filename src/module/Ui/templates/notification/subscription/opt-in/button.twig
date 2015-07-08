@@ -5,13 +5,13 @@
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-        <li><a href="{{ url('subscription/subscribe', {'object': object, 'email': 0}) }}">
+        <li><a rel="nofollow" href="{{ url('subscription/subscribe', {'object': object, 'email': 0}) }}">
                 <span class="fa fa-volume-down"></span>
                 {{ 'Receive notifications' | trans }}
             </a>
         </li>
         <li>
-            <a href="{{ url('subscription/subscribe', {'object': object, 'email': 1}) }}">
+            <a rel="nofollow" href="{{ url('subscription/subscribe', {'object': object, 'email': 1}) }}">
                 <span class="fa fa-volume-up"></span> {{ 'Receive notifications and emails' | trans }}
             </a>
         </li>

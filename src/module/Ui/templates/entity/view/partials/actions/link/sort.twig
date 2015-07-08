@@ -2,7 +2,7 @@
 {% if options.hasComponent('link') %}
     {% if isGranted('entity.link.order', entity) %}
         <li>
-            <a href="{{ url('entity/link/order', {'entity': entity.getId(), 'type': 'link'}) }}">
+            <a rel="nofollow" href="{{ url('entity/link/order', {'entity': entity.getId(), 'type': 'link'}) }}">
                 <span class="fa fa-sort"></span>
                 {% trans %}
                     Order children

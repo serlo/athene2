@@ -1,6 +1,6 @@
 {% if isGranted('flag.create', entity) %}
     <li>
-        <a href="{{ url('flag/add', {'id': entity.getId()}) }}">
+        <a rel="nofollow" href="{{ url('flag/add', {'id': entity.getId()}) }}">
             <span class="fa fa-flag"></span>
             {% trans %} Flag content {% endtrans %}
         </a>

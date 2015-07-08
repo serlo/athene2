@@ -1,6 +1,6 @@
 <div class="btn-group btn-group-community">
     {% if isGranted('taxonomy.term.update', term) %}
-        <a class="btn btn-default" href="{{ url('taxonomy/term/update', {'term': term.getId()}) }}">
+        <a rel="nofollow" class="btn btn-default" href="{{ url('taxonomy/term/update', {'term': term.getId()}) }}">
             <span class="fa fa-pencil"></span>
         </a>
     {% endif %}

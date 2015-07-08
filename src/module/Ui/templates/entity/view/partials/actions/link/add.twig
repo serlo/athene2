@@ -6,7 +6,7 @@
         {% set count = entity.getChildren('link', type).count() %}
         {% if (allowsManyChildren or (not(allowsManyChildren) and count < 1)) and isGranted('entity.link.create', entity) %}
             <li>
-                <a href="{{ url('entity/create', {'type': type}, {'query': {'link': {'type': 'link', 'child': entity.getId()}}}) }}">
+                <a rel="nofollow" href="{{ url('entity/create', {'type': type}, {'query': {'link': {'type': 'link', 'child': entity.getId()}}}) }}">
                     <span class="fa fa-plus"></span>
                     {% trans %}
                         Add {{ type }}

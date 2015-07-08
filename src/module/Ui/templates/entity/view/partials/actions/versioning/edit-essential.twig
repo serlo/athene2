@@ -1,7 +1,7 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') %}
     <li>
-        <a href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
+        <a rel="nofollow" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
             <span class="fa fa-pencil"></span>
             {% trans %} Edit {% endtrans %}
         </a>

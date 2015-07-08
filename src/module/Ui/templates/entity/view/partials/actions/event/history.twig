@@ -1,6 +1,6 @@
 {% if isGranted('event.log.get', entity) %}
     <li>
-        <a href="{{ url('event/history/object', {'id': entity.getId()}) }}">
+        <a rel="nofollow" href="{{ url('event/history/object', {'id': entity.getId()}) }}">
             <span class="fa fa-heartbeat"></span>
             {% trans %} Log {% endtrans %}
         </a>

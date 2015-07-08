@@ -1,10 +1,10 @@
 <li class="dropdown-submenu">
-    <a tabindex="-1" href="#"><span class="fa fa-volume-up"></span> {{ 'Subscribe' | trans }}</a>
+    <a rel="nofollow" tabindex="-1" href="#"><span class="fa fa-volume-up"></span> {{ 'Subscribe' | trans }}</a>
     <ul class="dropdown-menu">
-        <li><a href="{{ url('subscription/subscribe', {'object': object, 'email': 0}) }}"><span
+        <li><a rel="nofollow" href="{{ url('subscription/subscribe', {'object': object, 'email': 0}) }}"><span
                         class="fa fa-volume-down"></span> {{ 'Receive notifications' | trans }}
             </a></li>
-        <li><a href="{{ url('subscription/subscribe', {'object': object, 'email': 1}) }}"><span
+        <li><a rel="nofollow" href="{{ url('subscription/subscribe', {'object': object, 'email': 1}) }}"><span
                         class="fa fa-volume-up"></span> {{ 'Receive notifications and emails' | trans }}
             </a></li>
     </ul>

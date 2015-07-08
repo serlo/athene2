@@ -3,7 +3,7 @@
     <!-- Change taxonomy term(s) -->
     {% if isGranted('taxonomy.term.associate', entity) or isGranted('taxonomy.term.dissociate', entity) %}
         <li>
-            <a href="{{ url('entity/taxonomy/update', {'entity': entity.getId()}) }}">
+            <a rel="nofollow" href="{{ url('entity/taxonomy/update', {'entity': entity.getId()}) }}">
                 <span class="fa fa-map-marker"></span>
                 {% trans %} Update taxonomy {% endtrans %}
             </a>

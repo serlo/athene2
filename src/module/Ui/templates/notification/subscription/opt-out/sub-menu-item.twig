@@ -1,23 +1,23 @@
 {% if emailsActive %}
     <li class="dropdown-submenu">
-        <a tabindex="-1" href="#">
+        <a rel="nofollow" tabindex="-1" href="#">
             <span class="fa fa-volume-off"></span> {{ 'Unsubscribe' | trans }} <span
                     class="caret"></span>
         </a>
         <ul class="dropdown-menu">
             <li>
-                <span class="fa fa-volume-down"></span><a
+                <span class="fa fa-volume-down"></span><a rel="nofollow"
                         href="{{ url('subscription/update', {'object': object, 'email': 0}) }}">{{ 'Stop sending emails' | trans }}</a>
             </li>
             <li>
-                <span class="fa fa-volume-off"></span><a
+                <span class="fa fa-volume-off"></span><a rel="nofollow"
                         href="{{ url('subscription/unsubscribe', {'object': object}) }}">{{ 'Unsubscribe' | trans }}</a>
             </li>
         </ul>
     </li>
 {% else %}
     <li>
-        <a href="{{ url('subscription/unsubscribe', {'object': object}) }}"><span
+        <a rel="nofollow" href="{{ url('subscription/unsubscribe', {'object': object}) }}"><span
                     class="fa fa-volume-off"></span> {{ 'Unsubscribe' | trans }}</a>
     </li>
 {% endif %}

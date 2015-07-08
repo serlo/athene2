@@ -1,7 +1,7 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') and isGranted('entity.repository.history', entity) %}
     <li>
-        <a href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
+        <a rel="nofollow" href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
             <span class="fa fa-clock-o"></span>
             {% trans %} History {% endtrans %}
             {% if entity.isUnrevised() %}

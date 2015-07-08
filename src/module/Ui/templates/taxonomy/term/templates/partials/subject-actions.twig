@@ -4,35 +4,35 @@
 {% include 'common/share' with {'id': term.getId()} %}
 {% if isGranted('taxonomy.term.create', term) %}
     <li>
-        <a href="{{ url('taxonomy/term/organize', {'term': term.getId()}) }}">
+        <a rel="nofollow" href="{{ url('taxonomy/term/organize', {'term': term.getId()}) }}">
             <span class="fa fa-th-list"></span> {% trans %} Organize {% endtrans %}
         </a>
     </li>
 {% endif %}
 {% if isGranted('event.log.get', term) %}
     <li>
-        <a href="{{ url('event/history/object', {'id': term.getId()}) }}">
+        <a rel="nofollow" href="{{ url('event/history/object', {'id': term.getId()}) }}">
             <span class="fa fa-heartbeat"></span> {% trans %} Log {% endtrans %}
         </a>
     </li>
 {% endif %}
 {% if isGranted('taxonomy.term.associated.sort', term) %}
     <li>
-        <a href="{{ url('taxonomy/term/sort-associated', {'association': 'entities', 'term': term.getId()}) }}">
+        <a rel="nofollow" href="{{ url('taxonomy/term/sort-associated', {'association': 'entities', 'term': term.getId()}) }}">
             <span class="fa fa-sort"></span> {% trans %} Order content {% endtrans %}
         </a>
     </li>
 {% endif %}
 {% if isGranted('taxonomy.term.associate', term) %}
     <li>
-        <a href="{{ url('taxonomy/term/batch-copy', {'term': term.getId()}) }}">
+        <a rel="nofollow" href="{{ url('taxonomy/term/batch-copy', {'term': term.getId()}) }}">
             <span class="fa fa-files-o"></span> {% trans %} Batch copy items {% endtrans %}
         </a>
     </li>
 {% endif %}
 {% if isGranted('taxonomy.term.associate', term) %}
     <li>
-        <a href="{{ url('taxonomy/term/batch-move', {'term': term.getId()}) }}">
+        <a rel="nofollow" href="{{ url('taxonomy/term/batch-move', {'term': term.getId()}) }}">
             <span class="fa fa-files-o"></span> {% trans %} Batch move items {% endtrans %}
         </a>
     </li>

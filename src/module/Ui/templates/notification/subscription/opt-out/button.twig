@@ -6,13 +6,13 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ url('subscription/update', {'object': object, 'email': 0}) }}">
+            <li><a rel="nofollow" href="{{ url('subscription/update', {'object': object, 'email': 0}) }}">
                     <span class="fa fa-volume-down"></span>
                     {{ 'Stop sending emails' | trans }}
                 </a>
             </li>
             <li>
-                <a href="{{ url('subscription/unsubscribe', {'object': object}) }}">
+                <a rel="nofollow" href="{{ url('subscription/unsubscribe', {'object': object}) }}">
                     <span class="fa fa-volume-off"></span>
                     {{ 'Unsubscribe' | trans }}
                 </a>
@@ -22,7 +22,7 @@
 {% else %}
     <div class="btn-group">
         <span class="fa fa-volume-off"></span>
-        <a href="{{ url('subscription/unsubscribe', {'object': object}) }}"
+        <a rel="nofollow" href="{{ url('subscription/unsubscribe', {'object': object}) }}"
            class="btn btn-primary">{{ 'Unsubscribe' | trans }}</a>
     </div>
 {% endif %}
