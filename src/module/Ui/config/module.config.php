@@ -178,7 +178,7 @@ return [
                     'styles'         => [
                         'assets'  => [
                             'styles/main.css',
-                            '../node_modules/athene2-editor/build/styles/content.css'
+                            '../athene2-editor/build/styles/content.css'
                         ],
                         'filters' => [
                             '?CssRewriteFilter' => [
@@ -188,12 +188,12 @@ return [
                     ],
                     'editor_scripts' => [
                         'assets' => [
-                            '../node_modules/athene2-editor/build/scripts/editor.js'
+                            '../athene2-editor/build/scripts/editor.js'
                         ]
                     ],
                     'editor_styles'  => [
                         'assets' => [
-                            '../node_modules/athene2-editor/build/styles/editor.css'
+                            '../athene2-editor/build/styles/editor.css'
                         ]
                     ],
                     'main_fonts'     => [
