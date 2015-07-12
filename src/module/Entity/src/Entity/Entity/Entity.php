@@ -126,13 +126,13 @@ class Entity extends Uuid implements EntityInterface
         return $this->childLinks;
     }
 
-    public function getChildren($linkyType, $childType = null)
+    public function getChildren($linkType, $childType = null)
     {
         $collection = new ArrayCollection();
 
         foreach ($this->getChildLinks() as $link) {
             $childTypeName = $link->getChild()->getType()->getName();
-            if ($link->getType()->getName() === $linkyType
+            if ($link->getType()->getName() === $linkType
                 && ($childType === null || ($childType !== null && $childTypeName === $childType))) {
                 $collection->add($link->getChild());
             }
@@ -191,7 +191,7 @@ class Entity extends Uuid implements EntityInterface
         $children = $this->getChildren($linkType, $previous->getType()->getName());
 
         // Checks if the given entity is a child at all
-        if (($index = $children->indexOf($previous)) == false) {
+        if (($index = $children->indexOf($previous)) === false) {
             return null;
         }
 
@@ -209,7 +209,7 @@ class Entity extends Uuid implements EntityInterface
     {
         $children = $this->getChildren($linkType, $following->getType()->getName());
 
-        if (($index = $children->indexOf($following)) == false) {
+        if (($index = $children->indexOf($following)) === false) {
             return null;
         }
 
