@@ -139,9 +139,15 @@ class ApiController extends AbstractController
             return false;
         }
 
+        $authors = $entity->getRevisions()->map(function($revision) {
+            return $revision->getAuthor()->getId();
+        });
+
         $item   = [
             'id'      => $entity->getId(),
             'type'    => $entity->getType()->getName(),
+            'authorsCount' => count(array_unique($authors->toArray())),
+            'revisionsCount' => $entity->getRevisions()->count(),
             'content' => []
         ];
 
@@ -176,6 +182,10 @@ class ApiController extends AbstractController
                 // nothing to do
             }
 
+            $authors = $entity->getRevisions()->map(function($revision) {
+                return $revision->getAuthor()->getId();
+            });
+
             $description = $this->descriptionFilter->filter($description);
             $item        = [
                 'title'        => $normalized->getTitle(),
@@ -184,7 +194,9 @@ class ApiController extends AbstractController
                 'keywords'     => $normalized->getMetadata()->getKeywords(),
                 'categories'   => $this->getCategories($entity),
                 'link'         => $this->url()->fromRoute($normalized->getRouteName(), $normalized->getRouteParams()),
-                'lastModified' => $normalized->getMetadata()->getLastModified()
+                'lastModified' => $normalized->getMetadata()->getLastModified(),
+                'authorsCount' => count(array_unique($authors->toArray())),
+                'revisionsCount' => $entity->getRevisions()->count(),
             ];
             $data[]      = $item;
         }
