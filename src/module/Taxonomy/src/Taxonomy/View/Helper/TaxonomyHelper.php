@@ -78,6 +78,19 @@ class TaxonomyHelper extends AbstractHelper
 
     /**
      * @param TaxonomyTermInterface $term
+     * @param string $type
+     * @return string
+     */
+    public function getAncestorName(TaxonomyTermInterface $term, $type) {
+        try {
+            return $term->findAncestorByTypeName($type)->getName();
+        } catch (Exception\TermNotFoundException $e) {
+            return '';
+        }
+    }
+
+    /**
+     * @param TaxonomyTermInterface $term
      * @param string                $filter
      * @return int
      * @throws \Taxonomy\Exception\RuntimeException

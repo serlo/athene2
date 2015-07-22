@@ -1,0 +1,10 @@
+{% do headTitle(term.getName()) %}
+{% set title = '' %}
+{% for taxonomyTerm in taxonomy().flattenAncestors(term) %}
+    {% if loop.first %}
+        {% set title = taxonomyTerm.getName() %}
+    {% else %}
+        {% set title = taxonomyTerm.getName() ~ ' > ' ~ title %}
+    {% endif %}
+{% endfor %}
+{% do headTitle(title) %}

@@ -1,4 +1,6 @@
-{% do normalize().headMeta(entity).headTitle(entity) %}
+{% do normalize().headMeta(entity) %}
+{% set title = normalize().toTitle(entity) %}
+{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' - ' ~ 'Course') %}
 {% set title = entity.getCurrentRevision().get('title') %}
 <div itemscope itemtype="http://schema.org/Article">
     <div class="page-header">
