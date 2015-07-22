@@ -1,4 +1,5 @@
 {% do placeholder('hideSubjectNav').set(true) %}
+{% do headlink({'rel': 'canonical', 'href': url('authentication/login', {}, {'force_canonical': true})}) %}
 
 <div class="flasher">
     {% if redir %}
