@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Athene2\n"
 "POT-Creation-Date: 2015-07-09 22:48+0100\n"
-"PO-Revision-Date: 2015-07-09 22:48+0100\n"
+"PO-Revision-Date: 2015-07-22 18:30+0100\n"
 "Last-Translator: Aeneas Rekkas <aeneas.rekkas@serlo.org>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -1923,7 +1923,7 @@ msgstr ""
 
 #: /tmp/cache/559ede23e211e/32/c0/65c0bab471911867dc2fb67722035a945ec52c8e281abaf073523db4e940.php:19
 msgid "curriculum-topic-folder"
-msgstr ""
+msgstr "curriculum content group"
 
 #: /tmp/cache/559ede24116a6/ec/b1/2413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:70
 msgid "Add content"
@@ -1986,7 +1986,7 @@ msgstr ""
 
 #: /tmp/cache/559ede24116a6/8b/dc/57c33604f04685bb19635ba474115fdf1397490f025047263f5a8257a928.php:19
 msgid "topic-folder"
-msgstr ""
+msgstr "content group"
 
 #: /tmp/cache/559ede243c7ba/36/fc/324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:37
 msgid "Comments:"
