@@ -1,3 +1,3 @@
-{{ pageHeader('Discussions' | trans).render() }}
+{{ pageHeader('Discussions' | trans).setSubtitle(('Page' | trans) ~ ' ' ~ discussions.getCurrentPageNumber()) }}
 {% include 'discussion/discussions/discussions' %}
 {{ paginationControl(discussions, 'Sliding', 'common/paginator', {'route': 'discussion/discussions'}) }}

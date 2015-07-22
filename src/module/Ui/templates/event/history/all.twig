@@ -1,4 +1,4 @@
-{{ pageHeader('Event log' | trans) }}
+{{ pageHeader('Event log' | trans).setSubtitle(('Page' | trans) ~ ' ' ~ paginator.getCurrentPageNumber()) }}
 <ul>
     {% for event in paginator %}
         <li>{{ eventLog().renderEvent(event) }}</li>
