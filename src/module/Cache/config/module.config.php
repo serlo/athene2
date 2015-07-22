@@ -13,11 +13,11 @@ namespace Cache;
 
 return [
     'strokercache' => [
-        'id_generator' => 'fulluri',
-        'strategies' => array(
+        'id_generator' => 'AjaxGenerator',
+        'id_generators' => array(
             'plugin_manager' => array(
                 'invokables' => array(
-                    'MyNamespace\MyCustomStrategy'
+                    'AjaxGenerator' => 'Cache\IdGenerator\AjaxGenerator'
                 ),
             ),
         ),
