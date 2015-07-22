@@ -25,6 +25,11 @@ class EntityHelper extends AbstractHelper
         return $this;
     }
 
+    public function findSubject(EntityInterface $entity) {
+        $subject = $this->findTaxonomyTerm($entity, 'subject');
+        return $subject ? $subject : '';
+    }
+
     public function findTaxonomyTerm(EntityInterface $entity, $type)
     {
         /* @var $term \Taxonomy\Entity\TaxonomyTermInterface */

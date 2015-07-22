@@ -1,3 +1,4 @@
+{% do headTitle(term.getName() ~ ' - ' ~ (term.getTaxonomy.getName() | trans)) %} }
 {% set title = term.getName() %}
 <div class="page-header">
     {% set controls = include('taxonomy/term/templates/partials/subject-controls') %}

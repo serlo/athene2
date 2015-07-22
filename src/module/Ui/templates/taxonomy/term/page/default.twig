@@ -1,4 +1,4 @@
-{% do normalize().headMeta(term).headTitle(term) %}
+{% do normalize().headMeta(term) %}
 {% set template = 'taxonomy/term/page/' ~ term.getTaxonomy().getName() %}
 {% set template = include(template, ignore_missing = true) %}
 {% if template %}
