@@ -104,21 +104,25 @@
   }
 }
 
+.has-navigation {
+  .main {
+    margin-left: ($sidebarWidth + $sidebarGap);
+  }
+}
+
 /* Main Container */
 .main {
   position: relative;
 
   margin-right: ($sidebarWidth + $sidebarGap);
   @media only screen and (max-width: $navigationBreakPoint-max) {
-    margin-left: 0;
+    margin-right: 0;
   }
   @media only screen and (max-width: $sidebarBreakPoint-max) {
     margin-right: 0;
   }
-  .has-navigation & {
-    margin: 0px ($sidebarWidth + $sidebarGap);
-  }
 }
+
 
 /* Content */
 #content-layout {
