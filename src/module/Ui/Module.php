@@ -83,6 +83,8 @@ class Module
         }
 
         // The template has not been changed by the controller, so can override it!
-        $controller->layout('layout/1-col');
+        if($vm->getTemplate() != 'editor/layout'){
+            $controller->layout('layout/1-col');
+        }
     }
 }
