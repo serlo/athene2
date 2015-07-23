@@ -108,12 +108,15 @@
 .main {
   position: relative;
 
-  margin: 0 ($sidebarWidth + $sidebarGap);
+  margin-right: ($sidebarWidth + $sidebarGap);
   @media only screen and (max-width: $navigationBreakPoint-max) {
     margin-left: 0;
   }
   @media only screen and (max-width: $sidebarBreakPoint-max) {
     margin-right: 0;
+  }
+  .has-navigation & {
+    margin: 0px ($sidebarWidth + $sidebarGap);
   }
 }
 
