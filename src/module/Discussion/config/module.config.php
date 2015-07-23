@@ -101,7 +101,10 @@ return [
                             'get' => [
                                 'type'    => 'segment',
                                 'options' => [
-                                    'route' => '/:id'
+                                    'route' => '/:id',
+                                    'defaults' => [
+                                        'action'     => 'redirect'
+                                    ]
                                 ]
                             ],
                         ]

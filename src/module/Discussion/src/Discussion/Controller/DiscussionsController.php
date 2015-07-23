@@ -33,4 +33,10 @@ class DiscussionsController extends AbstractController
         $view->setTemplate('discussion/discussions/index');
         return $view;
     }
+
+    public function redirectAction() {
+        $r = $this->redirect()->toRoute('discussion/discussions');
+        $this->getResponse()->setStatusCode(301);
+        return $r;
+    }
 }
