@@ -10,7 +10,7 @@ namespace Ui;
 use Zend\EventManager\Event;
 use Zend\Mvc\MvcEvent;
 use Zend\Stdlib\ArrayUtils;
-
+use Zend\Navigation\Page\Mvc;
 
 class Module
 {
@@ -62,7 +62,8 @@ class Module
             'Zend\Mvc\Controller\AbstractController',
             MvcEvent::EVENT_DISPATCH,
             array($this, 'onDispatch'),
-            -1000
+            // WARN: Do not changes this or navigation *will* break
+            -90
         );
     }
 
@@ -71,16 +72,18 @@ class Module
         $controller     = $e->getTarget();
         $serviceManager = $controller->getServiceLocator();
         $container      = $serviceManager->get('default_navigation');
+        $vm = $e->getViewModel();
 
         // If no active navigation is found, we revert to 1-col layout
         foreach ($container as $page) {
+            /* @var $page Mvc */
             if ($page->isVisible(false) && $page->isActive(true)) {
-                // At least one item is active, nothing to do.
                 return;
             }
         }
 
-        if($e->getViewModel()->getTemplate() == 'layout/layout'){
+        // The template has not been changed by the controller, so can override it!
+        if($vm->getTemplate() == 'layout/layout'){
             $controller->layout('layout/1-col');
         }
     }
