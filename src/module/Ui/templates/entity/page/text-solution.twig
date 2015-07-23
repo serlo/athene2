@@ -1,13 +1,20 @@
 {% set title = normalize().toTitle(entity) %}
+{% do normalize().headMeta(entity) %}
 {{ pageHeader(title)
-.setSubtitle('Text solution' | trans)
-.setBacklink(normalize().toUrl(entity.getParents('link').first()))
-.render() }}
+    .setSubtitle('Text solution' | trans)
+    .setBacklink(normalize().toUrl(entity.getParents('link').first()))
+    .render(false) }}
 
-{% set controls = include('entity/view/partials/actions/controls') %}
-{% do placeholder('controls').set(controls) %}
-{% do placeholder('isLeaf').set(true) %}
-{% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
+{% set parent = entity.getParents('link').first() %}
+{% set subject =  entity().findSubject(parent) %}
 
+{% if not subject %}
+    <!-- It's a sub exercise solution! -->
+    {% set parent = parent.getParents('link').first() %}
+    {% set subject =  entity().findSubject(parent) %}
+{% endif %}
+
+{% do headTitle(title ~ ' - ' ~ subject ~ ' - ' ~ (parent.getType().getName() | trans)) %}
+{% include 'entity/page/partials/placeholders' %}
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}

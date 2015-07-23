@@ -83,8 +83,6 @@ class Module
         }
 
         // The template has not been changed by the controller, so can override it!
-        if($vm->getTemplate() == 'layout/layout'){
-            $controller->layout('layout/1-col');
-        }
+        $controller->layout('layout/1-col');
     }
 }

@@ -1,7 +1,8 @@
 {% do normalize().headMeta(entity) %}
 {% set title = normalize().toTitle(entity) %}
-{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' - ' ~ 'Article') %}
+{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' - ' ~ (entity.getType().getName() | trans)) %}
 {% set title = entity.getCurrentRevision().get('title') %}
+{% include 'entity/page/partials/placeholders' %}
 <div itemscope itemtype="http://schema.org/Article">
     <div class="page-header">
         {% set controls = include('entity/view/partials/actions/controls') %}

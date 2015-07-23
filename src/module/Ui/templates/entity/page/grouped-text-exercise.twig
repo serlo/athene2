@@ -1,10 +1,15 @@
+{% set title = normalize().toTitle(entity) %}
+{% set parent = entity.getParents('link').first() %}
+{% do headTitle(title ~ ' - ' ~ entity().findSubject(parent) ~ ' - ' ~ (entity.getType().getName() | trans)) %}
+{% do normalize().headMeta(entity) %}
 {{ pageHeader(normalize().toTitle(entity))
-    .setSubtitle('Grouped text exercise' | trans)
+    .setSubtitle(entity.getType().getName() | trans)
     .setBacklink(normalize().toUrl(entity.getParents('link').first()))
     .append('<div class="pull-right btn-group hidden-xs">')
     .append(include('entity/view/partials/actions/controls'))
     .append('</div>')
-    .render() }}
+    .render(false) }}
 
+{% include 'entity/page/partials/placeholders' %}
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}
