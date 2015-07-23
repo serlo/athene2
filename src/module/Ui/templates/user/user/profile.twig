@@ -1,4 +1,5 @@
 {{ pageHeader(user.getUsername()).setSubtitle('Profile'|trans).append('<div class="pull-right">' ~ subscribe(user).button() ~ '</div>') }}
+{% do normalize().headMeta(user) %}
 <div class="row">
     <div class="col-xs-12">
         {{ markdown().toHtml(user.getDescription()) | raw }}
