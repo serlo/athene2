@@ -12,4 +12,4 @@ pm2 start /vagrant/src/assets/node_modules/athene2-editor/server/server.js --nod
 # sudo su - www-data -c "(cd /vagrant/src/assets;bower --config.analytics=false update)"
 # sudo su - www-data -c "(cd /vagrant/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar install -o)"
 # sudo su - www-data -c "(cd /vagrant/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar update -o)"
-# sudo grunt dev &
+cd /vagrant/src/assets && grunt build

@@ -132,8 +132,8 @@ sudo service apache2 restart
 # execute scripts
 su vagrant - -c "/vagrant/bin/vagrant/clean-caches.sh"
 su vagrant - -c "/vagrant/bin/vagrant/clean-ui.sh"
-su vagrant - -c "/vagrant/bin/vagrant/boot.sh"
 su vagrant - -c "/vagrant/bin/vagrant/update-mysql.sh"
+su vagrant - -c "/vagrant/bin/vagrant/boot.sh"
 
 # Restart apache
 sudo service apache2 restart
