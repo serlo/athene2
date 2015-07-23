@@ -1,4 +1,5 @@
 {{ pageHeader(discussion.getTitle()) }}
+{% do normalize().headMeta(discussion) %}
 <div class="discussions">
     {% include 'discussion/helper/default/discussion' with {'discussion': discussion, 'blockquoteClass': '', 'leftWidth': 2} only %}
 </div>
