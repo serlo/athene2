@@ -39,7 +39,7 @@ class Module
         $config = include __DIR__ . '/config/module.config.php';
 
         if (file_exists(__DIR__ . '/template_map.php')) {
-            $templates                 = [];
+            $templates = [];
             $templates['view_manager'] = [
                 'template_map' => include __DIR__ . '/template_map.php'
             ];
@@ -56,7 +56,7 @@ class Module
 
     public function onBootstrap(MvcEvent $e)
     {
-        $application  = $e->getApplication();
+        $application = $e->getApplication();
         $eventManager = $application->getEventManager();
         $eventManager->getSharedManager()->attach(
             'Zend\Mvc\Controller\AbstractController',
@@ -69,9 +69,9 @@ class Module
 
     public function onDispatch(Event $e)
     {
-        $controller     = $e->getTarget();
+        $controller = $e->getTarget();
         $serviceManager = $controller->getServiceLocator();
-        $container      = $serviceManager->get('default_navigation');
+        $container = $serviceManager->get('default_navigation');
         $vm = $e->getViewModel();
 
         // If no active navigation is found, we revert to 1-col layout
@@ -83,7 +83,7 @@ class Module
         }
 
         // The template has not been changed by the controller, so can override it!
-        if($vm->getTemplate() != 'editor/layout'){
+        if (in_array($vm->getTemplate(), ['layout/layout', 'layout/1-col', 'layout/3-col', 'layout/2-col'])) {
             $controller->layout('layout/1-col');
         }
     }
