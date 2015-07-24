@@ -16,7 +16,7 @@ use Normalizer\NormalizerInterface;
 use Search\Entity\Document;
 use Taxonomy\Entity\TaxonomyTermInterface;
 use Taxonomy\Manager\TaxonomyManagerInterface;
-use Taxonomy\Filter\SearchableTaxonomyCollectionFilter;
+use Taxonomy\Filter\TaxonomyTypeCollectionFilter;
 use Uuid\Filter\NotTrashedCollectionFilter;
 use Zend\Mvc\Router\RouteInterface;
 use Search\Exception\InvalidArgumentException;
@@ -96,12 +96,12 @@ class TaxonomyProvider implements ProviderInterface
         $container = [];
         $terms     = $this->taxonomyManager->findAllTerms(true);
         $notTrashed = new NotTrashedCollectionFilter();
-        $searchable = new SearchableTaxonomyCollectionFilter();
+        $typeFilter = new TaxonomyTypeCollectionFilter(['curriculum-topic', 'curriculum-topic-folder']);
         $chain      = new FilterChain();
         $chain->attach($notTrashed);
-        $chain->attach($searchable);
+        $chain->attach($typeFilter);
 
-        $terms     = $chain->filter($terms);
+        $terms = $chain->filter($terms);
         /* @var $term TaxonomyTermInterface */
         foreach ($terms as $term) {
             $result      = $this->toDocument($term);

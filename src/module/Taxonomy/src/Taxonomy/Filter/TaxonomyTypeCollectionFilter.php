@@ -12,8 +12,18 @@ use Doctrine\Common\Collections\Collection;
 use Zend\Filter\Exception;
 use Zend\Filter\FilterInterface;
 
-class SearchableTaxonomyCollectionFilter implements FilterInterface
+class TaxonomyTypeCollectionFilter implements FilterInterface
 {
+
+    private $forbiddenTypes = [];
+
+    /**
+     * @param $forbiddenTypes
+     */
+    function __construct($forbiddenTypes) {
+        $this->forbiddenTypes = $forbiddenTypes;
+    }
+
     /**
      * Returns the result of filtering $value
      *
@@ -33,7 +43,7 @@ class SearchableTaxonomyCollectionFilter implements FilterInterface
         return $value->filter(
             function (TaxonomyTermInterface $term) {
                 $type = $term->getType()->getName();
-                return  $type != 'curriculum-topic' && $type != 'curriculum-topic-folder';
+                return !in_array($type, $this->forbiddenTypes);
             }
         );
     }
