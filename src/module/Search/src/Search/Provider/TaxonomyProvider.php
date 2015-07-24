@@ -16,9 +16,11 @@ use Normalizer\NormalizerInterface;
 use Search\Entity\Document;
 use Taxonomy\Entity\TaxonomyTermInterface;
 use Taxonomy\Manager\TaxonomyManagerInterface;
+use Taxonomy\Filter\TaxonomyTypeCollectionFilter;
 use Uuid\Filter\NotTrashedCollectionFilter;
 use Zend\Mvc\Router\RouteInterface;
 use Search\Exception\InvalidArgumentException;
+use Zend\Filter\FilterChain;
 
 class TaxonomyProvider implements ProviderInterface
 {
@@ -93,8 +95,13 @@ class TaxonomyProvider implements ProviderInterface
     {
         $container = [];
         $terms     = $this->taxonomyManager->findAllTerms(true);
-        $filter    = new NotTrashedCollectionFilter();
-        $terms     = $filter->filter($terms);
+        $notTrashed = new NotTrashedCollectionFilter();
+        $typeFilter = new TaxonomyTypeCollectionFilter(['curriculum-topic', 'curriculum-topic-folder']);
+        $chain      = new FilterChain();
+        $chain->attach($notTrashed);
+        $chain->attach($typeFilter);
+
+        $terms = $chain->filter($terms);
         /* @var $term TaxonomyTermInterface */
         foreach ($terms as $term) {
             $result      = $this->toDocument($term);
