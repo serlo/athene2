@@ -29,10 +29,9 @@ class Login extends Form
         $this->setInputFilter($filter);
 
         $this->add((new Text('email'))
-            ->setAttribute('type', 'email')
             ->setLabel('Email address:')
             ->setAttribute('required', 'required')
-            ->setAttribute('placeholder', $translator->translate('Email address'))
+            ->setAttribute('placeholder', $translator->translate('Email address or Username'))
         );
         $this->add((new Password('password'))
             ->setLabel('Password:')
