@@ -58,7 +58,11 @@ class UserAuthAdapter implements AdapterInterface
      */
     public function authenticate()
     {
-        $user = $this->getObjectManager()->getRepository('User\Entity\User')->findOneBy(['email' => $this->email]);
+        $userRepository = $this->getObjectManager()->getRepository('User\Entity\User');
+        $user = $userRepository->findOneBy(['email' => $this->email]);
+        if(!$user){
+            $user = $userRepository->findOneBy(['username' => $this->email]);
+        }
         $role = $this->getObjectManager()->getRepository('User\Entity\Role')->findOneBy(['name' => 'login']);
 
         if($user && $role){
