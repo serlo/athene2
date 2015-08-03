@@ -1,4 +1,4 @@
 {% include 'taxonomy/term/page/subject-descendant' %}
-{% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' - ' ~ (term.getTaxonomy.getName() | trans)) %}
+{% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' ' ~ (term.getTaxonomy.getName() | trans)) %}
 {% set siblings_nav = include('taxonomy/term/aggregate/siblings', {siblings: siblings}) %}
 {% set temp = registry().add('rnav', siblings_nav) %}
