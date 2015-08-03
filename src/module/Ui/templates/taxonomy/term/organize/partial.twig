@@ -14,6 +14,9 @@
             </ul>
         </div>
     </div>
+    <div>
+        <input type="checkbox" data-toggle="visibility" data-target=".trashed"> Hide trashed taxonomy
+    </div>
     <h3>{{ term.getName() }} <small>{{ term.getTaxonomy().getName() | trans }}</small></h3>
 <hr>
 <div class="sortable" data-active="false" data-action="{{ url( 'taxonomy/term/order', {'term' : term.getId()}) }}">
@@ -21,7 +24,7 @@
 
     <ol class="sortable-list" data-id="{{ term.getID() }}">
         {% for child in term.getChildren() %}
-            <li class="sortable-item" data-id="{{ child.getId() }}">
+            <li class="sortable-item {{ child.isTrashed() ? 'trashed'}}" data-id="{{ child.getId() }}">
                 <span class="sortable-handle"></span>
                 <div class="sortable-item-inner">
                     {{ child.getName() }} <small>{{ child.getTaxonomy().getName() | trans }}</small>
