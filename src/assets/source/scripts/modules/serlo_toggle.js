@@ -30,6 +30,14 @@ define(['jquery'], function ($) {
                         }, 500);
                         return false;
                     });
+            } else if ($(this).data('toggle') === 'visibility') {
+                $(this)
+                    .unbind('click')
+                    .click(function () {
+                        var $that = $(this),
+                            $target = $($that.data('target'));
+                        $target.toggleClass('hidden');
+                    });
             }
         });
     };
