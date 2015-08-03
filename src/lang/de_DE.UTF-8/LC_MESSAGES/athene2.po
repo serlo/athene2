@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
 "POT-Creation-Date: 2015-07-09 22:48+0100\n"
-"PO-Revision-Date: 2015-07-09 22:57+0100\n"
-"Last-Translator: Serlo <community-de@serlo.org>\n"
+"PO-Revision-Date: 2015-08-03 14:16+0200\n"
+"Last-Translator: Aeneas Rekkas <aeneas.rekkas@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;pageHeader;setSubtitle;addMessage;addSuccessMessage;addErrorMessage;setLabel;setLegend;t\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1436,7 +1436,7 @@ msgstr "Gesamter Kurs"
 
 #: /tmp/cache/559ede22928d7/61/72/16a7ab3ffdb22eda1fdc1e74a93a5805029a14356d900bf2cec50b308f63.php:19
 msgid "article"
-msgstr "Artikel"
+msgstr "Erklärung"
 
 #: /tmp/cache/559ede22928d7/1d/62/e49734655fbc89e217be812257ac5cf191b66c22487722829772bbc550ce.php:19
 msgid "course"
@@ -1912,7 +1912,7 @@ msgstr "Neuer Inhalt"
 
 #: /tmp/cache/559ede24116a6/a9/dd/0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
 msgid "Articles"
-msgstr "Artikel"
+msgstr "Erklärungen"
 
 #: /tmp/cache/559ede24116a6/ec/b1/2413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:127
 #: /tmp/cache/559ede24116a6/15/bd/6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:87

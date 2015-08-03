@@ -1,6 +1,6 @@
 {% do normalize().headMeta(entity) %}
 {% set title = normalize().toTitle(entity) %}
-{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' - ' ~ (entity.getType().getName() | trans)) %}
+{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' ' ~ (entity.getType().getName() | trans)) %}
 {% include 'entity/page/partials/placeholders' %}
 <div itemscope itemtype="http://schema.org/VideoObject">
     <div class="page-header">

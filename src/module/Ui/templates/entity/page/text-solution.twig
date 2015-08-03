@@ -14,7 +14,7 @@
     {% set subject =  entity().findSubject(parent) %}
 {% endif %}
 
-{% do headTitle(title ~ ' - ' ~ subject ~ ' - ' ~ (parent.getType().getName() | trans)) %}
+{% do headTitle(title ~ ' - ' ~ subject ~ ' ' ~ (parent.getType().getName() | trans)) %}
 {% include 'entity/page/partials/placeholders' %}
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}

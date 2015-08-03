@@ -1,5 +1,5 @@
 {% set title = normalize().toTitle(entity) %}
-{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' - ' ~ (entity.getType().getName() | trans)) %}
+{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' ' ~ (entity.getType().getName() | trans)) %}
 {% do normalize().headMeta(entity) %}
 {% include 'entity/page/partials/placeholders' %}
 <div class="page-header">
