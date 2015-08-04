@@ -56,6 +56,11 @@ class Discussion extends AbstractHelper
     protected $renderer;
 
     /**
+     * @var \Zend\Http\Request
+     */
+    protected $request;
+
+    /**
      * @var array
      */
     protected $inMemory = [];
@@ -64,13 +69,15 @@ class Discussion extends AbstractHelper
         TermForm $termForm,
         CommentForm $commentForm,
         DiscussionForm $discussionForm,
-        TwigRenderer $renderer
+        TwigRenderer $renderer,
+        Request $request
     ) {
         $this->renderer       = $renderer;
         $this->form           = [];
         $this->termForm       = $termForm;
         $this->commentForm    = $commentForm;
         $this->discussionForm = $discussionForm;
+        $this->request       = $request;
     }
 
     public function __invoke(UuidInterface $object = null, $forum = null, $archived = null)
@@ -173,19 +180,23 @@ class Discussion extends AbstractHelper
         return $this->getUserManager()->getUserFromAuthenticator();
     }
 
-    public function render($template = null, $leftWidth = 2)
+    public function render($template = null, $leftWidth = 2, $force = false)
     {
         $template = $template ? 'discussion/helper/' . $template . '/' . $template : $this->getOption('template');
-        return $this->renderer->render(
-            $template,
-            [
-                'discussions' => $this->discussions,
-                'isArchived'  => $this->archived,
-                'object'      => $this->getObject(),
-                'forum'     => $this->getForum(),
-                'leftWidth' => $leftWidth
-            ]
-        );
+        if ($force || !$this->request->isXmlHttpRequest()) {
+            return $this->renderer->render(
+                $template,
+                [
+                    'discussions' => $this->discussions,
+                    'isArchived'  => $this->archived,
+                    'object'      => $this->getObject(),
+                    'forum'     => $this->getForum(),
+                    'leftWidth' => $leftWidth
+                ]
+            );
+        } else {
+            return '';
+        }
     }
 
     public function setObject(UuidInterface $object)
