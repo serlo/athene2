@@ -23,6 +23,11 @@ return [
         'User\Entity\UserInterface' => 'User\Entity\User',
         'User\Entity\RoleInterface' => 'User\Entity\Role'
     ],
+    'view_helpers'    => [
+        'factories' => [
+            'user' => __NAMESPACE__ . '\Factory\UserHelperFactory'
+        ]
+    ],
     'di'              => [
         'allowed_controllers' => [
             __NAMESPACE__ . '\Controller\UsersController',

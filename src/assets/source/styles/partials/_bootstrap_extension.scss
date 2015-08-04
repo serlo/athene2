@@ -189,11 +189,11 @@ hr {
 }
 
 .btn-group-community {
-  &.open>.btn-default.dropdown-toggle {
+  &.open>.btn-primary.dropdown-toggle {
     background-color: darken($serloGreen, 5%);
   }
 
-  .btn-default {
+  .btn-primary {
     background-color: $serloGreen;
     border-color: #fff;
 

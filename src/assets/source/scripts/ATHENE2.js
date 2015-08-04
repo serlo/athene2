@@ -7,7 +7,7 @@
  * @license http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
-/*global define, require, MathJax*/
+/*global define, require, MathJax, ory*/
 define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
                    'moment', 'ajax_overlay', 'tracking', 'toggle_action', 'modals', 'trigger', 'sortable_list',
                    'timeago', 'spoiler', 'injections', 'moment_de', 'affix', 'forum_select', 'slider',
@@ -29,6 +29,8 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
             });
 
             moment.lang(languageFromDOM);
+
+            new ory.Feedback($('.feedback-action', $context));
 
             // create an system notification whenever Common.genericError is called
             Common.addEventListener('generic error', function () {
