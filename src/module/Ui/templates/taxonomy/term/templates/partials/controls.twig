@@ -1,10 +1,10 @@
 <div class="btn-group btn-group-community">
     {% if isGranted('taxonomy.term.update', term) %}
-        <a rel="nofollow" class="btn btn-default" href="{{ url('taxonomy/term/update', {'term': term.getId()}) }}">
+        <a rel="nofollow" class="btn btn-success" href="{{ url('taxonomy/term/update', {'term': term.getId()}) }}">
             <span class="fa fa-pencil"></span>
         </a>
     {% endif %}
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="caret"></span>
         <span class="sr-only">{{ 'Toggle Dropdown' | trans }}</span>
     </button>
