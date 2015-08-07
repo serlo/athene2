@@ -5,7 +5,7 @@ define(['jquery'], function ($) {
         ToggleAction;
 
     CollapseScrollHelper = (function () {
-        var collapsing = null,
+        var base = null,
             resizeInterval = null,
             offset,
             win = $(window),
@@ -14,23 +14,24 @@ define(['jquery'], function ($) {
             onResize;
 
         onResize = function () {
-            offset = (collapsing.offset().top + collapsing.height()) - (win.scrollTop() + win.height());
+            offset = (base.offset().top + base.height()) - (win.scrollTop() + win.height());
             if (offset > 0) {
-                scrollPos = collapsing.offset().top + collapsing.height() - win.height();
+                scrollPos = base.offset().top + base.height() - win.height();
 
-                // first i wanted to use the height of #subject-nav as indicator for the additional offset,
-                //  but due to attributes like box shadow or margin, the real height of navigation
-                //  is not so easy to determine, so a constant value of 54px is used instead
-                minScrollPos = collapsing.offset().top - 60;
+                // it would be better to use the real height of the navigation here, but due to
+                //  attributes like box shadow, the height is not very easy to determine
+                // so a fixed value of 54px is used instead
+                minScrollPos = base.offset().top - 60;
                 win.scrollTop(Math.min(scrollPos, minScrollPos));
             }
         };
 
         return {
-            startCollapse: function (collapsingElement) {
-                collapsing = collapsingElement;
+            startCollapse: function (baseElement) {
+                base = baseElement;
 
                 // the delay might be larger due to performance reasons
+                //  but could also be smaller for a smoother scrolling
                 resizeInterval = setInterval(onResize, 20);
             },
 
@@ -42,8 +43,6 @@ define(['jquery'], function ($) {
             }
         };
     })();
-
-    console.log(CollapseScrollHelper);
 
     ToggleAction = function () {
         return $(this).each(function () {
@@ -81,10 +80,18 @@ define(['jquery'], function ($) {
                         $target.toggleClass('hidden');
                     });
             } else if ($(this).data('toggle') === 'collapse') {
-                var $target = $($(this).data('target'));
+                var $target = $($(this).data('target')),
+                    // this is a bit messy, but i see no other way to determine
+                    //  the parent element of a lesson
+                    $base = $target.parent().closest('section.row, div.row');
+
+                if ($base === null) {
+                    $base = $target;
+                }
+
                 $target
                     .on('show.bs.collapse', function () {
-                        CollapseScrollHelper.startCollapse($target);
+                        CollapseScrollHelper.startCollapse($base);
                     })
                     .on('shown.bs.collapse', function () {
                         CollapseScrollHelper.stopCollapse();
