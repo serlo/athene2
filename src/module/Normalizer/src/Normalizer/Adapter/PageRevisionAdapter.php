@@ -4,8 +4,7 @@
  *
  * @author      Aeneas Rekkas (aeneas.rekkas@serlo.org)
  * @author      Jakob Pfab
- * @license     MIT License
- * @license     http://opensource.org/licenses/MIT The MIT License (MIT)
+ * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace Normalizer\Adapter;
