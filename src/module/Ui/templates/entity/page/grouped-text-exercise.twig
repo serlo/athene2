@@ -5,9 +5,6 @@
 {{ pageHeader(normalize().toTitle(entity))
     .setSubtitle(entity.getType().getName() | trans)
     .setBacklink(normalize().toUrl(entity.getParents('link').first()))
-    .append('<div class="pull-right btn-group hidden-xs">')
-    .append(include('entity/view/partials/actions/controls'))
-    .append('</div>')
     .render(false) }}
 
 {% include 'entity/page/partials/placeholders' %}
