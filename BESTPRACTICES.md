@@ -1,3 +1,19 @@
+# Install on server
+
+```
+apt-get -y update
+apt-get install -y python-software-properties python g++ make python-software-properties
+apt-get install -y apache2 mysql-server-5.5 git
+apt-get install -y inotify-tools
+apt-get install -y language-pack-de-base
+
+apt-get install -y apache2-mpm-worker php5-fpm php5 php5-intl php5-mysql php5-curl php-pear phpmyadmin php5-cli php-apc php-xml-parser
+apt-get install -y solr-tomcat nodejs npm ruby-sass ruby-compass
+
+# npm pm2 --unsafe-perm 
+npm -g install bower grunt grunt-cli pm2 dnode
+```
+
 # Server Crontabs
 
 * * * * * su - www-data -c '(cd /var/www/athene2.serlo.org/athene2/src/public; php index.php notification worker)'
