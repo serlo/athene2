@@ -1,6 +1,7 @@
 # Install on server
 
 ```
+adduser serlo --no-home
 apt-get -y update
 apt-get install -y python-software-properties python g++ make python-software-properties
 apt-get install -y apache2 mysql-server-5.5 git
