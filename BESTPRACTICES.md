@@ -2,6 +2,7 @@
 
 ```
 adduser serlo --no-home
+
 apt-get -y update
 apt-get install -y python-software-properties python g++ make python-software-properties
 apt-get install -y apache2 mysql-server-5.5 git
@@ -13,6 +14,22 @@ apt-get install -y solr-tomcat nodejs npm ruby-sass ruby-compass
 
 # npm pm2 --unsafe-perm 
 npm -g install bower grunt grunt-cli pm2 dnode
+
+sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/fpm/php.ini
+sudo sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /etc/php5/fpm/php.ini
+sudo sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /etc/php5/fpm/php.ini
+sudo sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php5/fpm/php.ini
+
+sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
+sudo echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
+sudo echo "apc.enable_cli = 1" >> /etc/php5/cli/php.ini
+```
+
+https://www.linode.com/docs/websites/apache/running-fastcgi-php-fpm-on-debian-7-with-apache
+
+```
+cd /home/serlo
+git clone https://github.com/serlo-org/athene2.git
 ```
 
 # Server Crontabs
