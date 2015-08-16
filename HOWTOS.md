@@ -37,12 +37,6 @@ sudo service php5-fpm restart
 sudo service apache2 restart
 ```
 
-Modify user settings in file */etc/apache2/envvars*:
-```
-export APACHE_RUN_USER=serlo
-export APACHE_RUN_GROUP=serlo
-```
-
 Insert into */etc/apache2/sites-enabled/athene2.conf*:
 ```
 <VirtualHost *:80>
@@ -117,8 +111,8 @@ cd ../../bin
 sh deploy.sh
 exit
 # Add www-data to serlo gorup (deprecated)
-# usermod -a -G serlo www-data
-# chmod g=rw -R /home/serlo/athene2
+usermod -a -G serlo www-data
+chmod 774 -R /home/serlo/athene2
 ```
 
 There are also two scripts which should be executed regularly
