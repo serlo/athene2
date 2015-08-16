@@ -25,6 +25,85 @@ sudo echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
 sudo echo "apc.enable_cli = 1" >> /etc/php5/cli/php.ini
 ```
 
+```
+<IfModule mod_fastcgi.c>
+        Alias /php5.fastcgi /var/www/fastcgi/php5.fastcgi
+        AddHandler php-script .php
+        FastCGIExternalServer /var/www/fastcgi/php5.fastcgi -socket /var/run/php-fpm.sock -idle-timeout 90
+        Action php-script /php5.fastcgi virtual
+
+# This part is not necessary to get it to work, but it stops anything else from being
+# accessed from it by mistake or maliciously.
+#        <Directory "/var/www/fastcgi">
+#                Order allow,deny
+#                <Files "php5.fastcgi">
+#                        Order deny,allow
+#                </Files>
+#        </Directory>
+</IfModule>
+```
+
+Apache **2.4**:
+
+```
+<VirtualHost *:80>
+        ServerName de.serlo.org
+        ServerAdmin info-de@serlo.org
+        ServerAlias en.serlo.org
+        DocumentRoot .../athene2/src/public
+
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory .../athene2/src/public>
+                IndexIgnore .htaccess *~ *.bak *.old
+                Options -Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                
+                # Apache 2.2
+                # Order allow,deny
+                # Allow from all
+                
+                # Apache 2.4
+                Require all granted
+                
+                AddDefaultCharset utf-8
+                AddCharset utf-8 .js .css
+                
+                <Files .*>
+                        # Apache 2.2
+                        # Order Deny,Allow
+                        # Deny From All
+                        
+                        # Apache 2.4
+                        Require all denied
+                </Files>
+
+                <FilesMatch "\.(ttf|otf|eot)$">
+                        <IfModule mod_headers.c>
+                                Header set Access-Control-Allow-Origin "*"
+                        </IfModule>
+                </FilesMatch>
+
+                <FilesMatch ".*\.(html|php|css|js)$">
+                  SetOutputFilter DEFLATE
+                </FilesMatch>
+
+                <FilesMatch "\.(jpg|jpeg|gif|png|js|css|woff|ttf|svg|eot)$">
+                        Header set Cache-control "public, max-age=600"
+                </FilesMatch>
+        </Directory>
+
+        LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+        ErrorLog /var/log/apache2/athene2.error.log
+        CustomLog "|/usr/bin/rotatelogs /var/log/apache2/athene2.serlo.org.%Y.%m.%d 172800" combined
+        
+        LogLevel warn
+        ServerSignature Off
+</VirtualHost>
+```
+
 https://www.linode.com/docs/websites/apache/running-fastcgi-php-fpm-on-debian-7-with-apache
 
 ```
