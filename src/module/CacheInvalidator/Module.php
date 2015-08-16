@@ -14,7 +14,7 @@ class Module
 {
 
     public static $listeners = [
-        'CacheInvalidator\Listener\CacheListener'
+//        'CacheInvalidator\Listener\CacheListener'
     ];
 
     public function getAutoloaderConfig()
