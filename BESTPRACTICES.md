@@ -1,15 +1,24 @@
 # Install on server
 
-```
-adduser serlo --no-home
 
+```
+adduser serlo --disabled-password --disabled-login
 apt-get -y update
 apt-get install -y python-software-properties python g++ make python-software-properties
 apt-get install -y apache2 mysql-server-5.5 git
 apt-get install -y inotify-tools
-apt-get install -y language-pack-de-base
 
-apt-get install -y apache2-mpm-worker php5-fpm php5 php5-intl php5-mysql php5-curl php-pear phpmyadmin php5-cli php-apc php-xml-parser
+# Does not exist on Debian 8?
+# apt-get install -y language-pack-de-base
+# Instead to:
+apt-get install -y locales locales-all
+locale-gen de_DE.UTF-8
+
+# Install PHP and Apache stuff
+# Check this guide instead:
+# https://www.linode.com/docs/websites/apache/running-fastcgi-php-fpm-on-debian-7-with-apache
+# apt-get install -y apache2-mpm-worker php5-fpm php5 php5-intl php5-mysql php5-curl php-pear phpmyadmin php5-cli php-apc php-xml-parser
+
 apt-get install -y solr-tomcat nodejs npm ruby-sass ruby-compass
 
 # npm pm2 --unsafe-perm 
@@ -23,40 +32,24 @@ sudo sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php5/fpm/php
 sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
 sudo echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
 sudo echo "apc.enable_cli = 1" >> /etc/php5/cli/php.ini
+
+sudo service php5-fpm restart
+sudo service apache2 restart
 ```
 
-```
-<IfModule mod_fastcgi.c>
-        Alias /php5.fastcgi /var/www/fastcgi/php5.fastcgi
-        AddHandler php-script .php
-        FastCGIExternalServer /var/www/fastcgi/php5.fastcgi -socket /var/run/php-fpm.sock -idle-timeout 90
-        Action php-script /php5.fastcgi virtual
-
-# This part is not necessary to get it to work, but it stops anything else from being
-# accessed from it by mistake or maliciously.
-#        <Directory "/var/www/fastcgi">
-#                Order allow,deny
-#                <Files "php5.fastcgi">
-#                        Order deny,allow
-#                </Files>
-#        </Directory>
-</IfModule>
-```
-
-Apache **2.4**:
-
+Insert into */etc/apache2/sites-enabled/athene2.conf*:
 ```
 <VirtualHost *:80>
         ServerName de.serlo.org
         ServerAdmin info-de@serlo.org
         ServerAlias en.serlo.org
-        DocumentRoot .../athene2/src/public
+        DocumentRoot /home/serlo/athene2/src/public
 
         <Directory />
                 Options FollowSymLinks
                 AllowOverride None
         </Directory>
-        <Directory .../athene2/src/public>
+        <Directory /home/serlo/athene2/src/public>
                 IndexIgnore .htaccess *~ *.bak *.old
                 Options -Indexes FollowSymLinks MultiViews
                 AllowOverride All
@@ -104,17 +97,35 @@ Apache **2.4**:
 </VirtualHost>
 ```
 
-https://www.linode.com/docs/websites/apache/running-fastcgi-php-fpm-on-debian-7-with-apache
+You should now set up mysql (set user, upload database dump). You can do so by going to http://server-ip-address/phpmyadmin . If you want to change this directory (which you should), take a look at the config in */etc/apache2/conf-enabled/phpmyadmin.conf*.
 
 ```
 cd /home/serlo
+su serlo
 git clone https://github.com/serlo-org/athene2.git
+cd athene2
+php composer.phar install
+cd src/assets
+npm install && bower install
+cd ../../bin
+sh deploy.sh
+exit
+# Add www-data to serlo gorup
+usermod -a -G serlo www-data
+chmod g=rw -R /home/serlo/athene2
 ```
 
-# Server Crontabs
+There are also two scripts which should be executed regularly
+```
+su serlo
+crontab -e
 
-* * * * * su - www-data -c '(cd /var/www/athene2.serlo.org/athene2/src/public; php index.php notification worker)'
-* 05 * * * su - www-data -c '(cd /var/www/athene2.serlo.org/athene2/src/public; php index.php session gc)'
+# Sends out notifications every 5 minutes
+* */5 * * * su - serlo -c '(cd .../athene2/src/public; php index.php notification worker)'
+# Cleans up session sto
+* 05 * * * su - serlo -c '(cd .../athene2/src/public; php index.php session gc)'
+```
+
 
 # Converting phtml to twig (Careful, buggy!)
 
