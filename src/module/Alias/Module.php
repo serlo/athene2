@@ -17,10 +17,10 @@ class Module
 {
 
     public static $listeners = [
-        'Alias\Listener\BlogManagerListener',
-        'Alias\Listener\PageControllerListener',
-        'Alias\Listener\RepositoryManagerListener',
-        'Alias\Listener\TaxonomyManagerListener'
+        //'Alias\Listener\BlogManagerListener',
+        //'Alias\Listener\PageControllerListener',
+        //'Alias\Listener\RepositoryManagerListener',
+        //'Alias\Listener\TaxonomyManagerListener'
     ];
 
     public function getAutoloaderConfig()
