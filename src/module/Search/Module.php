@@ -13,9 +13,9 @@ use Zend\Mvc\MvcEvent;
 class Module
 {
     public static $listeners = [
-        'Search\Listener\RepositoryManagerListener',
-        'Search\Listener\TaxonomyManagerListener',
-        'Search\Listener\UuidManagerListener',
+        //'Search\Listener\RepositoryManagerListener',
+        //'Search\Listener\TaxonomyManagerListener',
+        //'Search\Listener\UuidManagerListener',
     ];
 
     public function getConfig()
