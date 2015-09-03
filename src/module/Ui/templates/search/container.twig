@@ -3,7 +3,7 @@
         <p class="media-body">
             <h4 class="media-heading">
                 <a href="{{ result.getLink() }}">{{ search().highlight(query, result.getTitle()) }}</a>
-                <small>{{ result.getType() }}</small>
+                <small>{{ result.getType()|trans }}</small>
             </h4>
             {% if result.getContent() %}
                 {{ result.getContent() }}
