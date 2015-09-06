@@ -20,8 +20,8 @@ define(['jquery'], function ($) {
 
                 // it would be better to use the real height of the navigation here, but due to
                 //  attributes like box shadow, the height is not very easy to determine
-                // so a fixed value of 54px is used instead
-                minScrollPos = base.offset().top - 60;
+                //  so a fixed value of 70px is used instead
+                minScrollPos = base.offset().top - 70;
                 win.scrollTop(Math.min(scrollPos, minScrollPos));
             }
         };
@@ -30,13 +30,20 @@ define(['jquery'], function ($) {
             startCollapse: function (baseElement) {
                 base = baseElement;
 
-                // the delay might be larger due to performance reasons
-                //  but could also be smaller for a smoother scrolling
-                resizeInterval = setInterval(onResize, 20);
+                if (resizeInterval) {
+                    clearInterval(resizeInterval);
+                    resizeInterval = null;
+                }
+
+                if (base) {
+                    // the delay might be larger due to performance reasons
+                    //  but could also be smaller for a smoother scrolling
+                    resizeInterval = setInterval(onResize, 20);
+                }
             },
 
             stopCollapse: function () {
-                if (resizeInterval !== null) {
+                if (resizeInterval) {
                     clearInterval(resizeInterval);
                     resizeInterval = null;
                 }
@@ -80,22 +87,26 @@ define(['jquery'], function ($) {
                         $target.toggleClass('hidden');
                     });
             } else if ($(this).data('toggle') === 'collapse') {
-                var $target = $($(this).data('target')),
-                    // this is a bit messy, but i see no other way to determine
-                    //  the parent element of a lesson
-                    $base = $target.parent().closest('section.row, div.row');
+                if (/#solution-\d+/.test($(this).data('target'))) {
+                    var $target = $($(this).data('target')),
+                        $base = $(this).closest('article');
 
-                if ($base === null) {
-                    $base = $target;
+                    if (!$base.length) {
+                        $base = $target;
+                    }
+
+                    $target
+                        .on('show.bs.collapse', function (event) {
+                            if ($(this).is($(event.target))) {
+                                CollapseScrollHelper.startCollapse($base);
+                            }
+                        })
+                        .on('shown.bs.collapse', function (event) {
+                            if ($(this).is($(event.target))) {
+                                CollapseScrollHelper.stopCollapse();
+                            }
+                        });
                 }
-
-                $target
-                    .on('show.bs.collapse', function () {
-                        CollapseScrollHelper.startCollapse($base);
-                    })
-                    .on('shown.bs.collapse', function () {
-                        CollapseScrollHelper.stopCollapse();
-                    });
             }
         });
     };
