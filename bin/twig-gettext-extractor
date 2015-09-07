@@ -122,6 +122,9 @@ $twig->addFunction(new \Twig_SimpleFunction('preview', true));
 $twig->addFunction(new \Twig_SimpleFunction('search', true));
 $twig->addFunction(new \Twig_SimpleFunction('isGranted', true));
 
+$twig->addFunction(new \Twig_SimpleFunction('headlink', true));
+$twig->addFunction(new \Twig_SimpleFunction('user', true));
+
 array_shift($_SERVER['argv']);
 $addTemplate = false;
 
