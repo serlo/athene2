@@ -207,7 +207,6 @@ hr {
   }
 }
 
-
 .icon-link {
   margin-top: 20px;
 
@@ -225,5 +224,20 @@ hr {
 
   &.icon-link-lower {
     margin-bottom: 30px;
+  }
+}
+
+/* Toggle label of Bootstrap's Collapse component */
+.collapse-show-label {
+  display: none;
+}
+
+.collapsed {
+  .collapse-show-label {
+    display: inherit;
+  }
+
+  .collapse-hide-label {
+    display: none;
   }
 }
