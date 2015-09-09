@@ -10,13 +10,15 @@
             <div class="pull-right">
                 <div class="btn-group">
                     {% if hint %}
-                        <div class="btn btn-default btn-xs" data-toggle="collapse" data-target="#hint-{{ hint.getId() }}">
-                            {% trans %} Show hint {% endtrans %}
+                        <div class="btn btn-default btn-xs collapsed" data-toggle="collapse" data-target="#hint-{{ hint.getId() }}">
+                            <span class="collapse-show-label">{% trans %} Show hint {% endtrans %}</span>
+                            <span class="collapse-hide-label">{% trans %} Hide hint {% endtrans %}</span>
                         </div>
                     {% endif %}
                     {% if solution %}
-                        <div class="btn btn-default btn-xs" data-toggle="collapse" data-target="#solution-{{ solution.getId() }}">
-                            {% trans %} Show solution {% endtrans %}
+                        <div class="btn btn-default btn-xs collapsed" data-toggle="collapse" data-target="#solution-{{ solution.getId() }}">
+                            <span class="collapse-show-label">{% trans %} Show solution {% endtrans %}</span>
+                            <span class="collapse-hide-label">{% trans %} Hide solution {% endtrans %}</span>
                         </div>
                     {% endif %}
                     {% include 'entity/view/partials/actions/small-essential' %}
