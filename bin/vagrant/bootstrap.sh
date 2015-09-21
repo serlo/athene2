@@ -5,11 +5,11 @@ echo "mysql-server-5.5 mysql-server/root_password password athene2" | debconf-se
 echo "mysql-server-5.5 mysql-server/root_password_again password athene2" | debconf-set-selections
 
 # Hands off configuration of phpmyadmin
-echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/app-password-confirm password athene2' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/mysql/admin-pass password athene2' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/mysql/app-pass password athene2' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
+echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/app-password-confirm password athene2" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/mysql/admin-pass password athene2" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/mysql/app-pass password athene2" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
 
 # Install basic stuff
 apt-get -y update
@@ -17,28 +17,18 @@ apt-get install -y python-software-properties python g++ make python-software-pr
 apt-get install -y apache2 mysql-server-5.5 git
 apt-get install -y language-pack-de-base inotify-tools
 
-# Add repositories with current versions
-sudo add-apt-repository -y ppa:chris-lea/node.js
-sudo add-apt-repository -y ppa:ondrej/php5
-sudo add-apt-repository -y ppa:muffinresearch/sass-3.2
-sudo add-apt-repository -y ppa:muffinresearch/compass
-apt-get -y update
-
 # Install php
-
 apt-get install -y libapache2-mod-php5 php5 php5-intl php5-mysql php5-curl php-pear phpmyadmin
 apt-get install -y php5-xdebug php5-cli php-apc php-xml-parser
 apt-get install -y solr-tomcat
 
 # Install nodejs related stuff
-
-apt-get install -y nodejs
+apt-get install -y nodejs nodejs-legacy
 apt-get install -y npm
 apt-get install -y ruby-sass
 apt-get install -y ruby-compass
 
 # Install npm dependencies
-
 npm -g install bower
 npm -g install grunt
 npm -g install grunt-cli
@@ -76,19 +66,19 @@ echo "<VirtualHost *:80>
 	</Directory>
 </VirtualHost>" > /etc/apache2/sites-available/athene2.conf
 
-echo '
+echo "
 # Listen and start after the vagrant-mounted event
 start on vagrant-mounted
 stop on runlevel [!2345]
 
 exec su vagrant -c /vagrant/bin/vagrant/boot.sh >> /home/vagrant/boot.log
-' > /etc/init/athene2startup.conf
+" > /etc/init/athene2startup.conf
 
 # Xdebug fix
-sed -i '$ a\xdebug.max_nesting_level = 500' /etc/php5/apache2/php.ini
+sed -i "$ a\xdebug.max_nesting_level = 500" /etc/php5/apache2/php.ini
 
 # Change Apache User to vagrant
-sed -i 's/www-data/vagrant/g' /etc/apache2/envvars
+sed -i "s/www-data/vagrant/g" /etc/apache2/envvars
 # Just to be safe...
 usermod -a -G vagrant www-data
 
