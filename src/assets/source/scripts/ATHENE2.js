@@ -31,6 +31,16 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
 
             new ory.Feedback($('.feedback-action', $context));
 
+            // 'resizeDelay' will be triggered if no `resize` event was triggered for 0.5s
+            $(window).resize(function () {
+                if (this.resizeTimeout) {
+                    clearTimeout(this.resizeTimeout);
+                }
+                this.resizeTimeout = setTimeout(function () {
+                    $(this).trigger('resizeDelay');
+                }, 500);
+            });
+
             // create an system notification whenever Common.genericError is called
             Common.addEventListener('generic error', function () {
                 SystemNotification.error();
@@ -112,9 +122,11 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
             // initialize the footer
             $('#footer-push').css('height', $('#footer').height());
             $('.wrap').css('margin-bottom', -$('#footer').height());
-            $(window).resize(function () {
+
+            $(window).bind('resizeDelay', function () {
                 $('#footer-push').css('height', $('#footer').height());
                 $('.wrap').css('margin-bottom', -$('#footer').height());
+                MathJax.Hub.Queue(['Reprocess', MathJax.Hub]);
             });
 
             // initialize the search

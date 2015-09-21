@@ -1,4 +1,4 @@
-/*global define*/
+/*global define, MathJax*/
 define(['jquery'], function ($) {
     "use strict";
     var CollapseScrollHelper,
@@ -105,6 +105,10 @@ define(['jquery'], function ($) {
                             if ($(this).is($(event.target))) {
                                 CollapseScrollHelper.stopCollapse();
                             }
+                        });
+                    $target
+                        .one('show.bs.collapse', function () {
+                            MathJax.Hub.Queue(['Reprocess', MathJax.Hub, $target.get()]);
                         });
                 }
             }

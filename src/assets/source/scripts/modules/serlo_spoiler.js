@@ -1,4 +1,4 @@
-/*global define*/
+/*global define, MathJax*/
 define(['jquery'], function ($) {
     "use strict";
     var Spoiler;
@@ -9,12 +9,18 @@ define(['jquery'], function ($) {
                 .unbind('click')
                 .first()
                 .click(function (e) {
-                    var glyphicon = $(this).find('.fa');
+                    var icon = $(this).find('.fa'),
+                        $content = $(this).next('.spoiler-content');
                     e.preventDefault();
-                    $(this).next('.spoiler-content').slideToggle();
-                    glyphicon.toggleClass('fa-plus');
-                    glyphicon.toggleClass('fa-minus');
+                    $content.slideToggle();
+                    icon.toggleClass('fa-caret-square-o-up');
+                    icon.toggleClass('fa-caret-square-o-down');
                     return;
+                });
+            $('> .spoiler-teaser', this)
+                .one('click', function () {
+                    var $content = $(this).next('.spoiler-content');
+                    MathJax.Hub.Queue(['Reprocess', MathJax.Hub, $content.get()]);
                 });
         });
     };
