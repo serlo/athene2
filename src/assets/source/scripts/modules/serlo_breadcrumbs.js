@@ -80,7 +80,7 @@ define('breadcrumbs', ['jquery'], function ($) {
 
         // adapt height; repeat on resize
         this.adaptHeight();
-        $(window).resize(function () {
+        $(window).bind('resizeDelay', function () {
             self.adaptHeight();
         });
     };
