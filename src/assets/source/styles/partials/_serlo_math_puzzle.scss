@@ -48,8 +48,15 @@
   }
 
   .operand > .background {
-    fill: #ffffe0 !IMPORTANT;
-    stroke: black !IMPORTANT;
+      fill: #ffffe0;
+      stroke: black;
+  }
+
+  .grabbed [data-goal].operand > .background,
+  .grabbed [data-goal] .operand > .background {
+      fill: yellowgreen;
+      stroke-width: 2;
+      stroke : darkgreen;
   }
 
   [data-ismovable=true] {
