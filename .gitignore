@@ -5,8 +5,9 @@ docs/
 coverage/
 /composer.lock
 tmp/
+!.editorconfig
+!.gitattributes
 !.gitignore
 !.gitmodules
 !.travis.yml
-!.gitattributes
 /tmp
