@@ -1,0 +1,11 @@
+{% set title = normalize().toTitle(entity) %}
+{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' ' ~ (entity.getType().getName() | trans)) %}
+{% do normalize().headMeta(entity) %}
+{% include 'entity/page/partials/placeholders' %}
+<div class="page-header">
+    <h1>{{ title }}
+        <small>{% trans %} Math puzzle dd {% endtrans %}</small>
+    </h1>
+</div>
+{% include 'entity/page/partials/alerts' %}
+{% include 'entity/view/default' %}

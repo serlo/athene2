@@ -1,0 +1,11 @@
+{% set revision = entity.getCurrentRevision() %}
+{% set source = revision.get('source') | escape %}
+<article itemscope itemtype="http://schema.org/Article">
+    <section class="row">
+        <div class="math-puzzle" data-source="{{ source }}">
+            <div class="excercise">
+                {{ markdown().toHtml(revision.get('content')) | raw }}
+            </div>
+        </div>
+    </section>
+</article>
