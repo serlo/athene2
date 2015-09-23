@@ -1,7 +1,8 @@
 #!/bin/sh
 
 git status
-git pull -ff
+git pull
+git submodule update --init --recursive
 sh templatemap_generator.sh
 sh build.sh
 
@@ -9,8 +10,13 @@ pm2 stop server
 pm2 delete server
 cd ../src/assets/
 npm update
+
+cd athene2-editor
+npm update
+bower update
 # pm2 start -i 0 --max-memory-restart 600M node_modules/athene2-editor/server/server.js --node-args="--expose_gc --gc_global"
-pm2 start node_modules/athene2-editor/server/server.js
+pm2 start server/server.js
+cd ../
 
 bower update
 grunt build
