@@ -15,7 +15,7 @@ echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf
 apt-get -y update
 apt-get install -y python-software-properties python g++ make python-software-properties
 apt-get install -y apache2 mysql-server-5.5 git
-apt-get install -y language-pack-de-base inotify-tools
+apt-get install -y language-pack-de-base language-pack-en-base inotify-tools
 
 # Install php
 apt-get install -y libapache2-mod-php5 php5 php5-intl php5-mysql php5-curl php-pear phpmyadmin
