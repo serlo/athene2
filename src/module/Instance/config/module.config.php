@@ -60,7 +60,8 @@ return [
     ],
     'view_helpers'       => [
         'factories' => [
-            'instance' => __NAMESPACE__ . '\Factory\InstanceHelperFactory'
+            'instance' => __NAMESPACE__ . '\Factory\InstanceHelperFactory',
+            'currentLanguage' => __NAMESPACE__ . '\Factory\LanguageHelperFactory'
         ]
     ],
     'controllers'        => [
