@@ -10,14 +10,16 @@ namespace Taxonomy\Controller;
 
 use Entity\Manager\EntityManagerAwareTrait;
 use Entity\Manager\EntityManagerInterface;
+use Versioning\Filter\HasHeadCollectionFilter;
 use Instance\Manager\InstanceManagerInterface;
-use Normalizer\NormalizerAwareTrait;
-use Normalizer\NormalizerInterface;
 use Taxonomy\Form\BatchCopyForm;
+use Taxonomy\Form\BatchMoveForm;
 use Taxonomy\Form\TermForm;
 use Taxonomy\Manager\TaxonomyManagerInterface;
+use Uuid\Filter\NotTrashedCollectionFilter;
 use Zend\View\Model\ViewModel;
 use ZfcRbac\Exception\UnauthorizedException;
+use Zend\Filter\FilterChain;
 
 class TermController extends AbstractController
 {
@@ -75,14 +77,9 @@ class TermController extends AbstractController
     public function batchMoveAction()
     {
         // TODO Currently only with entities...
-
-        $term     = $this->getTaxonomyManager()->getTerm($this->params('term'));
-        $elements = $term->getAssociated('entities');
-        $options  = [];
-        foreach ($elements as $element) {
-            $options[$element->getId()] = $element;
-        }
-        $form = new BatchCopyForm($options);
+        $term = $this->getTaxonomyManager()->getTerm($this->params('term'));
+        $options = $this->batchElementsArray($term);
+        $form = new BatchMoveForm($options);
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
@@ -91,7 +88,6 @@ class TermController extends AbstractController
                 [
                     'taxonomy' => $this->params('taxonomy'),
                     'parent'   => $this->params('parent', null)
-
                 ]
             );
             $form->setData($data);
@@ -119,13 +115,8 @@ class TermController extends AbstractController
     public function batchCopyAction()
     {
         // TODO Currently only with entities...
-
-        $term     = $this->getTaxonomyManager()->getTerm($this->params('term'));
-        $elements = $term->getAssociated('entities');
-        $options  = [];
-        foreach ($elements as $element) {
-            $options[$element->getId()] = $element;
-        }
+        $term = $this->getTaxonomyManager()->getTerm($this->params('term'));
+        $options = $this->batchElementsArray($term);
         $form = new BatchCopyForm($options);
 
         if ($this->getRequest()->isPost()) {
@@ -135,7 +126,6 @@ class TermController extends AbstractController
                 [
                     'taxonomy' => $this->params('taxonomy'),
                     'parent'   => $this->params('parent', null)
-
                 ]
             );
             $form->setData($data);
@@ -157,6 +147,22 @@ class TermController extends AbstractController
         ]);
         $view->setTemplate('taxonomy/term/batch-copy');
         return $view;
+    }
+
+    private function batchElementsArray($term)
+    {
+        $chain = new FilterChain();
+        $chain->attach(new NotTrashedCollectionFilter());
+        $chain->attach(new HasHeadCollectionFilter());
+        $elements = $term->getAssociated('entities');
+        $notTrashedElements = $chain->filter($elements);
+
+        $options  = [];
+        foreach ($notTrashedElements as $element) {
+            $options[$element->getId()] = $element;
+        }
+
+        return $options;
     }
 
     public function orderAction()

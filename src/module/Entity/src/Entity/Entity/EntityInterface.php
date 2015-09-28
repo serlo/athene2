@@ -73,11 +73,6 @@ interface EntityInterface
     public function isUnrevised();
 
     /**
-     * @return RevisionInterface
-     */
-    public function getHead();
-
-    /**
      * @return int
      */
     public function countUnrevised();
