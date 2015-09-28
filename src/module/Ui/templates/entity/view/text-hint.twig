@@ -1,5 +1,6 @@
 {% set title = 'text-hint' | trans %}
 {% set revision = entity.getCurrentRevision() %}
+
 <article class="panel-group">
     <section class="{{ collapse is defined ? 'collapse' : '' }} panel panel-default" id="hint-{{ entity.getId() }}">
         <div class="panel-body">
@@ -14,7 +15,7 @@
         <div class="list-group">
             <div class="list-group-item">
                 {% if revision %}
-                    {{ markdown().toHtml(revision.get('hint')) | raw }}
+                    {{ markdown().toHtml(revision.get('content')) | raw }}
                 {% elseif not entity.getHead() %}
                     {% trans %} A hint has been created but no content has been added yet or it is pending approval. {% endtrans %}
                 {% endif %}
