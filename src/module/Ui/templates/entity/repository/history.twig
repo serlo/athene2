@@ -13,6 +13,7 @@
         <th>{% trans %} Changes {% endtrans %}</th>
         <th>{% trans %} Author {% endtrans %}</th>
         <th>{% trans %} Timestamp {% endtrans %}</th>
+        <th></th>
     </tr>
     </thead>
     {% for revision in revisions %}
@@ -20,13 +21,20 @@
         <tr class="{{ isCurrent ? 'active ' : '' }}{{ revision.isTrashed() ? 'warning' : '' }}">
             <td>
                 {{ revision.getId() }}
-                (<a href="{{ url('entity/repository/compare', {'entity': entity.getId(), 'revision': revision.getId()}) }}">{% trans %}
-                    show {% endtrans %}</a>)
+                (<a href="{{ url('entity/repository/compare', {'entity': entity.getId(), 'revision': revision.getId()}) }}">
+                    {% trans %} show {% endtrans %}
+                </a>)
             </td>
             <td>{{ isCurrent ? '<span class="fa fa-check"></span>' : '' }}</td>
             <th>{{ revision.get('changes') }}</th>
             <td>{{ normalize().toAnchor(revision.getAuthor()) }}</td>
             <td>{{ timeago().render(revision.getTimestamp()) }}</td>
+            <td>
+                <a href="{{ url('entity/repository/add-revision', {'entity': entity.getId(), 'revision': revision.getId()}) }}"
+                   data-toggle="tooltip" title="{% trans %} Create a new revision starting from this specific revision {% endtrans %}">
+                    <span class="fa fa-pencil"></span>
+                </a>
+            </td>
         </tr>
     {% endfor %}
 </table>

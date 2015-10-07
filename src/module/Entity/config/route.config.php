@@ -157,12 +157,13 @@ return [
                             'add-revision' => [
                                 'type'    => 'segment',
                                 'options' => [
-                                    'route'       => '/add-revision/:entity',
+                                    'route'       => '/add-revision/:entity[/:revision]',
                                     'defaults'    => [
                                         'action' => 'addRevision'
                                     ],
                                     'constraints' => [
-                                        'entity' => '[0-9]+'
+                                        'entity' => '[0-9]+',
+                                        'revision' => '[0-9]+'
                                     ]
                                 ]
                             ]

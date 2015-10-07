@@ -1,6 +1,13 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') %}
-    <a rel="nofollow" class="btn btn-success" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
-        <span class="fa fa-pencil"></span>
-    </a>
+    {% if entity.isUnrevised() %}
+        <a rel="nofollow" class="btn btn-success href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
+            <span class="fa fa-clock-o"></span>
+            <span class="label label-community-light">{{ entity.countUnrevised() }}</span>
+        </a>
+    {% else %}
+        <a rel="nofollow" class="btn btn-success" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
+            <span class="fa fa-pencil"></span>
+        </a>
+    {% endif %}
 {% endif %}
