@@ -63,6 +63,17 @@ return [
                         'text-exercise-group'
                     ]
                 ],
+                'informatik'                   => [
+                    'allowed_taxonomies' => [
+                        'topic'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'text-exercise-group'
+                    ]
+                ],
                 'chemie'                   => [
                     'allowed_taxonomies' => [
                         'topic'
