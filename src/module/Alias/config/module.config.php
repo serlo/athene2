@@ -9,6 +9,26 @@
 namespace Alias;
 
 return [
+    'controllers'      => [
+        'factories' => [
+            __NAMESPACE__ . '\Controller\RefreshController' => __NAMESPACE__ . '\Factory\RefreshControllerFactory'
+        ]
+    ],
+    'console'         => [
+        'router' => [
+            'routes' => [
+                'alias' => [
+                    'options' => [
+                        'route'    => 'alias refresh [--percentile=] [--skip-entities] [--skip-terms] ',
+                        'defaults' => [
+                            'controller' => __NAMESPACE__ . '\Controller\RefreshController',
+                            'action'     => 'refresh'
+                        ]
+                    ]
+                ],
+            ]
+        ],
+    ],
     'alias_manager'      => [
         'aliases' => [
             'blogPost'     => [

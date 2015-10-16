@@ -10,12 +10,17 @@
 namespace Alias\Controller;
 
 use Alias\AliasManagerInterface;
+use Entity\Manager\EntityManagerInterface;
+use Normalizer\NormalizerInterface;
+use Taxonomy\Manager\TaxonomyManagerInterface;
+use Zend\Console\Adapter\AdapterInterface;
+use Zend\Console\Console;
 use Zend\Mvc\Controller\AbstractConsoleController;
 
 /**
  * A controller for controlling the index.
  */
-class RebuildController extends AbstractConsoleController
+class RefreshController extends AbstractConsoleController
 {
     /**
      * @var AliasManagerInterface
@@ -23,44 +28,91 @@ class RebuildController extends AbstractConsoleController
     protected $aliasManager;
 
     /**
+     * @var TaxonomyManagerInterface
+     */
+    protected $taxonomyManager;
+
+    /**
+     * @var EntityManagerInterface
+     */
+    protected $entityManager;
+
+    /**
+     * @var NormalizerInterface
+     */
+    protected $normalizer;
+
+    /**
      * @param AliasManagerInterface $aliasManager
+     * @param TaxonomyManagerInterface $taxonomyManager
+     * @param EntityManagerInterface $entityManager
+     * @param NormalizerInterface $normalizer
      */
     public function __construct(
-        AliasManagerInterface $aliasManager
-    ) {
+        AliasManagerInterface $aliasManager,
+        TaxonomyManagerInterface $taxonomyManager,
+        EntityManagerInterface $entityManager,
+        NormalizerInterface $normalizer
+    )
+    {
         $this->aliasManager = $aliasManager;
+        $this->taxonomyManager = $taxonomyManager;
+        $this->entityManager = $entityManager;
+        $this->normalizer = $normalizer;
     }
 
-    public function rebuildAction()
+    public function refreshAction()
     {
+        $console = $this->getServiceLocator()->get('console');
+        $percentile = $this->params()->fromRoute('percentile', 10);
+        $skipTerms = $this->params()->fromRoute('skip-terms', false);
+        $skipEntities = $this->params()->fromRoute('skip-entities', false);
 
-
-
-        $instance    = $term->getInstance();
-        $normalizer  = $this->normalizer->normalize($term);
-        $routeName   = $normalizer->getRouteName();
-        $routeParams = $normalizer->getRouteParams();
-        $router      = $this->getAliasManager()->getRouter();
-        $url         = $router->assemble($routeParams, ['name' => $routeName]);
-        $this->getAliasManager()->autoAlias('taxonomyTerm', $url, $term, $instance);
-
-
-
-        $instance = $entity->getInstance();
-
-        if ($entity->getId() === null) {
-            $this->getAliasManager()->flush($entity);
+        if (!$skipTerms) {
+            $this->refreshTerms($console, $percentile);
+        }
+        if (!$skipEntities) {
+            $this->refreshEntities($console, $percentile);
         }
 
-        $url = $this->getAliasManager()->getRouter()->assemble(
-            ['entity' => $entity->getId()],
-            ['name' => 'entity/page']
-        );
+        $this->aliasManager->flush();
+        return "All done!\n";
+    }
 
-        $this->getAliasManager()->autoAlias('entity', $url, $entity, $instance);
+    protected function refreshTerms(AdapterInterface $console, $percentile)
+    {
+        $terms = $this->taxonomyManager->findAllTerms(true);
+        foreach ($terms as $term) {
+            if (rand(0, 100) > $percentile) {
+                $console->writeLine('Left out taxonomy term ' . $term->getName() . ' (' . $term->getId() . ')');
+                continue;
+            }
+            $instance = $term->getInstance();
+            $normalizer = $this->normalizer->normalize($term);
+            $routeName = $normalizer->getRouteName();
+            $routeParams = $normalizer->getRouteParams();
+            $router = $this->aliasManager->getRouter();
+            $url = $router->assemble($routeParams, ['name' => $routeName]);
+            $this->aliasManager->autoAlias('taxonomyTerm', $url, $term, $instance);
+            $console->writeLine('Updated taxonomy term ' . $term->getName() . ' (' . $term->getId() . ')');
+        }
+    }
 
-
-
+    protected function refreshEntities(AdapterInterface $console, $percentile) {
+        $entities = $this->entityManager->findAll(true);
+        foreach ($entities as $entity) {
+            if (rand(0, 100) > $percentile) {
+                $console->writeLine('Left out entity ' . $entity->getId() . '');
+                continue;
+            }
+            $instance = $entity->getInstance();
+            $url = $this->aliasManager->getRouter()->assemble(
+                ['entity' => $entity->getId()],
+                ['name' => 'entity/page']
+            );
+            $this->aliasManager->autoAlias('entity', $url, $entity, $instance);
+            $console->writeLine('Updated entity ' . $entity->getId() . '');
+        }
 
     }
 }
