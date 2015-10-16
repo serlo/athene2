@@ -9,6 +9,71 @@
 
 There is an incomplete guide of Athene2 here: [Athene2 Guide](http://serlo-org.github.com/athene2-guide)
 
+# Cloning
+
+
+# Workflow
+
+**tl;dr**. Basically, the directory `src/asssets/athene2-editor` will be treated as a own git repository and the `athene2` repository just refers to the commit to use. So to make changes, we both have to commit changes to the `athene2-editor` repository and update the reference in `athene2` to the new commit. Furthermore, cloning and pulling must include the submodule, too.
+
+## Cloning
+
+Add `--resursive` to clone submodules, too.
+
+```
+git clone git@github.com:serlo-org/athene2.git --recursive
+```
+
+## Pulling external changes (for athene2 and athene2-editor)
+
+As usual, pull athene2. Also update submodules
+
+```
+git submodule update --init --recursive
+```
+
+**Note:** *This does not pull the latest commit of athene2-editor, but the proper commit specified in the athene2 repository. If you want to update the version of athene2-editor, follow the directions below.*
+
+## Committing changes to athene2-editor
+
+Either change the submodule in athene2 or work with the athene2-editor repository directly.
+
+### Make changes to the submodule
+
+**tl;dr**. Commit the changes in `src/assets/athene2-editor` and push resp. submit pull requests as usual.
+
+First, commit the changes in athene2-editor:
+
+```
+cd src/assets/athene2-editor
+git checkout -b BRANCH
+git add .
+git commit
+git push -u REMOTE BRANCH
+```
+
+Now you can submit a pull request to athene2-editor.
+
+### Directly modify athene2-editor
+
+As usual, make changes to athene2-editor, and submit a pull request to athene2-editor.
+
+## Updating the editor in the athene2 repository
+
+**tl;dr**. Pull the changes in `src/assets/athene2-editor` and commit `src/assets/athene2-editor` (will be treaded as a file by the `athene2` directory and contains the reference to the `athene2-editor` commit)
+
+To update the editor in athene2 (for example, after a pull request got merged), follow these steps:
+
+```
+git checkout -b BRANCH
+cd src/assets/athene2-editor
+git pull origin master
+cd ..
+git add athene2-editor
+git commit
+git push -u REMOTE BRANCH
+```
+
 # Contributing
 
 ## Commit Messages
