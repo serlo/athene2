@@ -112,8 +112,10 @@ class AliasManager implements AliasManagerInterface
             ));
         }
 
+        $old = $this->objectManager->getBypassIsolation();
+        $this->objectManager->setBypassIsolation(true);
         $alias = $this->findUniqueAlias($alias, $aliasFallback, $object);
-
+        $this->objectManager->setBypassIsolation($old);
         if ($alias instanceof AliasInterface) {
             // Found existing alias, no need to create new one
             return $alias;
@@ -121,7 +123,6 @@ class AliasManager implements AliasManagerInterface
 
         /* @var $class Entity\AliasInterface */
         $class = $this->getClassResolver()->resolve('Alias\Entity\AliasInterface');
-
         $class->setSource($source);
         $class->setInstance($instance);
         $class->setObject($object);
@@ -282,15 +283,13 @@ class AliasManager implements AliasManagerInterface
         $criteria  = ['alias' => $alias];
         $order     = ['timestamp' => 'DESC'];
         $aliases   = $this->getObjectManager()->getRepository($className)->findBy($criteria, $order);
-
-        $inMemory = [];
         foreach ($this->inMemoryAliases as $memoryAlias) {
             if ($memoryAlias->getAlias() == $alias) {
-                $inMemory[] = $memoryAlias;
+                $aliases[] = $memoryAlias;
             }
         }
 
-        return array_merge($aliases, $inMemory);
+        return $aliases;
     }
 
     protected function findUniqueAlias($alias, $fallback, UuidInterface $object)
