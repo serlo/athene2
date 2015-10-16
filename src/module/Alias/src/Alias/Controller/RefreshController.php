@@ -97,8 +97,8 @@ class RefreshController extends AbstractConsoleController
             $routeParams = $normalizer->getRouteParams();
             $router = $this->aliasManager->getRouter();
             $url = $router->assemble($routeParams, ['name' => $routeName]);
-            $this->aliasManager->autoAlias('taxonomyTerm', $url, $term, $instance);
-            $console->writeLine('Updated taxonomy term ' . $term->getName() . ' (' . $term->getId() . ')');
+            $alias = $this->aliasManager->autoAlias('taxonomyTerm', $url, $term, $instance);
+            $console->writeLine('Updated taxonomy term ' . $term->getName() . ' (' . $term->getId() . '): ' . $alias->getAlias());
         }
     }
 
@@ -110,7 +110,7 @@ class RefreshController extends AbstractConsoleController
         $entities = $filter->filter($entities);
         foreach ($entities as $entity) {
             if (rand(0, 100) > $percentile) {
-                $console->writeLine('Left out entity ' . $entity->getId() . '');
+                $console->writeLine('Left out entity ' . $entity->getId());
                 continue;
             }
             $instance = $entity->getInstance();
@@ -118,8 +118,8 @@ class RefreshController extends AbstractConsoleController
                 ['entity' => $entity->getId()],
                 ['name' => 'entity/page']
             );
-            $this->aliasManager->autoAlias('entity', $url, $entity, $instance);
-            $console->writeLine('Updated entity ' . $entity->getId() . '');
+            $alias = $this->aliasManager->autoAlias('entity', $url, $entity, $instance);
+            $console->writeLine('Updated entity ' . $entity->getId() . ': ' . $alias->getAlias());
         }
 
     }

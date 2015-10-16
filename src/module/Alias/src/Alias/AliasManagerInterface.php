@@ -20,7 +20,7 @@ interface AliasManagerInterface extends Flushable
      * @param                   $source
      * @param UuidInterface     $object
      * @param InstanceInterface $instance
-     * @return void
+     * @return AliasInterface
      */
     public function autoAlias($name, $source, UuidInterface $object, InstanceInterface $instance);
 
