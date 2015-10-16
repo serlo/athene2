@@ -88,7 +88,6 @@ class RefreshController extends AbstractConsoleController
         $terms = $filter->filter($terms);
         foreach ($terms as $term) {
             if (rand(0, 100) > $percentile) {
-                $console->writeLine('Left out taxonomy term ' . $term->getName() . ' (' . $term->getId() . ')');
                 continue;
             }
             $instance = $term->getInstance();
@@ -110,7 +109,6 @@ class RefreshController extends AbstractConsoleController
         $entities = $filter->filter($entities);
         foreach ($entities as $entity) {
             if (rand(0, 100) > $percentile) {
-                $console->writeLine('Left out entity ' . $entity->getId());
                 continue;
             }
             $instance = $entity->getInstance();
