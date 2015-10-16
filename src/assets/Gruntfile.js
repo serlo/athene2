@@ -133,13 +133,13 @@ module.exports = function (grunt) {
             tmp: {
                 options: {
                     banner: '/**\n' +
-                            ' * \n' +
-                            ' * Athene2 - Advanced Learning Resources Manager \n' +
-                            ' *\n' +
-                            ' * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0\n' +
-                            ' * @link https://github.com/serlo-org/athene2 for the canonical source repository\n' +
-                            ' * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)\n' +
-                            ' */\n',
+                    ' * \n' +
+                    ' * Athene2 - Advanced Learning Resources Manager \n' +
+                    ' *\n' +
+                    ' * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0\n' +
+                    ' * @link https://github.com/serlo-org/athene2 for the canonical source repository\n' +
+                    ' * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)\n' +
+                    ' */\n',
                     output: {
                         beautify: false
                     },
@@ -238,11 +238,13 @@ module.exports = function (grunt) {
                 src: 'require.js'
             },
             modernizr: {
-                expand: true,
-                dot: true,
-                cwd: '<%= serlo.app %>/bower_components/modernizr',
-                dest: '<%= serlo.tmp %>/bower_components/modernizr',
-                src: 'modernizr.js'
+                dist: {
+                    expand: true,
+                    dot: true,
+                    cwd: 'source/bower_components/modernizr',
+                    dest: '<%= serlo.tmp %>/bower_components/modernizr',
+                    src: 'modernizr.js'
+                }
             }
         },
         i18n: {
@@ -250,17 +252,22 @@ module.exports = function (grunt) {
             dest: '<%= serlo.app %>/scripts/modules/serlo_i18n.js'
         },
         modernizr: {
-            devFile: '<%= serlo.app %>/bower_components/modernizr/modernizr.js',
-            outputFile: '<%= serlo.tmp %>/bower_components/modernizr/modernizr.js',
-            files: [
-                '<%= serlo.tmp %>/scripts/{,*/}*.js',
-                '<%= serlo.tmp %>/styles/{,*/}*.css',
-                '!<%= serlo.tmp %>/scripts/vendor/*'
-            ],
-            "extensibility" : {
-                "prefixed" : true
-            },
-            uglify: true
+            dist: {
+                devFile: '<%= serlo.app %>/bower_components/modernizr/src/Modernizr.js',
+                outputFile: '<%= serlo.tmp %>/bower_components/modernizr/modernizr.js',
+                files: {
+                    src: [
+                        '<%= serlo.tmp %>/scripts/{,*/}*.js',
+                        '<%= serlo.tmp %>/styles/{,*/}*.css',
+                        '!<%= serlo.tmp %>/scripts/vendor/*'
+                    ]
+                },
+                "extensibility": {
+                    "prefixed": true
+                },
+                uglify: true
+
+            }
         },
         concurrent: {
             server: [
@@ -380,13 +387,13 @@ module.exports = function (grunt) {
         var data = grunt.config('i18n'),
             files = grunt.file.expand(data.src),
             output = '/**\n * Dont edit this file!\n' +
-                    ' * This module generates itself from lang.js files!\n' +
-                    ' * Instead edit the language files in /lang/\n' +
-                    ' **/\n\n' +
-                    '/*global define*/\n' +
-                    'define(function () {\n' +
-                    '"use strict";\n' +
-                    'var i18n = {};\n';
+                ' * This module generates itself from lang.js files!\n' +
+                ' * Instead edit the language files in /lang/\n' +
+                ' **/\n\n' +
+                '/*global define*/\n' +
+                'define(function () {\n' +
+                '"use strict";\n' +
+                'var i18n = {};\n';
 
         files.forEach(function (f) {
             var contents = grunt.file.read(f),
@@ -396,7 +403,7 @@ module.exports = function (grunt) {
         });
 
         output += '\nreturn i18n;\n' +
-                '});';
+            '});';
 
         grunt.file.write(data.dest, output);
     });
@@ -446,5 +453,5 @@ module.exports = function (grunt) {
 
             grunt.file.write(lang, contents);
         });
-  });
+    });
 };
