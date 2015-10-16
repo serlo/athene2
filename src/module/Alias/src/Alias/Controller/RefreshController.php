@@ -13,6 +13,8 @@ use Alias\AliasManagerInterface;
 use Entity\Manager\EntityManagerInterface;
 use Normalizer\NormalizerInterface;
 use Taxonomy\Manager\TaxonomyManagerInterface;
+use Uuid\Filter\NotTrashedCollectionFilter;
+use Versioning\Filter\HasCurrentRevisionCollectionFilter;
 use Zend\Console\Adapter\AdapterInterface;
 use Zend\Console\Console;
 use Zend\Mvc\Controller\AbstractConsoleController;
@@ -81,7 +83,9 @@ class RefreshController extends AbstractConsoleController
 
     protected function refreshTerms(AdapterInterface $console, $percentile)
     {
+        $filter = new NotTrashedCollectionFilter();
         $terms = $this->taxonomyManager->findAllTerms(true);
+        $terms = $filter->filter($terms);
         foreach ($terms as $term) {
             if (rand(0, 100) > $percentile) {
                 $console->writeLine('Left out taxonomy term ' . $term->getName() . ' (' . $term->getId() . ')');
@@ -100,6 +104,10 @@ class RefreshController extends AbstractConsoleController
 
     protected function refreshEntities(AdapterInterface $console, $percentile) {
         $entities = $this->entityManager->findAll(true);
+        $filter = new HasCurrentRevisionCollectionFilter();
+        $entities = $filter->filter($entities);
+        $filter = new NotTrashedCollectionFilter();
+        $entities = $filter->filter($entities);
         foreach ($entities as $entity) {
             if (rand(0, 100) > $percentile) {
                 $console->writeLine('Left out entity ' . $entity->getId() . '');
