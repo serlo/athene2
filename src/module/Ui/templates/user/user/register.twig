@@ -7,7 +7,6 @@
 {% set emailConfirmErrors    = formElementErrors(form.get('emailConfirm')) %}
 {% set passwordErrors        = formElementErrors(form.get('password')) %}
 {% set passwordConfirmErrors = formElementErrors(form.get('passwordConfirm')) %}
-{% set tosErrors             = formElementErrors(form.get('tos')) %}
 
 {% do form.prepare() %}
 {{ form().openTag(form) }}
@@ -55,9 +54,8 @@
         {{ passwordConfirmErrors }}
     </div>
 </fieldset>
-<div class="form-group{{ tosErrors ? ' has-error' }}">
-    {{ formElement(form.get('tos')) }}
-    {{ tosErrors }}
+<div class="form-group">
+    {% trans %}By clicking <em>Sign up</em>, you agree to our <a href="/21654">Terms of Service</a>.{% endtrans %}
 </div>
 <div class="form-group">
     {{ formElement(form.get('submit')) }}
