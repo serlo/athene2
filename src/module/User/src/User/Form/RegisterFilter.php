@@ -138,29 +138,5 @@ class RegisterFilter extends InputFilter
                 ]
             ]
         );
-
-        $this->add(
-            [
-                'name'       => 'tos',
-                'required'   => true,
-                'validators' => [
-                    [
-                        'name' => 'NotEmpty',
-                    ],
-                    [
-                        'name'    => 'GreaterThan',
-                        'options' => [
-                            'min'      => 0,
-                            'messages' => [
-                                GreaterThan::NOT_GREATER =>
-                                    t(
-                                        'Please confirm that you have read, understood and accepted our terms of service.'
-                                    )
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        );
     }
 }
