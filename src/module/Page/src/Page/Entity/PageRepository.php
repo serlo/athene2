@@ -105,11 +105,6 @@ class PageRepository extends Uuid implements PageRepositoryInterface
         $this->current_revision = $revision;
     }
 
-    public function getHead()
-    {
-        return $this->revisions->first();
-    }
-
     public function getForum()
     {
         return $this->forum;
@@ -157,11 +152,6 @@ class PageRepository extends Uuid implements PageRepositoryInterface
     public function hasCurrentRevision()
     {
         return $this->getCurrentRevision() !== null;
-    }
-
-    public function hasHead()
-    {
-        return is_object($this->getHead());
     }
 
     public function hasRole(RoleInterface $role)

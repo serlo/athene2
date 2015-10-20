@@ -30,11 +30,6 @@ interface RepositoryInterface
     public function getCurrentRevision();
 
     /**
-     * @return RevisionInterface
-     */
-    public function getHead();
-
-    /**
      * @return int
      */
     public function getId();
@@ -50,11 +45,6 @@ interface RepositoryInterface
      * @return bool
      */
     public function hasCurrentRevision();
-
-    /**
-     * @return bool
-     */
-    public function hasHead();
 
     /**
      * @param RevisionInterface $revision

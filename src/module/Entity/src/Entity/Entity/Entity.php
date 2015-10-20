@@ -248,11 +248,6 @@ class Entity extends Uuid implements EntityInterface
         return is_object($this->getCurrentRevision());
     }
 
-    public function hasHead()
-    {
-        return is_object($this->getHead());
-    }
-
     public function isUnrevised()
     {
         return $this->countUnrevised() > 0;
