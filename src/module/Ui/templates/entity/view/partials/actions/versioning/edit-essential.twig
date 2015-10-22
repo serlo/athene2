@@ -1,7 +1,11 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') %}
     <li>
+    {% if entity.isUnrevised() %}
+        <a rel="nofollow" href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
+    {% else %}
         <a rel="nofollow" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
+    {% endif %}
             <span class="fa fa-pencil"></span>
             {% trans %} Edit {% endtrans %}
         </a>

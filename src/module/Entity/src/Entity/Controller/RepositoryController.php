@@ -40,7 +40,7 @@ class RepositoryController extends AbstractController
         $mayCheckout = $this->isGranted('entity.revision.checkout', $entity);
 
         /* @var $form \Zend\Form\Form */
-        $form = $this->getForm($entity);
+        $form = $this->getForm($entity, $this->params('revision'));
         $view = new ViewModel(['entity' => $entity, 'form' => $form]);
 
         if ($this->getRequest()->isPost()) {
@@ -169,17 +169,18 @@ class RepositoryController extends AbstractController
      * @param EntityInterface $entity
      * @return Form
      */
-    protected function getForm(EntityInterface $entity)
+    protected function getForm(EntityInterface $entity, $id = null)
     {
         // Todo: Unhack
 
         $type = $entity->getType()->getName();
         $form = $this->moduleOptions->getType($type)->getComponent('repository')->getForm();
         $form = $this->getServiceLocator()->get($form);
+        $revision = $this->getRevision($entity, $id);
 
-        if ($entity->hasCurrentRevision()) {
+        if (is_object($revision)) {
             $data = [];
-            foreach ($entity->getCurrentRevision()->getFields() as $field) {
+            foreach ($revision->getFields() as $field) {
                 $data[$field->getName()] = $field->getValue();
             }
             $form->setData($data);
