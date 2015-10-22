@@ -133,8 +133,12 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
                 handleResponse(cache[href].data, cache[href].contentType);
             }
 
+            if (href.substr(0, 5) === "/ggt/") {
+                initGeogebraTube();
+                return;
+            }
+
             // by default load injections from the server
-            // this fails for GeoGebraTube -> .error( ...
             $.ajax(href)
                 .success(function () {
                     handleResponse(arguments[0], arguments[2].getResponseHeader('Content-Type'));
@@ -152,9 +156,6 @@ define(['jquery', 'common', 'translator', 'deployggb', 'content'], function ($, 
                 // This error could mean that the injection is of type GeoGebraTube
                 .error(function () {
                     Common.log('Could not load injection from Serlo server');
-                    if (href.substr(0, 5) === "/ggt/") {
-                        initGeogebraTube();
-                    }
                 });
         });
     };
