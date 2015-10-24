@@ -47,10 +47,10 @@ abstract class AbstractAdapter implements AdapterInterface
             'routeParams' => $this->getRouteParams(),
             'id'          => $this->getId(),
             'metadata'    => [
-                'creationDate' => $this->getCreationDate(),
+                'creationDate' => $this->getCreationDate() ? $this->getCreationDate() : new DateTime(),
                 'description'  => $this->getDescription(),
                 'keywords'     => $this->getKeywords(),
-                'lastModified' => $this->getLastModified()
+                'lastModified' => $this->getLastModified() ? $this->getLastModified() : new DateTime()
             ]
         ]);
 

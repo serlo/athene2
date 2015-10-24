@@ -81,6 +81,7 @@ class Entity extends Uuid implements EntityInterface
         $this->issues = new ArrayCollection();
         $this->terms = new ArrayCollection();
         $this->termTaxonomyEntities = new ArrayCollection();
+        $this->date = new \DateTime();
     }
 
     public function addRevision(RevisionInterface $revision)

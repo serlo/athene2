@@ -56,9 +56,9 @@ class Metadata extends AbstractOptions implements MetadataInterface
 
     public function __construct(array $data)
     {
-        $this->creationDate = new DateTime();
-        $this->lastModified = new DateTime();
         parent::__construct($data);
+        $this->creationDate = $this->creationDate ? $this->creationDate : new DateTime();
+        $this->lastModified = $this->lastModified ? $this->lastModified : new DateTime();
     }
 
     /**

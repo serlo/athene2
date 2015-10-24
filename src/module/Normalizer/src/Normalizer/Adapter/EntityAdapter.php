@@ -33,7 +33,11 @@ class EntityAdapter extends AbstractAdapter
 
     protected function getCreationDate()
     {
-        return $this->getObject()->getTimestamp();
+        $head = $this->getObject()->getHead();
+        if ($head) {
+            return $head->getTimestamp();
+        }
+        return new DateTime();
     }
 
     /**

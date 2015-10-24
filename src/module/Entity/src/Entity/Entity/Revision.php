@@ -46,6 +46,7 @@ class Revision extends Uuid implements RevisionInterface
     public function __construct()
     {
         $this->fields = new ArrayCollection();
+        $this->date = new \DateTime();
     }
 
     public function delete()
