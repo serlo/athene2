@@ -18,6 +18,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Event\Exception;
 use Event\Filter\PersistentEventLogFilterChain;
 use Instance\Entity\InstanceInterface;
+use Instance\Manager\InstanceManagerInterface;
 use User\Entity\UserInterface;
 use Uuid\Entity\UuidInterface;
 use ZfcRbac\Exception\UnauthorizedException;
@@ -43,14 +44,21 @@ class EventManager implements EventManagerInterface
      */
     protected $persistentEventLogFilterChain;
 
+    /**
+     * @var InstanceManagerInterface
+     */
+    protected $instanceManager;
+
     public function __construct(
         AuthorizationService $authorizationService,
         ClassResolverInterface $classResolver,
-        ObjectManager $objectManager
+        ObjectManager $objectManager,
+        InstanceManagerInterface $instanceManager
     ) {
         $this->objectManager                 = $objectManager;
         $this->persistentEventLogFilterChain = new PersistentEventLogFilterChain($objectManager);
         $this->classResolver                 = $classResolver;
+        $this->instanceManager               = $instanceManager;
         $this->setAuthorizationService($authorizationService);
     }
 
@@ -166,7 +174,8 @@ class EventManager implements EventManagerInterface
     public function findAll($page, $limit = 100)
     {
         $className = $this->getClassResolver()->resolveClassName('Event\Entity\EventLogInterface');
-        $dql       = 'SELECT e FROM ' . $className . ' e ' . 'ORDER BY e.id DESC';
+        $instance  = $this->instanceManager->getInstanceFromRequest();
+        $dql       = 'SELECT e FROM ' . $className . ' e ' . ' WHERE e.instance = ' . $instance->getId() . ' ORDER BY e.id DESC';
         $paginator = new DoctrinePaginatorFactory($this->objectManager);
         $paginator = $paginator->createPaginator($dql, $page, $limit);
         $paginator->setFilter($this->persistentEventLogFilterChain);
