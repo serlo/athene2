@@ -29,6 +29,6 @@ pm2 status
 cd ../
 php composer.phar update -o
 
-rm src/data/twig data/zfc* src/data/*.php src/data/*.cache -Rf
+rm src/data/twig src/data/zfc* src/data/*.php src/data/*.cache -Rf
 rm src/data/*.php -Rf
 php src/public/index.php pagespeed build
