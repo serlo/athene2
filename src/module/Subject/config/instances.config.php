@@ -137,6 +137,45 @@ return [
                         'course',
                         'text-exercise-group'
                     ]
+                ],
+                'permaculture' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
+                ],
+                'wiki' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
+                ],
+                'music' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
                 ]
             ]
         ]
