@@ -669,7 +669,9 @@ RewriteRule ^serlo/about(.)* http://de.serlo.org/serlo [R=301,L,NC]
 RewriteRule ^serlo/participate(.)* http://de.serlo.org/mitmachen-startseite [R=301,L,NC]
 
 RewriteRule ^math/exercises/topics/(.*) http://de.serlo.org/mathe [R=301,L,NC]
-RewriteRule ^math/(.*) http://de.serlo.org/mathe [R=302,L]
+RewriteRule ^math/exercises/(.*) http://de.serlo.org/mathe [R=301,L]
+RewriteRule ^math/wiki/(.*) http://de.serlo.org/mathe [R=301,L]
+RewriteRule ^math/exams/(.*) http://de.serlo.org/mathe [R=301,L]
 RewriteRule ^wiki/view/frontbox/(.*) http://de.serlo.org/mathe [R=301,L,NC]
 RewriteRule ^recommends/(.*) http://de.serlo.org/ [R=301,L,NC]
 
