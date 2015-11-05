@@ -10,6 +10,7 @@ namespace User\View\Helper;
 
 use User\Manager\UserManagerInterface;
 use Zend\View\Helper\AbstractHelper;
+use Firebase\JWT\JWT;
 
 class UserHelper extends AbstractHelper
 {
@@ -39,5 +40,36 @@ class UserHelper extends AbstractHelper
     public function getAuthenticatedUserID() {
         $user = $this->userManager->getUserFromAuthenticator();
         return $user ? $user->getId() : '';
+    }
+
+    public function getAuthenticatedUserName(){
+        $user = $this->userManager->getUserFromAuthenticator();
+        return $user ? $user->getUsername() : '';
+    }
+
+    public function isUserLoggedIn(){
+        return ($this->getAuthenticatedUserID() != '');
+    }
+
+    public function createJWSScrollback(){
+        $payload = array(
+            "iss" => "http://serlo.org",
+            "sub" => ".$this->getAuthenticatedUserEMail().",
+            "aud" => "scrollback.io",
+            "iat" => time(),
+            "exp" => time()+60
+        );
+        $key = 'dummy_key';
+        $head  = array(
+            "alg" => "HS256",
+            "typ" => "JWS"
+        );
+
+        return JWT::encode($payload, $key, 'HS256' , $head);
+    }
+
+    public function getAuthenticatedUserEMail(){
+        $user = $this->userManager->getUserFromAuthenticator();
+        return $user ? $user->getEmail() : '';
     }
 }
