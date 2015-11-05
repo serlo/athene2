@@ -236,38 +236,11 @@ module.exports = function (grunt) {
                 cwd: '<%= serlo.app %>/bower_components/requirejs',
                 dest: '<%= serlo.tmp %>/bower_components/requirejs',
                 src: 'require.js'
-            },
-            modernizr: {
-                dist: {
-                    expand: true,
-                    dot: true,
-                    cwd: 'source/bower_components/modernizr',
-                    dest: '<%= serlo.tmp %>/bower_components/modernizr',
-                    src: 'modernizr.js'
-                }
             }
         },
         i18n: {
             src: ['<%= serlo.app %>/lang/*.json'],
             dest: '<%= serlo.app %>/scripts/modules/serlo_i18n.js'
-        },
-        modernizr: {
-            dist: {
-                devFile: '<%= serlo.app %>/bower_components/modernizr/src/Modernizr.js',
-                outputFile: '<%= serlo.tmp %>/bower_components/modernizr/modernizr.js',
-                files: {
-                    src: [
-                        '<%= serlo.tmp %>/scripts/{,*/}*.js',
-                        '<%= serlo.tmp %>/styles/{,*/}*.css',
-                        '!<%= serlo.tmp %>/scripts/vendor/*'
-                    ]
-                },
-                "extensibility": {
-                    "prefixed": true
-                },
-                uglify: true
-
-            }
         },
         concurrent: {
             server: [
@@ -348,7 +321,6 @@ module.exports = function (grunt) {
             'i18n',
             'requirejs:production',
             'copy:tmp',
-            'copy:modernizr',
             'copy:webcomponentsjs',
             'clean:dist',
             'copy:dist',
@@ -366,7 +338,6 @@ module.exports = function (grunt) {
         'imagemin',
         'requirejs:production',
         'copy:webcomponentsjs',
-        'modernizr',
         'uglify',
         'clean:dist',
         'copy:dist',

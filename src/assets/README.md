@@ -12,7 +12,7 @@ Grunt Boilerplates
 * Javascript linting (Configurable in `.jshintrc`)
 * [Image optimization](https://github.com/gruntjs/grunt-contrib-imagemin)
 * CSS/JS minification
-* Bower dependencies (jQuery, modernizr, ...Configurable in `bower.json`
+* Bower dependencies (Configurable in `bower.json`
 
 
 ### Dependencies

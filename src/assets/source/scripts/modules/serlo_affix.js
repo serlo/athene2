@@ -1,9 +1,9 @@
-/*global define, Modernizr*/
+/*global define*/
 define(['jquery', 'underscore'], function ($, _) {
     'use strict';
     var SerloAffix,
         affixQueue = {},
-        useCssTransforms = Modernizr.csstransforms,
+        useCssTransforms = true,
         scrollTop = 0,
         settings,
         $stickTo,
@@ -124,10 +124,7 @@ define(['jquery', 'underscore'], function ($, _) {
         $stickTo = $(settings.stickToSelector);
 
         return $elements.each(function () {
-            // for now: ignore touch devices
-            if (!Modernizr.touch) {
-                affixQueue.append($(this));
-            }
+            affixQueue.append($(this));
         });
     };
 

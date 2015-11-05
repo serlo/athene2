@@ -1,4 +1,4 @@
-/*global define, window, Modernizr*/
+/*global define, window*/
 define(['jquery', 'underscore'], function ($, _) {
     "use strict";
     var SideElement,
@@ -37,11 +37,9 @@ define(['jquery', 'underscore'], function ($, _) {
             });
         });
 
-        if (!Modernizr.touch) {
-            that.$window.resize(_.debounce(function () {
-                that.$elements.removeClass(that.options.visibleClass);
-            }, 300));
-        }
+        that.$window.resize(_.debounce(function () {
+            that.$elements.removeClass(that.options.visibleClass);
+        }, 300));
     };
 
 
