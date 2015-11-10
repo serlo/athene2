@@ -160,7 +160,6 @@ return [
                 'collections' => [
                     'libs'           => [
                         'assets' => [
-                            'bower_components/modernizr/modernizr.js',
                             'bower_components/requirejs/require.js'
                         ]
                     ],
