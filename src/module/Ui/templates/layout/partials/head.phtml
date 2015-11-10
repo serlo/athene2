@@ -5,23 +5,5 @@
     <?php echo $this->headMeta(); ?>
     <?php echo $this->headStyle(); ?>
     <?php echo $this->headLink(['rel' => 'icon', 'href' => '/favicon.ico', 'type' => 'image/x-icon']); ?>
-    <?php
-        if($this->user()->isUserLoggedIn()){
-
-            echo "
-                <script>document.write('<script src=\"http'+
-                    (location.protocol=='https:'?'s':'')+
-                    '://scrollback.io/s/sb.js\"><\/script>');
-                </script>
-                <script>
-                var widget = scrollback({
-                    form: 'toast',
-                    minimize: 'true',
-                    room:'serlo',
-                    nick:'".$this->user()->getAuthenticatedUserName()."'});
-                </script>
-            ";
-        }
-    ?>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600" rel="stylesheet">
 </head>
