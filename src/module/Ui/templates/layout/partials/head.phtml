@@ -19,6 +19,7 @@
                     minimize: 'true',
                     room:'serlo',
                     nick:'".$this->user()->getAuthenticatedUserName()."'});
+                    jws: '".$this->user()->createJWSScrollback()."';
                 </script>
             ";
         }

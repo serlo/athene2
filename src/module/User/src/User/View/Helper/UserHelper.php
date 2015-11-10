@@ -54,7 +54,7 @@ class UserHelper extends AbstractHelper
     public function createJWSScrollback(){
         $payload = array(
             "iss" => "http://serlo.org",
-            "sub" => ".$this->getAuthenticatedUserEMail().",
+            "sub" => "".$this->getAuthenticatedUserEMail()."",
             "aud" => "scrollback.io",
             "iat" => time(),
             "exp" => time()+60
@@ -65,7 +65,11 @@ class UserHelper extends AbstractHelper
             "typ" => "JWS"
         );
 
-        return JWT::encode($payload, $key, 'HS256' , $head);
+        return JWT::encode($payload, $key, 'HS256' , null, $head);
+    }
+
+    public function decodeToken($token){
+        return JWT::decode($token, "dummy_key", array('HS256'));
     }
 
     public function getAuthenticatedUserEMail(){
