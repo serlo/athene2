@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     :group => "vagrant",
     type: "rsync",
     rsync__auto: "true",
-    rsync__exclude: ["src/public/assets/", ".git/", "composer.lock", ".idea/", "src/data/", "src/vendor/", "src/assets/build/", "src/assets/tmp/", "src/assets/source/bower_components", "src/assets/node_modules", "src/assets/athene2-editor/node_modules"],
+    rsync__exclude: ["src/public/assets/", "composer.lock", ".idea/", "src/data/", "src/vendor/", "src/assets/build/", "src/assets/tmp/", "src/assets/source/bower_components", "src/assets/node_modules", "src/assets/athene2-editor/node_modules"],
     rsync__args: ["--verbose", "--archive", "--delete", "--stats"]
 
   config.vm.provider :virtualbox do |vb|
