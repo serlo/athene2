@@ -65,7 +65,7 @@ class CommentForm extends AbstractForm
             (new Submit('start'))->setValue('Reply')->setAttribute('class', 'btn btn-success pull-right')
         );
 
-        $inputFilter->add(['name' => 'content', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'instance', 'required' => true]);
         $inputFilter->add(['name' => 'author', 'required' => true]);
         $inputFilter->add(['name' => 'parent', 'required' => true]);
