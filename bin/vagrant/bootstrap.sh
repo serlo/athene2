@@ -120,10 +120,8 @@ sudo a2dissite 000-default
 sudo service apache2 restart
 
 # execute scripts
-su vagrant - -c "/vagrant/bin/vagrant/clean-caches.sh"
-su vagrant - -c "/vagrant/bin/vagrant/clean-ui.sh"
 su vagrant - -c "/vagrant/bin/vagrant/update-mysql.sh"
-su vagrant - -c "/vagrant/bin/vagrant/boot.sh"
+su vagrant - -c "(cd /vagrant/src/assets; npm install; bower --config.analytics=false install)"
 
 # Restart apache
 sudo service apache2 restart
