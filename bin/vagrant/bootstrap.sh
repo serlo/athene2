@@ -35,7 +35,53 @@ npm -g install grunt-cli
 npm -g install pm2 --unsafe-perm
 npm -g install dnode
 
-# VirtualHost setup
+echo "
+# Listen and start after the vagrant-mounted event
+start on vagrant-mounted
+stop on runlevel [!2345]
+
+exec su vagrant -c /vagrant/bin/vagrant/boot.sh >> /home/vagrant/boot.log
+" > /etc/init/athene2startup.conf
+
+# Xdebug fix
+sed -i "$ a\xdebug.max_nesting_level = 500" /etc/php5/apache2/php.ini
+
+# Change Apache User to vagrant
+sed -i "s/www-data/vagrant/g" /etc/apache2/envvars
+# Just to be safe...
+usermod -a -G vagrant www-data
+
+# Setup /vagrant
+rm -rf /var/www
+ln -s /vagrant /var/www
+mkdir /vagrant/src/data/ /vagrant/src/public/assets /vagrant/src/logs/
+chown -R vagrant:vagrant /vagrant
+chmod -R 777 /vagrant
+
+# MySQL
+sed -i "s/bind-address.*=.*/bind-address=0.0.0.0/" /etc/mysql/my.cnf
+
+# Install crontab
+# echo "*/10 * * * * cd /vagrant/src && php public/index.php notification worker" >> cron
+# crontab cron
+# rm cron
+
+# PHP hacks
+sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
+sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/apache2/php.ini
+sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /etc/php5/apache2/php.ini
+sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /etc/php5/apache2/php.ini
+sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php5/apache2/php.ini
+echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
+echo "apc.enable_cli = 1" >> /etc/php5/cli/php.ini
+
+su vagrant -c "(cd /vagrant/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar install)"
+
+# execute scripts
+su vagrant -c "/vagrant/bin/vagrant/update-mysql.sh"
+
+# Apache
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
 echo "<VirtualHost *:80>
 	ServerAdmin webmaster@localhost
 	ServerName  localhost
@@ -66,65 +112,11 @@ echo "<VirtualHost *:80>
 	</Directory>
 </VirtualHost>" > /etc/apache2/sites-available/athene2.conf
 
-echo "
-# Listen and start after the vagrant-mounted event
-start on vagrant-mounted
-stop on runlevel [!2345]
-
-exec su vagrant -c /vagrant/bin/vagrant/boot.sh >> /home/vagrant/boot.log
-" > /etc/init/athene2startup.conf
-
-# Xdebug fix
-sed -i "$ a\xdebug.max_nesting_level = 500" /etc/php5/apache2/php.ini
-
-# Change Apache User to vagrant
-sed -i "s/www-data/vagrant/g" /etc/apache2/envvars
-# Just to be safe...
-usermod -a -G vagrant www-data
-
-# Setup /vagrant
-rm -rf /var/www
-ln -s /vagrant /var/www
-mkdir /vagrant/src/data/ /vagrant/src/public/assets /vagrant/src/logs/
-chown -R vagrant:vagrant /vagrant
-chmod -R 777 /vagrant
-
-# Enable apache mods
 a2enmod rewrite proxy proxy_fcgi headers
 a2ensite athene2
 
-# Restart apache
+a2dissite 000-default
 service apache2 restart
 
-# Mysql
-sudo sed -i "s/bind-address.*=.*/bind-address=0.0.0.0/" /etc/mysql/my.cnf
-
-# Install crontab
-# echo "*/10 * * * * cd /vagrant/src && php public/index.php notification worker" >> cron
-# crontab cron
-# rm cron
-
-# Php hacks
-sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
-sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/apache2/php.ini
-sudo sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /etc/php5/apache2/php.ini
-sudo sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /etc/php5/apache2/php.ini
-sudo sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php5/apache2/php.ini
-sudo echo "apc.enabled = 1" >> /etc/php5/cli/php.ini
-sudo echo "apc.enable_cli = 1" >> /etc/php5/cli/php.ini
-
-sudo su - vagrant -c "(cd /vagrant/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar install)"
-
-# Restart apache
-sudo a2dissite 000-default
-sudo service apache2 restart
-
-# execute scripts
-su vagrant - -c "/vagrant/bin/vagrant/update-mysql.sh"
-su vagrant - -c "(cd /vagrant/src/assets; npm install; bower --config.analytics=false install)"
-
-# Restart apache
-sudo service apache2 restart
-
-# change to src directory on vagrant ssh
+# Change to src directory on vagrant ssh
 echo "cd /vagrant" >> /home/vagrant/.bashrc

@@ -1,3 +1,5 @@
 #!/bin/sh
 
-(cd /vagrant/bin;sh build.sh)
+DIR="$(dirname "$0")"
+
+"${DIR}/../build.sh"
