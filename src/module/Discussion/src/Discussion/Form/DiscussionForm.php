@@ -84,7 +84,7 @@ class DiscussionForm extends AbstractForm
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.]*$~',
+                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.\?!]*$~',
                             'messages' => [
                                 Regex::NOT_MATCH => 'Title should not contain special characters'
                             ]
