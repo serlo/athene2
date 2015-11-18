@@ -80,7 +80,6 @@ class DiscussionForm extends AbstractForm
             [
                 'name'       => 'title',
                 'required'   => true,
-                'filters'    => [['name' => 'StripTags']],
                 'validators' => [
                     [
                         'name'    => 'Regex',
@@ -95,6 +94,6 @@ class DiscussionForm extends AbstractForm
             ]
         );
         $inputFilter->add(['name' => 'instance', 'required' => true]);
-        $inputFilter->add(['name' => 'content', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'content', 'required' => true]);
     }
 }
