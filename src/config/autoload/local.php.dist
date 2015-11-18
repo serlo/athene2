@@ -52,7 +52,7 @@ return [
         ]
     ],
     'instance'     => [
-        'strategy' => 'Instance\Strategy\CookieStrategy'
+        'strategy' => 'Instance\Strategy\DomainStrategy'
     ],
     'dbParams'     => array(
         'host'     => $dbParams['host'],

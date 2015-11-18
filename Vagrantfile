@@ -31,4 +31,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     run "vagrant ssh -c 'sh /vagrant/bin/vagrant/boot.sh'"
     run "vagrant rsync-auto"
   end
+
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.aliases = %w(de.serlo.local en.serlo.local)
 end
