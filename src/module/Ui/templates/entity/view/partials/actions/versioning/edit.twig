@@ -1,7 +1,7 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') %}
     {% if entity.isUnrevised() %}
-        <a rel="nofollow" class="btn btn-success href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
+        <a rel="nofollow" class="btn btn-success" href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
             <span class="fa fa-clock-o"></span>
             <span class="label label-community-light">{{ entity.countUnrevised() }}</span>
         </a>
