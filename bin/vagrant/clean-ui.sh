@@ -15,6 +15,6 @@ cd /vagrant/src/assets
 cleanDependencies
 grunt build
 
-cd /vagrant/src/assets/athene2-editor
+cd athene2-editor
 cleanDependencies
 pm2 start server/server.js --node-args="--expose_gc --gc_global"

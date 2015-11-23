@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cd /vagrant/src && php public/index.php notification worker
+php /vagrant/src/public/index.php notification worker

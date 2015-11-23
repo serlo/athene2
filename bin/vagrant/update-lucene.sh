@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cd /vagrant/src/public && php index.php search rebuild
+php /vagrant/src/public/index.php search rebuild
