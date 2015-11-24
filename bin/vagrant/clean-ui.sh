@@ -1,20 +1,21 @@
 #!/bin/sh
 
+DIR="$(dirname "$0")"
+
+. "${DIR}/../helpers.sh"
+
 cleanDependencies() {
+    cd $1
     npm cache clean
     bower cache clean
     rm -R node_modules/*
     rm -R source/bower_components/*
-    npm install
-    bower --config.analytics=false install
 }
 
 pm2 kill
 
-cd /vagrant/src/assets
-cleanDependencies
-grunt build
+cleanDependencies "/vagrant/src/assets"
+initAthene
 
-cd /vagrant/src/assets/athene2-editor
-cleanDependencies
-pm2 start server/server.js --node-args="--expose_gc --gc_global"
+cleanDependencies "/vagrant/src/assets/athene2-editor"
+initEditor
