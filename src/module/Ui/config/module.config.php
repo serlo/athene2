@@ -163,11 +163,6 @@ return [
                             'bower_components/requirejs/require.js'
                         ]
                     ],
-                    'webcomponents' => [
-                        'assets' => [
-                            'bower_components/webcomponentsjs/webcomponents.js'
-                        ]
-                    ],
                     'scripts'        => [
                         'assets' => [
                             'scripts/main.js'
