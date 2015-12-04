@@ -71,6 +71,7 @@ return [
                         'article',
                         'text-exercise',
                         'video',
+                        'course',
                         'text-exercise-group'
                     ]
                 ],
@@ -82,6 +83,7 @@ return [
                         'article',
                         'text-exercise',
                         'video',
+                        'course',
                         'text-exercise-group'
                     ]
                 ],
@@ -91,9 +93,9 @@ return [
                     ],
                     'allowed_entities'   => [
                         'article',
+                        'text-exercise',
                         'video',
                         'course',
-                        'text-exercise',
                         'text-exercise-group'
                     ]
                 ],
