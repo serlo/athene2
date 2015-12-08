@@ -13,7 +13,7 @@
                     {{ post.getTitle() }}</a>
                 <small>
                     {{ post.getAuthor().getUsername() }} -
-                    {{ timeago().render(post.getTimestamp()) }}
+                    {{ dateFormat(post.getPublish(), constant('IntlDateFormatter::LONG'))  }}
                     {% if not post.isPublished() %}
                         - <i>{{ 'unpublished' | trans }}</i>
                     {% endif %}
