@@ -1,0 +1,16 @@
+{% if user().isUserLoggedIn() %}
+
+    <script src="https://scrollback.io/s/sb.js"></script>
+    <script>
+        var widget = scrollback({
+            form: 'toast',
+            minimize: 'true',
+
+            room: 'serlo',
+            thread: 'all',
+
+            nick: '{{ user().getAuthenticatedUserName()  }}',
+            //jws: '{{ user().createJWSScrollback()}}' // do not use this until we have the key
+        });
+    </script>
+{% endif %}

@@ -9,10 +9,17 @@
 namespace User\View\Helper;
 
 use User\Manager\UserManagerInterface;
+use Instance\Manager\InstanceManagerAwareTrait;
 use Zend\View\Helper\AbstractHelper;
+use Firebase\JWT\JWT;
+
+include_once 'secrets.php';
 
 class UserHelper extends AbstractHelper
 {
+
+    use InstanceManagerAwareTrait;
+
     /**
      * @var UserManagerInterface
      */
@@ -21,7 +28,8 @@ class UserHelper extends AbstractHelper
     /**
      * @param UserManagerInterface $userManager
      */
-    public function __construct(UserManagerInterface $userManager) {
+    public function __construct(UserManagerInterface $userManager)
+    {
         $this->userManager = $userManager;
     }
 
@@ -36,8 +44,45 @@ class UserHelper extends AbstractHelper
     /**
      * @return \User\Entity\UserInterface
      */
-    public function getAuthenticatedUserID() {
+    public function getAuthenticatedUserID()
+    {
         $user = $this->userManager->getUserFromAuthenticator();
         return $user ? $user->getId() : '';
+    }
+
+    public function getAuthenticatedUserName()
+    {
+        $user = $this->userManager->getUserFromAuthenticator();
+        return $user ? $user->getUsername() : '';
+    }
+
+    public function isUserLoggedIn()
+    {
+        return ($this->getAuthenticatedUserID() != '');
+    }
+
+    public function createJWSScrollback()
+    {
+        //$this->getInstanceManager()->getInstance()->getSubdomain();
+        $payload = array(
+            'iss' => 'https://de.serlo.org',   //TODO: getSubdomain()
+            'sub' => '' . $this->getAuthenticatedUserEmail() . '',
+            'aud' => 'scrollback.io',
+            'iat' => time(),
+            'exp' => time() + 60
+        );
+        $key = apache_getenv('ChatKey');
+        $head = array(
+            'alg' => 'HS256',
+            'typ' => 'JWS'
+        );
+
+        return JWT::encode($payload, $key, 'HS256' , null, $head);
+    }
+
+    public function getAuthenticatedUserEmail()
+    {
+        $user = $this->userManager->getUserFromAuthenticator();
+        return $user ? $user->getEmail() : '';
     }
 }
