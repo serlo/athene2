@@ -20,9 +20,17 @@ use Uuid\Filter\NotTrashedCollectionFilter;
 use Zend\Mvc\Router\RouteInterface;
 use Search\Exception\InvalidArgumentException;
 use Zend\Filter\FilterChain;
+use Zend\Filter\StripTags;
 
 class TaxonomyProvider implements ProviderInterface
 {
+
+    /**
+     * @var StripTags
+     */
+    protected $stripTags;
+
+
     /**
      * @param TaxonomyManagerInterface $taxonomyManager
      * @param NormalizerInterface      $normalizer
@@ -39,6 +47,7 @@ class TaxonomyProvider implements ProviderInterface
         $this->renderService   = $renderService;
         $this->normalizer      = $normalizer;
         $this->router          = $router;
+        $this->stripTags       = new StripTags();
     }
 
     /**
@@ -77,12 +86,14 @@ class TaxonomyProvider implements ProviderInterface
         );
         $keywords   = $normalized->getMetadata()->getKeywords();
         $instance   = $object->getInstance()->getId();
-
+        
         try {
             $content = $this->renderService->render($content);
         } catch (RuntimeException $e) {
             // Could not render -> nothing to do.
         }
+
+        $content = $this->stripTags->filter($content);
 
         return new Document($id, $title, $content, $type, $link, $keywords, $instance);
     }
