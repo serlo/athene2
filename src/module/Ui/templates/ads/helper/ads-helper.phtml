@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <?php if ($this->ads != null):foreach ($this->ads as $count => $ad) : ?>
-            <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col-sm-4 col-xs-12">
                 <a class="ad" href="<?php echo $this->url('ads/ad/out', array('id' => $ad->getId())); ?>"
                    target="_blank">
                     <img alt="<?php echo $ad->getTitle(); ?>" src="<?php echo $ad->getImage()->getLocation(); ?>"
