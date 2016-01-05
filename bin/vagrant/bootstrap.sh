@@ -11,17 +11,26 @@ echo "phpmyadmin phpmyadmin/mysql/admin-pass password athene2" | debconf-set-sel
 echo "phpmyadmin phpmyadmin/mysql/app-pass password athene2" | debconf-set-selections
 echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
 
+echo "deb http://archive.ubuntu.com/ubuntu/ trusty multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ trusty multiverse
+deb http://archive.ubuntu.com/ubuntu/ trusty-updates multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ trusty-updates multiverse
+" >> /etc/apt/sources.list
+
 # php7
 sudo add-apt-repository -y ppa:ondrej/php > /dev/null 2>&1
 
 # Install basic stuff
 apt-get -y update
 apt-get install -y python-software-properties python g++ make python-software-properties
-apt-get install -y apache2 mysql-server-5.5 git
+apt-get install -y apache2 apache2-mpm-event libapache2-mod-fastcgi mysql-server-5.5 git
 apt-get install -y language-pack-de-base language-pack-en-base inotify-tools
 
+# Fix apache2 fastcgi bug
+chmod 777 /var/lib/apache2/fastcgi
+
 # Install php
-apt-get install -y libapache2-mod-fcgid php7.0 php7.0-common php7.0-fpm php7.0-opcache php7.0-intl  php7.0-cli php7.0-mysql php7.0-curl libapache2-mod-php7.0 php-xml-parser php-pear phpmyadmin
+apt-get install -y php7.0 php7.0-common php7.0-fpm php7.0-opcache php7.0-intl  php7.0-cli php7.0-mysql php7.0-curl libapache2-mod-php7.0 php7.0-modules-source
 apt-get install -y solr-tomcat
 
 # Install nodejs related stuff
@@ -36,6 +45,9 @@ npm -g install grunt
 npm -g install grunt-cli
 npm -g install pm2 --unsafe-perm
 npm -g install dnode
+
+git clone https://github.com/krakjoe/apcu.git /home/vagrant/apcu
+cd /home/vagrant/apcu && phpize && ./configure && make && make install
 
 # VirtualHost setup
 echo "<VirtualHost *:80>
@@ -67,12 +79,6 @@ echo "<VirtualHost *:80>
 	</Directory>
 
 </VirtualHost>" > /etc/apache2/sites-available/athene2.conf
-
-echo "
-<Ifmodule mod_fcgid.c>
-    AddHandler fcgid-script .php
-    Options +ExecCGI
-</IfModule>" > /etc/apache2/mods-enabled/fastcgi.conf
 
 a2ensite athene2
 a2dissite 000-default
@@ -113,13 +119,28 @@ sed -i "s/bind-address.*=.*/bind-address=0.0.0.0/" /etc/mysql/my.cnf
 # rm cron
 
 # Php hacks
-sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php7/cli/php.ini
-sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php7/apache2/php.ini
-sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /etc/php7/apache2/php.ini
-sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /etc/php7/apache2/php.ini
-sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php7/apache2/php.ini
-echo "apc.enabled = 1" >> /etc/php7/cli/php.ini
-echo "apc.enable_cli = 1" >> /etc/php7/cli/php.ini
+sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php/7.0/cli/php.ini
+sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php/7.0/fpm/php.ini
+sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /etc/php/7.0/cli/php.ini
+sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /etc/php/7.0/cli/php.ini
+sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /etc/php/7.0/cli/php.ini
+echo "
+# APC
+extension=apcu.so
+extension=apc.so
+apc.enabled=1
+" >> /etc/php/7.0/fpm/php.ini
+
+echo "
+# APC
+extension=apcu.so
+extension=apc.so
+apc.enabled=1
+apc.enable_cli = 1
+" >> /etc/php/7.0/cli/php.ini
+
+
+listen.mode = 0666
 
 su vagrant - -c "(cd /vagrant/;COMPOSER_PROCESS_TIMEOUT=5600 php composer.phar install)"
 
