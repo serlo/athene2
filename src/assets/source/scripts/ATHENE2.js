@@ -32,13 +32,18 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
             new ory.Feedback($('.feedback-action', $context));
 
             // 'resizeDelay' will be triggered if no `resize` event was triggered for 0.5s
+            var cachedWidth = $(window).width();
             $(window).resize(function () {
-                if (this.resizeTimeout) {
-                    clearTimeout(this.resizeTimeout);
+                if (cachedWidth !== $(window).width()) {
+                    if (this.resizeTimeout) {
+                        clearTimeout(this.resizeTimeout);
+                    }
+                    this.resizeTimeout = setTimeout(function () {
+                        $(this).trigger('resizeDelay');
+                    }, 500);
+
+                    cachedWidth = $(window).width();
                 }
-                this.resizeTimeout = setTimeout(function () {
-                    $(this).trigger('resizeDelay');
-                }, 500);
             });
 
             // create an system notification whenever Common.genericError is called
