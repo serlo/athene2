@@ -1,0 +1,45 @@
+<html>
+<head>
+  <script src="require.js"></script>
+  <script src="../../assets/source/scripts/modules/serlo_math_puzzle.js"></script>
+  <script src="../../assets/source/scripts/modules/serlo_math_puzzle_touchop.js"></script>
+  <script src="../../assets/source/scripts/modules/serlo_math_puzzle_algebra.js"></script>
+  <link rel="stylesheet" href="style.css"></head>
+  <script>
+  require(["math_puzzle_init"], function(touchop) {
+    var puzzles = document.querySelectorAll(".math-puzzle");
+    for (var i=0; i<puzzles.length; ++i) {
+        touchop.makePuzzle(puzzles[i],
+            puzzles[i].getAttribute("data-source"));
+    }
+  })
+  </script>
+</head>
+<body style="width:80%;margin-left:10%">
+    <h1>Solve these problems</h1>
+    <div class="math-puzzle" data-source="2 = 1 +">
+        <div class="excercise">Build a formula that evaluates to two.</div>
+    </div>
+    <div class="math-puzzle" data-source="4 = 1 2 ^">
+        <div class="excercise">Use your power to create four.</div>
+    </div>
+    <div class="math-puzzle" data-source="12 = 1 2 3 + *">
+        <div class="excercise">There are many ways to build 12. How many of them can you find?</div>
+    </div>
+    <div class="math-puzzle" data-source="x+1 = 1 2 3 + x y">
+        <div class="excercise">Which number is one bigger than x?</div>
+    </div>
+    <div class="math-puzzle" data-source="2/x = 1 2 3 x * / ^">
+        <div class="excercise">What is the derivative of ln(x<sup>2</sup>)?</div>
+    </div>
+    <div class="math-puzzle" data-source="a*b*Math.pow(x, b-1) = 1 a b x - * ^">
+        <div class="excercise">What is the derivative of ax<sup>b</sup>?</div>
+    </div>
+    <div class="math-puzzle" data-source="x+2 = 1 2 4 x + - *">
+        <div class="excercise">Divide (x<sup>2</sup>-4) by (x-2).</div>
+    </div>
+    <div class="math-puzzle" data-source="Math.PI*4 = 1 2 3 4 pi * / ^">
+        <div class="excercise">A cone has height 3 and its base has radius 2. What is its volume?</div>
+    </div>
+</body>
+</html>

@@ -12,6 +12,23 @@ namespace Entity;
 return [
     'entity' => [
         'types' => [
+            'math-puzzle' => [
+                'title' => 'id',
+                'description' => 'content',
+                'components'  => [
+                    'repository' => [
+                        'form'   => __NAMESPACE__ . '\Form\MathPuzzleForm',
+                        'fields' => [
+                            'content',
+                            'source',
+                            'changes'
+                        ]
+                    ],
+                    'license'    => [],
+                    'taxonomy'   => []
+                ]
+
+            ],
             'text-exercise'         => [
                 'title'       => 'id',
                 'description' => 'content',

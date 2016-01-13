@@ -9,7 +9,7 @@
 /*global define, require, MathJax, ory*/
 define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
                    'moment', 'ajax_overlay', 'tracking', 'toggle_action', 'modals', 'trigger', 'sortable_list',
-                   'timeago', 'spoiler', 'injections', 'moment_de', 'affix', 'forum_select', 'slider',
+                   'timeago', 'spoiler', 'injections', 'moment_de', 'affix', 'forum_select', 'slider', 'math_puzzle',
                    'magnific_popup', 'easing', 'nestable', 'historyjs', 'polyfills', 'datepicker', 'event_extensions', 'jasny'
 ],
     function (
@@ -78,6 +78,9 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
                 $('form[name="discussion"]', $context).ForumSelect();
                 // Slider
                 $('.carousel.slide.carousel-tabbed', $context).Slider();
+
+                // Math puzzles
+                $('.math-puzzle', $context).MathPuzzle();
 
                 $('.r img', $context).each(function () {
                     var $that = $(this);

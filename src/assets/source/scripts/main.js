@@ -11,6 +11,7 @@ require.config({
     name: 'ATHENE2',
     baseUrl: "/assets/build/scripts",
     paths: {
+        "d3": "../bower_components/d3/d3",
         "jquery": "../bower_components/jquery/jquery",
         "jquery-ui": "../bower_components/jquery-ui/ui/jquery-ui",
         "underscore": "../bower_components/underscore/underscore",
@@ -52,7 +53,11 @@ require.config({
         "forum_select": "modules/serlo_forum_select",
         "toggle_action": "modules/serlo_toggle",
         "tracking": "modules/serlo_tracking",
-        "affix": "modules/serlo_affix"
+        "affix": "modules/serlo_affix",
+
+        "math_puzzle": "modules/serlo_math_puzzle",
+        "math_puzzle_touchop": "modules/serlo_math_puzzle_touchop",
+        "math_puzzle_algebra": "modules/serlo_math_puzzle_algebra"
     },
     shim: {
         underscore: {
