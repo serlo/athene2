@@ -58,7 +58,7 @@ class Normalizer implements NormalizerInterface
         $key = hash('sha256', serialize($object));
 
         if ($this->storage->hasItem($key)) {
-            return $this->storage->getItem($key);
+            return unserialize($this->storage->getItem($key));
         }
 
         foreach ($this->adapters as $class => $adapterClass) {
@@ -66,7 +66,7 @@ class Normalizer implements NormalizerInterface
                 /* @var $adapterClass Adapter\AdapterInterface */
                 $adapter    = $this->pluginManager->get($adapterClass);
                 $normalized = $adapter->normalize($object);
-                $this->storage->setItem($key, $normalized);
+                $this->storage->setItem($key, serialize($normalized));
                 return $normalized;
             }
         }
