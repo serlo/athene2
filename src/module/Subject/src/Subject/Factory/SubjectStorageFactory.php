@@ -23,24 +23,25 @@ class SubjectStorageFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $cache = StorageFactory::factory(
-            [
-                'adapter' => [
-                    'name'    => 'apc',
-                    'options' => [
-                        'namespace' => __NAMESPACE__,
-                        'ttl'       => 60 * 5
-                    ]
-                ],
-                'plugins' => [
-                    'exception_handler' => [
-                        'throw_exceptions' => false
-                    ],
-                    'serializer'
+        $config = [
+            'adapter' => [
+                'name' => 'apc',
+                'options' => [
+                    'namespace' => __NAMESPACE__,
+                    'ttl' => 60 * 5
                 ]
+            ],
+            'plugins' => [
+                'exception_handler' => [
+                    'throw_exceptions' => false
+                ],
+                'serializer'
             ]
-        );
-
+        ];
+        if (array_key_exists('subject_cache', $serviceLocator->get('Config'))) {
+            $config =  $serviceLocator->get('Config')['subject_cache'];
+        };
+        $cache = StorageFactory::factory($config);
         return $cache;
     }
 

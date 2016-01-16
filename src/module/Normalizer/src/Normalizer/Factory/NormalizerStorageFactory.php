@@ -23,24 +23,25 @@ class NormalizerStorageFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $cache = StorageFactory::factory(
-            [
-                'adapter' => [
-                    'name'    => 'apc',
-                    'options' => [
-                        'namespace' => __NAMESPACE__,
-                        'ttl'       => 60 * 60 * 7 * 24
-                    ]
-                ],
-                'plugins' => [
-                    'exception_handler' => [
-                        'throw_exceptions' => false
-                    ],
-                    'serializer'
+        $config = [
+            'adapter' => [
+                'name' => 'apc',
+                'options' => [
+                    'namespace' => __NAMESPACE__,
+                    'ttl' => 60 * 60 * 7 * 24
                 ]
+            ],
+            'plugins' => [
+                'exception_handler' => [
+                    'throw_exceptions' => false
+                ],
+                'serializer'
             ]
-        );
-
+        ];
+        if (array_key_exists('normalizer_cache', $serviceLocator->get('Config'))) {
+            $config =  $serviceLocator->get('Config')['normalizer_cache'];
+        };
+        $cache = StorageFactory::factory($config);
         return $cache;
     }
 }

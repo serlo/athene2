@@ -9,6 +9,22 @@
  * @copyright Copyright (c) 2013-2014 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
  */
 
+$cacher = [
+    'adapter' => [
+        'name' => 'Zend\Cache\Storage\Adapter\Memcached',
+        'options' => [
+            'namespace' => __NAMESPACE__,
+            'ttl' => 60 * 60
+        ]
+    ],
+    'plugins' => [
+        'exception_handler' => [
+            'throw_exceptions' => false
+        ],
+        'serializer'
+    ]
+];
+
 return [
     'doctrine' => array(
         'configuration' => array(
@@ -48,7 +64,7 @@ return [
     'log' => [
         'exceptions' => true
     ],
-    'strokercache' => array(
+    'strokercache' => [
         'storage_adapter' => [
             'name' => 'Zend\Cache\Storage\Adapter\Memcached',
             'options' => [
@@ -61,5 +77,11 @@ return [
                 'ttl' => 60*60*24*2
             ]
         ]
-    ),
+    ],
+    'alias_cache' => $cacher,
+    'markdown_cache' => $cacher,
+    'navigation_cache' => $cacher,
+    'normalizer_cache' => $cacher,
+    'notification_cache' => $cacher,
+    'subject_cache' => $cacher
 ];
