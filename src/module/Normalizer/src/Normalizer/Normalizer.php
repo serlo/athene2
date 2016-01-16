@@ -55,18 +55,18 @@ class Normalizer implements NormalizerInterface
             throw new Exception\InvalidArgumentException(sprintf('Expected object but got %s.', gettype($object)));
         }
 
-        $key = hash('sha256', serialize($object));
+        // $key = hash('sha256', serialize($object));
 
-        if ($this->storage->hasItem($key)) {
-            return unserialize($this->storage->getItem($key));
-        }
+        // if ($this->storage->hasItem($key)) {
+        //    return $this->storage->getItem($key);
+        // }
 
         foreach ($this->adapters as $class => $adapterClass) {
             if ($object instanceof $class) {
                 /* @var $adapterClass Adapter\AdapterInterface */
                 $adapter    = $this->pluginManager->get($adapterClass);
                 $normalized = $adapter->normalize($object);
-                $this->storage->setItem($key, serialize($normalized));
+                // $this->storage->setItem($key, $normalized);
                 return $normalized;
             }
         }
