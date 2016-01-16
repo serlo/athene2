@@ -14,6 +14,12 @@ $cacher = [
         'name' => 'Zend\Cache\Storage\Adapter\Memcached',
         'options' => [
             'namespace' => __NAMESPACE__,
+            'servers' => [
+                [
+                    'host' => 'localhost',
+                    'port' => 11211
+                ]
+            ],
             'ttl' => 60 * 60
         ]
     ],
