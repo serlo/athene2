@@ -7,13 +7,13 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 /*global define, require, MathJax, ory*/
-define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
+define("ATHENE2", ['jquery','underscore', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
                    'moment', 'ajax_overlay', 'tracking', 'toggle_action', 'modals', 'trigger', 'sortable_list',
                    'timeago', 'spoiler', 'injections', 'moment_de', 'affix', 'forum_select', 'slider', 'math_puzzle',
                    'magnific_popup', 'easing', 'nestable', 'historyjs', 'polyfills', 'datepicker', 'event_extensions', 'jasny'
 ],
     function (
-        $, Common, SideNavigation, MobileNavigation, Breadcrumbs, t, SideElement, Content, SystemNotification, moment, AjaxOverlay,
+        $, _, Common, SideNavigation, MobileNavigation, Breadcrumbs, t, SideElement, Content, SystemNotification, moment, AjaxOverlay,
         Tracking
         ) {
         "use strict";
@@ -33,18 +33,12 @@ define("ATHENE2", ['jquery', 'common', 'side_navigation', 'mobile_navigation', '
 
             // 'resizeDelay' will be triggered if no `resize` event was triggered for 0.5s
             var cachedWidth = $(window).width();
-            $(window).resize(function () {
+            $(window).resize(_.debounce(function () {
                 if (cachedWidth !== $(window).width()) {
-                    if (this.resizeTimeout) {
-                        clearTimeout(this.resizeTimeout);
-                    }
-                    this.resizeTimeout = setTimeout(function () {
-                        $(this).trigger('resizeDelay');
-                    }, 500);
-
+                    $(this).trigger('resizeDelay');
                     cachedWidth = $(window).width();
                 }
-            });
+            }, 500));
 
             // create an system notification whenever Common.genericError is called
             Common.addEventListener('generic error', function () {
