@@ -71,7 +71,7 @@ class NotificationManager implements NotificationManagerInterface
 
     public function markRead(UserInterface $user)
     {
-        $notifications = $this->findNotificationsBySubscriber($user);
+        $notifications = $this->findNotificationsBySubscriber($user, 100);
         $entityManager = $this->objectManager;
         $notifications->map(
             function (NotificationInterface $n) use ($entityManager) {
