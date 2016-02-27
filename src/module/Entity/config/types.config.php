@@ -47,11 +47,27 @@ return [
                             ],
                             'text-hint'     => [
                                 'multiple' => false
+                            ],
+                            'text-input-solution' => [
+                                'multiple' => true
                             ]
                         ]
                     ],
                     'license'    => [],
                     'taxonomy'   => []
+                ]
+            ],
+            'text-input-solution' => [
+                'title' => 'id',
+                'description' => 'content',
+                'components' => [
+                    'repository' => [
+                        // no form yet
+                        'fields' => [
+                            'content',
+                            'validator'
+                        ]
+                    ]
                 ]
             ],
             'text-exercise-group'   => [
