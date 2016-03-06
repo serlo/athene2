@@ -142,6 +142,7 @@ return [
     'service_manager' => [
         'factories' => [
             __NAMESPACE__ . '\Options\ModuleOptions'        => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
+            __NAMESPACE__ . '\Form\SingleChoiceAnswerForm'  => __NAMESPACE__ . '\Factory\SingleChoiceAnswerFormFactory',
             __NAMESPACE__ . '\Form\ArticleForm'             => __NAMESPACE__ . '\Factory\ArticleFormFactory',
             __NAMESPACE__ . '\Form\GroupedTextExerciseForm' => __NAMESPACE__ . '\Factory\GroupedTextExerciseFormFactory',
             __NAMESPACE__ . '\Form\ModuleForm'              => __NAMESPACE__ . '\Factory\ModuleFormFactory',
@@ -160,6 +161,9 @@ return [
         ]
     ],
     'view_helpers'    => [
+        'invokables' => [
+            'singleChoice' => __NAMESPACE__ . '\View\Helper\SingleChoiceHelper'
+        ],
         'factories' => [
             'entity' => __NAMESPACE__ . '\Factory\EntityHelperFactory'
         ]

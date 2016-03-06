@@ -47,7 +47,13 @@ return [
                             ],
                             'text-hint'     => [
                                 'multiple' => false
-                            ]
+                            ],
+                            'single-choice-right-answer' => [
+                                'multiple' => false
+                            ],
+                            'single-choice-wrong-answer' => [
+                                'multiple' => true
+                            ],
                         ]
                     ],
                     'license'    => [],
@@ -92,12 +98,68 @@ return [
                             'text-solution' => [
                                 'multiple' => false
                             ],
+                            'single-choice-right-answer' => [
+                                'multiple' => false
+                            ],
+                            'single-choice-wrong-answer' => [
+                                'multiple' => true
+                            ],
                             'text-hint'     => [
                                 'multiple' => false
                             ]
                         ],
                         'parents'  => [
                             'text-exercise-group' => [
+                                'multiple' => false
+                            ]
+                        ]
+                    ],
+                    'license'    => []
+                ]
+            ],
+            'single-choice-wrong-answer'         => [
+                'title'       => 'id',
+                'description' => 'content',
+                'components'  => [
+                    'repository' => [
+                        'form'   => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
+                        'fields' => [
+                            'content',
+                            'changes',
+                            'feedback'
+                        ]
+                    ],
+                    'link'       => [
+                        'parents' => [
+                            'text-exercise'         => [
+                                'multiple' => false
+                            ],
+                            'grouped-text-exercise' => [
+                                'multiple' => false
+                            ]
+                        ]
+                    ],
+                    'license'    => []
+                ]
+            ],
+            'single-choice-right-answer'         => [
+                'title'       => 'id',
+                'description' => 'content',
+                'components'  => [
+                    'repository' => [
+                        'form'   => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
+                        'fields' => [
+                            'content',
+                            'changes',
+                            'feedback'
+                        ]
+                    ],
+                    'link'       => [
+                        'parents' => [
+                            'text-exercise'         => [
+                                'multiple' => false
+                            ],
+                            'grouped-text-exercise' => [
                                 'multiple' => false
                             ]
                         ]
