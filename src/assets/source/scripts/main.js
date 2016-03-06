@@ -48,6 +48,7 @@ require.config({
         "search": "modules/serlo_search",
         "slider": "modules/serlo_slider",
         "support": "modules/serlo_supporter",
+        "single_choice": "modules/serlo_single_choice",
         "modals": "modules/serlo_modals",
         "router": "modules/serlo_router",
         "forum_select": "modules/serlo_forum_select",

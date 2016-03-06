@@ -1,6 +1,7 @@
 {% set revision = entity.getCurrentRevision() %}
 {% set solution = entity.getChildren('link', 'text-solution').first() %}
 {% set hint = entity.getChildren('link', 'text-hint').first() %}
+{% set singleChoice = singleChoice().fetchSingleChoice(entity) %}
 <article itemscope itemtype="http://schema.org/Article">
     <section class="row">
         <div class="col-xs-10 col-sm-8 col-md-8" itemprop="articleBody">
@@ -10,13 +11,15 @@
             <div class="pull-right">
                 <div class="btn-group">
                     {% if hint %}
-                        <div class="btn btn-default btn-xs collapsed" data-toggle="collapse" data-target="#hint-{{ hint.getId() }}">
+                        <div class="btn btn-default btn-xs collapsed" data-toggle="collapse"
+                             data-target="#hint-{{ hint.getId() }}">
                             <span class="collapse-show-label">{% trans %} Show hint {% endtrans %}</span>
                             <span class="collapse-hide-label">{% trans %} Hide hint {% endtrans %}</span>
                         </div>
                     {% endif %}
                     {% if solution %}
-                        <div class="btn btn-default btn-xs collapsed" data-toggle="collapse" data-target="#solution-{{ solution.getId() }}">
+                        <div class="btn btn-default btn-xs collapsed" data-toggle="collapse"
+                             data-target="#solution-{{ solution.getId() }}">
                             <span class="collapse-show-label">{% trans %} Show solution {% endtrans %}</span>
                             <span class="collapse-hide-label">{% trans %} Hide solution {% endtrans %}</span>
                         </div>
@@ -26,6 +29,17 @@
             </div>
         </div>
     </section>
+    {% if singleChoice|length > 0 %}
+        <section>
+            <form class="single-choice-group">
+                {% for answer in singleChoice %}
+                    {% include 'entity/view/default' with {'entity': answer['entity'], 'right': answer['right'], 'parent': entity} only %}
+                {% endfor %}
+                <input type="submit" class="btn btn-default single-choice-submit"
+                       value="{{ 'Check my answer' | trans }}"/>
+            </form>
+        </section>
+    {% endif %}
     {% if hint %}
         <section>
             {% include 'entity/view/default' with {'entity': hint, 'collapse': true} only %}

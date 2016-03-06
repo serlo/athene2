@@ -64,7 +64,7 @@ define(['jquery', 'd3', 'math_puzzle_touchop'], function ($, d3, touchop) {
             } else if (open === parent && !touch) {
                 d3.select(parent)
                     .transition()
-                    .style('height', parent.offsetWidth*2/3 + 'px');
+                    .style('height', parent.offsetWidth * 2 / 3 + 'px');
             } else {
                 d3.select(parent)
                     .transition()
