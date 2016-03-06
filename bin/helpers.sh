@@ -17,5 +17,6 @@ initEditor() {
 
     npm install
     bower --config.analytics=false install
+    grunt build
     startEditor
 }
