@@ -29,6 +29,53 @@ return [
                 ]
 
             ],
+            'choice-exercise' => [
+                'title' => 'id',
+                'description' => 'content',
+                'components' => [
+                    'repository' => [
+                        // no form yet
+                        'fields' => [
+                            'type', // MC or SC
+                            'content',
+                            'changes'
+                        ]
+                    ]
+                ],
+                'link' => [
+                    'children' => [
+                        'choice-exercise-choice' => [
+                            'multiple' => true
+                        ],
+                        'text-hint' => [
+                            'multiple' => false
+                        ]
+                    ]
+                ],
+                'license' => [],
+                'taxonomy' => []
+            ],
+            'choice-exercise-choice' => [
+                'title' => 'id',
+                'description' => 'answer',
+                'components' => [
+                    'repository' => [
+                        // no form yet
+                        'fields' => [
+                            'correct', // true or false
+                            'content',
+                            'changes'
+                        ]
+                    ]
+                ],
+                'link' => [
+                    'children' => [
+                        'text-hint' => [
+                            'multiple' => false
+                        ]
+                    ]
+                ]
+            ],
             'text-exercise'         => [
                 'title'       => 'id',
                 'description' => 'content',
@@ -300,7 +347,7 @@ return [
                     ],
                     'license'    => []
                 ]
-            ]
+            ],
         ]
     ]
 ];
