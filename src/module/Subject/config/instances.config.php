@@ -66,7 +66,8 @@ return [
                 ],
                 'informatik'                   => [
                     'allowed_taxonomies' => [
-                        'topic'
+                        'topic',
+                        'locale'
                     ],
                     'allowed_entities'   => [
                         'article',
@@ -78,7 +79,21 @@ return [
                 ],
                 'chemie'                   => [
                     'allowed_taxonomies' => [
-                        'topic'
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
+                ],
+                'nachhaltigkeit'              => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
                     ],
                     'allowed_entities'   => [
                         'article',
@@ -90,7 +105,8 @@ return [
                 ],
                 'permakultur'              => [
                     'allowed_taxonomies' => [
-                        'topic'
+                        'topic',
+                        'locale'
                     ],
                     'allowed_entities'   => [
                         'article',
@@ -140,6 +156,19 @@ return [
                         'course',
                         'text-exercise-group',
                         'math-puzzle'
+                    ]
+                ],
+                'sustainability' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
                     ]
                 ],
                 'permaculture' => [
