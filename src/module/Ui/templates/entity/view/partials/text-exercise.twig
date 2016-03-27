@@ -2,6 +2,7 @@
 {% set solution = entity.getChildren('link', 'text-solution').first() %}
 {% set hint = entity.getChildren('link', 'text-hint').first() %}
 {% set singleChoice = singleChoice().fetchSingleChoice(entity) %}
+{% set inputChallenge = inputChallenge().fetchInput(entity) %}
 <article itemscope itemtype="http://schema.org/Article">
     <section class="row">
         <div class="col-xs-10 col-sm-8 col-md-8" itemprop="articleBody">
@@ -38,6 +39,11 @@
                 <input type="submit" class="btn btn-default single-choice-submit"
                        value="{{ 'Check my answer' | trans }}"/>
             </form>
+        </section>
+    {% endif %}
+    {% if inputChallenge %}
+        <section>
+            {% include 'entity/view/default' with {'entity': inputChallenge, 'collapse': true} only %}
         </section>
     {% endif %}
     {% if hint %}

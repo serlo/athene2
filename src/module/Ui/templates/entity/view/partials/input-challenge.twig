@@ -1,0 +1,30 @@
+{% set revision = entity.getCurrentRevision() %}
+{% set type = entity.getType() %}
+{% set solution =  revision.get('solution') %}
+{% set feedback =  markdown().toHtml(revision.get('feedback')) %}
+{% set wrongInputs = inputChallenge().fetchWrongInputs(entity) %}
+
+<div itemscope class="row input-challenge-group">
+    <div class="col-xs-10 col-sm-8 col-md-8 " itemprop="articleBody">
+        <form>
+            <input type="text"
+                   class="input-challenge-input"
+                   data-type="{{ type | escape('html_attr') }}"
+                   data-solution="{{ solution | escape('html_attr') }}"
+                   data-feedback="{{ feedback | escape('html_attr') }}"
+                   data-wrong-inputs="{{ wrongInputs | escape('html_attr') }}">
+            <input type="submit"
+                   class="btn btn-default input-challenge-submit"
+                   value="{{ 'Check my answer' | trans }}"/>
+        </form>
+        <div class="input-challenge-feedback"></div>
+    </div>
+    <div class="col-xs-2 col-sm-4 col-md-4">
+        <div class="pull-right">
+            <div class="btn-group">
+                {% include 'entity/view/partials/actions/small-essential' %}
+            </div>
+        </div>
+    </div>
+</div>
+

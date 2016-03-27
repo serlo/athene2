@@ -137,7 +137,7 @@ class Entity extends Uuid implements EntityInterface
                 $collection->add($link->getChild());
             }
         }
-
+        
         return $collection;
     }
 
