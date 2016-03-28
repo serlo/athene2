@@ -21,6 +21,8 @@ require.config({
         "jasny": "../bower_components/jasny-bootstrap/dist/js/jasny-bootstrap",
         "magnific_popup": "../bower_components/magnific-popup/dist/jquery.magnific-popup",
         "historyjs": "../bower_components/history.js/scripts/bundled/html4+html5/jquery.history",
+        "string": "../bower_components/string/dist/string",
+
         "common": "modules/serlo_common",
         "easing": "libs/easing",
         "events": "libs/eventscope",
@@ -44,10 +46,12 @@ require.config({
         "content": "modules/serlo_content",
         "spoiler": "modules/serlo_spoiler",
         "deployggb": "thirdparty/deployggb",
+        "algebrajs": "thirdparty/algebra",
         "injections": "modules/serlo_injections",
         "search": "modules/serlo_search",
         "slider": "modules/serlo_slider",
         "support": "modules/serlo_supporter",
+        "input_challenge": "modules/serlo_input_challenge",
         "single_choice": "modules/serlo_single_choice",
         "modals": "modules/serlo_modals",
         "router": "modules/serlo_router",
@@ -61,6 +65,12 @@ require.config({
         "math_puzzle_algebra": "modules/serlo_math_puzzle_algebra"
     },
     shim: {
+        algebrajs: {
+            exports: 'algebra'
+        },
+        string: {
+            exports: 'S'
+        },
         underscore: {
             exports: '_'
         },

@@ -15,37 +15,37 @@ return [
             'math-puzzle' => [
                 'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\MathPuzzleForm',
+                        'form' => __NAMESPACE__ . '\Form\MathPuzzleForm',
                         'fields' => [
                             'content',
                             'source',
                             'changes'
                         ]
                     ],
-                    'license'    => [],
-                    'taxonomy'   => []
+                    'license' => [],
+                    'taxonomy' => []
                 ]
 
             ],
-            'text-exercise'         => [
-                'title'       => 'id',
+            'text-exercise' => [
+                'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\TextExerciseForm',
+                        'form' => __NAMESPACE__ . '\Form\TextExerciseForm',
                         'fields' => [
                             'content',
                             'changes'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'children' => [
                             'text-solution' => [
                                 'multiple' => false
                             ],
-                            'text-hint'     => [
+                            'text-hint' => [
                                 'multiple' => false
                             ],
                             'single-choice-right-answer' => [
@@ -54,46 +54,55 @@ return [
                             'single-choice-wrong-answer' => [
                                 'multiple' => true
                             ],
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-expression-equal-match-challenge' => [
+                                'multiple' => false
+                            ]
                         ]
                     ],
-                    'license'    => [],
-                    'taxonomy'   => []
+                    'license' => [],
+                    'taxonomy' => []
                 ]
             ],
-            'text-exercise-group'   => [
-                'title'       => 'id',
+            'text-exercise-group' => [
+                'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\TextExerciseGroupForm',
+                        'form' => __NAMESPACE__ . '\Form\TextExerciseGroupForm',
                         'fields' => [
                             'content',
                             'changes'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'children' => [
                             'grouped-text-exercise' => [
                                 'multiple' => true
                             ]
                         ]
                     ],
-                    'license'    => [],
-                    'taxonomy'   => []
+                    'license' => [],
+                    'taxonomy' => []
                 ]
             ],
             'grouped-text-exercise' => [
-                'title'       => 'id',
+                'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\GroupedTextExerciseForm',
+                        'form' => __NAMESPACE__ . '\Form\GroupedTextExerciseForm',
                         'fields' => [
                             'content',
                             'changes'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'children' => [
                             'text-solution' => [
                                 'multiple' => false
@@ -104,34 +113,43 @@ return [
                             'single-choice-wrong-answer' => [
                                 'multiple' => true
                             ],
-                            'text-hint'     => [
+                            'text-hint' => [
+                                'multiple' => false
+                            ],
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-expression-equal-match-challenge' => [
                                 'multiple' => false
                             ]
                         ],
-                        'parents'  => [
+                        'parents' => [
                             'text-exercise-group' => [
                                 'multiple' => false
                             ]
                         ]
                     ],
-                    'license'    => []
+                    'license' => []
                 ]
             ],
-            'single-choice-wrong-answer'         => [
-                'title'       => 'id',
+            'single-choice-wrong-answer' => [
+                'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
+                        'form' => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
                         'fields' => [
                             'content',
                             'changes',
                             'feedback'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'parents' => [
-                            'text-exercise'         => [
+                            'text-exercise' => [
                                 'multiple' => false
                             ],
                             'grouped-text-exercise' => [
@@ -139,24 +157,24 @@ return [
                             ]
                         ]
                     ],
-                    'license'    => []
+                    'license' => []
                 ]
             ],
-            'single-choice-right-answer'         => [
-                'title'       => 'id',
+            'single-choice-right-answer' => [
+                'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
+                        'form' => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
                         'fields' => [
                             'content',
                             'changes',
                             'feedback'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'parents' => [
-                            'text-exercise'         => [
+                            'text-exercise' => [
                                 'multiple' => false
                             ],
                             'grouped-text-exercise' => [
@@ -164,23 +182,158 @@ return [
                             ]
                         ]
                     ],
-                    'license'    => []
+                    'license' => []
                 ]
             ],
-            'text-solution'         => [
-                'title'       => 'id',
+            'input-string-normalized-match-challenge' => [
+                'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\TextSolutionForm',
+                        'form' => __NAMESPACE__ . '\Form\InputChallengeForm',
+                        'fields' => [
+                            'solution',
+                            'feedback',
+                            'changes',
+                        ]
+                    ],
+                    'link' => [
+                        'children' => [
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => true
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => true
+                            ],
+                            'input-expression-equal-match-challenge' => [
+                                'multiple' => true
+                            ]
+                        ],
+                        'parents' => [
+                            'text-exercise' => [
+                                'multiple' => false
+                            ],
+                            'grouped-text-exercise' => [
+                                'multiple' => false
+                            ],
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-expression-equal-match-challenge' => [
+                                'multiple' => false
+                            ]
+                        ]
+                    ],
+                    'license' => []
+                ]
+            ],
+            'input-number-exact-match-challenge' => [
+                'title' => 'id',
+                'description' => 'content',
+                'components' => [
+                    'repository' => [
+                        'form' => __NAMESPACE__ . '\Form\InputChallengeForm',
+                        'fields' => [
+                            'solution',
+                            'feedback',
+                            'changes',
+                        ]
+                    ],
+                    'link' => [
+                        'children' => [
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => true
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => true
+                            ],
+                            'input-expression-equal-match-challenge' => [
+                                'multiple' => true
+                            ]
+                        ],
+                        'parents' => [
+                            'text-exercise' => [
+                                'multiple' => false
+                            ],
+                            'grouped-text-exercise' => [
+                                'multiple' => false
+                            ],
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-expression-equal-match-challenge' => [
+                                'multiple' => false
+                            ]
+                        ]
+                    ],
+                    'license' => []
+                ]
+            ],
+            'input-expression-equal-match-challenge' => [
+                'title' => 'id',
+                'description' => 'content',
+                'components' => [
+                    'repository' => [
+                        'form' => __NAMESPACE__ . '\Form\InputChallengeForm',
+                        'fields' => [
+                            'solution',
+                            'feedback',
+                            'changes',
+                        ]
+                    ],
+                    'link' => [
+                        'children' => [
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => true
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => true
+                            ],
+                            'input-expression-equal-match-challenge' => [
+                                'multiple' => true
+                            ]
+                        ],
+                        'parents' => [
+                            'text-exercise' => [
+                                'multiple' => false
+                            ],
+                            'grouped-text-exercise' => [
+                                'multiple' => false
+                            ],
+                            'input-string-normalized-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-number-exact-match-challenge' => [
+                                'multiple' => false
+                            ],
+                            'input-expression-equal-match-challenge' => [
+                                'multiple' => false
+                            ]
+                        ]
+                    ],
+                    'license' => []
+                ]
+            ],
+            'text-solution' => [
+                'title' => 'id',
+                'description' => 'content',
+                'components' => [
+                    'repository' => [
+                        'form' => __NAMESPACE__ . '\Form\TextSolutionForm',
                         'fields' => [
                             'content',
                             'changes'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'parents' => [
-                            'text-exercise'         => [
+                            'text-exercise' => [
                                 'multiple' => false
                             ],
                             'grouped-text-exercise' => [
@@ -188,14 +341,14 @@ return [
                             ]
                         ]
                     ],
-                    'license'    => []
+                    'license' => []
                 ]
             ],
-            'video'                 => [
-                'content'    => 'description',
+            'video' => [
+                'content' => 'description',
                 'components' => [
-                    'repository'      => [
-                        'form'   => __NAMESPACE__ . '\Form\VideoForm',
+                    'repository' => [
+                        'form' => __NAMESPACE__ . '\Form\VideoForm',
                         'fields' => [
                             'title',
                             'description',
@@ -204,25 +357,25 @@ return [
                             'changes'
                         ]
                     ],
-                    'license'         => [],
-                    'taxonomy'        => [],
+                    'license' => [],
+                    'taxonomy' => [],
                     'related_content' => [],
-                    'search'          => []
+                    'search' => []
                 ],
             ],
-            'text-hint'             => [
-                'title'       => 'id',
+            'text-hint' => [
+                'title' => 'id',
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\TextHintForm',
+                        'form' => __NAMESPACE__ . '\Form\TextHintForm',
                         'fields' => [
                             'content'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'parents' => [
-                            'text-exercise'         => [
+                            'text-exercise' => [
                                 'multiple' => false
                             ],
                             'grouped-text-exercise' => [
@@ -230,14 +383,14 @@ return [
                             ]
                         ]
                     ],
-                    'license'    => []
+                    'license' => []
                 ]
             ],
-            'article'               => [
+            'article' => [
                 'description' => 'content',
-                'components'  => [
-                    'repository'      => [
-                        'form'   => __NAMESPACE__ . '\Form\ArticleForm',
+                'components' => [
+                    'repository' => [
+                        'form' => __NAMESPACE__ . '\Form\ArticleForm',
                         'fields' => [
                             'title',
                             'content',
@@ -245,17 +398,17 @@ return [
                             'changes'
                         ]
                     ],
-                    'license'         => [],
-                    'taxonomy'        => [],
+                    'license' => [],
+                    'taxonomy' => [],
                     'related_content' => [],
-                    'search'          => []
+                    'search' => []
                 ]
             ],
-            'course'                => [
-                'content'    => 'description',
+            'course' => [
+                'content' => 'description',
                 'components' => [
-                    'repository'      => [
-                        'form'   => __NAMESPACE__ . '\Form\ModuleForm',
+                    'repository' => [
+                        'form' => __NAMESPACE__ . '\Form\ModuleForm',
                         'fields' => [
                             'title',
                             'description',
@@ -263,27 +416,27 @@ return [
                             'changes'
                         ]
                     ],
-                    'link'            => [
+                    'link' => [
                         'children' => [
                             'course-page' => [
                                 'multiple' => true
                             ]
                         ]
                     ],
-                    'license'         => [],
-                    'taxonomy'        => [],
+                    'license' => [],
+                    'taxonomy' => [],
                     'related_content' => [],
-                    'search'          => [],
-                    'redirect'        => [
+                    'search' => [],
+                    'redirect' => [
                         'toType' => 'course-page'
                     ]
                 ]
             ],
-            'course-page'           => [
+            'course-page' => [
                 'description' => 'content',
-                'components'  => [
+                'components' => [
                     'repository' => [
-                        'form'   => __NAMESPACE__ . '\Form\ModulePageForm',
+                        'form' => __NAMESPACE__ . '\Form\ModulePageForm',
                         'fields' => [
                             'title',
                             'icon',
@@ -291,14 +444,14 @@ return [
                             'changes'
                         ]
                     ],
-                    'link'       => [
+                    'link' => [
                         'parents' => [
                             'course' => [
                                 'multiple' => false
                             ]
                         ]
                     ],
-                    'license'    => []
+                    'license' => []
                 ]
             ]
         ]

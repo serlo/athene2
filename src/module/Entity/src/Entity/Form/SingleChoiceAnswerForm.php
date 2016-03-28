@@ -35,7 +35,7 @@ class SingleChoiceAnswerForm extends Form
         $this->add(new AgreementFieldset($license));
         $this->add(new Controls());
 
-        $inputFilter = new InputFilter('text-exercise');
+        $inputFilter = new InputFilter('single-choice-answer');
         $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'feedback', 'required' => false]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
