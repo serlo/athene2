@@ -62,13 +62,16 @@ define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
     };
 
     InputChallenge.prototype.normalize = function (input, string) {
-        var temp = S(string).collapseWhitespace();
+        var normalizeNumber = function (string) {
+            return S(string).replaceAll(',', '.').s;
+        },
+            temp = S(string).collapseWhitespace();
 
         switch (input.type) {
         case 'input-number-exact-match-challenge':
-            return temp.replaceAll('.', ',').replaceAll(' /', '/').replaceAll('/ ', '/').s;
+            return S(normalizeNumber(temp)).replaceAll(' /', '/').replaceAll('/ ', '/').s;
         case 'input-expression-equal-match-challenge':
-            return new A.parse(string);
+            return new A.parse(normalizeNumber(temp));
         default:
             return temp.s.toUpperCase();
         }
