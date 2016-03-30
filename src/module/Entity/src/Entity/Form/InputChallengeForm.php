@@ -25,7 +25,7 @@ class InputChallengeForm extends Form
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Text('solution'))->setAttribute('id', 'content')->setLabel('Content:'));
+        $this->add((new Text('solution'))->setAttribute('id', 'solution')->setLabel('Solution:'));
         $this->add((new Textarea('feedback'))->setAttribute('id', 'feedback')->setLabel('Feedback:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
