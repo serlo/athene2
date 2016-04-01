@@ -18,7 +18,10 @@ use Taxonomy\Entity\TaxonomyTermInterface;
 use Taxonomy\Entity\TaxonomyTermNodeInterface;
 use Type\Entity\TypeAwareTrait;
 use Uuid\Entity\Uuid;
+use Uuid\Filter\NotTrashedCollectionFilter;
 use Versioning\Entity\RevisionInterface;
+use Versioning\Filter\HasCurrentRevisionCollectionFilter;
+use Zend\Filter\FilterChain;
 
 /**
  * An entity.
@@ -141,6 +144,16 @@ class Entity extends Uuid implements EntityInterface
         return $collection;
     }
 
+
+    public function getValidChildren($linkType, $childType=null)
+    {
+        $filterchain = new FilterChain();
+        $filterchain->attach(new HasCurrentRevisionCollectionFilter())
+            ->attach(new NotTrashedCollectionFilter());
+        $elements = $filterchain->filter($this->getChildren($linkType, $childType))->getValues();
+        return new ArrayCollection($elements);
+    }
+
     public function getCurrentRevision()
     {
         return $this->currentRevision;
@@ -188,18 +201,15 @@ class Entity extends Uuid implements EntityInterface
 
     public function getNextValidSibling($linkType, EntityInterface $previous)
     {
-        $children = $this->getChildren($linkType, $previous->getType()->getName());
+        $children = $this->getValidChildren($linkType, $previous->getType()->getName());
 
         // Checks if the given entity is a child at all
         if (($index = $children->indexOf($previous)) === false) {
             return null;
         }
 
-        for ($i = $index + 1; $i < $children->count(); ++$i) {
-            $child = $children->get($i);
-            if ($child->hasCurrentRevision() && !$child->isTrashed()) {
-                return $child;
-            }
+        if ($index + 1 < $children->count()) {
+            return $children->get($index + 1);
         }
 
         return null;
@@ -207,17 +217,14 @@ class Entity extends Uuid implements EntityInterface
 
     public function getPreviousValidSibling($linkType, EntityInterface $following)
     {
-        $children = $this->getChildren($linkType, $following->getType()->getName());
+        $children = $this->getValidChildren($linkType, $following->getType()->getName());
 
         if (($index = $children->indexOf($following)) === false) {
             return null;
         }
 
-        for ($i = $index - 1; $i >= 0; --$i) {
-            $child = $children->get($i);
-            if ($child->hasCurrentRevision() && !$child->isTrashed()) {
-                return $child;
-            }
+        if($index -1 >=0){
+            return $children->get($index-1);
         }
 
         return null;

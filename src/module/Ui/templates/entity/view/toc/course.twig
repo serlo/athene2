@@ -1,0 +1,40 @@
+{% do normalize().headMeta(entity) %}
+{% set title = normalize().toTitle(entity) %}
+{% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' ' ~ (entity.getType().getName() | trans)) %}
+{% set revision = entity.getCurrentRevision() %}
+{% set title = revision.get('title') %}
+{% set pages = entity.getValidChildren('link', 'course-page')%}
+{% set description = markdown().toHtml(revision.get('description'))  %}
+
+{% include 'entity/page/partials/alerts' %}
+{% include 'entity/page/partials/placeholders' %}
+<div itemscope itemtype="http://schema.org/Article">
+    <div class="page-header">
+        <h1><span itemprop=”name”>{{ title }}</span></h1>
+    </div>
+    <div itemprop="articleBody">
+        {% include 'entity/page/partials/alerts' %}
+        <section>
+            {{ description }}
+        </section>
+        {% for page in pages %}
+            {% set pagerevision = page.getCurrentRevision() %}
+            {% set icon = pagerevision.get('icon', 'book') %}
+
+            <div class="toc">
+                <a href="{{ normalize().toUrl(page) }}">
+                   <span>{{ pagerevision.get('title') }}</span>
+                </a>
+            </div>
+        {% endfor %}
+
+        {% include 'entity/view/partials/license' %}
+
+        <section id="discussion-{{ entity.getId() }}">
+            {{ discussion(entity).render() }}
+        </section>
+    </div>
+</div>
+{% set courseNav = include('entity/page/course-navigation', {'entity': entity, 'activePage': entity, 'elementsBefore':3, 'elementsAfter':3 }) %}
+{% set temp = registry().add('rnav', courseNav) %}
+{% set temp = registry().add('rnav-is-course', true) %}

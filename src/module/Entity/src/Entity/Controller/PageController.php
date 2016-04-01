@@ -8,9 +8,7 @@
  */
 namespace Entity\Controller;
 
-use Alias\AliasManagerAwareTrait;
 use Entity\Options\ModuleOptions;
-use Entity\Entity\EntityInterface;
 use Entity\Options\RedirectOptions;
 use Zend\View\Model\ViewModel;
 

@@ -10,42 +10,43 @@
 namespace Entity;
 
 return [
-    'zfc_rbac' => [
+    'zfc_rbac'        => [
         'assertion_map' => [
-            'entity.create' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.get' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.trash' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.purge' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.restore' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.revision.create' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.revision.purge' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.revision.restore' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.revision.trash' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.revision.checkout' => 'Authorization\Assertion\InstanceAssertion',
+            'entity.create'             => 'Authorization\Assertion\InstanceAssertion',
+            'entity.get'                => 'Authorization\Assertion\InstanceAssertion',
+            'entity.trash'              => 'Authorization\Assertion\InstanceAssertion',
+            'entity.purge'              => 'Authorization\Assertion\InstanceAssertion',
+            'entity.restore'            => 'Authorization\Assertion\InstanceAssertion',
+            'entity.revision.create'    => 'Authorization\Assertion\InstanceAssertion',
+            'entity.revision.purge'     => 'Authorization\Assertion\InstanceAssertion',
+            'entity.revision.restore'   => 'Authorization\Assertion\InstanceAssertion',
+            'entity.revision.trash'     => 'Authorization\Assertion\InstanceAssertion',
+            'entity.revision.checkout'  => 'Authorization\Assertion\InstanceAssertion',
             'entity.repository.history' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.link.create' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.link.purge' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.link.order' => 'Authorization\Assertion\InstanceAssertion',
-            'entity.license.update' => 'Authorization\Assertion\InstanceAssertion',
+            'entity.link.create'        => 'Authorization\Assertion\InstanceAssertion',
+            'entity.link.purge'         => 'Authorization\Assertion\InstanceAssertion',
+            'entity.link.order'         => 'Authorization\Assertion\InstanceAssertion',
+            'entity.license.update'     => 'Authorization\Assertion\InstanceAssertion',
         ]
     ],
-    'class_resolver' => [
+    'class_resolver'  => [
         'Entity\Entity\EntityInterface' => 'Entity\Entity\Entity',
-        'Entity\Entity\TypeInterface' => 'Entity\Entity\Type'
+        'Entity\Entity\TypeInterface'   => 'Entity\Entity\Type'
     ],
-    'di' => [
+    'di'              => [
         'allowed_controllers' => [
             __NAMESPACE__ . '\Controller\EntityController',
             __NAMESPACE__ . '\Controller\RepositoryController',
             __NAMESPACE__ . '\Controller\PageController',
             __NAMESPACE__ . '\Controller\TaxonomyController',
             __NAMESPACE__ . '\Controller\LinkController',
-            __NAMESPACE__ . '\Controller\LicenseController'
+            __NAMESPACE__ . '\Controller\LicenseController',
+            __NAMESPACE__ . '\Controller\TOCController'
         ],
-        'definition' => [
+        'definition'          => [
             'class' => [
-                __NAMESPACE__ . '\Controller\TaxonomyController' => [
-                    'setEntityManager' => [
+                __NAMESPACE__ . '\Controller\TaxonomyController'   => [
+                    'setEntityManager'   => [
                         'required' => true
                     ],
                     'setTaxonomyManager' => [
@@ -55,30 +56,30 @@ return [
                         'required' => true
                     ]
                 ],
-                __NAMESPACE__ . '\Controller\LinkController' => [
+                __NAMESPACE__ . '\Controller\LinkController'       => [
                     'setEntityManager' => [
                         'required' => true
                     ],
-                    'setLinkService' => [
+                    'setLinkService'   => [
                         'required' => true
                     ],
                     'setModuleOptions' => [
                         'required' => true
                     ]
                 ],
-                __NAMESPACE__ . '\Controller\LicenseController' => [
-                    'setEntityManager' => [
+                __NAMESPACE__ . '\Controller\LicenseController'    => [
+                    'setEntityManager'   => [
                         'required' => true
                     ],
                     'setInstanceManager' => [
                         'required' => true
                     ],
-                    'setLicenseManager' => [
+                    'setLicenseManager'  => [
                         'required' => true
                     ]
                 ],
-                __NAMESPACE__ . '\Controller\EntityController' => [
-                    'setEntityManager' => [
+                __NAMESPACE__ . '\Controller\EntityController'     => [
+                    'setEntityManager'   => [
                         'required' => true
                     ],
                     'setInstanceManager' => [
@@ -86,54 +87,63 @@ return [
                     ]
                 ],
                 __NAMESPACE__ . '\Controller\RepositoryController' => [
-                    'setEntityManager' => [
+                    'setEntityManager'        => [
                         'required' => true
                     ],
-                    'setInstanceManager' => [
+                    'setInstanceManager'      => [
                         'required' => true
                     ],
-                    'setUserManager' => [
+                    'setUserManager'          => [
                         'required' => true
                     ],
-                    'setRepositoryManager' => [
+                    'setRepositoryManager'    => [
                         'required' => true
                     ],
-                    'setModuleOptions' => [
-                        'required' => true
-                    ],
-                    'setAuthorizationService' => [
-                        'required' => true
-                    ]
-                ],
-                __NAMESPACE__ . '\Controller\PageController' => [
-                    'setEntityManager' => [
-                        'required' => true
-                    ],
-                    'setModuleOptions' => [
-                        'required' => true
-                    ]
-                ],
-                __NAMESPACE__ . '\Manager\EntityManager' => [
-                    'setUuidManager' => [
-                        'required' => true
-                    ],
-                    'setObjectManager' => [
-                        'required' => true
-                    ],
-                    'setClassResolver' => [
-                        'required' => true
-                    ],
-                    'setTypeManager' => [
+                    'setModuleOptions'        => [
                         'required' => true
                     ],
                     'setAuthorizationService' => [
                         'required' => true
                     ]
                 ],
-                __NAMESPACE__ . '\Provider\TokenProvider' => []
+                __NAMESPACE__ . '\Controller\PageController'       => [
+                    'setEntityManager' => [
+                        'required' => true
+                    ],
+                    'setModuleOptions' => [
+                        'required' => true
+                    ]
+                ],
+
+                __NAMESPACE__ . '\Controller\TOCController'=> [
+                    'setEntityManager' => [
+                        'required' => true
+                    ],
+                    'setModuleOptions' => [
+                        'required' => true
+                    ]
+                ],
+                __NAMESPACE__ . '\Manager\EntityManager'           => [
+                    'setUuidManager'          => [
+                        'required' => true
+                    ],
+                    'setObjectManager'        => [
+                        'required' => true
+                    ],
+                    'setClassResolver'        => [
+                        'required' => true
+                    ],
+                    'setTypeManager'          => [
+                        'required' => true
+                    ],
+                    'setAuthorizationService' => [
+                        'required' => true
+                    ]
+                ],
+                __NAMESPACE__ . '\Provider\TokenProvider'          => []
             ]
         ],
-        'instance' => [
+        'instance'            => [
             'preferences' => [
                 'Entity\Manager\EntityManagerInterface' => 'Entity\Manager\EntityManager'
             ]
@@ -141,59 +151,53 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
-            __NAMESPACE__ . '\Form\SingleChoiceAnswerForm' => __NAMESPACE__ . '\Factory\SingleChoiceAnswerFormFactory',
-            __NAMESPACE__ . '\Form\ArticleForm' => __NAMESPACE__ . '\Factory\ArticleFormFactory',
+            __NAMESPACE__ . '\Options\ModuleOptions'        => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
+            __NAMESPACE__ . '\Form\ArticleForm'             => __NAMESPACE__ . '\Factory\ArticleFormFactory',
             __NAMESPACE__ . '\Form\GroupedTextExerciseForm' => __NAMESPACE__ . '\Factory\GroupedTextExerciseFormFactory',
-            __NAMESPACE__ . '\Form\ModuleForm' => __NAMESPACE__ . '\Factory\ModuleFormFactory',
-            __NAMESPACE__ . '\Form\ModulePageForm' => __NAMESPACE__ . '\Factory\ModulePageFormFactory',
-            __NAMESPACE__ . '\Form\TextExerciseForm' => __NAMESPACE__ . '\Factory\TextExerciseFormFactory',
-            __NAMESPACE__ . '\Form\TextExerciseGroupForm' => __NAMESPACE__ . '\Factory\TextExerciseGroupFormFactory',
-            __NAMESPACE__ . '\Form\TextSolutionForm' => __NAMESPACE__ . '\Factory\TextSolutionFormFactory',
-            __NAMESPACE__ . '\Form\TextHintForm' => __NAMESPACE__ . '\Factory\TextHintFormFactory',
-            __NAMESPACE__ . '\Form\VideoForm' => __NAMESPACE__ . '\Factory\VideoFormFactory',
-            __NAMESPACE__ . '\Form\MathPuzzleForm' => __NAMESPACE__ . '\Factory\MathPuzzleFormFactory',
-            __NAMESPACE__ . '\Form\InputChallengeForm' => __NAMESPACE__ . '\Factory\InputChallengeFormFactory'
+            __NAMESPACE__ . '\Form\ModuleForm'              => __NAMESPACE__ . '\Factory\ModuleFormFactory',
+            __NAMESPACE__ . '\Form\ModulePageForm'          => __NAMESPACE__ . '\Factory\ModulePageFormFactory',
+            __NAMESPACE__ . '\Form\TextExerciseForm'        => __NAMESPACE__ . '\Factory\TextExerciseFormFactory',
+            __NAMESPACE__ . '\Form\TextExerciseGroupForm'   => __NAMESPACE__ . '\Factory\TextExerciseGroupFormFactory',
+            __NAMESPACE__ . '\Form\TextSolutionForm'        => __NAMESPACE__ . '\Factory\TextSolutionFormFactory',
+            __NAMESPACE__ . '\Form\TextHintForm'            => __NAMESPACE__ . '\Factory\TextHintFormFactory',
+            __NAMESPACE__ . '\Form\VideoForm'               => __NAMESPACE__ . '\Factory\VideoFormFactory',
+            __NAMESPACE__ . '\Form\MathPuzzleForm'          => __NAMESPACE__ . '\Factory\MathPuzzleFormFactory'
         ]
     ],
-    'controllers' => [
+    'controllers'     => [
         'factories' => [
             __NAMESPACE__ . '\Controller\ApiController' => __NAMESPACE__ . '\Factory\ApiControllerFactory'
         ]
     ],
-    'view_helpers' => [
-        'invokables' => [
-            'singleChoice' => __NAMESPACE__ . '\View\Helper\SingleChoiceHelper',
-            'inputChallenge' => __NAMESPACE__ . '\View\Helper\InputChallengeHelper'
-        ],
+    'view_helpers'    => [
         'factories' => [
             'entity' => __NAMESPACE__ . '\Factory\EntityHelperFactory'
         ]
     ],
-    'uuid' => [
+    'uuid'            => [
         'permissions' => [
             'Entity\Entity\Revision' => [
-                'trash' => 'entity.revision.trash',
+                'trash'   => 'entity.revision.trash',
                 'restore' => 'entity.revision.restore',
-                'purge' => 'entity.revision.purge'
+                'purge'   => 'entity.revision.purge'
             ],
-            'Entity\Entity\Entity' => [
-                'trash' => 'entity.trash',
+            'Entity\Entity\Entity'   => [
+                'trash'   => 'entity.trash',
                 'restore' => 'entity.restore',
-                'purge' => 'entity.purge'
+                'purge'   => 'entity.purge'
             ]
         ]
     ],
-    'versioning' => [
+    'versioning'      => [
         'permissions' => [
             'Entity\Entity\Entity' => [
-                'commit' => 'entity.revision.create',
+                'commit'   => 'entity.revision.create',
                 'checkout' => 'entity.revision.checkout',
-                'reject' => 'entity.revision.trash'
+                'reject'   => 'entity.revision.trash'
             ]
         ]
     ],
-    'doctrine' => [
+    'doctrine'        => [
         'driver' => [
             __NAMESPACE__ . '_driver' => [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
@@ -202,7 +206,7 @@ return [
                     __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
                 ]
             ],
-            'orm_default' => [
+            'orm_default'             => [
                 'drivers' => [
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
                 ]

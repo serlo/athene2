@@ -32,21 +32,9 @@ class ModulePageForm extends Form
         $select->setLabel('Select an icon');
         $select->setAttribute('id', 'icon');
         $select->setValueOptions(array(
-                'book-open' => 'Open book',
-                'book' => 'Closed book',
-                'bookmark' => 'Bookmark',
-                'play-button' => 'Play',
-                'google-maps' => 'Marker',
-                'film' =>'Film',
-                'circle-question-mark' => 'Question mark (circle)',
-                'circle-exclamation-mark' => 'Exclamation mark (circle)',
-                'circle-info' => 'Info (circle)',
-                'pencil' => 'Pencil',
-                'file' => 'File',
-                'notes' => 'Notes',
-                'stats' => 'Stats',
-                'compass' => 'Compass',
-                'lightbulb' => 'Lightbulb'
+                '' => 'Explanation',
+                'play' => 'Video',
+                'question' => 'Exercises'
             ));
         $this->add($select);
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));

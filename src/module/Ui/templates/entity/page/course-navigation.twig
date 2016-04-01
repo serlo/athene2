@@ -1,35 +1,73 @@
-{% set pages = entity.getChildren('link', 'course-page') %}
+{% set pages = entity.getValidChildren('link', 'course-page')%}
+{% set length = pages.count() %}
+{% set activeIndex = pages.indexOf(activePage) %}
+
+{% set previous = entity.getPreviousValidSibling('link', activePage) %}
+{% set next = entity.getNextValidSibling('link', activePage) %}
 <div class="sidebar-content-group">
     <ul class="nav nav-aside nav-course">
-        <li class="nav-course-item">
+        <li class="nav-course-item primary">
             <div class="nav-bar">
-                <div class="pipe"></div>
-                <div class="fa"></div>
-                <span class="list-item">{{ entity.getCurrentRevision().get('title') }}</span>
+                <span class="list-head">{{ entity.getCurrentRevision().get('title') }}</span>
             </div>
         </li>
-        {% for page in pages if page.hasCurrentRevision() and not(page.isTrashed()) %}
-            {% set revision = page.getCurrentRevision() %}
-            {% set icon = revision.get('icon', 'book') %}
-            {% if page == activePage %}
-                <li class="nav-course-item active">
+        <li class="nav-course-item primary {{entity==activePage ? 'active' : '' }}">
+            {% if entity!=activePage %}
+                <a class="nav-course-link" href="/entity/view/{{ entity.getID() }}/toc">
+            {% endif %}
                     <div class="nav-bar">
                         <div class="pipe"></div>
-                        <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
-                        <span class="list-item">{{ revision.get('title') }}</span>
+                        <div class="fa"></div>
+                        <div class="list-item"> {{ 'Content' | trans }}</div>
                     </div>
-                </li>
-            {% else %}
-                <li class="nav-course-item">
-                    <a class="nav-course-link" href="{{ normalize().toUrl(page) }}">
-                        <div class="nav-bar">
-                            <div class="pipe"></div>
-                            <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
-                            <span class="list-item">{{ revision.get('title') }}</span>
-                        </div>
-                    </a>
+            {% if entity!=activePage %}
+                </a>
+            {% endif %}
+        </li>
+
+        {% if elementsBefore is defined and activeIndex > elementsBefore %}
+        <li class="nav-course-item">
+            <div class="nav-bar">
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </li>
+        {% endif %}
+
+        {% for page in pages %}
+            {% if (elementsBefore is not defined or loop.index0 >= (activeIndex - elementsBefore) )
+                and (elementsAfter is not defined or loop.index0 <= (activeIndex + elementsAfter) ) %}
+                {% set revision = page.getCurrentRevision() %}
+                {% set icon = revision.get('icon', 'book') %}
+                <li class="nav-course-item {{ page==activePage ? 'active' : '' }}">
+                    {% if page!=activePage %}
+                        <a class="nav-course-link" href="{{ normalize().toUrl(page) }}">
+                    {% endif %}
+                            <div class="nav-bar">
+                                <div class="pipe"></div>
+                                <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
+                                <span class="list-item">{{ revision.get('title') }}</span>
+                            </div>
+                    {% if page!=activePage %}
+                        </a>
+                    {% endif %}
                 </li>
             {% endif %}
         {% endfor %}
+
+        {% if elementsAfter is defined and activeIndex < length - elementsAfter %}
+            <li class="nav-course-item">
+                <div class="nav-bar">
+                    <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </li>
+        {% endif %}
     </ul>
 </div>
