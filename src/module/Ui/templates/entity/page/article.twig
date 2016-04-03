@@ -5,7 +5,7 @@
 {% include 'entity/page/partials/placeholders' %}
 <div itemscope itemtype="http://schema.org/Article">
     <div class="page-header">
-        {% set controls = include('entity/view/partials/actions/controls') %}
+        {% set controls = not entity.isTrashed() ? include('entity/view/partials/actions/controls') : '' %}
         {% do placeholder('controls').set(controls) %}
         {% do placeholder('isLeaf').set(true) %}
         {% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
