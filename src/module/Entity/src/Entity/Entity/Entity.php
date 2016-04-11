@@ -223,7 +223,7 @@ class Entity extends Uuid implements EntityInterface
             return null;
         }
 
-        if($index -1 >=0){
+        if($index-1 >= 0){
             return $children->get($index-1);
         }
 
