@@ -1,0 +1,10 @@
+{% set template = 'entity/view/toc/' ~ entity.getType().getName() %}
+{% set template = include(template, ignore_missing = true) %}
+{% if template %}
+    {{ template | raw }}
+{% else %}
+    {% set name = entity.getType().getName() %}
+    {% trans %}
+    Now view found for {{ name }}
+    {% endtrans %}
+{% endif %}

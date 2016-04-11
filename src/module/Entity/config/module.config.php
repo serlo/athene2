@@ -40,7 +40,8 @@ return [
             __NAMESPACE__ . '\Controller\PageController',
             __NAMESPACE__ . '\Controller\TaxonomyController',
             __NAMESPACE__ . '\Controller\LinkController',
-            __NAMESPACE__ . '\Controller\LicenseController'
+            __NAMESPACE__ . '\Controller\LicenseController',
+            __NAMESPACE__ . '\Controller\TOCController'
         ],
         'definition' => [
             'class' => [
@@ -113,6 +114,15 @@ return [
                         'required' => true
                     ]
                 ],
+
+                __NAMESPACE__ . '\Controller\TOCController' => [
+                    'setEntityManager' => [
+                        'required' => true
+                    ],
+                    'setModuleOptions' => [
+                        'required' => true
+                    ]
+                ],
                 __NAMESPACE__ . '\Manager\EntityManager' => [
                     'setUuidManager' => [
                         'required' => true
@@ -142,7 +152,6 @@ return [
     'service_manager' => [
         'factories' => [
             __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
-            __NAMESPACE__ . '\Form\SingleChoiceAnswerForm' => __NAMESPACE__ . '\Factory\SingleChoiceAnswerFormFactory',
             __NAMESPACE__ . '\Form\ArticleForm' => __NAMESPACE__ . '\Factory\ArticleFormFactory',
             __NAMESPACE__ . '\Form\GroupedTextExerciseForm' => __NAMESPACE__ . '\Factory\GroupedTextExerciseFormFactory',
             __NAMESPACE__ . '\Form\ModuleForm' => __NAMESPACE__ . '\Factory\ModuleFormFactory',
@@ -152,8 +161,7 @@ return [
             __NAMESPACE__ . '\Form\TextSolutionForm' => __NAMESPACE__ . '\Factory\TextSolutionFormFactory',
             __NAMESPACE__ . '\Form\TextHintForm' => __NAMESPACE__ . '\Factory\TextHintFormFactory',
             __NAMESPACE__ . '\Form\VideoForm' => __NAMESPACE__ . '\Factory\VideoFormFactory',
-            __NAMESPACE__ . '\Form\MathPuzzleForm' => __NAMESPACE__ . '\Factory\MathPuzzleFormFactory',
-            __NAMESPACE__ . '\Form\InputChallengeForm' => __NAMESPACE__ . '\Factory\InputChallengeFormFactory'
+            __NAMESPACE__ . '\Form\MathPuzzleForm' => __NAMESPACE__ . '\Factory\MathPuzzleFormFactory'
         ]
     ],
     'controllers' => [
@@ -162,10 +170,6 @@ return [
         ]
     ],
     'view_helpers' => [
-        'invokables' => [
-            'singleChoice' => __NAMESPACE__ . '\View\Helper\SingleChoiceHelper',
-            'inputChallenge' => __NAMESPACE__ . '\View\Helper\InputChallengeHelper'
-        ],
         'factories' => [
             'entity' => __NAMESPACE__ . '\Factory\EntityHelperFactory'
         ]

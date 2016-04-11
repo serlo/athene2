@@ -12,36 +12,44 @@ ul.nav-course {
   .nav-course-link {
     padding: 0;
     margin: 0;
-    color: #333;
+    color: #006ea8;
   }
   &.active{
     background-color: #FFF;
     font-weight: bold;
   }
-  &:first-child {
+  &.primary {
     font-weight: bold;
-    background-color: $serloBlue;
-    color: #FFF;
     .pipe {
-      background-color: #FFF;
       top: 15px;
       bottom: -1px;
     }
-    .fa {
+  }
+
+  &.inverted {
+    background-color: $themeColor;
+    color: #FFF;
+
+    .pipe, .fa {
       background-color: #FFF;
     }
-  }
-  &:last-child{
-    .pipe {
-      top: auto;
-      bottom: 15px;
+
+    .nav-course-link {
+      color: #FFF;
     }
-    .fa {
+    &.active, >a:hover, >a:focus {
+      background-color: lighten($themeColor, 5%);
+    }
+  }
+
+  &:last-child{
+    .pipe, .fa {
       top: auto;
       bottom: 15px;
     }
   }
 }
+
 .nav-bar {
   position: relative;
   display: block;
@@ -58,19 +66,40 @@ ul.nav-course {
     right: auto;
     top: -1px;
   }
+  .dots{
+    display: table-cell;
+
+    .dot {
+      background-color:$serloBlue;
+      margin: 4px 0;
+      position: relative;
+      left: 18px;
+      width: 4px;
+      height: 4px;
+      right: auto;
+    }
+  }
+
   .fa {
     position: absolute;
     margin-left: 22px;
     top: 15px;
-    width: 20px;
-    height: 16px;
+    width: 18px;
+    height: 14px;
     text-align: center;
     background-color: $serloBlue;
     color: #FFF;
   }
   .list-item {
     box-sizing: border-box;
-    padding: 12px 15px 12px 50px;
+    padding: 12px 15px 12px 48px;
+    vertical-align: middle;
+    display: table-cell;
+  }
+
+  .list-head {
+    box-sizing: border-box;
+    padding: 12px 12px 12px 18px;
     vertical-align: middle;
     display: table-cell;
   }

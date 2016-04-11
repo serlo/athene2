@@ -16,7 +16,8 @@ class Module
     public static $listeners = [
         'Entity\Listener\EntityControllerListener',
         'Entity\Listener\RepositoryControllerListener',
-        'Entity\Listener\PageControllerListener'
+        'Entity\Listener\PageControllerListener',
+        'Entity\Listener\TOCControllerListener'
     ];
 
     public function getAutoloaderConfig()

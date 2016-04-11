@@ -4,15 +4,14 @@
 {% do headTitle(title ~ ' - ' ~ entity().findSubject(parent) ~ ' ' ~ (entity.getType().getName() | trans)) %}
 {% do normalize().headMeta(entity) %}
 
-{% set controls = include('entity/view/partials/actions/course/course-controls-wrapper', {'entity': entity, 'parent': parent}) %}
+{% set controls = include('entity/view/partials/actions/controls') %}
 {% do placeholder('controls').set(controls) %}
 {% do placeholder('isLeaf').set(true) %}
-{% do placeholder('breadcrumbs').set('<li><a href="' ~ normalize().toUrl(parent) ~ '"><span>' ~ parent.getCurrentRevision().get('title') ~
-'</span></a></li> <li><span>'~title~'</span></li>') %}
+{% do placeholder('breadcrumbs').set('<li><span>'~title~'</span></li>') %}
 
 {% include 'entity/page/partials/alerts' %}
 {% include 'entity/view/default' %}
 
-{% set courseNav = include('entity/page/course-navigation', {'entity': parent, 'activePage': entity}) %}
+{% set courseNav = include('entity/page/course-navigation', {'entity': parent, 'activePage': entity, 'elementsBefore':3, 'elementsAfter':3 }) %}
 {% set temp = registry().add('rnav', courseNav) %}
 {% set temp = registry().add('rnav-is-course', true) %}

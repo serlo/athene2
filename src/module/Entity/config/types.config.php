@@ -107,7 +107,7 @@ return [
                             'text-solution' => [
                                 'multiple' => false
                             ],
-                            'single-choice-right-answer' => [
+                            'text-hint' => [
                                 'multiple' => false
                             ],
                             'single-choice-wrong-answer' => [
@@ -135,12 +135,12 @@ return [
                     'license' => []
                 ]
             ],
-            'single-choice-wrong-answer' => [
+            'text-solution' => [
                 'title' => 'id',
                 'description' => 'content',
                 'components' => [
                     'repository' => [
-                        'form' => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
+                        'form' => __NAMESPACE__ . '\Form\TextSolutionForm',
                         'fields' => [
                             'content',
                             'changes',
@@ -425,6 +425,7 @@ return [
                     ],
                     'license' => [],
                     'taxonomy' => [],
+                    'tableOfContents' => [],
                     'related_content' => [],
                     'search' => [],
                     'redirect' => [
