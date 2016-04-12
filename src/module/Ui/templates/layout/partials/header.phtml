@@ -13,13 +13,37 @@
 <header id="header">
     <?php echo $this->partial('layout/partials/top-bar'); ?>
 
+    <a href="/spenden" id="sms-banner">
+        <?php $message = $this->randomBanner()->getRandomMessage(); ?>
+        <span class="container">
+            <span class="row">
+                <span class="col-md-8 sms-slogan">
+                    <span class="h1"><?php echo $message[0]; ?></span>
+                </span>
+                <span class="col-md-4 sms-description">
+                    <span class="row">
+                        <span class="col-xs-8 sms-description-text">
+                            <?php echo $message[1]; ?>
+                        </span>
+                        <span class="col-xs-4">
+                            <img src="<?php echo $this->randomBanner()->getRandomHand(); ?>" />
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </span>
+    </a>
+    <div id="sms-disclaimer">
+        Eine SMS kostet 2 € zzgl. der normalen Transportgebühr, davon gehen 1,83 € direkt an Serlo
+    </div>
     <div class="container">
         <nav id="header-nav">
             <div id="mobile-nav-toggle">
                 <button>
-                    <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                    <span class="sr-only"><?php echo $this->translate('Toggle navigation'); ?></span>
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
+                <span id="sms-balloon"></span>
                 <?php echo $this->brand()->getLogo(); ?>
                 <?php echo $this->brand()->getBrand(); ?>
                 <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')

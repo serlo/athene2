@@ -77,7 +77,8 @@ return [
             'registry'        => 'Ui\View\Helper\Registry',
             'toAlpha'         => 'Ui\View\Helper\ToAlpha',
             'diff'            => 'Ui\View\Helper\DiffHelper',
-            'preview'         => 'Ui\View\Helper\PreviewHelper'
+            'preview'         => 'Ui\View\Helper\PreviewHelper',
+            'randomBanner'    => 'Ui\View\Helper\RandomBanner'
         ]
     ],
     'service_manager'       => [
