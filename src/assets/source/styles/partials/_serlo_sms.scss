@@ -39,6 +39,16 @@
         padding-top: 0;
       }
     }
+
+    .sms-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      @media (max-width: $screen-md-min) {
+        position: relative;
+      }
+    }
   }
 
   &, & span {
