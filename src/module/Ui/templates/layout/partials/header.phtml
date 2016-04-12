@@ -38,7 +38,6 @@
     <div id="sms-disclaimer">
         Eine SMS kostet 2 € zzgl. der normalen Transportgebühr, davon gehen 1,83 € direkt an Serlo
     </div>
-
     <div class="container">
         <nav id="header-nav">
             <div id="mobile-nav-toggle">
@@ -46,6 +45,7 @@
                     <span class="sr-only"><?php echo $this->translate('Toggle navigation'); ?></span>
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
+                <span id="sms-balloon"></span>
                 <?php echo $this->brand()->getLogo(); ?>
                 <?php echo $this->brand()->getBrand(); ?>
                 <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')

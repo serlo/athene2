@@ -3,6 +3,18 @@
   margin-bottom: 0 !important;
 }
 
+#sms-balloon {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 10px 0 10px;
+  border-color: #95bc1a transparent transparent transparent;
+  position: absolute;
+  top: -87px;
+  left: 60px;
+}
+
 #sms-banner {
   background-color: #95bc1a;
   width: 100%;
