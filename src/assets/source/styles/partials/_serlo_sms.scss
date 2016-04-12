@@ -29,26 +29,28 @@
     }
   }
 
+  .sms-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @media (max-width: $screen-md-min) {
+      position: relative;
+    }
+  }
+
   .sms-description {
     line-height: 1.5em;
 
     .sms-description-text {
       padding-top: 35px;
+      padding-bottom: 15px;
 
       @media (max-width: $screen-md-min) {
         padding-top: 0;
       }
     }
 
-    .sms-image {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-
-      @media (max-width: $screen-md-min) {
-        position: relative;
-      }
-    }
   }
 
   &, & span {
