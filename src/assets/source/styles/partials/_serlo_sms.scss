@@ -28,6 +28,10 @@
       }
     }
   }
+
+  &, & span {
+    display: block;
+  }
 }
 
 #sms-disclaimer {

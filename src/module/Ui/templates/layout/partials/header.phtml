@@ -13,26 +13,28 @@
 <header id="header">
     <?php echo $this->partial('layout/partials/top-bar'); ?>
 
-    <div id="sms-banner">
-        <?php $message = $this->randomBanner()->getRandomMessage(); ?>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 sms-slogan">
-                    <div class="h1"><?php echo $message[0] ?></div>
-                </div>
-                <div class="col-md-4 sms-description">
-                    <div class="row">
-                        <div class="col-xs-8 sms-description-text">
-                            <?php echo $message[1] ?>
-                        </div>
-                        <div class="col-xs-4">
-                            <img src="<?php echo $this->randomBanner()->getRandomHand() ?>" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <a href="/spenden">
+        <span id="sms-banner">
+            <?php $message = $this->randomBanner()->getRandomMessage(); ?>
+            <span class="container">
+                <span class="row">
+                    <span class="col-md-8 sms-slogan">
+                        <span class="h1"><?php echo $message[0]; ?></span>
+                    </span>
+                    <span class="col-md-4 sms-description">
+                        <span class="row">
+                            <span class="col-xs-8 sms-description-text">
+                                <?php echo $message[1]; ?>
+                            </span>
+                            <span class="col-xs-4">
+                                <img src="<?php echo $this->randomBanner()->getRandomHand(); ?>" />
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </span>
+    </a>
     <div id="sms-disclaimer">
         Eine SMS kostet 2 € zzgl. der normalen Transportgebühr, davon gehen 1,83 € direkt an Serlo
     </div>
@@ -41,7 +43,7 @@
         <nav id="header-nav">
             <div id="mobile-nav-toggle">
                 <button>
-                    <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                    <span class="sr-only"><?php echo $this->translate('Toggle navigation'); ?></span>
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
                 <?php echo $this->brand()->getLogo(); ?>
