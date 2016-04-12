@@ -14,18 +14,19 @@
     <?php echo $this->partial('layout/partials/top-bar'); ?>
 
     <div id="sms-banner">
+        <?php $message = $this->randomBanner()->getRandomMessage(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 sms-slogan">
-                    <div class="h1">Hilft dir Serlo beim Lernen?</div>
+                    <div class="h1"><?php echo $message[0] ?></div>
                 </div>
                 <div class="col-md-4 sms-description">
                     <div class="row">
                         <div class="col-xs-8 sms-description-text">
-                            Dann hilf uns, Serlo noch besser zu machen und unterstütz' uns mit 2 Euro - einfach per SMS!
+                            <?php echo $message[1] ?>
                         </div>
                         <div class="col-xs-4">
-                            <img src="/assets/images/de/hand-1.png" />
+                            <img src="<?php echo $this->randomBanner()->getRandomHand() ?>" />
                         </div>
                     </div>
                 </div>
