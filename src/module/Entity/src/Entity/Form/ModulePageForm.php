@@ -32,7 +32,7 @@ class ModulePageForm extends Form
         $select->setLabel('Select an icon');
         $select->setAttribute('id', 'icon');
         $select->setValueOptions(array(
-                '' => 'Explanation',
+                'explanation' => 'Explanation',
                 'play' => 'Video',
                 'question' => 'Exercises'
             ));
