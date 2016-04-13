@@ -170,6 +170,10 @@ return [
         ]
     ],
     'view_helpers' => [
+        'invokables' => [
+            'singleChoice' => __NAMESPACE__ . '\View\Helper\SingleChoiceHelper',
+            'inputChallenge' => __NAMESPACE__ . '\View\Helper\InputChallengeHelper'
+        ],
         'factories' => [
             'entity' => __NAMESPACE__ . '\Factory\EntityHelperFactory'
         ]
