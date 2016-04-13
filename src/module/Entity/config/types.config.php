@@ -113,7 +113,7 @@ return [
                             'single-choice-wrong-answer' => [
                                 'multiple' => true
                             ],
-                            'text-hint' => [
+                            'single-choice-right-answer' => [
                                 'multiple' => false
                             ],
                             'input-string-normalized-match-challenge' => [
@@ -135,12 +135,12 @@ return [
                     'license' => []
                 ]
             ],
-            'text-solution' => [
+            'single-choice-wrong-answer' => [
                 'title' => 'id',
                 'description' => 'content',
                 'components' => [
                     'repository' => [
-                        'form' => __NAMESPACE__ . '\Form\TextSolutionForm',
+                        'form' => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
                         'fields' => [
                             'content',
                             'changes',
