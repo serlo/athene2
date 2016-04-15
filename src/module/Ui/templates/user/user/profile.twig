@@ -7,56 +7,72 @@
 </div>
 <h1 class="heading-content">{{ 'Statistics' | trans }}</h1>
 <div class="row">
-    <div class="col-xs-3">
-        {{ 'Comments:' | trans }}
+    <div class="col-sm-4">
+        {% set count = eventLog().countEventsFoundByActorAndNames(user, ['discussion/create', 'discussion/comment/create']) %}
+        <div class="nest-statistics" data-amount="{{ count }}">
+        </div>
+
+        <div class="statistics">
+            <div class="count">
+                {{ count }}
+            </div>
+            {{ 'Comments' | trans }}
+        </div>
     </div>
-    <div class="col-xs-9">
-        {{ eventLog().countEventsFoundByActorAndNames(user, ['discussion/create', 'discussion/comment/create']) }}
+    <div class="col-sm-4">
+        {% set count = eventLog().countEventsFoundByActorAndNames(user, ['entity/revision/add']) %}
+        <div class="nest-statistics" data-amount="{{ count }}">
+        </div>
+        <div class="statistics">
+            <div class="count">
+                {{ count }}
+            </div>
+            {{ 'Edits' | trans }}
+        </div>
     </div>
-</div>
-<hr noshade>
-<div class="row">
-    <div class="col-xs-3">
-        {{ 'Edits:' | trans }}
+    <div class="col-sm-4">
+        {% set count = eventLog().countEventsFoundByActorAndNames(user, ['entity/revision/reject', 'entity/revision/checkout']) %}
+        <div class="nest-statistics" data-amount="{{ count }}">
+        </div>
+        <div class="statistics">
+            <div class="count">
+                {{ count }}
+            </div>
+            {{ 'Reviews' | trans }}
+        </div>
     </div>
-    <div class="col-xs-9">
-        {{ eventLog().countEventsFoundByActorAndNames(user, ['entity/revision/add']) }}
+    <div class="col-sm-4">
+        {%  set count = eventLog().countEventsFoundByActorAndNames(user, ['taxonomy/term/associate', 'taxonomy/term/dissociate']) %}
+        <div class="nest-statistics" data-amount="{{ count }}">
+        </div>
+        <div class="statistics">
+            <div class="count">
+                {{ count }}
+            </div>
+            {{ 'Taxonomy associations' | trans }}
+        </div>
     </div>
-</div>
-<hr noshade>
-<div class="row">
-    <div class="col-xs-3">
-        {{ 'Reviews:' | trans }}
+    <div class="col-sm-4">
+        {% set count = eventLog().countEventsFoundByActorAndNames(user, ['taxonomy/term/create', 'taxonomy/term/update', 'taxonomy/term/parent/change']) %}
+        <div class="nest-statistics" data-amount="{{ count }}">
+        </div>
+        <div class="statistics">
+            <div class="count">
+                {{ count }}
+            </div>
+            {{ 'Taxonomy changes' | trans }}
+        </div>
     </div>
-    <div class="col-xs-9">
-        {{ eventLog().countEventsFoundByActorAndNames(user, ['entity/revision/reject', 'entity/revision/checkout']) }}
-    </div>
-</div>
-<hr noshade>
-<div class="row">
-    <div class="col-xs-3">
-        {{ 'Taxonomy associations:' | trans }}
-    </div>
-    <div class="col-xs-9">
-        {{ eventLog().countEventsFoundByActorAndNames(user, ['taxonomy/term/associate', 'taxonomy/term/dissociate']) }}
-    </div>
-</div>
-<hr noshade>
-<div class="row">
-    <div class="col-xs-3">
-        {{ 'Taxonomy changes:' | trans }}
-    </div>
-    <div class="col-xs-9">
-        {{ eventLog().countEventsFoundByActorAndNames(user, ['taxonomy/term/create', 'taxonomy/term/update', 'taxonomy/term/parent/change']) }}
-    </div>
-</div>
-<hr noshade>
-<div class="row">
-    <div class="col-xs-3">
-        {{ 'Total deletions:' | trans }}
-    </div>
-    <div class="col-xs-9">
-        {{ eventLog().countEventsFoundByActorAndNames(user, ['uuid/delete']) }}
+    <div class="col-sm-4">
+        {% set count = eventLog().countEventsFoundByActorAndNames(user, ['uuid/delete']) %}
+        <div class="nest-statistics" data-amount="{{ count }}">
+        </div>
+        <div class="statistics">
+            <div class="count">
+                {{ count }}
+            </div>
+            {{ 'Total deletions' | trans }}
+        </div>
     </div>
 </div>
 {{ discussion(user).render() }}

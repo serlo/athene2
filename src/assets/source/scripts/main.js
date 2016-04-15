@@ -59,7 +59,8 @@ require.config({
         "toggle_action": "modules/serlo_toggle",
         "tracking": "modules/serlo_tracking",
         "affix": "modules/serlo_affix",
-
+        "birdnest": "modules/serlo_profile_birdnest",
+        
         "math_puzzle": "modules/serlo_math_puzzle",
         "math_puzzle_touchop": "modules/serlo_math_puzzle_touchop",
         "math_puzzle_algebra": "modules/serlo_math_puzzle_algebra"
