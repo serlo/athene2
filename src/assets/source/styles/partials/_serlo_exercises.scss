@@ -15,3 +15,20 @@
     }
   }
 }
+
+.multiple-choice-group {
+  .multiple-choice-answer-group {
+
+    label {
+      width: 100%;
+    }
+
+    .multiple-choice-answer-content {
+
+    }
+
+    .multiple-choice-answer-feedback {
+      padding: 15px 10px;
+    }
+  }
+}
