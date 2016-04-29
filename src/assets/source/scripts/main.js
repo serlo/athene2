@@ -53,6 +53,7 @@ require.config({
         "support": "modules/serlo_supporter",
         "input_challenge": "modules/serlo_input_challenge",
         "single_choice": "modules/serlo_single_choice",
+        "multiple_choice": "modules/serlo_multiple_choice",
         "modals": "modules/serlo_modals",
         "router": "modules/serlo_router",
         "forum_select": "modules/serlo_forum_select",

@@ -1,0 +1,40 @@
+{% set revision = entity.getCurrentRevision() %}
+{% set rightContent = 'Right!' | trans %}
+{% set wrongContent = 'Wrong.' | trans %}
+{% set defaultFeedback = '<p>' ~ (right ? rightContent : wrongContent) ~ '</p>' %}
+{% set displayContent = 'This answer has been created but no content has been added yet or it is pending approval.' | trans %}
+{% set feedbackContent = '' %}
+{% if revision %}
+    {% set feedbackContent = markdown().toHtml(revision.get('feedback')) %}
+    {% set displayContent = markdown().toHtml(revision.get('content')) %}
+{% endif %}
+{% set feedback = feedbackContent ? feedbackContent : defaultFeedback %}
+
+<div itemscope class="row multiple-choice-answer-group">
+    <div class="col-xs-10 col-sm-8 col-md-8 " itemprop="articleBody">
+        <div class="radio">
+            <label class="multiple-choice-answer-content">
+                <input type="checkbox"
+                       class="multiple-choice-answer-choice"
+                        {% if right %}
+                            data-feedback="{{ feedback | escape }}"
+                        {% endif %}
+                       name="multiple-choice-answer-choice-{{ parent.getId() }}" value="{{ right }}">
+                {{ displayContent | raw }}
+                {% if not right %}
+                    <div class="multiple-choice-wrong-answer-feedback alert alert-danger"
+                         style="display: none;">
+                        {{ feedback | raw }}
+                    </div>
+                {% endif %}
+            </label>
+        </div>
+    </div>
+    <div class="col-xs-2 col-sm-4 col-md-4">
+        <div class="pull-right">
+            <div class="btn-group">
+                {% include 'entity/view/partials/actions/small-essential' %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -153,6 +153,7 @@ return [
         'factories' => [
             __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
             __NAMESPACE__ . '\Form\SingleChoiceAnswerForm' => __NAMESPACE__ . '\Factory\SingleChoiceAnswerFormFactory',
+            __NAMESPACE__ . '\Form\MultipleChoiceAnswerForm' => __NAMESPACE__ . '\Factory\MultipleChoiceAnswerFormFactory',
             __NAMESPACE__ . '\Form\ArticleForm' => __NAMESPACE__ . '\Factory\ArticleFormFactory',
             __NAMESPACE__ . '\Form\GroupedTextExerciseForm' => __NAMESPACE__ . '\Factory\GroupedTextExerciseFormFactory',
             __NAMESPACE__ . '\Form\ModuleForm' => __NAMESPACE__ . '\Factory\ModuleFormFactory',
@@ -175,6 +176,7 @@ return [
     'view_helpers' => [
         'invokables' => [
             'singleChoice' => __NAMESPACE__ . '\View\Helper\SingleChoiceHelper',
+            'multipleChoice' => __NAMESPACE__ . '\View\Helper\MultipleChoiceHelper',
             'inputChallenge' => __NAMESPACE__ . '\View\Helper\InputChallengeHelper'
         ],
         'factories' => [
