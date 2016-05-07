@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# load nvm env vars
+source ~/.profile
+
 cd "$(dirname "$0")"
 
 git status
