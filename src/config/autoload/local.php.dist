@@ -17,7 +17,9 @@ return [
                     'port'     => $dbParams['port'],
                     'user'     => $dbParams['user'],
                     'password' => $dbParams['password'],
-                    'dbname'   => $dbParams['database']
+                    'dbname'   => $dbParams['database'],
+                    // Yes..this is currently the only way i know of fixing database encoding issues
+                    'charset' => 'latin1'
                 ]
             ]
         ]
