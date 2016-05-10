@@ -47,6 +47,7 @@ $twig->addFunction(new \Twig_SimpleFunction('formElementErrors', true));
 $twig->addFunction(new \Twig_SimpleFunction('formCaptcha', true));
 $twig->addFunction(new \Twig_SimpleFunction('formHidden', true));
 $twig->addFunction(new \Twig_SimpleFunction('pageHeader', true));
+$twig->addFunction(new \Twig_SimpleFunction('pageTitle', true));
 $twig->addFunction(new \Twig_SimpleFunction('isGranted', true));
 $twig->addFunction(new \Twig_SimpleFunction('notifications', true));
 $twig->addFunction(new \Twig_SimpleFunction('normalize', true));
@@ -124,6 +125,13 @@ $twig->addFunction(new \Twig_SimpleFunction('isGranted', true));
 
 $twig->addFunction(new \Twig_SimpleFunction('headlink', true));
 $twig->addFunction(new \Twig_SimpleFunction('user', true));
+
+$twig->addFunction(new \Twig_SimpleFunction('user', true));
+$twig->addFunction(new \Twig_SimpleFunction('singleChoice', true));
+$twig->addFunction(new \Twig_SimpleFunction('multipleChoice', true));
+$twig->addFunction(new \Twig_SimpleFunction('inputChallenge', true));
+$twig->addFunction(new \Twig_SimpleFunction('randomBanner', true));
+$twig->addFunction(new \Twig_SimpleFunction('shuffle', true));
 
 array_shift($_SERVER['argv']);
 $addTemplate = false;
