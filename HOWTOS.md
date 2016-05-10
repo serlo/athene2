@@ -160,3 +160,8 @@ crontab -e
 8. translate
  1. `translate\((.*)\)`
  2. `$1 | trans`
+
+
+POEDIT
+
+`WXTRACE=poedit,poedit.tmp,poedit.execute /Applications/Poedit.app/Contents/MacOS/Poedit --verbose --keep-temp-files`
