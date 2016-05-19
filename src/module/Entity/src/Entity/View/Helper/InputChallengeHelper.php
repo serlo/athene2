@@ -25,13 +25,13 @@ class InputChallengeHelper extends AbstractHelper
      * @return array
      */
     public function fetchInput(EntityInterface $entity) {
-        foreach ($entity->getChildren('link') as $children) {
-            if (in_array($children->getType()->getName(), [
+        foreach ($entity->getChildren('link') as $child) {
+            if (in_array($child->getType()->getName(), [
                 'input-string-normalized-match-challenge',
                 'input-number-exact-match-challenge',
                 'input-expression-equal-match-challenge'
             ])) {
-                return $children;
+                return $child;
             }
         }
 
@@ -45,18 +45,19 @@ class InputChallengeHelper extends AbstractHelper
     public function fetchWrongInputs(EntityInterface $entity) {
         $wrongInputs = [];
 
-        foreach ($entity->getChildren('link') as $children) {
-            $revision = $children->getCurrentRevision();
+        foreach ($entity->getChildren('link') as $child) {
+            $revision = $child->getCurrentRevision();
 
             if ($revision) {
                 $wrongInputs[] = [
-                    'type' => $children->getType()->getName(),
+                    'entity' => $child,
+                    'type' => $child->getType()->getName(),
                     'solution' => $revision->get('solution'),
                     'feedback' => $this->view->markdown()->toHtml($revision->get('feedback'))
                 ];
             }
         }
 
-        return json_encode($wrongInputs);
+        return $wrongInputs;
     }
 }
