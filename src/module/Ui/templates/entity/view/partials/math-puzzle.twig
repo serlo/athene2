@@ -3,7 +3,7 @@
 <article itemscope itemtype="http://schema.org/Article">
     <section class="row">
         <div class="math-puzzle" data-source="{{ source }}">
-            <div class="excercise">
+            <div class="exercise">
                 {{ markdown().toHtml(revision.get('content')) | raw }}
             </div>
         </div>

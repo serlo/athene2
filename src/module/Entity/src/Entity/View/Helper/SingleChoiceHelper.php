@@ -42,4 +42,18 @@ class SingleChoiceHelper extends AbstractHelper
         shuffle($answers);
         return $answers;
     }
+
+    /**
+     * @param EntityInterface $entity
+     * @return String
+     */
+    public function fetchPositiveFeedback(EntityInterface $entity) {
+        foreach ($entity->getChildren('link', 'single-choice-right-answer') as $positive) {
+            if ($positive->hasCurrentRevision()) {
+                return $positive->getCurrentRevision()->get('feedback');
+            } else {
+                return '';
+            }
+        }
+    }
 }
