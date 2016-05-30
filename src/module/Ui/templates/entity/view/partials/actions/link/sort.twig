@@ -1,5 +1,5 @@
 {% set options = entity().getOptions(entity) %}
-{% if options.hasComponent('link') %}
+{% if options.hasComponent('link') and entity.getChildren('link').count() != 0 %}
     {% if isGranted('entity.link.order', entity) %}
         <li>
             <a rel="nofollow" href="{{ url('entity/link/order', {'entity': entity.getId(), 'type': 'link'}) }}">
