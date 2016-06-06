@@ -1,6 +1,6 @@
 {% set title = 'text-exercise-group' | trans %}
-<article>
-    <section class="row">
+<article class="exercisegroup">
+    <section class="row" style="margin-right:0px">
         <div class="col-xs-10 col-sm-7 col-md-8" itemprop="articleBody">
             {{ markdown().toHtml(entity.getCurrentRevision().get('content')) }}
         </div>

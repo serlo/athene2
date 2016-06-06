@@ -1,21 +1,18 @@
 <div class="hidden-xs btn-group">
     <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-        <span class="caret"></span>
+        <span class="fa fa-cog"></span>
         <span class="sr-only">Toggle Dropdown</span>
     </button>
     <ul class="dropdown-menu" role="menu">
-        {% include "entity/view/partials/actions/versioning/edit-essential" %}
-        {{ subscribe(entity).subMenuItem() }}
-        {% include 'entity/view/partials/actions/versioning/history' %}
-        {% include 'entity/view/partials/actions/license/show' %}
-        {% include 'entity/view/partials/actions/link/add' %}
-        {% include 'entity/view/partials/actions/link/update' %}
-        {% include 'entity/view/partials/actions/link/sort' %}
-        {% include 'entity/view/partials/actions/taxonomy/update' %}
-        {% include 'entity/view/partials/actions/related-content/manage' %}
-        {% include 'entity/view/partials/actions/license/update' %}
-        {% include 'entity/view/partials/actions/flag/create' %}
-        {% include 'entity/view/partials/actions/event/history' %}
-        {% include 'entity/view/partials/actions/trash' %}
+        {% if subitems is defined %}
+            {% for item in subitems %}
+                <li class="dropdown-submenu"><a href="#" tabindex="-1" rel="nofollow">{{ 'Subitem' | trans }} {{ loop.index }}</a>
+                    <ul class="dropdown-menu" role="menu">
+                        {% include 'entity/view/partials/actions/essentials' with {'entity' : item['entity']} %}
+                    </ul>
+                </li>
+            {% endfor %}
+        {% endif %}
+        {% include 'entity/view/partials/actions/essentials' %}
     </ul>
 </div>

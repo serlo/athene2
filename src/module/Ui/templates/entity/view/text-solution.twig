@@ -4,7 +4,7 @@
 <article itemscope itemtype="http://schema.org/Article">
     <div class="row {{ collapse is defined ? 'collapse' : '' }}" id="solution-{{ entity.getId() }}">
         <section class="col-xs-12">
-            <div itemprop="articleBody" class="blockquote-box blockquote-info blockquote-left">
+            <div itemprop="articleBody">
                 <div class="clearfix">
                     <div class="pull-right">
                         {% include 'entity/view/partials/actions/small-essential' %}
@@ -25,11 +25,9 @@
             </div>
         </section>
         <footer class="col-xs-12">
-            <div class="blockquote-box blockquote-info blockquote-left">
-                <div class="row">
-                    <div class="col-xs-12 hidden-xs">
-                        {{ discussion(entity).render('minimalistic', 2, true) }}
-                    </div>
+            <div class="row">
+                <div class="col-xs-12 hidden-xs">
+                    {{ discussion(entity).render('minimalistic', 2, true) }}
                 </div>
             </div>
         </footer>

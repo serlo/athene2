@@ -25,18 +25,16 @@
     <div>
         {% if types.get('text-exercise') or types.get('text-exercise-group') or types.get('math-puzzle') %}
             <!-- Rest -->
-            <h2 class="heading-content">{% trans %} Exercises {% endtrans %}</h2>
+            <h2 class="heading-content" style="margin-bottom:30px">{% trans %} Exercises {% endtrans %}</h2>
             <div class="row top-buffer-10">
                 <div class="col-xs-12">
                     {% for entity in entities if entity.getType().getName() in ['text-exercise', 'text-exercise-group', 'math-puzzle'] %}
-                        <div class="blockquote-box blockquote-primary">
-                            <div class="row">
-                                <div class="col-sm-1 hidden-xs">
-                                    <strong>{{ loop.index }}.</strong>
-                                </div>
-                                <div class="col-sm-11 col-xs-12">
-                                    {% include 'taxonomy/term/entity/default' with {'entity': entity} only %}
-                                </div>
+                        <div class="row">
+                            <div class="col-sm-1 hidden-xs">
+                                <strong>{{ loop.index }}.</strong>
+                            </div>
+                            <div class="col-sm-11 col-xs-12">
+                                {% include 'taxonomy/term/entity/default' with {'entity': entity} only %}
                             </div>
                         </div>
                     {% endfor %}
