@@ -64,7 +64,7 @@ define(['jquery'], function ($) {
                     $submit = $('.single-choice-submit', $singleChoice),
                     $feedback;
 
-                if ($submit.hasClass('btn-success')) {
+                if ($submit.hasClass('btn-success') || $selected.length === 0) {
                     return false;
                 }
 
