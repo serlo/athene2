@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
 "POT-Creation-Date: 2016-06-08 16:52+0200\n"
-"PO-Revision-Date: 2016-06-08 17:03+0200\n"
+"PO-Revision-Date: 2016-06-08 17:06+0200\n"
 "Last-Translator: Serlo <info-de@serlo.org>\n"
-"Language-Team: English\n"
-"Language: en\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,9 +13,9 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;pageHeader;setSubtitle;addMessage;addSuccessMessage;addErrorMessage;setLabel;setLegend;t\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: serlo\n"
-"X-Crowdin-Language: en\n"
+"X-Crowdin-Language: ja\n"
 "X-Crowdin-File: default.po\n"
 "X-Poedit-SearchPath-0: ./../module\n"
 "X-Poedit-SearchPath-1: ./../config\n"
@@ -23,174 +23,174 @@ msgstr ""
 #: ../config/instance/navigation/default.php:15
 #: ../module/Ui/templates/admin/home/index.phtml:11
 msgid "Backend"
-msgstr "Diagon Alley"
+msgstr "バックエンド"
 
 #: ../config/instance/navigation/default.php:21
 #: /tmp/cache/5758311dd1634/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:54
 #: /tmp/cache/5758311e497f6/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:19
 msgid "Pages"
-msgstr ""
+msgstr "ページ"
 
 #: ../config/instance/navigation/default.php:27
 #: /tmp/cache/5758311e497f6/9/1/91cd8b9687090e8fbf6c2dad93ee1795f60e7685d89b01a1cf592ebc4ec6b269.php:19
 msgid "Create a page"
-msgstr ""
+msgstr "ページを作成"
 
 #: ../config/instance/navigation/default.php:33
 #: /tmp/cache/5758311e850e0/0/4/04b43796e2176095808f4e2341323223128175cab0327a99d8f694340028a1de.php:19
 msgid "Update a page"
-msgstr ""
+msgstr "ページを更新"
 
 #: ../config/instance/navigation/default.php:41
 msgid "Taxonomy"
-msgstr ""
+msgstr "分類"
 
 #: ../config/instance/navigation/default.php:47
 #: /tmp/cache/5758311ec185b/9/1/91778b3c058dccc6f82af7a4a85ca6279b9f73d5465ce0e73a719423b7693d27.php:21
 #: /tmp/cache/5758311f02669/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:41
 #: /tmp/cache/5758311f36f43/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:39
 msgid "Organize"
-msgstr ""
+msgstr "整理"
 
 #: ../config/instance/navigation/default.php:71
 msgid "Authorization"
-msgstr ""
+msgstr "権限"
 
 #: ../config/instance/navigation/default.php:77
 #: ../module/Ui/templates/authorization/role/show.phtml:11
 msgid "Role"
-msgstr ""
+msgstr "役割"
 
 #: ../config/instance/navigation/default.php:83
 #: ../module/Ui/templates/authorization/role/create.phtml:2
 msgid "Create role"
-msgstr ""
+msgstr "役割を作成"
 
 #: ../config/instance/navigation/default.php:89
 #: ../module/Ui/templates/authorization/role/user/add.phtml:11
 msgid "Add user"
-msgstr ""
+msgstr "ユーザを追加"
 
 #: ../config/instance/navigation/default.php:95
 #: ../module/Ui/templates/authorization/role/permission/add.phtml:11
 msgid "Add permission"
-msgstr ""
+msgstr "権限を追加"
 
 #: ../config/instance/navigation/default.php:103
 msgid "Navigation"
-msgstr ""
+msgstr "ナビゲーション"
 
 #: ../config/instance/navigation/default.php:109
 #: ../module/Ui/templates/navigation/containers.phtml:1
 #: /tmp/cache/5758311dd1634/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:19
 msgid "Manage navigation"
-msgstr ""
+msgstr "ナビの管理"
 
 #: ../config/instance/navigation/default.php:114
 #: ../module/Ui/templates/navigation/container/create.phtml:1
 msgid "Create container"
-msgstr ""
+msgstr "コンテナの作成"
 
 #: ../config/instance/navigation/default.php:124
 #: ../module/Ui/templates/navigation/parameter/create.phtml:1
 msgid "Create parameter"
-msgstr ""
+msgstr "パラメーターを作成"
 
 #: ../config/instance/navigation/default.php:130
 #: ../module/Ui/templates/navigation/parameter/key/create.phtml:1
 msgid "Create parameter key"
-msgstr ""
+msgstr "パラメーター キーを作成"
 
 #: ../config/instance/navigation/default.php:136
 #: ../module/Ui/templates/navigation/parameter/update.phtml:1
 msgid "Update parameter"
-msgstr ""
+msgstr "パラメーターを更新"
 
 #: ../config/instance/navigation/default.php:144
 #: ../module/Ui/templates/authorization/role/show.phtml:19
 #: /tmp/cache/5758311f36f43/2/7/27319e303595527c214e058ab82e2945a742b61394cfb62afe21fee9a23631a5.php:19
 msgid "Users"
-msgstr ""
+msgstr "ユーザ"
 
 #: ../config/instance/navigation/default.php:150
 msgid "Recycle bin"
-msgstr ""
+msgstr "ごみ箱"
 
 #: ../config/instance/navigation/default.php:156
 msgid "Flags"
-msgstr ""
+msgstr "フラグ"
 
 #: ../config/instance/navigation/default.php:162
 #: ../module/Ui/templates/flag/detail.phtml:5
 msgid "Flag detail"
-msgstr ""
+msgstr "フラグの詳細"
 
 #: ../config/instance/navigation/default.php:168
 #: ../module/Ui/templates/flag/add.phtml:1
 #: /tmp/cache/5758311d329d8/2/c/2cc8b2c76d8e3177d93ca396c554b8f862af4919d21ff3222e888d1f82fb7d85.php:29
 msgid "Flag content"
-msgstr ""
+msgstr "フラグの内容"
 
 #: ../config/instance/navigation/default.php:176
 msgid "Licenses"
-msgstr ""
+msgstr "ライセンス"
 
 #: ../config/instance/navigation/default.php:182
 #: ../module/Ui/templates/license/add.phtml:1
 msgid "Add license"
-msgstr ""
+msgstr "ライセンスを追加"
 
 #: ../config/instance/navigation/default.php:188
 #: ../module/Ui/templates/license/detail.phtml:3
 #: /tmp/cache/5758311d329d8/a/d/ade97147a193ffe3ee565a646e330379f699371bc5329a9a922e987f8315a05f.php:31
 msgid "License"
-msgstr ""
+msgstr "ライセンス"
 
 #: ../config/instance/navigation/default.php:200
 msgid "Horizon"
-msgstr ""
+msgstr "ホライゾン"
 
 #: ../config/instance/navigation/default.php:205
 #: /tmp/cache/5758311bed9bd/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:32
 #: /tmp/cache/5758311bed9bd/e/7/e79cc1c7593f13bb4dacce6b2fb741d2dd940f8b0b4f0c532e1109a5c3bcf044.php:19
 msgid "Create ad"
-msgstr ""
+msgstr "広告を作成"
 
 #: ../config/instance/navigation/default.php:211
 #: /tmp/cache/5758311bed9bd/6/3/6330fdb7b3cac448cace9e6f1a53a8c97895ab0f9af451c572c1c5c37fad6ad1.php:19
 msgid "Update ad"
-msgstr ""
+msgstr "広告を更新"
 
 #: ../config/instance/navigation/default.php:222
 #: /tmp/cache/5758311bed9bd/4/7/47a30ac564dadd8d5b95b50b11193dd62584a51a6fcdc2626ab9e6000fb92a3f.php:21
 msgid "Blog"
-msgstr ""
+msgstr "ブログ"
 
 #: ../config/instance/navigation/default.php:237
 msgid "Me"
-msgstr ""
+msgstr "私"
 
 #: ../config/instance/navigation/default.php:250
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:19
 msgid "Profile"
-msgstr ""
+msgstr "プロファイル"
 
 #: ../config/instance/navigation/default.php:256
 msgid "Edit profile"
-msgstr ""
+msgstr "プロフィールを編集"
 
 #: ../config/instance/navigation/default.php:262
 #: /tmp/cache/5758311bed9bd/d/7/d70d4940f0c56e62c9205c0410d0b7315d5c5f5c823939e978b8ba00795aae2b.php:19
 msgid "Update password"
-msgstr ""
+msgstr "パスワードの更新"
 
 #: ../config/instance/navigation/default.php:268
 msgid "Subscriptions"
-msgstr ""
+msgstr "ファロー"
 
 #: ../module/Admin/src/Admin/Form/DebuggerForm.php:24
 msgid "Message:"
-msgstr ""
+msgstr "メッセージ："
 
 #: ../module/Ads/src/Ads/Form/AdForm.php:30
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:66
@@ -207,13 +207,13 @@ msgstr ""
 #: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:28
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:38
 msgid "Title:"
-msgstr ""
+msgstr "タイトル："
 
 #: ../module/Ads/src/Ads/Form/AdForm.php:31
 #: ../module/Page/src/Page/Form/RepositoryForm.php:31
 #: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:29
 msgid "Url:"
-msgstr ""
+msgstr "URL："
 
 #: ../module/Ads/src/Ads/Form/AdForm.php:32
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:67
@@ -232,132 +232,132 @@ msgstr ""
 #: ../module/License/src/License/Form/LicenseForm.php:32
 #: ../module/Page/src/Page/Form/RevisionForm.php:28
 msgid "Content:"
-msgstr ""
+msgstr "内容"
 
 #: ../module/Ads/src/Ads/Form/AdForm.php:41
 msgid "frequency"
-msgstr ""
+msgstr "頻度"
 
 #: ../module/Ads/src/Ads/Form/AdPageForm.php:25
 msgid "Page ID:"
-msgstr ""
+msgstr "ページ ID:"
 
 #: ../module/Attachment/src/Attachment/Form/AttachmentFieldset.php:27
 msgid "Attach file:"
-msgstr ""
+msgstr "ファイルを添付"
 
 #: ../module/Attachment/src/Attachment/Form/AttachmentForm.php:29
 msgid "Set type:"
-msgstr ""
+msgstr "種類の設定"
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:60
 msgid "Your account has been activated, you may now log in."
-msgstr ""
+msgstr "アカウントが有効になりました。ログインできます。"
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:65
 msgid "I couldn't find an account by that token. You can now try to re-activate your account."
-msgstr ""
+msgstr "ユーザー認証用のトークンによってアカウントを見つけることができませんでした。今あなたのアカウントを再アクティブ化試みることができます。"
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:83
 msgid "Your have been sent an activation email. Please check your spam folder as well."
-msgstr ""
+msgstr "アクティブ化のメールを送信しました。受信フォルダーおよび迷惑メールフォルダーを確認ください。"
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:121
 msgid "Your password has successfully been changed."
-msgstr ""
+msgstr "新しいパスワードに変更されました。"
 
 #: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:227
 msgid "You have been sent an email with instructions on how to restore your password! Please check your spam folder as well."
-msgstr ""
+msgstr "パスワードを復元する方法について記載したメールを送信しました。迷惑メール フォルダーも確認ください。"
 
 #: ../module/Authentication/src/Authentication/Form/ActivateForm.php:26
 #: ../module/User/src/User/Form/Register.php:39
 #: ../module/User/src/User/Form/SelectUserForm.php:28
 #: ../module/User/src/User/Form/SettingsForm.php:28
 msgid "Email:"
-msgstr ""
+msgstr "メール："
 
 #: ../module/Authorization/src/Authorization/Controller/RoleController.php:150
 msgid "Role created."
-msgstr ""
+msgstr "役割を作成"
 
 #: ../module/Authorization/src/Authorization/Form/PermissionForm.php:29
 msgid "Permission:"
-msgstr ""
+msgstr "許可"
 
 #: ../module/Authorization/src/Authorization/Form/PermissionForm.php:38
 msgid "Instance:"
-msgstr ""
+msgstr "実例："
 
 #: ../module/Authorization/src/Authorization/Form/RoleForm.php:43
 #: ../module/Term/src/Term/Form/TermFieldset.php:25
 msgid "Name:"
-msgstr ""
+msgstr "名前:"
 
 #: ../module/Authorization/src/Authorization/Form/UserForm.php:24
 #: ../module/User/src/User/Form/Register.php:32
 msgid "Username:"
-msgstr ""
+msgstr "ユーザー名:"
 
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:72
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:53
 msgid "Publish date:"
-msgstr "date of publication:"
+msgstr "公開日"
 
 #: ../module/Contexter/src/Contexter/Form/ContextForm.php:36
 msgid "Select a type:"
-msgstr ""
+msgstr "タイプを選択"
 
 #: ../module/Contexter/src/Contexter/Form/ContextForm.php:38
 msgid "Object-ID:"
-msgstr ""
+msgstr "オブジェクト ID:"
 
 #: ../module/Contexter/src/Contexter/Form/ParameterFieldset.php:24
 msgid "Which parameters should be matched?"
-msgstr ""
+msgstr "どのパラメーターが一致するか。"
 
 #: ../module/Contexter/src/Contexter/Form/ParameterFieldset.php:47
 msgid "<strong>"
-msgstr ""
+msgstr "<strong>"
 
 #: ../module/Contexter/src/Contexter/Form/UrlForm.php:26
 msgid "Uri:"
-msgstr ""
+msgstr "URL:"
 
 #: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:93
 msgid "Your comment has been saved."
-msgstr ""
+msgstr "あなたのコメントが保存されました。"
 
 #: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:148
 msgid "Your discussion has been started."
-msgstr ""
+msgstr "あなたのディスカッションが開始されました。"
 
 #: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:177
 msgid "You have downvoted this comment."
-msgstr "You have graded this comment down."
+msgstr "このコメントに反対票を投じました。"
 
 #: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:179
 msgid "You can't downvote this comment."
-msgstr "You can't grade this comment down."
+msgstr "このコメントに反対票を投じることはできません。"
 
 #: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:183
 msgid "You have upvoted this comment."
-msgstr "You have rised this comment in rank."
+msgstr "このコメントに賛成票を投じました。"
 
 #: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:185
 msgid "You can't upvote this comment."
-msgstr "You can't grade this comment higher."
+msgstr "このコメントに賛成票を投じることはできません。"
 
 #: ../module/Entity/src/Entity/Controller/LinkController.php:51
 #: ../module/Entity/src/Entity/Controller/LinkController.php:75
 msgid "Your changes have been saved."
-msgstr ""
+msgstr "変更が保存されました。"
 
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:31
 #: ../module/Entity/src/Entity/Form/ModuleForm.php:31
 #: ../module/Entity/src/Entity/Form/VideoForm.php:34
 msgid "Reasoning:"
-msgstr ""
+msgstr "根拠："
 
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:34
 #: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:29
@@ -373,7 +373,7 @@ msgstr ""
 #: ../module/Entity/src/Entity/Form/TextSolutionForm.php:29
 #: ../module/Entity/src/Entity/Form/VideoForm.php:37
 msgid "Changes:"
-msgstr ""
+msgstr "変更:"
 
 #: ../module/Entity/src/Entity/Form/InputChallengeForm.php:28
 msgid "Solution:"
@@ -392,7 +392,7 @@ msgstr ""
 #: ../module/Entity/src/Entity/Form/ModuleForm.php:29
 #: ../module/Entity/src/Entity/Form/VideoForm.php:31
 msgid "Description:"
-msgstr ""
+msgstr "説明"
 
 #: ../module/Entity/src/Entity/Form/ModulePageForm.php:32
 msgid "Select an icon"
@@ -400,369 +400,369 @@ msgstr ""
 
 #: ../module/Entity/src/Entity/Form/VideoForm.php:32
 msgid "Video url:"
-msgstr ""
+msgstr "動画のURL："
 
 #: ../module/Flag/src/Flag/Controller/FlagController.php:39
 msgid "The content has been flagged."
-msgstr ""
+msgstr "コンテンツにフラグが立てられました。"
 
 #: ../module/Flag/src/Flag/Controller/FlagController.php:74
 msgid "Your action was successfull."
-msgstr ""
+msgstr "操作に成功しました。"
 
 #: ../module/Flag/src/Flag/Form/FlagForm.php:36
 #: ../module/Navigation/src/Navigation/Form/ContainerForm.php:38
 msgid "Type:"
-msgstr ""
+msgstr "形式："
 
 #: ../module/License/src/License/Form/LicenseForm.php:33
 msgid "License url:"
-msgstr ""
+msgstr "ライセンスのURL:"
 
 #: ../module/License/src/License/Form/LicenseForm.php:34
 msgid "Agreement:"
-msgstr ""
+msgstr "承諾"
 
 #: ../module/License/src/License/Form/LicenseForm.php:38
 msgid "Icon url:"
-msgstr ""
+msgstr "アイコンのURL:"
 
 #: ../module/License/src/License/Form/LicenseForm.php:39
 msgid "This is the default license for this instance."
-msgstr ""
+msgstr "これは、このインスタンスのデフォルトライセンスです。"
 
 #: ../module/License/src/License/Form/UpdateLicenseForm.php:32
 msgid "Select a license:"
-msgstr ""
+msgstr "ライセンスの選択:"
 
 #: ../module/Navigation/src/Navigation/Controller/NavigationController.php:83
 #: ../module/Navigation/src/Navigation/Controller/NavigationController.php:111
 msgid "The container was successfully created"
-msgstr ""
+msgstr "コンテナーが正常に作成されました。"
 
 #: ../module/Navigation/src/Navigation/Controller/NavigationController.php:113
 msgid "The container could not be created (validation failed)"
-msgstr ""
+msgstr "コンテナーは作成できされませんでした(検証に失敗しました)。"
 
 #: ../module/Navigation/src/Navigation/Controller/NavigationController.php:218
 msgid "The container was successfully removed"
-msgstr ""
+msgstr "コンテナーは正常に削除されました。"
 
 #: ../module/Navigation/src/Navigation/Controller/NavigationController.php:229
 msgid "The page was successfully removed"
-msgstr ""
+msgstr "ページが正常に削除されました。"
 
 #: ../module/Navigation/src/Navigation/Controller/NavigationController.php:240
 msgid "The parameter was successfully removed"
-msgstr ""
+msgstr "パラメーターは正常に削除されました。"
 
 #: ../module/Navigation/src/Navigation/Controller/NavigationController.php:256
 msgid "The page was successfully updated"
-msgstr ""
+msgstr "ページが正常に更新されました。"
 
 #: ../module/Navigation/src/Navigation/Form/PageForm.php:57
 msgid "Position"
-msgstr ""
+msgstr "位置"
 
 #: ../module/Navigation/src/Navigation/Form/ParameterForm.php:39
 msgid "Key:"
-msgstr ""
+msgstr "キー:"
 
 #: ../module/Navigation/src/Navigation/Form/ParameterForm.php:46
 msgid "Value:"
-msgstr ""
+msgstr "値："
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:81
 msgid "You are now receiving notifications for this content."
-msgstr ""
+msgstr "あなたは今このコンテンツの通知を受信しています。"
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:99
 msgid "Your subscription has been updated successfully."
-msgstr ""
+msgstr "購読は正常に更新されました。"
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:101
 msgid "The object you are trying to subscribe to does not exist."
-msgstr ""
+msgstr "購読しようとしているオブジェクトが存在しません。"
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:104
 msgid "You can't update your subscription because you did not subscribe to this object."
-msgstr ""
+msgstr "このオブジェクトを購読していないので、購読を更新できません。"
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:129
 msgid "You are no longer receiving notifications for this content."
-msgstr ""
+msgstr "これ以降はこのコンテンツの通知を受信しません。"
 
 #: ../module/Notification/src/Notification/Form/OptInFieldset.php:24
 msgid "Add to watchlist."
-msgstr ""
+msgstr "監視リストに追加"
 
 #: ../module/Notification/src/Notification/Form/OptInFieldset.php:29
 msgid "Receive notifications via email."
-msgstr ""
+msgstr "電子メールによる通知を受け取る。"
 
 #: ../module/Page/src/Page/Form/RepositoryForm.php:32
 msgid "Forum Id:"
-msgstr ""
+msgstr "フォーラム Id:"
 
 #: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:29
 msgid "Reference:"
-msgstr ""
+msgstr "参照:"
 
 #: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:65
 msgid "The node has been added successfully!"
-msgstr ""
+msgstr "接続ポイントが正常に追加されました！"
 
 #: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:103
 msgid "Items moved successfully!"
-msgstr ""
+msgstr "アイテムが正常に移動されました！"
 
 #: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:140
 msgid "Items copied successfully!"
-msgstr ""
+msgstr "アイテムが正常にコピーされました！"
 
 #: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:237
 msgid "Your changes have been saved!"
-msgstr ""
+msgstr "変更が保存されました！"
 
 #: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:35
 msgid "Copy to:"
-msgstr ""
+msgstr "コピー"
 
 #: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:39
 #: ../module/Taxonomy/src/Taxonomy/Form/BatchMoveForm.php:38
 msgid "Elements"
-msgstr ""
+msgstr "要素"
 
 #: ../module/Taxonomy/src/Taxonomy/Form/BatchMoveForm.php:34
 msgid "Move to:"
-msgstr ""
+msgstr "移動："
 
 #: ../module/Taxonomy/src/Taxonomy/Form/TermForm.php:58
 msgid "description:"
-msgstr ""
+msgstr "記述："
 
 #: ../module/User/src/User/Controller/UserController.php:88
 msgid "You have registered successfully andwill soon receive an email with instructions onhow to activate your account."
-msgstr "You have registered successfully and will soon receive an email with instructions on how to activate your account."
+msgstr "登録が完了しました。使用説明およびアカウントをアクティベイトするメールが届きます。"
 
 #: ../module/User/src/User/Controller/UserController.php:153
 msgid "Your profile has been saved"
-msgstr ""
+msgstr "あなたのプロフィールが保存されました。"
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:27
 msgid "Current password:"
-msgstr ""
+msgstr "現在のパスワード:"
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:28
 #: ../module/User/src/User/Form/LostPassword.php:28
 msgid "New password:"
-msgstr ""
+msgstr "新規パスワード："
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:29
 #: ../module/User/src/User/Form/Register.php:56
 msgid "Confirm password:"
-msgstr ""
+msgstr "パスワード（確認）"
 
 #: ../module/User/src/User/Form/Login.php:31
 msgid "Email address:"
-msgstr ""
+msgstr "メールアドレス："
 
 #: ../module/User/src/User/Form/Login.php:33
 msgid "Email address or Username"
-msgstr ""
+msgstr "メールアドレスまたはユーザ名"
 
 #: ../module/User/src/User/Form/Login.php:36
 #: ../module/User/src/User/Form/Register.php:51
 msgid "Password:"
-msgstr ""
+msgstr "パスワード"
 
 #: ../module/User/src/User/Form/Login.php:38
 #: /tmp/cache/5758311f36f43/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:109
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 #: ../module/User/src/User/Form/Login.php:41
 msgid "Remember me"
-msgstr ""
+msgstr "設定を保存します"
 
 #: ../module/User/src/User/Form/LostPassword.php:29
 msgid "Repeat new password:"
-msgstr ""
+msgstr "新しいパスワードの再入力"
 
 #: ../module/User/src/User/Form/Register.php:34
 msgid "Enter username"
-msgstr ""
+msgstr "ユーザー名の入力"
 
 #: ../module/User/src/User/Form/Register.php:41
 msgid "Enter email address"
-msgstr ""
+msgstr "メールアドレスの入力"
 
 #: ../module/User/src/User/Form/Register.php:45
 msgid "Confirm email:"
-msgstr ""
+msgstr "メールの確認"
 
 #: ../module/User/src/User/Form/Register.php:47
 msgid "Confirm email address"
-msgstr ""
+msgstr "メール アドレスの確認"
 
 #: ../module/User/src/User/Form/Register.php:53
 msgid "Enter password"
-msgstr ""
+msgstr "パスワードの入力"
 
 #: ../module/User/src/User/Form/Register.php:58
 msgid "Confirm password"
-msgstr ""
+msgstr "パスワード（確認）"
 
 #: ../module/User/src/User/Form/RegisterFilter.php:43
 msgid "This email address is already in use. Please use a different one."
-msgstr ""
+msgstr "このメール アドレスは既に使用されています。別のメールアドレスを使用してください。"
 
 #: ../module/User/src/User/Form/RegisterFilter.php:64
 msgid "This username is already taken. Please use a different one."
-msgstr ""
+msgstr "このユーザー名は既に使用されています。別のユーザー名を使用してください。"
 
 #: ../module/User/src/User/Form/RegisterFilter.php:75
 msgid "Your username may only contain letters, digits, underscores (_) and hyphens (-). Please use a different one."
-msgstr ""
+msgstr "ユーザー名には文字、数字、アンダー スコア (_) とハイフン (-) のみを使うことができます。以上に従ったユーザー名を使用してください。"
 
 #: ../module/User/src/User/Form/RegisterFilter.php:96
 msgid "The email address entered does not match the confirmation address. Ensure the addresses entered are identical."
-msgstr ""
+msgstr "入力したメール アドレスが確認メールアドレスと一致しません。入力したアドレスが同じであることを確認してください。"
 
 #: ../module/User/src/User/Form/RegisterFilter.php:113
 msgid "Your password needs to be at least 6 characters long."
-msgstr ""
+msgstr "パスワードは少なくとも 半角6 文字にする必要があります。"
 
 #: ../module/User/src/User/Form/RegisterFilter.php:121
 msgid "The password entered does not match the confirmation password. Ensure the passwords entered are identical."
-msgstr ""
+msgstr "入力されたパスワードが確認入力パスワードと一致しません。入力したパスワードが同一であることを確認してください。"
 
 #: ../module/User/src/User/Form/SettingsForm.php:29
 msgid "About me:"
-msgstr ""
+msgstr "私のこと"
 
 #: ../module/Uuid/src/Uuid/Controller/UuidController.php:31
 msgid "The content has been trashed."
-msgstr ""
+msgstr "内容は削除されました。"
 
 #: ../module/Uuid/src/Uuid/Controller/UuidController.php:39
 msgid "The content has been restored."
-msgstr ""
+msgstr "コンテンツが復元されました。"
 
 #: ../module/Uuid/src/Uuid/Controller/UuidController.php:47
 msgid "The content has been removed."
-msgstr ""
+msgstr "コンテンツが削除されました。"
 
 #: ../module/Ui/templates/admin/home/index.phtml:14
 msgid "Welcome to the backend. Explore the possiblities on the right!"
-msgstr "Welcome to Diagon Alley, Harry!"
+msgstr "バックエンドへようこそ。右にある「可能性」をのぞいてみましょう！"
 
 #: ../module/Ui/templates/ads/helper/ads-helper.phtml:4
 msgid "Broaden your horizon"
-msgstr ""
+msgstr "ホライゾンを広げる"
 
 #: ../module/Ui/templates/ads/helper/ads-helper.phtml:6
 msgid "What is this?"
-msgstr ""
+msgstr "これは何ですか?"
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:15
 #: /tmp/cache/5758311f36f43/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:49
 #: /tmp/cache/5758311f36f43/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:24
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:16
 #: ../module/Ui/templates/authorization/role/roles.phtml:11
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:207
 #: /tmp/cache/5758311f36f43/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:28
 msgid "Roles"
-msgstr ""
+msgstr "役割"
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:17
 #: /tmp/cache/5758311f36f43/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:32
 msgid "Last login"
-msgstr ""
+msgstr "最終ログイン"
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:18
 #: /tmp/cache/5758311f36f43/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:36
 msgid "Logins"
-msgstr ""
+msgstr "ログイン"
 
 #: ../module/Ui/templates/authorization/role/roles.phtml:28
 msgid "role"
-msgstr ""
+msgstr "役割"
 
 #: ../module/Ui/templates/authorization/role/show.phtml:46
 msgid "Permissions"
-msgstr ""
+msgstr "権限"
 
 #: ../module/Ui/templates/authorization/role/show.phtml:57
 msgid "Global"
-msgstr ""
+msgstr "グローバル"
 
 #: ../module/Ui/templates/authorization/role/show.phtml:69
 msgid "Inherits from"
-msgstr ""
+msgstr "継承"
 
 #: ../module/Ui/templates/authorization/role/user/partial.phtml:13
 #, php-format
 msgid "User %s not found"
-msgstr ""
+msgstr "ユーザー %s が見つかりません"
 
 #: ../module/Ui/templates/authorization/role/user/remove.phtml:11
 msgid "Remove user"
-msgstr ""
+msgstr "ユーザの削除"
 
 #: ../module/Ui/templates/blog/blog/blogs.phtml:12
 msgid "Blogs"
-msgstr "Blog posts"
+msgstr "ブログ"
 
 #: ../module/Ui/templates/blog/blog/post/update.phtml:11
 msgid "Update a blog post"
-msgstr ""
+msgstr "ブログの記事の更新"
 
 #: ../module/Ui/templates/contexter/add/form.phtml:11
 #: ../module/Ui/templates/contexter/add/url-form.phtml:11
 msgid "Add context"
-msgstr ""
+msgstr "コンテンツの追加"
 
 #: ../module/Ui/templates/contexter/add/url-form.phtml:11
 msgid "Select uri"
-msgstr ""
+msgstr "URLの選択"
 
 #: ../module/Ui/templates/contexter/helper/button.phtml:22
 msgid "There is no help available for this page yet."
-msgstr ""
+msgstr "まだ、このページではヘルプが利用でいません。"
 
 #: ../module/Ui/templates/contexter/helper/button.phtml:48
 #: ../module/Ui/templates/contexter/helper/default.phtml:34
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: ../module/Ui/templates/contexter/manage.phtml:11
 msgid "Manage context links"
-msgstr ""
+msgstr "文脈のリンクを管理"
 
 #: ../module/Ui/templates/contexter/manage.phtml:15
 msgid "Link"
-msgstr ""
+msgstr "リンク:"
 
 #: ../module/Ui/templates/contexter/manage.phtml:16
 msgid "Matching"
-msgstr ""
+msgstr "一致"
 
 #: ../module/Ui/templates/entity/license/update.phtml:1
 #: ../module/Ui/templates/license/update.phtml:1
 msgid "Update license"
-msgstr ""
+msgstr "ライセンスを更新"
 
 #: ../module/Ui/templates/entity/link/move.phtml:2
 msgid "Move resource"
-msgstr ""
+msgstr "リソースの移動"
 
 #: ../module/Ui/templates/entity/repository/update-revision.phtml:1
 msgid "Update revision"
-msgstr ""
+msgstr "リビジョンの更新"
 
 #: ../module/Ui/templates/error/403.phtml:5
 msgid "You cannot pass!"
@@ -775,97 +775,97 @@ msgstr ""
 #: ../module/Ui/templates/error/403.phtml:13
 #: ../module/Ui/templates/error/404.phtml:12
 msgid "Okay."
-msgstr ""
+msgstr "OK"
 
 #: ../module/Ui/templates/error/404.phtml:8
 msgid "That page does not exist!"
-msgstr ""
+msgstr "ページが存在しません！"
 
 #: ../module/Ui/templates/error/404.phtml:10
 msgid "It seems like we can't find the page you were looking for. Try checking the URL for errors, then hit the refresh button on your browser."
-msgstr ""
+msgstr "あなたを探しているページを見つけることができないようです。エラーの URL をチェックし、お使いのブラウザーの更新ボタンを押してください。"
 
 #: ../module/Ui/templates/error/404.phtml:29
 msgid "The requested controller was unable to dispatch the request."
-msgstr ""
+msgstr "要求されたコント ローラーは、要求を送信することができませんでした。"
 
 #: ../module/Ui/templates/error/404.phtml:33
 msgid "The requested controller could not be mapped to an existing controller class."
-msgstr ""
+msgstr "要求されたコントローラーは既存のコントローラークラスに位置付けできませんでした。"
 
 #: ../module/Ui/templates/error/404.phtml:37
 msgid "The requested controller was not dispatchable."
-msgstr ""
+msgstr "要求されたコント ローラーを送れませんでした。"
 
 #: ../module/Ui/templates/error/404.phtml:40
 msgid "The requested URL could not be matched by routing."
-msgstr ""
+msgstr "要求されたURLはルーティングにより一致しませんでした。"
 
 #: ../module/Ui/templates/error/404.phtml:43
 msgid "We cannot determine at this time why a 404 was generated."
-msgstr ""
+msgstr "現時点で、404が生成された理由を判断できません。"
 
 #: ../module/Ui/templates/error/404.phtml:55
 msgid "Controller"
-msgstr ""
+msgstr "コントローラー"
 
 #: ../module/Ui/templates/error/404.phtml:61
 #, php-format
 msgid "resolves to %s"
-msgstr ""
+msgstr "%s を解決"
 
 #: ../module/Ui/templates/error/404.phtml:75
 #: ../module/Ui/templates/error/index.phtml:13
 msgid "Additional information"
-msgstr ""
+msgstr "追加情報"
 
 #: ../module/Ui/templates/error/404.phtml:78
 #: ../module/Ui/templates/error/404.phtml:103
 #: ../module/Ui/templates/error/index.phtml:16
 #: ../module/Ui/templates/error/index.phtml:40
 msgid "File"
-msgstr ""
+msgstr "ファイル"
 
 #: ../module/Ui/templates/error/404.phtml:83
 #: ../module/Ui/templates/error/404.phtml:108
 #: ../module/Ui/templates/error/index.phtml:20
 #: ../module/Ui/templates/error/index.phtml:44
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 #: ../module/Ui/templates/error/404.phtml:87
 #: ../module/Ui/templates/error/404.phtml:112
 #: ../module/Ui/templates/error/index.phtml:24
 #: ../module/Ui/templates/error/index.phtml:48
 msgid "Stack trace"
-msgstr ""
+msgstr "スタックトレース"
 
 #: ../module/Ui/templates/error/404.phtml:97
 #: ../module/Ui/templates/error/index.phtml:34
 msgid "Previous exceptions"
-msgstr ""
+msgstr "以前の例外"
 
 #: ../module/Ui/templates/error/index.phtml:1
 msgid "A fatal error occurred"
-msgstr ""
+msgstr "致命的なエラーが発生"
 
 #: ../module/Ui/templates/error/index.phtml:3
 msgid "While we're resolving this issue, please enjoy the video."
-msgstr ""
+msgstr "この問題を解決している間、ビデオをお楽しみください。"
 
 #: ../module/Ui/templates/error/index.phtml:63
 msgid "No Exception available"
-msgstr ""
+msgstr "利用可能な例外はありません。"
 
 #: ../module/Ui/templates/error/index.phtml:78
 msgid "Read the following, if you're really good with computers:"
-msgstr ""
+msgstr "もしコンピュータが得意でしたら、以下をお読みください。"
 
 #: ../module/Ui/templates/flag/detail.phtml:8
 #: ../module/Ui/templates/flag/manage.phtml:6
 #: /tmp/cache/5758311e0f59a/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:26
 msgid "Object"
-msgstr ""
+msgstr "オブジェクト："
 
 #: ../module/Ui/templates/flag/detail.phtml:17
 #: ../module/Ui/templates/flag/manage.phtml:7
@@ -874,71 +874,71 @@ msgstr ""
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:7
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:42
 msgid "Type"
-msgstr ""
+msgstr "タイプ："
 
 #: ../module/Ui/templates/flag/detail.phtml:26
 #: ../module/Ui/templates/flag/manage.phtml:8
 #: ../module/Ui/templates/subject/entity/unrevised.phtml:7
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:55
 msgid "Timestamp"
-msgstr ""
+msgstr "タイムスタンプ"
 
 #: ../module/Ui/templates/flag/detail.phtml:35
 #: ../module/Ui/templates/flag/manage.phtml:9
 msgid "Reporter"
-msgstr ""
+msgstr "レポーター"
 
 #: ../module/Ui/templates/flag/detail.phtml:44
 #: /tmp/cache/5758311ca3ff2/b/4/b46525acb5d7c66a766e3aac643a66cf0428d486b61170b9428acf8ae9c6a05a.php:61
 msgid "Content"
-msgstr ""
+msgstr "内容"
 
 #: ../module/Ui/templates/flag/manage.phtml:1
 msgid "Manage flags"
-msgstr ""
+msgstr "フラグの管理"
 
 #: ../module/Ui/templates/flag/manage.phtml:5
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:40
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: ../module/Ui/templates/layout/de/serlo-home.phtml:25
 #: ../module/Ui/templates/layout/en/serlo-home.phtml:25
 #: ../module/Ui/templates/layout/partials/header.phtml:43
 msgid "Toggle navigation"
-msgstr ""
+msgstr "ナビゲーションの切り替え"
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:10
 #: /tmp/cache/5758311ce52ca/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:45
 #: /tmp/cache/5758311ce52ca/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:45
 msgid "Close"
-msgstr ""
+msgstr " 閉じる"
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:11
 msgid "Okay"
-msgstr ""
+msgstr "OK"
 
 #: ../module/Ui/templates/layout/partials/noscript.phtml:7
 msgid "This site makes heavy use of JavaScript!"
-msgstr ""
+msgstr "このサイトはJavaScript を多用します！"
 
 #: ../module/Ui/templates/layout/partials/noscript.phtml:11
 msgid "Please enable JavaScript to use this site."
-msgstr ""
+msgstr "このサイトを使用するために JavaScript を有効にしてください。"
 
 #: ../module/Ui/templates/layout/partials/noscript.phtml:15
 msgid "Show me how to enable JavaScript"
-msgstr ""
+msgstr "Java スクリプトの設定を有効にする方法をみる"
 
 #: ../module/Ui/templates/layout/partials/search.phtml:6
 #: /tmp/cache/5758311e850e0/8/1/81d2720b271ea83445e36bffb8ff3b998ab40972d70919700aaca28aca107370.php:23
 #: /tmp/cache/5758311e850e0/e/9/e9edd14f30b9fa533f7c9edd50226e8328e5d1a4e5a2a8486c91c1a2d89b068b.php:24
 msgid "Search"
-msgstr ""
+msgstr "検索"
 
 #: ../module/Ui/templates/license/manage.phtml:1
 msgid "Manage licenses"
-msgstr ""
+msgstr "ライセンスの管理"
 
 #: ../module/Ui/templates/license/manage.phtml:5
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:20
@@ -950,29 +950,31 @@ msgstr ""
 #: /tmp/cache/5758311bed9bd/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:68
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:33
 msgid "Title"
-msgstr ""
+msgstr "タイトル"
 
 #: ../module/Ui/templates/license/manage.phtml:6
 msgid "Default"
-msgstr ""
+msgstr "初期設定"
 
 #: ../module/Ui/templates/license/manage.phtml:7
 msgid "Url"
-msgstr ""
+msgstr "URL"
 
 #: ../module/Ui/templates/license/manage.phtml:8
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:8
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:51
 msgid "Actions"
-msgstr ""
+msgstr "アクション"
 
 #: ../module/Ui/templates/license/manage.phtml:25
 msgid "Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE"
 msgstr ""
+"注意、ライセンスの削除は深刻な結果を招きます。あなたは大量の内容を削除しようとしていますので、あなたの行おうとすることを正確に知る必要があります。\n"
+"このアクションは元に戻すことができません。\n"
 
 #: ../module/Ui/templates/license/manage.phtml:25
 msgid "DANGER: You are going to delete all contents associated with this license!"
-msgstr ""
+msgstr "危険: このライセンスに関連付けられているすべての内容を削除することになります。"
 
 #: ../module/Ui/templates/mailman/messages/register/body.phtml:2
 #, php-format
@@ -988,6 +990,16 @@ msgid ""
 "\n"
 "Your community support"
 msgstr ""
+"こんにちは %s、\n"
+"\n"
+"%sに登録ありがとうございます。\n"
+"\n"
+"次リンク: \n"
+"%sをクリックしあなたのアカウントの確認をしてください。\n"
+"\n"
+"あなたの%sへの貢献をを楽しみにしています！\n"
+"\n"
+"あなたのコミュニティ サポート"
 
 #: ../module/Ui/templates/mailman/messages/restore-password/body.phtml:2
 #, php-format
@@ -998,42 +1010,47 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"こんにちは %s、\n"
+"あたなたはパスワードを復元しようとしています。もしそうでなければ、このメールを無視してください。\n"
+"下のリンクをクリックすることでパスワードを復元できます: \n"
+"\n"
+"%s。"
 
 #: ../module/Ui/templates/mailman/messages/restore-password/subject.phtml:1
 #, php-format
 msgid "Restore your password on %s"
-msgstr ""
+msgstr "%s のパスワードに復元します。"
 
 #: ../module/Ui/templates/navigation/containers.phtml:11
 msgid "container"
-msgstr ""
+msgstr "コンテナー"
 
 #: ../module/Ui/templates/navigation/parameter/create.phtml:5
 #: ../module/Ui/templates/navigation/parameter/update.phtml:5
 msgid "Key"
-msgstr ""
+msgstr "キー"
 
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:14
 msgid "Trashed learning resources"
-msgstr ""
+msgstr "捨てられたラーニング リソース"
 
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:22
 msgid "Action"
-msgstr ""
+msgstr "アクション"
 
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:37
 msgid "Do you really want to purge this item? It and all references to it will be lost forever!"
-msgstr ""
+msgstr "このアイテムを削除しますか。これおよびこれに関するすべての参照は永久に失われます！"
 
 #: ../module/Ui/templates/subject/entity/unrevised.phtml:1
 msgid "Unrevised learning resources"
-msgstr ""
+msgstr "改訂されていない学習リソース"
 
 #: ../module/Ui/templates/taxonomy/term/order-associated.phtml:1
 #: /tmp/cache/5758311f02669/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:111
 #: /tmp/cache/5758311f36f43/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:71
 msgid "Order content"
-msgstr ""
+msgstr "内容の順序"
 
 #: ../module/Ui/templates/taxonomy/term/order-associated.phtml:17
 #: /tmp/cache/5758311c45a07/c/4/c43ad14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:19
@@ -1041,89 +1058,89 @@ msgstr ""
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:165
 #: /tmp/cache/5758311ec185b/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:126
 msgid "Sort"
-msgstr ""
+msgstr "分類する"
 
 #: ../module/Ui/templates/taxonomy/term/order-associated.phtml:18
 #: /tmp/cache/5758311ec185b/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:132
 msgid "Save new order"
-msgstr ""
+msgstr "新しい順序の保存"
 
 #: ../module/Ui/templates/taxonomy/term/order-associated.phtml:19
 #: /tmp/cache/5758311ec185b/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:138
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: ../module/Ui/templates/upload/form.phtml:2
 msgid "Upload a file"
-msgstr ""
+msgstr "ファイルのアップロード"
 
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:1
 msgid "Uuid recycle bin"
-msgstr ""
+msgstr "UUIDのごみ箱"
 
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:5
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:29
 #, php-format
 msgid "Do you really want to purge the item <strong>%s</strong>? It and all references to it will be lost forever!"
-msgstr ""
+msgstr "項目 <strong>%s</strong> を削除しますか。この項目およびこれらに関するすべての参照は、永久に失われます！"
 
 #: /tmp/cache/5758311bed9bd/a/b/abd486401ab00580fe0dd91aaaf72ef6a02ed427bb8a4411838e6eb2ca35b66f.php:24
 msgid "Activate an account"
-msgstr ""
+msgstr "アカウントの有効化"
 
 #: /tmp/cache/5758311bed9bd/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:19
 msgid "Ads"
-msgstr ""
+msgstr "広告"
 
 #: /tmp/cache/5758311bed9bd/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:95
 #, php-format
 msgid "Are you new here? %sSign up%s!"
-msgstr ""
+msgstr "あなたはここに新しいですか。%s登録してください%s!"
 
 #: /tmp/cache/5758311bed9bd/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:147
 msgid "Clicks"
-msgstr ""
+msgstr "クリック"
 
 #: /tmp/cache/5758311bed9bd/f/d/fdfd000e37bab831d7314ee56f6b66ba914d3e063c290779011d510e3c387293.php:19
 msgid "Debugger"
-msgstr ""
+msgstr "デバッガー"
 
 #: /tmp/cache/5758311bed9bd/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:101
 #, php-format
 msgid "Did you forget your %spassword%s?"
-msgstr ""
+msgstr "あなたの %sパスワード%s を忘れましたか。"
 
 #: /tmp/cache/5758311bed9bd/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:44
 msgid "Directly including in a content on this site"
-msgstr ""
+msgstr "このサイト上のコンテンツを直接含んでいる"
 
 #: /tmp/cache/5758311bed9bd/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:42
 msgid "Edit About Horizon"
-msgstr ""
+msgstr "ホライズンに関する編集"
 
 #: /tmp/cache/5758311bed9bd/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:120
 msgid "Frequency"
-msgstr ""
+msgstr "頻度"
 
 #: /tmp/cache/5758311bed9bd/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:107
 #, php-format
 msgid "Haven't activated your account yet? %sResend activation mail%s!"
-msgstr ""
+msgstr "まだ、アカウントを有効化していませんか。%s有効化するためのメールを再送する%s！"
 
 #: /tmp/cache/5758311bed9bd/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:53
 msgid "Log in"
-msgstr ""
+msgstr "ログイン"
 
 #: /tmp/cache/5758311bed9bd/9/3/932d4afae805fb2101be851e5dcd9f8d20091afc3c13ae7e99cadbbd6ed67403.php:22
 msgid "Log out"
-msgstr ""
+msgstr "ログアウト"
 
 #: /tmp/cache/5758311bed9bd/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:32
 msgid "On this site:"
-msgstr ""
+msgstr "このサイトについて："
 
 #: /tmp/cache/5758311bed9bd/4/7/47a30ac564dadd8d5b95b50b11193dd62584a51a6fcdc2626ab9e6000fb92a3f.php:21
 #: /tmp/cache/5758311bed9bd/4/7/47a30ac564dadd8d5b95b50b11193dd62584a51a6fcdc2626ab9e6000fb92a3f.php:55
@@ -1131,87 +1148,87 @@ msgstr ""
 #: /tmp/cache/5758311dd1634/7/6/767be009c113f861ed5704eeea584f47d008c9ed237eede400b3a03833b1ad78.php:19
 #: /tmp/cache/5758311dd1634/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:49
 msgid "Page"
-msgstr ""
+msgstr "ページ"
 
 #: /tmp/cache/5758311bed9bd/c/5/c50fb8d793967f5658be1e1bd16f2e2a89f3619343c10db0bd923fc7afb5a2b6.php:19
 msgid "Please enter the id of the adPage"
-msgstr ""
+msgstr "AdPage の id を入力してください。"
 
 #: /tmp/cache/5758311bed9bd/5/f/5ff44a55f1429150f60a8459638e7a9eaf0487b999e7f801d5c31138ecca018d.php:24
 #: /tmp/cache/5758311bed9bd/f/9/f934cff9f781e88ff8b61aeb618ff0834983639af7e4a6c53566af67e4bcf32e.php:24
 msgid "Restore password"
-msgstr ""
+msgstr "パスワードの復元"
 
 #: /tmp/cache/5758311bed9bd/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:91
 msgid "Share"
-msgstr ""
+msgstr "シェア"
 
 #: /tmp/cache/5758311bed9bd/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:87
 msgid "Share this content"
-msgstr ""
+msgstr "このコンテンツのシェア"
 
 #: /tmp/cache/5758311bed9bd/e/4/e428fe932b0ede9558de7f82ba1d68c82a93b298b3f93ece99607ac6a7a2bfab.php:19
 msgid "Unpublished"
-msgstr ""
+msgstr "未公開"
 
 #: /tmp/cache/5758311bed9bd/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:30
 msgid "You must be logged in to access this page."
-msgstr ""
+msgstr "このページにアクセスするには、ログインしなければなりません。"
 
 #: /tmp/cache/5758311bed9bd/4/d/4d3bd2214ec96fbfd68c853f4bac63ccb113723150ef7aed1644b6c5fb1b1172.php:68
 msgid "unpublished"
-msgstr ""
+msgstr "未公開"
 
 #: /tmp/cache/5758311c45a07/6/9/69e628f6e2e202803c76bc574f4dd3d198f0e301e420610ef3de7c1ac68a3c4d.php:78
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:239
 msgid "%author% %time%"
-msgstr ""
+msgstr "%author% %time%"
 
 #: /tmp/cache/5758311c45a07/c/4/c43ad14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:45
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:178
 msgid "Abort"
-msgstr ""
+msgstr "中止"
 
 #: /tmp/cache/5758311c45a07/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:273
 msgid "Answer discussion:"
-msgstr ""
+msgstr "ディスカッションへの回答"
 
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:130
 msgid "Archive discussion"
-msgstr ""
+msgstr "ディスカッションの保管"
 
 #: /tmp/cache/5758311c45a07/2/1/214776dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:67
 msgid "Choose"
-msgstr ""
+msgstr "選択"
 
 #: /tmp/cache/5758311c45a07/c/d/cde277ee1ffea7f701f64ad81dea0815f6f8fe319175181f8353cddacc0cd4b6.php:19
 msgid "Comment on a discussion"
-msgstr ""
+msgstr "ディスカッションについてのコメント"
 
 #: /tmp/cache/5758311c45a07/0/c/0c4263250563aff6958d6f951c018de8e8cb740ffbb5a66903ea17b0c007328f.php:28
 #: /tmp/cache/5758311c45a07/0/c/0c4263250563aff6958d6f951c018de8e8cb740ffbb5a66903ea17b0c007328f.php:41
 msgid "Discuss"
-msgstr ""
+msgstr "議論する"
 
 #: /tmp/cache/5758311c45a07/6/7/6719bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:26
 #: /tmp/cache/5758311c45a07/f/0/f0758bcd46b5d3207d9f01bb78e3e0bdb581d4b0c9ab6814a70e570a261a15e0.php:19
 #: /tmp/cache/5758311c45a07/f/0/f022a9195793149bf12bc3d9f3063fe19deca654fc9cd7c8de2fb5968c305101.php:29
 msgid "Discussions"
-msgstr ""
+msgstr "議論"
 
 #: /tmp/cache/5758311c45a07/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:249
 #: /tmp/cache/5758311c45a07/6/9/69e628f6e2e202803c76bc574f4dd3d198f0e301e420610ef3de7c1ac68a3c4d.php:53
 msgid "Do you really want to delete this comment?"
-msgstr ""
+msgstr "このコメントを削除してもよろしいですか。"
 
 #: /tmp/cache/5758311c45a07/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:183
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:169
 msgid "Do you really want to delete this discussion?"
-msgstr ""
+msgstr "このディスカッションを削除してもよろしいですか。"
 
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:151
 msgid "Flag discussion"
-msgstr ""
+msgstr "フラグの議論"
 
 #: /tmp/cache/5758311c45a07/7/b/7b16ec985c9e45a988d5128be101c93ee54303a5fcc10ba118de318620fa19e5.php:36
 msgid ""
@@ -1220,68 +1237,72 @@ msgid ""
 "                        <br/>\n"
 "                        Start a discussion and share your ideas and suggestions with the community"
 msgstr ""
+"何かを知りたいことがありますか。 \n"
+" または、このページの改善するためのアイデアを持っていますか。 \n"
+" <br/> \n"
+" 議論を開始し、あなたのアイデアや提案をコミュニティと共有する"
 
 #: /tmp/cache/5758311c45a07/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:55
 msgid "On"
-msgstr ""
+msgstr "オン"
 
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:232
 msgid "On %type% %object%: %title%"
-msgstr ""
+msgstr "%type% %object% 上: %title%"
 
 #: /tmp/cache/5758311c45a07/2/1/214776dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:30
 msgid "Please select an appropriate category for your discussion. Choosing the right category helps others to find your discussion faster and to answer you quicker. Thank you!"
-msgstr ""
+msgstr "あなたの議論のための適切なカテゴリを選択してください。適切なカテゴリを選択することで、他利用者がより早くあなたの議論を見つけ、さらに早く解答することができます。ご協力ありがとうございます。"
 
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:298
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:312
 msgid "Reply"
-msgstr ""
+msgstr "返信"
 
 #: /tmp/cache/5758311c45a07/c/4/c43ad14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:39
 #: /tmp/cache/5758311ce52ca/e/9/e9956846e228fdcfc0deb1b5d8a89cc1a8eb34e5d5c37a0bfe112acace903431.php:102
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:172
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: /tmp/cache/5758311c45a07/2/1/214776dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:63
 msgid "Saving..."
-msgstr ""
+msgstr "保存中…"
 
 #: /tmp/cache/5758311c45a07/5/3/531b6752ea2f6a38d41c9839410361db347c804716eb987adb6d56f50d53096b.php:19
 #: /tmp/cache/5758311c45a07/6/7/6719bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:47
 msgid "Start a new discussion"
-msgstr ""
+msgstr "新規議論を開始"
 
 #: /tmp/cache/5758311c45a07/7/b/7b16ec985c9e45a988d5128be101c93ee54303a5fcc10ba118de318620fa19e5.php:24
 msgid "There are no discussions on this topic yet"
-msgstr ""
+msgstr "このトピックに関する議論はまだありません。"
 
 #: /tmp/cache/5758311c45a07/6/7/6719bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:82
 msgid "There are no discussions on this topic yet."
-msgstr ""
+msgstr "このトピックに関する議論はまだありません。"
 
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:174
 msgid "Trash discussion"
-msgstr ""
+msgstr "議論の削除"
 
 #: /tmp/cache/5758311c45a07/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:124
 msgid "Unarchive discussion"
-msgstr ""
+msgstr "議論の破棄"
 
 #: /tmp/cache/5758311c45a07/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:46
 msgid "archived"
-msgstr ""
+msgstr "保管"
 
 #: /tmp/cache/5758311c45a07/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:65
 #: /tmp/cache/5758311c45a07/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:209
 #: /tmp/cache/5758311ce52ca/0/4/046c7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:26
 msgid "by"
-msgstr ""
+msgstr "より"
 
 #: /tmp/cache/5758311ca3ff2/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:61
 msgid "Dead node"
-msgstr ""
+msgstr "デッド・ノード"
 
 #: /tmp/cache/5758311ca3ff2/9/f/9fc75c0ffece694e950ffadf42da99217e81807a502eb121223212948534d6da.php:34
 msgid "Math puzzle"
@@ -1291,55 +1312,55 @@ msgstr ""
 #: /tmp/cache/5758311ce52ca/d/2/d2626cef57bb891877e33781386037a6e614cabfae53bb39152a5fd2989c4983.php:35
 #: /tmp/cache/5758311d9aeea/d/8/d8ccb9606a9fa99c4e95e08b685f60a6f7ff2aea60fec1443dd7ccfd5d81950e.php:35
 msgid "Now view found for %name%"
-msgstr ""
+msgstr "%name% のビューが見つかりました。"
 
 #: /tmp/cache/5758311ca3ff2/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:44
 #: /tmp/cache/5758311ca3ff2/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:53
 msgid "Pending approval"
-msgstr ""
+msgstr "承認待ち"
 
 #: /tmp/cache/5758311ca3ff2/1/c/1cf659322218286f3cd686172af08db8cb6df65c078da6083483f5c172e86511.php:24
 msgid "Related taxonomies"
-msgstr ""
+msgstr "関連分類"
 
 #: /tmp/cache/5758311ca3ff2/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:97
 msgid "This content is a dead node and has no content. Please edit or remove it."
-msgstr ""
+msgstr "このコンテンツはデッド・ノードであり、コンテンツがありません。編集するか、削除してください。"
 
 #: /tmp/cache/5758311ca3ff2/6/c/6c9722fe54d3c208239138648c0e6c78693e884d4ea408d4363754310d2df0b5.php:33
 #: /tmp/cache/5758311f02669/b/1/b14797a83817a5c3800f6f249e540fec9b956b374ae19c84c99a21c91400c8d9.php:33
 msgid "This content is marked for deletion."
-msgstr ""
+msgstr "このコンテンツは削除対象としてマークされています。"
 
 #: /tmp/cache/5758311ca3ff2/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:91
 msgid "This content is pending approval and may therefore not be viewed yet."
-msgstr ""
+msgstr "このコンテンツが承認待ちであり、そのためまだ閲覧することができない可能性があります。"
 
 #: /tmp/cache/5758311ca3ff2/6/c/6c9722fe54d3c208239138648c0e6c78693e884d4ea408d4363754310d2df0b5.php:26
 #: /tmp/cache/5758311ca3ff2/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:81
 #: /tmp/cache/5758311f02669/b/1/b14797a83817a5c3800f6f249e540fec9b956b374ae19c84c99a21c91400c8d9.php:26
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: /tmp/cache/5758311ce52ca/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:49
 msgid "Accept"
-msgstr ""
+msgstr "受諾"
 
 #: /tmp/cache/5758311ce52ca/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:26
 msgid "Accept revision"
-msgstr ""
+msgstr "変更の承諾"
 
 #: /tmp/cache/5758311ce52ca/e/9/e9956846e228fdcfc0deb1b5d8a89cc1a8eb34e5d5c37a0bfe112acace903431.php:22
 msgid "Assign resource"
-msgstr ""
+msgstr "リソースの割り当て"
 
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:51
 msgid "Author"
-msgstr ""
+msgstr "作成者"
 
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:47
 msgid "Changes"
-msgstr ""
+msgstr "変更"
 
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:111
 msgid "Create a new revision starting from this specific revision"
@@ -1347,85 +1368,85 @@ msgstr ""
 
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:44
 msgid "Current"
-msgstr ""
+msgstr "現在"
 
 #: /tmp/cache/5758311ce52ca/2/4/245782da876650b36b423549040bd199e3ada20b40668449c5899e25c1e2f6af.php:23
 #: /tmp/cache/5758311d9aeea/b/d/bd9e2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:42
 msgid "Hint"
-msgstr ""
+msgstr "ヒント"
 
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:19
 #: /tmp/cache/5758311d63910/f/d/fde2e8dd2a2b6bf97ed1925d7754b6d4f55e8b10b0581970c1ccdb7d39fa1673.php:31
 #: /tmp/cache/5758311e850e0/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:57
 #: /tmp/cache/5758311e850e0/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:51
 msgid "History"
-msgstr ""
+msgstr "履歴"
 
 #: /tmp/cache/5758311ce52ca/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:37
 msgid "Please give feedback."
-msgstr ""
+msgstr "フィードバックを行ってください。"
 
 #: /tmp/cache/5758311ce52ca/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:37
 msgid "Please specify why you are rejecting the submission."
-msgstr ""
+msgstr "提出を受け入れない理由を明記してください。"
 
 #: /tmp/cache/5758311ce52ca/0/4/046c7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:61
 msgid "Preview"
-msgstr ""
+msgstr "プレビュー"
 
 #: /tmp/cache/5758311ce52ca/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:49
 msgid "Reject"
-msgstr ""
+msgstr "拒否"
 
 #: /tmp/cache/5758311ce52ca/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:26
 msgid "Reject revision"
-msgstr ""
+msgstr "リビジョンの拒否"
 
 #: /tmp/cache/5758311ce52ca/0/4/046c7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:55
 msgid "Source"
-msgstr ""
+msgstr "引用元"
 
 #: /tmp/cache/5758311ce52ca/9/9/99eb37c1373ce8c6936db1692203d034c9c4d393fb681f5e957a295924520bf9.php:34
 msgid "Text exercise"
-msgstr ""
+msgstr "テキストの練習"
 
 #: /tmp/cache/5758311ce52ca/5/f/5f068c8dcc02918d183c78b7d8d13203a5cc35222fefbc08b3243f086a32d600.php:34
 msgid "Text exercise group"
-msgstr ""
+msgstr "テキストの練習グループ"
 
 #: /tmp/cache/5758311ce52ca/1/2/1284e707a5bfc5c8b69e8e0e7d5a79f3f2154a21929155bbad627141b60a7470.php:23
 msgid "Text solution"
-msgstr ""
+msgstr "テキストのソリューション"
 
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:28
 msgid ""
 "There are multiple recent revisions for this object. Please be aware that they may be of very\n"
 "        different nature. Consider reviewing all of them before accepting or merging."
-msgstr ""
+msgstr "この対象に関する複数の最近のリビジョンがあります。それらは全く違う本質のものかもしれないということをご留意ください。すべてを許可または統合する前に再検討してください。"
 
 #: /tmp/cache/5758311ce52ca/6/1/617216a7ab3ffdb22eda1fdc1e74a93a5805029a14356d900bf2cec50b308f63.php:19
 msgid "article"
-msgstr "explanation"
+msgstr "記事"
 
 #: /tmp/cache/5758311ce52ca/3/4/344d7358f2354917ee3a4c9079fed25079dea28aa2577cb7cd4084475f7130c6.php:19
 msgid "course-page"
-msgstr ""
+msgstr "コース のページ"
 
 #: /tmp/cache/5758311ce52ca/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:84
 msgid "show"
-msgstr ""
+msgstr "表示"
 
 #: /tmp/cache/5758311d329d8/d/e/de4e5bda15080de80594ea1dce5ff700b2e95ccdfa7c6acf6cc5c2cb7c5e9bff.php:48
 msgid "Add %type%"
-msgstr ""
+msgstr "%type% の追加"
 
 #: /tmp/cache/5758311d329d8/1/0/107d7d37da6c949661a5edc46abcd2510522487da01c6b01ad5f3876734b0e69.php:31
 msgid "Change license"
-msgstr ""
+msgstr "ライセンスの変更"
 
 #: /tmp/cache/5758311d329d8/d/f/dff79e6571606c659c85e57f4f6e52ea72e7f9d7b565a70a632c48567d739420.php:42
 msgid "Change parent %name%"
-msgstr ""
+msgstr "親 %name%の変更"
 
 #: /tmp/cache/5758311d329d8/4/c/4cabe034cd4558dd24578f819621b79bee9b637b48d671aaf92d71972cca0d44.php:29
 #: /tmp/cache/5758311e850e0/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:72
@@ -1434,27 +1455,27 @@ msgstr ""
 #: /tmp/cache/5758311f02669/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:57
 #: /tmp/cache/5758311f36f43/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:55
 msgid "Log"
-msgstr ""
+msgstr "ログ"
 
 #: /tmp/cache/5758311d329d8/c/5/c5848713cea63cddb503647ac45efa687746c4784611b324922e38d61e7fb980.php:41
 #: /tmp/cache/5758311e850e0/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:45
 msgid "More"
-msgstr ""
+msgstr "さらに"
 
 #: /tmp/cache/5758311d329d8/b/8/b846341ff3bbb243206f61673c435df8f0e185cc4cdf3818dc36a44778a2c66e.php:34
 msgid "Order children"
-msgstr ""
+msgstr "子の整理"
 
 #: /tmp/cache/5758311d329d8/c/d/cd871f53505f267e7cddd4f9b4d2da9f65380b88b5ae6bbb431e919b53f69d33.php:33
 #: /tmp/cache/5758311e850e0/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:36
 #: /tmp/cache/5758311f02669/b/c/bc153aa920ad5de384fcffc53a92e74d36aaa3e7ab6b5644f8335e5339775ffa.php:36
 #: /tmp/cache/5758311f36f43/7/f/7f9aec95152368f604bffd60d27e5111235abcc39e27177612c219abac3b9f9c.php:36
 msgid "Toggle Dropdown"
-msgstr ""
+msgstr "ドロップダウンの切替"
 
 #: /tmp/cache/5758311d329d8/0/c/0c4d8f114a0091db60921ec5062323b9076007281d45022b83818ad35b90da32.php:19
 msgid "grouped-text-exercise"
-msgstr ""
+msgstr "グループ化されたテキストの練習"
 
 #: /tmp/cache/5758311d329d8/8/f/8fb80e23b7f0407688d4444ca15e4c53ffaa17ab0857af3ff92435c00b5cec82.php:19
 msgid "input-expression-equal-match-challenge"
@@ -1490,31 +1511,31 @@ msgstr ""
 #: /tmp/cache/5758311e497f6/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:62
 #: /tmp/cache/5758311e850e0/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:31
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: /tmp/cache/5758311d63910/b/5/b5142daec5e7f6b2266129ba351fee636766e19a8f3cca8895cc07a51636fefd.php:36
 msgid "Edit topic and curriculum assignments"
-msgstr ""
+msgstr "トピックとカリキュラムの割り当ての編集"
 
 #: /tmp/cache/5758311d63910/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:57
 msgid "Hide hint"
-msgstr ""
+msgstr "ヒントの非表示"
 
 #: /tmp/cache/5758311d63910/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:77
 msgid "Hide solution"
-msgstr ""
+msgstr "ソリューションの非表示"
 
 #: /tmp/cache/5758311d63910/7/5/7591a701616155b47294d034fa2e7ddb383d334555206c22198d28c195b53e8b.php:36
 msgid "Info"
-msgstr ""
+msgstr "情報"
 
 #: /tmp/cache/5758311d63910/d/8/d8de3b1aa3698c8d90bb7c882020e18c9c61b6d699c8cb9a2d5195cb981c6326.php:31
 msgid "Manage related items"
-msgstr ""
+msgstr "関連アイテムの管理"
 
 #: /tmp/cache/5758311d63910/7/1/71d45061fcbd9df384179af174011558c4b7f3f1626ad4eac9d11d81395cfb2b.php:29
 msgid "Move to trash"
-msgstr ""
+msgstr "ゴミ箱へ移動"
 
 #: /tmp/cache/5758311d63910/9/4/94e3fb05ff35c06f8101a491a8827949cc462993487b17cd34937261a69240b6.php:21
 #: /tmp/cache/5758311d63910/7/7/7728bcb3fb14fef3735f73cfd3db60229dd7b2dffbc0a426b1b574acfa01cf01.php:21
@@ -1523,11 +1544,11 @@ msgstr ""
 
 #: /tmp/cache/5758311d63910/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:53
 msgid "Show hint"
-msgstr ""
+msgstr "ヒントの表示"
 
 #: /tmp/cache/5758311d63910/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:73
 msgid "Show solution"
-msgstr ""
+msgstr "ソリューションの表示"
 
 #: /tmp/cache/5758311d63910/9/4/94e3fb05ff35c06f8101a491a8827949cc462993487b17cd34937261a69240b6.php:27
 #: /tmp/cache/5758311d63910/7/7/7728bcb3fb14fef3735f73cfd3db60229dd7b2dffbc0a426b1b574acfa01cf01.php:27
@@ -1550,48 +1571,48 @@ msgstr ""
 #: /tmp/cache/5758311d9aeea/8/1/8101085f85bdddaf51e7f4119fe56cc71fa229700b3c3b804f81cec2dc283fc5.php:23
 #: /tmp/cache/5758311e497f6/7/1/71aabda5a7793bc4e689f2e3d7f25316db5b105cd0b9f57a7d35ec97a500bd91.php:28
 msgid "%user% archived %discussion%"
-msgstr ""
+msgstr "%user%は%discussion%を保存しました。"
 
 #: /tmp/cache/5758311d9aeea/a/0/a09199f3ff2f1f4d725972ba214c0a72823c0b94771f8113159456b0e145a35d.php:25
 msgid "%user% commented %discussion%: %content%"
-msgstr ""
+msgstr "%user%は%discussion%にコメントしました: %content%"
 
 #: /tmp/cache/5758311d9aeea/4/c/4c93b9659e2e947541be9a039d72dd004b3847db99e5cb9737f026921e8e1f73.php:25
 msgid "%user% created a new %type%: %object%"
-msgstr ""
+msgstr "%user% は、新しい %type% を作成しました: %object%"
 
 #: /tmp/cache/5758311d9aeea/7/a/7ad53d5960154422bb0424a26b8515965115a981bae58456ca31df583ae8652d.php:25
 msgid "%user% created a new version of %repository%"
-msgstr ""
+msgstr "%user% は、%repository% の新しいバージョンを作成しました。"
 
 #: /tmp/cache/5758311d9aeea/1/e/1e404c8f1d37fda17247551da72a377c7f797017b095bd4fc0a0bd444e89ed1b.php:25
 msgid "%user% linked %object% with %parent%"
-msgstr ""
+msgstr "%user%は%object%を%parent%にリンクしました。"
 
 #: /tmp/cache/5758311d9aeea/e/d/ed340b72fb603be3c64363bc68e79cd8d7d92a1b5fcdf432ba14bf379a9bb7f9.php:25
 msgid "%user% started a new discussion %discussion% on %on%"
-msgstr ""
+msgstr "%user% は、%on% に新しいディスカッション %discussion% を開始しました"
 
 #: /tmp/cache/5758311d9aeea/b/d/bd9e2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:60
 msgid "A hint has been created but no content has been added yet or it is pending approval."
-msgstr ""
+msgstr "ヒントが作成されましたが、コンテンツがまだ追加されてないか承認待ちです。"
 
 #: /tmp/cache/5758311d9aeea/1/5/153280e2f0429aa36f783925eb30e78858ed93c853ee63a8b2381e4c081119c6.php:55
 msgid "A solution has been created but no content has been added yet or it is pending approval."
-msgstr ""
+msgstr "ソリューションが作成されましたが、コンテンツがまだ追加されてないか承認待ちです。"
 
 #: /tmp/cache/5758311d9aeea/5/6/567a6243e17b88bac408aa88d7c2cce5b0860447ed5ba89cab3beb12f3965120.php:65
 msgid "Could not embed video - platform unknown"
-msgstr ""
+msgstr "不明なプラットフォームのため、ビデオを埋め込むことができませんでした。"
 
 #: /tmp/cache/5758311d9aeea/3/6/36dc4635c6ea4d110e7501dc392d0634ed34fc9328775625d3f77e48a8f4e23b.php:34
 msgid "I want to comment this"
-msgstr ""
+msgstr "ここにコメントしたいです。"
 
 #: /tmp/cache/5758311d9aeea/7/d/7d4d767b7e88be51c098444a93846a6a7de146ac11439d5c2378f15b8884be20.php:32
 #, php-format
 msgid "No template found for event %s"
-msgstr ""
+msgstr "イベント %s のテンプレートが見つかりません"
 
 #: /tmp/cache/5758311d9aeea/f/2/f249b76704bf1c6483df5461ea5041949260f1fe009efc10cc445d8389ea6044.php:19
 msgid "single-choice-right-answer"
@@ -1603,79 +1624,79 @@ msgstr ""
 
 #: /tmp/cache/5758311d9aeea/f/b/fbe2b6188122f16da728f7a83ae53c80674cee07382349cbcf07e1fc54fb5b54.php:19
 msgid "text-exercise"
-msgstr ""
+msgstr "テキストの演習"
 
 #: /tmp/cache/5758311d9aeea/3/6/36dc4635c6ea4d110e7501dc392d0634ed34fc9328775625d3f77e48a8f4e23b.php:19
 msgid "text-exercise-group"
-msgstr ""
+msgstr "テキストの練習グループ"
 
 #: /tmp/cache/5758311d9aeea/b/d/bd9e2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:19
 msgid "text-hint"
-msgstr ""
+msgstr "テキストのヒント"
 
 #: /tmp/cache/5758311d9aeea/1/5/153280e2f0429aa36f783925eb30e78858ed93c853ee63a8b2381e4c081119c6.php:19
 msgid "text-solution"
-msgstr ""
+msgstr "テキストのソリューション"
 
 #: /tmp/cache/5758311d9aeea/5/6/567a6243e17b88bac408aa88d7c2cce5b0860447ed5ba89cab3beb12f3965120.php:19
 msgid "video"
-msgstr ""
+msgstr "動画"
 
 #: /tmp/cache/5758311dd1634/e/a/ea2aa15d393f8cc514699be0d568d9355a5c4ab692ee6df87586c56b615eb80d.php:25
 msgid "%user% associated %object% with %term%"
-msgstr ""
+msgstr "%user% は、%object% と%term% とを関連付けました。"
 
 #: /tmp/cache/5758311dd1634/0/7/07f7939ec435c7cc782935a2e59d89724266adfd4e502fc9096005e1f93c959f.php:27
 msgid "%user% changed %term% parent from %old% to %new%"
-msgstr ""
+msgstr "%user% は、%old% から %new% に %term% 親を変更"
 
 #: /tmp/cache/5758311dd1634/0/c/0cb2f9c3a07be8f039e907da1868285a62f5497f931f6af17cfeb31b16d2cbb4.php:25
 msgid "%user% changed the license of %object%"
-msgstr ""
+msgstr "%user% は、%object% のライセンスを変更しました。"
 
 #: /tmp/cache/5758311dd1634/b/9/b9f2ffb6bffb31af45b0205e7c167aada0859c30e47eabbb69da9506a41e448d.php:35
 msgid "%user% checked out %revision% in %repository%"
-msgstr ""
+msgstr "%user%は%repository%内の%revision%をチェックアウトしました。"
 
 #: /tmp/cache/5758311dd1634/b/9/b9f2ffb6bffb31af45b0205e7c167aada0859c30e47eabbb69da9506a41e448d.php:30
 msgid "%user% checked out %revision% in %repository%: \"%reason%\""
-msgstr ""
+msgstr "%user%は%repository%内の%revision%をチェックアウトしました：\"%reason%\""
 
 #: /tmp/cache/5758311dd1634/e/1/e1c173983e2fc035bf5b83bc53bca0fac33a8040d3d0d5138def9c11ac6f53bc.php:23
 msgid "%user% created %term%"
-msgstr ""
+msgstr "%user% は作成を %term%"
 
 #: /tmp/cache/5758311dd1634/f/7/f7d4054b7a466ecc8e72973ccf58358aba7f83ec5df71770581052e420248be1.php:25
 msgid "%user% dissociated %object% from %term%"
-msgstr ""
+msgstr "%user%は%term% から%object%を分離"
 
 #: /tmp/cache/5758311dd1634/0/d/0de42edd4dba838ff511eb7bc819a1eb07df3f8ef8f07a458d246cb04462793c.php:35
 msgid "%user% rejected %revision% in %repository% without a reason"
-msgstr ""
+msgstr "%user%は%repository%内の%revision%を理由なく拒否しました。"
 
 #: /tmp/cache/5758311dd1634/0/d/0de42edd4dba838ff511eb7bc819a1eb07df3f8ef8f07a458d246cb04462793c.php:30
 msgid "%user% rejected %revision% in %repository%: \"%reason%\""
-msgstr ""
+msgstr "%user%は%repository%内の%revision%を拒否しました：　\"%reason%\""
 
 #: /tmp/cache/5758311dd1634/2/3/239a00054effba831f441866250cfbc10f10d2d03efbcd9795130d66bf0af286.php:23
 #: /tmp/cache/5758311e497f6/6/8/686f4eb58346c70afcba217122e7613caa4be1748c1ce5602b84f48728b9db78.php:28
 #: /tmp/cache/5758311e497f6/7/1/71174e8ebf82ae3e5a9dfec2f4b85ee75562f3de92654ffd3fd3a8d42ef0ebea.php:28
 msgid "%user% restored %object%"
-msgstr ""
+msgstr "%user%は%object%を復元"
 
 #: /tmp/cache/5758311dd1634/9/a/9a77293b48c78f8138e8bb108909d156973d61a1cdebd64f53e7311f3bd86bc9.php:23
 #: /tmp/cache/5758311e497f6/a/2/a23dbeec174b2ec80d4f7d58393cb54c629db73f3f3adcc0348b72548aae0de5.php:28
 msgid "%user% trashed %object%"
-msgstr ""
+msgstr "%user%は%object%をゴミ箱に移動"
 
 #: /tmp/cache/5758311dd1634/5/f/5fdca952ad851e8e4b67eaf9a29ddedb1668c8dfafde47ca4affcec06ce08a4e.php:23
 msgid "%user% updated %term%"
-msgstr ""
+msgstr "%user%は%term%を更新"
 
 #: /tmp/cache/5758311dd1634/7/6/767be009c113f861ed5704eeea584f47d008c9ed237eede400b3a03833b1ad78.php:19
 #: /tmp/cache/5758311dd1634/5/d/5da14eda2e78498a776a49de7340a62b4742692cd8d2f2e5f6dfd95916203b53.php:19
 msgid "Event log"
-msgstr ""
+msgstr "イベントログ"
 
 #: /tmp/cache/5758311dd1634/2/5/2523c33c5e5df5279342c61dded3449341babe725a023b2cefad6b644c997271.php:23
 msgid ""
@@ -1683,96 +1704,99 @@ msgid ""
 "<br>\n"
 "here's a heads up of what has happened on %brand%:<br>"
 msgstr ""
+"こんにちは %user%、<br>\n"
+" <br>\n"
+"これは%brand% で起こっているの警告です: <br>"
 
 #: /tmp/cache/5758311dd1634/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:23
 msgid "Information"
-msgstr ""
+msgstr "情報"
 
 #: /tmp/cache/5758311dd1634/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:29
 msgid "Instance: "
-msgstr ""
+msgstr "実例："
 
 #: /tmp/cache/5758311dd1634/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:36
 msgid "Name: "
-msgstr ""
+msgstr "名前："
 
 #: /tmp/cache/5758311dd1634/b/3/b35f09ac63a58f3a9edfb53cc43c8487efdf2ac58d913eac056649e091a5c2ae.php:21
 msgid "You have unread notifications on %brand%"
-msgstr ""
+msgstr "あなたは%brand%の通知を未読です。"
 
 #: /tmp/cache/5758311e0f59a/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:73
 msgid "Activate"
-msgstr ""
+msgstr "有効化"
 
 #: /tmp/cache/5758311e0f59a/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:114
 msgid "Add page"
-msgstr ""
+msgstr "ページの追加"
 
 #: /tmp/cache/5758311e0f59a/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:104
 msgid "Add parameter"
-msgstr ""
+msgstr "パラメーターの追加"
 
 #: /tmp/cache/5758311e0f59a/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:61
 msgid "Deactivate"
-msgstr ""
+msgstr "無効化"
 
 #: /tmp/cache/5758311e0f59a/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:30
 msgid "Emails"
-msgstr ""
+msgstr "メール"
 
 #: /tmp/cache/5758311e0f59a/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:19
 msgid "Manage subscriptions"
-msgstr ""
+msgstr "サブスクリプションの管理"
 
 #: /tmp/cache/5758311e0f59a/b/5/b5c41c0fc2c42837b4d01dc02800b5f65bf23f5a1fccbeca42dc3db219b6a1aa.php:36
 msgid "No template found for notification \"%type%\""
-msgstr ""
+msgstr "通知”%type%”のテンプレートが見つかりません"
 
 #: /tmp/cache/5758311e0f59a/b/5/b5c41c0fc2c42837b4d01dc02800b5f65bf23f5a1fccbeca42dc3db219b6a1aa.php:47
 msgid "No view found for %name%"
-msgstr ""
+msgstr "%name%のビューが見つかりません"
 
 #: /tmp/cache/5758311e0f59a/4/9/499b54b5304af146f225b2e2e9d487256b4d48eae0fef139156059c7b4f3e256.php:19
 msgid "Page settings"
-msgstr ""
+msgstr "ページの設定"
 
 #: /tmp/cache/5758311e0f59a/1/3/13cde258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:36
 #: /tmp/cache/5758311e0f59a/7/2/72726bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:34
 #: /tmp/cache/5758311e0f59a/6/2/62c105d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:31
 msgid "Receive notifications"
-msgstr ""
+msgstr "通知の受取り"
 
 #: /tmp/cache/5758311e0f59a/1/3/13cde258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:47
 #: /tmp/cache/5758311e0f59a/7/2/72726bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:43
 #: /tmp/cache/5758311e0f59a/6/2/62c105d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:40
 msgid "Receive notifications and emails"
-msgstr ""
+msgstr "通知やメールの受信"
 
 #: /tmp/cache/5758311e0f59a/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:136
 msgid "Remove page"
-msgstr ""
+msgstr "ページの削除"
 
 #: /tmp/cache/5758311e0f59a/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:125
 #: /tmp/cache/5758311e850e0/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:118
 #: /tmp/cache/5758311e850e0/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:112
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: /tmp/cache/5758311e0f59a/8/d/8d0234ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:38
 #: /tmp/cache/5758311e0f59a/3/d/3d43343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:36
 #: /tmp/cache/5758311e0f59a/e/9/e98d06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:36
 msgid "Stop sending emails"
-msgstr ""
+msgstr "メールの送信を停止"
 
 #: /tmp/cache/5758311e0f59a/1/3/13cde258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:24
 #: /tmp/cache/5758311e0f59a/7/2/72726bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:23
 #: /tmp/cache/5758311e0f59a/6/2/62c105d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:22
 msgid "Subscribe"
-msgstr ""
+msgstr "購読する"
 
 #: /tmp/cache/5758311e0f59a/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:34
 msgid "Subscription"
-msgstr ""
+msgstr "購読"
 
 #: /tmp/cache/5758311e0f59a/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:83
 #: /tmp/cache/5758311e0f59a/8/d/8d0234ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:26
@@ -1785,231 +1809,231 @@ msgstr ""
 #: /tmp/cache/5758311e0f59a/e/9/e98d06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:45
 #: /tmp/cache/5758311e0f59a/e/9/e98d06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:60
 msgid "Unsubscribe"
-msgstr ""
+msgstr "購読の解除"
 
 #: /tmp/cache/5758311e0f59a/4/2/42f8a446ae98d066407d34ec0f6131297ce386a53fee01e8817321a914cd3b86.php:93
 msgid "You have no notifications."
-msgstr ""
+msgstr "通知がありません。"
 
 #: /tmp/cache/5758311e497f6/7/0/70e4e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:44
 msgid "%user% accepted a %revision% of %repository% without a reason"
-msgstr ""
+msgstr "%user%は%repository%の%revision%を理由なく許可しました。"
 
 #: /tmp/cache/5758311e497f6/7/0/70e4e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:37
 msgid "%user% accepted a %revision% of %repository%: %reason%"
-msgstr ""
+msgstr "%user%は%repository%の%revision%を理由なく許可しました：%reason%"
 
 #: /tmp/cache/5758311e497f6/6/0/60c22b940a79fec22a0b9ba11f7cb7265e2ecb9c20583d4bfe74e9987d13de84.php:34
 msgid "%user% added %object% to %parent%"
-msgstr ""
+msgstr "%user%は、%parent%に%object%を追加"
 
 #: /tmp/cache/5758311e497f6/f/3/f3740bcebbf0fc2817654c4e859d13a49dcff3bb6b282893c5e6753a079e81ff.php:30
 msgid "%user% associated %term% with %object%"
-msgstr ""
+msgstr "%user% は、%object%に%term%を関連付け"
 
 #: /tmp/cache/5758311e497f6/9/d/9d39c06123d16536c175fbeb544e810f8f255d342ff4f4239452e26fdc4fcd7f.php:36
 msgid "%user% changed %term%'s parent from %old% to %new%"
-msgstr ""
+msgstr "%user% は、%term%の親を%old%から%new%に変更"
 
 #: /tmp/cache/5758311e497f6/8/d/8dbecc4219b50d1b355c6a9a1492a88a18b95f9316051c1db04bd4d2c0fe5b93.php:32
 msgid "%user% commented on %discussion%: %content%"
-msgstr ""
+msgstr "%user%は%discussion%にコメントしました: %content%"
 
 #: /tmp/cache/5758311e497f6/1/b/1bcb0248d2fd936ac56fee5a801c294f9ee77b44241d81c53967eb3e3e100867.php:34
 msgid "%user% created a %revision% in %repository%"
-msgstr ""
+msgstr "%user% は、%repository%に%revision%を作成"
 
 #: /tmp/cache/5758311e497f6/f/7/f76abb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:44
 msgid "%user% rejected a %revision% of %repository% without a reason"
-msgstr ""
+msgstr "%user%は%repository%の%revision%を理由なく拒否"
 
 #: /tmp/cache/5758311e497f6/f/7/f76abb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:37
 msgid "%user% rejected a %revision% of %repository%: %reason%"
-msgstr ""
+msgstr "%user%は%repository%の%revision%を拒否：%reason%"
 
 #: /tmp/cache/5758311e497f6/1/9/190050328e70b1741163328b11c6889941eaec73358c67ebe411d5540ab38c6f.php:30
 msgid "%user% removed %object% from %object%"
-msgstr ""
+msgstr "%user%は%object%から%object%を削除  "
 
 #: /tmp/cache/5758311e497f6/3/1/3106e8d0811add19dc9d56753dc9219e26ecd02ee030f482590a81a0442db1a7.php:32
 msgid "%user% started %discussion% on %object%: %title%"
-msgstr ""
+msgstr "%user%は%object%に%discussion%を始めた:%title%"
 
 #: /tmp/cache/5758311e497f6/8/2/826fafa298efd594e59705660a35aed4ca87f339a857c62782951ecbfdf6d54f.php:28
 msgid "%user% updated %object%"
-msgstr ""
+msgstr "%user%は%object%を更新"
 
 #: /tmp/cache/5758311e497f6/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:99
 msgid "Create a new page"
-msgstr ""
+msgstr "新しいページの作成"
 
 #: /tmp/cache/5758311e497f6/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:44
 msgid "No revision checked out yet."
-msgstr ""
+msgstr "チェック アウトされたリビジョンがありません"
 
 #: /tmp/cache/5758311e497f6/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:77
 #: /tmp/cache/5758311e850e0/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:89
 #: /tmp/cache/5758311e850e0/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:83
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:110
 msgid "Trash"
-msgstr ""
+msgstr "ごみ箱"
 
 #: /tmp/cache/5758311e497f6/1/b/1bcb0248d2fd936ac56fee5a801c294f9ee77b44241d81c53967eb3e3e100867.php:29
 #: /tmp/cache/5758311e497f6/7/0/70e4e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:29
 #: /tmp/cache/5758311e497f6/f/7/f76abb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:29
 msgid "revision"
-msgstr ""
+msgstr "リビジョン"
 
 #: /tmp/cache/5758311e850e0/7/8/781096c7530d74165b1f86a2e3a3fcbcadb64d0b0866741480d0449c7a72ef13.php:19
 msgid "Add a category"
-msgstr ""
+msgstr "カテゴリの追加"
 
 #: /tmp/cache/5758311e850e0/0/8/08b64bff2410a7861c570d4b26ed37492100a4c0cc71c214898b48ddfa965a9f.php:19
 msgid "Add external link"
-msgstr ""
+msgstr "外部リンクの追加"
 
 #: /tmp/cache/5758311e850e0/5/5/5560a1fc8e574fc8f6d797e29402026e670698a2f07a5943917b6e999e194fa0.php:19
 msgid "Add internal link"
-msgstr ""
+msgstr "内部リンクの追加"
 
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:48
 msgid "Author:"
-msgstr ""
+msgstr "作成者："
 
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:131
 msgid "Category"
-msgstr ""
+msgstr "カテゴリ"
 
 #: /tmp/cache/5758311e850e0/c/c/ccf19b79c4f4569ac5f6eaec78b1f21f886bddfa733db1bd49bade882d158173.php:19
 msgid "Create a revision"
-msgstr ""
+msgstr "リビジョンの作成"
 
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:154
 msgid "Edit page"
-msgstr ""
+msgstr "ページの編集"
 
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:151
 msgid "External"
-msgstr ""
+msgstr "外部"
 
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:141
 msgid "Internal"
-msgstr ""
+msgstr "内部"
 
 #: /tmp/cache/5758311e850e0/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:23
 msgid "Manage related links"
-msgstr ""
+msgstr "関連リンクの管理"
 
 #: /tmp/cache/5758311e850e0/f/5/f5e2602bb4c2e93a3291c75a742de0c785b09239657dea74609ea13eade0d9bf.php:112
 msgid "No matching results found for %query%."
-msgstr ""
+msgstr "%query% に一致する結果が見つかりません。"
 
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:19
 msgid "Revisions"
-msgstr ""
+msgstr "リビジョン"
 
 #: /tmp/cache/5758311e850e0/f/3/f335cef104b64e1cede6aede42d51d2183465b682214549e642e7e5b43ef7dd4.php:24
 msgid "Search results"
-msgstr ""
+msgstr "結果の検索"
 
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:124
 msgid "Set as base"
-msgstr ""
+msgstr "ベースとして設定"
 
 #: /tmp/cache/5758311e850e0/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:101
 #: /tmp/cache/5758311e850e0/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:95
 msgid "Set as base revision"
-msgstr ""
+msgstr "ベースリビジョンとして設定"
 
 #: /tmp/cache/5758311e850e0/9/9/999386126c28191c568b48eef4c361f2d969e4b40a14da2e00751dac944e6903.php:23
 msgid "Start learning now!"
-msgstr ""
+msgstr "今すぐ学習を開始！"
 
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:58
 msgid "Time:"
-msgstr ""
+msgstr "時間:"
 
 #: /tmp/cache/5758311e850e0/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:79
 msgid "Use for editing"
-msgstr ""
+msgstr "編集用"
 
 #: /tmp/cache/5758311ec185b/e/e/eee93e61f8c52d3852495099aca5aa0ffeb56e26f42e627491779d284fb65e52.php:19
 msgid "Copy associations"
-msgstr ""
+msgstr "関連のコピー"
 
 #: /tmp/cache/5758311ec185b/7/3/7377bb8c1db0e220d930996d685319bfe9d5e97b0691b44477467f9a7c842cb9.php:19
 msgid "Create term"
-msgstr ""
+msgstr "用語の作成"
 
 #: /tmp/cache/5758311ec185b/9/3/93c87f4ee99e4617e9b2d42a50fe9547e24d2611993ec18176a7847e07a9c158.php:24
 msgid "Further exercises"
-msgstr ""
+msgstr "追加演習"
 
 #: /tmp/cache/5758311ec185b/0/2/02b3ee2f3efdbd2f0ea2f693ca076fc2292b79a8d6a4a43890e3d53719ab3266.php:19
 msgid "Move associations"
-msgstr ""
+msgstr "関連付けの移動"
 
 #: /tmp/cache/5758311ec185b/4/c/4c406d0d3f3787d2212ad28ef8f57f63e99d6bb15218609da2c7fe7b7fca2109.php:33
 msgid "Template for %name% not found."
-msgstr ""
+msgstr "%name%のテンプレートが見つかりません。"
 
 #: /tmp/cache/5758311ec185b/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:119
 msgid "Tools"
-msgstr ""
+msgstr "ツール"
 
 #: /tmp/cache/5758311f02669/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:70
 msgid "Add content"
-msgstr ""
+msgstr "コンテンツの追加"
 
 #: /tmp/cache/5758311f02669/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
 msgid "Articles"
-msgstr "Explanations"
+msgstr "記事"
 
 #: /tmp/cache/5758311f02669/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:127
 #: /tmp/cache/5758311f36f43/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:87
 msgid "Batch copy items"
-msgstr ""
+msgstr "アイテムの一括複製"
 
 #: /tmp/cache/5758311f02669/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:143
 #: /tmp/cache/5758311f36f43/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:103
 msgid "Batch move items"
-msgstr ""
+msgstr "アイテムの一括移動"
 
 #: /tmp/cache/5758311f02669/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
 msgid "Courses"
-msgstr ""
+msgstr "コース"
 
 #: /tmp/cache/5758311f02669/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:89
 msgid "Exercises"
-msgstr ""
+msgstr "演習"
 
 #: /tmp/cache/5758311f02669/d/b/dbd95d48b6707c3c587d87c539cb0ceba52b5e72ea79eb05da97946ac416518a.php:47
 msgid "Groups"
-msgstr "Exercises"
+msgstr "グループ"
 
 #: /tmp/cache/5758311f02669/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
 msgid "Videos"
-msgstr ""
+msgstr "ビデオ"
 
 #: /tmp/cache/5758311f02669/f/d/fdc560036ca3ec9e0e019322723b7506dd2299069c31407d034132c46532b484.php:19
 msgid "curriculum"
-msgstr ""
+msgstr "カリキュラム"
 
 #: /tmp/cache/5758311f02669/0/8/08dca70a0edeebcd500efdc21895df9e84d88d86a73d946cebcd40572260b1b9.php:19
 msgid "curriculum-topic"
-msgstr ""
+msgstr "カリキュラム―トピック"
 
 #: /tmp/cache/5758311f02669/3/2/32c065c0bab471911867dc2fb67722035a945ec52c8e281abaf073523db4e940.php:19
 msgid "curriculum-topic-folder"
-msgstr "curriculum content group"
+msgstr "カリキュラム―トピック―フォルダー"
 
 #: /tmp/cache/5758311f02669/7/9/79b68b39ce0ba2691aa2b338f22bcdc2803281a60030b02c4f17a61dca424960.php:19
 msgid "locale"
-msgstr ""
+msgstr "設定情報"
 
 #: /tmp/cache/5758311f36f43/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:147
 msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/21654\">Terms of Service</a>."
-msgstr ""
+msgstr "<em>サインアップ</em> をクリックすると、あなたは私たちの <a href=\"/21654\"> サービスの利用規約</a> に同意したことになります。"
 
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:57
 msgid "Comments"
@@ -2021,23 +2045,23 @@ msgstr ""
 
 #: /tmp/cache/5758311f36f43/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:71
 msgid "Email"
-msgstr ""
+msgstr "メール"
 
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:193
 msgid "Last seen"
-msgstr ""
+msgstr "閲覧"
 
 #: /tmp/cache/5758311f36f43/3/d/3d14ae2a6d629e882af40cbea4bf15d14a3be13a7c29b3ff17586572563d04b6.php:19
 msgid "My settings"
-msgstr ""
+msgstr "マイセッティング"
 
 #: /tmp/cache/5758311f36f43/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:69
 msgid "Never"
-msgstr ""
+msgstr "サインインされていません"
 
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:178
 msgid "Recent activities"
-msgstr ""
+msgstr "最近のアクティビティ"
 
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:101
 msgid "Reviews"
@@ -2046,15 +2070,15 @@ msgstr ""
 #: /tmp/cache/5758311f36f43/2/f/2fe72f0b515004b59e946b309b21d14ff794390e2775ff15fd7f45b7e7440bc7.php:248
 #, php-format
 msgid "Show %ecount% exercises..."
-msgstr ""
+msgstr "%ecount% 演習の表示"
 
 #: /tmp/cache/5758311f36f43/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:24
 msgid "Sign up"
-msgstr ""
+msgstr "登録"
 
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:35
 msgid "Statistics"
-msgstr ""
+msgstr "統計学"
 
 #: /tmp/cache/5758311f36f43/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:123
 msgid "Taxonomy associations"
@@ -2070,16 +2094,16 @@ msgstr ""
 
 #: /tmp/cache/5758311f36f43/a/3/a33a5f0124ea6930f3bb761c72d967a4ccecd4d96b6bb39065a862cc2b954efe.php:19
 msgid "Update term"
-msgstr ""
+msgstr "用語の更新"
 
 #: /tmp/cache/5758311f36f43/0/a/0ac33929433f83a2ce8691e29e61df5c3b4447b613e8c1796c10944bb18b4b41.php:19
 msgid "subject"
-msgstr ""
+msgstr "件名"
 
 #: /tmp/cache/5758311f36f43/d/5/d52ae24cf4e6ff6fd54ae7a0d3ae2941dbc23451b88d66e4d44ffe9cc56f1ad5.php:19
 msgid "topic"
-msgstr ""
+msgstr "トピック"
 
 #: /tmp/cache/5758311f36f43/8/b/8bdc57c33604f04685bb19635ba474115fdf1397490f025047263f5a8257a928.php:19
 msgid "topic-folder"
-msgstr "content group"
+msgstr "トピックフォルダー"
