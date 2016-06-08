@@ -132,6 +132,7 @@ $twig->addFunction(new \Twig_SimpleFunction('multipleChoice', true));
 $twig->addFunction(new \Twig_SimpleFunction('inputChallenge', true));
 $twig->addFunction(new \Twig_SimpleFunction('randomBanner', true));
 $twig->addFunction(new \Twig_SimpleFunction('shuffle', true));
+$twig->addFunction(new \Twig_SimpleFunction('dateFormat', true));
 
 array_shift($_SERVER['argv']);
 $addTemplate = false;
