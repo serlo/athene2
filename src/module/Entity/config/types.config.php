@@ -152,7 +152,7 @@ return [
                 'description' => 'content',
                 'components' => [
                     'repository' => [
-                        'form' => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
+                        'form' => __NAMESPACE__ . '\Form\MultipleChoiceWrongAnswerForm',
                         'fields' => [
                             'content',
                             'changes',
@@ -177,11 +177,10 @@ return [
                 'description' => 'content',
                 'components' => [
                     'repository' => [
-                        'form' => __NAMESPACE__ . '\Form\SingleChoiceAnswerForm',
+                        'form' => __NAMESPACE__ . '\Form\MultipleChoiceRightAnswerForm',
                         'fields' => [
                             'content',
-                            'changes',
-                            'feedback'
+                            'changes'
                         ]
                     ],
                     'link' => [

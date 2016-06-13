@@ -15,7 +15,7 @@ use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
-class MultipleChoiceAnswerForm extends Form
+class MultipleChoiceRightAnswerForm extends Form
 {
 
     function __construct(LicenseInterface $license)
@@ -25,7 +25,6 @@ class MultipleChoiceAnswerForm extends Form
         $this->setAttribute('class', 'clearfix');
 
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
-        $this->add((new Textarea('feedback'))->setAttribute('id', 'feedback')->setLabel('Feedback:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
@@ -37,7 +36,6 @@ class MultipleChoiceAnswerForm extends Form
 
         $inputFilter = new InputFilter('multiple-choice-answer');
         $inputFilter->add(['name' => 'content', 'required' => true]);
-        $inputFilter->add(['name' => 'feedback', 'required' => false]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }

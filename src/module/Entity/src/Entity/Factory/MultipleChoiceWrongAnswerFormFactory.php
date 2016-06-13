@@ -10,10 +10,10 @@
 
 namespace Entity\Factory;
 
-class MultipleChoiceAnswerFormFactory extends AbstractFormFactory
+class MultipleChoiceWrongAnswerFormFactory extends AbstractFormFactory
 {
     protected function getClassName()
     {
-        return 'Entity\Form\MultipleChoiceAnswerForm';
+        return 'Entity\Form\MultipleChoiceWrongAnswerForm';
     }
 }

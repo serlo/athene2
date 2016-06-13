@@ -11,14 +11,14 @@
     cursor: pointer;
   }
   // Single Choice
-  .single-choice-group {
-    .single-choice-answer-group {
+  .single-choice-group, .multiple-choice-group {
+    .single-choice-answer-group, .multiple-choice-answer-group {
       p {
         margin: 0;
         padding: 0;
       }
 
-      .single-choice-answer-content {
+      .single-choice-answer-content, .multiple-choice-answer-content {
         width: 100%;
         border: 0 none;
         color: #000;
@@ -26,7 +26,7 @@
         white-space: normal;
         margin: 5px 0 0;
 
-        .single-choice-answer-choice {
+        .single-choice-answer-choice, .multiple-choice-answer-choice {
           position: absolute;
           clip: rect(0px 0px 0px 0px);
           margin: 1rem 0.5rem 2rem 0;
@@ -56,9 +56,15 @@
       }
     }
 
-    .single-choice-answer-feedback {
+    .single-choice-answer-feedback, .multiple-choice-answer-feedback {
       &.positive {
-        color: $themeColor;
+        color: $serloGreen;
+        font-weight: bold;
+        padding-right: 45px;
+      }
+
+      &.negative {
+        color: $infoOrange;
         font-weight: bold;
         padding-right: 45px;
       }
@@ -69,11 +75,11 @@
       margin-bottom: 15px;
     }
 
-    .single-choice-solution {
+    .single-choice-solution, .multiple-choice-solution {
       padding: 8px 15px 10px;
       margin: 0 -15px;
 
-      .single-choice-submit {
+      .single-choice-submit, .multiple-choice-submit {
         visibility: hidden;
         border: 0 none;
         font-size: 14px;
@@ -86,20 +92,22 @@
   &.active{
     border: 1px solid $backgroundColor;
 
-    .single-choice-solution {
+    .single-choice-solution, .multiple-choice-solution {
       background-color: $infoBlue;
 
-      .single-choice-submit {
+      .single-choice-submit, .multiple-choice-submit {
         visibility: visible;
 
         &:focus {
           outline: none;
         }
 
-        .single-choice-submit-check, &.btn-success .single-choice-submit-correct {
+        .single-choice-submit-check, &.btn-success .single-choice-submit-correct,
+        .multiple-choice-submit-check, &.btn-success .multiple-choice-submit-correct {
           display : block;
         }
-        .single-choice-submit-correct, &.btn-success .single-choice-submit-check {
+        .single-choice-submit-correct, &.btn-success .single-choice-submit-check,
+        .multiple-choice-submit-correct, &.btn-success .multiple-choice-submit-check {
           display: none;
         }
       }
@@ -109,22 +117,8 @@
     .col-sm-3 {
       width: 100%;
     }
-  }
-}
-
-.multiple-choice-group {
-  .multiple-choice-answer-group {
-
-    label {
-      width: 100%;
-    }
-
-    .multiple-choice-answer-content {
-
-    }
-
-    .multiple-choice-answer-feedback {
-      padding: 15px 10px;
+    .btn {
+      text-align: left;
     }
   }
 }

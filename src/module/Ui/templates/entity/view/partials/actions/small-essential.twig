@@ -8,7 +8,7 @@
             {% for item in subitems %}
                 <li class="dropdown-submenu"><a href="#" tabindex="-1" rel="nofollow">{{ 'Subitem' | trans }} {{ loop.index }}</a>
                     <ul class="dropdown-menu left" role="menu">
-                        {% include 'entity/view/partials/actions/essentials' with {'entity' : item['entity']} %}
+                        {% include 'entity/view/partials/actions/essentials' with {'entity' : item} %}
                     </ul>
                 </li>
             {% endfor %}
