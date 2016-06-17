@@ -25,13 +25,6 @@
         min-height: 35px;
         white-space: normal;
         margin: 5px 0 0;
-
-        .single-choice-answer-choice, .multiple-choice-answer-choice {
-          position: absolute;
-          clip: rect(0px 0px 0px 0px);
-          margin: 1rem 0.5rem 2rem 0;
-
-        }
       }
     }
 
@@ -39,10 +32,14 @@
       box-shadow: none;
       transition: background-color 0.5s ease;
 
+      &:focus {
+        outline: none;
+      }
+
       &.button-default {
         background-color: $lighterGray;
 
-        &.active, &:hover, &:focus {
+        &.active, &:hover {
           background-color: $infoBlue;
         }
       }
@@ -97,10 +94,6 @@
 
       .single-choice-submit, .multiple-choice-submit {
         visibility: visible;
-
-        &:focus {
-          outline: none;
-        }
 
         .single-choice-submit-check, &.btn-success .single-choice-submit-correct,
         .multiple-choice-submit-check, &.btn-success .multiple-choice-submit-correct {

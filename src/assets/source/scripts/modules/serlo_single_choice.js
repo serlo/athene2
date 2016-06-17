@@ -48,6 +48,12 @@ define(['jquery'], function ($) {
                 $self.addClass('active');
             });
 
+            $('.single-choice-answer-content', $self).click(function (e) {
+                e.preventDefault();
+                $(this).addClass('active');
+                $('.single-choice-answer-content', $self).not(this).removeClass('active');
+            });
+
             $('#content-layout').click(function (event) {
                 if ($self.hasClass('active') &&
                     !$(event.target).closest($self).length &&

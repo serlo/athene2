@@ -32,7 +32,7 @@
     {% if singleChoices|length > 0 %}
         <section>
             <form class="single-choice-group">
-                <div class="row btn-group" data-toggle="buttons">
+                <div class="row btn-group">
                 {% for answer in singleChoices %}
                     {% include 'entity/view/default' with {'entity': answer['entity'], 'right': answer['right'], 'parent': entity} only %}
                 {% endfor %}
@@ -71,7 +71,7 @@
     {% if multipleChoices|length > 0 %}
         <section>
             <form class="multiple-choice-group">
-                <div class="row btn-group" data-toggle="buttons">
+                <div class="row btn-group">
                     {% for answer in multipleChoices %}
                         {% include 'entity/view/default' with {'entity': answer['entity'], 'right': answer['right'], 'parent': entity} only %}
                     {% endfor %}

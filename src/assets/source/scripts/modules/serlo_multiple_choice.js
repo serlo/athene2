@@ -47,6 +47,11 @@ define(['jquery'], function ($) {
                 $self.addClass('active');
             });
 
+            $('.multiple-choice-answer-content', $self).click(function (e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+            });
+
             $('#content-layout').click(function (event) {
                 if ($self.hasClass('active') &&
                     !$(event.target).closest($self).length &&
