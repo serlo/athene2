@@ -85,7 +85,7 @@ define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_
 
                 $('.input-challenge-group', $context).InputChallenge();
                 $('.text-exercise:has(.single-choice-group)', $context).SingleChoice();
-                $('.multiple-choice-group', $context).MultipleChoice();
+                $('.text-exercise:has(.multiple-choice-group)', $context).MultipleChoice();
 
                 $('.r img', $context).each(function () {
                     var $that = $(this);

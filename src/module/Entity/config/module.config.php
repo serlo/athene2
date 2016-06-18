@@ -153,7 +153,8 @@ return [
         'factories' => [
             __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
             __NAMESPACE__ . '\Form\SingleChoiceAnswerForm' => __NAMESPACE__ . '\Factory\SingleChoiceAnswerFormFactory',
-            __NAMESPACE__ . '\Form\MultipleChoiceAnswerForm' => __NAMESPACE__ . '\Factory\MultipleChoiceAnswerFormFactory',
+            __NAMESPACE__ . '\Form\MultipleChoiceWrongAnswerForm' => __NAMESPACE__ . '\Factory\MultipleChoiceWrongAnswerFormFactory',
+            __NAMESPACE__ . '\Form\MultipleChoiceRightAnswerForm' => __NAMESPACE__ . '\Factory\MultipleChoiceRightAnswerFormFactory',
             __NAMESPACE__ . '\Form\ArticleForm' => __NAMESPACE__ . '\Factory\ArticleFormFactory',
             __NAMESPACE__ . '\Form\GroupedTextExerciseForm' => __NAMESPACE__ . '\Factory\GroupedTextExerciseFormFactory',
             __NAMESPACE__ . '\Form\ModuleForm' => __NAMESPACE__ . '\Factory\ModuleFormFactory',
