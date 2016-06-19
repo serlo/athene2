@@ -77,14 +77,20 @@ define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
     };
 
     InputChallenge.prototype.matchesInput = function (input) {
-        var solution = this.normalize(input, input.solution),
-            submission = this.normalize(input, this.$input.val());
+        try {
+            var solution = this.normalize(input, input.solution),
+                submission = this.normalize(input, this.$input.val());
 
-        switch (input.type) {
-        case 'input-expression-equal-match-challenge':
-            return solution.subtract(submission).toString() === '0';
-        default:
-            return solution === submission;
+            switch (input.type) {
+            case 'input-expression-equal-match-challenge':
+
+                return solution.subtract(submission).toString() === '0';
+            default:
+                return solution === submission;
+            }
+        } catch (err) {
+            // e.g. if user input could not be parsed
+            return false;
         }
     };
 
