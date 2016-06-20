@@ -40,6 +40,10 @@ module.exports = function (grunt) {
             },
             images: {
                 files: ['<%= serlo.app %>/images/{,*/}*.{png,jpg,jpeg}'],
+                tasks: ['clean:dist', 'copy:dist']
+            },
+            sounds: {
+                files: ['<%= serlo.app %>/sounds/{,*/}*.{mp3,ogg}'],
                 tasks: ['imagemin', 'clean:dist', 'copy:dist']
             },
             svgs: {

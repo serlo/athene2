@@ -1,5 +1,5 @@
 /*global define, MathJax*/
-define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
+define(['jquery', 'string', 'algebrajs', 'sounds'], function ($, S, A, play) {
     var InputChallenge = function ($container) {
         var type, solution, feedback, wrongInputs, self = this;
 
@@ -18,7 +18,6 @@ define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
             solution: solution,
             feedback: feedback
         }].concat(wrongInputs);
-
 
         $container.click(function () {
             $container.addClass('active');
@@ -64,10 +63,12 @@ define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
                 if (isCorrect) {
                     self.$feedback.addClass('positive');
                     changeClass(self.$button, 'btn-primary', 'btn-success');
+                    play('correct');
                 } else {
                     self.$feedback.removeClass('positive');
                     self.$button.removeClass('btn-success');
                     changeClass(self.$button, 'btn-primary', 'btn-warning', 2000);
+                    play('wrong');
                 }
             });
 

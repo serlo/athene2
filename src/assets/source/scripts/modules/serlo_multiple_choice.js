@@ -1,5 +1,5 @@
 /*global define, MathJax*/
-define(['jquery'], function ($) {
+define(['jquery', 'sounds'], function ($, play) {
     "use strict";
     var MultipleChoice;
 
@@ -95,11 +95,13 @@ define(['jquery'], function ($) {
                     $feedbackFailure.collapse('hide');
                     $feedbackSuccess.collapse('show');
                     changeClass($submit, 'btn-primary', 'btn-success');
+                    play('correct');
                 } else {
                     $('.multiple-choice-answer-content.active', $self).removeClass('active');
                     changeClass($submit, 'btn-primary', 'btn-warning', 2000);
                     $feedbackFailure.collapse('show');
                     $feedbackSuccess.collapse('hide');
+                    play('wrong');
                 }
                 return false;
             });
