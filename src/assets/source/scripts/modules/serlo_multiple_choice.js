@@ -47,13 +47,18 @@ define(['jquery'], function ($) {
                 $self.addClass('active');
             });
 
+            $('.multiple-choice-answer-content', $self).click(function (e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+            });
+
             $('#content-layout').click(function (event) {
                 if ($self.hasClass('active') &&
                     !$(event.target).closest($self).length &&
                     !$(event.target).is($self)) {
                     $self.removeClass('active');
                     $('.active', $self).removeClass('active');
-                    $('.multiple-choice-answer-feedback', $self).not('.positive .negative').collapse('hide');
+                    $('.multiple-choice-answer-feedback', $self).not('.positive').collapse('hide');
                 }
             });
 
@@ -64,10 +69,6 @@ define(['jquery'], function ($) {
                     $submit = $('.multiple-choice-submit', $group),
                     $feedbackFailure = $('.multiple-choice-answer-feedback.negative', $group),
                     $feedbackSuccess = $('.multiple-choice-answer-feedback.positive', $group);
-
-                if ($submit.hasClass('btn-success')) {
-                    return false;
-                }
 
                 $('.multiple-choice-answer-content', this).each(function (k, v) {
                     var $option = $(v),
@@ -94,11 +95,11 @@ define(['jquery'], function ($) {
                     $feedbackFailure.collapse('hide');
                     $feedbackSuccess.collapse('show');
                     changeClass($submit, 'btn-primary', 'btn-success');
-                    $('.multiple-choice-answer-content', $self).not('.btn-success').addClass('disabled');
                 } else {
                     $('.multiple-choice-answer-content.active', $self).removeClass('active');
                     changeClass($submit, 'btn-primary', 'btn-warning', 2000);
                     $feedbackFailure.collapse('show');
+                    $feedbackSuccess.collapse('hide');
                 }
                 return false;
             });

@@ -10,12 +10,11 @@
 {% set feedback = feedbackContent ? feedbackContent : defaultFeedback %}
 
 <div class="col-sm-3 single-choice-answer-group" itemprop="articleBody">
-    <label class="btn single-choice-answer-content button-default" data-correct="{{ right }}" >
-        <input type="radio"
-               class="single-choice-answer-choice"
-               name="single-choice-answer-choice-{{  parent.getID() }}"/>
+    <button class="btn single-choice-answer-content button-default"
+            name="single-choice-answer-choice-{{  parent.getID() }}"
+            data-correct="{{ right }}" >
         {{ displayContent | raw }}
-    </label>
+    </button>
     {% if not right %}
     <div class="single-choice-answer-feedback collapse">
         <div class="alert alert-warning">

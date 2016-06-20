@@ -48,6 +48,12 @@ define(['jquery'], function ($) {
                 $self.addClass('active');
             });
 
+            $('.single-choice-answer-content', $self).click(function (e) {
+                e.preventDefault();
+                $(this).addClass('active');
+                $('.single-choice-answer-content', $self).not(this).removeClass('active');
+            });
+
             $('#content-layout').click(function (event) {
                 if ($self.hasClass('active') &&
                     !$(event.target).closest($self).length &&
@@ -64,16 +70,17 @@ define(['jquery'], function ($) {
                     $submit = $('.single-choice-submit', $singleChoice),
                     $feedback;
 
-                if ($submit.hasClass('btn-success') || $selected.length === 0) {
+                if ($selected.length === 0) {
                     return false;
                 }
 
                 if (Boolean($selected.data('correct'))) {
                     changeClass($selected, 'button-default', 'btn-success');
                     changeClass($submit, 'btn-primary', 'btn-success');
-                    $('.single-choice-answer-content', $self).not($selected).addClass('disabled');
                     $feedback = $('.single-choice-answer-feedback.positive', $singleChoice);
                 } else {
+                    changeClass($('.single-choice-answer-content', $self), 'btn-success', 'button-default');
+                    changeClass($submit, 'btn-success', 'btn-primary');
                     changeClass($selected, 'button-default', 'btn-warning', 2000);
                     changeClass($submit, 'btn-primary', 'btn-warning', 2000);
                     $feedback = $selected.siblings('.single-choice-answer-feedback');
