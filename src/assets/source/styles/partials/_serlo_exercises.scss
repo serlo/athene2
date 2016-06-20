@@ -38,9 +38,14 @@
 
       &.button-default {
         background-color: $lighterGray;
+        border-bottom: 3px solid transparent;
 
-        &.active, &:hover {
+        &.active {
           background-color: $infoBlue;
+        }
+
+        &:hover {
+          border-bottom: 3px solid $infoBlue;
         }
       }
 
