@@ -210,6 +210,14 @@ return [
                         'options' => [
                             'move_raw' => true
                         ]
+                    ],
+                    'sounds'         => [
+                        'assets'  => [
+                            'sounds/*'
+                        ],
+                        'options' => [
+                            'move_raw' => true
+                        ]
                     ]
                 ]
             ]

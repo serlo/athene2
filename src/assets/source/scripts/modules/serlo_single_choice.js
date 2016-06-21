@@ -1,5 +1,5 @@
 /*global define, MathJax*/
-define(['jquery'], function ($) {
+define(['jquery', 'sounds'], function ($, play) {
     "use strict";
     var SingleChoice;
 
@@ -78,12 +78,14 @@ define(['jquery'], function ($) {
                     changeClass($selected, 'button-default', 'btn-success');
                     changeClass($submit, 'btn-primary', 'btn-success');
                     $feedback = $('.single-choice-answer-feedback.positive', $singleChoice);
+                    play('correct');
                 } else {
                     changeClass($('.single-choice-answer-content', $self), 'btn-success', 'button-default');
                     changeClass($submit, 'btn-success', 'btn-primary');
                     changeClass($selected, 'button-default', 'btn-warning', 2000);
                     changeClass($submit, 'btn-primary', 'btn-warning', 2000);
                     $feedback = $selected.siblings('.single-choice-answer-feedback');
+                    play('wrong');
                 }
                 $selected.removeClass('active');
                 $('.single-choice-answer-feedback', $singleChoice).not($feedback).collapse('hide');
