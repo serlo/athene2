@@ -1,36 +1,51 @@
-/*global define*/
+/*global define, MathJax*/
 define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
-    var InputChallenge = function (container) {
-        var $container, type, solution, feedback, wrongInputs;
+    var InputChallenge = function ($container) {
+        var type, solution, feedback, wrongInputs, self = this;
 
-        $container = $(container);
+        self.$form = $container.find('.input-challenge-group');
+        self.$input = $container.find('.input-challenge-input');
+        self.$button = $container.find('.input-challenge-submit');
+        self.$feedback = $container.find('.input-challenge-feedback');
 
-        this.$input = $container.find('.input-challenge-input');
-        this.$button = $container.find('.input-challenge-submit');
-        this.$feedback = $container.find('.input-challenge-feedback');
+        type = self.$input.data('type');
+        solution = self.$input.data('solution');
+        feedback = self.$input.data('feedback');
+        wrongInputs = self.$input.data('wrong-inputs');
 
-        type = this.$input.data('type');
-        solution = this.$input.data('solution');
-        feedback = this.$input.data('feedback');
-        wrongInputs = this.$input.data('wrong-inputs');
-
-        this.inputs = [{
+        self.inputs = [{
             type: type,
             solution: solution,
             feedback: feedback
         }].concat(wrongInputs);
 
-        this.init();
+
+        $container.click(function () {
+            $container.addClass('active');
+        });
+
+        $('#content-layout').click(function (e) {
+            if (
+                $container.hasClass('active') &&
+                !$(e.target).closest($container).length &&
+                !$(e.target).is($container)
+            ) {
+                $container.removeClass('active');
+                $('.active', $container).removeClass('active');
+            }
+        });
+
+        self.init();
     };
 
     InputChallenge.prototype.init = function () {
         var self = this;
 
-        self.$input.focus(function () {
-            self.$feedback.hide();
+        self.$feedback.collapse({
+            toggle: false
         });
 
-        self.$button.click(function (e) {
+        self.$form.submit(function (e) {
             var index, input, isCorrect, feedback;
 
             e.preventDefault();
@@ -42,22 +57,40 @@ define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
 
             feedback = input.feedback || (isCorrect ? 'Right!' : 'Wrong.');
 
-            self.$feedback.html(feedback);
-            self.$feedback.addClass('alert alert-' + (isCorrect ? 'success' : 'danger'));
-            self.$feedback.removeClass('alert-' + (isCorrect ? 'danger' : 'success'));
-            self.$feedback.show();
+            self.$feedback.fadeOut(500, function () {
+                self.$feedback.html(feedback).fadeIn(500);
+                MathJax.Hub.Queue(['Typeset', MathJax.Hub, self.$feedback.get(0)]);
+
+                if (isCorrect) {
+                    self.$feedback.addClass('positive');
+                    changeClass(self.$button, 'btn-primary', 'btn-success');
+                } else {
+                    self.$feedback.removeClass('positive');
+                    self.$button.removeClass('btn-success');
+                    changeClass(self.$button, 'btn-primary', 'btn-warning', 2000);
+                }
+            });
+
+            self.$feedback.collapse('show');
+            return false;
         });
     };
 
     InputChallenge.prototype.matchesInput = function (input) {
-        var solution = this.normalize(input, input.solution),
-            submission = this.normalize(input, this.$input.val());
+        try {
+            var solution = this.normalize(input, input.solution),
+                submission = this.normalize(input, this.$input.val());
 
-        switch (input.type) {
-        case 'input-expression-equal-match-challenge':
-            return solution.subtract(submission).toString() === '0';
-        default:
-            return solution === submission;
+            switch (input.type) {
+            case 'input-expression-equal-match-challenge':
+
+                return solution.subtract(submission).toString() === '0';
+            default:
+                return solution === submission;
+            }
+        } catch (err) {
+            // e.g. if user input could not be parsed
+            return false;
         }
     };
 
@@ -77,9 +110,18 @@ define(['jquery', 'string', 'algebrajs'], function ($, S, A) {
         }
     };
 
+    function changeClass($element, oldClasses, newClasses, time) {
+        $element.removeClass(oldClasses).addClass(newClasses);
+        if (time) {
+            setTimeout(function () {
+                $element.removeClass(newClasses).addClass(oldClasses);
+            }, time);
+        }
+    }
+
     $.fn.InputChallenge = function () {
         return $(this).each(function () {
-            new InputChallenge(this);
+            new InputChallenge($(this));
         });
     };
 });
