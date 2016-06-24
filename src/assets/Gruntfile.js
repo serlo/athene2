@@ -40,11 +40,11 @@ module.exports = function (grunt) {
             },
             images: {
                 files: ['<%= serlo.app %>/images/{,*/}*.{png,jpg,jpeg}'],
-                tasks: ['clean:dist', 'copy:dist']
+                tasks: ['imagemin', 'clean:dist', 'copy:dist']
             },
             sounds: {
                 files: ['<%= serlo.app %>/sounds/{,*/}*.{mp3,ogg}'],
-                tasks: ['imagemin', 'clean:dist', 'copy:dist']
+                tasks: ['clean:dist', 'copy:dist']
             },
             svgs: {
                 files: ['<%= serlo.app %>/images/{,*/}*.svg'],
@@ -205,6 +205,7 @@ module.exports = function (grunt) {
                     src: [
                         '.htaccess',
                         'styles/fonts/{,*/}*.*',
+                        'sounds/{,*/}*.*',
                         'bower_components/jquery/jquery.min.map'
                     ]
                 }]
