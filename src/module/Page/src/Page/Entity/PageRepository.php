@@ -43,10 +43,14 @@ class PageRepository extends Uuid implements PageRepositoryInterface
     protected $revisions;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Taxonomy\Entity\TaxonomyTerm")
-     * @ORM\JoinColumn(name="forum_id", referencedColumnName="id", nullable=true)
+     * @ORM\Column(name="forum_id", type="bigint", nullable=true)
      */
     protected $forum;
+
+    /**
+     * @ORM\Column(name="discussions_enabled", type="boolean")
+     */
+    protected $discussionsEnabled;
 
     /**
      * @ORM\ManyToOne(targetEntity="License\Entity\LicenseInterface")
@@ -118,6 +122,17 @@ class PageRepository extends Uuid implements PageRepositoryInterface
     public function setForum(TaxonomyTermInterface $forum = null)
     {
         $this->forum = $forum;
+    }
+
+    public function getDiscussionsEnabled()
+    {
+        return $this->discussionsEnabled;
+    }
+
+    public function setDiscussionsEnabled($discussionsEnabled = false)
+    {
+        $this->forum = null;
+        $this->discussionsEnabled = $discussionsEnabled;
     }
 
     public function getLicense()

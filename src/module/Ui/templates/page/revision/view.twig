@@ -21,6 +21,6 @@
         </div>
     </div>
 </section>
-{% if page.getForum() %}
-    {{ discussion(page).setForum(page.getForum()).render() }}
+{% if page.getDiscussionsEnabled() or page.getForum() %}
+    {{ discussion(page).render() }}
 {% endif %}
