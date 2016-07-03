@@ -9,6 +9,7 @@ use Page\Entity\PageRepositoryInterface;
 use Taxonomy\Manager\TaxonomyManagerInterface;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
+use Zend\Form\Element\Checkbox;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -29,8 +30,7 @@ class RepositoryForm extends Form
         $this->setObject($pageRepository);
 
         $this->add((new Text('slug'))->setLabel('Url:'));
-        $this->add((new Text('forum'))->setLabel('Forum Id:')->setAttribute('placeholder', '123'));
-
+        $this->add((new Checkbox('discussionsEnabled'))->setLabel('Discussions enabled'));
         $this->add(
             [
                 'type'    => 'Common\Form\Element\ObjectHidden',
