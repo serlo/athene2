@@ -141,6 +141,19 @@ return [
                         'course',
                         'text-exercise-group'
                     ]
+                ],
+                'musik' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
                 ]
             ],
             'english' => [
