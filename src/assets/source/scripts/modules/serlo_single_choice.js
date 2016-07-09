@@ -23,9 +23,10 @@ define(['jquery', 'sounds'], function ($, play) {
 
         function handleResize($self) {
             if (!$self.hasClass('extended')) {
+                MathJax.Hub.Queue(['Typeset', MathJax.Hub, $self.get(0)]);
                 MathJax.Hub.Queue(function () {
                     if (checkDimensions($self)) {
-                        MathJax.Hub.Queue(['Typeset', MathJax.Hub, $self.get(0)]);
+                        MathJax.Hub.Queue(['Reprocess', MathJax.Hub, $self.get(0)]);
                     }
                 });
             }
