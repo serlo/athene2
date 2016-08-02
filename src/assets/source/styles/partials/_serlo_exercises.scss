@@ -151,6 +151,9 @@
         padding-right: 0;
         margin-bottom: 15px;
         @include bottom-frame($serloBlue);
+        &::before {
+          z-index: inherit;
+        }
     }
 
     input.input-challenge-input {
