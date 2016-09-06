@@ -24,6 +24,7 @@ require.config({
         "howlerjs": "../bower_components/howler.js/howler",
         "string": "../bower_components/string/dist/string",
         "sticky": "../bower_components/jquery-sticky/jquery.sticky",
+        "autosize": "../bower_components/autosize/dist/autosize",
 
         "common": "modules/serlo_common",
         "easing": "libs/easing",

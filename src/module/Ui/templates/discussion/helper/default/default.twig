@@ -9,7 +9,12 @@
     <div class="blockquote blockquote-primary blockquote-box">
         <div class="row">
             <div class="col-md-12 discussion-form">
-                {{ form().render(form) }}
+                {{ form().openTag(form) }}
+                <div class="discussion-content-wrapper">
+                    {{ formRow(form.get('content')) }}
+                </div>
+                {{ formSubmit(form.get('start')) }}
+                {{ form().closeTag() }}
             </div>
         </div>
     </div>

@@ -59,11 +59,16 @@ class CommentForm extends AbstractForm
                 ]
             ]
         );
-        $this->add((new Textarea('content'))->setAttribute('placeholder', 'Content'));
-        $this->add(new OptInFieldset());
         $this->add(
-            (new Submit('start'))->setValue('Reply')->setAttribute('class', 'btn btn-success pull-right')
+            (new Textarea('content'))
+                ->setAttribute('placeholder', 'Content')
+                ->setAttribute('class', 'discussion-content autosize')
+                ->setAttribute('rows', 1)
         );
+        $this->add(
+            (new Submit('start'))->setValue('Start discussion')->setAttribute('class', 'btn btn-success pull-right discussion-submit')
+        );
+
 
         $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'instance', 'required' => true]);
