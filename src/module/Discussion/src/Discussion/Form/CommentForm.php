@@ -61,12 +61,12 @@ class CommentForm extends AbstractForm
         );
         $this->add(
             (new Textarea('content'))
-                ->setAttribute('placeholder', 'Content')
+                ->setAttribute('placeholder', 'Your response')
                 ->setAttribute('class', 'discussion-content autosize')
                 ->setAttribute('rows', 1)
         );
         $this->add(
-            (new Submit('start'))->setValue('Start discussion')->setAttribute('class', 'btn btn-success pull-right discussion-submit')
+            (new Submit('start'))->setValue('Reply')->setAttribute('class', 'btn btn-success pull-right discussion-submit')
         );
 
 

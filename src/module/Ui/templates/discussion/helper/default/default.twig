@@ -1,21 +1,13 @@
 {% set discussions = discussion().getDiscussions(object) %}
 {% set form = discussion().getForm('discussion', object, forum) %}
+<div class="separator"></div>
 <div class="h1 heading-content">
-    {% include 'discussion/partials/discuss-button' %}
-    <span>{{ 'Discussions' | trans }}</span>
+    <span>{{ 'Comments' | trans }}</span>
 </div>
-{% include 'discussion/partials/info-text' %}
-<div class="collapse" id="discussion-form-container-{{ object.getId() }}">
-    <div class="blockquote blockquote-primary blockquote-box">
-        <div class="row">
-            <div class="col-md-12 discussion-form">
-                {{ form().openTag(form) }}
-                <div class="discussion-content-wrapper">
-                    {{ formRow(form.get('content')) }}
-                </div>
-                {{ formSubmit(form.get('start')) }}
-                {{ form().closeTag() }}
-            </div>
+<div id="discussion-form-container-{{ object.getId() }}">
+    <div class="row">
+        <div class="col-md-12 discussion-form">
+            {% include 'discussion/partials/form-renderer' with {'form': form} %}
         </div>
     </div>
 </div>

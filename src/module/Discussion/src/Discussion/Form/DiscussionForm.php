@@ -61,12 +61,12 @@ class DiscussionForm extends AbstractForm
         $this->add(new Hidden('terms'));
         $this->add(
             (new Textarea('content'))
-                ->setAttribute('placeholder', 'Content')
+                ->setAttribute('placeholder', 'Ask a question or suggest an improvement')
                 ->setAttribute('class', 'discussion-content autosize')
                 ->setAttribute('rows', '1')
         );
         $this->add(
-                (new Submit('start'))->setValue('Start discussion')->setAttribute('class', 'btn btn-success pull-right discussion-submit')
+                (new Submit('start'))->setValue('Submit')->setAttribute('class', 'btn btn-success pull-right discussion-submit')
         );
 
         $inputFilter->add(['name' => 'instance', 'required' => true]);

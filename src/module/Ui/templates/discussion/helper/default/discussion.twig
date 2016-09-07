@@ -118,12 +118,7 @@
                         {% endif %}
                         <div class="discussion-form"
                              id="discussion-comment-form-container-{{ discussion.getId() }}">
-                            {{ form().openTag(form) }}
-                            <div class="discussion-content-wrapper">
-                                {{ formRow(form.get('content')) }}
-                            </div>
-                            {{ formSubmit(form.get('start')) }}
-                            {{ form().closeTag() }}
+                            {% include 'discussion/partials/form-renderer' with {'form' : form} %}
                         </div>
                     {% endif %}
                     {% if discussion.getArchived() %}

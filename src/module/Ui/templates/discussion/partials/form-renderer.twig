@@ -1,0 +1,6 @@
+{{ form().openTag(form) }}
+<div class="discussion-content-wrapper">
+    {{ formRow(form.get('content')) }}
+</div>
+{{ formSubmit(form.get('start')) }}
+{{ form().closeTag() }}
