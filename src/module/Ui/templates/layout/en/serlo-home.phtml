@@ -17,32 +17,37 @@ echo $this->doctype();
 <div class="wrap">
     <header id="header">
         <?php echo $this->partial('layout/partials/top-bar'); ?>
-
         <div class="container-fluid">
             <nav id="header-nav">
                 <div id="mobile-nav-toggle">
+
                     <button>
                         <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
+
                     <?php echo $this->brand()->getLogo(); ?>
                     <?php echo $this->brand()->getBrand(); ?>
-                    <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
+
+                    <span class="subject-title hidden-xs">
+                        <?php echo $this->navigation('default_navigation')
                             ->menu()
                             ->setPartial('layout/navigation/partial/active-subject')
                             ->setOnlyActiveBranch(true)
                             ->setMinDepth(0)
                             ->setMaxDepth(0)
                             ->render();
-                        ?></span>
+                        ?>
+                    </span>
                 </div>
-
                 <div id="mobile-nav-right">
                     <ul class="authentification nav navbar-nav">
                         <li class="dropdown">
+
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
                                 <span class="fa fa-user"></span>
                             </a>
+
                             <?php
                             echo $this->navigation('top_auth_navigation')
                                 ->menu()
@@ -86,19 +91,33 @@ echo $this->doctype();
                 <div class="home-serlo-row home-row">
                     <div class="home-column">
                         <div class="logo-wrapper">
-                            <span class="serlo-logo">V</span> <div class="serlo-brand">Serlo</div> </div>
-                        <p>It is our vision to provide high quality education worldwide - completely free of charge and without ads. Like on Wikipedia, every user can create new content or improve upon existing materials. We already provide thousands of articles and solved exercises in German - now it’s time to go international. </p>
+                            <?php echo $this->brand()->getLogo(); ?>
+                            <?php echo $this->brand()->getBrand(); ?>
+                        </div>
 
-                        <span style="padding: 15px; font-size: 16pt;"><a href="/23727">Learn more <i class="fa fa-arrow-circle-right"></i></a></span>
-                        <span style="padding: 15px; font-size: 16pt;"><a href="/23727">Participate <i class="fa fa-arrow-circle-right"></i></a></span>
+                        <p>
+                            It is our vision to provide high quality education worldwide -
+                            completely free of charge and without ads. Like on Wikipedia,
+                            every user can create new content or improve upon existing materials.
+                            We already provide thousands of articles and solved exercises in German -
+                            now it’s time to go international.
+                        </p>
+
+                        <a style="margin: 8px;" href="/23727">Learn more <i class="fa fa-arrow-circle-right"></i></a>
+                        <a style="margin: 8px;" href="/27469">Participate <i class="fa fa-arrow-circle-right"></i></a>
+
                     </div>
                 </div>
+
                 <div class="home-blue-row home-row">
                     <div></div>
                 </div>
+
                 <div class="home-launch-img-row home-row"></div>
+
                 <div class="home-community-wrapper">
                     <div class="home-community-row home-row">
+
                         <div class="home-column home-col-md-3">
                             <img src="/assets/images/home_participate.svg">
                             <h2>Serlo is a Wiki</h2>
@@ -109,6 +128,7 @@ echo $this->doctype();
                             <img src="/assets/images/home_commons.svg"><br>
                             <a href="/27469" class="home-hide-md">Participate <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
+
                         <div class="home-column home-col-md-3">
                             <img src="/assets/images/home_donate.svg">
                             <h2>Serlo is a nonprofit organization</h2>
@@ -119,10 +139,13 @@ echo $this->doctype();
                             <a href="/39837" class="home-hide-md">Donate <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
+
                     <div class="home-community-link-row home-row">
+
                         <div class="home-column home-col-md-3">
                             <a href="/27469" class="home-show-md">Participate <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
+
                         <div class="home-column home-col-md-3">
                             <a href="/39837" class="home-show-md">Donate <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
