@@ -29,8 +29,6 @@ define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_
 
             moment.lang(languageFromDOM);
 
-            new ory.Feedback($('.feedback-action', $context));
-
             // 'resizeDelay' will be triggered if no `resize` event was triggered for 0.5s
             var cachedWidth = $(window).width();
             $(window).resize(_.debounce(function () {
