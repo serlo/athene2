@@ -98,6 +98,18 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
   .serlo-en-home & {
     max-width: 400px;
+
+    .serlo-logo {
+      display: inline-block;
+      font-size: 65px;
+      height: 100px;
+      vertical-align: bottom;
+    }
+
+    .serlo-brand {
+      display: inline-block;
+      font-size: 36px;
+    }
   }
 
   .serlo-de-home & {
