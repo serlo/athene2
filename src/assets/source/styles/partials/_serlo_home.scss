@@ -57,17 +57,17 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-emph-link {
-      font-size: 23px;
-      color: $gray;
+  font-size: 23px;
+  color: $gray;
 
-      &:focus, &:hover, &:active {
-        text-decoration: none;
-        color: $serloBlue;
-      }
+  &:focus, &:hover, &:active {
+    text-decoration: none;
+    color: $serloBlue;
+  }
 
-      i {
-        color: $serloBlue;
-      }
+  i {
+    color: $serloBlue;
+  }
 }
 
 .home-serlo-row {
