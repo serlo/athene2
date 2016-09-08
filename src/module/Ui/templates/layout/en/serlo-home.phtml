@@ -17,32 +17,37 @@ echo $this->doctype();
 <div class="wrap">
     <header id="header">
         <?php echo $this->partial('layout/partials/top-bar'); ?>
-
         <div class="container-fluid">
             <nav id="header-nav">
                 <div id="mobile-nav-toggle">
+
                     <button>
                         <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
-                    <?php echo $this->brand()->getLogo(); ?>
-                    <?php echo $this->brand()->getBrand(); ?>
-                    <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
+
+                        <?php echo $this->brand()->getLogo(); ?>
+                        <?php echo $this->brand()->getBrand(); ?>
+
+                    <span class="subject-title hidden-xs">
+                        <?php echo $this->navigation('default_navigation')
                             ->menu()
                             ->setPartial('layout/navigation/partial/active-subject')
                             ->setOnlyActiveBranch(true)
                             ->setMinDepth(0)
                             ->setMaxDepth(0)
                             ->render();
-                        ?></span>
+                        ?>
+                    </span>
                 </div>
-
                 <div id="mobile-nav-right">
                     <ul class="authentification nav navbar-nav">
                         <li class="dropdown">
+
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
                                 <span class="fa fa-user"></span>
                             </a>
+
                             <?php
                             echo $this->navigation('top_auth_navigation')
                                 ->menu()
@@ -80,32 +85,35 @@ echo $this->doctype();
     <div id="page">
         <section class="clearfix">
             <div id="content-layout" class="clearfix">
+
                 <?php echo $this->partial('layout/partials/notifications'); ?>
 
-                <div class="home-subject-row home-row">
-                    <div class="home-column">
-                        <a href="/23591">Learn maths <i class="fa fa-arrow-circle-right"></i></a><br/>
-                    </div>
-                </div>
+                <div class="flasher"></div>
 
                 <div class="home-serlo-row home-row">
                     <div class="home-column">
                         <div class="logo-wrapper">
-                            <?php echo $this->brand()->getLogo(); ?>
-                            <?php echo $this->brand()->getBrand(); ?>
+                            <span class="serlo-logo">V</span>
+                            <div class="serlo-brand">Serlo</div>
                         </div>
 
                         <p>
-                            At Serlo, we aspire to collect every piece of knowledge you might ever need to succeed in
-                            school - completely free of charge and without ads. Like on Wikipedia, every user can create
-                            new content or improve upon existing materials. We already provide thousands of articles and
-                            solved exercises in German - now it’s time to go international.
+                            It is our vision to provide high quality education worldwide -
+                            completely free of charge and without ads. Like on Wikipedia,
+                            every user can create new content or improve upon existing materials.
+                            We already provide thousands of articles and solved exercises in German -
+                            now it’s time to go international.
                         </p>
+
                         <p>
-                            Our vision is that each and every one has free access to high-quality education and can
-                            learn according to their potential - let’s get started. Together.
+                            <a class="home-emph-link" style="margin: 8px;" href="/23727">
+                                Learn more <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+
+                            <a class="home-emph-link" style="margin: 8px;" href="/27469">
+                                Participate <i class="fa fa-arrow-circle-right"></i>
+                            </a>
                         </p>
-                        <a href="/23727">Learn more <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -117,21 +125,21 @@ echo $this->doctype();
 
                 <div class="home-community-wrapper">
                     <div class="home-community-row home-row">
-                        <div class="home-column home-col-md-3">
-                            <img src="/assets/images/home_participate.svg"/>
 
+                        <div class="home-column home-col-md-3">
+                            <img src="/assets/images/home_participate.svg">
                             <h2>Serlo is a Wiki</h2>
 
                             <p>
                                 You can help us to make education available for free: Become a part of Serlo's
                                 online-community.
                             </p>
-                            <img src="/assets/images/home_commons.svg"/><br/>
+                            <img src="/assets/images/home_commons.svg"><br>
                             <a href="/27469" class="home-hide-md">Participate <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
-                        <div class="home-column home-col-md-3">
-                            <img src="/assets/images/home_donate.svg"/>
 
+                        <div class="home-column home-col-md-3">
+                            <img src="/assets/images/home_donate.svg">
                             <h2>Serlo is a nonprofit organization</h2>
 
                             <p class="text-center">
@@ -143,11 +151,13 @@ echo $this->doctype();
                     </div>
 
                     <div class="home-community-link-row home-row">
+
                         <div class="home-column home-col-md-3">
-                            <a href="/27469" class="home-show-md">Participate <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/27469" class="home-emph-link home-show-md">Participate <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
+
                         <div class="home-column home-col-md-3">
-                            <a href="/39837" class="home-show-md">Donate <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/39837" class="home-emph-link home-show-md">Donate <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
