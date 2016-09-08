@@ -85,8 +85,10 @@ echo $this->doctype();
     <div id="page">
         <section class="clearfix">
             <div id="content-layout" class="clearfix">
-                <div class="flasher">
-                </div>
+
+                <?php echo $this->partial('layout/partials/notifications'); ?>
+
+                <div class="flasher"></div>
 
                 <div class="home-serlo-row home-row">
                     <div class="home-column">
@@ -107,6 +109,7 @@ echo $this->doctype();
                             <a class="home-emph-link" style="margin: 8px;" href="/23727">
                                 Learn more <i class="fa fa-arrow-circle-right"></i>
                             </a>
+
                             <a class="home-emph-link" style="margin: 8px;" href="/27469">
                                 Participate <i class="fa fa-arrow-circle-right"></i>
                             </a>
@@ -126,6 +129,7 @@ echo $this->doctype();
                         <div class="home-column home-col-md-3">
                             <img src="/assets/images/home_participate.svg">
                             <h2>Serlo is a Wiki</h2>
+
                             <p>
                                 You can help us to make education available for free: Become a part of Serlo's
                                 online-community.
@@ -137,6 +141,7 @@ echo $this->doctype();
                         <div class="home-column home-col-md-3">
                             <img src="/assets/images/home_donate.svg">
                             <h2>Serlo is a nonprofit organization</h2>
+
                             <p class="text-center">
                                 Software development, volunteer support and building the organization requires money -
                                 if you’d like to support our mission, please donate.
