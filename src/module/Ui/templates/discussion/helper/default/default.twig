@@ -1,9 +1,13 @@
 {% set discussions = discussion().getDiscussions(object) %}
 {% set form = discussion().getForm('discussion', object, forum) %}
-<div class="separator"></div>
 <div class="h1 heading-content">
+    {% if not isGranted('discussion.create') %}
+        {% include 'discussion/partials/discuss-button' %}
+    {% endif %}
     <span>{{ 'Comments' | trans }}</span>
 </div>
+{% include 'discussion/partials/info-text' %}
+{% if isGranted('discussion.create') %}
 <div id="discussion-form-container-{{ object.getId() }}">
     <div class="row">
         <div class="col-md-12 discussion-form">
@@ -11,6 +15,8 @@
         </div>
     </div>
 </div>
+{% endif %}
+
 {% if not discussions is empty %}
     <hr/>
 {% endif %}

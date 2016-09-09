@@ -1,5 +1,12 @@
 {% set discussions = discussion().getDiscussions(object) %}
 {% set form = discussion().getForm('discussion', object, forum) %}
+{% if not isGranted('discussion.create') %}
+    <div class="clear-fix">
+        {% include 'discussion/partials/discuss-button' %}
+    </div>
+{% endif %}
+{% include 'discussion/partials/info-text' %}
+{% if isGranted('discussion.create') %}
 <div id="discussion-form-container-{{ object.getId() }}">
     <div class="row">
         <div class="col-md-12 discussion-form">
@@ -7,8 +14,12 @@
         </div>
     </div>
 </div>
+{% endif %}
+
+<div class="top-buffer-10">
 <div class="discussions">
     {% for discussion in discussions %}
         {% include 'discussion/helper/default/discussion' with {'discussion': discussion, 'blockquoteClass': 'blockquote-noborder'} %}
     {% endfor %}
+</div>
 </div>

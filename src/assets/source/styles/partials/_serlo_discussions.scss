@@ -2,6 +2,10 @@
 
   .discussion-content-wrapper {
     @include bottom-frame($serloGreen);
+
+    &::before {
+      z-index:inherit;
+    }
   }
 
   .discussion-content {
