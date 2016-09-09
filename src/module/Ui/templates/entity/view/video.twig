@@ -27,6 +27,9 @@
     <section itemprop="description">
         {{ description }}
     </section>
+
+    <div class="separator"></div>
+
     {% include 'entity/view/partials/license' %}
     <section id="discussion-{{ entity.getId() }}">
         {{ discussion(entity).render() }}
