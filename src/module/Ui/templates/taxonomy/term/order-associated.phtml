@@ -2,6 +2,7 @@
 <div class="sortable" data-depth="1" data-active="false" data-action="<?php echo $this->url('taxonomy/term/sort-associated', array('term' => $this->term->getId(), 'association' => $this->association)); ?>">
     <ol class="sortable-list">
         <?php foreach($this->associations as $associated):?>
+            <?php if ($associated->isTrashed() || !$associated->hasCurrentRevision()) continue;?>
             <li class="sortable-item" data-id="<?php echo $associated->getId(); ?>">
                 <span class="sortable-handle"></span>
                 <div class="sortable-item-inner">
