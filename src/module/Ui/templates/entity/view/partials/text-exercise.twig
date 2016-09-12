@@ -1,6 +1,8 @@
 {% set revision = entity.getCurrentRevision() %}
 {% set solution = entity.getChildren('link', 'text-solution').first() %}
+{% set showSolution = (solution and solution.hasCurrentRevision() and not solution.isTrashed()) %}
 {% set hint = entity.getChildren('link', 'text-hint').first() %}
+{% set showHint = (hint and hint.hasCurrentRevision() and not hint.isTrashed()) %}
 {% set singleChoices = singleChoice().fetchSingleChoice(entity) %}
 {% set multipleChoices = multipleChoice().fetchMultipleChoice(entity) %}
 {% set rightContent = 'Right!' | trans %}
@@ -51,7 +53,7 @@
                     </div>
                 </div>
                 <div class="single-choice-solution">
-                    {% if solution %}
+                    {% if showSolution %}
                         <div class="solution collapsed" data-toggle="collapse"
                              data-target="#solution-{{ solution.getId() }}">
                             <a class="collapse-show-label">{% trans %} Show solution {% endtrans %}<span class="caret"></span></a>
@@ -102,7 +104,7 @@
                     </div>
                 </div>
                 <div class="multiple-choice-solution">
-                    {% if solution %}
+                    {% if showSolution %}
                         <div class="solution collapsed" data-toggle="collapse"
                              data-target="#solution-{{ solution.getId() }}">
                             <a class="collapse-show-label">{% trans %} Show solution {% endtrans %}<span class="caret"></span></a>
@@ -125,14 +127,14 @@
             </form>
         </section>
     {% endif %}
-    {% if hint %}
+    {% if showHint %}
         <div class="solution collapsed" data-toggle="collapse"
              data-target="#hint-{{ hint.getId() }}">
             <a class="collapse-show-label">{% trans %} Show hint {% endtrans %}<span class="caret"></span></a>
             <a class="collapse-hide-label">{% trans %} Hide hint {% endtrans %}<span class="dropup"><span class="caret"></span></span></a>
         </div>
     {% endif %}
-    {% if singleChoices|length == 0 and multipleChoices|length == 0 and not inputChallenge and solution %}
+    {% if singleChoices|length == 0 and multipleChoices|length == 0 and not inputChallenge and showSolution %}
         <div class="solution collapsed" data-toggle="collapse"
              data-target="#solution-{{ solution.getId() }}">
             <a class="collapse-show-label">{% trans %} Show solution {% endtrans %}<span class="caret"></span></a>
@@ -144,16 +146,17 @@
             {% include 'entity/view/default' with {
                 'entity': inputChallenge,
                 'solution': solution,
+                'showSolution': showSolution,
                 'collapse': true
             } only %}
         </section>
     {% endif %}
-    {% if hint %}
+    {% if showHint %}
         <section>
             {% include 'entity/view/default' with {'entity': hint, 'collapse': true} only %}
         </section>
     {% endif %}
-    {% if solution %}
+    {% if showSolution %}
         <section>
             {% include 'entity/view/default' with {'entity': solution, 'collapse': true} only %}
         </section>
