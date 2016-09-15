@@ -4,6 +4,7 @@
   "dependencies": {
     "jquery": "1.10.2",
     "jquery-ui": "1.10.3",
+    "jquery-sticky": "1.0.3",
     "bootstrap-sass-official": "3.3.0",
     "underscore": "1.5.2",
     "requirejs": "2.1.8",
