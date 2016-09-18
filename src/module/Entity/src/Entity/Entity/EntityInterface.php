@@ -43,6 +43,15 @@ interface EntityInterface
     public function getChildren($linkType, $childType = null);
 
     /**
+     * Returns the children that are revised and not trashed
+     *
+     * @param string $linkType
+     * @param string $childType
+     * @return Collection|EntityInterface[]
+     */
+    public function getValidChildren($linkType, $childType = null);
+
+    /**
      * Returns the parents
      *
      * @param string $linkyType

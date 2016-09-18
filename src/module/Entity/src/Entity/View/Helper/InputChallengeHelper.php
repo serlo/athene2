@@ -25,7 +25,7 @@ class InputChallengeHelper extends AbstractHelper
      * @return array
      */
     public function fetchInput(EntityInterface $entity) {
-        foreach ($entity->getChildren('link') as $child) {
+        foreach ($entity->getValidChildren('link') as $child) {
             if (in_array($child->getType()->getName(), [
                 'input-string-normalized-match-challenge',
                 'input-number-exact-match-challenge',
@@ -45,7 +45,7 @@ class InputChallengeHelper extends AbstractHelper
     public function fetchWrongInputs(EntityInterface $entity) {
         $wrongInputs = [];
 
-        foreach ($entity->getChildren('link') as $child) {
+        foreach ($entity->getValidChildren('link') as $child) {
             $revision = $child->getCurrentRevision();
 
             if ($revision) {

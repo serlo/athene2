@@ -12,7 +12,29 @@
                         Add {{ type }}
                     {% endtrans %}
                 </a>
+            </li>
+        {% else %}
+            {% set child = entity.getChildren('link', type).first() %}
+            {% if not(allowsManyChildren) and count == 1 and child.isTrashed() and isGranted('entity.revision.restore', child) %}
             <li>
+                <a rel="nofollow" href="{{ url('uuid/restore', {'id' : child.getId()}) }}">
+                    <span class="fa fa-recycle"></span>
+                    {% trans %}
+                    Restore {{ type }}
+                    {% endtrans %}
+                </a>
+            </li>
+            {% elseif not(allowsManyChildren) and count == 1 and not child.isTrashed() and not child.hasCurrentRevision()
+                    and isGranted('entity.revision.create', child) %}
+                <li>
+                    <a rel="nofollow" href="{{  url('entity/repository/add-revision', {'entity': child.getId()}) }}">
+                        <span class="fa fa-plus"></span>
+                        {% trans %}
+                        Add {{ type }}
+                        {% endtrans %}
+                    </a>
+                </li>
+            {% endif %}
         {% endif %}
     {% endfor %}
 {% endif %}

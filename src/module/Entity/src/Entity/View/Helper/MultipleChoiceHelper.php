@@ -27,13 +27,13 @@ class MultipleChoiceHelper extends AbstractHelper
      */
     public function fetchMultipleChoice(EntityInterface $entity) {
         $answers = [];
-        foreach ($entity->getChildren('link', 'multiple-choice-right-answer') as $add) {
+        foreach ($entity->getValidChildren('link', 'multiple-choice-right-answer') as $add) {
             $answers[] = [
                 'right' => true,
                 'entity' => $add
             ];
         }
-        foreach ($entity->getChildren('link', 'multiple-choice-wrong-answer') as $add) {
+        foreach ($entity->getValidChildren('link', 'multiple-choice-wrong-answer') as $add) {
             $answers[] = [
                 'right' => false,
                 'entity' => $add
