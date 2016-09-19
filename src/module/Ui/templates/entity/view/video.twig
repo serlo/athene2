@@ -4,16 +4,26 @@
     <section>
         {% set id = entity.getCurrentRevision().get('content') %}
 
-        {% if id matches '{^(https?:\\/\\/)?(.*?youtube.com\\/watch\\?v=.+|.*?youtu.be\\/.+)}' %}
+        {% if id matches '{^(https?:\\/\\/)?(.*?youtube\\.com\\/watch\\?v=.+|.*?youtu\\.be\\/.+)}' %}
             {% set src = 'https://www.youtube.com/embed/' ~ (id|split('?v='))|slice(1)|join ~ '?html5=1' %}
-        {% elseif id matches '{^(https?:\\/\\/)?(.*?vimeo.com\\/.+)}' %}
+            {% set type = 'youtube' %}
+        {% elseif id matches '{^(https?:\\/\\/)?(.*?vimeo\\.com\\/.+)}' %}
             {% set src = '//player.vimeo.com/video/' ~ (id|split('/')|last) %}
+            {% set type = 'vimeo' %}
+        {% elseif id matches '{^(https?:\\/\\/)?(.*?upload\\.wikimedia\\.org\\/.+)}'%}
+            {% set src = id %}
+            {% set type = 'wikimedia' %}
         {% endif %}
 
         {% if src is defined %}
             <p class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item"
-                    src="{{ src }}"></iframe>
+                {% if type == "wikimedia" %}
+                    <video controls class="embed-responsive-item"
+                        src="{{ src }}"></video>
+                {% else %}
+                    <iframe class="embed-responsive-item"
+                        src="{{ src }}"></iframe>
+                {% endif %}
             </p>
         {% else %}
             <p class="text-center">
