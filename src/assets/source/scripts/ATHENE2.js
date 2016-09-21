@@ -6,7 +6,7 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
-/*global define, require, MathJax, ory*/
+/*global define, require, MathJax*/
 define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
                    'moment', 'ajax_overlay', 'tracking', 'toggle_action', 'modals', 'trigger', 'sortable_list',
                    'timeago', 'spoiler', 'injections', 'moment_de', 'affix', 'forum_select', 'slider', 'math_puzzle', 'input_challenge', 'single_choice', 'multiple_choice',
