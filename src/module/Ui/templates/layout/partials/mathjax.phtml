@@ -1,7 +1,7 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: 'left',
-        extensions: ['tex2jax.js', 'CHTML-preview.js'],
+        extensions: ['tex2jax.js', 'fast-preview.js'],
         jax: ['input/TeX', 'output/SVG', 'output/CommonHTML'],
         skipStartupTypeset: true,
         tex2jax: {
@@ -16,15 +16,20 @@
             scale: 100,
             linebreaks: {
                 automatic: true
-            }
+            },
+            preferredFont: 'STIX'
         },
         SVG: {
             linebreaks: {
                 automatic: true
-            }
+            },
+            font: 'STIX-Web'
         },
-        showProcessingMessages: false
+        showProcessingMessages: false,
+        TeX: {
+            extensions: ['mhchem.js']
+        }
     });
 </script>
 <script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&locale=<?php echo $this->currentLanguage(); ?>"></script>
