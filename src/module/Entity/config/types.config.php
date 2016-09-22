@@ -24,6 +24,16 @@ return [
                             'changes'
                         ]
                     ],
+                    'link' => [
+                        'children' => [
+                            'text-solution' => [
+                                'multiple' => false
+                            ],
+                            'text-hint' => [
+                                'multiple' => false
+                            ]
+                        ]
+                    ],
                     'license' => [],
                     'taxonomy' => []
                 ]
