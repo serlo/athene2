@@ -90,6 +90,7 @@ define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_
                     $that.magnificPopup({
                         type: 'image',
                         closeOnContentClick: true,
+                        fixedContentPos: false,
                         items: {
                             src: $that.attr('src')
                         },

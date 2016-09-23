@@ -1,55 +1,7 @@
 /*global define, MathJax*/
 define(['jquery'], function ($) {
     "use strict";
-    var CollapseScrollHelper,
-        ToggleAction;
-
-    CollapseScrollHelper = (function () {
-        var base = null,
-            resizeInterval = null,
-            offset,
-            win = $(window),
-            scrollPos,
-            minScrollPos,
-            onResize;
-
-        onResize = function () {
-            offset = (base.offset().top + base.height()) - (win.scrollTop() + win.height());
-            if (offset > 0) {
-                scrollPos = base.offset().top + base.height() - win.height();
-
-                // it would be better to use the real height of the navigation here, but due to
-                //  attributes like box shadow, the height is not very easy to determine
-                //  so a fixed value of 70px is used instead
-                minScrollPos = base.offset().top - 70;
-                win.scrollTop(Math.min(scrollPos, minScrollPos));
-            }
-        };
-
-        return {
-            startCollapse: function (baseElement) {
-                base = baseElement;
-
-                if (resizeInterval) {
-                    clearInterval(resizeInterval);
-                    resizeInterval = null;
-                }
-
-                if (base) {
-                    // the delay might be larger due to performance reasons
-                    //  but could also be smaller for a smoother scrolling
-                    resizeInterval = setInterval(onResize, 20);
-                }
-            },
-
-            stopCollapse: function () {
-                if (resizeInterval) {
-                    clearInterval(resizeInterval);
-                    resizeInterval = null;
-                }
-            }
-        };
-    })();
+    var ToggleAction;
 
     ToggleAction = function () {
         return $(this).each(function () {
@@ -94,18 +46,6 @@ define(['jquery'], function ($) {
                     if (!$base.length) {
                         $base = $target;
                     }
-
-                    $target
-                        .on('show.bs.collapse', function (event) {
-                            if ($(this).is($(event.target))) {
-                                CollapseScrollHelper.startCollapse($base);
-                            }
-                        })
-                        .on('shown.bs.collapse', function (event) {
-                            if ($(this).is($(event.target))) {
-                                CollapseScrollHelper.stopCollapse();
-                            }
-                        });
                     $target
                         .one('show.bs.collapse', function () {
                             MathJax.Hub.Queue(['Reprocess', MathJax.Hub, $target.get()]);
