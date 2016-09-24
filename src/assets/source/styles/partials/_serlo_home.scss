@@ -70,6 +70,31 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
+.home-header {
+  text-align: center;
+  font-size: 30px;
+  color: $gray;
+
+  .serlo-logo {
+    display: inline-block;
+    font-size: 50px;
+    height: 100px;
+    vertical-align: bottom;
+  }
+
+  .serlo-brand {
+    display: inline-block;
+    font-size: 36px;
+  }
+
+  .header-text {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: bottom;
+    margin-bottom: 6px;
+  }
+}
+
 .home-serlo-row {
   margin: 50px auto;
 
