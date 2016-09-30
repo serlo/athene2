@@ -13,10 +13,10 @@
 {% set inputChallenge = inputChallenge().fetchInput(entity) %}
 <article class="text-exercise  {{ multipleChoices|length>4 or singleChoices|length>4 ? 'extended' }}" itemscope itemtype="http://schema.org/Article">
     <section class="row">
-        <div class="col-xs-10 col-sm-8 col-md-8" itemprop="articleBody">
+        <div class="col-xs-12 col-sm-11" itemprop="articleBody">
             {{ markdown().toHtml(revision.get('content')) | raw }}
         </div>
-        <div class="col-xs-2 col-sm-4 col-md-4">
+        <div class="hidden-xs col-sm-1" style="padding:0">
             <div class="pull-right">
                 <div class="btn-group">
                     {% set subitems = [] %}
