@@ -36,6 +36,11 @@
         display: none !important;
       }
     }
+
+    .main-headline-link, .main-headline-link:hover{
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   #mobile-nav-right {
