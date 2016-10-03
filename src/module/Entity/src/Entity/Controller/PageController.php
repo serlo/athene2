@@ -36,9 +36,17 @@ class PageController extends AbstractController
         if ($type->hasComponent('redirect')) {
             /* @var $redirect RedirectOptions */
             $redirect = $type->getComponent('redirect');
-            foreach ($entity->getChildren('link', $redirect->getToType()) as $child) {
-                if (!$child->isTrashed() && $child->hasCurrentRevision()) {
-                    return $this->redirect()->toRoute('uuid/get', ['uuid' => $child->getId()]);
+
+            if ($redirect->getToType() === 'parent') {
+                $parent = $entity->getParents('link')->first();
+                if (!$parent->isTrashed() && $parent->hasCurrentRevision()) {
+                    return $this->redirect()->toRoute('uuid/get', ['uuid' => $parent->getId()]);
+                }
+            } else {
+                foreach ($entity->getChildren('link', $redirect->getToType()) as $child) {
+                    if (!$child->isTrashed() && $child->hasCurrentRevision()) {
+                        return $this->redirect()->toRoute('uuid/get', ['uuid' => $child->getId()]);
+                    }
                 }
             }
         }
