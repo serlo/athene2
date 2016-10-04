@@ -1,4 +1,6 @@
+{% do form.prepare() %}
 {{ form().openTag(form) }}
+{{ formCollection(form.get('subscription')) }}
 <div class="discussion-content-wrapper">
     {{ formRow(form.get('content')) }}
 </div>

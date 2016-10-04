@@ -10,6 +10,7 @@ namespace Discussion\Form;
 
 use Common\Hydrator\HydratorPluginAwareDoctrineObject;
 use Doctrine\Common\Persistence\ObjectManager;
+use Notification\Form\OptInHiddenFieldset;
 use Zend\Form\Element\Hidden;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Textarea;
@@ -59,14 +60,17 @@ class DiscussionForm extends AbstractForm
             ]
         );
         $this->add(new Hidden('terms'));
+
+        $this->add(new OptInHiddenFieldset());
+
         $this->add(
             (new Textarea('content'))
-                ->setAttribute('placeholder', 'Ask a question or suggest an improvement')
+                ->setAttribute('placeholder', t('Ask a question or suggest an improvement'))
                 ->setAttribute('class', 'discussion-content autosize')
                 ->setAttribute('rows', '1')
         );
         $this->add(
-                (new Submit('start'))->setValue('Submit')->setAttribute('class', 'btn btn-success pull-right discussion-submit')
+                (new Submit('start'))->setValue(t('Submit'))->setAttribute('class', 'btn btn-success pull-right discussion-submit')
         );
 
         $inputFilter->add(['name' => 'instance', 'required' => true]);
