@@ -109,6 +109,7 @@ $twig->addFunction(new \Twig_SimpleFunction('formElementErrors', true));
 $twig->addFunction(new \Twig_SimpleFunction('formMultiCheckbox', true));
 $twig->addFunction(new \Twig_SimpleFunction('formRadio', true));
 $twig->addFunction(new \Twig_SimpleFunction('formRow', true));
+$twig->addFunction(new \Twig_SimpleFunction('formSubmit', true));
 $twig->addFunction(new \Twig_SimpleFunction('formStatic', true));
 $twig->addFunction(new \Twig_SimpleFunction('formErrors', true));
 $twig->addFunction(new \Twig_SimpleFunction('glyphicon', true));
