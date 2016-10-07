@@ -18,7 +18,9 @@
                 {% for childsChild in child.findChildrenByTrashed(false) if childsChild.getType().getName() not in ['topic-folder' , 'curriculum-topic-folder'] %}
                     {% set currentSub %}
                     <div class="col-xs-12">
-                        <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">{{ childsChild.getName() }}</a>
+                        <p>
+                            <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">{{ childsChild.getName() }}</a>
+                        </p>
                     </div>
                     {% endset %}
                     {% set subfolders = subfolders ~ currentSub %}
