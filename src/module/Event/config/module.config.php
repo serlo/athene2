@@ -66,6 +66,11 @@ return [
                     'setServiceLocator' => [
                         'required' => true
                     ]
+                ],
+                __NAMESPACE__ . '\Controller\EventController' => [
+                    'setUserManager' => [
+                        'required' => true
+                    ]
                 ]
             ]
         ],
@@ -111,6 +116,38 @@ return [
                             'route'    => '/history',
                         ],
                         'child_routes' => [
+                            'user'    => [
+                                'type'    => 'literal',
+                                'may_terminate' => false,
+                                'options' => [
+                                    'route' => '/user',
+                                ],
+                                'child_routes' => [
+                                    'me' => [
+                                        'type' => 'segment',
+                                        'may_terminate' => true,
+                                        'options' => [
+                                            'route' => '/me',
+                                            'defaults' => [
+                                                'action' => 'me'
+                                            ]
+                                        ]
+                                    ],
+                                    'id' => [
+                                        'type' => 'segment',
+                                        'may_terminate' => true,
+                                        'options' => [
+                                            'route' => '/:id',
+                                            'constraints' => [
+                                                'id' => '[0-9]+'
+                                            ],
+                                            'defaults' => [
+                                                'action' => 'user'
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
                             'object' => [
                                 'type'    => 'segment',
                                 'options' => [

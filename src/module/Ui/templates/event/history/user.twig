@@ -1,0 +1,9 @@
+{{ pageHeader('Event log' | trans)
+    .setSubtitle(('Page' | trans) ~ ' ' ~ paginator.getCurrentPageNumber())
+    .setBacklink(url('user/profile', {'id': userId})) }}
+<ul>
+    {% for event in paginator %}
+        <li>{{ eventLog().renderEvent(event) }}</li>
+    {% endfor %}
+</ul>
+{{ paginationControl(paginator, 'Sliding', 'common/paginator', {'route': 'event/history/user/id', 'params': {'id': userId}}) }}

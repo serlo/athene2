@@ -269,6 +269,11 @@ return [
                         'route' => 'subscriptions/manage',
                         'icon' => 'eye-open',
                         'translate' => true
+                    ],
+                    [
+                        'label' => t('Event log'),
+                        'route' => 'event/history/user/me',
+                        'translate' => true
                     ]
                 ]
             ],
