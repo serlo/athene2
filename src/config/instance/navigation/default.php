@@ -247,9 +247,12 @@ return [
                         'visible' => false
                     ],
                     [
-                        'label' => t('Profile'),
                         'route' => 'user/me',
-                        'icon' => 'user',
+                        'visible' => false
+                    ],
+                    [
+                        'label' => t('Public profile'),
+                        'route' => 'user/public',
                         'translate' => true
                     ],
                     [

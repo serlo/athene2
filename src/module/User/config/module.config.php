@@ -97,6 +97,16 @@ return [
                             ]
                         ]
                     ],
+                    'public' => [
+                        'type' => 'literal',
+                        'may_terminate' => true,
+                        'options' => [
+                            'route' => '/public',
+                            'defaults' => [
+                                'action' => 'public'
+                            ]
+                        ]
+                    ],
                     'profile'  => [
                         'type'          => 'segment',
                         'may_terminate' => true,

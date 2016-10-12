@@ -39,6 +39,17 @@ class UserController extends AbstractUserController
         return $view;
     }
 
+    public function publicAction()
+    {
+        $user = $this->getUserManager()->getUserFromAuthenticator();
+
+        if (!$user) {
+            throw new UnauthorizedException;
+        }
+
+        return $this->redirect()->toRoute('user/profile', ['id' => $user->getUsername()]);
+    }
+
     public function profileAction()
     {
         try {
