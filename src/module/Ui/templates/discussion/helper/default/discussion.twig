@@ -110,23 +110,17 @@
                     </section>
                     {% if not discussion.getArchived() %}
                         {% set form = discussion().getForm('comment', discussion) %}
-                        {% if isGranted('discussion.comment.create', discussion) %}
-                            <div class="clearfix">
-                                <button class="btn btn-info pull-right" data-toggle="collapse"
-                                        data-target="#discussion-comment-form-container-{{ discussion.getId() }}">
-                                    <span class="fa fa-share"></span> {{ 'Reply' | trans }}
-                                </button>
-                            </div>
-                        {% else %}
+                        {% if not isGranted('discussion.comment.create', discussion) %}
                             <a class="btn btn-info pull-right"
                                href="{{ url('authentication/login', [], {'query': {'ref': form.getAttribute('action') }}) }}">
                                 <span class="fa fa-share"></span> {{ 'Reply' | trans }}
                             </a>
-                        {% endif %}
-                        <div class="collapse discussion-form"
+                        {% else %}
+                        <div class="discussion-form"
                              id="discussion-comment-form-container-{{ discussion.getId() }}">
-                            {{ form().render(form) }}
+                            {% include 'discussion/partials/form-renderer' with {'form' : form} %}
                         </div>
+                        {% endif %}
                     {% endif %}
                     {% if discussion.getArchived() %}
                 </div>

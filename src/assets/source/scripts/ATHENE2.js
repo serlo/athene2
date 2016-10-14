@@ -8,13 +8,13 @@
  */
 /*global define, require, MathJax*/
 define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
-                   'moment', 'ajax_overlay', 'tracking', 'toggle_action', 'modals', 'trigger', 'sortable_list',
+                   'moment', 'ajax_overlay', 'tracking', 'autosize', 'toggle_action', 'modals', 'trigger', 'sortable_list',
                    'timeago', 'spoiler', 'injections', 'moment_de', 'forum_select', 'slider', 'math_puzzle', 'input_challenge', 'single_choice', 'multiple_choice',
                    'magnific_popup', 'easing', 'nestable', 'historyjs', 'polyfills', 'datepicker', 'event_extensions', 'jasny', 'birdnest', 'sticky'
 ],
     function (
         $, _, Common, SideNavigation, MobileNavigation, Breadcrumbs, t, SideElement, Content, SystemNotification, moment, AjaxOverlay,
-        Tracking
+        Tracking, autosize
         ) {
         "use strict";
         var languageFromDOM,
@@ -84,6 +84,8 @@ define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_
                 $('.text-exercise:has(.input-challenge-group)', $context).InputChallenge();
                 $('.text-exercise:has(.single-choice-group)', $context).SingleChoice();
                 $('.text-exercise:has(.multiple-choice-group)', $context).MultipleChoice();
+
+                autosize($('textarea.autosize'));
 
                 $('.r img', $context).each(function () {
                     var $that = $(this);

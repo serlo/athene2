@@ -10,7 +10,7 @@ namespace Discussion\Form;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
-use Notification\Form\OptInFieldset;
+use Notification\Form\OptInHiddenFieldset;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Textarea;
 use Zend\InputFilter\InputFilter;
@@ -59,11 +59,20 @@ class CommentForm extends AbstractForm
                 ]
             ]
         );
-        $this->add((new Textarea('content'))->setAttribute('placeholder', 'Content'));
-        $this->add(new OptInFieldset());
+
+
+        $this->add(new OptInHiddenFieldset());
+
         $this->add(
-            (new Submit('start'))->setValue('Reply')->setAttribute('class', 'btn btn-success pull-right')
+            (new Textarea('content'))
+                ->setAttribute('placeholder', t('Your response'))
+                ->setAttribute('class', 'discussion-content autosize')
+                ->setAttribute('rows', 1)
         );
+        $this->add(
+            (new Submit('start'))->setValue(t('Reply'))->setAttribute('class', 'btn btn-success pull-right discussion-submit')
+        );
+
 
         $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'instance', 'required' => true]);
