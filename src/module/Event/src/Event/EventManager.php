@@ -97,6 +97,24 @@ class EventManager implements EventManagerInterface
         return $collection;
     }
 
+    public function findAllEventsByActor($userId, $page, $limit = 100)
+    {
+        if (!is_numeric($userId)) {
+            throw new Exception\InvalidArgumentException(sprintf(
+                'Expected numeric but got "%s"',
+                gettype($userId)
+            ));
+        }
+
+        $className = $this->getClassResolver()->resolveClassName('Event\Entity\EventLogInterface');
+        $instance  = $this->instanceManager->getInstanceFromRequest();
+        $dql       = 'SELECT e FROM ' . $className . ' e ' . ' WHERE e.instance = ' . $instance->getId() . ' AND e.actor = ' . $userId . ' ORDER BY e.id DESC';
+        $paginator = new DoctrinePaginatorFactory($this->objectManager);
+        $paginator = $paginator->createPaginator($dql, $page, $limit);
+        $paginator->setFilter($this->persistentEventLogFilterChain);
+        return $paginator;
+    }
+
     public function findEventsByObject($objectId, $recursive = true, array $filters = [])
     {
         if (!is_numeric($objectId)) {

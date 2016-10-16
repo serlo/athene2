@@ -25,6 +25,13 @@ interface EventManagerInterface
     public function findEventsByActor($userId);
 
     /**
+     * @param int $userId
+     * @param int $page
+     * @param int $limit
+     * @return Paginator
+     */
+    public function findAllEventsByActor($userId, $page, $limit = 100);
+    /**
      * @param int   $objectId
      * @param bool  $recursive
      * @param array $filter
