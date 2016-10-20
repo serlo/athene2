@@ -5,7 +5,6 @@
         {% include 'discussion/partials/discuss-button' %}
     </div>
 {% endif %}
-{% include 'discussion/partials/info-text' %}
 {% if isGranted('discussion.create') %}
 <div id="discussion-form-container-{{ object.getId() }}">
     <div class="row">
