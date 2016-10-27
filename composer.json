@@ -26,9 +26,10 @@
         "dnode/dnode": "=v0.2.0",
         "stroker/cache": "=0.3.2",
         "zf-commons/zfc-twig": "=1.2",
-        "umpirsky/twig-gettext-extractor": "=1.2.0",
+        "umpirsky/twig-gettext-extractor": "=1.1.5",
         "ewgo/solarium-module": "=1.0.2",
-        "twig/twig": "=v1.20.0"
+        "twig/twig": "=v1.20.0",
+        "twig/extensions": "=v1.3.0"
     },
     "config": {
         "vendor-dir": "src/vendor"
