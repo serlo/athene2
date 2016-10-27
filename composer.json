@@ -21,7 +21,7 @@
         "php": ">=5.5",
         "zf-commons/zfc-base": "0.1.2",
         "zendframework/zendframework": "2.4.9",
-        "neilime/zf2-twb-bundle": "2.*@stable",
+        "neilime/zf2-twb-bundle": "2.6.1",
         "zendframework/zend-developer-tools": "0.0.2",
         "dnode/dnode": "1.2.0",
         "stroker/cache": "0.3.2",
