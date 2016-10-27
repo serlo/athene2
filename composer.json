@@ -28,7 +28,7 @@
         "zf-commons/zfc-twig": "1.2",
         "umpirsky/twig-gettext-extractor": "1.2.*",
         "ewgo/solarium-module": "~1.0",
-        "twig/twig": "v1.20.0"
+        "twig/twig": "v1.26.0"
     },
     "config": {
         "vendor-dir": "src/vendor"
