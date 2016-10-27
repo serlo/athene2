@@ -23,10 +23,10 @@
         "zendframework/zendframework": "=2.4.9",
         "neilime/zf2-twb-bundle": "=2.6.1",
         "zendframework/zend-developer-tools": "=0.0.2",
-        "dnode/dnode": "=1.2.0",
+        "dnode/dnode": "=v0.2.0",
         "stroker/cache": "=0.3.2",
         "zf-commons/zfc-twig": "=1.2",
-        "umpirsky/twig-gettext-extractor": "=1.2.1",
+        "umpirsky/twig-gettext-extractor": "=1.2.0",
         "ewgo/solarium-module": "=1.0.2",
         "twig/twig": "=v1.20.0"
     },
