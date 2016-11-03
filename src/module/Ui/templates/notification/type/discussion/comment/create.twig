@@ -1,7 +1,11 @@
 {% set event = notification.getEvents().current() %}
 {% set user = normalize().toAnchor(event.getActor(), true) %}
 {% set comment = normalize().toAnchor(event.getObject(), true) %}
-{% set discussion = normalize().toAnchor(event.getParameter('discussion'), true) %}
+{% set discussion %}
+    <a href="{{ normalize().toUrl(event.getParameter('discussion'), true) }}">
+        {{ normalize().toPreview(event.getParameter('discussion')) }}
+    </a>
+{% endset %}
 {% set content = normalize().toPreview(event.getObject()) %}
 <div class="dropdown-menu-item">
     {% trans %}

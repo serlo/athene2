@@ -1,5 +1,9 @@
 {% set user = normalize().toAnchor(event.getActor()) %}
-{% set discussion = normalize().toAnchor(event.getParameter('discussion')) %}
+{% set discussion %}
+    <a href="{{ normalize().toUrl(event.getParameter('discussion')) }}">
+        {{ normalize().toPreview(event.getParameter('discussion')) }}
+    </a>
+{% endset %}
 {% set content = normalize().toPreview(event.getObject()) %}
 {% trans %}
     {{ user }} commented {{ discussion }}: {{ content }}
