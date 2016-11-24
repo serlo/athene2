@@ -38,62 +38,101 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-subject-row {
-  max-width: 400px;
-  margin: 25px auto 100px;
-  background: url('../images/home_title_maths.svg') no-repeat;
-  background-size: 400px;
+  margin: 0px auto 100px auto;
+  padding: auto;
 
   .home-column {
-    > a {
-      padding-top: 300px;
-      display: block;
-      font-size: 32px;
-    }
+    display: flex;
+    align-items: center;
+  }
 
-    p > a {
-      font-weight: bold;
+  .home-subject {
+    display: inline-block;
+    vertical-align: middle;
+    br {
+      align: center;
     }
+  }
+
+  .home-emph-link {
+    font-size: 20px;
+  }
+}
+
+.home-subject-column {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  i {
+    padding-left: 0;
+  }
+  .col-xs-10 {
+    padding-right: 0;
+  }
+  .fa {
+    margin-left: 10px;
   }
 }
 
 .home-emph-link {
   font-size: 23px;
   color: $gray;
-
+  i {
+    color: $serloBlue;
+  }
   &:focus, &:hover, &:active {
     text-decoration: none;
     color: $serloBlue;
+    .home-subject-symbol {
+      .blue{fill:#00B2D8;}
+      .green{fill:#BECD2B;}
+    }
+    i {
+      color: $serloBlue;
+    }
+  }
+}
+
+.home-header {
+  text-align: center;
+  font-size: 36px;
+  color: $gray;
+  margin-bottom: 120px;
+  margin-top: 40px;
+
+  .serlo-logo {
+    display: inline-block;
+    font-size: 50px;
+    height: 100px;
+    vertical-align: bottom;
+    margin-left: -20px;
   }
 
-  i {
-    color: $serloBlue;
+  .serlo-brand {
+    display: inline-block;
+  }
+
+  .header-text {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: bottom;
+    margin-bottom: 4px;
   }
 }
 
 .home-serlo-row {
-  margin: 50px auto;
+  margin: 0 auto 100px auto;
 
   .home-column {
     margin-bottom: 25px;
-
     @media screen and (min-width: $homeBreakpoint-md-min) {
       margin-bottom: 0;
     }
-
-    + .home-column {
-      margin-bottom: 0;
+    a {
+      display: inline-block;
+      padding: 0 20px;
     }
-  }
-
-  .serlo-logo {
-    font-size: 60px;
-    line-height: 1;
-  }
-
-  .serlo-brand {
-    font-size: 30px;
-    line-height: 1;
-    margin: 10px 0;
   }
 
   .serlo-en-home & {
@@ -159,26 +198,19 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
   .serlo-de-home & {
     .home-column {
-      ul {
-        display: inline-block;
-        font-size: 50px;
-        padding: 50px 0;
-
-        @media (min-width: $homeBreakpoint-lg-min) {
-          padding: 50px 600px 50px 0;
-          background: url('../images/de/home_learn.svg') no-repeat right;
+      display: inline-block;
+      padding: 70px 0;
+      @media (min-width: $homeBreakpoint-lg-min) {
+        padding: 100px 600px 100px 0;
+        background: url('../images/de/home_learn.svg') no-repeat right;
+      }
+      .home-emph-link {
+        color: white;
+        &:focus, &:hover, &:active {
+          text-decoration: underline;
         }
-
-        li {
-          padding: 15px 0;
-          line-height: 1;
-
-          span {
-            display: block;
-            font-size: 25px;
-            color: #bfdeef;
-            padding: 0;
-          }
+        i {
+          color: white;
         }
       }
     }

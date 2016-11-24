@@ -81,81 +81,102 @@ echo $this->doctype();
         <section class="clearfix">
             <div id="content-layout" class="clearfix">
                 <?php echo $this->partial('layout/partials/notifications'); ?>
-
-                <div class="home-subject-row home-row">
-                    <div class="home-column">
-                        <a class="home-emph-link" href="/mathe">Mathematik lernen <i class="fa fa-arrow-circle-right"></i></a><br/>
-
-                        <p>oder <a href="/biologie">Biologie</a>, <a href="/nachhaltigkeit">Angewandte Nachhaltigkeit</a>, <a href="/neue-faecher">…</a></p>
-                    </div>
+                <div class="home-header">
+                    <?php echo $this->brand()->getLogo(); ?>
+                    <?php echo $this->brand()->getBrand(); ?>
+                    <div class="header-text">Die freie Lernplattform</div>
                 </div>
 
-                <div class="home-serlo-row home-row">
-                    <div class="home-column home-col-lg-2 home-col-md-3">
-                        <div class="logo-wrapper">
-                            <?php echo $this->brand()->getLogo(); ?>
-                            <?php echo $this->brand()->getBrand(); ?>
+                <div class="home-row col-lg-1"></div>
+                <div class="home-row col-md-12 col-lg-10">
+                    <div class="home-row home-subject-row">
+                        <div class="home-column col-md-3 col-xs-6 container">
+                            <a class="home-emph-link" href="/mathe">
+                                <div class="row">
+                                    <div class="col-xs-12 home-subject-symbol">
+                                        <?php echo $this->partial('layout/de/home-math-symbol');?>
+                                    </div>
+                                </div>
+                                <div class="row home-subject-column">
+                                    <div class="col-xs-12">
+                                        <span class="home-subject">Mathematik <br> lernen </span>
+                                        <i class="fa fa-arrow-circle-right home-subject"></i>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-
-                        <p>
-                            Serlo bietet einfache Erklärungen, tausende Aufgaben und Musterlösungen komplett kostenlos.
-                            Unsere Vision ist es, hochwertige Bildung weltweit frei verfügbar zu machen. Dafür bauen
-                            wir eine Wikipedia für's Lernen.
-                        </p>
-                        <a class="home-emph-link" href="/18922">Mehr erfahren <i class="fa fa-arrow-circle-right"></i></a>
+                        <div class="home-column col-md-3 col-xs-6 container">
+                            <a class="home-emph-link" href="/abc">
+                                <div class="row">
+                                    <div class="col-xs-12 home-subject-symbol">
+                                        <?php echo $this->partial('layout/de/home-abc-symbol');?>
+                                    </div>
+                                </div>
+                                <div class="row home-subject-column">
+                                    <div class="col-xs-12">
+                                        <span class="home-subject">Alphabetisierung <br> für Neusprachler</span>
+                                        <i class="fa fa-arrow-circle-right home-subject"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="home-column col-xs-6 col-md-3 container">
+                            <a class="home-emph-link" href="/nachhaltigkeit">
+                                <div class="row home-subject-column">
+                                    <div class="col-xs-12 home-subject-symbol">
+                                        <?php echo $this->partial('layout/de/home-sustain-symbol');?>
+                                    </div>
+                                </div>
+                                <div class="row home-subject-column">
+                                    <div class="col-xs-12">
+                                        <span class="home-subject">Nachhaltigkeit <br> lernen</span>
+                                        <i class="fa fa-arrow-circle-right home-subject"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="home-column col-md-3 col-xs-6 container">
+                            <a class="home-emph-link" href="/biologie">
+                                <div class="row">
+                                    <div class="col-xs-12 home-subject-symbol">
+                                        <?php echo $this->partial('layout/de/home-bio-symbol');?>
+                                    </div>
+                                </div>
+                                <div class="row home-subject-column">
+                                    <div class="col-xs-12">
+                                        <span class="home-subject">Biologie <br> lernen</span>
+                                        <i class="fa fa-arrow-circle-right home-subject"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
+                </div>
+                <div class="home-row col-lg-1"></div>
 
-                    <div class="home-column home-col-lg-2 home-col-md-3">
-                        <h2>Hauptpartner</h2>
-                        <ul>
-                            <li>
-                                <a href="/21456">
-                                    <img src="/assets/images/de/home_logo_tum.svg" alt="Technische Universität München"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/21456">
-                                    <img src="/assets/images/de/home_logo_sauer.png" alt="Hans Sauer Stiftung"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/21456">
-                                    <img src="/assets/images/de/home_logo_wiki.svg" alt="Wikimedia Deutschland"/>
-                                </a>
-                            </li>
-                        </ul>
+                <div class="home-serlo-row home-row">
+                    <div class="home-column home-col-md-1"></div>
+                    <div class="home-column home-col-md-4">
+                        <p><h2>Hauptpartner</h2></p>
+                        <a href="/21456">
+                            <img src="/assets/images/de/home_logo_tum.svg" alt="Technische Universität München"/>
+                        </a>
+                        <a href="/21456">
+                            <img src="/assets/images/de/home_logo_sauer.png" alt="Hans Sauer Stiftung"/>
+                        </a>
+                        <a href="/21456">
+                            <img src="/assets/images/de/home_logo_wiki.svg" alt="Wikimedia Deutschland"/>
+                        </a>
                     </div>
-
-                    <div class="home-column home-col-lg-2 home-show-lg">
-                        <h2>Presse</h2>
-                        <blockquote>
-                            Geld für die Mathe-Nachhilfe sparen, dank Serlo.
-                            <footer><a href="https://soundcloud.com/serlo/ndr-radiointerview">NDR Radiobeitrag.</a>
-                            </footer>
-                        </blockquote>
-                        <blockquote>
-                            Social Startups. Ideen, die die Gesellschaft weiterbringen.
-                            <footer><a
-                                    href="http://www.br.de/mediathek/video/sendungen/nachrichten/startup-gesellschaftsrelevant-sozial-100.html#&time=">BR
-                                    Abendnachrichten.</a></footer>
-                        </blockquote>
-                        <blockquote>
-                            Interview mit Serlo-Gründer Simon Köhl.
-                            <footer><a
-                                    href="http://www.thechanger.org/de/blog-de/lernplattform-serlo-interview-simon-kohl/">The
-                                    Changer.</a></footer>
-                        </blockquote>
-                        <a class="home-emph-link" href="/presse"><i class="fa fa-plus-circle"></i></a>
-                    </div>
+                    <div class="home-column home-col-md-1"></div>
                 </div>
 
                 <div class="home-blue-row home-row">
-                    <div class="home-column">
-                        <ul>
-                            <li>837 <span>Artikel</span></li>
-                            <li>4621 <span>Aufgaben</span></li>
-                            <li>120 <span>Kurse und Videos</span></li>
-                        </ul>
+                    <div class="home-column" style="color: white">
+                        <p>Serlo bietet einfache Erklärungen, tausende <br> Aufgaben und Musterlösungen komplett <br> kostenlos.
+                            Unsere Vision ist es, hochwertige <br> Bildung weltweit frei verfügbar zu machen. <br> Dafür bauen
+                            wir eine Wikipedia für's Lernen.</p>
+                        <a class="home-emph-link" href="/18922">Mehr erfahren <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
