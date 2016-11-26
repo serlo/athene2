@@ -59,28 +59,10 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
-.home-subject-column {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  i {
-    padding-left: 0;
-  }
-  .col-xs-10 {
-    padding-right: 0;
-  }
-  .fa {
-    margin-left: 10px;
-  }
-}
-
 .home-emph-link {
   font-size: 23px;
   color: $gray;
-  i {
-    color: $serloBlue;
-  }
+
   &:focus, &:hover, &:active {
     text-decoration: none;
     color: $serloBlue;
