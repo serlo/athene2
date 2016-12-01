@@ -1,0 +1,22 @@
+<div class="btn-group btn-group-community">
+    {% include 'entity/view/partials/actions/versioning/edit' %}
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <span class="fa fa-cog"></span>
+        <span class="sr-only">{{ 'Toggle Dropdown' | trans }}</span>
+    </button>
+    <ul class="dropdown-menu pull-right" role="menu">
+        <li class="dropdown-submenu" style="min-width: 200px;">
+            <a rel="nofollow" tabindex="-1" href="#">{{ 'This Course-Page' | trans }}</a>
+            <ul class="dropdown-menu left">
+                {% include 'entity/view/partials/actions/course/course-controls' %}
+            </ul>
+        </li>
+        <li class="dropdown-submenu" style="min-width: 200px;">
+            <a rel="nofollow" tabindex="-1" href="#">{{ 'Whole Course' | trans }}</a>
+            <ul class="dropdown-menu left">
+                {{ include('entity/view/partials/actions/versioning/edit-essential', {'entity':parent}) }}
+                {{ include('entity/view/partials/actions/course/course-controls', {'entity': parent} ) }}
+            </ul>
+        </li>
+    </ul>
+</div>

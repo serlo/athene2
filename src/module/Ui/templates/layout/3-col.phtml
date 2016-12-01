@@ -19,13 +19,20 @@ echo $this->doctype();
     <?php echo $this->partial('layout/partials/header'); ?>
 
     <div id="page" class="container clearfix<?php echo (!empty($this->registry()->get('rnav')) ? ' has-sidebar' : '') ?>">
-        <?php echo $this->partial('layout/partials/left-sidebar'); ?>
+        <?php $isCourse = $this->registry()->get('rnav-is-course');
+            if(!empty($isCourse) && $isCourse) {
+                echo $this->registry()->get('rnav');
+            } else {
+                echo $this->partial('layout/partials/left-sidebar');
+            } ?>
         <section class="main clearfix">
             <div id="content-layout" class="content clearfix">
                 <?php echo $this->partial('layout/partials/notifications'); ?>
                 <?php echo $this->partial('layout/partials/main'); ?>
             </div>
-            <?php echo $this->partial('layout/partials/right-sidebar'); ?>
+            <?php if(empty($isCourse) || !$isCourse) {
+                echo $this->partial('layout/partials/right-sidebar');
+            } ?>
             <?php echo $this->horizon(3); ?>
         </section>
     </div>
