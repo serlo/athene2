@@ -81,7 +81,11 @@ echo $this->doctype();
         <section class="clearfix">
             <div id="content-layout" class="clearfix">
                 <?php echo $this->partial('layout/partials/notifications'); ?>
-
+                <div class="home-header">
+                    <span class="serlo-logo">V</span>
+                    <span class="serlo-brand">Serlo</span>
+                    <div class="header-text">Die freie Lernplattform</div>
+                </div>
                 <div class="home-subject-row home-row">
                     <div class="home-column">
                         <a class="home-emph-link" href="/mathe">Mathematik lernen <i class="fa fa-arrow-circle-right"></i></a><br/>
@@ -91,6 +95,7 @@ echo $this->doctype();
                 </div>
 
                 <div class="home-serlo-row home-row">
+                    <div class="home-column home-col-lg-1"></div>
                     <div class="home-column home-col-lg-2 home-col-md-3">
                         <div class="logo-wrapper">
                             <?php echo $this->brand()->getLogo(); ?>
@@ -125,28 +130,7 @@ echo $this->doctype();
                             </li>
                         </ul>
                     </div>
-
-                    <div class="home-column home-col-lg-2 home-show-lg">
-                        <h2>Presse</h2>
-                        <blockquote>
-                            Geld für die Mathe-Nachhilfe sparen, dank Serlo.
-                            <footer><a href="https://soundcloud.com/serlo/ndr-radiointerview">NDR Radiobeitrag.</a>
-                            </footer>
-                        </blockquote>
-                        <blockquote>
-                            Social Startups. Ideen, die die Gesellschaft weiterbringen.
-                            <footer><a
-                                    href="http://www.br.de/mediathek/video/sendungen/nachrichten/startup-gesellschaftsrelevant-sozial-100.html#&time=">BR
-                                    Abendnachrichten.</a></footer>
-                        </blockquote>
-                        <blockquote>
-                            Interview mit Serlo-Gründer Simon Köhl.
-                            <footer><a
-                                    href="http://www.thechanger.org/de/blog-de/lernplattform-serlo-interview-simon-kohl/">The
-                                    Changer.</a></footer>
-                        </blockquote>
-                        <a class="home-emph-link" href="/presse"><i class="fa fa-plus-circle"></i></a>
-                    </div>
+                    <div class="home-column home-col-lg-1"></div>
                 </div>
 
                 <div class="home-blue-row home-row">
