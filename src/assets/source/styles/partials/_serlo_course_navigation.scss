@@ -1,7 +1,33 @@
 .side-context-course {
   overflow-y: auto;
   position: relative;
+  float: left;
   right: 0;
+  display: block;
+
+  @media only screen and (max-width: $sidebarBreakPoint-max) {
+    width: $sideElementWidthCollapsed;
+    overflow-y: inherit;
+    max-height: inherit !important;
+    position: absolute;
+    top: inherit;
+
+    .side-element-inner {
+      position: relative;
+
+      visibility: hidden;
+      margin-right: $sideElementWidthCollapsed;
+
+      width: $sidebarWidth;
+      right: $sidebarWidth;
+      background: $lighterGray;
+    }
+
+    .layout-toggle {
+      display: block;
+    }
+  }
+
 }
 
 ul.nav-course {
