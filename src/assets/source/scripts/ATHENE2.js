@@ -132,9 +132,14 @@ define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_
             $('#footer-push').css('height', $('#footer').height());
             $('.wrap').css('margin-bottom', -$('#footer').height());
 
+            setTimeout(function () {
+                $('.side-context-course').css('max-height', $('#content-layout').outerHeight());
+            }, 300);
+
             $(window).bind('resizeDelay', function () {
                 $('#footer-push').css('height', $('#footer').height());
                 $('.wrap').css('margin-bottom', -$('#footer').height());
+                $('.side-context-course').css('max-height', $('#content-layout').outerHeight());
                 MathJax.Hub.Queue(['Reprocess', MathJax.Hub]);
                 $('.nest-statistics').renderNest();
             });
