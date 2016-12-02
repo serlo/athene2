@@ -179,7 +179,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   color: #ffffff;
   padding: 25px 0;
 
-  @media (min-width: $homeBreakpoint-md-min) {
+  @media (min-width: 950px) {
     padding: 50px 0;
   }
 
