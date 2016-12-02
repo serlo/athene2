@@ -62,7 +62,12 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 .home-emph-link {
   font-size: 23px;
   color: $gray;
-
+  @media screen and (max-width: 750px){
+    .home-subject-symbol {
+      .blue{fill:#00B2D8;}
+      .green{fill:#BECD2B;}
+    }
+  }
   &:focus, &:hover, &:active {
     text-decoration: none;
     color: $serloBlue;
@@ -174,7 +179,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   color: #ffffff;
   padding: 25px 0;
 
-  @media (min-width: $homeBreakpoint-lg-min) {
+  @media (min-width: $homeBreakpoint-md-min) {
     padding: 50px 0;
   }
 
@@ -182,7 +187,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
     .home-column {
       display: inline-block;
       padding: 70px 0;
-      @media (min-width: $homeBreakpoint-lg-min) {
+      @media (min-width: 950px) {
         padding: 100px 600px 100px 0;
         background: url('../images/de/home_learn.svg') no-repeat right;
       }
