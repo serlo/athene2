@@ -35,11 +35,19 @@ class Normalize extends AbstractHelper
         $title      = $normalized->getTitle();
         $keywords   = $normalized->getMetadata()->getKeywords();
         $preview    = $this->toPreview($object);
+        $image      = $this->getMetaImage($object);
         $meta->setProperty('og:title', $title);
+        $meta->setProperty('og:image', $image);
         $meta->appendName('description', $preview);
         $meta->appendName('keywords', implode(', ', $keywords));
 
         return $this;
+    }
+
+    public function getMetaImage($object)
+    {
+        //TODO: Change path depending ob subject
+        return 'https://de.serlo.org/assets/images/meta_serlo.jpg';
     }
 
     public function headTitle($object)
