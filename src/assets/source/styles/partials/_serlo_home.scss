@@ -42,8 +42,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   padding: auto;
 
   .home-column {
-    display: flex;
-    align-items: center;
+    margin: 0 auto 50px;
   }
 
   .home-subject {
