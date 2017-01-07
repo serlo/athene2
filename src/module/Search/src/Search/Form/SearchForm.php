@@ -8,6 +8,7 @@
  */
 namespace Search\Form;
 
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
@@ -18,6 +19,8 @@ class SearchForm extends Form
     public function __construct()
     {
         parent::__construct('search');
+        $this->add(new Csrf('search_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter('search');

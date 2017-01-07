@@ -8,6 +8,7 @@
  */
 namespace License\Form;
 
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Select;
 use Zend\Form\Element\Submit;
 use Zend\Form\Form;
@@ -19,6 +20,8 @@ class UpdateLicenseForm extends Form
     {
 
         parent::__construct('context');
+        $this->add(new Csrf('license_update_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter('context');

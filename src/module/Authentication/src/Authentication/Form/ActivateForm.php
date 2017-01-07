@@ -10,6 +10,7 @@ namespace Authentication\Form;
 
 use Zend\Form\Element\Email;
 use Zend\Form\Element\Submit;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -18,6 +19,8 @@ class ActivateForm extends Form
     public function __construct()
     {
         parent::__construct('activate-user');
+        $this->add(new Csrf('authentication_activate_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $filter = new InputFilter();

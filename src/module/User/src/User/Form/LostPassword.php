@@ -9,6 +9,7 @@
  */
 namespace User\Form;
 
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Password;
 use Zend\Form\Element\Submit;
 use Zend\Form\Form;
@@ -20,6 +21,8 @@ class LostPassword extends Form
     public function __construct()
     {
         parent::__construct('lost-password');
+        $this->add(new Csrf('user_lost_password_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter();

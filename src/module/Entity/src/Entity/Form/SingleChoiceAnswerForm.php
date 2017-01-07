@@ -11,6 +11,7 @@ namespace Entity\Form;
 
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
@@ -21,6 +22,8 @@ class SingleChoiceAnswerForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('single-choice-answer');
+        $this->add(new Csrf('entity_single_choice_answer_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 

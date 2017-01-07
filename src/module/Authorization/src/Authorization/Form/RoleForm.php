@@ -15,12 +15,14 @@ use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
+use Zend\Form\Element\Csrf;
 
 class RoleForm extends Form
 {
     public function __construct(ObjectManager $objectManager)
     {
         parent::__construct('role');
+        $this->add(new Csrf('authorization_role_csrf'));
 
         $inputFilter = new InputFilter();
 

@@ -11,6 +11,7 @@ namespace Entity\Form;
 
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Select;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
@@ -23,6 +24,8 @@ class ModulePageForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('course-page');
+        $this->add(new Csrf('entity_module_page_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 

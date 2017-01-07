@@ -11,6 +11,7 @@ namespace Entity\Form;
 
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
@@ -21,6 +22,8 @@ class TextExerciseGroupForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('text-exercise-group');
+        $this->add(new Csrf('entity_text_exercise_group_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 

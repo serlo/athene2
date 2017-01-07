@@ -9,6 +9,7 @@
  */
 namespace RelatedContent\Form;
 
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
@@ -19,6 +20,8 @@ class CategoryForm extends Form
     function __construct()
     {
         parent::__construct('category');
+        $this->add(new Csrf('related_content_category_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter('category');
