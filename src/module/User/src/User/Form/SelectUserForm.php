@@ -9,6 +9,7 @@
  */
 namespace User\Form;
 
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Email;
 use Zend\Form\Element\Submit;
 use Zend\Form\Form;
@@ -20,6 +21,8 @@ class SelectUserForm extends Form
     public function __construct()
     {
         parent::__construct('select-user');
+        $this->add(new Csrf('user_select_user_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $filter = new InputFilter();

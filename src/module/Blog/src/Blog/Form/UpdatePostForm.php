@@ -23,6 +23,7 @@ class UpdatePostForm extends Form
     function __construct(ObjectManager $objectManager)
     {
         parent::__construct('post');
+        $this->add(new Csrf('blog_update_post_csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

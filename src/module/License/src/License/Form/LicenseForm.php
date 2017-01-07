@@ -10,6 +10,7 @@ namespace License\Form;
 
 use License\Hydrator\LicenseHydrator;
 use Zend\Form\Element\Checkbox;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
@@ -22,6 +23,8 @@ class LicenseForm extends Form
     public function __construct()
     {
         parent::__construct('license');
+        $this->add(new Csrf('license_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $this->setHydrator(new LicenseHydrator());

@@ -11,6 +11,7 @@ namespace Navigation\Form;
 
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as ObjectHydrator;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
@@ -21,6 +22,7 @@ class PageForm extends Form
     public function __construct(EntityManager $entityManager)
     {
         parent::__construct('pageForm');
+        $this->add(new Csrf('navigation_page_csrf'));
 
         $filter   = new InputFilter();
         $hydrator = new ObjectHydrator($entityManager);

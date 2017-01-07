@@ -14,6 +14,7 @@ use License\Form\AgreementFieldset;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
+use Zend\Form\Element\Csrf;
 
 class MultipleChoiceRightAnswerForm extends Form
 {
@@ -21,6 +22,8 @@ class MultipleChoiceRightAnswerForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('multiple-choice-answer');
+        $this->add(new Csrf('entity_multiple_choice_right_answer_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 

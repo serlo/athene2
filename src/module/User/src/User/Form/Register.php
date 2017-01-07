@@ -8,6 +8,7 @@
  */
 namespace User\Form;
 
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Password;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
@@ -21,6 +22,7 @@ class Register extends Form
     public function __construct(EntityManager $entityManager, Translator $translator)
     {
         parent::__construct('signUp');
+        $this->add(new Csrf('user_sign_up_csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

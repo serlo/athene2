@@ -11,6 +11,7 @@ namespace Admin\Form;
 
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Textarea;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Form;
 
 class DebuggerForm extends Form {
@@ -18,6 +19,8 @@ class DebuggerForm extends Form {
     function __construct()
     {
         parent::__construct('article');
+        $this->add(new Csrf('debugger_csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 

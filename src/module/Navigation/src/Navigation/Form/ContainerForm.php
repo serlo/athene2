@@ -12,6 +12,7 @@ namespace Navigation\Form;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as ObjectHydrator;
 use Navigation\Manager\NavigationManagerInterface;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Select;
 use Zend\Form\Element\Submit;
 use Zend\Form\Form;
@@ -22,6 +23,7 @@ class ContainerForm extends Form
     public function __construct(EntityManager $entityManager, NavigationManagerInterface $navigationManager)
     {
         parent::__construct('container');
+        $this->add(new Csrf('navigation_container_csrf'));
 
         $hydrator = new ObjectHydrator($entityManager);
         $filter   = new InputFilter();

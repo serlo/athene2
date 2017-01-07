@@ -11,6 +11,7 @@ namespace Navigation\Form;
 
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as ObjectHydrator;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
@@ -21,6 +22,7 @@ class ParameterKeyForm extends Form
     public function __construct(EntityManager $entityManager)
     {
         parent::__construct('parameterKey');
+        $this->add(new Csrf('navigation_parameter_key_csrf'));
 
         $hydrator = new ObjectHydrator($entityManager);
         $filter   = new InputFilter();
