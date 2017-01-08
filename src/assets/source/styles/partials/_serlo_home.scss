@@ -94,17 +94,21 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
     height: 100px;
     vertical-align: bottom;
     margin-left: -20px;
+    margin-right: -2px;
+    margin-bottom: 3px;
   }
 
   .serlo-brand {
     display: inline-block;
+    font-size: 41px;
   }
 
   .header-text {
     display: inline-block;
     margin-left: 10px;
     vertical-align: bottom;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
   }
 }
 
