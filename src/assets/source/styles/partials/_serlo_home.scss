@@ -85,8 +85,9 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   text-align: center;
   font-size: 36px;
   color: $gray;
-  margin-bottom: 120px;
-  margin-top: 40px;
+  margin-bottom: 80px;
+  margin-top: 10px;
+
 
   .serlo-logo {
     display: inline-block;
@@ -141,19 +142,33 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
       font-size: 36px;
     }
   }
+}
+
+.home-partner-row {
 
   .serlo-de-home & {
-    max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
+    // max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
 
     h2 {
       display: inline-block;
       width: 2/3 * 100%;
-      border-bottom: 1px solid $lightGray;
-      padding-bottom: 5px;
+      border-bottom: 1px solid #fff;
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+
+      letter-spacing: 0.3px;
+      color: #fff;
+    }
+
+    .home-partner {
+      padding-top: 20px;
+      margin-top: 10px;
+      margin-bottom: 15px;
     }
 
     img {
-      max-width: 125px;
+      max-width: 160px;
+      margin: 0 3px 15px 3px;
     }
 
     li {
@@ -178,6 +193,10 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
+.home-partner-row.home-blue-row {
+  padding-top: 20px;
+}
+
 .home-partner {
   a {
     margin-top: 20px;
@@ -192,17 +211,21 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   @media (min-width: $homeBreakpoint-lg-min) {
     padding: 50px 0;
   }
+}
+
+.home-graphic {
 
   .serlo-de-home & {
     .home-column {
       display: inline-block;
       padding: 70px 0;
+      color: #fff;
       @media (min-width: 991px) {
         padding: 100px 600px 100px 0;
         background: url('../images/de/home_learn.svg') no-repeat right;
       }
       .home-emph-link {
-        color: white;
+        color: #fff;
         &:focus, &:hover, &:active {
           text-decoration: underline;
         }
@@ -269,6 +292,15 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
     #header-nav {
       display: none;
     }
+  }
+
+  #page {
+    margin-top: 0;
+    background: #fff;
+  }
+
+  #header {
+    background: #fff;
   }
 
   #serlo-menu {
