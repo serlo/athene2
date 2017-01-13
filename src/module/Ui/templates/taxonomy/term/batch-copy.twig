@@ -1,5 +1,7 @@
 {{ pageHeader('Copy associations' | trans).render() }}
+{% do form.prepare() %}
 {{ form().openTag(form) }}
+{{ formHidden(form.get('taxonomy_batch_copy_csrf')) }}
 {{ formRow(form.get('destination')) }}
 {% set element = form.get('associations') %}
 <div class="checkbox">

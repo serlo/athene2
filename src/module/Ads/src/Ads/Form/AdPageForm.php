@@ -8,6 +8,7 @@
  */
 namespace Ads\Form;
 
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
@@ -18,6 +19,8 @@ class AdPageForm extends Form
     public function __construct()
     {
         parent::__construct('set About Ad Page');
+        $this->add(new Csrf('ad_page_csrf'));
+
         $this->setAttribute('class', 'clearfix');
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'form-horizontal');
