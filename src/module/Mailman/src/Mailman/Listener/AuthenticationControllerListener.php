@@ -21,11 +21,33 @@ class AuthenticationControllerListener extends AbstractListener
         $class = $this->getMonitoredClass();
         $events->attach($class, 'restore-password', [$this, 'onRestore'], -1);
         $events->attach($class, 'activate', [$this, 'onActivate'], -1);
+        $events->attach($class, 'activated', [$this, 'onActivated'], -1);
     }
 
     protected function getMonitoredClass()
     {
         return 'Authentication\Controller\AuthenticationController';
+    }
+
+    public function onActivated(Event $e)
+    {
+        /* @var $user \User\Entity\UserInterface */
+        $user = $e->getParam('user');
+
+        $subject = new ViewModel();
+        $body    = new ViewModel([
+            'user' => $user
+        ]);
+
+        $subject->setTemplate('mailman/messages/welcome/subject');
+        $body->setTemplate('mailman/messages/welcome/body');
+
+        $this->getMailman()->send(
+            $user->getEmail(),
+            $this->getMailman()->getDefaultSender(),
+            $this->getRenderer()->render($subject),
+            $this->getRenderer()->render($body)
+        );
     }
 
     public function onActivate(Event $e)
