@@ -10,6 +10,7 @@
 
 {% do form.prepare() %}
 {{ form().openTag(form) }}
+{{ formHidden(form.get('user_sign_up_csrf')) }}
 <fieldset>
     <legend>{{ "Username"|trans }}</legend>
     <div class="form-group{{ usernameErrors ? ' has-error' }}">

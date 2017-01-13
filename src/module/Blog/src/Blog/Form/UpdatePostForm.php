@@ -10,6 +10,7 @@ namespace Blog\Form;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
+use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Date;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;

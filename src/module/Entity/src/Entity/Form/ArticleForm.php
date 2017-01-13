@@ -23,6 +23,7 @@ class ArticleForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('article');
+        //var_dump($_SESSION['Zend_Validator_Csrf_salt_entity_article_csrf']);
         $this->add(new Csrf('entity_article_csrf'));
 
         $this->setAttribute('method', 'post');
