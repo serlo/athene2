@@ -6,7 +6,10 @@
                      <a class="btn btn-default btn-xs" href="{{ url('blog/post/update', {'post': post.getId()}) }}"><span class="fa fa-pencil"></span></a>
                  {% endif %}
                 {% if isGranted('blog.post.trash', post) %}
-                     <a class="btn btn-default btn-xs" href="{{ url('uuid/trash', {'id': post.getId()}) }}"><span class="fa fa-trash"></span></a>
+                    {% set trashbutton %}
+                        <button class="btn btn-default btn-xs"><span class="fa fa-trash"></span></button>
+                    {% endset %}
+                    {% include 'uuid/trash' with {'uuid': blog.getId(), 'sendbutton': trashbutton} %}
                  {% endif %}
             </div>
             <h3><a href="{{ url('blog/post/view', {'post': post.getId()}) }}">

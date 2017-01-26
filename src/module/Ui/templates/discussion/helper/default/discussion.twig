@@ -55,12 +55,14 @@
                                     {% endif %}
                                     {% if isGranted('discussion.trash', discussion) %}
                                         <li>
-                                            <a href="{{ url('uuid/trash', {'id': discussion.getId()}) }}"
-                                               class="dialog"
-                                               data-content="{% trans %} Do you really want to delete this discussion? {% endtrans %}">
-                                                <span class="fa fa-trash"></span>
-                                                {{ 'Trash discussion' | trans }}
-                                            </a>
+                                            {% set trashbutton %}
+                                                <button class="btn dropdown-menu-item dialog"
+                                                        data-content="{% trans %} Do you really want to delete this discussion? {% endtrans %}">
+                                                    <span class="fa fa-trash"></span>
+                                                    {{ 'Trash discussion' | trans }}
+                                                </button>
+                                            {% endset %}
+                                            {% include 'uuid/trash' with {'uuid': discussion.getId(), 'sendbutton': trashbutton} %}
                                         </li>
                                     {% endif %}
                                 </ul>

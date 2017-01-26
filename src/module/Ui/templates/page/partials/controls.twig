@@ -24,13 +24,16 @@
         {% endif %}
         {% if page.getCurrentRevision() is not same as (revision) %}
             <li>
-                <a href="{{ url('uuid/trash', {'id': revision.getId()}) }}" class="btn btn-link">
+                {% set trashbutton %}
+                <button class="btn dropdown-menu-item">
                     <span class="fa fa-trash"></span> {% trans %} Trash {% endtrans %}
-                </a>
+                </button>
+                {% endset %}
+                {% include 'uuid/trash' with {'uuid': revision.getId(), 'sendbutton': trashbutton} %}
             </li>
             <li>
                 <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}"
-                   class="btn btn-link">
+                   class="btn dropdown-menu-item">
                     <span class="fa fa-check"> {% trans %} Set as base revision {% endtrans %} </a>
             </li>
         {% endif %}

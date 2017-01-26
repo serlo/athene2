@@ -30,8 +30,10 @@
         {% endif %}
     {% else %}
         {% if(isGranted('taxonomy.term.trash', term)) %}
-            <a href="{{ url('uuid/trash', {'id':term.getId()}) }}"
-               class="btn btn-default btn-xs"> <span class="fa fa-trash"></span> </a>
+            {% set trashbutton %}
+                <button class="btn btn-default btn-xs"> <span class="fa fa-trash"></span></button>
+            {% endset %}
+            {% include 'uuid/trash' with {'uuid': term.getId(), 'sendbutton': trashbutton} %}
         {% endif %}
     {% endif %}
 </div>

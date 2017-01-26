@@ -1,8 +1,11 @@
 {% if isGranted('entity.trash', entity) %}
     <li>
-        <a rel="nofollow" href="{{ url('uuid/trash', {'id': entity.getId()}) }}">
+        {% set trashbutton %}
+        <button class="btn dropdown-menu-item">
             <span class="fa fa-trash"></span>
             {% trans %} Move to trash {% endtrans %}
-        </a>
+        </button>
+        {% endset %}
+        {% include 'uuid/trash' with {'uuid': entity.getId(), 'sendbutton': trashbutton} %}
     </li>
 {% endif %}

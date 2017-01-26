@@ -57,10 +57,12 @@
                             <span class="fa fa-flag"></span> </a>
                     {% endif %}
                     {% if isGranted('discussion.trash', discussion) %}
-                        <a href="{{ url('uuid/trash', {'id': discussion.getId()}) }}"
-                           class="btn btn-xs btn-default dialog"
+                        {% set trashbutton %}
+                        <button class="btn btn-xs btn-default dialog"
                            data-content="{% trans %} Do you really want to delete this discussion? {% endtrans %}">
-                            <span class="fa fa-trash"></span> </a>
+                            <span class="fa fa-trash"></span> </button>
+                        {% endset %}
+                        {% include 'uuid/trash' with {'uuid': discussion.getId(), 'sendbutton': trashbutton} %}
                     {% endif %}
                 </div>
             {% endif %}
@@ -87,10 +89,12 @@
                                             <span class="fa fa-flag"></span> </a>
                                     {% endif %}
                                     {% if isGranted('discussion.comment.trash', comment) %}
-                                        <a href="{{ url('uuid/trash', {'id': comment.getId()}) }}"
-                                           class="btn btn-xs btn-default dialog"
+                                        {% set trashButton %}
+                                        <button class="btn btn-xs btn-default dialog"
                                            data-content="{% trans %} Do you really want to delete this comment? {% endtrans %}">
-                                            <span class="fa fa-trash"></span> </a>
+                                            <span class="fa fa-trash"></span> </button>
+                                        {% endset %}
+                                        {% include 'uuid/trash' with {'uuid': comment.getId(), 'sendbutton': trashbutton} %}
                                     {% endif %}
                                 </div>
                             </footer>
