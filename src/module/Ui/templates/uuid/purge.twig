@@ -1,0 +1,12 @@
+{% if uuid %}
+    {% set form = uuidForm().getForm('purge', uuid) %}
+    {% do form.prepare() %}
+    {{ form().openTag(form) }}
+    {{ formRow(form.get('uuid_purge_csrf_' ~ uuid)) }}
+    {% if sendbutton %}
+        {{ sendbutton }}
+    {% else %}
+        {{ formRow(form.get('submit')) }}
+    {% endif %}
+    {{ form().closeTag() }}
+{% endif %}

@@ -9,7 +9,7 @@
  */
 namespace Uuid\View\Helper;
 
-use UUid\Form\PurgeForm;
+use Uuid\Form\PurgeForm;
 use Uuid\Form\TrashForm;
 use Zend\View\Helper\AbstractHelper;
 use Zend\Form\Form;

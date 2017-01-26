@@ -56,8 +56,7 @@
                                     {% if isGranted('discussion.trash', discussion) %}
                                         <li>
                                             {% set trashbutton %}
-                                                <button class="btn dropdown-menu-item dialog"
-                                                        data-content="{% trans %} Do you really want to delete this discussion? {% endtrans %}">
+                                                <button class="btn dropdown-menu-item">
                                                     <span class="fa fa-trash"></span>
                                                     {{ 'Trash discussion' | trans }}
                                                 </button>
