@@ -12,8 +12,7 @@
                 {% endif %}
                 {% if isGranted('discussion.comment.trash', comment) %}
                     {% set trashbutton %}
-                    <button class="btn btn-xs btn-default dialog"
-                       data-content="{% trans %} Do you really want to delete this comment? {% endtrans %}">
+                    <button class="btn btn-xs btn-default">
                         <span class="fa fa-trash"></span> </button>
                     {% endset %}
                     {% include 'uuid/trash' with {'uuid': comment.getId(), 'sendbutton': trashbutton} %}

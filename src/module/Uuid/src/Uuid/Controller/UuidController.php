@@ -8,6 +8,7 @@
  */
 namespace Uuid\Controller;
 
+use Uuid\Form\PurgeForm;
 use Uuid\Form\TrashForm;
 use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -51,9 +52,16 @@ class UuidController extends AbstractActionController
 
     public function purgeAction()
     {
-        $this->getUuidManager()->purgeUuid($this->params('id'));
-        $this->getUuidManager()->flush();
-        $this->flashMessenger()->addSuccessMessage('The content has been removed.');
+        /** @var Form $form */
+        $form = new PurgeForm($this->params('id'));
+        $form->setData($this->getRequest()->getPost());
+
+        if ($form->isValid()) {
+            $this->getUuidManager()->purgeUuid($this->params('id'));
+            $this->getUuidManager()->flush();
+            $this->flashMessenger()->addSuccessMessage('The content has been removed.');
+        }
+
         return $this->redirect()->toReferer();
     }
 }
