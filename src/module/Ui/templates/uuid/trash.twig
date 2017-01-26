@@ -1,0 +1,12 @@
+{% if uuid %}
+    {% set form = uuidForm().getForm('trash', uuid) %}
+    {% do form.prepare() %}
+    {{ form().openTag(form) }}
+    {{ formRow(form.get('uuid_trash_csrf_' ~ uuid)) }}
+    {% if sendbutton %}
+        {{ sendbutton }}
+    {% else %}
+        {{ formRow(form.get('submit')) }}
+    {% endif %}
+{{ form().closeTag() }}
+{% endif %}

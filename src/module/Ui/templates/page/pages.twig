@@ -20,10 +20,13 @@
                     </a>
                 {% endif %}
                 {% if isGranted('page.trash', page) %}
-                    <a class="btn btn-xs btn-default" href="{{ url('uuid/trash', {'id': page.getId()}) }}">
+                    {% set trashbutton %}
+                    <button class="btn btn-xs btn-default">
                         <span class="fa fa-trash"></span>
                         {% trans %} Trash {% endtrans %}
-                    </a>
+                    </button>
+                {% endset %}
+                    {% include 'uuid/trash' with {'uuid': page.getId(), 'sendbutton': trashbutton} %}
                 {% endif %}
             </div>
         </div>

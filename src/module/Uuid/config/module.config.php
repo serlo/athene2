@@ -20,6 +20,9 @@ return [
         __NAMESPACE__ . '\Entity\UuidInterface' => __NAMESPACE__ . '\Entity\Uuid'
     ],
     'view_helpers'    => [
+        'invokables' => [
+            'uuidForm' => __NAMESPACE__ . '\View\Helper\FormHelper'
+        ],
         'factories' => [
             'uuid' => __NAMESPACE__ . '\Factory\UuidHelperFactory'
         ]

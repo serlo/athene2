@@ -8,9 +8,11 @@
  */
 namespace Uuid\Controller;
 
+use Uuid\Form\TrashForm;
 use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\Form\Form;
 
 class UuidController extends AbstractActionController
 {
@@ -26,9 +28,16 @@ class UuidController extends AbstractActionController
 
     public function trashAction()
     {
-        $this->getUuidManager()->trashUuid($this->params('id'));
-        $this->getUuidManager()->flush();
-        $this->flashMessenger()->addSuccessMessage('The content has been trashed.');
+        /** @var Form $form */
+        $form = new TrashForm($this->params('id'));
+        $form->setData($this->getRequest()->getPost());
+
+        if ($form->isValid()) {
+            $this->getUuidManager()->trashUuid($this->params('id'));
+            $this->getUuidManager()->flush();
+            $this->flashMessenger()->addSuccessMessage('The content has been trashed.');
+        }
+
         return $this->redirect()->toReferer();
     }
 
