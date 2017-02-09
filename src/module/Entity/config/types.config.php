@@ -496,7 +496,9 @@ return [
                             'title',
                             'content',
                             'reasoning',
-                            'changes'
+                            'changes',
+                            'meta_title',
+                            'meta_description'
                         ]
                     ],
                     'license' => [],
