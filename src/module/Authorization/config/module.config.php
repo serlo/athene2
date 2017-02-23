@@ -55,6 +55,11 @@ return [
         __NAMESPACE__ . '\Entity\PermissionInterface'             => 'User\Entity\PermissionKey',
         __NAMESPACE__ . '\Entity\ParametrizedPermissionInterface' => 'User\Entity\Permission'
     ],
+    'view_helpers'    => [
+        'invokables' => [
+            'authForm' => __NAMESPACE__ . '\View\Helper\FormHelper'
+        ]
+    ],
     'di'                 => [
         'instance' => [
             'preferences' => [
