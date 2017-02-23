@@ -10,6 +10,7 @@ namespace License\Controller;
 
 use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
+use License\Form\RemoveLicenseForm;
 use License\Manager\LicenseManagerAwareTrait;
 use License\Manager\LicenseManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -94,9 +95,14 @@ class LicenseController extends AbstractActionController
     {
         $license = $this->getLicenseManager()->getLicense($this->params('id'));
         $this->assertGranted('license.purge', $license);
-
-        $this->getLicenseManager()->removeLicense($this->params('id'));
-        $this->getLicenseManager()->getObjectManager()->flush();
+        $form = new RemoveLicenseForm($this->params('id'));
+        if ($this->getRequest()->isPost()) {
+            $form->setData($this->getRequest()->getPost());
+            if ($form->isValid()) {
+                $this->getLicenseManager()->removeLicense($this->params('id'));
+                $this->getLicenseManager()->getObjectManager()->flush();
+            }
+        }
         return $this->redirect()->toReferer();
     }
 }

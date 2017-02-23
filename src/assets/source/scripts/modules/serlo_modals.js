@@ -83,7 +83,13 @@ define(['jquery', 'router'], function ($, Router) {
 
             $self.click(function (e) {
                 e.preventDefault();
-                new Modal(options);
+                if ($self.parent('form')) {
+                    new Modal(options, function() {
+                       $self.parent('form').submit();
+                    });
+                } else {
+                    new Modal(options);
+                }
                 return;
             });
         });
