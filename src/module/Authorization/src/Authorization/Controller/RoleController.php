@@ -10,6 +10,8 @@
 namespace Authorization\Controller;
 
 use Authorization\Form\PermissionForm;
+use Authorization\Form\RemovePermissionForm;
+use Authorization\Form\RemoveUserForm;
 use Authorization\Form\RoleForm;
 use Authorization\Form\UserForm;
 use Authorization\Service\PermissionServiceAwareTrait;
@@ -159,12 +161,22 @@ class RoleController extends AbstractActionController
 
     public function removePermissionAction()
     {
+        $role = $this->getRoleService()->getRole($this->params('role'));
+        $permissionID = $this->params('permission');
         $this->assertGranted('authorization.role.revoke.permission');
 
-        $this->getRoleService()->removeRolePermission($this->params('role'), $this->params('permission'));
-        $this->getRoleService()->flush();
-        $this->redirect()->toUrl($this->referer()->toUrl());
+        $form = new RemovePermissionForm($role->getId(), $permissionID);
 
+       if ($this->getRequest()->isPost()) {
+            $form->setData($this->getRequest()->getPost());
+
+            if ($form->isValid()) {
+                $this->getRoleService()->removeRolePermission($role->getId(), $permissionID);
+                $this->getRoleService()->flush();
+            }
+       }
+
+        $this->redirect()->toUrl($this->referer()->toUrl());
         return null;
     }
 
@@ -173,12 +185,14 @@ class RoleController extends AbstractActionController
         $role = $this->getRoleService()->getRole($this->params('role'));
         $this->assertGranted('authorization.identity.revoke.role', $role);
 
-        $form  = new UserForm();
+        $form  = null;
         $error = false;
         $user  = null;
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost();
+
+            $form = new RemoveUserForm($data['user']);
             $form->setData($data);
             if ($form->isValid()) {
                 $data = $form->getData();

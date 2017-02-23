@@ -25,13 +25,13 @@ class FormHelper extends AbstractHelper
         if ($action === 'trash') {
             $url = $this->getView()->url('uuid/trash', ['id' => $objectID]);
             /** @var Form $form */
-            $form = new TrashForm($objectID, $url);
+            $form = new TrashForm($objectID);
             $form->setAttribute('action', $url);
             return $form;
         } else if ($action === 'purge') {
             $url = $this->getView()->url('uuid/purge', ['id' => $objectID]);
             /** @var Form $form */
-            $form = new PurgeForm($objectID, $url);
+            $form = new PurgeForm($objectID);
             $form->setAttribute('action', $url);
             return $form;
         }

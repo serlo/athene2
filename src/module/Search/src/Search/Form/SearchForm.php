@@ -19,7 +19,6 @@ class SearchForm extends Form
     public function __construct()
     {
         parent::__construct('search');
-        $this->add(new Csrf('search_csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

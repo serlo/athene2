@@ -22,15 +22,15 @@
     <?php foreach ($this->users as $user): ?>
         <li class="list-group-item">
             <?php if ($this->isGranted('authorization.identity.revoke.role', $this->role)): ?>
-                <form action="<?php echo $this->url(
-                    'authorization/role/user/remove',
-                    ['role' => $this->role->getId()]
-                ); ?>" method="post" class="pull-right">
-                    <input type="hidden" name="user" value="<?php echo $user->getUsername() ?>"/>
+                <?php $form = $this->authForm()->getRemoveUserForm($user->getUsername(), $this->role->getId());
+                    $form->prepare();
+                    echo $this->form()->openTag($form);
+                    echo $this->formRow($form->get('authorization_remove_user_csrf_' . $user->getUsername()));
+                    echo $this->formRow($form->get('user')); ?>
                     <button type="submit" class="btn btn-danger btn-xs">
                         <span class="fa fa-minus"></span>
                     </button>
-                </form>
+                <?php echo $this->form()->closeTag();?>
             <?php endif; ?>
             <?php echo $user->getUsername() ?>
         </li>
@@ -59,10 +59,17 @@
                 )
             </small>
             <?php if ($this->isGranted('authorization.role.revoke.permission')): ?>
-                <a href="<?php echo $this->url(
-                    'authorization/role/permission/remove',
-                    ['role' => $this->role->getId(), 'permission' => $permission->getId()]
-                ); ?>" class="label label-danger pull-right"> <span class="fa fa-minus"></span> </a>
+                <?php $form = $this->authForm()->getRemovePermissionForm($this->role->getId(), $permission->getId());
+                $form->prepare();
+                echo $this->form()->openTag($form);
+                echo $this->formRow($form->get('authorization_remove_permission_csrf_'
+                    . $this->role->getId() . '_' . $permission->getId()));
+                echo $this->formRow($form->get('role'));
+                echo $this->formRow($form->get('permission')); ?>
+                <button type="submit" class="btn btn-danger btn-xs">
+                    <span class="fa fa-minus"></span>
+                </button>
+                <?php echo $this->form()->closeTag();?>
             <?php endif; ?>
         </div>
     <?php endforeach; ?>
