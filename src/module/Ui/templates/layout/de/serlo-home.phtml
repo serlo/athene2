@@ -157,72 +157,116 @@ echo $this->doctype();
                         </div>
                     </div>
                 </div>
-                <div class="clearfix"> </div>
-
-                <div class="home-blue-row home-row home-graphic">
-                    <div class="home-column">
-                        <p>Serlo bietet einfache Erklärungen, tausende <br> Aufgaben und Musterlösungen komplett <br> kostenlos.
-                            Unsere Vision ist es, hochwertige <br> Bildung weltweit frei verfügbar zu machen. <br> Dafür bauen
-                            wir eine Wikipedia für's Lernen.</p>
+                <div class="clearfix"></div>
+                <div class="home-about-wrapper">
+                <div class="home-row home-about-row">
+                    <div class="col-md-6">
+                        <div class="home-header">
+                            <?php echo $this->brand()->getLogo(); ?>
+                            <?php echo $this->brand()->getBrand(); ?>
+                        </div>
+                        <p>Die freie Lernplattform serlo.org bietet einfache <br> Erklärungen, Kurse und tausende Aufgaben <br> mit Musterlösungen für Schüler und Studenten. <br>
+                            Unsere Vision ist es, hochwertige Bildung <br> weltweit frei verfügbar zu machen. <br> </p>
                         <a class="home-emph-link" href="/18922">Mehr erfahren <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
-                </div>
-
-                <div class="home-partner-row home-blue-row home-row">
-                    <div class="home-column home-col-lg-1"></div>
-                    <div class="home-column home-partner home-col-md-6 home-col-lg-4">
+                    <div class="col-md-6 home-serlo-learn">
+                        <div class="home-learn-wrapper">
+                            <div class="col-xs-6">
+                                <img class="icon" src="/assets/images/icon_selbststaendig"/>
+                            </div>
+                            <div class="col-xs-6 text">
+                                Selbstständig lernen, <br>im eigenen Tempo
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-xs-6">
+                                <img class="icon" src="/assets/images/icon_frei"/>
+                            </div>
+                            <div class="col-xs-6 text">
+                                Komplett kostenlos <br>und ohne Werbung
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-partner-row home-column home-col-md-6">
                         <p><h2>Hauptpartner</h2></p>
                         <a href="/21456">
                             <img src="/assets/images/de/home_logo_tum.svg" alt="Technische Universität München"/>
                         </a>
                         <a href="/21456">
-                            <img src="/assets/images/de/home_logo_sauer.svg" alt="Hans Sauer Stiftung"/>
+                            <img src="/assets/images/de/home_logo_eu.png" alt="Europäische Kommission"/>
+                        </a>
+                        <a href="/21456">
+                            <img src="/assets/images/de/home_logo_lmu.svg" alt="Ludwig-Maximilians-Universität München"/>
+                        </a>
+                        <a href="/21456">
+                            <img src="/assets/images/de/home_logo_sauer.png" alt="Hans Sauer Stiftung"/>
                         </a>
                         <a href="/21456">
                             <img src="/assets/images/de/home_logo_wiki.svg" alt="Wikimedia Deutschland"/>
                         </a>
                     </div>
-                    <div class="home-column home-col-lg-1"></div>
+                </div>
+                </div>
+                <div class="home-calls-wrapper">
+                    <div class="home-calls-header">
+                        <h2>Serlo.org ist die Wikipedia für's Lernen<h2>
+                    </div>
+                    <div class="home-texts-row home-row">
+                        <div class="home-col-md-3">
+                            <p>Wir suchen Lehrer und Hobby-Lehrer mit Begeisterung für ihr Fach.
+                                Werden Sie Autor auf serlo.org, erstellen Sie neue Inhalte und helfen Sie uns,
+                                die Qualität der Lernplattform zu sichern.</p>
+                        </div>
+                        <div class="home-col-md-3">
+                            <p>Wir bieten zahlreiche spannende Aufgaben aus den Bereichen
+                                Softwareentwicklung, Redaktion und NGO-Management.</p>
+                        </div>
+                    </div>
+                    <div class="home-links-row home-row">
+                        <div class="home-col-md-3">
+                            <a href="/mitmachen" class="home-emph-link">
+                                Zur Startseite für Autoren <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                        <div class="home-col-md-3">
+                            <a href="/jobs" class="home-emph-link">
+                                Jobs und Engagement <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="home-row home-principle-row home-column"></div>
                 <div class="home-launch-img-row home-row"></div>
 
-                <div class="home-community-wrapper">
-                    <div class="home-community-row home-row">
-                        <div class="home-column home-col-md-3">
-                            <img src="/assets/images/home_participate.svg"/>
-
-                            <h2>Serlo ist ein Wiki:</h2>
-
-                            <p>
-                                Hilf uns Bildung frei verfügbar zu machen und werde Teil der Online-Community von Serlo.
-                                Wir suchen Lehrer und Hobbydidaktiker mit Begeisterung für ihr Fach.
-                            </p>
-                            <img src="/assets/images/home_commons.svg"/><br/>
-                            <a href="/19869" class="home-hide-md home-emph-link">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                <div class="home-calls-wrapper">
+                    <div class="home-calls-header">
+                        <h2>Werde Teil unserer Bewegung für freie Bildung<h2>
+                    </div>
+                    <div class="home-texts-row home-row">
+                        <div class="home-col-md-3">
+                            <p>Softwareentwicklung und Lerninhalte erstellen kostet Geld. Wir freuen uns sehr,
+                                wenn sie Serlo mit einer Spende unterstützen.</p>
                         </div>
-                        <div class="home-column home-col-md-3">
-                            <img src="/assets/images/home_donate.svg"/>
-
-                            <h2>Serlo ist eine Non-Profit-Organisation:</h2>
-
-                            <p class="text-center">
-                                Softwareentwicklung, Betreuung der Ehrenamtlichen und Aufbau der Organisation kosten
-                                Geld. Wir freuen uns sehr, wenn Sie Serlo mit einer Spende unterstützen.
-                            </p>
-                            <a href="/21565" class="home-hide-md home-emph-link">Spenden <i class="fa fa-arrow-circle-right"></i></a>
+                        <div class="home-col-md-3">
+                            <p>Bildung gehört uns allen! Werden Sie Mitglied in unserer Organisation
+                                Serlo Education e.V. und so zum “Mitherausgeber” der freien Lernplattform.</p>
                         </div>
                     </div>
-
-                    <div class="home-community-link-row home-row">
-                        <div class="home-column home-col-md-3">
-                            <a href="/19869" class="home-emph-link home-show-md">Mitmachen <i class="fa fa-arrow-circle-right"></i></a>
+                    <div class="home-links-row home-row">
+                        <div class="home-col-md-3">
+                            <a class="home-emph-link" href="/spenden">
+                                Spenden <i class="fa fa-arrow-circle-right"></i>
+                            </a>
                         </div>
-                        <div class="home-column home-col-md-3">
-                            <a href="/21565" class="home-emph-link home-show-md">Spenden <i class="fa fa-arrow-circle-right"></i></a>
+                        <div class="home-col-md-3">
+                            <a class="home-emph-link" href="/beitreten">
+                                Mitglied werden <i class="fa fa-arrow-circle-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
+                <div class="home-column heart"> <img src="assets/images/home_donate.svg" alt="heart"> </div>
             </div>
         </section>
     </div>
