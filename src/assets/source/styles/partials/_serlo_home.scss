@@ -143,10 +143,11 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
       height: 85px;
     }
     .text {
-      margin: 25px 0px 25px -70px;
+      margin: 25px 0px 25px -80px;
     }
   }
 }
+
 .home-serlo-row {
   margin: 0 auto 100px auto;
   .home-column {
@@ -225,12 +226,12 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
 .home-principle-row {
   @media (min-width: $homeBreakpoint-md-min) {
-    padding: 350px 0px;
-    margin-bottom: 80px;
+    padding: 250px 0px;
+    margin: 100px 0px;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('../images/de/about_serlo.svg');
-    background-size: 40%;
+    background-size: contain;
     height: 0;
   }
 }
