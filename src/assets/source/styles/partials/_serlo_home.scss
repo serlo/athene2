@@ -41,7 +41,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   width: 100%;
 }
 .home-subject-row {
-  margin: 0px auto 100px auto;
+  margin: 50px auto 200px auto;
   padding: auto;
 
   .home-column {
@@ -132,6 +132,9 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   .home-header {
     margin-bottom: 0px;
   }
+  .col-md-6 {
+    padding-top: 70px;
+  }
   .home-serlo-learn {
     font-weight: bold;
     font-size: 13pt;
@@ -150,6 +153,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
 .home-serlo-row {
   margin: 0 auto 100px auto;
+  padding-bottom: 50px;
   .home-column {
     margin-bottom: 25px;
     @media screen and (min-width: $homeBreakpoint-md-min) {
