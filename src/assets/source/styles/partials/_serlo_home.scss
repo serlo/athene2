@@ -223,14 +223,13 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
 .home-principle-row {
   @media (min-width: $homeBreakpoint-md-min) {
-    padding: 300px 600px 300px 0px;
+    padding: 250px 0px;
     margin-bottom: 80px;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('../images/de/about_serlo.svg');
-    background-size: contain;
+    background-size: 45%;
     height: 0;
-    width: 70%;
   }
 }
 
