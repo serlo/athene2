@@ -114,7 +114,6 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 .home-about-wrapper {
-  background-image: url('../images/de/serlo3_xs.jpg');
   @media screen and (min-width: $homeBreakpoint-md-min) {
     background-image: url('../images/de/serlo3_md.jpg');
   }
@@ -136,6 +135,9 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
     padding-top: 70px;
   }
   .home-serlo-learn {
+    @media (max-width: $homeBreakpoint-md-min) {
+      display: none;
+    }
     font-weight: bold;
     font-size: 13pt;
     .home-learn-wrapper {
