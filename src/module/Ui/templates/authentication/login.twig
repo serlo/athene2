@@ -14,7 +14,7 @@
 
 {% do form.prepare() %}
 {{ form().openTag(form) }}
-{{ formHidden(form.get('user_login_csrf')) }}
+{{ formHidden(form.get('csrf')) }}
 <div class="form-group">
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>

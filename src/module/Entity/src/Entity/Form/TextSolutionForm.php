@@ -9,9 +9,9 @@
  */
 namespace Entity\Form;
 
+use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
-use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
@@ -22,7 +22,7 @@ class TextSolutionForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('text-solution');
-        $this->add(new Csrf('entity_text_solution_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

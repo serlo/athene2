@@ -8,8 +8,8 @@
  */
 namespace Flag\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\Common\Collections\Collection;
-use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Select;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Textarea;
@@ -22,7 +22,7 @@ class FlagForm extends Form
     public function __construct(Collection $types)
     {
         parent::__construct('context');
-        $this->add(new Csrf('flag_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

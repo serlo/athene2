@@ -9,10 +9,10 @@
  */
 namespace Entity\Form;
 
+use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Textarea;
-use Zend\Form\Element\Csrf;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -22,7 +22,7 @@ class MathPuzzleForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('math-puzzle');
-        $this->add(new Csrf('entity_math_puzzle_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

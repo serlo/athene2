@@ -8,7 +8,7 @@
  */
 namespace User\Form;
 
-use Zend\Form\Element\Csrf;
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\Password;
 use Zend\Form\Element\Submit;
 use Zend\Form\Form;
@@ -19,7 +19,7 @@ class ChangePasswordForm extends Form
     public function __construct()
     {
         parent::__construct('settings');
-        $this->add(new Csrf('user_change_password_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

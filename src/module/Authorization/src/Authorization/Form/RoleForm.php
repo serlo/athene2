@@ -9,20 +9,20 @@
  */
 namespace Authorization\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
-use Zend\Form\Element\Csrf;
 
 class RoleForm extends Form
 {
     public function __construct(ObjectManager $objectManager)
     {
         parent::__construct('role');
-        $this->add(new Csrf('authorization_role_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $inputFilter = new InputFilter();
 

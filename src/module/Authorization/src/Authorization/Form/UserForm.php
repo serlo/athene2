@@ -9,9 +9,9 @@
  */
 namespace Authorization\Form;
 
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
-use Zend\Form\Element\Csrf;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -20,7 +20,7 @@ class UserForm extends Form
     public function __construct()
     {
         parent::__construct('add-user');
-        $this->add(new Csrf('authorization_user_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $inputFilter = new InputFilter('article');
 

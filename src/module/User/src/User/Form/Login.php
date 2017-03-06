@@ -8,8 +8,8 @@
  */
 namespace User\Form;
 
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\Checkbox;
-use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Password;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
@@ -23,7 +23,7 @@ class Login extends Form
     public function __construct(Translator $translator)
     {
         parent::__construct('login');
-        $this->add(new Csrf('user_login_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

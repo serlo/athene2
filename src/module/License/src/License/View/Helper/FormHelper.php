@@ -23,7 +23,7 @@ class FormHelper extends AbstractHelper
     {
         $url = $this->getView()->url('license/remove', ['id' => $licenseID]);
         /** @var Form $form */
-        $form = new RemoveLicenseForm($licenseID);
+        $form = new RemoveLicenseForm();
         $form->setAttribute('action', $url);
         return $form;
     }
