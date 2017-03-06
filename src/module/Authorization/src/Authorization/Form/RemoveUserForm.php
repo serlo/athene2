@@ -9,9 +9,9 @@
  */
 namespace Authorization\Form;
 
-use Zend\Form\Element\Submit;
-use Zend\Form\Element\Csrf;
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\Hidden;
+use Zend\Form\Element\Submit;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -23,7 +23,7 @@ class RemoveUserForm extends Form
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'pull-right');
 
-        $this->add(new Csrf('authorization_remove_user_csrf_' . $username));
+        $this->add(new CsrfToken('csrf'));
 
         $inputFilter = new InputFilter('article');
         $this->add((new Hidden('user'))->setValue($username));

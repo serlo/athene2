@@ -9,12 +9,12 @@
  */
 namespace Entity\Form;
 
+use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
-use Zend\Form\Element\Csrf;
 
 class TextHintForm extends Form
 {
@@ -22,7 +22,7 @@ class TextHintForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('text-hint');
-        $this->add(new Csrf('entity_text_hint_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

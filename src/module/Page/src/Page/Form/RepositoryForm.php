@@ -3,14 +3,14 @@
 
 namespace Page\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Page\Entity\PageRepositoryInterface;
 use Taxonomy\Manager\TaxonomyManagerInterface;
-use Zend\Form\Element\Csrf;
+use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
-use Zend\Form\Element\Checkbox;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -20,7 +20,7 @@ class RepositoryForm extends Form
     public function __construct(ObjectManager $objectManager, PageRepositoryInterface $pageRepository, TaxonomyManagerInterface $taxonomyManager)
     {
         parent::__construct('createPage');
-        $this->add(new Csrf('page_repository_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $hydrator = new DoctrineObject($objectManager);
         $filter   = new InputFilter();

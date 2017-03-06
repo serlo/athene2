@@ -8,9 +8,9 @@
  */
 namespace Taxonomy\Form;
 
+use Common\Form\Element\CsrfToken;
 use Taxonomy\Hydrator\TaxonomyTermHydrator;
 use Term\Form\TermFieldset;
-use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
@@ -22,7 +22,7 @@ class TermForm extends Form
     function __construct(TaxonomyTermHydrator $taxonomyTermHydrator)
     {
         parent::__construct('taxonomyTerm');
-        $this->add(new Csrf('taxonomy_term_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $filter = new InputFilter();

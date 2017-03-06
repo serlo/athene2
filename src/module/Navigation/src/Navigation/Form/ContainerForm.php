@@ -9,6 +9,7 @@
  */
 namespace Navigation\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as ObjectHydrator;
 use Navigation\Manager\NavigationManagerInterface;
@@ -23,7 +24,7 @@ class ContainerForm extends Form
     public function __construct(EntityManager $entityManager, NavigationManagerInterface $navigationManager)
     {
         parent::__construct('container');
-        $this->add(new Csrf('navigation_container_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $hydrator = new ObjectHydrator($entityManager);
         $filter   = new InputFilter();

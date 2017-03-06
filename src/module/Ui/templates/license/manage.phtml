@@ -25,7 +25,7 @@
                             <?php $form = $this->licenseForm()->getForm($license->getId());
                             $form->prepare();
                             echo $this->form()->openTag($form);
-                            echo $this->formRow($form->get('license_remove_csrf_' . $license->getId())); ?>
+                            echo $this->formRow($form->get('csrf')); ?>
                                 <button class="btn btn-xs btn-danger dialog" data-content="<?php echo $this->translate('Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE'); ?>" data-title="<?php echo $this->translate('DANGER: You are going to delete all contents associated with this license!'); ?>" data-type="danger"><span class="fa fa-trash"></span></button>
                             <?php echo $this->form()->closeTag();?>
                         <?php endif; ?>

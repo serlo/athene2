@@ -2,7 +2,7 @@
     {% set form = uuidForm().getForm('purge', uuid) %}
     {% do form.prepare() %}
     {{ form().openTag(form) }}
-    {{ formRow(form.get('uuid_purge_csrf_' ~ uuid)) }}
+    {{ formRow(form.get('csrf')) }}
     {% if sendbutton %}
         {{ sendbutton }}
     {% else %}

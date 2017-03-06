@@ -8,7 +8,6 @@
  */
 namespace Search\Form;
 
-use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;

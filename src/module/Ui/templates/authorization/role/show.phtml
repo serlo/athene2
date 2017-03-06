@@ -25,7 +25,7 @@
                 <?php $form = $this->authForm()->getRemoveUserForm($user->getUsername(), $this->role->getId());
                     $form->prepare();
                     echo $this->form()->openTag($form);
-                    echo $this->formRow($form->get('authorization_remove_user_csrf_' . $user->getUsername()));
+                    echo $this->formRow($form->get('csrf'));
                     echo $this->formRow($form->get('user')); ?>
                     <button type="submit" class="btn btn-danger btn-xs">
                         <span class="fa fa-minus"></span>
@@ -62,8 +62,7 @@
                 <?php $form = $this->authForm()->getRemovePermissionForm($this->role->getId(), $permission->getId());
                 $form->prepare();
                 echo $this->form()->openTag($form);
-                echo $this->formRow($form->get('authorization_remove_permission_csrf_'
-                    . $this->role->getId() . '_' . $permission->getId()));
+                echo $this->formRow($form->get('csrf'));
                 echo $this->formRow($form->get('role'));
                 echo $this->formRow($form->get('permission')); ?>
                 <button type="submit" class="btn btn-danger btn-xs">

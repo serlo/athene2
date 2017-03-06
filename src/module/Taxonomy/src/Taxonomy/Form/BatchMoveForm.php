@@ -8,7 +8,7 @@
  */
 namespace Taxonomy\Form;
 
-use Zend\Form\Element\Csrf;
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\MultiCheckbox;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
@@ -20,7 +20,7 @@ class BatchMoveForm extends Form
     function __construct(array $associations = [])
     {
         parent::__construct('taxonomyTerm');
-        $this->add(new Csrf('taxonomy_batch_move_csrf'));
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $filter = new InputFilter();

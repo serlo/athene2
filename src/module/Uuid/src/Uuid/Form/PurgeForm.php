@@ -8,22 +8,18 @@
  */
 namespace Uuid\Form;
 
-use Zend\Form\Element\Csrf;
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\Submit;
 use Zend\Form\Form;
 
 class PurgeForm extends Form
 {
-
-    /**
-     * @param int $id
-     */
-    function __construct($id)
+    function __construct()
     {
         parent::__construct('trash');
         $this->setAttribute('method', 'post');
 
-        $this->add(new Csrf('uuid_purge_csrf_' . $id));
+        $this->add(new CsrfToken('csrf'));
 
         $this->add(
             (new Submit('submit'))->setValue('Purge')->setAttribute('class', 'btn btn-success pull-right')
