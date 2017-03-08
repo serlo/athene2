@@ -22,6 +22,17 @@
                                 <span class="fa fa-star"></span>
                             </a>
                         <?php endif; ?>
+                        <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'purge'), $entity)): ?>
+                        <?php $trashbutton = '<button class="dialog btn btn-danger btn-xs"
+                                    data-content="'.sprintf($this->translate(
+                                        'Do you really want to purge the item <strong>%s</strong>? It and all references to it will be lost forever!'
+                                    ), htmlentities($this->normalize()->toTitle($entity))).'"
+                                    data-type="danger">
+                                <span class="fa fa-fire"></span>
+                            </button>';
+                            echo $this->twigPartial('uuid/purge', array('uuid' => $entity->getId(), 'sendbutton' => $trashbutton));
+                        ?>
+                        <?php endif; ?>
                     </div>
                 </td>
             </tr>

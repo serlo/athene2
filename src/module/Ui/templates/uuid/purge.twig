@@ -1,5 +1,5 @@
 {% if uuid %}
-    {% set form = uuidForm().getForm('purge', uuid) %}
+    {% set form = uuidForm().getPurgeForm(uuid) %}
     {% do form.prepare() %}
     {{ form().openTag(form) }}
     {{ formRow(form.get('csrf')) }}
