@@ -30,7 +30,7 @@ class UuidController extends AbstractActionController
     public function trashAction()
     {
         /** @var Form $form */
-        $form = new TrashForm($this->params('id'));
+        $form = new TrashForm();
         $form->setData($this->getRequest()->getPost());
 
         if ($form->isValid()) {
@@ -53,7 +53,7 @@ class UuidController extends AbstractActionController
     public function purgeAction()
     {
         /** @var Form $form */
-        $form = new PurgeForm($this->params('id'));
+        $form = new PurgeForm();
         $form->setData($this->getRequest()->getPost());
 
         if ($form->isValid()) {

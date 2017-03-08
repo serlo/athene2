@@ -1,5 +1,5 @@
 {% if uuid %}
-    {% set form = uuidForm().getForm('trash', uuid) %}
+    {% set form = uuidForm().getTrashForm(uuid) %}
     {% do form.prepare() %}
     {{ form().openTag(form) }}
     {{ formRow(form.get('csrf')) }}

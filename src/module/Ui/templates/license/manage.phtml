@@ -22,7 +22,7 @@
                             <a class="btn btn-xs btn-default" href="<?php echo $this->url('license/update', array('id' => $license->getId())); ?>"><span class="fa fa-pencil"></span></a>
                         <?php endif; ?>
                         <?php if ($this->isGranted('license.purge', $license)): ?>
-                            <?php $form = $this->licenseForm()->getForm($license->getId());
+                            <?php $form = $this->licenseForm()->getRemoveForm($license->getId());
                             $form->prepare();
                             echo $this->form()->openTag($form);
                             echo $this->formRow($form->get('csrf')); ?>
