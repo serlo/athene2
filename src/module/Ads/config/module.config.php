@@ -123,6 +123,9 @@ return [
         ]
     ],
     'view_helpers'    => [
+        'invokables' => [
+            'adForm'  => __NAMESPACE__ . '\View\Helper\FormHelper'
+        ],
         'factories' => [
             'horizon' => __NAMESPACE__ . '\Factory\HorizonHelperFactory'
         ]

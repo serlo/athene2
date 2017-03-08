@@ -10,6 +10,7 @@ namespace Ads\Controller;
 
 use Ads\Form\AdForm;
 use Ads\Form\AdPageForm;
+use Ads\Form\RemoveAdForm;
 use Attachment\Exception\NoFileSent;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -84,9 +85,14 @@ class AdsController extends AbstractActionController
         $id = $this->params('id');
         $ad = $this->getAdsManager()->getAd($id);
         $this->assertGranted('ad.remove', $ad);
-        $this->getAdsManager()->removeAd($ad);
-        $this->getAdsManager()->flush();
-
+        if ($this->getRequest()->isPost()) {
+            $form = new RemoveAdForm();
+            $form->setData($this->getRequest()->getPost());
+            if ($form->isValid()) {
+                $this->getAdsManager()->removeAd($ad);
+                $this->getAdsManager()->flush();
+            }
+        }
         return $this->redirect()->toRoute('ads');
     }
 
