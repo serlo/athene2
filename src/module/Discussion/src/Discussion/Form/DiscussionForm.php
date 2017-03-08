@@ -8,6 +8,7 @@
  */
 namespace Discussion\Form;
 
+use Common\Form\Element\CsrfToken;
 use Common\Hydrator\HydratorPluginAwareDoctrineObject;
 use Doctrine\Common\Persistence\ObjectManager;
 use Notification\Form\OptInHiddenFieldset;
@@ -22,6 +23,7 @@ class DiscussionForm extends AbstractForm
     function __construct(HydratorPluginAwareDoctrineObject $hydrator, ObjectManager $objectManager)
     {
         parent::__construct('discussion');
+        $this->add(new CsrfToken('csrf'));
         $inputFilter = new InputFilter('discussion');
 
         $this->setInputFilter($inputFilter);

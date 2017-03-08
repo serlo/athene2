@@ -1,5 +1,9 @@
-{% if uuid is defined %}
-    {% set form = uuidForm().getPurgeForm(uuid) %}
+{% if container is defined %}
+    {% if parent is defined %}
+        {% set form = navigationForm().getCreatePageForm(container, parent) %}
+    {% else %}
+        {% set form = navigationForm().getCreatePageForm(container) %}
+    {% endif %}
     {% do form.prepare() %}
     {{ form().openTag(form) }}
     {{ formRow(form.get('csrf')) }}

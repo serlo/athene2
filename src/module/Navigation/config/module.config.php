@@ -70,6 +70,9 @@ return [
         ]
     ],
     'view_helpers'       => [
+        'invokables' => [
+            'navigationForm' => __NAMESPACE__ . '\View\Helper\FormHelper'
+        ],
         'factories' => [
             'navigation' => __NAMESPACE__ . '\Factory\NavigationHelperFactory'
         ]

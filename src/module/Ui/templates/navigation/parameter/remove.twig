@@ -1,5 +1,5 @@
-{% if uuid is defined %}
-    {% set form = uuidForm().getPurgeForm(uuid) %}
+{% if parameter is defined %}
+    {% set form = navigationForm().getRemoveParameterForm(parameter) %}
     {% do form.prepare() %}
     {{ form().openTag(form) }}
     {{ formRow(form.get('csrf')) }}

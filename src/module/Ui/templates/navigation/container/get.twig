@@ -8,10 +8,12 @@
         {{ 'Name: ' | trans }}{{ container.getType() }}
     </li>
 </ul>
-<a class="pull-right btn btn-xs btn-default"
-   href="{{ url('navigation/page/create', {'container': container.getId()}) }}">
+{% set createbutton %}
+<button class="pull-right btn btn-xs btn-default">
     <span class="fa fa-plus"></span>
     {{ 'Page' | trans }}
-</a>
+</button>
+{% endset %}
+{% include 'navigation/page/create' with {'container': container.getId(), 'sendbutton': createbutton} %}
 <h3>{{ 'Pages' | trans }}</h3>
 {% include 'navigation/page/partial/tree' with {'pages': container.getPages()} %}

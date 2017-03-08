@@ -19,20 +19,24 @@
                         <span class="fa fa-plus"></span>
                         {{ 'Add parameter' | trans }}
                     </a>
-                    <a class="btn btn-xs btn-default"
-                       href="{{ url('navigation/page/create', {'container': page.getContainer().getId(), 'parent': page.getId()}) }}">
+                    {% set createbutton %}
+                    <button class="btn btn-xs btn-default">
                         <span class="fa fa-plus"></span> {{ 'Add page' | trans }}
-                    </a>
+                    </button>
+                    {% endset %}
+                    {% include 'navigation/page/create' with {'container': page.getContainer().getId(), 'parent': page.getId(), 'sendbutton': createbutton} %}
                     <a class="btn btn-xs btn-default"
                        href="{{ url('navigation/page/update', {'page': page.getId()}) }}">
                         <span class="fa fa-cog"></span>
                         {{ 'Settings' | trans }}
                     </a>
-                    <a class="btn btn-xs btn-danger"
-                       href="{{ url('navigation/page/remove', {'page': page.getId()}) }}">
+                    {% set trashbutton %}
+                    <button class="btn btn-xs btn-danger">
                         <span class="fa fa-trash"></span>
                         {{ 'Remove page' | trans }}
-                    </a>
+                    </button>
+                    {% endset %}
+                    {% include 'navigation/page/remove' with {'page': page.getId(), 'sendbutton': trashbutton} %}
                 </div>
         </ul>
         {% if page.hasChildren() %}

@@ -1,5 +1,6 @@
 {% do form.prepare() %}
 {{ form().openTag(form) }}
+{{ formRow(form.get('csrf')) }}
 {{ formCollection(form.get('subscription')) }}
 <div class="discussion-content-wrapper">
     {{ formRow(form.get('content')) }}

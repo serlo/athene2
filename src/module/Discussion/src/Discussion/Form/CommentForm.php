@@ -8,6 +8,7 @@
  */
 namespace Discussion\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Notification\Form\OptInHiddenFieldset;
@@ -21,6 +22,7 @@ class CommentForm extends AbstractForm
     function __construct(ObjectManager $objectManager)
     {
         parent::__construct('comment');
+        $this->add(new CsrfToken('csrf'));
         $hydrator    = new DoctrineObject($objectManager);
         $inputFilter = new InputFilter('comment');
 

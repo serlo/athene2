@@ -7,10 +7,12 @@
            href="{{ url('navigation/parameter/update', {'parameter': parameter.getId()}) }}">
             <span class="fa fa-pencil"></span>
         </a>
-        <a class="btn btn-xs btn-danger"
-           href="{{ url('navigation/parameter/remove', {'parameter': parameter.getId()}) }}">
+        {% set trashbutton %}
+        <button class="btn btn-xs btn-danger">
             <span class="fa fa-trash"></span>
-        </a>
+        </button>
+        {% endset %}
+        {% include 'navigation/parameter/remove' with {'parameter': parameter.getId(), 'sendbutton': trashbutton} %}
     </div>
     <span class="label label-primary">{{ parameter.getKey() }}</span>
 {% if parameter.hasChildren() %}
