@@ -1,9 +1,9 @@
-{% if uuid %}
+{% if uuid is defined %}
     {% set form = uuidForm().getTrashForm(uuid) %}
     {% do form.prepare() %}
     {{ form().openTag(form) }}
     {{ formRow(form.get('csrf')) }}
-    {% if sendbutton %}
+    {% if sendbutton is defined %}
         {{ sendbutton }}
     {% else %}
         {{ formRow(form.get('submit')) }}

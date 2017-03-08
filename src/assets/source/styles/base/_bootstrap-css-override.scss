@@ -14,9 +14,34 @@
   padding: inherit;
 }
 
+.btn-group .dropdown-menu form .btn {
+  margin-left: 0;
+}
+
 .btn-group form {
   display: inline-block;
-  margin-left: -1px;
+  position: relative;
+  float: left;
+
+  .btn {
+    margin-left: -1px;
+    position: relative;
+    float: left;
+  }
+
+  &:first-child .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &:last-child .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &:not(:first-child):not(:last-child) .btn {
+    border-radius: 0;
+  }
 }
 
 .page-header > h1 {

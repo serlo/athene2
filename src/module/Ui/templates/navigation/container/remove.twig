@@ -1,5 +1,5 @@
-{% if uuid is defined %}
-    {% set form = uuidForm().getPurgeForm(uuid) %}
+{% if container is defined %}
+    {% set form = navigationForm().getRemoveContainerForm(container) %}
     {% do form.prepare() %}
     {{ form().openTag(form) }}
     {{ formRow(form.get('csrf')) }}
