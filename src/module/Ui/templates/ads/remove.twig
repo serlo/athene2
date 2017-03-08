@@ -1,0 +1,12 @@
+{% if ad is defined %}
+    {% set form = adForm().getForm(ad) %}
+    {% do form.prepare() %}
+    {{ form().openTag(form) }}
+    {{ formRow(form.get('csrf')) }}
+    {% if sendbutton is defined %}
+        {{ sendbutton }}
+    {% else %}
+        {{ formRow(form.get('submit')) }}
+    {% endif %}
+    {{ form().closeTag() }}
+{% endif %}
