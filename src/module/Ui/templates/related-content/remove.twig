@@ -1,0 +1,12 @@
+{% if related is defined %}
+    {% set form = relatedForm().getForm(related) %}
+    {% do form.prepare() %}
+    {{ form().openTag(form) }}
+    {{ formRow(form.get('csrf')) }}
+    {% if sendbutton is defined %}
+        {{ sendbutton }}
+    {% else %}
+        {{ formRow(form.get('submit')) }}
+    {% endif %}
+    {{ form().closeTag() }}
+{% endif %}

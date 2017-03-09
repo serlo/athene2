@@ -136,6 +136,9 @@ return [
         ]
     ],
     'view_helpers'    => [
+        'invokables' => [
+            'relatedForm' => __NAMESPACE__ . '\View\Helper\FormHelper'
+        ],
         'factories' => [
             'related' => __NAMESPACE__ . '\Factory\RelatedContentHelperFactory'
         ]

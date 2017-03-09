@@ -14,11 +14,7 @@
   padding: inherit;
 }
 
-.btn-group .dropdown-menu form .btn {
-  margin-left: 0;
-}
-
-.btn-group form {
+.btn-group > form {
   display: inline-block;
   position: relative;
   float: left;

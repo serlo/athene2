@@ -9,6 +9,7 @@
 namespace Flag\Controller;
 
 use Flag\Form\FlagForm;
+use Flag\Form\RemoveFlagForm;
 use Flag\Manager\FlagManagerAwareTrait;
 use Flag\Manager\FlagManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -68,10 +69,16 @@ class FlagController extends AbstractActionController
 
     public function removeAction()
     {
-        $id = $this->params('id');
-        $this->getFlagManager()->removeFlag((int)$id);
-        $this->getFlagManager()->flush();
-        $this->flashMessenger()->addSuccessMessage('Your action was successfull.');
+        $form = new RemoveFlagForm();
+        if ($this->getRequest()->isPost()) {
+            $form->setData($this->getRequest()->getPost());
+            if ($form->isValid()) {
+                $id = $this->params('id');
+                $this->getFlagManager()->removeFlag((int)$id);
+                $this->getFlagManager()->flush();
+                $this->flashMessenger()->addSuccessMessage('Your action was successfull.');
+            }
+        }
         return $this->redirect()->toReferer();
     }
 }

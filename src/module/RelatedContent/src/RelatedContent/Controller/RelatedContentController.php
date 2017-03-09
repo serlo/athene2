@@ -8,11 +8,11 @@
  */
 namespace RelatedContent\Controller;
 
-use Authorization\Service\AuthorizationAssertionTrait;
 use RelatedContent\Exception\NotFoundException;
 use RelatedContent\Form\CategoryForm;
 use RelatedContent\Form\ExternalForm;
 use RelatedContent\Form\InternalForm;
+use RelatedContent\Form\RemoveRelatedElementForm;
 use RelatedContent\Manager\RelatedContentManagerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -140,8 +140,14 @@ class RelatedContentController extends AbstractActionController
 
     public function removeAction()
     {
-        $this->getRelatedContentManager()->removeRelatedContent((int)$this->params('id'));
-        $this->getRelatedContentManager()->getObjectManager()->flush();
+        if ($this->getRequest()->isPost()) {
+            $form = new RemoveRelatedElementForm();
+            $form->setData($this->getRequest()->getPost());
+            if ($form->isValid()) {
+                $this->getRelatedContentManager()->removeRelatedContent((int)$this->params('id'));
+                $this->getRelatedContentManager()->getObjectManager()->flush();
+            }
+        }
         return $this->redirect()->toReferer();
     }
 }
