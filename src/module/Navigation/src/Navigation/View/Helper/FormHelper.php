@@ -1,4 +1,4 @@
-<?php/**
+<?php /**
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author    Benjamin Knorr (benjamin@serlo.org)
@@ -21,7 +21,8 @@ class FormHelper extends AbstractHelper
         return $this;
     }
 
-    public function getCreatePageForm($containerId, $parentId = null) {
+    public function getCreatePageForm($containerId, $parentId = null)
+    {
         $url = $this->getView()->url('navigation/page/create', ['container' => $containerId, 'parent' => $parentId]);
         /** @var Form $form */
         $form = new CreatePageForm();
