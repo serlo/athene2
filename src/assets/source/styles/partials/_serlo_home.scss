@@ -121,35 +121,27 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
     background-image: url('../images/de/serlo3_lg.jpg');
   }
   background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 30px;
+  background-position-y: 100%;
+  margin-bottom: 130px;
   width: 100%;
 }
 
 .home-about-row {
-  max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
+  max-width: 1.6 * ($homeColumnWidth + 2*$homeColumnPadding);
+  font-size: 16px;
+  @media (max-width: $homeBreakpoint-lg-min) {
+    padding: 50px 0;
+  }
   .home-header {
-    margin-bottom: 0px;
+    margin: 20px 0;
+    .serlo-logo {
+      @media (min-width: $homeBreakpoint-lg-min) {
+        margin-top: 140px
+      }
+    }
   }
-  .col-md-6 {
-    padding-top: 70px;
-  }
-  .home-serlo-learn {
-    @media (max-width: $homeBreakpoint-md-min) {
-      display: none;
-    }
-    font-weight: bold;
-    font-size: 13pt;
-    .home-learn-wrapper {
-      height: 100px;
-      margin-top: 75px;
-    }
-    .icon {
-      height: 85px;
-    }
-    .text {
-      margin: 25px 0px 25px -80px;
-    }
+  p {
+    padding-bottom: 20px;
   }
 }
 
@@ -185,18 +177,17 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-partner-row {
+  // max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
   .serlo-de-home & {
-    // max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
     @media (max-width: $homeBreakpoint-lg-min) {
       display: none;
     }
-    margin: 80px 0 50px 0;
+    margin: 90px 0 50px 0;
+    padding-bottom: 15px;
     h2 {
       display: inline-block;
-      width: 2/3 * 100%;
+      width: 1/2 * 100%;
       border-bottom: 1px solid grey;
-      margin-bottom: 10px;
-
       letter-spacing: 0.3px;
       color: grey;
     }
@@ -204,24 +195,20 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
       margin-top: 10px;
     }
     img {
-      max-width: 140px;
-      margin: 20px 15px 15px 15px;
+      max-width: 105px;
+      margin: 5px 15px 15px 15px;
     }
-
     li {
       padding: 29px 0;
     }
-
     blockquote {
       border: none;
       font-size: inherit;
       margin: 0;
-
       footer {
         padding: 5px 0;
         font-weight: bold;
         display: inline-block;
-
         &:before {
           content: '';
         }
@@ -230,10 +217,11 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
+
 .home-principle-row {
   @media (min-width: $homeBreakpoint-md-min) {
-    padding: 250px 0px;
-    margin: 100px 0px;
+    padding: 250px 0;
+    margin: 100px 0 130px 0;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('../images/de/about_serlo.svg');
@@ -248,6 +236,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   height: 0;
   width: 100%;
   padding-top: 43.75%;
+  margin-bottom: 40px;
 
   .serlo-de-home & {
     background-image: url('../images/de/home_img_launch_sm.jpg');
@@ -277,7 +266,10 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 .home-calls-wrapper {
   background: #fff;
   padding: 20px 0px;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
+  @media (min-width: $homeBreakpoint-lg-min) {
+    margin-bottom: 300px;
+  }
 }
 
 .home-calls-header {
@@ -289,14 +281,42 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
       font-weight: bold;
   }
 }
-.home-texts-row {
+.home-calls-column {
   font-size: 16px;
-  max-width: 2.75 * ($homeColumnWidth + 2*$homeColumnPadding);
-  padding: 10px 0px;
-  .home-col-md-3 {
-    @media screen and (min-width: $homeBreakpoint-md-max) {
-      padding: 0px 50px;
+  padding: 10px 60px;
+  @media (max-width: $homeBreakpoint-md-max) {
+    padding: 10px 50px;
+  }
+  @media (max-width: 1200px) {
+    float: none;
+    width: 90%;
+  }
+  .home-emph-link {
+    font-size: 25px;
+    &:focus, &:hover, &:active {
+      color: $serloGreen;
     }
+    i {
+      color: $serloGreen;
+    }
+  }
+}
+
+.home-jobs1 {
+  @media (max-width: 1199px) {
+    display: none;
+  }
+}
+.home-jobs2 {
+  @media (min-width: 1200px) {
+    display: none;
+  }
+  padding-top: 40px;
+}
+
+.home-join {
+  @media (max-width: 1199px) {
+    padding-top: 40px;
   }
 }
 
