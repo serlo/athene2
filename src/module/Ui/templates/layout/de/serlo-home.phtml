@@ -81,6 +81,7 @@ echo $this->doctype();
         <section class="clearfix">
             <div id="content-layout" class="clearfix">
                 <?php echo $this->partial('layout/partials/notifications'); ?>
+                <div class="flasher"></div>
                 <div class="home-header">
                     <?php echo $this->brand()->getLogo(); ?>
                     <?php echo $this->brand()->getBrand(); ?>
@@ -179,7 +180,7 @@ echo $this->doctype();
                             <img src="/assets/images/de/home_logo_eu.png" alt="Europäische Kommission"/>
                         </a>
                         <a href="/21456">
-                            <img src="/assets/images/de/home_logo_lmu.svg" alt="Ludwig-Maximilians-Universität München"/>
+                            <img src="/assets/images/de/home_logo_lmu.png" alt="Ludwig-Maximilians-Universität München"/>
                         </a>
                         <a href="/21456">
                             <img src="/assets/images/de/home_logo_sauer.png" alt="Hans Sauer Stiftung"/>
@@ -194,58 +195,81 @@ echo $this->doctype();
                     <div class="home-calls-header">
                         <h2>Serlo.org ist die Wikipedia für's Lernen<h2>
                     </div>
-                    <div class="home-row home-col-lg-6 home-column">
-                        <div class="home-col-lg-1"></div>
-                        <div class="home-col-lg-2 home-calls-column home-row">
+                    <div class="home-row home-column">
+                        <div class="col-md-6 col-lg-4 col-lg-offset-2 home-calls-column">
                             <p>Wir suchen Lehrer und Hobby-Lehrer mit Begeisterung für ihr Fach.
                                 Werden Sie Autor auf serlo.org, erstellen Sie neue Inhalte und helfen Sie uns,
                                 die Qualität der Lernplattform zu sichern.</p>
-                            <a href="/mitmachen" class="home-emph-link">
-                                Zur Startseite für Autoren <i class="fa fa-arrow-circle-right"></i>
-                            </a>
+                            <div class="hidden-md hidden-lg">
+                                <a href="/mitmachen" class="home-emph-link">
+                                    Zur Startseite für Autoren <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="home-col-lg-2 home-calls-column home-row home-jobs1">
-                            <p>Wir bieten zahlreiche spannende Aufgaben aus den Bereichen
-                                Softwareentwicklung, Redaktion und NGO-Management.</p>
-                            <br /><br />
-                            <a href="/jobs" class="home-emph-link">
-                                Jobs und Engagement <i class="fa fa-arrow-circle-right"></i>
-                            </a>
+                        <div class="col-md-6 col-lg-4 home-calls-column">
+                            <p>Wir suchen neue hauptamtliche und ehrenamtliche Teammitglieder für die
+                                Bereiche Softwareentwicklung, Redaktion und NGO-Management. </p>
+                            <div class="hidden-md hidden-lg">
+                                <a href="/jobs" class="home-emph-link">
+                                    Jobs und Engagement <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="home-col-lg-1"></div>
-                        <div class="home-col-lg-2 home-calls-column home-row home-jobs2">
-                            <p>Wir bieten zahlreiche spannende Aufgaben aus den Bereichen
-                                Softwareentwicklung, Redaktion und NGO-Management.</p>
-                            <a href="/jobs" class="home-emph-link">
-                                Jobs und Engagement <i class="fa fa-arrow-circle-right"></i>
-                            </a>
-                        </div>
+                    </div>
+                <div class="home-row visible-md visible-lg">
+                    <div class="col-sm-6 col-lg-4 col-lg-offset-2 home-calls-column">
+                        <a href="/mitmachen" class="home-emph-link">
+                            Zur Startseite für Autoren <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 home-calls-column">
+                        <a href="/jobs" class="home-emph-link">
+                            Jobs und Engagement <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                     </div>
                 </div>
+                </div>
 
-                <div class="home-row home-principle-row home-column"></div>
+                <div class="home-row home-principle-row home-column col-md-12 col-lg-6 col-lg-offset-3">
+                    <img src="/assets/images/de/about_serlo.svg">
+                </div>
                 <div class="home-launch-img-row home-row"></div>
-
                 <div class="home-calls-wrapper">
                     <div class="home-calls-header">
-                        <h2>Werde Teil unserer Bewegung für freie Bildung<h2>
+                        <h2>Werden Sie Teil unserer Bewegung für freie Bildung</h2>
                     </div>
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-4 home-calls-column home-row">
-                        <p>Softwareentwicklung und Lerninhalte erstellen kostet Geld. Wir freuen uns sehr,
-                            wenn sie Serlo mit einer Spende unterstützen.</p>
-                        <a class="home-emph-link" href="/spenden">
-                            Spenden <i class="fa fa-arrow-circle-right"></i>
-                        </a>
+                    <div class="home-row home-column">
+                        <div class="col-md-6 col-lg-4 col-lg-offset-2 home-calls-column">
+                            <p>Softwareentwicklung und Lerninhalte erstellen kostet Geld. Wir freuen uns sehr,
+                                wenn Sie Serlo mit einer Spende unterstützen.</p>
+                            <div class="hidden-md hidden-lg">
+                                <a class="home-emph-link" href="/spenden">
+                                    Spenden <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 home-calls-column">
+                            <p>Bildung gehört uns allen! Werden Sie Mitglied in unserer Organisation
+                                Serlo Education e.V. und so zum “Mitherausgeber” der freien Lernplattform.</p>
+                            <div class="hidden-md hidden-lg">
+                                <a class="home-emph-link" href="/beitreten">
+                                    Mitglied werden <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 home-calls-column home-row home-join">
-                        <p>Bildung gehört uns allen! Werden Sie Mitglied in unserer Organisation
-                            Serlo Education e.V. und so zum “Mitherausgeber” der freien Lernplattform.</p>
-                        <a class="home-emph-link" href="/beitreten">
-                            Mitglied werden <i class="fa fa-arrow-circle-right"></i>
-                        </a>
+                    <div class="home-row visible-md visible-lg">
+                        <div class="col-sm-6 col-lg-4 col-lg-offset-2 home-calls-column">
+                            <a class="home-emph-link" href="/spenden">
+                                Spenden <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 home-calls-column">
+                            <a class="home-emph-link" href="/beitreten">
+                                Mitglied werden <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-lg-2"></div>
                 </div>
                 <div class="home-column heart"> <img src="assets/images/home_donate.svg" alt="heart"> </div>
             </div>
