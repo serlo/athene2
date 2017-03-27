@@ -290,6 +290,12 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
+.calls-column-1 {
+  @media (max-width: 992px){
+    padding-bottom: 50px;
+  }
+}
+
 .home-join {
   @media (max-width: 1199px) {
     padding-top: 40px;
