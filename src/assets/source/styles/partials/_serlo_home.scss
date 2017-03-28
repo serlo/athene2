@@ -146,7 +146,8 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-serlo-row {
-  margin: 0 auto 100px auto;
+  font-size: 15px;
+  margin: 0 auto 50px auto;
   padding-bottom: 50px;
   .home-column {
     margin-bottom: 25px;
@@ -331,10 +332,12 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 .heart {
   margin-bottom: 70px;
 }
-
+.home-community-wrapper {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
 .home-community-row, .home-community-link-row {
   max-width: 2 * ($homeColumnWidth + 2*$homeColumnPadding);
-  margin-top: 50px;
   @media screen and (max-width: $homeBreakpoint-md-max) {
     margin: 0;
   }
