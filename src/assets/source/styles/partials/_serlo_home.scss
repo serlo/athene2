@@ -162,18 +162,6 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
   .serlo-en-home & {
     max-width: 400px;
-
-    .serlo-logo {
-      display: inline-block;
-      font-size: 65px;
-      height: 100px;
-      vertical-align: bottom;
-    }
-
-    .serlo-brand {
-      display: inline-block;
-      font-size: 36px;
-    }
   }
 }
 
@@ -419,35 +407,5 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
   .wrap {
     background-color: $homeBackgroundColor;
-  }
-}
-
-.home-graphic {
-  .serlo-en-home & {
-    padding: 50px;
-
-    div {
-      background: url('../images/en/home_learn.svg') no-repeat center;
-      background-size: contain;
-      height: 0;
-      width: 100%;
-      max-width: 475px;
-      margin: 0 auto;
-      padding-top: 67%;
-
-      @media screen and (min-width: 525px) {
-        padding-top: 315px;
-      }
-    }
-  }
-}
-
-.home-blue-row {
-  background: #0C5997;
-  color: #ffffff;
-  padding: 25px 0;
-
-  @media (min-width: $homeBreakpoint-lg-min) {
-    padding: 50px 0;
   }
 }
