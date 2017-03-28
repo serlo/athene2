@@ -89,14 +89,14 @@ echo $this->doctype();
                 <?php echo $this->partial('layout/partials/notifications'); ?>
 
                 <div class="flasher"></div>
+                <div class="home-header">
+                    <?php echo $this->brand()->getLogo(); ?>
+                    <?php echo $this->brand()->getBrand(); ?>
+                    <div class="header-text">The free Learning platform</div>
+                </div>
 
-                <div class="home-serlo-row home-row">
-                    <div class="home-column">
-                        <div class="logo-wrapper">
-                            <span class="serlo-logo">V</span>
-                            <div class="serlo-brand">Serlo</div>
-                        </div>
-
+                <div class="home-serlo-row">
+                    <div class="home-row">
                         <p>
                             It is our vision to provide high quality education worldwide -
                             completely free of charge and without ads. Like on Wikipedia,
@@ -104,21 +104,16 @@ echo $this->doctype();
                             We already provide thousands of articles and solved exercises in German -
                             now it’s time to go international.
                         </p>
-
                         <p>
                             <a class="home-emph-link" style="margin: 8px;" href="/23727">
                                 Learn more <i class="fa fa-arrow-circle-right"></i>
-                            </a>
-
-                            <a class="home-emph-link" style="margin: 8px;" href="/27469">
-                                Participate <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </p>
                     </div>
                 </div>
 
-                <div class="home-blue-row home-row">
-                    <div></div>
+                <div class="home-row home-principle-row home-column col-md-12 col-lg-6 col-lg-offset-3">
+                    <img src="/assets/images/en/about_serlo.svg">
                 </div>
 
                 <div class="home-launch-img-row home-row"></div>
