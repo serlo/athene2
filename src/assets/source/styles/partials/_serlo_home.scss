@@ -2,6 +2,8 @@
 @import "../modules/visibility";
 
 $homeBackgroundColor: #efefef;
+// $homeBackgroundBlue: #007ec1;
+
 $homeColumnWidth: 300px;
 $homeColumnPadding: 30px;
 
@@ -12,6 +14,10 @@ $homeBreakpoint-md-max: ($homeBreakpoint-md-min - 1);
 $homeBreakpoint-lg: 800px;
 $homeBreakpoint-lg-min: $homeBreakpoint-lg;
 $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
+
+$homeBreakpoint-huge: 1200px;
+$homeBreakpoint-huge-min: $homeBreakpoint-lg;
+$homeBreakpoint-huge-max: ($homeBreakpoint-lg-min - 1);
 
 @include grid('home', 6, ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
 @include visibility('home', ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
@@ -41,7 +47,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   width: 100%;
 }
 .home-subject-row {
-  margin: 50px auto 200px auto;
+  margin: 0px auto 105px;
   padding: auto;
 
   .home-column {
@@ -87,8 +93,8 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   text-align: center;
   font-size: 36px;
   color: $gray;
+  margin: 45px 0;
   margin-bottom: 80px;
-  margin-top: 10px;
 
   .serlo-logo {
     display: inline-block;
@@ -114,30 +120,31 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 .home-about-wrapper {
-  @media screen and (min-width: $homeBreakpoint-md-min) {
-    background-image: url('../images/de/serlo3_md.jpg');
-  }
-  @media screen and (min-width: $homeBreakpoint-lg-min) {
-    background-image: url('../images/de/serlo3_lg.jpg');
-  }
-  background-repeat: no-repeat;
-  background-position-y: 100%;
-  margin-bottom: 130px;
-  width: 100%;
+  margin-right: 0;
+  margin-bottom: 80px;
 }
 
 .home-about-row {
-  max-width: 1.6 * ($homeColumnWidth + 2*$homeColumnPadding);
+  background-color: $serloBlue;
+  padding: 80px 50px 50px 50px;
   font-size: 16px;
-  @media (max-width: $homeBreakpoint-lg-min) {
-    padding: 50px 0;
+  color: #fff;
+  text-align: left;
+
+  @media (min-width: 1240px) {
+    min-height: 740px;
   }
-  .home-header {
-    margin: 20px 0;
-    .serlo-logo {
-      @media (min-width: $homeBreakpoint-lg-min) {
-        margin-top: 140px
-      }
+
+  @media (min-width: 1580px) {
+    min-height: 640px;
+  }
+  .home-emph-link {
+    color: #fff;
+    &:focus, &:hover, &:active {
+        color: $serloBlueLight;
+        i {
+            color: $serloBlueLight;
+        }
     }
   }
   p {
@@ -146,7 +153,7 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-serlo-row {
-  font-size: 15px;
+  font-size: 16px;
   margin: 0 auto 50px auto;
   padding-bottom: 50px;
   .home-column {
@@ -166,26 +173,59 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-partner-row {
-  // max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
+  text-align: center;
+
+  min-height: 640px;
+  padding-top: 518px;
+
+  @media (min-width: 1240px) {
+    min-height: 740px;
+    padding-top: 610px;
+  }
+
+  @media (min-width: 1580px) {
+    min-height: 640px;
+    padding-top: 518px;
+  }
+
+  .partners {
+    display: inline-block;
+    width: 820px;
+  }
+
+  @media screen and (min-width: $homeBreakpoint-md-min) {
+    background-image: url('../images/de/serlo_learning_md.jpg');
+  }
+  @media screen and (min-width: $homeBreakpoint-lg-min) {
+    background-image: url('../images/de/serlo_learning_lg.jpg');
+  }
+  background-repeat: no-repeat;
+  background-position-y: 100%;
+  background-size:cover;
+  .home-emph-link {
+    color: #fff;
+  }
   .serlo-de-home & {
     @media (max-width: $homeBreakpoint-lg-min) {
       display: none;
     }
-    margin: 90px 0 50px 0;
-    padding-bottom: 15px;
     h2 {
       display: inline-block;
       width: 1/2 * 100%;
-      border-bottom: 1px solid grey;
+      border-bottom: 1px solid #fff;
       letter-spacing: 0.3px;
-      color: grey;
+      color: #fff;
+      padding-bottom: 4px;
     }
     a {
       margin-top: 10px;
     }
     img {
-      max-width: 105px;
-      margin: 5px 15px 15px 15px;
+      max-width: 100px;
+      margin: 10px 0 15px 30px;
+      @media (max-width: $homeBreakpoint-lg-min) {
+        max-width: 130px;
+      }
     }
     li {
       padding: 29px 0;
@@ -208,12 +248,15 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
 
 .home-principle-row {
-  img {
-    width: 50%;
-  }
-  padding: 50px 0;
-  background-color: #f8f8ff;
+  padding: 80px 0;
+  background-color: $serloBlue;
   width: 100%;
+
+  @media screen and (min-width: $homeBreakpoint-md-min) {
+    img {
+      width: 50%;
+    }
+  }
 }
 
 .home-launch-img-row {
@@ -256,20 +299,24 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-calls-header {
-  text-align: center;
-  padding: 40px 0;
+  text-align: left;
+  padding: 0 0 20px 0;
   margin-top: 20px;
+  color: #333;
     h2 {
       margin-bottom: 2px;
+      font-size: 30px;
       font-weight: bold;
   }
 }
 .home-calls-column {
   font-size: 16px;
-  padding: 10px 60px;
+  padding: 10px 0;
+  text-align: left;
 
   .home-emph-link {
     font-size: 25px;
+    margin-top:20px;
     &:focus, &:hover, &:active {
       color: $serloGreen;
     }
@@ -317,9 +364,13 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   margin: 40px 0;
 }
 
-.heart {
-  margin-bottom: 70px;
+.home-row .extra-icon {
+  text-align: left;
+  margin-bottom: 7px;
+  position: relative;
+  left: -52px;
 }
+
 .home-community-wrapper {
   margin-top: 100px;
   margin-bottom: 50px;
