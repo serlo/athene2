@@ -16,10 +16,14 @@
             </div>
             <div class="col-sm-6 col-xs-12">
                 {% for childsChild in child.findChildrenByTrashed(false) if childsChild.getType().getName() not in ['topic-folder' , 'curriculum-topic-folder'] %}
+                    {% set entities = childsChild.getAssociated('entities') %}
+                    {% set entities = entity().getVisible(entities) %}
                     {% set currentSub %}
                     <div class="col-xs-12">
                         <p>
-                            <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">{{ childsChild.getName() }}</a>
+                            <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">
+                                {{ childsChild.getName() }} ({{ childsChild.findChildrenByTrashed(false).count() + entities.count()}})
+                            </a>
                         </p>
                     </div>
                     {% endset %}
@@ -28,8 +32,8 @@
                 <!-- Sub folders -->
                 {% if subfolders %}
                     <div class="row bottom-buffer-15">
-                        <div class="col-xs-2 text-center text-theme">
-                            <span class="fa fa-1-5x fa-chevron-right"></span>
+                        <div class="col-xs-2 text-center">
+                            <span class="fa fa-1-5x fa-folder-open-o"></span>
                         </div>
                         <div class="col-xs-10">
                             <div class="row">
