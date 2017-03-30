@@ -251,6 +251,9 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-lg-min - 1);
   padding: 80px 0;
   background-color: $serloBlue;
   width: 100%;
+  .serlo-en-home & {
+    margin-bottom: 70px;
+  }
 
   @media screen and (min-width: $homeBreakpoint-md-min) {
     img {
@@ -332,72 +335,14 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
-.home-join {
-  @media (max-width: 1199px) {
-    padding-top: 40px;
-  }
-}
-
-.home-links-row {
-  max-width: 2.5 * ($homeColumnWidth + 2*$homeColumnPadding);
-  padding: 10px 0px;
-  .home-col-md-3 {
-    @media screen and (min-width: $homeBreakpoint-md-max) {
-      padding: 0px 50px;
-    }
-  }
-  @media screen and (max-width: $homeBreakpoint-md-max) {
-    margin: 0;
-  }
-  .home-emph-link {
-    font-size: 25px;
-    &:focus, &:hover, &:active {
-      color: $serloGreen;
-    }
-    i {
-      color: $serloGreen;
-    }
-  }
-}
-
-.home-wiki-wrapper {
-  margin: 40px 0;
-}
-
 .home-row .extra-icon {
-  text-align: left;
-  margin-bottom: 7px;
-  position: relative;
-  left: -52px;
-}
-
-.home-community-wrapper {
-  margin-top: 100px;
-  margin-bottom: 50px;
-}
-.home-community-row, .home-community-link-row {
-  max-width: 2 * ($homeColumnWidth + 2*$homeColumnPadding);
-  @media screen and (max-width: $homeBreakpoint-md-max) {
-    margin: 0;
+  text-align: right;
+  padding: 10px 50px;
+  @media  (max-width: $homeBreakpoint-huge-max) {
+    text-align: center;
   }
-
-  .home-column {
-    h2 {
-      margin-bottom: 2px;
-    }
-
-    > a {
-      display: block;
-      margin: 30px 0;
-
-      &:focus, &:hover, &:active {
-        color: $serloGreen;
-      }
-
-      i {
-        color: $serloGreen;
-      }
-    }
+  @media (max-width: 992px) {
+    text-align: left;
   }
 }
 
