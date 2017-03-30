@@ -16,8 +16,8 @@ $homeBreakpoint-lg-min: $homeBreakpoint-lg;
 $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
 $homeBreakpoint-huge: 1200px;
-$homeBreakpoint-huge-min: $homeBreakpoint-lg;
-$homeBreakpoint-huge-max: ($homeBreakpoint-lg-min - 1);
+$homeBreakpoint-huge-min: $homeBreakpoint-huge;
+$homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
 
 @include grid('home', 6, ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
 @include visibility('home', ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
@@ -336,13 +336,11 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-lg-min - 1);
 }
 
 .home-row .extra-icon {
-  text-align: right;
-  padding: 10px 50px;
-  @media  (max-width: $homeBreakpoint-huge-max) {
-    text-align: center;
-  }
-  @media (max-width: 992px) {
-    text-align: left;
+  text-align: left;
+  padding: 10px 0px;
+  @media (min-width: 1199px) {
+    text-align: right;
+    padding: 10px 70px;
   }
 }
 
