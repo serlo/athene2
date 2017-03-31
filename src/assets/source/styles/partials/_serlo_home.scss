@@ -119,6 +119,7 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
     letter-spacing: 0.2px;
   }
 }
+
 .home-about-wrapper {
   margin-right: 0;
   margin-bottom: 80px;
@@ -254,8 +255,12 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
   .serlo-en-home & {
     margin-bottom: 70px;
   }
-
   @media screen and (min-width: $homeBreakpoint-md-min) {
+    img {
+      width: 70%;
+    }
+  }
+  @media screen and (min-width: 992px) {
     img {
       width: 50%;
     }
