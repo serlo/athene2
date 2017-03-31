@@ -255,12 +255,12 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
   .serlo-en-home & {
     margin-bottom: 70px;
   }
-  @media screen and (min-width: $homeBreakpoint-md-min) {
+  @media screen and (min-width: $screen-md) {
     img {
       width: 70%;
     }
   }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: $screen-lg) {
     img {
       width: 50%;
     }
@@ -308,6 +308,9 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
 
 .home-calls-header {
   text-align: left;
+  @media (max-width: $screen-lg){
+    text-align: center;
+  }
   padding: 0 0 20px 0;
   margin-top: 20px;
   color: #333;
@@ -321,6 +324,9 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
   font-size: 16px;
   padding: 10px 0;
   text-align: left;
+  @media (max-width: $screen-lg){
+    text-align: center;
+  }
 
   .home-emph-link {
     font-size: 25px;
@@ -335,15 +341,15 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
 }
 
 .calls-column-1 {
-  @media (max-width: 992px){
+  @media (max-width: $screen-md){
     padding-bottom: 50px;
   }
 }
 
 .home-row .extra-icon {
-  text-align: left;
+  text-align: center;
   padding: 10px 0px;
-  @media (min-width: 1199px) {
+  @media (min-width: $screen-lg) {
     text-align: right;
     padding: 10px 70px;
   }
