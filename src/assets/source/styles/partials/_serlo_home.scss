@@ -2,7 +2,6 @@
 @import "../modules/visibility";
 
 $homeBackgroundColor: #efefef;
-// $homeBackgroundBlue: #007ec1;
 
 $homeColumnWidth: 300px;
 $homeColumnPadding: 30px;
@@ -47,7 +46,7 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
   width: 100%;
 }
 .home-subject-row {
-  margin: 0px auto 105px;
+  margin: 0px auto 105px auto;
   padding: auto;
 
   .home-column {
