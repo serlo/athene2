@@ -14,9 +14,9 @@ $homeBreakpoint-lg: 800px;
 $homeBreakpoint-lg-min: $homeBreakpoint-lg;
 $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
-$homeBreakpoint-huge: 1200px;
-$homeBreakpoint-huge-min: $homeBreakpoint-huge;
-$homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
+$homeBreakpoint-xl: 1240px;
+
+$homeBreakpoint-xxl: 1580px;
 
 @include grid('home', 6, ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
 @include visibility('home', ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
@@ -131,11 +131,11 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
   color: #fff;
   text-align: left;
 
-  @media (min-width: 1240px) {
+  @media (min-width: $homeBreakpoint-xl) {
     min-height: 740px;
   }
 
-  @media (min-width: 1580px) {
+  @media (min-width: $homeBreakpoint-xxl) {
     min-height: 640px;
   }
   .home-emph-link {
@@ -174,16 +174,15 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
 
 .home-partner-row {
   text-align: center;
-
   min-height: 640px;
   padding-top: 518px;
 
-  @media (min-width: 1240px) {
+  @media (min-width: $homeBreakpoint-xl) {
     min-height: 740px;
     padding-top: 610px;
   }
 
-  @media (min-width: 1580px) {
+  @media (min-width: $homeBreakpoint-xxl) {
     min-height: 640px;
     padding-top: 518px;
   }
@@ -256,7 +255,7 @@ $homeBreakpoint-huge-max: ($homeBreakpoint-huge-min - 1);
   }
   @media screen and (min-width: $screen-md) {
     img {
-      width: 70%;
+      width: 75%;
     }
   }
   @media screen and (min-width: $screen-lg) {
