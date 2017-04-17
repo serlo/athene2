@@ -21,7 +21,8 @@ class UserHelper extends AbstractHelper
     /**
      * @param UserManagerInterface $userManager
      */
-    public function __construct(UserManagerInterface $userManager) {
+    public function __construct(UserManagerInterface $userManager)
+    {
         $this->userManager = $userManager;
     }
 
@@ -36,8 +37,26 @@ class UserHelper extends AbstractHelper
     /**
      * @return \User\Entity\UserInterface
      */
-    public function getAuthenticatedUserID() {
+    public function getAuthenticatedUserID()
+    {
         $user = $this->userManager->getUserFromAuthenticator();
         return $user ? $user->getId() : '';
+    }
+
+    public function getAuthenticatedUserName()
+    {
+        $user = $this->userManager->getUserFromAuthenticator();
+        return $user ? $user->getUsername() : '';
+    }
+
+    public function isUserLoggedIn()
+    {
+        return ($this->getAuthenticatedUserID() != '');
+    }
+
+    public function getAuthenticatedUserEmail()
+    {
+        $user = $this->userManager->getUserFromAuthenticator();
+        return $user ? $user->getEmail() : '';
     }
 }
