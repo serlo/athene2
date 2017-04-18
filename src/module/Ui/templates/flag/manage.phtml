@@ -35,7 +35,8 @@
                         <a class="btn btn-default btn-xs" href="<?php echo $this->url('flag/detail', array('id' => $flag->getId())); ?>"><span class="fa fa-search"></span></a>
                         <?php if ($this->isGranted('flag.purge', $flag)): ?>
                             <?php $trashbutton = '<button class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></button>';
-                            echo $this->twigPartial('flag/remove', array('flag' => $flag->getId(), 'sendbutton' => $trashbutton));
+                            $this->form->setAttribute('action', $this->url('flag/remove', ['id' => $flag->getId()]));
+                            echo $this->twigPartial('common/csrfform', array('form' => $this->form, 'sendbutton' => $trashbutton));
                             ?>
                         <?php endif; ?>
                     </div>

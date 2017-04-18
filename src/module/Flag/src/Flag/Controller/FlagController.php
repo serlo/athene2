@@ -8,8 +8,8 @@
  */
 namespace Flag\Controller;
 
+use Common\Form\CsrfForm;
 use Flag\Form\FlagForm;
-use Flag\Form\RemoveFlagForm;
 use Flag\Manager\FlagManagerAwareTrait;
 use Flag\Manager\FlagManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -62,14 +62,14 @@ class FlagController extends AbstractActionController
     public function manageAction()
     {
         $flags = $this->getFlagManager()->findAllFlags();
-        $view  = new ViewModel(['flags' => $flags]);
+        $view  = new ViewModel(['flags' => $flags, 'form' => new CsrfForm('remove-flag')]);
         $view->setTemplate('flag/manage');
         return $view;
     }
 
     public function removeAction()
     {
-        $form = new RemoveFlagForm();
+        $form = new CsrfForm('remove-flag');
         if ($this->getRequest()->isPost()) {
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {

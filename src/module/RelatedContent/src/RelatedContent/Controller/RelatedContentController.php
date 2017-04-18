@@ -8,11 +8,11 @@
  */
 namespace RelatedContent\Controller;
 
+use Common\Form\CsrfForm;
 use RelatedContent\Exception\NotFoundException;
 use RelatedContent\Form\CategoryForm;
 use RelatedContent\Form\ExternalForm;
 use RelatedContent\Form\InternalForm;
-use RelatedContent\Form\RemoveRelatedElementForm;
 use RelatedContent\Manager\RelatedContentManagerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -117,7 +117,8 @@ class RelatedContentController extends AbstractActionController
         $aggregated = $this->getRelatedContentManager()->aggregateRelatedContent($this->params('id'));
         $view       = new ViewModel([
             'aggregated' => $aggregated,
-            'container'  => $container
+            'container'  => $container,
+            'form'       => new CsrfForm('remove-related-element')
         ]);
         $view->setTemplate('related-content/manage');
         $this->layout('layout/1-col');
@@ -141,7 +142,7 @@ class RelatedContentController extends AbstractActionController
     public function removeAction()
     {
         if ($this->getRequest()->isPost()) {
-            $form = new RemoveRelatedElementForm();
+            $form = new CsrfForm('remove-related-element');
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
                 $this->getRelatedContentManager()->removeRelatedContent((int)$this->params('id'));

@@ -12,7 +12,8 @@
             <span class="fa fa-trash"></span>
         </button>
         {% endset %}
-        {% include 'navigation/parameter/remove' with {'parameter': parameter.getId(), 'sendbutton': trashbutton} %}
+        {% do form.setAttribute('action', url('navigation/parameter/remove', {'parameter': parameter.getId()})) %}
+        {% include 'common/csrfform' with {'form': form, 'sendbutton': trashbutton} %}
     </div>
     <span class="label label-primary">{{ parameter.getKey() }}</span>
 {% if parameter.hasChildren() %}

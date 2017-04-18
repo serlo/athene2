@@ -8,9 +8,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Page\Entity\PageRepositoryInterface;
 use Taxonomy\Manager\TaxonomyManagerInterface;
-use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
+use Zend\Form\Element\Checkbox;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 

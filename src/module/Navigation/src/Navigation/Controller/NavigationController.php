@@ -9,6 +9,7 @@
  */
 namespace Navigation\Controller;
 
+use Common\Form\CsrfForm;
 use Instance\Manager\InstanceManagerInterface;
 use Navigation\Form\ContainerForm;
 use Navigation\Form\CreatePageForm;
@@ -181,7 +182,8 @@ class NavigationController extends AbstractActionController
 
         $view = new ViewModel([
             'container'    => $container,
-            'positionForm' => $this->pageForm
+            'positionForm' => $this->pageForm,
+            'form'         => new CsrfForm('navigation')
         ]);
 
         $view->setTemplate('navigation/container/get');

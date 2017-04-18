@@ -14,6 +14,7 @@
     {{ 'Page' | trans }}
 </button>
 {% endset %}
-{% include 'navigation/page/create' with {'container': container.getId(), 'sendbutton': createbutton} %}
+{% do form.setAttribute('action', url('navigation/page/create', {'container': container.getId()})) %}
+{% include 'common/csrfform' with {'form': form, 'sendbutton': createbutton} %}
 <h3>{{ 'Pages' | trans }}</h3>
 {% include 'navigation/page/partial/tree' with {'pages': container.getPages()} %}

@@ -15,7 +15,6 @@ use License\Form\AgreementFieldset;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
-use Zend\Form\Element\Csrf;
 
 class MultipleChoiceRightAnswerForm extends Form
 {

@@ -1,10 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: User
- * Date: 06.03.2017
- * Time: 11:55
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author    Benjamin Knorr (benjamin@serlo.org)
+ * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 
 namespace Common\Validator;
 
@@ -29,11 +31,6 @@ class CsrfValidator extends Csrf
     protected function initCsrfToken()
     {
         $session = $this->getSession();
-        $timeout = $this->getTimeout();
-        if (null !== $timeout) {
-            $session->setExpirationSeconds($timeout);
-        }
-
         $hash = $this->getHash();
         $session->hash = $hash;
     }

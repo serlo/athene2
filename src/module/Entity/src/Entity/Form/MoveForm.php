@@ -12,7 +12,6 @@ namespace Entity\Form;
 use Common\Form\Element\CsrfToken;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
-use Zend\Form\Element\Csrf;
 
 class MoveForm extends Form
 {

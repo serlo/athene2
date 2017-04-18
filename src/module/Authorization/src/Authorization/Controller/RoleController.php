@@ -10,14 +10,13 @@
 namespace Authorization\Controller;
 
 use Authorization\Form\PermissionForm;
-use Authorization\Form\RemovePermissionForm;
-use Authorization\Form\RemoveUserForm;
 use Authorization\Form\RoleForm;
 use Authorization\Form\UserForm;
 use Authorization\Service\PermissionServiceAwareTrait;
 use Authorization\Service\PermissionServiceInterface;
 use Authorization\Service\RoleServiceAwareTrait;
 use Authorization\Service\RoleServiceInterface;
+use Common\Form\CsrfForm;
 use Instance\Entity\InstanceAwareTrait;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
@@ -165,7 +164,7 @@ class RoleController extends AbstractActionController
         $permissionID = $this->params('permission');
         $this->assertGranted('authorization.role.revoke.permission');
 
-        $form = new RemovePermissionForm($role->getId(), $permissionID);
+        $form = new CsrfForm('remove-permission');
 
        if ($this->getRequest()->isPost()) {
             $form->setData($this->getRequest()->getPost());
@@ -192,10 +191,9 @@ class RoleController extends AbstractActionController
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost();
 
-            $form = new RemoveUserForm($data['user']);
+            $form = new CsrfForm('remove-user');
             $form->setData($data);
             if ($form->isValid()) {
-                $data = $form->getData();
                 try {
                     $user = $this->getUserManager()->findUserByUsername($data['user']);
                     $this->getRoleService()->removeIdentityRole($this->params('role'), $user->getId());
@@ -268,7 +266,9 @@ class RoleController extends AbstractActionController
 
         $view = new ViewModel([
             'role'  => $role,
-            'users' => $role->getUsers()
+            'removePermissionForm' => new CsrfForm('remove-permission'),
+            'users' => $role->getUsers(),
+            'removeUserForm' => new CsrfForm('remove-user')
         ]);
 
         return $view;
