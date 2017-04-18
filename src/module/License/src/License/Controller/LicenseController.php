@@ -8,9 +8,9 @@
  */
 namespace License\Controller;
 
+use Common\Form\CsrfForm;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
-use License\Form\RemoveLicenseForm;
 use License\Manager\LicenseManagerAwareTrait;
 use License\Manager\LicenseManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -32,7 +32,7 @@ class LicenseController extends AbstractActionController
     {
         $this->assertGranted('license.create');
         $licenses = $this->getLicenseManager()->findAllLicenses();
-        $view     = new ViewModel(['licenses' => $licenses]);
+        $view     = new ViewModel(['licenses' => $licenses, 'form' => new CsrfForm('remove-license')]);
         $view->setTemplate('license/manage');
         return $view;
     }
@@ -95,7 +95,7 @@ class LicenseController extends AbstractActionController
     {
         $license = $this->getLicenseManager()->getLicense($this->params('id'));
         $this->assertGranted('license.purge', $license);
-        $form = new RemoveLicenseForm($this->params('id'));
+        $form = new CsrfForm('remove-license');
         if ($this->getRequest()->isPost()) {
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {

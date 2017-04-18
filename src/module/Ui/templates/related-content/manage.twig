@@ -33,7 +33,8 @@
                                     <span class="fa fa-trash"></span>
                                 </button>
                             {% endset %}
-                            {% include 'related-content/remove' with {'related': related.getId(), 'sendbutton': removebutton} %}
+                            {% do form.setAttribute('action', url('related-content/remove', {'id': related.getId()})) %}
+                            {% include 'common/csrfform' with {'form': form, 'sendbutton': removebutton} %}
                         </div>
                     {% endif %}
                 </div>

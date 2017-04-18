@@ -66,11 +66,6 @@ return [
         __NAMESPACE__ . '\Entity\TypeInterface'         => __NAMESPACE__ . '\Entity\Type',
         __NAMESPACE__ . '\Service\FlagServiceInterface' => __NAMESPACE__ . '\Service\FlagService'
     ],
-    'view_helpers'    => [
-        'invokables' => [
-            'flagForm' => __NAMESPACE__ . '\View\Helper\FormHelper'
-        ]
-    ],
     'router'          => [
         'routes' => [
             'flag' => [

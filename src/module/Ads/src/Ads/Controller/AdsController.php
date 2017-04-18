@@ -10,8 +10,8 @@ namespace Ads\Controller;
 
 use Ads\Form\AdForm;
 use Ads\Form\AdPageForm;
-use Ads\Form\RemoveAdForm;
 use Attachment\Exception\NoFileSent;
+use Common\Form\CsrfForm;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -31,7 +31,8 @@ class AdsController extends AbstractActionController
         $this->assertGranted('ad.create', $instance);
         $ads  = $this->getAdsManager()->findAllAds($instance);
         $view = new ViewModel([
-            'ads' => $ads
+            'ads' => $ads,
+            'form' => new CsrfForm('remove-ad')
         ]);
         $view->setTemplate('ads/ads');
 
@@ -86,7 +87,7 @@ class AdsController extends AbstractActionController
         $ad = $this->getAdsManager()->getAd($id);
         $this->assertGranted('ad.remove', $ad);
         if ($this->getRequest()->isPost()) {
-            $form = new RemoveAdForm();
+            $form = new CsrfForm('remove-ad');
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
                 $this->getAdsManager()->removeAd($ad);

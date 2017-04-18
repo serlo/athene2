@@ -29,7 +29,7 @@
                     <button class="btn btn-danger btn-xs"><span
                         class="fa fa-trash-o"></span></button>
                     {% endset %}
-                    {% include 'ads/remove' with {'ad': ad.getId(), 'sendbutton': removebutton} %}
+                    {% include 'common/csrfform' with {'form': form, 'sendbutton': removebutton} %}
                 {% endif %}
             </div>
             <div>

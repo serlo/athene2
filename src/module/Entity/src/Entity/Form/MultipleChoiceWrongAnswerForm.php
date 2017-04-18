@@ -12,7 +12,6 @@ namespace Entity\Form;
 use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
-use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;

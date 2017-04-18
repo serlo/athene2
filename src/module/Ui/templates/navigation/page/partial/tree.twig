@@ -24,7 +24,8 @@
                         <span class="fa fa-plus"></span> {{ 'Add page' | trans }}
                     </button>
                     {% endset %}
-                    {% include 'navigation/page/create' with {'container': page.getContainer().getId(), 'parent': page.getId(), 'sendbutton': createbutton} %}
+                    {% do form.setAttribute('action', url('navigation/page/create', {'container': page.getContainer().getId(), 'parent': page.getId()})) %}
+                    {% include 'common/csrfform' with {'form': form, 'sendbutton': createbutton} %}
                     <a class="btn btn-xs btn-default"
                        href="{{ url('navigation/page/update', {'page': page.getId()}) }}">
                         <span class="fa fa-cog"></span>
@@ -36,7 +37,8 @@
                         {{ 'Remove page' | trans }}
                     </button>
                     {% endset %}
-                    {% include 'navigation/page/remove' with {'page': page.getId(), 'sendbutton': trashbutton} %}
+                    {% do form.setAttribute('action', url('navigation/page/remove', {'page': page.getId()})) %}
+                    {% include 'common/csrfform' with {'form': form, 'sendbutton': trashbutton} %}
                 </div>
         </ul>
         {% if page.hasChildren() %}

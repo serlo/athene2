@@ -22,11 +22,6 @@ return [
     'class_resolver'  => [
         __NAMESPACE__ . '\Entity\LicenseInterface' => __NAMESPACE__ . '\Entity\License'
     ],
-    'view_helpers'    => [
-        'invokables' => [
-            'licenseForm' => __NAMESPACE__ . '\View\Helper\FormHelper'
-        ]
-    ],
     'di'              => [
         'allowed_controllers' => [
             __NAMESPACE__ . '\Controller\LicenseController'
