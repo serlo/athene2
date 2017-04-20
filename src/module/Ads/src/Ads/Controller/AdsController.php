@@ -92,6 +92,8 @@ class AdsController extends AbstractActionController
             if ($form->isValid()) {
                 $this->getAdsManager()->removeAd($ad);
                 $this->getAdsManager()->flush();
+            } else {
+                $this->flashMessenger()->addErrorMessage('The element could not be removed (validation failed)');
             }
         }
         return $this->redirect()->toRoute('ads');

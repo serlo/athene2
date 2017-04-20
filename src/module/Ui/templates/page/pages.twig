@@ -26,7 +26,7 @@
                         {% trans %} Trash {% endtrans %}
                     </button>
                 {% endset %}
-                    {% include 'uuid/trash' with {'uuid': page.getId(), 'sendbutton': trashbutton} %}
+                    {% include 'common/csrfform' with {'form': uuidForm().getTrashForm(page.getId()), 'sendbutton': trashbutton} %}
                 {% endif %}
             </div>
         </div>

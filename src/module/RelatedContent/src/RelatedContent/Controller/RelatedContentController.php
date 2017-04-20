@@ -147,6 +147,8 @@ class RelatedContentController extends AbstractActionController
             if ($form->isValid()) {
                 $this->getRelatedContentManager()->removeRelatedContent((int)$this->params('id'));
                 $this->getRelatedContentManager()->getObjectManager()->flush();
+            } else {
+                $this->flashMessenger()->addErrorMessage('The element could not be removed (validation failed)');
             }
         }
         return $this->redirect()->toReferer();

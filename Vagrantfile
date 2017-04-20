@@ -7,9 +7,9 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty32"
   config.vm.provision :shell, :path => "./bin/vagrant/bootstrap.sh"
-  config.vm.network :forwarded_port, host: 4567, guest: 80, host_ip: "127.0.0.1"
-  config.vm.network :forwarded_port, host: 4568, guest: 8080, host_ip: "127.0.0.1"
-  config.vm.network :forwarded_port, host: 3456, guest: 3306, host_ip: "127.0.0.1"
+  config.vm.network :forwarded_port, host: 4567, guest: 80
+  config.vm.network :forwarded_port, host: 4568, guest: 8080
+  config.vm.network :forwarded_port, host: 3456, guest: 3306
 
   config.vm.synced_folder "./",
     "/vagrant",

@@ -8,8 +8,7 @@
  */
 namespace Uuid\View\Helper;
 
-use Uuid\Form\PurgeForm;
-use Uuid\Form\TrashForm;
+use Common\Form\CsrfForm;
 use Zend\View\Helper\AbstractHelper;
 use Zend\Form\Form;
 
@@ -23,14 +22,14 @@ class FormHelper extends AbstractHelper
     {
         $url = $this->getView()->url('uuid/trash', ['id' => $objectID]);
         /** @var Form $form */
-        $form = new TrashForm();
+        $form = new CsrfForm('uuid-trash');
         $form->setAttribute('action', $url);
         return $form;
     }
     public function getPurgeForm($objectID) {
         $url = $this->getView()->url('uuid/purge', ['id' => $objectID]);
         /** @var Form $form */
-        $form = new PurgeForm();
+        $form = new CsrfForm('uuid-purge');
         $form->setAttribute('action', $url);
         return $form;
     }

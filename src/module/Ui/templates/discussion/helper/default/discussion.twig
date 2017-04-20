@@ -62,7 +62,7 @@
                                                     {{ 'Trash discussion' | trans }}
                                                 </button>
                                             {% endset %}
-                                            {% include 'uuid/trash' with {'uuid': discussion.getId(), 'sendbutton': trashbutton} %}
+                                            {% include 'common/csrfform' with {'form': uuidForm().getTrashForm(discussion.getId()), 'sendbutton': trashbutton} %}
                                         </li>
                                     {% endif %}
                                 </ul>
