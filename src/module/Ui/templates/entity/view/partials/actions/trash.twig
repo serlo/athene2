@@ -6,6 +6,6 @@
             {% trans %} Move to trash {% endtrans %}
         </button>
         {% endset %}
-        {% include 'uuid/trash' with {'uuid': entity.getId(), 'sendbutton': trashbutton} %}
+        {% include 'common/csrfform' with {'form': uuidForm().getTrashForm(entity.getId()), 'sendbutton': trashbutton} %}
     </li>
 {% endif %}

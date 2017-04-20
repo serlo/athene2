@@ -101,6 +101,8 @@ class LicenseController extends AbstractActionController
             if ($form->isValid()) {
                 $this->getLicenseManager()->removeLicense($this->params('id'));
                 $this->getLicenseManager()->getObjectManager()->flush();
+            } else {
+                $this->flashMessenger()->addErrorMessage('The license could not be removed (validation failed)');
             }
         }
         return $this->redirect()->toReferer();

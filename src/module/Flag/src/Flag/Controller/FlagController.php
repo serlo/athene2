@@ -77,6 +77,8 @@ class FlagController extends AbstractActionController
                 $this->getFlagManager()->removeFlag((int)$id);
                 $this->getFlagManager()->flush();
                 $this->flashMessenger()->addSuccessMessage('Your action was successfull.');
+            } else {
+                $this->flashMessenger()->addErrorMessage('The flag could not be removed (validation failed)');
             }
         }
         return $this->redirect()->toReferer();

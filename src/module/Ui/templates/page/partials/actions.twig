@@ -32,7 +32,7 @@
                         <span class="fa fa-trash"></span> {% trans %} Trash {% endtrans %}
                     </button>
                     {% endset %}
-                    {% include 'uuid/trash' with {'uuid': revision.getId(), 'sendbutton': trashbutton} %}
+                    {% include 'common/csrfform' with {'form': uuidForm().getTrashForm(revision.getId()), 'sendbutton': trashbutton} %}
                 </li>
                 <li>
                     <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}"

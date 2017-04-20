@@ -30,7 +30,7 @@
                                     data-type="danger">
                                 <span class="fa fa-fire"></span>
                             </button>';
-                            echo $this->twigPartial('uuid/purge', array('uuid' => $entity->getId(), 'sendbutton' => $trashbutton));
+                            echo $this->twigPartial('common/csrfform', array('form' => $this->uuidForm()->getPurgeForm($entity->getId()), 'sendbutton' => $trashbutton));
                         ?>
                         <?php endif; ?>
                     </div>

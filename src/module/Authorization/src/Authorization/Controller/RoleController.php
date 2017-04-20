@@ -172,6 +172,8 @@ class RoleController extends AbstractActionController
             if ($form->isValid()) {
                 $this->getRoleService()->removeRolePermission($role->getId(), $permissionID);
                 $this->getRoleService()->flush();
+            } else {
+                $this->flashMessenger()->addErrorMessage('The permission could not be removed (validation failed)');
             }
        }
 
@@ -205,6 +207,8 @@ class RoleController extends AbstractActionController
                     $error = true;
                     $user  = $data['user'];
                 }
+            } else {
+                $this->flashMessenger()->addErrorMessage('The user could not be removed (validation failed)');
             }
         } else {
             $this->referer()->store();
