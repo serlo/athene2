@@ -2,7 +2,19 @@ version: '2'
 
 services:
 
+  athene2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - mysqld:mysqld
+    ports:
+      - "4567:80"
+    volumes:
+      - .:/var/www/html
+
   mysqld:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=serlo
