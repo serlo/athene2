@@ -9,13 +9,23 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=secret
 
+  athene2-editor:
+    image: serlo/athene2-editor
+
   athene2:
     build: .
     links:
       - mysqld:mysqld
+      - athene2-editor:athene2-editor
     ports:
       - "4567:80"
     volumes:
-      - .:/var/www/html
+      - ./src/assets:/var/www/html/src/assets
+      - ./src/config:/var/www/html/src/config
+      - ./src/lang:/var/www/html/src/lang
+      - ./src/module:/var/www/html/src/module
+      - ./src/public:/var/www/html/src/public
+      - ./src/test:/var/www/html/src/test
+      - ./src/vendor:/var/www/html/src/vendor
     environment:
       - PHP_ENV=development

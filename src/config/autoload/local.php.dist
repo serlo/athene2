@@ -8,6 +8,9 @@ $dbParams = array(
 );
 
 return [
+    'markdown' => [
+        'host' => 'athene2-editor'
+    ],
     'doctrine'     => [
         'connection' => [
             'orm_default' => [

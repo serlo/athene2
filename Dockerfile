@@ -24,7 +24,18 @@ RUN sed -ie 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 RUN sed -ie 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/g' /etc/locale.gen
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-VOLUME /var/www/html
+VOLUME /var/www/html/src/assets
+VOLUME /var/www/html/src/config
+VOLUME /var/www/html/src/lang
+VOLUME /var/www/html/src/module
+VOLUME /var/www/html/src/public
+VOLUME /var/www/html/src/test
+VOLUME /var/www/html/src/vendor
+
+COPY ./src/init_autoloader.php /var/www/html/src/
+RUN mkdir /var/www/html/src/data
+RUN mkdir /var/www/html/src/logs
+RUN chmod 777 -R /var/www/html/src/data /var/www/html/src/logs
 
 EXPOSE 80
 
