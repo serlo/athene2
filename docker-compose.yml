@@ -2,19 +2,20 @@ version: '2'
 
 services:
 
+  mysqld:
+    image: mysql:5.7
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+
   athene2:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     links:
       - mysqld:mysqld
     ports:
       - "4567:80"
     volumes:
       - .:/var/www/html
-
-  mysqld:
-    image: mysql:5.7
     environment:
-      - MYSQL_ROOT_PASSWORD=secret
-      - MYSQL_DATABASE=serlo
+      - PHP_ENV=development
