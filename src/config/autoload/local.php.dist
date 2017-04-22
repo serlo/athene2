@@ -9,7 +9,7 @@ $dbParams = array(
 
 return [
     'markdown' => [
-        'host' => 'athene2-editor'
+        'host' => 'markdown'
     ],
     'doctrine'     => [
         'connection' => [

@@ -9,14 +9,14 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=secret
 
-  athene2-editor:
-    image: serlo/athene2-editor
+  markdown:
+    image: serlo/athene2-editor:v0.0.2
 
   athene2:
     build: .
     links:
       - mysqld:mysqld
-      - athene2-editor:athene2-editor
+      - markdown:markdown
     ports:
       - "4567:80"
     volumes:

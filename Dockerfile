@@ -1,12 +1,12 @@
 FROM php:7.1.3-apache
 
 RUN apt-get update -y
-RUN apt-get install -y gettext locales
+RUN apt-get install -y gettext locales libicu-dev
 
 # Set the right path
 RUN sed -ie 's/\/var\/www\/html/\/var\/www\/html\/src\/public/g' /etc/apache2/sites-available/000-default.conf
 
-RUN docker-php-ext-install pdo pdo_mysql mysqli
+RUN docker-php-ext-install pdo pdo_mysql mysqli gettext intl
 RUN pecl channel-update pecl.php.net
 RUN pear config-set preferred_state beta
 RUN yes no | pecl install apcu_bc
@@ -39,11 +39,7 @@ RUN chmod 777 -R /var/www/html/src/data /var/www/html/src/logs
 
 EXPOSE 80
 
-
-
-
-
-# this is outdated but maybe required later on, keep until merge
+# this is outdated but maybe required later on to fix various issues
 
 # RUN a2ensite 000-default
 # COPY . /var/www/html
