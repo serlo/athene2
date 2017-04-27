@@ -1,13 +1,16 @@
 <?php
 $dbParams = array(
-		'host' => 'localhost',
+		'host' => 'mysqld',
 		'port' => '3306',
 		'user' => 'root',
-		'password' => 'athene2',
+		'password' => 'secret',
 		'database' => 'serlo'
 );
 
 return [
+    'markdown' => [
+        'host' => 'markdown'
+    ],
     'doctrine'     => [
         'connection' => [
             'orm_default' => [
