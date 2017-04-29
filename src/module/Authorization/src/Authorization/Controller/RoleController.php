@@ -186,14 +186,12 @@ class RoleController extends AbstractActionController
         $role = $this->getRoleService()->getRole($this->params('role'));
         $this->assertGranted('authorization.identity.revoke.role', $role);
 
-        $form  = null;
+        $form  = new CsrfForm('remove-user');
         $error = false;
         $user  = null;
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost();
-
-            $form = new CsrfForm('remove-user');
             $form->setData($data);
             if ($form->isValid()) {
                 try {
