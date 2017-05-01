@@ -51,7 +51,6 @@ require.config({
         "deployggb": "thirdparty/deployggb",
         "algebrajs": "thirdparty/algebra",
         "injections": "modules/serlo_injections",
-        "search": "modules/serlo_search",
         "slider": "modules/serlo_slider",
         "sounds": "modules/serlo_sounds",
         "support": "modules/serlo_supporter",

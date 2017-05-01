@@ -106,57 +106,22 @@
   }
 }
 
-#search-results {
-  display: none;
-  position: absolute;
-  width: 386px;
-
-  z-index: -1;
-  left: 0;
-  top: 0;
-
-  border: 1px solid $lighterGray;
-
-  margin-bottom: 0;
-  padding-top: 44px;
-
-  background: white;
-
-  .active a {
-    background: $lightGray;
-    color: white;
-  }
-
-  a {
-    padding: 6px 12px 6px 24px;
-  }
-
-  .header {
-    padding: 6px 12px;
-    font-weight: bold;
-  }
-}
-
-#search-help {
-  display: none;
-
-  position: absolute;
-
-  z-index: -1;
-  left: 0;
-  top: 0;
-  padding: 12px;
-  width: 386px;
-
-  border: 1px solid $lightGray;
-
-  padding-top: 60px;
-
-  background: white;
-}
-
 .form-search {
   *[type="submit"] {
     height: 34px;
+  }
+}
+
+.gs-result {
+  .gs-per-result-labels, .gsc-url-top {
+    display: none;
+  }
+  .gs-snippet {
+    max-width: 500px;
+  }
+
+  .gsc-thumbnail-inside {
+    padding: 0;
+    margin-bottom: 5px;
   }
 }
