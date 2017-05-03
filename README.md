@@ -5,9 +5,15 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Installation](#installation)
   - [Clone the project](#clone-the-project)
   - [Bootstrapping the project](#bootstrapping-the-project)
+    - [Troubleshooting](#troubleshooting)
+      - [Wrong php version](#wrong-php-version)
+      - [npm install failing](#npm-install-failing)
+      - [postinstall script: bower fails](#postinstall-script-bower-fails)
+  - [Now you can start the cluster](#now-you-can-start-the-cluster)
   - [Setting up hosts](#setting-up-hosts)
 - [Development](#development)
 - [Further resources](#further-resources)
@@ -23,7 +29,7 @@ On Windows we recommend [Bash on Ubuntu on Windows](https://msdn.microsoft.com/d
 install the dependencies above (except Docker) with:
 
 ```
-sudo apt-get install php5-cli nodejs ruby-sass ruby-compass4
+sudo apt-get install php5-cli nodejs ruby-sass ruby-compass
 ```
 
 **WARNING** `ruby.compass` must be in version range `0.12.2` and `ruby-sass` must be in version range `3.2.10` - check this with
@@ -65,7 +71,43 @@ $ (cd src/assets; npm install)
 $ (cd src/assets/athene2-editor; npm install)
 ```
 
-Now you can start the cluster:
+#### Troubleshooting
+##### Wrong php version
+If `php composer.phar install` fails with error
+```
+Your requirements could not be resolved to an installable set of packages.           
+ Problem 1
+ - doctrine/collections v1.4.0 requires php ^5.6 || ^7.0 -> your PHP version (5.5.9) does not satisfy that requirement.                                   
+ - doctrine/collections v1.4.0 requires php ^5.6 || ^7.0 -> your PHP version (5.5.9) does not satisfy that requirement.                                   
+ - Installation request for doctrine/collections v1.4.0 -> satisfiable by doctrine/collections[v1.4.0].                                           
+```
+then you can try updating php to 5.6:
+
+```sh
+sudo apt-get remove php5-cli
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php5.6-cli
+```
+
+##### `npm install` failing
+Try a different node version (i.e. using [nvm](https://github.com/creationix/nvm)). Try using node version 0.12.5
+
+Also try cleaning the cache and rebuilding:
+make sure to `cd` to the correct location first!
+```sh
+npm cache clean -f
+npm rebuild
+```
+
+##### postinstall script: bower fails
+If you get an error like `bower ESUDO  Cannot be run with sudo` then try running
+```sh
+npm run bower -- --allow-root
+npm run build
+```
+
+### Now you can start the cluster
 
 ```
 # Start the docker-compose cluster.
