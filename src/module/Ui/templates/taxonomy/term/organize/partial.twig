@@ -20,6 +20,7 @@
     <h3>{{ term.getName() }} <small>{{ term.getTaxonomy().getName() | trans }}</small></h3>
 <hr>
 <div class="sortable" data-active="false" data-action="{{ url( 'taxonomy/term/order', {'term' : term.getId()}) }}">
+    {{ formRow(orderForm.get('csrf').setAttribute('id', 'sort-csrf')) }}
     {% endif %}
 
     <ol class="sortable-list" data-id="{{ term.getID() }}">
