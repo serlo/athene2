@@ -94,7 +94,7 @@ class RepositoryManager implements RepositoryManagerInterface
         $revision->setRepository($repository);
 
         foreach ($data as $key => $value) {
-            if (is_string($key) && is_string($value)) {
+            if (is_string($key) && $key !== 'csrf' && is_string($value)) {
                 $revision->set($key, $value);
             }
         }

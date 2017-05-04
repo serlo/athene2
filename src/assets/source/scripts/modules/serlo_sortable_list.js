@@ -120,7 +120,8 @@ define("sortable_list", ["jquery", "underscore", "common", "translator", "system
                 $.ajax({
                     url: dataUrl,
                     data: {
-                        sortable: updatedData
+                        sortable: updatedData,
+                        csrf: $('#sort-csrf').val()
                     },
                     method: 'post'
                 })
