@@ -21,7 +21,7 @@
         <ul class="dropdown-menu pull-right" role="menu">
             <?php /* @var $match \Contexter\Model\ContextModelInterface */ ?>
             <?php foreach ($this->matches as $context): ?>
-                <li><a href="<?php echo $this->normalize()->toUrl($context->getObject()); ?>">
+                <li><a target="_blank" href="<?php echo $this->normalize()->toUrl($context->getObject()); ?>">
                         <?php echo $context->getTitle(); ?>
                     </a>
                 </li>
