@@ -69,7 +69,9 @@
                 {% for childsChild in child.findChildrenByTrashed(false) if childsChild.getType().getName() in ['topic-folder' , 'curriculum-topic-folder'] %}
                     {% set currentGroup %}
                     <div class="col-xs-12">
-                        <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">{{ childsChild.getName() }}</a>
+                        <p>
+                            <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">{{ childsChild.getName() }}</a>
+                        </p>
                     </div>
                     {% endset %}
                     {% set group = group ~ currentGroup %}
