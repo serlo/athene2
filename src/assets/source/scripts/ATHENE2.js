@@ -6,7 +6,7 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
-/*global define, require, MathJax*/
+/*global define, require, MathJax, gaOptout*/
 define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_navigation', 'breadcrumbs', 'translator', 'side_element', 'content', 'system_notification',
                    'moment', 'ajax_overlay', 'tracking', 'autosize', 'toggle_action', 'modals', 'trigger', 'sortable_list',
                    'timeago', 'spoiler', 'injections', 'moment_de', 'forum_select', 'slider', 'math_puzzle', 'input_challenge', 'single_choice', 'multiple_choice',
@@ -194,6 +194,13 @@ define("ATHENE2", ['jquery', 'underscore', 'common', 'side_navigation', 'mobile_
             }());
 
             SideElement.init();
+
+            $('a[href=ga-opt-out]').click(function (e) {
+                e.preventDefault();
+                gaOptout();
+                SystemNotification.notify(t("Successfully deactivated Google Analytics"), "success");
+                window.scrollTo(0, 0);
+            });
 
             new Tracking($context);
         }
