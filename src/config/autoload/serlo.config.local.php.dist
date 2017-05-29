@@ -31,8 +31,7 @@ return [
                 'code' => <<<EOL
 <script type="text/javascript">
     (function(h,o,t,j,a,r){
-function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';window[disableStr]		        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-=true;}		        h._hjSettings={hjid:306257,hjsv:5};
+        h._hjSettings={hjid:306257,hjsv:5};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
