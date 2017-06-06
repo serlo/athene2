@@ -29,3 +29,10 @@ services:
       - ./src/vendor:/var/www/html/src/vendor
     environment:
       - PHP_ENV=development
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysqld:db
+    ports:
+      - "8080:80"
