@@ -27,6 +27,8 @@ use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\Filter\File\RenameUpload;
 use ZfcRbac\Service\AuthorizationService;
 use ZfcRbac\Service\AuthorizationServiceAwareTrait;
+use Google\Cloud\ServiceBuilder;
+
 
 class AttachmentManager implements AttachmentManagerInterface
 {
@@ -38,6 +40,11 @@ class AttachmentManager implements AttachmentManagerInterface
      * @var \Attachment\Options\ModuleOptions
      */
     protected $moduleOptions;
+
+    /**
+     * @var \Google\Cloud\Storage\Bucket
+     */
+    protected $bucket;
 
     public function __construct(
         AuthorizationService $authorizationService,
@@ -53,6 +60,12 @@ class AttachmentManager implements AttachmentManagerInterface
         $this->typeManager          = $typeManager;
         $this->objectManager        = $objectManager;
         $this->moduleOptions        = $moduleOptions;
+
+        $gcloud = new ServiceBuilder([
+            'projectId' => $this->moduleOptions->getProjectId()
+        ]);
+
+        $this->bucket = $gcloud->storage()->bucket($this->moduleOptions->getBucket());
     }
 
     /**
@@ -102,10 +115,21 @@ class AttachmentManager implements AttachmentManagerInterface
         $pathinfo    = pathinfo($filename);
         $extension   = isset($pathinfo['extension']) ? '.' . $pathinfo['extension'] : '';
         $hash        = uniqid() . '_' . hash('ripemd160', $filename) . $extension;
-        $location    = $this->findParentPath($this->moduleOptions->getPath()) . '/' . $hash;
+        $location    = $file['tmp_name'];
         $webLocation = $this->moduleOptions->getWebpath() . '/' . $hash;
-        $filter      = new RenameUpload($location);
-        $filter->filter($file);
+        $contentLanguage = $this->getInstanceManager()->getInstanceFromRequest()->getLanguage()->getCode();
+
+        $this->bucket->upload(
+            fopen($location, 'r'),
+            [
+                'resumable' => true,
+                'name' => $hash,
+                'metadata' => [
+                    'name' => $filename,
+                    'contentLanguage' => $contentLanguage
+                ]
+            ]
+        );
 
         return $this->attachFile($attachment, $filename, $webLocation, $size, $filetype);
     }

@@ -73,12 +73,8 @@ class AttachmentController extends AbstractActionController
         $files = [];
 
         foreach ($attachment->getFiles() as $file) {
-            $url     = $this->url()->fromRoute(
-                'attachment/file',
-                ['id' => $attachment->getId(), 'file' => $file->getId()]
-            );
             $files[] = [
-                'location' => $url,
+                'location' => $file->getLocation(),
                 'size'     => $file->getSize(),
                 'id'       => $file->getId(),
                 'type'     => $file->getType(),

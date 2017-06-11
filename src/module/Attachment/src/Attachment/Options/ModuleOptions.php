@@ -22,7 +22,18 @@ class ModuleOptions extends AbstractOptions
     /**
      * @var string
      */
-    protected $webpath = '/uploads';
+    protected $webpath = 'https://assets.serlo.org';
+
+
+    /**
+     * @var string
+     */
+    protected $projectId = 'serlo-org';
+
+    /**
+     * @var string
+     */
+    protected $bucket = 'assets.serlo.org';
 
     /**
      * @param string $path
@@ -54,5 +65,37 @@ class ModuleOptions extends AbstractOptions
     public function getWebpath()
     {
         return $this->webpath;
+    }
+
+    /**
+     * @param $projectId
+     */
+    public function setProjectId($projectId)
+    {
+        $this->projectId = $projectId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->projectId;
+    }
+
+    /**
+     * @param string $bucket
+     */
+    public function setBucket($bucket)
+    {
+        $this->bucket = $bucket;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBucket()
+    {
+        return $this->bucket;
     }
 }
