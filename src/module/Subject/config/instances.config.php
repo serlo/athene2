@@ -236,7 +236,7 @@ return [
                         'text-exercise-group'
                     ]
                 ],
-                'sex-ed' => [
+                'sex education' => [
                     'allowed_taxonomies' => [
                         'topic',
                         'locale'
