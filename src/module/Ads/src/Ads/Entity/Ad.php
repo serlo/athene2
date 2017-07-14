@@ -65,6 +65,11 @@ class Ad implements AdInterface
      */
     protected $clicks;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $banner;
+
     public function __construct()
     {
         $this->clicks = 0;
@@ -148,5 +153,15 @@ class Ad implements AdInterface
     public function setAttachment($attachment)
     {
         $this->image = $attachment;
+    }
+
+    public function getBanner()
+    {
+        return $this->banner;
+    }
+
+    public function setBanner($banner = false)
+    {
+        $this->banner = $banner;
     }
 }

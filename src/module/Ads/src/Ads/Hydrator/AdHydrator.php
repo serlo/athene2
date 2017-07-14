@@ -23,7 +23,8 @@ class AdHydrator implements HydratorInterface
         'attachment',
         'instance',
         'frequency',
-        'url'
+        'url',
+        'banner'
     ];
 
     public function extract($object)

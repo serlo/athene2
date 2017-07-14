@@ -11,6 +11,7 @@ namespace Ads\Form;
 use Attachment\Form\AttachmentFieldset;
 use Attachment\Form\AttachmentFieldsetProvider;
 use Common\Form\Element\CsrfToken;
+use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\Select;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
@@ -43,6 +44,7 @@ class AdForm extends Form implements AttachmentFieldsetProvider
                 ]
             )->setAttribute('required', 'required')->setLabel('frequency')
         );
+        $this->add((new Checkbox('banner'))->setLabel('Banner'))->setAttribute('required', 'required');
         $this->add(new AttachmentFieldset(false));
         $this->add(
             (new Submit('submit'))->setValue('Save')->setAttribute('class', 'btn btn-success pull-right')
