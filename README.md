@@ -130,10 +130,17 @@ On windows, please add
 to your `C:\Windows\System32\drivers\etc\hosts.txt` file. Then run `ipconfig /flushdns` in cmd.exe and
 restart your browser.
 
-On linux/osx:
+On OSX:
 
 ```
-tbd @knorrke/@inyono
+sudo nano /etc/hosts
+
+# add lines
+127.0.0.1    de.serlo.localhost
+127.0.0.1    en.serlo.localhost
+
+# flush mac DNS cache
+sudo killall -HUP mDNSResponder
 ```
 
 Now, open [de.serlo.localhost:4567](de.serlo.localhost:4567). Happy coding!
