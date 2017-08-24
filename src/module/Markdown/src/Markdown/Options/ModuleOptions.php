@@ -9,7 +9,9 @@
  */
 namespace Markdown\Options;
 
-class ModuleOptions
+use Zend\Stdlib\AbstractOptions;
+
+class ModuleOptions extends AbstractOptions
 {
 
     /**

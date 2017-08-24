@@ -8,6 +8,7 @@
  */
 namespace Flag\Controller;
 
+use Common\Form\CsrfForm;
 use Flag\Form\FlagForm;
 use Flag\Manager\FlagManagerAwareTrait;
 use Flag\Manager\FlagManagerInterface;
@@ -61,17 +62,25 @@ class FlagController extends AbstractActionController
     public function manageAction()
     {
         $flags = $this->getFlagManager()->findAllFlags();
-        $view  = new ViewModel(['flags' => $flags]);
+        $view  = new ViewModel(['flags' => $flags, 'form' => new CsrfForm('remove-flag')]);
         $view->setTemplate('flag/manage');
         return $view;
     }
 
     public function removeAction()
     {
-        $id = $this->params('id');
-        $this->getFlagManager()->removeFlag((int)$id);
-        $this->getFlagManager()->flush();
-        $this->flashMessenger()->addSuccessMessage('Your action was successfull.');
+        $form = new CsrfForm('remove-flag');
+        if ($this->getRequest()->isPost()) {
+            $form->setData($this->getRequest()->getPost());
+            if ($form->isValid()) {
+                $id = $this->params('id');
+                $this->getFlagManager()->removeFlag((int)$id);
+                $this->getFlagManager()->flush();
+                $this->flashMessenger()->addSuccessMessage('Your action was successfull.');
+            } else {
+                $this->flashMessenger()->addErrorMessage('The flag could not be removed (validation failed)');
+            }
+        }
         return $this->redirect()->toReferer();
     }
 }

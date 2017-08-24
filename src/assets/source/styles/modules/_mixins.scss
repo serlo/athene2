@@ -74,7 +74,7 @@
     border: 3px solid $color;
     border-top-width: 0;
   }
-  input {
+  input, textarea {
     box-shadow: none;
 
     &::-webkit-input-placeholder {

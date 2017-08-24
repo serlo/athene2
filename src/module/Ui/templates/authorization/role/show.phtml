@@ -22,15 +22,18 @@
     <?php foreach ($this->users as $user): ?>
         <li class="list-group-item">
             <?php if ($this->isGranted('authorization.identity.revoke.role', $this->role)): ?>
-                <form action="<?php echo $this->url(
-                    'authorization/role/user/remove',
-                    ['role' => $this->role->getId()]
-                ); ?>" method="post" class="pull-right">
-                    <input type="hidden" name="user" value="<?php echo $user->getUsername() ?>"/>
-                    <button type="submit" class="btn btn-danger btn-xs">
+                <?php $trashbutton = '<button type="submit" class="btn btn-danger btn-xs">
                         <span class="fa fa-minus"></span>
-                    </button>
-                </form>
+                    </button>'; ?>
+                <?php $this->removeUserForm->setAttribute('action', $this->url('authorization/role/user/remove', ['role' => $this->role->getId()]));?>
+                <?php $this->removeUserForm->setAttribute('class', 'pull-right'); ?>
+                <?php echo $this->twigPartial('common/csrfform', [
+                        'form' => $this->removeUserForm,
+                        'sendbutton' => $trashbutton,
+                        'additionalFields' => [
+                            'user' => '<input type="hidden" name="user" value="'.$user->getUsername().'"/>'
+                        ]
+                    ]); ?>
             <?php endif; ?>
             <?php echo $user->getUsername() ?>
         </li>
@@ -59,10 +62,12 @@
                 )
             </small>
             <?php if ($this->isGranted('authorization.role.revoke.permission')): ?>
-                <a href="<?php echo $this->url(
-                    'authorization/role/permission/remove',
-                    ['role' => $this->role->getId(), 'permission' => $permission->getId()]
-                ); ?>" class="label label-danger pull-right"> <span class="fa fa-minus"></span> </a>
+                <?php $trashbutton = '<button type="submit" class="btn btn-danger btn-xs">
+                        <span class="fa fa-minus"></span>
+                    </button>'; ?>
+                <?php $this->removePermissionForm->setAttribute('action', $this->url('authorization/role/permission/remove', ['role' => $this->role->getId(), 'permission' => $permission->getId()]));?>
+                <?php $this->removePermissionForm->setAttribute('class', 'pull-right'); ?>
+                <?php echo $this->twigPartial('common/csrfform', array('form' => $this->removePermissionForm, 'sendbutton' => $trashbutton)); ?>
             <?php endif; ?>
         </div>
     <?php endforeach; ?>

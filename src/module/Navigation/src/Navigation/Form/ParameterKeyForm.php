@@ -9,6 +9,7 @@
  */
 namespace Navigation\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as ObjectHydrator;
 use Zend\Form\Element\Submit;
@@ -21,6 +22,7 @@ class ParameterKeyForm extends Form
     public function __construct(EntityManager $entityManager)
     {
         parent::__construct('parameterKey');
+        $this->add(new CsrfToken('csrf'));
 
         $hydrator = new ObjectHydrator($entityManager);
         $filter   = new InputFilter();

@@ -55,12 +55,14 @@
                                     {% endif %}
                                     {% if isGranted('discussion.trash', discussion) %}
                                         <li>
-                                            <a href="{{ url('uuid/trash', {'id': discussion.getId()}) }}"
-                                               class="dialog"
-                                               data-content="{% trans %} Do you really want to delete this discussion? {% endtrans %}">
-                                                <span class="fa fa-trash"></span>
-                                                {{ 'Trash discussion' | trans }}
-                                            </a>
+                                            {% set trashbutton %}
+                                                <button class="btn dropdown-menu-item dialog"
+                                                        data-content="{% trans %} Do you really want to delete this discussion? {% endtrans %}">
+                                                    <span class="fa fa-trash"></span>
+                                                    {{ 'Trash discussion' | trans }}
+                                                </button>
+                                            {% endset %}
+                                            {% include 'common/csrfform' with {'form': uuidForm().getTrashForm(discussion.getId()), 'sendbutton': trashbutton} %}
                                         </li>
                                     {% endif %}
                                 </ul>
@@ -110,23 +112,17 @@
                     </section>
                     {% if not discussion.getArchived() %}
                         {% set form = discussion().getForm('comment', discussion) %}
-                        {% if isGranted('discussion.comment.create', discussion) %}
-                            <div class="clearfix">
-                                <button class="btn btn-info pull-right" data-toggle="collapse"
-                                        data-target="#discussion-comment-form-container-{{ discussion.getId() }}">
-                                    <span class="fa fa-share"></span> {{ 'Reply' | trans }}
-                                </button>
-                            </div>
-                        {% else %}
+                        {% if not isGranted('discussion.comment.create', discussion) %}
                             <a class="btn btn-info pull-right"
                                href="{{ url('authentication/login', [], {'query': {'ref': form.getAttribute('action') }}) }}">
                                 <span class="fa fa-share"></span> {{ 'Reply' | trans }}
                             </a>
-                        {% endif %}
-                        <div class="collapse discussion-form"
+                        {% else %}
+                        <div class="discussion-form"
                              id="discussion-comment-form-container-{{ discussion.getId() }}">
-                            {{ form().render(form) }}
+                            {% include 'discussion/partials/form-renderer' with {'form' : form} %}
                         </div>
+                        {% endif %}
                     {% endif %}
                     {% if discussion.getArchived() %}
                 </div>

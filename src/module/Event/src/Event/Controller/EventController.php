@@ -11,9 +11,12 @@ namespace Event\Controller;
 use Event\EventManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use ZfcRbac\Exception\UnauthorizedException;
 
 class EventController extends AbstractActionController
 {
+    use \User\Manager\UserManagerAwareTrait;
+
     /**
      * @var EventManagerInterface
      */
@@ -45,6 +48,38 @@ class EventController extends AbstractActionController
         $paginator = $this->eventManager->findAll($page);
         $view = new ViewModel(['paginator' => $paginator]);
         $view->setTemplate('event/history/all');
+        return $view;
+    }
+
+    public function userAction()
+    {
+        $userId = $this->params('id');
+
+        if (!is_numeric($userId)) {
+            $this->getResponse()->setStatusCode(404);
+            return false;
+        }
+
+        $page = $this->params()->fromQuery('page', 0);
+        $paginator = $this->eventManager->findAllEventsByActor($userId, $page);
+        $view = new ViewModel(['userId' => $userId, 'paginator' => $paginator]);
+        $view->setTemplate('event/history/user');
+        return $view;
+    }
+
+    public function meAction()
+    {
+        $user = $this->getUserManager()->getUserFromAuthenticator();
+
+        if (!$user) {
+            throw new UnauthorizedException;
+        }
+
+        $userId = $user->getId();
+        $page = $this->params()->fromQuery('page', 0);
+        $paginator = $this->eventManager->findAllEventsByActor($userId, $page);
+        $view = new ViewModel(['userId' => $userId, 'paginator' => $paginator]);
+        $view->setTemplate('event/history/user');
         return $view;
     }
 }

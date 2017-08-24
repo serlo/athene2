@@ -23,14 +23,15 @@
                             </a>
                         <?php endif; ?>
                         <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'purge'), $entity)): ?>
-                            <button class="dialog btn btn-danger btn-xs"
-                                    href="<?php echo $this->url('uuid/purge', array('id' => $entity->getId())); ?>"
-                                    data-content="<?php echo sprintf($this->translate(
+                        <?php $trashbutton = '<button class="dialog btn btn-danger btn-xs"
+                                    data-content="'.sprintf($this->translate(
                                         'Do you really want to purge the item <strong>%s</strong>? It and all references to it will be lost forever!'
-                                    ), htmlentities($this->normalize()->toTitle($entity))); ?>"
+                                    ), htmlentities($this->normalize()->toTitle($entity))).'"
                                     data-type="danger">
                                 <span class="fa fa-fire"></span>
-                            </button>
+                            </button>';
+                            echo $this->twigPartial('common/csrfform', array('form' => $this->uuidForm()->getPurgeForm($entity->getId()), 'sendbutton' => $trashbutton));
+                        ?>
                         <?php endif; ?>
                     </div>
                 </td>

@@ -8,7 +8,7 @@
  */
 namespace RelatedContent\Controller;
 
-use Authorization\Service\AuthorizationAssertionTrait;
+use Common\Form\CsrfForm;
 use RelatedContent\Exception\NotFoundException;
 use RelatedContent\Form\CategoryForm;
 use RelatedContent\Form\ExternalForm;
@@ -117,7 +117,8 @@ class RelatedContentController extends AbstractActionController
         $aggregated = $this->getRelatedContentManager()->aggregateRelatedContent($this->params('id'));
         $view       = new ViewModel([
             'aggregated' => $aggregated,
-            'container'  => $container
+            'container'  => $container,
+            'form'       => new CsrfForm('remove-related-element')
         ]);
         $view->setTemplate('related-content/manage');
         $this->layout('layout/1-col');
@@ -140,8 +141,16 @@ class RelatedContentController extends AbstractActionController
 
     public function removeAction()
     {
-        $this->getRelatedContentManager()->removeRelatedContent((int)$this->params('id'));
-        $this->getRelatedContentManager()->getObjectManager()->flush();
+        if ($this->getRequest()->isPost()) {
+            $form = new CsrfForm('remove-related-element');
+            $form->setData($this->getRequest()->getPost());
+            if ($form->isValid()) {
+                $this->getRelatedContentManager()->removeRelatedContent((int)$this->params('id'));
+                $this->getRelatedContentManager()->getObjectManager()->flush();
+            } else {
+                $this->flashMessenger()->addErrorMessage('The element could not be removed (validation failed)');
+            }
+        }
         return $this->redirect()->toReferer();
     }
 }

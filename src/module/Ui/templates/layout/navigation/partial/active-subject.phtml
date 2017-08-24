@@ -10,6 +10,7 @@
  */
 
 $subject = '';
+$subjectHref = '';
 
 foreach ($this->container as $page) {
     if (! $page->isVisible() || !$this->navigation()->accept($page) || !$page->isActive(true)) {
@@ -17,6 +18,11 @@ foreach ($this->container as $page) {
     }
 
     $subject = $page->getLabel();
+    $subjectHref = $this->alias($page->getHref());
 }
 
-echo $subject;
+?>
+
+<a class="main-headline-link" href="<?php echo $subjectHref; ?>">
+<?php echo $subject; ?>
+</a>

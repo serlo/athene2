@@ -25,21 +25,26 @@
 	<tbody>
         <?php foreach($this->entities as $entity): ?>
             <tr>
-			<td><a href="<?php echo $this->url($entity->getRouteName(), $entity->getRouteParams()); ?>"><?php echo $entity->getTitle(); ?></a></td>
-			<td><?php echo $entity->getType(); ?></td>
-			<td>
-				<div class="btn-group">
+                <td><a href="<?php echo $this->url($entity->getRouteName(), $entity->getRouteParams()); ?>"><?php echo $entity->getTitle(); ?></a></td>
+                <td><?php echo $entity->getType(); ?></td>
+                <td>
+                    <div class="btn-group">
+                    <?php if ($this->isGranted('uuid.restore', $entity)): ?>
 					<a class="btn btn-success btn-xs"
 						href="<?php echo $this->url('uuid/restore', array('id' => $entity->getId())); ?>"><span
 						class="fa fa-refresh"></span></a>
-					<button class="dialog btn btn-danger btn-xs"
-						href="<?php echo $this->url('uuid/purge', array('id' => $entity->getId())); ?>"
-						data-content="<?php echo $this->translate('Do you really want to purge this item? It and all references to it will be lost forever!'); ?>"
-						data-type="danger">
-						<span class="fa fa-fire"></span>
-					</button>
+                    <?php endif; ?>
+                    <?php if ($this->isGranted('uuid.purge', $entity)): ?>
+                        <?php $trashbutton = '<button class="dialog btn btn-danger btn-xs"
+                            data-content="'.$this->translate('Do you really want to purge this item? It and all references to it will be lost forever!').'"
+                            data-type="danger">
+                                <span class="fa fa-fire"></span>
+                            </button>';
+                            echo $this->twigPartial('common/csrfform', array('form' => $this->uuidForm()->getPurgeForm($entity->getId()), 'sendbutton' => $trashbutton));
+                        ?>
+                    <?php endif; ?>
 				</div>
-			</td>
+            </td>
 		</tr>
         <?php endforeach; ?>
 	</tbody>

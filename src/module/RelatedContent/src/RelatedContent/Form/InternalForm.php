@@ -9,6 +9,7 @@
  */
 namespace RelatedContent\Form;
 
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
@@ -20,6 +21,8 @@ class InternalForm extends Form
     function __construct()
     {
         parent::__construct('internal');
+        $this->add(new CsrfToken('csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter('external');

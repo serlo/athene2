@@ -2,4 +2,16 @@
 
 {{ pageHeader('Search results'|trans).setSubtitle(query).render() }}
 {% include 'search/form' %}
-{% include 'search/container' with {'container': container} %}
+
+<script>
+    (function() {
+        var cx = '017461339636837994840:ifahsiurxu4';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+    })();
+</script>
+<gcse:searchresults-only></gcse:searchresults-only>

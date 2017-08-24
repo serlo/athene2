@@ -8,6 +8,7 @@
  */
 namespace Taxonomy\Controller;
 
+use Common\Form\CsrfForm;
 use Entity\Manager\EntityManagerAwareTrait;
 use Entity\Manager\EntityManagerInterface;
 use Versioning\Filter\HasHeadCollectionFilter;
@@ -170,7 +171,8 @@ class TermController extends AbstractController
         $term = $this->getTaxonomyManager()->getTerm($this->params('term'));
         $this->assertGranted('taxonomy.term.update', $term);
         $data = $this->params()->fromPost('sortable', []);
-        $this->iterWeight($data, $this->params('term'));
+        $csrf = $this->params()->fromPost('csrf', '');
+        $this->iterWeight($data, $this->params('term'), $csrf);
         $this->getTaxonomyManager()->flush();
         return true;
     }
@@ -216,7 +218,7 @@ class TermController extends AbstractController
         ) {
             throw new UnauthorizedException;
         }
-        $view = new ViewModel(['term' => $term]);
+        $view = new ViewModel(['orderForm' => new CsrfForm('taxonomy-sort'), 'term' => $term]);
         $view->setTemplate('taxonomy/term/organize');
         return $view;
     }
@@ -247,19 +249,19 @@ class TermController extends AbstractController
         return $view;
     }
 
-    protected function iterWeight($terms, $parent = null)
+    protected function iterWeight($terms, $parent = null, $csrf)
     {
         $position = 1;
         $form     = $this->termForm;
         foreach ($terms as $term) {
             $entity = $this->getTaxonomyManager()->getTerm($term['id']);
             $data   = $form->getHydrator()->extract($entity);
-            $data   = array_merge($data, ['parent' => $parent, 'position' => $position]);
+            $data   = array_merge($data, ['parent' => $parent, 'position' => $position, 'csrf' => $csrf]);
             $form->bind($entity);
             $form->setData($data);
             $this->getTaxonomyManager()->updateTerm($form);
             if (isset($term['children'])) {
-                $this->iterWeight($term['children'], $term['id']);
+                $this->iterWeight($term['children'], $term['id'], $csrf);
             }
             $position++;
         }

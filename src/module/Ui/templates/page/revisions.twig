@@ -33,9 +33,12 @@
                 {% endif %}
                 {% if revision.getRepository().getCurrentRevision() is not same as(revision) %}
                     {% if isGranted('page.revision.trash', revision) %}
-                    <a href="{{ url('uuid/trash', {'id': revision.getId()}) }}" class="btn btn-xs btn-default">
-                        <span class="fa fa-trash"></span> {% trans %} Trash {% endtrans %}
-                    </a>
+                        {% set trashbutton %}
+                        <button class="btn btn-xs btn-default">
+                            <span class="fa fa-trash"></span> {% trans %} Trash {% endtrans %}
+                        </button>
+                        {% endset %}
+                        {% include 'common/csrfform' with {'form': uuidForm().getTrashForm(revision.getId()), 'sendbutton': trashbutton} %}
                     {% endif %}
                     {% if isGranted('page.revision.checkout', revision) %}
                         <a href="{{ url('page/revision/checkout', {'page': page.getId(), 'revision': revision.getId()}) }}" class="btn btn-xs btn-default">

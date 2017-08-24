@@ -9,6 +9,7 @@
  */
 namespace Entity\Form;
 
+use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Select;
@@ -23,6 +24,8 @@ class ModulePageForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('course-page');
+        $this->add(new CsrfToken('csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 

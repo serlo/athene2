@@ -8,6 +8,7 @@
  */
 namespace Attachment\Form;
 
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\Select;
 use Zend\Form\Element\Submit;
 use Zend\Form\Form;
@@ -18,6 +19,7 @@ class AttachmentForm extends Form implements AttachmentFieldsetProvider
     public function __construct()
     {
         parent::__construct('upload');
+        $this->add(new CsrfToken('csrf'));
 
         $filter = new InputFilter();
 

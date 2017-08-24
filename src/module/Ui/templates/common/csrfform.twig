@@ -1,0 +1,16 @@
+{% if form is defined %}
+    {% do form.prepare() %}
+    {{ form().openTag(form) }}
+    {{ formRow(form.get('csrf')) }}
+    {% if additionalFields is defined %}
+        {% for field in additionalFields %}
+            {{ field }}
+        {% endfor %}
+    {% endif %}
+    {% if sendbutton is defined %}
+        {{ sendbutton }}
+    {% else %}
+        {{ formRow(form.get('submit')) }}
+    {% endif %}
+    {{ form().closeTag() }}
+{% endif %}

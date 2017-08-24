@@ -1,13 +1,5 @@
 <div id="horizon">
-    <div class="row">
-        <div class="col-xs-12">
-            <span class="pull-left"><strong><?php echo $this->translate('Broaden your horizon'); ?></strong></span>
-            <a class="pull-right" href="<?php echo $this->url('ads/about'); ?>"><?php echo $this->translate(
-                    'What is this?'
-                ); ?></a>
-            <hr>
-        </div>
-    </div>
+    <hr>
     <div class="row">
         <?php if ($this->ads != null):foreach ($this->ads as $count => $ad) : ?>
             <div class="col-sm-4 col-xs-12">

@@ -27,13 +27,13 @@ class SingleChoiceHelper extends AbstractHelper
      */
     public function fetchSingleChoice(EntityInterface $entity) {
         $answers = [];
-        foreach ($entity->getChildren('link', 'single-choice-right-answer') as $add) {
+        foreach ($entity->getValidChildren('link', 'single-choice-right-answer') as $add) {
             $answers[] = [
                 'right' => true,
                 'entity' => $add
             ];
         }
-        foreach ($entity->getChildren('link', 'single-choice-wrong-answer') as $add) {
+        foreach ($entity->getValidChildren('link', 'single-choice-wrong-answer') as $add) {
             $answers[] = [
                 'right' => false,
                 'entity' => $add

@@ -9,6 +9,7 @@
  */
 namespace Entity\Form;
 
+use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Textarea;
@@ -21,6 +22,8 @@ class GroupedTextExerciseForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('grouped-text-exercise');
+        $this->add(new CsrfToken('csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 

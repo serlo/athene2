@@ -19,8 +19,10 @@
                     <span class="sr-only"><?php echo $this->translate('Toggle navigation'); ?></span>
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
-                <?php echo $this->brand()->getLogo(); ?>
-                <?php echo $this->brand()->getBrand(); ?>
+                <a class="main-headline-link" href="/">
+                    <?php echo $this->brand()->getLogo(); ?>
+                </a>
+                    <?php echo $this->brand()->getBrand(); ?>
                 <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
                         ->menu()
                         ->setPartial('layout/navigation/partial/active-subject')

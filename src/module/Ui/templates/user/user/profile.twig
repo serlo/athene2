@@ -81,6 +81,12 @@
     <div class="col-xs-12">
         {{ eventLog().renderUserLog(user.getId(), 50) }}
     </div>
+    <div class="col-xs-12">
+        &#x22EE; <br>
+        <a href="{{ url('event/history/user/id', {'id': user.getId()}) }}">
+            Show all activities
+        </a>
+    </div>
 </div>
 {% if user.getLastLogin() %}
     <h1 class="heading-content">{{ 'Last seen' | trans }}</h1>

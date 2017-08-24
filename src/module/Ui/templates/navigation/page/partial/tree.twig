@@ -19,20 +19,26 @@
                         <span class="fa fa-plus"></span>
                         {{ 'Add parameter' | trans }}
                     </a>
-                    <a class="btn btn-xs btn-default"
-                       href="{{ url('navigation/page/create', {'container': page.getContainer().getId(), 'parent': page.getId()}) }}">
+                    {% set createbutton %}
+                    <button class="btn btn-xs btn-default">
                         <span class="fa fa-plus"></span> {{ 'Add page' | trans }}
-                    </a>
+                    </button>
+                    {% endset %}
+                    {% do form.setAttribute('action', url('navigation/page/create', {'container': page.getContainer().getId(), 'parent': page.getId()})) %}
+                    {% include 'common/csrfform' with {'form': form, 'sendbutton': createbutton} %}
                     <a class="btn btn-xs btn-default"
                        href="{{ url('navigation/page/update', {'page': page.getId()}) }}">
                         <span class="fa fa-cog"></span>
                         {{ 'Settings' | trans }}
                     </a>
-                    <a class="btn btn-xs btn-danger"
-                       href="{{ url('navigation/page/remove', {'page': page.getId()}) }}">
+                    {% set trashbutton %}
+                    <button class="btn btn-xs btn-danger">
                         <span class="fa fa-trash"></span>
                         {{ 'Remove page' | trans }}
-                    </a>
+                    </button>
+                    {% endset %}
+                    {% do form.setAttribute('action', url('navigation/page/remove', {'page': page.getId()})) %}
+                    {% include 'common/csrfform' with {'form': form, 'sendbutton': trashbutton} %}
                 </div>
         </ul>
         {% if page.hasChildren() %}

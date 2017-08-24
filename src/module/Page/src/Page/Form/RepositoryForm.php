@@ -3,6 +3,7 @@
 
 namespace Page\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Page\Entity\PageRepositoryInterface;
@@ -19,6 +20,7 @@ class RepositoryForm extends Form
     public function __construct(ObjectManager $objectManager, PageRepositoryInterface $pageRepository, TaxonomyManagerInterface $taxonomyManager)
     {
         parent::__construct('createPage');
+        $this->add(new CsrfToken('csrf'));
 
         $hydrator = new DoctrineObject($objectManager);
         $filter   = new InputFilter();

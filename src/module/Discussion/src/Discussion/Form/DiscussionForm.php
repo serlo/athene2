@@ -8,15 +8,14 @@
  */
 namespace Discussion\Form;
 
+use Common\Form\Element\CsrfToken;
 use Common\Hydrator\HydratorPluginAwareDoctrineObject;
 use Doctrine\Common\Persistence\ObjectManager;
-use Notification\Form\OptInFieldset;
+use Notification\Form\OptInHiddenFieldset;
 use Zend\Form\Element\Hidden;
 use Zend\Form\Element\Submit;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\InputFilter\InputFilter;
-use Zend\Validator\Regex;
 
 class DiscussionForm extends AbstractForm
 {
@@ -24,6 +23,7 @@ class DiscussionForm extends AbstractForm
     function __construct(HydratorPluginAwareDoctrineObject $hydrator, ObjectManager $objectManager)
     {
         parent::__construct('discussion');
+        $this->add(new CsrfToken('csrf'));
         $inputFilter = new InputFilter('discussion');
 
         $this->setInputFilter($inputFilter);
@@ -62,37 +62,19 @@ class DiscussionForm extends AbstractForm
             ]
         );
         $this->add(new Hidden('terms'));
+
+        $this->add(new OptInHiddenFieldset());
+
         $this->add(
-            (new Text('title'))->setAttribute('placeholder', 'Title')
+            (new Textarea('content'))
+                ->setAttribute('placeholder', t('Ask a question or suggest an improvement'))
+                ->setAttribute('class', 'discussion-content autosize')
+                ->setAttribute('rows', '1')
         );
         $this->add(
-            (new Textarea('content'))->setAttribute(
-            'placeholder',
-                'Content'
-            )
-        );
-        $this->add(new OptInFieldset());
-        $this->add(
-            (new Submit('start'))->setValue('Start discussion')->setAttribute('class', 'btn btn-success pull-right')
+                (new Submit('start'))->setValue(t('Submit'))->setAttribute('class', 'btn btn-success pull-right discussion-submit')
         );
 
-        $inputFilter->add(
-            [
-                'name'       => 'title',
-                'required'   => true,
-                'validators' => [
-                    [
-                        'name'    => 'Regex',
-                        'options' => [
-                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.\?!]*$~',
-                            'messages' => [
-                                Regex::NOT_MATCH => 'Title should not contain special characters'
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        );
         $inputFilter->add(['name' => 'instance', 'required' => true]);
         $inputFilter->add(['name' => 'content', 'required' => true]);
     }

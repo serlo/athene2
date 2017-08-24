@@ -1,6 +1,7 @@
 <?php
 namespace Page\Form;
 
+use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Submit;
@@ -14,6 +15,8 @@ class RevisionForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('createRepository');
+        $this->add(new CsrfToken('csrf'));
+
         $filter = new InputFilter();
 
         $this->setAttribute('method', 'post');

@@ -24,6 +24,16 @@ return [
                             'changes'
                         ]
                     ],
+                    'link' => [
+                        'children' => [
+                            'text-solution' => [
+                                'multiple' => false
+                            ],
+                            'text-hint' => [
+                                'multiple' => false
+                            ]
+                        ]
+                    ],
                     'license' => [],
                     'taxonomy' => []
                 ]
@@ -144,7 +154,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'multiple-choice-wrong-answer' => [
@@ -169,7 +182,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'multiple-choice-right-answer' => [
@@ -193,7 +209,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'single-choice-wrong-answer' => [
@@ -218,7 +237,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'single-choice-right-answer' => [
@@ -243,7 +265,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'input-string-normalized-match-challenge' => [
@@ -288,7 +313,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'input-number-exact-match-challenge' => [
@@ -333,7 +361,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'input-expression-equal-match-challenge' => [
@@ -378,7 +409,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'text-solution' => [
@@ -402,7 +436,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'video' => [
@@ -444,7 +481,10 @@ return [
                             ]
                         ]
                     ],
-                    'license' => []
+                    'license' => [],
+                    'redirect' => [
+                        'toType' => 'parent'
+                    ]
                 ]
             ],
             'article' => [
@@ -456,7 +496,9 @@ return [
                             'title',
                             'content',
                             'reasoning',
-                            'changes'
+                            'changes',
+                            'meta_title',
+                            'meta_description'
                         ]
                     ],
                     'license' => [],

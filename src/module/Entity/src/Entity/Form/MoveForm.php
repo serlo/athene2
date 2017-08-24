@@ -9,6 +9,7 @@
  */
 namespace Entity\Form;
 
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -18,6 +19,8 @@ class MoveForm extends Form
     function __construct()
     {
         parent::__construct('move');
+        $this->add(new CsrfToken('csrf'));
+
         $this->setAttribute('method', 'post');
         $filter = new InputFilter();
         $this->setInputFilter($filter);

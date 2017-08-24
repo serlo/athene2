@@ -28,7 +28,6 @@ require.config({
         "translator": "../../scripts/modules/serlo_translator",
         "i18n": "../../scripts/modules/serlo_i18n",
         "layout": "../../scripts/modules/serlo_layout",
-        "search": "../../scripts/modules/serlo_search",
         "support": "../../scripts/modules/serlo_supporter",
         "modals": "../../scripts/modules/serlo_modals",
         "router": "../../scripts/modules/serlo_router"

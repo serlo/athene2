@@ -17,37 +17,10 @@ use Zend\View\Model\ViewModel;
 
 class SearchController extends AbstractActionController
 {
-    use SearchServiceAwareTrait;
-
-    /**
-     * @param SearchServiceInterface $searchService
-     */
-    public function __construct(SearchServiceInterface $searchService)
-    {
-        $this->searchService = $searchService;
-    }
-
-    public function ajaxAction()
-    {
-        $form = new SearchForm();
-        $data = $this->getRequest()->getQuery();
-        if (isset($data['q'])) {
-            $form->setData($data);
-            if ($form->isValid()) {
-                $data      = $form->getData();
-                $container = $this->getSearchService()->search($data['q']);
-                $view      = new JsonModel($container->toArray());
-                return $view;
-            }
-        }
-        return new JsonModel([]);
-    }
-
     public function searchAction()
     {
         $form = new SearchForm();
         $view = new ViewModel(['form' => $form, 'query' => '']);
-        $page = $this->params()->fromQuery('page', 0);
 
         $view->setTemplate('search/search');
 
@@ -56,8 +29,6 @@ class SearchController extends AbstractActionController
             $form->setData($data);
             if ($form->isValid()) {
                 $data      = $form->getData();
-                $container = $this->getSearchService()->search($data['q'], $page, 10);
-                $view->setVariable('container', $container);
                 $view->setVariable('query', $data['q']);
                 $view->setTemplate('search/results');
             }

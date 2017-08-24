@@ -16,6 +16,7 @@ use Authorization\Service\PermissionServiceAwareTrait;
 use Authorization\Service\PermissionServiceInterface;
 use Authorization\Service\RoleServiceAwareTrait;
 use Authorization\Service\RoleServiceInterface;
+use Common\Form\CsrfForm;
 use Instance\Entity\InstanceAwareTrait;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
@@ -159,12 +160,24 @@ class RoleController extends AbstractActionController
 
     public function removePermissionAction()
     {
+        $role = $this->getRoleService()->getRole($this->params('role'));
+        $permissionID = $this->params('permission');
         $this->assertGranted('authorization.role.revoke.permission');
 
-        $this->getRoleService()->removeRolePermission($this->params('role'), $this->params('permission'));
-        $this->getRoleService()->flush();
-        $this->redirect()->toUrl($this->referer()->toUrl());
+        $form = new CsrfForm('remove-permission');
 
+       if ($this->getRequest()->isPost()) {
+            $form->setData($this->getRequest()->getPost());
+
+            if ($form->isValid()) {
+                $this->getRoleService()->removeRolePermission($role->getId(), $permissionID);
+                $this->getRoleService()->flush();
+            } else {
+                $this->flashMessenger()->addErrorMessage('The permission could not be removed (validation failed)');
+            }
+       }
+
+        $this->redirect()->toUrl($this->referer()->toUrl());
         return null;
     }
 
@@ -173,7 +186,7 @@ class RoleController extends AbstractActionController
         $role = $this->getRoleService()->getRole($this->params('role'));
         $this->assertGranted('authorization.identity.revoke.role', $role);
 
-        $form  = new UserForm();
+        $form  = new CsrfForm('remove-user');
         $error = false;
         $user  = null;
 
@@ -181,7 +194,6 @@ class RoleController extends AbstractActionController
             $data = $this->getRequest()->getPost();
             $form->setData($data);
             if ($form->isValid()) {
-                $data = $form->getData();
                 try {
                     $user = $this->getUserManager()->findUserByUsername($data['user']);
                     $this->getRoleService()->removeIdentityRole($this->params('role'), $user->getId());
@@ -193,6 +205,8 @@ class RoleController extends AbstractActionController
                     $error = true;
                     $user  = $data['user'];
                 }
+            } else {
+                $this->flashMessenger()->addErrorMessage('The user could not be removed (validation failed)');
             }
         } else {
             $this->referer()->store();
@@ -254,7 +268,9 @@ class RoleController extends AbstractActionController
 
         $view = new ViewModel([
             'role'  => $role,
-            'users' => $role->getUsers()
+            'removePermissionForm' => new CsrfForm('remove-permission'),
+            'users' => $role->getUsers(),
+            'removeUserForm' => new CsrfForm('remove-user')
         ]);
 
         return $view;

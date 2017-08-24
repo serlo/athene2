@@ -14,7 +14,9 @@
             {% for child in children %}
                 <div class="row">
                     <div class="col-xs-12">
-                        <a href="{{ url('taxonomy/term/get', {'term': child.getId()}) }}">{{ child.getName() }}</a>
+                        <p>
+                            <a href="{{ url('taxonomy/term/get', {'term': child.getId()}) }}">{{ child.getName() }}</a>
+                        </p>
                     </div>
                 </div>
             {% endfor %}

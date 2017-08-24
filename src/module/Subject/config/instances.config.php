@@ -154,6 +154,19 @@ return [
                         'course',
                         'text-exercise-group'
                     ]
+                ],
+                'politik' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
                 ]
             ],
             'english' => [
@@ -211,6 +224,19 @@ return [
                     ]
                 ],
                 'music' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
+                ],
+                'sex education' => [
                     'allowed_taxonomies' => [
                         'topic',
                         'locale'

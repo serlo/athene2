@@ -9,6 +9,7 @@
  */
 namespace Entity\Form;
 
+use Common\Form\Element\CsrfToken;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Text;
@@ -24,6 +25,8 @@ class VideoForm extends Form
     function __construct(LicenseInterface $license)
     {
         parent::__construct('video');
+        $this->add(new CsrfToken('csrf'));
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
@@ -57,9 +60,9 @@ class VideoForm extends Form
                     [
                         'name'  => 'Regex',
                         'options' => [
-                            'pattern' => '~^(https?:\/\/)?(.*?(youtube.com\/watch\?v=.+|youtu.be\/.+|vimeo.com\/.+))~',
+                            'pattern' => '~^(https?:\/\/)?(.*?(youtube\.com\/watch\?v=.+|youtu\.be\/.+|vimeo\.com\/.+|upload\.wikimedia\.org\/.+(\.webm|\.ogg)?))~',
                             'messages' => [
-                                Regex::NOT_MATCH => 'Video-URL invalid, supported platforms are Youtube and Vimeo'
+                                Regex::NOT_MATCH => 'Video-URL invalid, supported platforms are Youtube, Vimeo and Wikimedia Commons'
                             ]
                         ]
                     ]

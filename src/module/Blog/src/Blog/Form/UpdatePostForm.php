@@ -8,6 +8,7 @@
  */
 namespace Blog\Form;
 
+use Common\Form\Element\CsrfToken;
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use Zend\Form\Element\Date;
@@ -23,6 +24,7 @@ class UpdatePostForm extends Form
     function __construct(ObjectManager $objectManager)
     {
         parent::__construct('post');
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

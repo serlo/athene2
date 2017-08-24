@@ -2,6 +2,7 @@
 @import "../modules/visibility";
 
 $homeBackgroundColor: #efefef;
+
 $homeColumnWidth: 300px;
 $homeColumnPadding: 30px;
 
@@ -12,6 +13,10 @@ $homeBreakpoint-md-max: ($homeBreakpoint-md-min - 1);
 $homeBreakpoint-lg: 800px;
 $homeBreakpoint-lg-min: $homeBreakpoint-lg;
 $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
+
+$homeBreakpoint-xl: 1240px;
+
+$homeBreakpoint-xxl: 1580px;
 
 @include grid('home', 6, ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
 @include visibility('home', ('md', $homeBreakpoint-md), ('lg', $homeBreakpoint-lg));
@@ -27,22 +32,8 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
   h2 {
     color: lighten($gray, 10%);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-  }
-
-  > a {
-    font-size: 23px;
-    color: $gray;
-
-    &:focus, &:hover, &:active {
-      text-decoration: none;
-      color: $serloBlue;
-    }
-
-    i {
-      color: $serloBlue;
-    }
   }
 
   ul {
@@ -50,84 +41,202 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
     padding: 0;
   }
 }
-
+.home-subject-wrapper {
+  background-color: #fff;
+  width: 100%;
+}
 .home-subject-row {
-  max-width: 400px;
-  margin: 25px auto 100px;
-  background: url('../images/home_title_maths.svg') no-repeat;
-  background-size: 400px;
+  margin: 0px auto 105px auto;
+  padding: auto;
 
   .home-column {
-    > a {
-      padding-top: 300px;
-      display: block;
-      font-size: 32px;
-    }
+    margin: 0 auto 30px;
+  }
 
-    p > a {
-      font-weight: bold;
+  .home-subject {
+    display: inline-block;
+    vertical-align: middle;
+    br {
+      align: center;
+    }
+  }
+
+  .home-emph-link {
+    font-size: 20px;
+  }
+}
+
+.home-emph-link {
+  font-size: 23px;
+  color: $gray;
+  @media (max-width: 767px) {
+    .home-subject-symbol {
+      .blue{fill:#00B2D8;}
+      .green{fill:#BECD2B;}
+    }
+  }
+  &:focus, &:hover, &:active {
+    text-decoration: none;
+    color: $serloBlue;
+    .home-subject-symbol {
+      .blue{fill:#00B2D8;}
+      .green{fill:#BECD2B;}
+    }
+    i {
+      color: $serloBlue;
     }
   }
 }
 
-.home-serlo-row {
-  margin: 50px auto;
-
-  .home-column {
-    margin-bottom: 25px;
-
-    @media screen and (min-width: $homeBreakpoint-md-min) {
-      margin-bottom: 0;
-    }
-
-    + .home-column {
-      margin-bottom: 0;
-    }
-  }
+.home-header {
+  text-align: center;
+  font-size: 36px;
+  color: $gray;
+  margin: 45px 0;
+  margin-bottom: 80px;
 
   .serlo-logo {
-    font-size: 60px;
-    line-height: 1;
+    display: inline-block;
+    font-size: 50px;
+    height: 100px;
+    vertical-align: bottom;
+    margin-left: -20px;
+    margin-right: -2px;
+    margin-bottom: 3px;
   }
 
   .serlo-brand {
-    font-size: 30px;
-    line-height: 1;
-    margin: 10px 0;
+    display: inline-block;
+    font-size: 41px;
+  }
+
+  .header-text {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: bottom;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+}
+
+.home-about-wrapper {
+  margin-right: 0;
+  margin-bottom: 80px;
+}
+
+.home-about-row {
+  background-color: $serloBlue;
+  padding: 80px 50px 50px 50px;
+  font-size: 16px;
+  color: #fff;
+  text-align: left;
+
+  @media (min-width: $homeBreakpoint-xl) {
+    min-height: 740px;
+  }
+
+  @media (min-width: $homeBreakpoint-xxl) {
+    min-height: 640px;
+  }
+  .home-emph-link {
+    color: #fff;
+    &:focus, &:hover, &:active {
+        color: $serloBlueLight;
+        i {
+            color: $serloBlueLight;
+        }
+    }
+  }
+  p {
+    padding-bottom: 20px;
+  }
+}
+
+.home-serlo-row {
+  font-size: 16px;
+  margin: 0 auto 50px auto;
+  padding-bottom: 50px;
+  .home-column {
+    margin-bottom: 25px;
+    @media screen and (min-width: $homeBreakpoint-md-min) {
+      margin-bottom: 0;
+    }
+    a {
+      display: inline-block;
+      padding: 0 20px;
+    }
   }
 
   .serlo-en-home & {
     max-width: 400px;
   }
+}
 
+.home-partner-row {
+  text-align: center;
+  min-height: 640px;
+  padding-top: 518px;
+
+  @media (min-width: $homeBreakpoint-xl) {
+    min-height: 740px;
+    padding-top: 610px;
+  }
+
+  @media (min-width: $homeBreakpoint-xxl) {
+    min-height: 640px;
+    padding-top: 518px;
+  }
+
+  .partners {
+    display: inline-block;
+    width: 820px;
+  }
+
+  @media screen and (min-width: $homeBreakpoint-md-min) {
+    background-image: url('../images/de/serlo_learning_md.jpg');
+  }
+  @media screen and (min-width: $homeBreakpoint-lg-min) {
+    background-image: url('../images/de/serlo_learning_lg.jpg');
+  }
+  background-repeat: no-repeat;
+  background-position-y: 100%;
+  background-size:cover;
+  .home-emph-link {
+    color: #fff;
+  }
   .serlo-de-home & {
-    max-width: 3 * ($homeColumnWidth + 2*$homeColumnPadding);
-
+    @media (max-width: $homeBreakpoint-lg-min) {
+      display: none;
+    }
     h2 {
       display: inline-block;
-      width: 2/3 * 100%;
-      border-bottom: 1px solid $lightGray;
-      padding-bottom: 5px;
+      width: 1/2 * 100%;
+      border-bottom: 1px solid #fff;
+      letter-spacing: 0.3px;
+      color: #fff;
+      padding-bottom: 4px;
     }
-
+    a {
+      margin-top: 10px;
+    }
     img {
-      max-width: 125px;
+      max-width: 100px;
+      margin: 10px 0 15px 30px;
+      @media (max-width: $homeBreakpoint-lg-min) {
+        max-width: 130px;
+      }
     }
-
     li {
       padding: 29px 0;
     }
-
     blockquote {
       border: none;
       font-size: inherit;
       margin: 0;
-
       footer {
         padding: 5px 0;
         font-weight: bold;
         display: inline-block;
-
         &:before {
           content: '';
         }
@@ -136,67 +245,33 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
-.home-blue-row {
-  background: #0C5997;
-  color: #ffffff;
-  padding: 25px 0;
 
-  @media (min-width: $homeBreakpoint-lg-min) {
-    padding: 50px 0;
+.home-principle-row {
+  padding: 80px 0;
+  background-color: $serloBlue;
+  width: 100%;
+  .serlo-en-home & {
+    margin-bottom: 70px;
   }
-
-  .serlo-de-home & {
-    .home-column {
-      ul {
-        display: inline-block;
-        font-size: 50px;
-        padding: 50px 0;
-
-        @media (min-width: $homeBreakpoint-lg-min) {
-          padding: 50px 600px 50px 0;
-          background: url('../images/de/home_learn.svg') no-repeat right;
-        }
-
-        li {
-          padding: 15px 0;
-          line-height: 1;
-
-          span {
-            display: block;
-            font-size: 25px;
-            color: #bfdeef;
-            padding: 0;
-          }
-        }
-      }
+  @media screen and (min-width: $screen-md) {
+    img {
+      width: 75%;
     }
   }
-
-  .serlo-en-home & {
-    padding: 50px;
-
-    div {
-      background: url('../images/en/home_learn.svg') no-repeat center;
-      background-size: contain;
-      height: 0;
-      width: 100%;
-      max-width: 475px;
-      margin: 0 auto;
-      padding-top: 67%;
-
-      @media screen and (min-width: 525px) {
-        padding-top: 315px;
-      }
+  @media screen and (min-width: $screen-lg) {
+    img {
+      width: 50%;
     }
   }
 }
 
 .home-launch-img-row {
+  clear: both;
   background-size: contain;
   background-repeat: no-repeat;
   height: 0;
-  width: 100%;
   padding-top: 43.75%;
+  margin-bottom: 40px;
 
   .serlo-de-home & {
     background-image: url('../images/de/home_img_launch_sm.jpg');
@@ -223,11 +298,75 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
   }
 }
 
+.home-calls-wrapper {
+  background: #fff;
+  padding: 20px 0px;
+  margin-bottom: 100px;
+}
+
+.home-calls-header {
+  text-align: left;
+  @media (max-width: $screen-lg){
+    text-align: center;
+  }
+  padding: 0 0 20px 0;
+  margin-top: 20px;
+  color: #333;
+    h2 {
+      margin-bottom: 2px;
+      font-size: 30px;
+      font-weight: bold;
+  }
+}
+.home-calls-column {
+  font-size: 16px;
+  padding: 10px 0;
+  text-align: left;
+  @media (max-width: $screen-lg){
+    text-align: center;
+  }
+
+  .home-emph-link {
+    font-size: 25px;
+    margin-top:20px;
+    &:focus, &:hover, &:active {
+      color: $serloGreen;
+    }
+    i {
+      color: $serloGreen;
+    }
+  }
+}
+
+.calls-column-1 {
+  @media (max-width: $screen-md){
+    padding-bottom: 50px;
+  }
+}
+
+.home-row .extra-icon {
+  text-align: center;
+  padding: 10px 0px;
+  @media (min-width: $screen-lg) {
+    text-align: right;
+    padding: 10px 70px;
+  }
+}
+
 .serlo-home {
   @media screen and (min-width: $navigationBreakPoint-min) {
     #header-nav {
       display: none;
     }
+  }
+
+  #page {
+    margin-top: 0;
+    background: #fff;
+  }
+
+  #header {
+    background: #fff;
   }
 
   #serlo-menu {
@@ -271,37 +410,5 @@ $homeBreakpoint-lg-max: ($homeBreakpoint-lg-min - 1);
 
   .wrap {
     background-color: $homeBackgroundColor;
-  }
-}
-
-.home-community-wrapper {
-  background: #fff;
-  padding: 50px 0;
-}
-
-.home-community-row, .home-community-link-row {
-  max-width: 2 * ($homeColumnWidth + 2*$homeColumnPadding);
-
-  @media screen and (max-width: $homeBreakpoint-md-max) {
-    margin: 0;
-  }
-
-  .home-column {
-    h2 {
-      margin-bottom: 2px;
-    }
-
-    > a {
-      display: block;
-      margin: 30px 0;
-
-      &:focus, &:hover, &:active {
-        color: $serloGreen;
-      }
-
-      i {
-        color: $serloGreen;
-      }
-    }
   }
 }

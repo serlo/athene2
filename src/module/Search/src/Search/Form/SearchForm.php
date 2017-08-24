@@ -18,6 +18,7 @@ class SearchForm extends Form
     public function __construct()
     {
         parent::__construct('search');
+
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter('search');

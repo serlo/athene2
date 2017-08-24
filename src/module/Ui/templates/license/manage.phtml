@@ -22,7 +22,13 @@
                             <a class="btn btn-xs btn-default" href="<?php echo $this->url('license/update', array('id' => $license->getId())); ?>"><span class="fa fa-pencil"></span></a>
                         <?php endif; ?>
                         <?php if ($this->isGranted('license.purge', $license)): ?>
-                            <button class="btn btn-xs btn-danger dialog" href="<?php echo $this->url('license/remove', array('id' => $license->getId())); ?>" data-content="<?php echo $this->translate('Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE'); ?>" data-title="<?php echo $this->translate('DANGER: You are going to delete all contents associated with this license!'); ?>" data-type="danger"><span class="fa fa-trash"></span></button>
+                            <?php $this->form->setAttribute('action', $this->url('license/remove', ['id' => $license->getId()]));?>
+                            <?php $trashbutton = '<button class="btn btn-xs btn-danger dialog" data-content="'
+                                .$this->translate('Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE')
+                                .'" data-title="'
+                                . $this->translate('DANGER: You are going to delete all contents associated with this license!')
+                                .'" data-type="danger"><span class="fa fa-trash"></span></button>'?>
+                            <?php echo $this->twigPartial('common/csrfform', ['form' => $this->form, 'sendbutton'=> $trashbutton]); ?>
                         <?php endif; ?>
                     </div>
                 </td>

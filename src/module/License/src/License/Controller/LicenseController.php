@@ -8,6 +8,7 @@
  */
 namespace License\Controller;
 
+use Common\Form\CsrfForm;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
 use License\Manager\LicenseManagerAwareTrait;
@@ -31,7 +32,7 @@ class LicenseController extends AbstractActionController
     {
         $this->assertGranted('license.create');
         $licenses = $this->getLicenseManager()->findAllLicenses();
-        $view     = new ViewModel(['licenses' => $licenses]);
+        $view     = new ViewModel(['licenses' => $licenses, 'form' => new CsrfForm('remove-license')]);
         $view->setTemplate('license/manage');
         return $view;
     }
@@ -94,9 +95,16 @@ class LicenseController extends AbstractActionController
     {
         $license = $this->getLicenseManager()->getLicense($this->params('id'));
         $this->assertGranted('license.purge', $license);
-
-        $this->getLicenseManager()->removeLicense($this->params('id'));
-        $this->getLicenseManager()->getObjectManager()->flush();
+        $form = new CsrfForm('remove-license');
+        if ($this->getRequest()->isPost()) {
+            $form->setData($this->getRequest()->getPost());
+            if ($form->isValid()) {
+                $this->getLicenseManager()->removeLicense($this->params('id'));
+                $this->getLicenseManager()->getObjectManager()->flush();
+            } else {
+                $this->flashMessenger()->addErrorMessage('The license could not be removed (validation failed)');
+            }
+        }
         return $this->redirect()->toReferer();
     }
 }

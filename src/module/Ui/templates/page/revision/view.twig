@@ -8,19 +8,6 @@
         </section>
     </article>
 {% endif %}
-<section class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-xs-10">
-                <a href="{{ url('license/detail', {'id': page.getLicense().getId()}) }}">{{ page.getLicense().getTitle() }}</a>
-            </div>
-            <div class="col-xs-2">
-                <a class="pull-right" href="{{ page.getLicense().getUrl() }}" rel="license nofollow"><img
-                            alt="{{ page.getLicense().getTitle() }}" src="{{ page.getLicense().getIconHref() }}"></a>
-            </div>
-        </div>
-    </div>
-</section>
 {% if page.getDiscussionsEnabled() or page.getForum() %}
     {{ discussion(page).render() }}
 {% endif %}

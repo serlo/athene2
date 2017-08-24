@@ -23,6 +23,8 @@ require.config({
         "historyjs": "../bower_components/history.js/scripts/bundled/html4+html5/jquery.history",
         "howlerjs": "../bower_components/howler.js/howler",
         "string": "../bower_components/string/dist/string",
+        "sticky": "../bower_components/jquery-sticky/jquery.sticky",
+        "autosize": "../bower_components/autosize/dist/autosize",
 
         "common": "modules/serlo_common",
         "easing": "libs/easing",
@@ -49,7 +51,6 @@ require.config({
         "deployggb": "thirdparty/deployggb",
         "algebrajs": "thirdparty/algebra",
         "injections": "modules/serlo_injections",
-        "search": "modules/serlo_search",
         "slider": "modules/serlo_slider",
         "sounds": "modules/serlo_sounds",
         "support": "modules/serlo_supporter",
@@ -61,7 +62,6 @@ require.config({
         "forum_select": "modules/serlo_forum_select",
         "toggle_action": "modules/serlo_toggle",
         "tracking": "modules/serlo_tracking",
-        "affix": "modules/serlo_affix",
         "birdnest": "modules/serlo_profile_birdnest",
 
         "math_puzzle": "modules/serlo_math_puzzle",

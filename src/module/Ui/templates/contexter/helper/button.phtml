@@ -24,7 +24,7 @@
             <?php endif; ?>
             <?php foreach ($this->matches as $context): ?>
                 <li>
-                    <a href="<?php echo $this->normalize()->toUrl($context->getObject()); ?>">
+                    <a target="_blank" href="<?php echo $this->normalize()->toUrl($context->getObject()); ?>">
                         <?php echo $context->getTitle(); ?>
                         <small><?php echo $this->translate(ucfirst($context->getType()->getName())); ?></small>
                     </a>

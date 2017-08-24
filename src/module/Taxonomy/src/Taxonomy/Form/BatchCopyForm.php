@@ -8,13 +8,10 @@
  */
 namespace Taxonomy\Form;
 
-use Common\Filter\PreviewFilter;
-use Taxonomy\Hydrator\TaxonomyTermHydrator;
-use Term\Form\TermFieldset;
+use Common\Form\Element\CsrfToken;
 use Zend\Form\Element\MultiCheckbox;
 use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
-use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
@@ -24,6 +21,8 @@ class BatchCopyForm extends Form
     function __construct(array $associations = [])
     {
         parent::__construct('taxonomyTerm');
+        $this->add(new CsrfToken('csrf'));
+
         $this->setAttribute('method', 'post');
         $filter = new InputFilter();
         $this->setInputFilter($filter);

@@ -28,10 +28,13 @@
                     </div>
                     {% if isGranted('related.content.purge', container) %}
                         <div class="col-xs-{{ col }}">
-                            <a href="{{ url('related-content/remove', {'id': related.getId()}) }}"
-                               class="btn btn-xs btn-danger">
-                                <span class="fa fa-trash"></span>
-                            </a>
+                            {% set removebutton %}
+                                <button class="btn btn-xs btn-danger">
+                                    <span class="fa fa-trash"></span>
+                                </button>
+                            {% endset %}
+                            {% do form.setAttribute('action', url('related-content/remove', {'id': related.getId()})) %}
+                            {% include 'common/csrfform' with {'form': form, 'sendbutton': removebutton} %}
                         </div>
                     {% endif %}
                 </div>

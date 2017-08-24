@@ -8,10 +8,13 @@
         {{ 'Name: ' | trans }}{{ container.getType() }}
     </li>
 </ul>
-<a class="pull-right btn btn-xs btn-default"
-   href="{{ url('navigation/page/create', {'container': container.getId()}) }}">
+{% set createbutton %}
+<button class="pull-right btn btn-xs btn-default">
     <span class="fa fa-plus"></span>
     {{ 'Page' | trans }}
-</a>
+</button>
+{% endset %}
+{% do form.setAttribute('action', url('navigation/page/create', {'container': container.getId()})) %}
+{% include 'common/csrfform' with {'form': form, 'sendbutton': createbutton} %}
 <h3>{{ 'Pages' | trans }}</h3>
 {% include 'navigation/page/partial/tree' with {'pages': container.getPages()} %}

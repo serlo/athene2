@@ -8,6 +8,7 @@
  */
 namespace Blog\Form;
 
+use Common\Form\Element\CsrfToken;
 use Common\Hydrator\HydratorPluginAwareDoctrineObject;
 use Doctrine\Common\Persistence\ObjectManager;
 use Zend\Form\Element\Date;
@@ -23,6 +24,7 @@ class CreatePostForm extends Form
     function __construct(ObjectManager $objectManager, HydratorPluginAwareDoctrineObject $hydrator)
     {
         parent::__construct('post');
+        $this->add(new CsrfToken('csrf'));
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

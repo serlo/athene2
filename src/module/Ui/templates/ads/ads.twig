@@ -25,8 +25,11 @@
                         class="fa fa-pencil"></span></a>
                 {% endif %}
                 {% if isGranted('ad.remove', ad) %}
-                    <a href="{{ url('ads/ad/delete', {'id': ad.getId()}) }}" class="btn btn-danger btn-xs"><span
-                        class="fa fa-trash-o"></span></a>
+                    {% set removebutton %}
+                    <button class="btn btn-danger btn-xs"><span
+                        class="fa fa-trash-o"></span></button>
+                    {% endset %}
+                    {% include 'common/csrfform' with {'form': form, 'sendbutton': removebutton} %}
                 {% endif %}
             </div>
             <div>
