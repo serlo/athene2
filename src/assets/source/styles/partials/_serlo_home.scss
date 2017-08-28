@@ -32,7 +32,7 @@ $homeBreakpoint-xxl: 1580px;
 
   h2 {
     color: lighten($gray, 10%);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
   }
 
@@ -45,6 +45,33 @@ $homeBreakpoint-xxl: 1580px;
   background-color: #fff;
   width: 100%;
 }
+
+.home-extra-links {
+    background: #efefef;
+    padding-top: 2rem;
+    padding-bottom: 2.2rem;
+    .home-column {
+        text-align: center;
+        a {
+            white-space: nowrap;
+            @media screen and (min-width: 570px) {
+                padding-left: 8px;
+                padding-bottom: 0;
+                &:first-child {
+                    padding-right: 8px;
+                }
+            }
+        }
+    }
+    .home-emph-link {
+        color: #404040;
+
+        i.fa {
+            color: #428bca;
+        }
+    }
+}
+
 .home-subject-row {
   margin: 0px auto 105px auto;
   padding: auto;
@@ -67,7 +94,7 @@ $homeBreakpoint-xxl: 1580px;
 }
 
 .home-emph-link {
-  font-size: 23px;
+  font-size: 20px;
   color: $gray;
   @media (max-width: 767px) {
     .home-subject-symbol {
@@ -314,7 +341,7 @@ $homeBreakpoint-xxl: 1580px;
   color: #333;
     h2 {
       margin-bottom: 2px;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: bold;
   }
 }
@@ -327,7 +354,7 @@ $homeBreakpoint-xxl: 1580px;
   }
 
   .home-emph-link {
-    font-size: 25px;
+    font-size: 20px;
     margin-top:20px;
     &:focus, &:hover, &:active {
       color: $serloGreen;
