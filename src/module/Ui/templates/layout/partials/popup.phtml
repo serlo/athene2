@@ -1,0 +1,10 @@
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js"
+        data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script type="text/javascript">
+    var pages = ['/serlo', '/paedagogik-konzept', '/qualitaet', '/schule', '/grundprinzipien', '/wirkung', '/software', '/transparenz', '/nutzungszahlen', '/plenum', '/jahresberichte', '/team', '/partner', '/serlo-geschichte', '/presse', '/mitmachen', '/jobs', '/kontakt', '/community', '/hilfe-startseite', '/community-werte', '/feature-suggestions', '/neue-faecher', '/richtlinien-horizont'];
+    if (pages.indexOf(window.location.pathname) > -1) {
+        require(["mojo/signup-forms/Loader"], function (L) {
+            L.start({"baseUrl": "mc.us7.list-manage.com", "uuid": "23f4b04bf70ea485a766e532d", "lid": "a7bb2bbc4f"})
+        })
+    }
+</script>
