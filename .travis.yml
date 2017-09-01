@@ -9,7 +9,7 @@ cache:
 # list any PHP version you want to test against
 php:
   # aliased to a recent 5.5.x version
-  - 5.5
+  - 7.0
   - hhvm
 
 before_script:
