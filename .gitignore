@@ -3,7 +3,6 @@
 deployment.properties
 docs/
 coverage/
-/composer.lock
 tmp/
 !.editorconfig
 !.gitattributes
