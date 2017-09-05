@@ -16,21 +16,3 @@
         </div>
     </div>
 </div>
-
-<script type='text/javascript'>
-    $(document).ready(function () {
-        var showVideo = document.cookie.replace(/(?:(?:^|.*;\s*)hideVideo\s*\=\s*([^;]*).*$)|^.*$/, '$1') != 1;
-
-        if (showVideo) {
-            $('#editorIntroduction').modal('show');
-
-            $('#editorIntroduction').on('hidden.bs.modal', function () {
-                $('#editorIntroduction .embed-responsive-item').attr('src', $('#editorIntroduction .embed-responsive-item').attr('src'));
-            });
-
-            $('#editorIntroduction .btn-danger').click(function () {
-                document.cookie = 'hideVideo=1;path=/';
-            });
-        }
-    });
-</script>

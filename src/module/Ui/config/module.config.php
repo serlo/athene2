@@ -161,12 +161,12 @@ return [
                 'collections' => [
                     'libs'           => [
                         'assets' => [
-                            'bower_components/requirejs/require.js'
+                            // 'bower_components/requirejs/require.js'
                         ]
                     ],
                     'scripts'        => [
                         'assets' => [
-                            'scripts/main.js'
+                            // 'scripts/main.js'
                         ]
                     ],
                     'styles'         => [
@@ -182,7 +182,7 @@ return [
                     ],
                     'editor_scripts' => [
                         'assets' => [
-                            '../athene2-editor/build/scripts/editor.js'
+                            // '../athene2-editor/build/scripts/editor.js'
                         ]
                     ],
                     'editor_styles'  => [

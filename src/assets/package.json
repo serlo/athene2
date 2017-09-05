@@ -2,11 +2,15 @@
   "name": "athene2-assets",
   "version": "0.0.0",
   "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack",
     "format": "prettier --single-quote --write \"{src/**/*,*}.js\""
   },
   "dependencies": {
     "algebra.js": "^0.2.6",
     "autosize": "^4.0.0",
+    "blueimp-file-upload": "^9.19.1",
+    "blueimp-load-image": "^2.17.0",
     "bootstrap": "^3.3.7",
     "bootstrap-datepicker": "^1.7.1",
     "d3": "^4.10.0",
@@ -17,10 +21,12 @@
     "jquery-ui": "^1.12.1",
     "magnific-popup": "^1.1.0",
     "moment": "^2.18.1",
+    "showdown": "^1.7.3",
     "string": "^3.3.3",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "html-loader": "^0.5.1",
     "prettier": "^1.6.1",
     "webpack": "^3.5.4"
   }
