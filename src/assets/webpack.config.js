@@ -155,9 +155,7 @@ module.exports = {
   // // the environment in which the bundle should run
   // // changes chunk loading behavior and available modules
 
-  externals: [
-    require('webpack-require-http')
-  ]  // // Don't follow/bundle these modules, but request them at runtime from the environment
+  externals: [require('webpack-require-http')] // // Don't follow/bundle these modules, but request them at runtime from the environment
 
   // stats: "errors-only",
   // // lets you precisely control what bundle information gets displayed

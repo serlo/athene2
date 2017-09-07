@@ -60,7 +60,7 @@ FormulaPlugin.prototype.activate = function(token) {
     wiris.insertInto($('.content', that.$el)[0]);
 
     ajax(latex2mml, 'latex=' + encodeURIComponent(that.data.content))
-      .success(function(mml) {
+      .done(function(mml) {
         wiris.setMathML(mml);
       })
       .fail(Common.genericError);
@@ -92,7 +92,7 @@ FormulaPlugin.prototype.save = function() {
     data = wiris.getMathML();
 
   ajax(mml2latex, 'mml=' + encodeURIComponent(data), 'post')
-    .success(function(latex) {
+    .done(function(latex) {
       that.data.content = that.wrap + latex + that.wrap;
       that.trigger('save', that);
     })
