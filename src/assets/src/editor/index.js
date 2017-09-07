@@ -8,6 +8,7 @@ import '../modules/spoiler';
 import SystemNotification from '../modules/system_notification';
 import t from '../modules/translator';
 import 'codemirror';
+import 'codemirror/addon/search/searchcursor';
 import PluginManager from './editor/plugins/serlo_texteditor_plugin_manager';
 import EditorPlugin from './editor/plugins/serlo_texteditor_plugin';
 import './editor/plugins/image/image_plugin';
@@ -33,6 +34,7 @@ import Parser from './editor/serlo_parser';
 import TextEditorHelper from './editor/serlo_texteditor_helper';
 import './libs/quickdiff';
 import Shortcuts from './modules/serlo_shortcuts';
+import './markdown_mode';
 
 window.$ = $;
 window.jQuery = $;
