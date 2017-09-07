@@ -73,13 +73,12 @@ FormulaPlugin.prototype.activate = function(token) {
   if (wiris) {
     asyncActivate();
   } else {
-    // FIXME
-    // require.ensure(['https://www.wiris.net/demo/editor/editor'], function () {
-    //     wiris = com.wiris.jsEditor.JsEditor.newInstance({
-    //         'language': 'en'
-    //     });
-    //     asyncActivate();
-    // });
+    require('https://www.wiris.net/demo/editor/editor').then(() => {
+      wiris = com.wiris.jsEditor.JsEditor.newInstance({
+        language: 'en'
+      });
+      asyncActivate();
+    });
   }
 };
 
