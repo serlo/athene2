@@ -1,9 +1,9 @@
 <div class="editor-plugin editor-geogebra-plugin panel panel-default">
-    <div class="panel-heading">{{ name }}</div>
+    <div class="panel-heading"><%= name %></div>
     <div class="panel-body">
         <div class="form-group">
-            <input class="title form-control" type="text" value="{{ title }}" />
-            <input class="href form-control" type="text" value="{{ href }}" />
+            <input class="title form-control" type="text" value="<%= title %>" />
+            <input class="href form-control" type="text" value="<%= href %>" />
             <!--<article class="geogebraweb" data-param-width="500" data-param-height="500" data-param-showMenuBar="true" data-param-showtoolbar="true" data-param-usebrowserforjs="true" data-param-enableRightClick="true"></article>-->
             <iframe class="geogebraweb-app-iframe" src="/editor/geogebra-editor.html" />
 
