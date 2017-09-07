@@ -3,7 +3,7 @@ import _ from 'underscore';
 
 import Cache from '../../libs/cache';
 import eventScope from '../../libs/eventscope';
-import Modal from '../../modules//modals';
+import Modal from '../../modules/modals';
 import t from '../../modules/translator';
 import LayoutAdd from './serlo_layout_add';
 import Column from './serlo_layout_column';
