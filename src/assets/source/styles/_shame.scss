@@ -92,3 +92,12 @@ svg {
 .fa-social-icon-fb:before {
   content: "\f082";
 }
+
+//change offset for inpage links because of sticky nav-bar
+.main *[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -50px;
+  height: 50px;
+  visibility: hidden;
+}

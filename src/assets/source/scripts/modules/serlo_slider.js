@@ -30,7 +30,6 @@ define(['jquery', 'underscore'], function ($, _) {
             q = window.location.hash.substring(1);
 
         while (!!(e = r.exec(q))) {
-            console.log(e);
             if (d(e[1]) === id) {
                 return d(e[2]);
             }
