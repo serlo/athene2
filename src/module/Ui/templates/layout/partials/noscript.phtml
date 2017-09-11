@@ -1,4 +1,6 @@
-<noscript>
+<noscript id="noscript-modal">
+    <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+
     <div class="modal fade in is-block" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="false">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -14,6 +16,12 @@
                     <a href="http://www.enable-javascript.com/" class="btn btn-primary"><?php echo $this->translate(
                             'Show me how to enable JavaScript'
                         ); ?></a>
+
+                    <label class="btn btn-primary btn-transparent" for="modal-closing-trick">
+                        <?php echo $this->translate(
+                            'Close'
+                        ); ?>
+                    </label>
                 </div>
             </div>
             <!-- /.modal-content -->
