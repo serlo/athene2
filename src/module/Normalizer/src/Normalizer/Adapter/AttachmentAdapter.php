@@ -81,4 +81,9 @@ class AttachmentAdapter extends AbstractAdapter
     {
         return $this->getObject()->getType();
     }
+
+    protected function isTrashed()
+    {
+        return false;
+    }
 }

@@ -58,4 +58,9 @@ interface MetadataInterface
      * @return array|string[]
      */
     public function getKeywords();
+
+    /**
+     * @return string
+     */
+    public function getRobots();
 }

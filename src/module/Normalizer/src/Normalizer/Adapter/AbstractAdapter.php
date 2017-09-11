@@ -50,7 +50,8 @@ abstract class AbstractAdapter implements AdapterInterface
                 'creationDate' => $this->getCreationDate() ? $this->getCreationDate() : new DateTime(),
                 'description'  => $this->getDescription(),
                 'keywords'     => $this->getKeywords(),
-                'lastModified' => $this->getLastModified() ? $this->getLastModified() : new DateTime()
+                'lastModified' => $this->getLastModified() ? $this->getLastModified() : new DateTime(),
+                'robots'       => $this->isTrashed() ? 'noindex' : 'all'
             ]
         ]);
 
@@ -116,4 +117,9 @@ abstract class AbstractAdapter implements AdapterInterface
      * @return string
      */
     abstract protected function getType();
+
+    /**
+     * @return boolean
+     */
+    abstract protected function isTrashed();
 }

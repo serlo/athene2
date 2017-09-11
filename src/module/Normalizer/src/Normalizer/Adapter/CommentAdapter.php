@@ -73,4 +73,9 @@ class CommentAdapter extends AbstractAdapter
     {
         return $this->getObject()->hasParent() ? 'comment' : 'parent';
     }
+
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }

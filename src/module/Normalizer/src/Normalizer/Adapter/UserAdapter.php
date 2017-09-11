@@ -70,4 +70,8 @@ class UserAdapter extends AbstractAdapter
     {
         return 'user';
     }
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }

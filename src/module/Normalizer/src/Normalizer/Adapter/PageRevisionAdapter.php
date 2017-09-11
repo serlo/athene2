@@ -73,4 +73,9 @@ class PageRevisionAdapter extends AbstractAdapter
     {
         return 'Page revision';
     }
+
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }

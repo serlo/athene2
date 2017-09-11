@@ -33,13 +33,16 @@ class Normalize extends AbstractHelper
         $meta       = $this->getView()->plugin('headMeta');
         $normalized = $this->normalize($object);
         $title      = $normalized->getTitle();
-        $keywords   = $normalized->getMetadata()->getKeywords();
+        $metadata   = $normalized->getMetadata();
+        $keywords   = $metadata->getKeywords();
+        $robots     = $metadata->getRobots();
         $preview    = $this->toPreview($object);
         $image      = $this->getMetaImage($object);
         $meta->setProperty('og:title', $title);
         $meta->setProperty('og:image', $image);
         $meta->appendName('description', $preview);
         $meta->appendName('keywords', implode(', ', $keywords));
+        $meta->appendName('robots', $robots);
 
         return $this;
     }
