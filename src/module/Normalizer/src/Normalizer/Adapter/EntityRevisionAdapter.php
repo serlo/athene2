@@ -86,4 +86,9 @@ class EntityRevisionAdapter extends AbstractAdapter
     {
         return $this->getObject()->getRepository()->getType()->getName();
     }
+
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }

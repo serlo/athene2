@@ -97,4 +97,9 @@ class PageRepositoryAdapter extends AbstractAdapter
     {
         return 'Page';
     }
+
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }

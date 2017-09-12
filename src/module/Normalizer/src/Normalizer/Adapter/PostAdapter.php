@@ -72,4 +72,8 @@ class PostAdapter extends AbstractAdapter
     {
         return 'blogPost';
     }
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }

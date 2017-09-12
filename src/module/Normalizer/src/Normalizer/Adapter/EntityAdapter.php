@@ -134,4 +134,9 @@ class EntityAdapter extends AbstractAdapter
     {
         return $this->getObject()->getType()->getName();
     }
+
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }

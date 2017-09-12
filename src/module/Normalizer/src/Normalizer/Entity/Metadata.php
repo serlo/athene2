@@ -50,6 +50,11 @@ class Metadata extends AbstractOptions implements MetadataInterface
     protected $license;
 
     /**
+     * @var string
+     */
+    protected $robots;
+
+    /**
      * @var array|string[]
      */
     protected $keywords = [];
@@ -203,5 +208,21 @@ class Metadata extends AbstractOptions implements MetadataInterface
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRobots()
+    {
+        return $this->robots;
+    }
+
+    /**
+     * @param string $robots
+     */
+    public function setRobots($robots)
+    {
+        $this->robots = $robots;
     }
 }

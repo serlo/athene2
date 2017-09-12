@@ -116,4 +116,8 @@ class TaxonomyTermAdapter extends AbstractAdapter
     {
         return $this->getObject()->getTaxonomy()->getName();
     }
+    protected function isTrashed()
+    {
+        return $this->getObject()->isTrashed();
+    }
 }
