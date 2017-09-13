@@ -13,7 +13,10 @@ echo $this->doctype();
 <html class="old-ie fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <!--<![endif]-->
-<?php print $this->partial('layout/partials/head'); ?>
+<head>
+    <?php print $this->partial('layout/partials/head'); ?>
+    <?php echo $this->partial('layout/partials/styles'); ?>
+</head>
 <body itemscope itemtype="http://schema.org/WebPage">
 <div class="wrap has-navigation ">
     <?php echo $this->partial('layout/partials/header'); ?>
