@@ -18,6 +18,11 @@ foreach ($this->pages as $page) {
         continue;
     }
 
+    // check if menu item has 'needsIdentity' set and user is logged in
+    if (!$this->navigation()->checkIdentity($page)) {
+        continue;
+    }
+
     if ($page->getLabel() == 'divider') {
         $html[] = '<li class="divider"></li>';
         continue;
