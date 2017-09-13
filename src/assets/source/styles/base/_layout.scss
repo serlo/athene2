@@ -29,6 +29,21 @@
 #page {
   margin-top: 10px;
 }
+#noscript-modal {
+  input.modal-closing-trick:checked ~ div {
+    display: none;
+  }
+
+  .btn-transparent {
+    color: black;
+    background-color: transparent;
+  }
+
+  .btn-transparent:hover {
+    color: black;
+    background-color: $lighterGray;
+  }
+}
 
 /* Side Elements (Navigation && Context) */
 .side-element {
