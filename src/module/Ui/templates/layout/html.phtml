@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -12,11 +12,11 @@ echo $this->doctype();
 ?>
 <!--[if lt IE 9 ]>    <html class="old-ie fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <!--<![endif]-->
-<?php print $this->partial('layout/partials/head'); ?>
-
+<head>
+    <?php print $this->partial('layout/partials/head'); ?>
+</head>
 <!-- @deprecated -->
 <!-- moved to 2-col -->
-
 <body itemscope itemtype="http://schema.org/WebPage">
     <div class="wrap">
     	<?php echo $this->partial('layout/partials/header'); ?>
