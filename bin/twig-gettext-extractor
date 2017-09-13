@@ -134,6 +134,7 @@ $twig->addFunction(new \Twig_SimpleFunction('inputChallenge', true));
 $twig->addFunction(new \Twig_SimpleFunction('randomBanner', true));
 $twig->addFunction(new \Twig_SimpleFunction('shuffle', true));
 $twig->addFunction(new \Twig_SimpleFunction('dateFormat', true));
+$twig->addFunction(new \Twig_SimpleFunction('uuidForm', true));
 
 array_shift($_SERVER['argv']);
 $addTemplate = false;
