@@ -76,6 +76,7 @@ return [
             'timeago'         => 'Ui\View\Helper\Timeago',
             'registry'        => 'Ui\View\Helper\Registry',
             'toAlpha'         => 'Ui\View\Helper\ToAlpha',
+            'prerelease'      => 'Ui\View\Helper\PreRelease',
             'diff'            => 'Ui\View\Helper\DiffHelper',
             'preview'         => 'Ui\View\Helper\PreviewHelper',
             'randomBanner'    => 'Ui\View\Helper\RandomBanner'

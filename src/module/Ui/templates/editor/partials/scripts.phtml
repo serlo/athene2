@@ -1,4 +1,10 @@
-<script src="/assets/libs.js" type="text/javascript"></script>
-<script src="/assets/editor_scripts.js" type="text/javascript"></script>
-<?php echo $this->partial('layout/partials/mathjax'); ?>
-<?php echo $this->tracking(); ?>
+<?php if ($this->prerelease()): ?>
+  <script>
+    console.log("Brave, aren't we?")
+  </script>
+<?php else: ?>
+  <script src="/assets/libs.js" type="text/javascript"></script>
+  <script src="/assets/editor_scripts.js" type="text/javascript"></script>
+  <?php echo $this->partial('layout/partials/mathjax'); ?>
+  <?php echo $this->tracking(); ?>
+<?php endif; ?>
