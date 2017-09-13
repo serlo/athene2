@@ -2,28 +2,21 @@ $footerNavWidth: 200px;
 
 #footer {
   width: 100%;
+  position:relative;
   padding: 0;
   font-size: 13px;
-
-  nav {
-    padding: 10px $pagePaddingMedium;
-  }
-
-  .navbar-default {
-    padding-bottom: 20px;
-  }
 
   .nav {
     float: left;
     width: 100%;
 
     > li > a {
-      color: $gray;
-      padding: 5px 10px;
+      color: $serloBlue;
+      padding: 5px 0;
 
       &:hover, &:active, &:focus {
         background: none;
-        color: $serloBlue;
+        color: $serloBlueAlternative;
       }
     }
 
@@ -48,43 +41,115 @@ $footerNavWidth: 200px;
     }
   }
 
-  .footer-left, .footer-right {
-    float: left;
-    width: 100%;
+  .footer-wrapper {
+    margin-left: 10%;
 
-    @media (min-width: $navigationBreakPoint-1-col-min) {
-      width: 50%;
+    @media (min-width: $navigationBreakPoint-min) {
+      margin-right: 300px;
     }
 
-    @media (min-width: $navigationBreakPoint-2-col-min) {
-      width: auto;
+    nav {
+      padding: 0 15px;
+      margin-top: $pagePaddingLarge;
     }
-  }
-
-  .container-fluid {
-    position: relative;
   }
 
   .logo-wrapper {
-    font-size: 26px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    font-size: 23px;
+    margin-left: -40px;
+    margin-top: $pagePaddingMedium;
 
     @media (max-width: $navigationBreakPoint-2-col-max) {
       display: none;
     }
+
+    .serlo-logo {
+      display: inline-block;
+      font-size: 40px;
+      height: 75px;
+      vertical-align: bottom;
+    }
+
+    .serlo-brand {
+      display: inline-block;
+      font-size: 28px;
+    }
   }
 
-  .serlo-logo {
-    display: inline-block;
-    font-size: 40px;
-    height: 75px;
-    vertical-align: bottom;
+  .footer-title {
+    font-weight: bold;
+    padding: 5px 0;
   }
 
-  .serlo-brand {
-    display: inline-block;
-    font-size: 28px;
+  #mission-statement {
+    padding: 0;
+    width: 100%;
+
+    @media (min-width: $navigationBreakPoint-min) {
+      float: right;
+      width: 300px;
+    }
+
+    #mission-statement-claim, #mission-statement-actions {
+      color: $white;
+
+      a {
+        color: $white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+    }
+
+    #mission-statement-head {
+      font-weight: bold;
+    }
+
+    #mission-statement-claim {
+      background-color: $serloBlue;
+      padding: 30px;
+      margin: 0;
+
+      a:hover, a:focus {
+        color: $serloBlueLight;
+      }
+    }
+
+    #mission-statement-actions {
+      background-color: $serloGreen;
+      padding: 15px;
+      margin: 0;
+
+      .mission-statement-action {
+        text-align: center;
+
+        img, svg {
+          width: 60px;
+          fill: white !important;
+        }
+      }
+
+      a:hover, a:focus {
+        color: lighten($serloGreen, 35%);
+      }
+    }
+  }
+
+
+  .social {
+    position: absolute;
+    top: -70px;
+    color: $serloBlue;
+    p {
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    a {
+      color: $serloBlue;
+
+      &:hover, &:active, &:focus {
+        color: $serloBlueLight
+      }
+    }
   }
 }
