@@ -66,10 +66,12 @@ define(['jquery', 'sounds'], function ($, play) {
             $group.submit(function (e) {
                 e.preventDefault();
                 var mistakes = 0,
+                    missingSolutions = 0,
                     solutions = [],
                     $submit = $('.multiple-choice-submit', $group),
                     $feedbackFailure = $('.multiple-choice-answer-feedback.negative', $group),
-                    $feedbackSuccess = $('.multiple-choice-answer-feedback.positive', $group);
+                    $feedbackSuccess = $('.multiple-choice-answer-feedback.positive', $group),
+                    $feedbackMissingSolutions = $('.multiple-choice-answer-feedback.missing-solutions', $group);
 
                 $('.multiple-choice-answer-content', this).each(function (k, v) {
                     var $option = $(v),
@@ -81,6 +83,7 @@ define(['jquery', 'sounds'], function ($, play) {
                         solutions.push($option);
                     } else if (correct && !answer) {
                         // correct solution not marked as correct
+                        missingSolutions++;
                         mistakes++;
                     } else if (!correct && answer) {
                         // wrong solution marked wrongfully
@@ -92,16 +95,25 @@ define(['jquery', 'sounds'], function ($, play) {
                     }
                 });
 
-                if (mistakes === 0) {
+                if (mistakes === 0) { //no mistakes
                     $feedbackFailure.collapse('hide');
                     $feedbackSuccess.collapse('show');
+                    $feedbackMissingSolutions.collapse('hide');
                     changeClass($submit, 'btn-primary', 'btn-success');
                     play('correct');
-                } else {
+                } else if (mistakes === missingSolutions) { //all mistakes are missing solutions
+                    $('.multiple-choice-answer-content.active', $self).removeClass('active');
+                    changeClass($submit, 'btn-primary', 'btn-warning', 2000);
+                    $feedbackFailure.collapse('hide');
+                    $feedbackSuccess.collapse('hide');
+                    $feedbackMissingSolutions.collapse('show');
+                    play('wrong');
+                } else { //wrong answer selected
                     $('.multiple-choice-answer-content.active', $self).removeClass('active');
                     changeClass($submit, 'btn-primary', 'btn-warning', 2000);
                     $feedbackFailure.collapse('show');
                     $feedbackSuccess.collapse('hide');
+                    $feedbackMissingSolutions.collapse('hide');
                     play('wrong');
                 }
                 return false;
