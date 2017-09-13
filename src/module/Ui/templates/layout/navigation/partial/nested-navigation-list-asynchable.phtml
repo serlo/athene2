@@ -38,16 +38,10 @@ foreach ($this->pages as $page) {
         continue;
     }
 
-    // check if menu item has 'needsIdentity' set
-    if (!is_null($page->get('needsIdentity'))) {
-        // convert value of key 'needsIdentity' to boolean if necessary
-        $needsIdentity = is_bool($page->get('needsIdentity')) ? $page->get('needsIdentity') : ($page->get('needsIdentity') === 'true');
-        // check if current user is anonymous and compare to 'needsIdentity' value
-        if ($this->isGranted('login') !== $needsIdentity) {
-            continue;
-        }
+    // check if menu item has 'needsIdentity' set and user is logged in
+    if (!$this->navigation()->checkIdentity($page)) {
+        continue;
     }
-
 
     if ($page->getLabel() == 'divider') {
         $html[] = '<li class="divider"></li>';
