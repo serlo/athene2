@@ -33,11 +33,11 @@
                 {% endif %}
             </div>
             <div>
-                <img alt="{{ ad.getTitle() }}" src="{{ ad.getImage().getLocation() }}"
+                <img alt="{{ ad.getTitle() | striptags }}" src="{{ ad.getImage().getLocation() }}"
                      class="img-responsive img-radio"/>
             </div>
             <div class="caption">
-                <div class="h4"><a href="{{ ad.getUrl() }}" target="_blank">{{ ad.getTitle() }}</a></div>
+                <div class="h4"><a href="{{ ad.getUrl() }}" target="_blank">{{ ad.getTitle() | striptags}}</a></div>
                 {% trans %} Frequency {% endtrans %}
                 {% for i in 1..3 %}
                     {% if ad.getFrequency() >= i %}

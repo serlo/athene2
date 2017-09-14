@@ -30,9 +30,10 @@ interface AdsManagerInterface extends Flushable
     /**
      * @param InstanceInterface $instance
      * @param numeric           $number
+     * @param boolean           $isBanner
      * @return array
      */
-    public function findShuffledAds(InstanceInterface $instance, $number);
+    public function findShuffledAds(InstanceInterface $instance, $number, $isBanner = false);
 
     /**
      * @param array $data

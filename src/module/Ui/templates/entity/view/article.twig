@@ -6,10 +6,13 @@
         {{ content }}
     </section>
 
-    <div class="separator"></div>
-
     {% include 'entity/view/partials/license' %}
-    <section id="discussion-{{ entity.getId() }}">
+
+
+</article>
+{% set discussions %}
+    <section id="discussion-{{ entity.getId() }}" class="discussions clearfix">
         {{ discussion(entity).render() }}
     </section>
-</article>
+{% endset %}
+{% do placeholder('discussions').set(discussions) %}

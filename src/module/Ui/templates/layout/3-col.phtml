@@ -30,6 +30,8 @@ echo $this->doctype();
                 <?php echo $this->partial('layout/partials/notifications'); ?>
                 <?php echo $this->partial('layout/partials/main'); ?>
             </div>
+            <?php echo $this->banner(); ?>
+            <?php echo $this->placeholder('discussions'); ?>
             <?php if(empty($isCourse) || !$isCourse) {
                 echo $this->partial('layout/partials/right-sidebar');
             } ?>

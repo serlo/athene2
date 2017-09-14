@@ -1,4 +1,5 @@
 {% set typename = 'locale' | trans %}
 {% include 'taxonomy/term/templates/partials/head' %}
 {% include 'taxonomy/term/templates/partials/subfolders' %}
-{% include 'taxonomy/term/templates/partials/discussion' %}
+{% set discussions = 'taxonomy/term/templates/partials/discussion' %}
+{% do placeholder('discussions').set(discussions) %}

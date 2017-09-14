@@ -86,4 +86,11 @@ interface AdInterface extends InstanceAwareInterface
      * @return string
      */
     public function getUrl();
+
+    /**
+     * Gets the banner.
+     *
+     * @return boolean
+     */
+    public function getBanner();
 }
