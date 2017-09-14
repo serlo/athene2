@@ -124,7 +124,8 @@ return [
     ],
     'view_helpers'    => [
         'factories' => [
-            'horizon' => __NAMESPACE__ . '\Factory\HorizonHelperFactory'
+            'horizon' => __NAMESPACE__ . '\Factory\HorizonHelperFactory',
+            'banner'  => __NAMESPACE__ . '\Factory\BannerHelperFactory'
         ]
     ],
     'service_manager' => [

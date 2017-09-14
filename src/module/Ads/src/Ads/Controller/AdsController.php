@@ -114,6 +114,7 @@ class AdsController extends AbstractActionController
         $form->get('title')->setValue($ad->getTitle());
         $form->get('frequency')->setValue($ad->getFrequency());
         $form->get('url')->setValue($ad->getUrl());
+        $form->get('banner')->setValue($ad->getBanner());
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();

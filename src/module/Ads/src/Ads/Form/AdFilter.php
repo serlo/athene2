@@ -20,7 +20,11 @@ class AdFilter extends InputFilter
                 'required'   => true,
                 'filters'    => [
                     [
-                        'name' => 'StripTags'
+                        'name' => 'StripTags',
+                        'options' => [
+                            'allowTags' => 'a',
+                            'allowAttribs' => 'href'
+                        ]
                     ]
                 ],
                 'validators' => [
@@ -37,7 +41,11 @@ class AdFilter extends InputFilter
                 'required'   => true,
                 'filters'    => [
                     [
-                        'name' => 'StripTags'
+                        'name' => 'StripTags',
+                        'options' => [
+                            'allowTags' => ['br','a'],
+                            'allowAttribs' => ['href']
+                        ]
                     ]
                 ],
                 'validators' => [

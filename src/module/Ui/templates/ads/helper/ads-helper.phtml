@@ -5,7 +5,7 @@
             <div class="col-sm-4 col-xs-12">
                 <a class="ad" href="<?php echo $this->url('ads/ad/out', array('id' => $ad->getId())); ?>"
                    target="_blank">
-                    <img alt="<?php echo $ad->getTitle(); ?>" src="<?php echo $ad->getImage()->getLocation(); ?>"
+                    <img alt="<?php echo strip_tags($ad->getTitle()); ?>" src="<?php echo $ad->getImage()->getLocation(); ?>"
                          class="img-responsive"/>
 
                     <div class="caption">

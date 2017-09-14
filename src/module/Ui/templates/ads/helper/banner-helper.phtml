@@ -1,0 +1,26 @@
+<div id="banner">
+    <?php if (count($this->ads) > 0): ?>
+        <?php $banner = $this->ads[0]; ?>
+        <div>
+            <div class="banner-wrapper">
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12" style="padding-right: 0">
+                        <img id="banner-img" alt="<?php echo strip_tags($banner->getTitle()); ?>"
+                             src="<?php echo $banner->getImage()->getLocation(); ?>"
+                             class="img-responsive"/>
+                    </div>
+                    <div class="col-sm-4 col-xs-12" style="padding-left: 0">
+                        <p class="banner-text">
+                            <?php echo $banner->getContent(); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="caption">
+                    <?php echo $banner->getTitle(); ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
