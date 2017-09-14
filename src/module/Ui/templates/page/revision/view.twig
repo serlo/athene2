@@ -9,5 +9,10 @@
     </article>
 {% endif %}
 {% if page.getDiscussionsEnabled() or page.getForum() %}
-    {{ discussion(page).render() }}
+    {% set discussions %}
+        <section id="discussion-{{ page.getId() }}" class="discussions clearfix">
+            {{ discussion(page).render() }}
+        </section>
+    {% endset%}
+    {% do placeholder('discussions').set(discussions) %}
 {% endif %}
