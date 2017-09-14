@@ -94,10 +94,15 @@ svg {
 }
 
 //change offset for inpage links because of sticky nav-bar
-.main *[id]:before {
-  display: block;
-  content: " ";
-  margin-top: -50px;
-  height: 50px;
-  visibility: hidden;
+.content {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    &:before {
+      display: block;
+      content: " ";
+      margin-top: -50px;
+      height: 50px;
+      visibility: hidden;
+    }
+  }
 }
