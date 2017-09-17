@@ -76,7 +76,6 @@ return [
             'timeago'         => 'Ui\View\Helper\Timeago',
             'registry'        => 'Ui\View\Helper\Registry',
             'toAlpha'         => 'Ui\View\Helper\ToAlpha',
-            'prerelease'      => 'Ui\View\Helper\PreRelease',
             'diff'            => 'Ui\View\Helper\DiffHelper',
             'preview'         => 'Ui\View\Helper\PreviewHelper',
             'randomBanner'    => 'Ui\View\Helper\RandomBanner'
@@ -222,11 +221,6 @@ return [
                     ]
                 ]
             ]
-        ],
-        'rendererToStrategy' => [
-            'Zend\View\Renderer\PhpRenderer'  => 'AsseticBundle\View\NoneStrategy',
-            'Zend\View\Renderer\FeedRenderer' => 'AsseticBundle\View\NoneStrategy',
-            'Zend\View\Renderer\JsonRenderer' => 'AsseticBundle\View\NoneStrategy',
         ],
         'acceptableErrors' => [
             Application::ERROR_CONTROLLER_NOT_FOUND,
