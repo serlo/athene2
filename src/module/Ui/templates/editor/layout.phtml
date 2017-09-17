@@ -13,7 +13,12 @@ echo $this->doctype();
 <html class="old-ie fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <!--<![endif]-->
-<?php print $this->partial('layout/partials/head'); ?>
+<head>
+    <?php print $this->partial('layout/partials/head'); ?>
+    <link href="/assets/styles.css" rel="stylesheet">
+    <link href="/assets/editor_styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600|Droid+Serif" rel="stylesheet">
+</head>
 <body>
 <div class="panel panel-primary" id="editor-main-panel">
     <header class="panel-heading">
@@ -54,10 +59,7 @@ echo $this->doctype();
 </div>
 
 <?php echo $this->partial('layout/partials/default-modal'); ?>
-<?php echo $this->headScript(); ?>
-<?php echo $this->partial('layout/partials/mathjax'); ?>
-<?php echo $this->inlineScript(); ?>
-<?php echo $this->tracking(); ?>
+<?php echo $this->partial('editor/partials/scripts'); ?>
 <?php echo $this->twigPartial('editor/partials/video-modal'); ?>
 
 </body>
