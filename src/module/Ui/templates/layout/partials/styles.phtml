@@ -1,0 +1,7 @@
+<?php echo $this->headStyle(); ?>
+<?php if ($this->prerelease()): ?>
+   <link href="https://unpkg.com/@serlo-org/athene2-assets@0/dist/main.css" rel="stylesheet">
+<?php else: ?>
+  <link href="/assets/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600|Droid+Serif" rel="stylesheet">
+<?php endif; ?>
