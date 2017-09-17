@@ -10,7 +10,10 @@
 echo $this->doctype();
 ?>
 <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>">
-<?php echo $this->partial('layout/partials/head'); ?>
+<head>
+    <?php print $this->partial('layout/partials/head'); ?>
+    <?php echo $this->partial('layout/partials/styles'); ?>
+</head>
 <body itemscope itemtype="http://schema.org/WebPage">
 <div class="wrap">
     <?php echo $this->partial('layout/partials/header'); ?>
