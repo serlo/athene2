@@ -1,5 +1,10 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php echo $this->headTitle($this->brand()->getHeadTitle(true))->setSeparator(' » '); ?>
-<?php echo $this->headMeta(); ?>
-<?php echo $this->headLink(['rel' => 'icon', 'href' => '/favicon.ico', 'type' => 'image/x-icon']); ?>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php echo $this->headTitle($this->brand()->getHeadTitle(true))->setSeparator(' » '); ?>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headStyle(); ?>
+    <?php echo $this->headLink(['rel' => 'icon', 'href' => '/favicon.ico', 'type' => 'image/x-icon']); ?>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+</head>
