@@ -4,6 +4,7 @@ deployment.properties
 docs/
 coverage/
 tmp/
+!.babelrc
 !.editorconfig
 !.gitattributes
 !.gitignore
