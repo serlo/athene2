@@ -1,13 +1,14 @@
 {
   "name": "@serlo-org/athene2-assets",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "license": "Apache-2.0",
   "author": "Serlo Education e.V.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev",
     "build": "webpack --config webpack.config.prod -p",
     "format": "prettier --single-quote --write \"{src/**/*,*}.js\"",
-    "publish": "npm publish --access public"
+    "predeploy": "npm run build",
+    "deploy": "npm publish --access public"
   },
   "files": [
     "dist"
