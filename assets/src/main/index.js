@@ -16,6 +16,7 @@ import Supporter from '../modules/supporter';
 import SystemNotification from '../modules/system_notification';
 import '../modules/timeago';
 import t from '../modules/translator';
+import '../thirdparty/jquery.nestable';
 import './libs/easing';
 import './libs/event_extensions';
 import AjaxOverlay from './modules/serlo_ajax_overlay';
@@ -34,7 +35,6 @@ import './modules/serlo_sortable_list';
 import './modules/serlo_toggle';
 import initTracking from './modules/serlo_tracking';
 import './modules/serlo_trigger';
-// FIXME import './thirdparty/jquery.nestable'; Needed for $.nestable, needed for serlo_sortable_list
 // FIXME historyjs; not needed?
 
 import './styles/main.scss';
