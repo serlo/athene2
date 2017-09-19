@@ -63,7 +63,7 @@ InjectionPlugin.prototype.activate = function(token) {
       href[2] = 'info';
       href.pop();
       $.ajax(href.join('/'))
-        .success(function(data) {
+        .then(function(data) {
           //
           if (data && data.success) {
             if (data.type === 'geogebra' || data.files.length === 2) {

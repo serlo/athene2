@@ -504,7 +504,7 @@ AjaxOverlay.AjaxPage.prototype.load = function() {
     dataType: 'html'
   });
 
-  call.success(function(data) {
+  call.then(function(data) {
     instance.options.on.contentLoaded.call(self, data, instance);
 
     var $data = $('<div>').html(data);

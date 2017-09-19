@@ -133,7 +133,7 @@ SortableList = function() {
         },
         method: 'post'
       })
-        .success(function() {
+        .then(function() {
           SystemNotification.notify(t('Order successfully saved'), 'success');
 
           storeOriginalData();

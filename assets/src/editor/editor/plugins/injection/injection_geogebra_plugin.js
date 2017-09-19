@@ -118,7 +118,7 @@ GeogebraInjectionPlugin.prototype.render = function() {
     $.ajax({
       url: xmlUrl
     })
-      .success(function(xml) {
+      .then(function(xml) {
         that.ggbApplet.setXML(xml.documentElement.outerHTML);
         that.ggbApplet.startEditing();
       })
@@ -203,7 +203,7 @@ GeogebraInjectionPlugin.prototype.save = function(asImage) {
     'geogebra.xml'
   );
 
-  uploadFile(formData).success(function(attachment) {
+  uploadFile(formData).then(function(attachment) {
     if (asImage) {
       // Prepare Image File Upload
       context = that.ggbApplet.getContext2D();
@@ -219,7 +219,7 @@ GeogebraInjectionPlugin.prototype.save = function(asImage) {
       uploadFile(
         formData,
         '/attachment/upload/' + attachment.id
-      ).success(function(attachment) {
+      ).then(function(attachment) {
         proceedSave(attachment);
       });
     } else {
