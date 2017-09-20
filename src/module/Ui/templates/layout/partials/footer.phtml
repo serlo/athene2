@@ -1,13 +1,4 @@
 <footer id="footer" class="home-row">
-    <div class="social">
-        <p><?php echo $this->translate('Stay in touch:'); ?></p>
-        <?php
-        echo $this->navigation('social_navigation')
-            ->menu()
-            ->setPartial('layout/navigation/social')
-            ->render();
-        ?>
-    </div>
     <div id="mission-statement" class="col-lg-3 pull-right-lg">
         <div id="mission-statement-claim">
             <h2 id="mission-statement-head"><?php echo $this->translate('Serlo.org is the Wikipedia for learning.') ?></h2>
@@ -32,7 +23,7 @@
     </div>
     <div class="footer-wrapper col-lg-8 col-lg-push-1">
         <div class="logo-wrapper">
-            <a href="/" class="">
+            <a href="/">
                 <?php echo $this->brand()->getLogo(); ?>
                 <?php echo $this->brand()->getBrand(); ?>
                 <?php echo $this->brand()->getSlogan(); ?>
@@ -40,7 +31,7 @@
         </div>
         <nav>
             <div class="row">
-                <div class="col-sm-4 col-xs-12 footer-left">
+                <div class="col-lg-2 col-sm-3">
                     <div class="footer-title"><?php echo $this->translate('General') ?></div>
                     <?php echo $this->navigation('footer_left_navigation')
                         ->menu()
@@ -48,7 +39,7 @@
                         ->render();
                     ?>
                 </div>
-                <div class="col-sm-4 col-xs-12 footer-left">
+                <div class="col-lg-2 col-sm-3">
                     <div class="footer-title"><?php echo $this->translate('Subjects') ?></div>
                     <?php echo $this->navigation('subject_navigation')
                         ->menu()
@@ -56,7 +47,15 @@
                         ->render();
                     ?>
                 </div>
-                <div class="col-sm-4 col-xs-12 footer-right">
+                <div class="col-lg-2 col-sm-3">
+                    <div class="footer-title"><?php echo substr($this->translate('Stay in touch:'),0,-1); ?></div>
+                    <?php echo $this->navigation('footer_social_navigation')
+                        ->menu()
+                        ->setPartial('layout/navigation/vertical')
+                        ->render();
+                    ?>
+                </div>
+                <div class="col-lg-4 col-sm-3">
                     <div class="footer-title"><?php echo $this->translate('Legal terms') ?></div>
                     <?php echo $this->navigation('footer_right_navigation')
                         ->menu()

@@ -33,19 +33,23 @@
   .footer-wrapper {
     padding-bottom: 40px;
 
-    @media (min-width: $screen-lg-min) {
-      padding-right: 40px;
-    }
-
     nav {
       padding: 0 15px;
-      margin-top: $pagePaddingLarge;
+      margin-top: 0;
+
+      @media (min-width: $screen-lg-min) {
+        padding:0;
+      }
+
+      .footer-title {
+        padding-top: 30px;
+      }
     }
   }
 
   .logo-wrapper {
     font-size: 23px;
-    margin-left: -40px;
+    margin-left: -56px;
     margin-top: 25px;
 
     @media (max-width: $screen-md-max) {
@@ -143,13 +147,15 @@
 
 
   .social {
-    position: absolute;
-    top: -70px;
     color: $serloBlue;
-    display: none;
-    p {
-      font-weight: bold;
-      margin-left: 20px;
+
+    #side-navigation-social {
+      display: inline;
+
+      li {
+        display: inline;
+        float: none;
+      }
     }
 
     a {
