@@ -1,6 +1,6 @@
 {
   "name": "@serlo-org/athene2-assets",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "license": "Apache-2.0",
   "author": "Serlo Education e.V.",
   "scripts": {
@@ -20,7 +20,7 @@
     "blueimp-load-image": "^2.17.0",
     "bootstrap-datepicker": "^1.7.1",
     "bootstrap-sass": "^3.3.7",
-    "d3": "^4.10.0",
+    "d3": "^3.5.17",
     "font-awesome": "^4.7.0",
     "howler": "^2.0.4",
     "jasny-bootstrap": "^3.1.3",
