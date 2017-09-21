@@ -1,5 +1,7 @@
 {% set typename = 'curriculum-topic-folder' | trans %}
 {% include 'taxonomy/term/templates/partials/head' %}
 {% include 'taxonomy/term/templates/partials/entities' %}
-{% set discussions = 'taxonomy/term/templates/partials/discussion' %}
+{% set discussions %}
+    {% include 'taxonomy/term/templates/partials/discussion' %}
+{% endset %}
 {% do placeholder('discussions').set(discussions) %}
