@@ -19,7 +19,7 @@ return [
         ]
     ],
     'mailman'  => [
-        'sender'   => 'no-reply@serlo.org',
+        'sender'   => 'notifications@mail.serlo.org',
         'location' => 'https://www.serlo.org'
     ],
     'instance' => [
