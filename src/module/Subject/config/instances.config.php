@@ -222,10 +222,9 @@ return [
                         'text-exercise-group'
                     ]
                 ],
-                'wiki' => [
+                'community' => [
                     'allowed_taxonomies' => [
-                        'topic',
-                        'locale'
+                        'topic'
                     ],
                     'allowed_entities'   => [
                         'article',
