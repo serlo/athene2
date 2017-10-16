@@ -167,6 +167,18 @@ return [
                         'course',
                         'text-exercise-group'
                     ]
+                ],
+                'community' => [
+                    'allowed_taxonomies' => [
+                        'topic'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
                 ]
             ],
             'english' => [
