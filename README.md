@@ -29,7 +29,7 @@ On Windows we recommend [Bash on Ubuntu on Windows](https://msdn.microsoft.com/d
 install the dependencies above (except Docker) with:
 
 ```
-sudo apt-get install php7.2-cli nodejs ruby-sass ruby-compass
+sudo apt install php7.2-cli nodejs node-gyp ruby-sass ruby-compass
 ```
 
 **WARNING** `ruby.compass` must be in version range `0.12.2` and `ruby-sass` must be in version range `3.2.10` - check this with
