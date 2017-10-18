@@ -67,8 +67,8 @@ $ cp src/public/htaccess.dist src/public/.htaccess
 $ php composer.phar install
 
 # Install and build the assets
-$ (cd src/assets; npm install)
-$ (cd src/assets/athene2-editor; npm install)
+$ (cd src/assets; npm install; npm run build)
+$ (cd src/assets/athene2-editor; npm install; npm run build)
 ```
 
 ### Starting docker-compose
