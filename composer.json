@@ -20,7 +20,7 @@
         "zf-commons/zfc-rbac": "=2.3",
         "php": ">=5.5",
         "zf-commons/zfc-base": "=0.1.2",
-        "zendframework/zendframework": "=2.4.9",
+        "zendframework/zendframework": "=2.4.13",
         "neilime/zf2-twb-bundle": "=2.6.1",
         "zendframework/zend-developer-tools": "=0.0.2",
         "dnode/dnode": "=v0.2.0",
@@ -30,7 +30,8 @@
         "ewgo/solarium-module": "=1.0.2",
         "twig/twig": "=v1.20.0",
         "twig/extensions": "=v1.3.0",
-        "google/cloud": "^0.32.1"
+        "google/cloud": "^0.32.1",
+        "roave/security-advisories": "dev-master"
     },
     "config": {
         "vendor-dir": "src/vendor"
