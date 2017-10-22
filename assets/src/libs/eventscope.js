@@ -1,16 +1,8 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Julian Kempff (julian.kempff@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- */
 import _ from 'underscore'
 
 function eventScope (element) {
-  var Events = {},
-    fn = {}
+  var Events = {}
+  var fn = {}
 
   fn.addEventListener = function (type, fn) {
     Events[type] = Events[type] || []
@@ -38,8 +30,8 @@ function eventScope (element) {
   }
 
   fn.trigger = function (type) {
-    var self = this,
-      slice = Array.prototype.slice.bind(arguments)
+    var self = this
+    var slice = Array.prototype.slice.bind(arguments)
 
     if (!Events.hasOwnProperty(type)) {
       return true

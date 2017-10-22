@@ -1,12 +1,12 @@
-/* global define, window */
+/* global window */
 import $ from 'jquery'
 import _ from 'underscore'
 
 import SystemNotification from './system_notification'
 import t from './translator'
 
-var checkSupportFor = ['JSON', 'localStorage'],
-  fails = []
+var checkSupportFor = ['JSON', 'localStorage']
+var fails = []
 
 function check () {
   if ($('html').hasClass('old-ie')) {
@@ -30,7 +30,7 @@ function check () {
   if (fails.length) {
     SystemNotification.notify(
       t(
-        'Your browser doesnt support the following technologies: %s <br>Please update your browser!',
+        "Your browser doesn't support the following technologies: %s <br>Please update your browser!",
         fails.join(', ')
       ),
       'warning',

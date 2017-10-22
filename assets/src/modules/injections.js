@@ -1,34 +1,25 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Julian Kempff (julian.kempff@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- */
-
-/* global define, require, window, GGBApplet */
+/* global require, window, GGBApplet */
 import $ from 'jquery'
 
 import '../thirdparty/deployggb.js'
-import common from './common'
+import Common from './common'
 import './content'
 import t from './translator'
 
-var Injections,
-  cache = {},
-  ggbApplets = {},
-  ggbAppletsCount = 0,
-  geogebraScriptSource = 'https://www.geogebra.org/web/4.4/web/web.nocache.js',
-  $geogebraTemplate = $(
-    '<article class="geogebraweb" data-param-width="700" data-param-height="525" data-param-usebrowserforjs="true" data-param-enableRightClick="false"></article>'
-  ),
-  // gtApplets = {},
-  // geogebraTubeScriptSource = 'http://www.geogebratube.org/scripts/deployggb.js',
-  gtAppletsCount = 0,
-  $geogebraTubeTemplate = $(
-    '<div class="hidden-sm hidden-xs" style="transform-origin:top left"></div><a class="hidden-md hidden-lg">hi</a>'
-  )
+var Injections
+var cache = {}
+var ggbApplets = {}
+var ggbAppletsCount = 0
+var geogebraScriptSource = 'https://www.geogebra.org/web/4.4/web/web.nocache.js'
+var $geogebraTemplate = $(
+  '<article class="geogebraweb" data-param-width="700" data-param-height="525" data-param-usebrowserforjs="true" data-param-enableRightClick="false"></article>'
+)
+// var gtApplets = {}
+// var geogebraTubeScriptSource = 'http://www.geogebratube.org/scripts/deployggb.js'
+var gtAppletsCount = 0
+var $geogebraTubeTemplate = $(
+  '<div class="hidden-sm hidden-xs" style="transform-origin:top left"></div><a class="hidden-md hidden-lg">hi</a>'
+)
 
 // terrible geogebra oninit handler..
 // that doesnt work.....
@@ -42,18 +33,18 @@ Injections = function () {
   var totalInjectionsCount = $(this).length
 
   return $(this).each(function () {
-    var $that = $(this),
-      $a = $('> a', $that),
-      title = $a.text(),
-      href = $a.attr('href')
+    var $that = $(this)
+    var $a = $('> a', $that)
+    var title = $a.text()
+    var href = $a.attr('href')
 
     if (!href) {
       return true
     }
 
     function initGeogebraApplet (xml) {
-      var ggbAppletID = 'ggbApplet' + ggbAppletsCount,
-        $clone = $geogebraTemplate.clone()
+      var ggbAppletID = 'ggbApplet' + ggbAppletsCount
+      var $clone = $geogebraTemplate.clone()
 
       ggbAppletsCount += 1
 
@@ -78,11 +69,11 @@ Injections = function () {
     }
 
     function initGeogebraTube () {
-      var transform,
-        scale,
-        gtAppletID = 'gtApplet' + gtAppletsCount,
-        applet,
-        $clone = $geogebraTubeTemplate.clone()
+      var transform
+      var scale
+      var gtAppletID = 'gtApplet' + gtAppletsCount
+      var applet
+      var $clone = $geogebraTubeTemplate.clone()
 
       gtAppletsCount++
 

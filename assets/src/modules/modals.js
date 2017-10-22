@@ -1,12 +1,11 @@
-/* global define */
 import $ from 'jquery'
 
 import Router from './router'
 
-var SerloModals,
-  Modal,
-  modals = {},
-  modalTemplate = '#modalTemplate'
+var SerloModals
+var Modal
+var modals = {}
+var modalTemplate = '#modalTemplate'
 
 Modal = function (options, successCallback) {
   this.$el = $(modalTemplate).clone()
@@ -22,8 +21,8 @@ Modal = function (options, successCallback) {
 }
 
 Modal.prototype.render = function () {
-  var self = this,
-    $btn = $('.btn-primary', self.$el)
+  var self = this
+  var $btn = $('.btn-primary', self.$el)
 
   $('.modal-body', self.$el).html(self.content)
   $('body').append(self.$el)
@@ -73,23 +72,25 @@ Modal.prototype.hide = function () {
 
 SerloModals = function () {
   return $(this).each(function () {
-    var $self = $(this),
-      options = {
-        type: $self.attr('data-type'),
-        title: $self.attr('data-title'),
-        content: $self.attr('data-content'),
-        href: $self.attr('href'),
-        cancel: $self.attr('data-cancel') !== 'false',
-        label: $self.attr('data-label')
-      }
+    var $self = $(this)
+    var options = {
+      type: $self.attr('data-type'),
+      title: $self.attr('data-title'),
+      content: $self.attr('data-content'),
+      href: $self.attr('href'),
+      cancel: $self.attr('data-cancel') !== 'false',
+      label: $self.attr('data-label')
+    }
 
     $self.click(function (e) {
       e.preventDefault()
       if ($self.parent('form')) {
+        // eslint-disable-next-line no-new
         new Modal(options, function () {
           $self.parent('form').submit()
         })
       } else {
+        // eslint-disable-next-line no-new
         new Modal(options)
       }
     })

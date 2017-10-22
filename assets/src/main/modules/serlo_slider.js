@@ -1,4 +1,3 @@
-/* global define */
 import $ from 'jquery'
 import _ from 'underscore'
 
@@ -9,8 +8,8 @@ quote = function (str) {
 }
 
 pushTab = function (id, slide) {
-  var q = window.location.hash,
-    re
+  var q = window.location.hash
+  var re
 
   if (q.indexOf(id) > -1) {
     re = new RegExp(quote(id) + '\\=[0-9]+', 'g')
@@ -23,12 +22,12 @@ pushTab = function (id, slide) {
 }
 
 getTab = function (id) {
-  var e,
-    r = /([^&;=]+)=?([^&;]*)/g,
-    d = function (s) {
-      return decodeURIComponent(s)
-    },
-    q = window.location.hash.substring(1)
+  var e
+  var r = /([^&;=]+)=?([^&;]*)/g
+  var d = function (s) {
+    return decodeURIComponent(s)
+  }
+  var q = window.location.hash.substring(1)
 
   while ((e = r.exec(q))) {
     if (d(e[1]) === id) {
@@ -40,15 +39,15 @@ getTab = function (id) {
 }
 
 Slider = function () {
-  var $self = $(this),
-    slideTabNav,
-    id = $(this).attr('id')
+  var $self = $(this)
+  var slideTabNav
+  var id = $(this).attr('id')
 
   slideTabNav = function (evt) {
-    var slide = $(evt.relatedTarget).index(),
-      $scrollTo = $('.controls li:eq(' + slide + ')', $self),
-      $container = $('.controls', $self),
-      throttledSliding
+    var slide = $(evt.relatedTarget).index()
+    var $scrollTo = $('.controls li:eq(' + slide + ')', $self)
+    var $container = $('.controls', $self)
+    var throttledSliding
 
     pushTab(id, slide)
     $('.controls li.active', $self).removeClass('active')

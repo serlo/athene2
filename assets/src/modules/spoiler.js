@@ -1,4 +1,4 @@
-/* global define, MathJax */
+/* global MathJax */
 import $ from 'jquery'
 
 var Spoiler
@@ -9,8 +9,8 @@ Spoiler = function () {
       .unbind('click')
       .first()
       .click(function (e) {
-        var icon = $(this).find('.fa'),
-          $content = $(this).next('.spoiler-content')
+        var icon = $(this).find('.fa')
+        var $content = $(this).next('.spoiler-content')
         e.preventDefault()
         $content.slideToggle()
         icon.toggleClass('fa-caret-square-o-up')

@@ -1,15 +1,13 @@
 import $ from 'jquery'
 import _ from 'underscore'
 
-import SystemNotification from '../../../../modules/system_notification'
-import t from '../../../../modules/translator'
-import plugin_template from '../../templates/plugins/injection/injection_plugin_geogebratube.html'
+import pluginHtmlTemplate from '../../templates/plugins/injection/injection_plugin_geogebratube.html'
 import EditorPlugin from '../serlo_texteditor_plugin'
 
 var GeogebraTubeInjectionPlugin, titleRegexp, hrefRegexp
 
 titleRegexp = new RegExp(/\[[^\]]*\]\(/)
-hrefRegexp = new RegExp(/\([^\)]*\)/)
+hrefRegexp = new RegExp(/\([^)]*\)/)
 
 GeogebraTubeInjectionPlugin = function (data) {
   this.state = 'geogebratube-injection'
@@ -23,15 +21,15 @@ GeogebraTubeInjectionPlugin.prototype.constructor = GeogebraTubeInjectionPlugin
 GeogebraTubeInjectionPlugin.prototype.init = function () {
   var that = this
 
-  that.template = _.template(plugin_template)
+  that.template = _.template(pluginHtmlTemplate)
 
   that.data.name = 'GeogebraTube'
 }
 
 GeogebraTubeInjectionPlugin.prototype.activate = function (token) {
-  var that = this,
-    title,
-    href
+  var that = this
+  var title
+  var href
 
   that.data.content = token.string
   title = _.first(that.data.content.match(titleRegexp))
@@ -59,11 +57,11 @@ GeogebraTubeInjectionPlugin.prototype.save = function () {
 
 GeogebraTubeInjectionPlugin.prototype.setAndValidateContent = function () {
   var href = $('.href', this.$el).val()
-  if (href.substr(0, 4) != 'ggt/') {
-    var l,
-      hrefSplit = href.split('/')
+  if (href.substr(0, 4) !== 'ggt/') {
+    var l
+    var hrefSplit = href.split('/')
     l = hrefSplit[hrefSplit.length - 1]
-    if (l.substr(0, 1) == 'm') {
+    if (l.substr(0, 1) === 'm') {
       href = l.substr(1)
     } else {
       href = l

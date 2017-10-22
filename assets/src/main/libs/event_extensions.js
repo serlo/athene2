@@ -1,4 +1,3 @@
-/* global jQuery */
 import $ from 'jquery'
 
 $.each(['show', 'hide'], function (i, ev) {

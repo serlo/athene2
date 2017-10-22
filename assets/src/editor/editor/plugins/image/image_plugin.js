@@ -5,15 +5,14 @@ import $ from 'jquery'
 import _ from 'underscore'
 
 import Common from '../../../../modules/common'
-import SystemNotification from '../../../../modules/system_notification'
 import t from '../../../../modules/translator'
-import plugin_template from '../../templates/plugins/image/image_plugin.html'
+import pluginHtmlTemplate from '../../templates/plugins/image/image_plugin.html'
 import EditorPlugin from '../serlo_texteditor_plugin'
 
 var ImagePlugin, titleRegexp, hrefRegexp
 
 titleRegexp = new RegExp(/\[[^\]]*\]\(/)
-hrefRegexp = new RegExp(/\([^\)]*\)/)
+hrefRegexp = new RegExp(/\([^)]*\)/)
 
 ImagePlugin = function (fileuploadOptions) {
   this.state = 'image'
@@ -28,7 +27,7 @@ ImagePlugin.prototype.init = function (fileuploadOptions) {
 
   that.fileuploadOptions = fileuploadOptions || {}
 
-  that.template = _.template(plugin_template)
+  that.template = _.template(pluginHtmlTemplate)
 
   that.data.name = 'Image'
 }
@@ -42,9 +41,9 @@ ImagePlugin.prototype.onError = function (err) {
 }
 
 ImagePlugin.prototype.activate = function (token) {
-  var that = this,
-    title,
-    href
+  var that = this
+  var title
+  var href
 
   that.data.content = token.string
   title = _.first(that.data.content.match(titleRegexp))
@@ -100,10 +99,10 @@ ImagePlugin.prototype.activate = function (token) {
         that.$el.addClass('uploading')
         that.$uploadStatus.text(t('Uploading.'))
 
-        var uploadErrors = [],
-          acceptFileTypes =
-            that.fileuploadOptions.acceptFileTypes ||
-            /^image\/(gif|jpe?g|png|svg\+xml)$/i
+        var uploadErrors = []
+        var acceptFileTypes =
+          that.fileuploadOptions.acceptFileTypes ||
+          /^image\/(gif|jpe?g|png|svg\+xml)$/i
 
         if (
           data.originalFiles.length > that.fileuploadOptions.maxNumberOfFiles

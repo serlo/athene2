@@ -1,19 +1,10 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Julian Kempff (julian.kempff@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- */
-
 import _ from 'underscore'
 import eventScope from '../libs/eventscope'
 
-/* global define, window, console, requestAnimationFrame */
-var Common = {},
-  intervals,
-  slice = Array.prototype.slice
+/* global requestAnimationFrame */
+var Common = {}
+var intervals
+var slice = Array.prototype.slice
 
 Common.log = (function () {
   var history = []
@@ -99,10 +90,11 @@ Common.genericError = function () {
     */
 Common.memoize = function (fn) {
   return function () {
-    var args = Array.prototype.slice.call(arguments),
-      hash = '',
-      i = args.length,
-      currentArg = null
+    var args = Array.prototype.slice.call(arguments)
+    var hash = ''
+    var i = args.length
+    var currentArg = null
+
     while (i--) {
       currentArg = args[i]
       hash +=

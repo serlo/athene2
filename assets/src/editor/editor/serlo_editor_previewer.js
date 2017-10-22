@@ -3,8 +3,8 @@ import $ from 'jquery'
 import eventScope from '../../libs/eventscope'
 import Field from './serlo_formfield'
 
-var Preview,
-  slice = Array.prototype.slice
+var Preview
+var slice = Array.prototype.slice
 
 Preview = function (options) {
   this.$el = options.$el
@@ -36,9 +36,9 @@ Preview.prototype.createFromForm = function ($form) {
     self.formFields = []
 
     $('input,textarea,select,button', $form).each(function () {
-      var field,
-        $label,
-        type = self.getFieldType(this)
+      var field
+      var $label
+      var type = self.getFieldType(this)
 
       if (type) {
         field = new Field[type](this)
@@ -114,8 +114,8 @@ Preview.prototype.focusPreviousRow = function () {
 }
 
 Preview.prototype.getFieldType = function (field) {
-  var self = this,
-    type
+  var self = this
+  var type
 
   switch (field.tagName) {
     case 'TEXTAREA':
@@ -165,11 +165,11 @@ Preview.prototype.getFieldType = function (field) {
 }
 
 Preview.prototype.scrollSync = function ($elem, percentage) {
-  var $parent = this.$el.parent(),
-    target,
-    maxScroll,
-    pos = $elem.offset().top + $parent.scrollTop() - 90,
-    diff = $elem.height() - $parent.height() + 90
+  var $parent = this.$el.parent()
+  var target
+  var maxScroll
+  var pos = $elem.offset().top + $parent.scrollTop() - 90
+  var diff = $elem.height() - $parent.height() + 90
 
   if (diff > 0) {
     target = pos + diff * percentage
@@ -204,16 +204,14 @@ Preview.prototype.scrollSync = function ($elem, percentage) {
 Preview.prototype.scrollTo = function ($elem, offset) {
   offset = offset || 0
 
-  var $parent = this.$el.parent(),
-    top = $elem.offset().top + $parent.scrollTop(),
-    target = (function () {
-      var maxScroll = $parent[0].scrollHeight - $parent[0].clientHeight,
-        elemTarget = top + offset
+  var $parent = this.$el.parent()
+  var top = $elem.offset().top + $parent.scrollTop()
+  var target = (function () {
+    var maxScroll = $parent[0].scrollHeight - $parent[0].clientHeight
+    var elemTarget = top + offset
 
-      return elemTarget < 0
-        ? 0
-        : elemTarget > maxScroll ? maxScroll : elemTarget
-    })()
+    return elemTarget < 0 ? 0 : elemTarget > maxScroll ? maxScroll : elemTarget
+  })()
 
   $parent.animate({
     scrollTop: target

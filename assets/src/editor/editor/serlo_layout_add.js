@@ -4,22 +4,22 @@ import _ from 'underscore'
 import Cache from '../../libs/cache'
 import eventScope from '../../libs/eventscope'
 
-var LayoutAdd,
-  imageCache = new Cache('athene2-editor-image')
+var LayoutAdd
+var imageCache = new Cache('athene2-editor-image')
 
 function createIconTag (columns) {
-  var canvas = $('<canvas>')[0],
-    context,
-    width = 90,
-    height = 60,
-    gutter = 5,
-    iterateX = 5,
-    iconName = columns.toString(),
-    cached = imageCache.remember() || {}
+  var canvas = $('<canvas>')[0]
+  var context
+  var width = 90
+  var height = 60
+  var gutter = 5
+  var iterateX = 5
+  var iconName = columns.toString()
+  var cached = imageCache.remember() || {}
 
   function drawColumn (column) {
-    var x = iterateX + gutter,
-      w = (width - 20 - 23 * gutter) / 24 * column + (column - 1) * gutter
+    var x = iterateX + gutter
+    var w = (width - 20 - 23 * gutter) / 24 * column + (column - 1) * gutter
 
     iterateX += w + gutter
 

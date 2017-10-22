@@ -3,8 +3,6 @@
  * This module generates itself from lang.js files!
  * Instead edit the language files in /lang/
  **/
-
-/* global define */
 var i18n = {}
 
 i18n.de = {

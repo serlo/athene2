@@ -1,4 +1,4 @@
-/* global define, setInterval */
+/* global setInterval */
 import $ from 'jquery'
 import moment from 'moment'
 
@@ -10,10 +10,10 @@ function updateTime ($elem, datetime) {
 
 TimeAgo = function () {
   return $(this).each(function () {
-    var self = this,
-      $self = $(self),
-      text = $self.text(),
-      datetime = $self.attr('title') || null
+    var self = this
+    var $self = $(self)
+    var text = $self.text()
+    var datetime = $self.attr('title') || null
 
     if (!datetime) {
       return

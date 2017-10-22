@@ -1,8 +1,3 @@
-/**
- * Created by Benjamin on 27.11.2015.
- */
-
-/* global define */
 import $ from 'jquery'
 import d3 from 'd3'
 
@@ -44,11 +39,11 @@ Birdnest = function (options) {
 }
 
 Birdnest.prototype.newLine = function (lastLine, total) {
-  var scale = total > this.options.scalingMin ? total : this.options.scalingMin,
-    middlePos = this.calcMiddle(lastLine, scale),
-    rotation = Math.random() * Math.PI,
-    startPos = this.calcStart(middlePos, rotation),
-    endPos = this.calcEnd(middlePos, rotation)
+  var scale = total > this.options.scalingMin ? total : this.options.scalingMin
+  var middlePos = this.calcMiddle(lastLine, scale)
+  var rotation = Math.random() * Math.PI
+  var startPos = this.calcStart(middlePos, rotation)
+  var endPos = this.calcEnd(middlePos, rotation)
 
   return {
     i: lastLine.i + 1,
@@ -60,43 +55,45 @@ Birdnest.prototype.newLine = function (lastLine, total) {
 }
 
 Birdnest.prototype.calcMiddle = function (lastLine, scale) {
-  var i = lastLine.i + 1,
-    x =
-      this.options.maxWidth / 2 +
-      (Math.min(this.options.maxWidth, this.options.maxHeight) -
-        this.options.lineLength) /
-        2 *
-        i *
-        Math.cos(2 * Math.PI * i / this.options.stepwidth) /
-        scale,
-    y =
-      this.options.maxHeight / 2 +
-      (Math.min(this.options.maxWidth, this.options.maxHeight) -
-        this.options.lineLength) /
-        2 *
-        i *
-        Math.sin(2 * Math.PI * i / this.options.stepwidth) /
-        scale
+  var i = lastLine.i + 1
+  var x =
+    this.options.maxWidth / 2 +
+    (Math.min(this.options.maxWidth, this.options.maxHeight) -
+      this.options.lineLength) /
+      2 *
+      i *
+      Math.cos(2 * Math.PI * i / this.options.stepwidth) /
+      scale
+  var y =
+    this.options.maxHeight / 2 +
+    (Math.min(this.options.maxWidth, this.options.maxHeight) -
+      this.options.lineLength) /
+      2 *
+      i *
+      Math.sin(2 * Math.PI * i / this.options.stepwidth) /
+      scale
 
   return { x: x, y: y }
 }
 
 Birdnest.prototype.calcStart = function (middlePos, angle) {
-  var x = middlePos.x + this.options.lineLength / 2 * Math.cos(angle),
-    y = middlePos.y + this.options.lineLength / 2 * Math.sin(angle)
+  var x = middlePos.x + this.options.lineLength / 2 * Math.cos(angle)
+  var y = middlePos.y + this.options.lineLength / 2 * Math.sin(angle)
+
   return { x: x, y: y }
 }
 
 Birdnest.prototype.calcEnd = function (middlePos, angle) {
-  var x = middlePos.x + this.options.lineLength / 2 * Math.cos(angle + Math.PI),
-    y = middlePos.y + this.options.lineLength / 2 * Math.sin(angle + Math.PI)
+  var x = middlePos.x + this.options.lineLength / 2 * Math.cos(angle + Math.PI)
+  var y = middlePos.y + this.options.lineLength / 2 * Math.sin(angle + Math.PI)
+
   return { x: x, y: y }
 }
 
 Birdnest.prototype.createLines = function (counter) {
-  var lines = [],
-    line = this.seed,
-    i
+  var lines = []
+  var line = this.seed
+  var i
 
   for (i = 0; i < counter; i++) {
     lines.push(line)
@@ -127,8 +124,9 @@ function id (d) {
 }
 
 Birdnest.prototype.createSVG = function (lineCounter) {
-  var lines = this.createLines(Math.min(lineCounter, this.options.maxLines)),
-    svg = document.createElementNS(d3.ns.prefix.svg, 'svg')
+  var lines = this.createLines(Math.min(lineCounter, this.options.maxLines))
+  var svg = document.createElementNS(d3.ns.prefix.svg, 'svg')
+
   d3
     .select(svg)
     .attr('width', this.options.maxWidth)

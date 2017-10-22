@@ -22,8 +22,8 @@ commandWrapper = {
 }
 
 checkWrapper = Common.memoize(function (keyCode) {
-  var key,
-    result = keyCode
+  var key
+  var result = keyCode
 
   for (key in commandWrapper) {
     if (commandWrapper[key] === keyCode) {

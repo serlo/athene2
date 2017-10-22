@@ -1,14 +1,13 @@
-/* global define */
 import $ from 'jquery'
 import 'jquery-ui'
 import _ from 'underscore'
 
 import eventScope from '../../../libs/eventscope'
 import t from '../../../modules/translator'
-import plugin_template from '../templates/plugins/default.html'
+import pluginHtmlTemplate from '../templates/plugins/default.html'
 
-var EditorPlugin,
-  defaults = {}
+var EditorPlugin
+var defaults = {}
 
 EditorPlugin = function (settings) {
   eventScope(this)
@@ -20,7 +19,7 @@ EditorPlugin = function (settings) {
     content: 'Default Plugin'
   }
 
-  this.template = _.template(plugin_template)
+  this.template = _.template(pluginHtmlTemplate)
 }
 
 EditorPlugin.prototype.setData = function (key, value) {
@@ -56,8 +55,8 @@ EditorPlugin.prototype.activate = function () {
 }
 
 EditorPlugin.prototype.makeRezisable = function () {
-  var that = this,
-    $iframe = $('iframe', that.$el)
+  var that = this
+  var $iframe = $('iframe', that.$el)
 
   if (!$('.ui-resizable-se', that.$el).length) {
     $(

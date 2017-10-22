@@ -1,16 +1,17 @@
+/* global atob, Blob, FormData */
 import $ from 'jquery'
 import _ from 'underscore'
 
 import Common from '../../../../modules/common'
 import SystemNotification from '../../../../modules/system_notification'
 import t from '../../../../modules/translator'
-import plugin_template from '../../templates/plugins/injection/injection_plugin_geogebra.html'
+import pluginHtmlTemplate from '../../templates/plugins/injection/injection_plugin_geogebra.html'
 import EditorPlugin from '../serlo_texteditor_plugin'
 
-var GeogebraInjectionPlugin, titleRegexp, hrefRegexp, geogebraScriptSource
+var GeogebraInjectionPlugin, titleRegexp, hrefRegexp
 
 titleRegexp = new RegExp(/\[[^\]]*\]\(/)
-hrefRegexp = new RegExp(/\([^\)]*\)/)
+hrefRegexp = new RegExp(/\([^)]*\)/)
 
 // cruel helper function that
 // checks for 20seconds if the
@@ -18,18 +19,18 @@ hrefRegexp = new RegExp(/\([^\)]*\)/)
 // is available. geogebra does not
 // seem to have a 'ready' event..
 function waitForGgbApplet (context, fn) {
-  var threshold = 0,
-    timeout = setInterval(function () {
-      threshold += 100
-      if (context.ggbApplet) {
-        clearTimeout(timeout)
-        fn(null, context.ggbApplet)
-      }
-      if (threshold >= 20000) {
-        clearTimeout(timeout)
-        fn(new Error('Could not initialize Geogebra'))
-      }
-    }, 100)
+  var threshold = 0
+  var timeout = setInterval(function () {
+    threshold += 100
+    if (context.ggbApplet) {
+      clearTimeout(timeout)
+      fn(null, context.ggbApplet)
+    }
+    if (threshold >= 20000) {
+      clearTimeout(timeout)
+      fn(new Error('Could not initialize Geogebra'))
+    }
+  }, 100)
 }
 
 // Geogebra Plugin requires
@@ -49,7 +50,7 @@ GeogebraInjectionPlugin.prototype = new EditorPlugin()
 GeogebraInjectionPlugin.prototype.constructor = GeogebraInjectionPlugin
 
 GeogebraInjectionPlugin.prototype.init = function () {
-  this.template = _.template(plugin_template)
+  this.template = _.template(pluginHtmlTemplate)
 
   this.data = {}
   this.data.name = 'Geogebra'
@@ -65,9 +66,9 @@ GeogebraInjectionPlugin.prototype.init = function () {
 }
 
 GeogebraInjectionPlugin.prototype.activate = function (token, data) {
-  var that = this,
-    title,
-    href
+  var that = this
+  var title
+  var href
 
   this.isActive = true
 
@@ -102,12 +103,12 @@ GeogebraInjectionPlugin.prototype.render = function () {
   that.ggbApplet = null
 
   function loadOriginalXML () {
-    var xmlUrl,
-      i = 0,
-      length = that.data.info.files.length
+    var xmlUrl
+    var i = 0
+    var length = that.data.info.files.length
 
     while (i < length) {
-      if (that.data.info.files[i].type.indexOf('/xml') != -1) {
+      if (that.data.info.files[i].type.indexOf('/xml') !== -1) {
         xmlUrl = that.data.info.files[i].location
         i = length
       }
@@ -163,11 +164,11 @@ GeogebraInjectionPlugin.prototype.save = function (asImage) {
     return
   }
 
-  var that = this,
-    context,
-    imageData,
-    formData,
-    xml = that.ggbApplet.getXML()
+  var that = this
+  var context
+  var imageData
+  var formData
+  var xml = that.ggbApplet.getXML()
 
   function toUtf8 (string) {
     return unescape(encodeURIComponent(string))
@@ -247,9 +248,9 @@ GeogebraInjectionPlugin.prototype.createUploadFormData = function (
   type,
   filename
 ) {
-  var array = [],
-    file,
-    formdata
+  var array = []
+  var file
+  var formdata
 
   for (var i = 0; i < data.length; i++) {
     array.push(data.charCodeAt(i))

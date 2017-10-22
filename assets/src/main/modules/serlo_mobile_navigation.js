@@ -1,18 +1,7 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Jonas Keinholz (jonas.keinholz@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link    https://github.com/serlo-org/athene2 for the canonical source repository
- *
- * The Mobile Navigation
- *
- */
 import $ from 'jquery'
 import 'jquery-ui'
 
-var MobileNavigation, instance, defaults
+var MobileNavigation, defaults
 
 defaults = {
   // main wrapper selector
@@ -153,10 +142,10 @@ MobileNavigation.prototype.renderSubNavigation = function (root) {
          * Changes the destination into a dropdown menu and appends the given elements to it.
          **/
   function loop (elem, navElements) {
-    var link = elem.children().first(),
-      dropdown = $('<ul>', {
-        class: 'dropdown-menu'
-      })
+    var link = elem.children().first()
+    var dropdown = $('<ul>', {
+      class: 'dropdown-menu'
+    })
 
     // change element into dropdown
     elem.addClass('dropdown')
@@ -169,14 +158,14 @@ MobileNavigation.prototype.renderSubNavigation = function (root) {
 
     $.each(navElements, function (i, item) {
       var li = $('<li>', {
-          dataNeedsFetching: item.needsFetching,
-          dataSidenav: item.sidenav,
-          dataIdentifier: item.identifier
-        }),
-        a = $('<a>', {
-          href: item.href,
-          text: item.label
-        })
+        dataNeedsFetching: item.needsFetching,
+        dataSidenav: item.sidenav,
+        dataIdentifier: item.identifier
+      })
+      var a = $('<a>', {
+        href: item.href,
+        text: item.label
+      })
 
       li.append(a)
       dropdown.append(li)
@@ -201,10 +190,10 @@ MobileNavigation.prototype.renderSubNavigation = function (root) {
   }
 
   root.children().each(function () {
-    var elem = $(this),
-      sidenav = elem.data(self.options.asyncNav.sidenav) === undefined,
-      id = elem.data(self.options.asyncNav.identifier),
-      fetchUrl = self.options.asyncNav.loc + '/2/10/' + id
+    var elem = $(this)
+    var sidenav = elem.data(self.options.asyncNav.sidenav) === undefined
+    var id = elem.data(self.options.asyncNav.identifier)
+    var fetchUrl = self.options.asyncNav.loc + '/2/10/' + id
 
     if (
       !elem.hasClass(self.options.navHeaderClass) &&

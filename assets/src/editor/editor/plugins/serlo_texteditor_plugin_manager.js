@@ -2,8 +2,8 @@ import _ from 'underscore'
 
 import eventScope from '../../../libs/eventscope'
 
-var slice = Array.prototype.slice,
-  PluginManager
+var slice = Array.prototype.slice
+var PluginManager
 
 PluginManager = function () {
   eventScope(this)

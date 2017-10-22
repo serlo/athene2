@@ -1,6 +1,7 @@
+/* eslint-disable */
 CodeMirror.defineMode(
   'markdown',
-  function (cmCfg, modeCfg) {
+  function(cmCfg, modeCfg) {
     var htmlFound = CodeMirror.modes.hasOwnProperty('xml')
     var htmlMode = CodeMirror.getMode(
       cmCfg,
@@ -18,7 +19,7 @@ CodeMirror.defineMode(
       scala: 'text/x-scala'
     }
 
-    var getMode = (function () {
+    var getMode = (function() {
       var i,
         modes = {},
         mimes = {},
@@ -46,7 +47,7 @@ CodeMirror.defineMode(
         if (aliases[a] in modes || aliases[a] in mimes) modes[a] = aliases[a]
       }
 
-      return function (lang) {
+      return function(lang) {
         return modes[lang] ? CodeMirror.getMode(cmCfg, modes[lang]) : null
       }
     })()
@@ -87,19 +88,19 @@ CodeMirror.defineMode(
       headerRE = /^(?:\={1,}|-{1,})$/,
       textRE = /^[^!\[\]*_\\<>` "'(]+/
 
-    function switchInline (stream, state, f) {
+    function switchInline(stream, state, f) {
       state.f = state.inline = f
       return f(stream, state)
     }
 
-    function switchBlock (stream, state, f) {
+    function switchBlock(stream, state, f) {
       state.f = state.block = f
       return f(stream, state)
     }
 
     // Blocks
 
-    function blankLine (state) {
+    function blankLine(state) {
       // Reset linkTitle state
       state.linkTitle = false
       // Reset EM state
@@ -120,7 +121,7 @@ CodeMirror.defineMode(
       return null
     }
 
-    function blockNormal (stream, state) {
+    function blockNormal(stream, state) {
       var prevLineIsList = state.list !== false
       if (state.list !== false && state.indentationDiff >= 0) {
         // Continued list
@@ -185,7 +186,7 @@ CodeMirror.defineMode(
       return switchInline(stream, state, state.inline)
     }
 
-    function htmlBlock (stream, state) {
+    function htmlBlock(stream, state) {
       var style = htmlMode.token(stream, state.htmlState)
       if (
         htmlFound &&
@@ -204,7 +205,7 @@ CodeMirror.defineMode(
       return style
     }
 
-    function local (stream, state) {
+    function local(stream, state) {
       if (stream.sol() && stream.match(/^```/, true)) {
         state.localMode = state.localState = null
         state.f = inlineNormal
@@ -219,7 +220,7 @@ CodeMirror.defineMode(
     }
 
     // Inline
-    function getType (state) {
+    function getType(state) {
       var styles = []
 
       if (state.taskOpen) {
@@ -270,14 +271,14 @@ CodeMirror.defineMode(
       return styles.length ? styles.join(' ') : null
     }
 
-    function handleText (stream, state) {
+    function handleText(stream, state) {
       if (stream.match(textRE, true)) {
         return getType(state)
       }
       return undefined
     }
 
-    function inlineNormal (stream, state) {
+    function inlineNormal(stream, state) {
       var style = state.text(stream, state)
       if (typeof style !== 'undefined') return style
 
@@ -445,7 +446,7 @@ CodeMirror.defineMode(
       return getType(state)
     }
 
-    function linkHref (stream, state) {
+    function linkHref(stream, state) {
       // Check if space, and return NULL if so (to avoid marking the space)
       if (stream.eatSpace()) {
         return null
@@ -461,7 +462,7 @@ CodeMirror.defineMode(
       return 'error'
     }
 
-    function footnoteLink (stream, state) {
+    function footnoteLink(stream, state) {
       if (stream.match(/^[^\]]*\]:/, true)) {
         state.f = footnoteUrl
         return linktext
@@ -469,7 +470,7 @@ CodeMirror.defineMode(
       return switchInline(stream, state, inlineNormal)
     }
 
-    function footnoteUrl (stream, state) {
+    function footnoteUrl(stream, state) {
       // Check if space, and return NULL if so (to avoid marking the space)
       if (stream.eatSpace()) {
         return null
@@ -492,7 +493,7 @@ CodeMirror.defineMode(
     }
 
     var savedInlineRE = []
-    function inlineRE (endChar) {
+    function inlineRE(endChar) {
       if (!savedInlineRE[endChar]) {
         // Escape endChar for RegExp (taken from http://stackoverflow.com/a/494122/526741)
         endChar = (endChar + '').replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1')
@@ -505,9 +506,9 @@ CodeMirror.defineMode(
       return savedInlineRE[endChar]
     }
 
-    function inlineElement (type, endChar, next) {
+    function inlineElement(type, endChar, next) {
       next = next || inlineNormal
-      return function (stream, state) {
+      return function(stream, state) {
         stream.match(inlineRE(endChar))
         state.inline = state.f = next
         return type
@@ -515,7 +516,7 @@ CodeMirror.defineMode(
     }
 
     return {
-      startState: function () {
+      startState: function() {
         return {
           f: blockNormal,
 
@@ -543,7 +544,7 @@ CodeMirror.defineMode(
         }
       },
 
-      copyState: function (s) {
+      copyState: function(s) {
         return {
           f: s.f,
 
@@ -575,7 +576,7 @@ CodeMirror.defineMode(
         }
       },
 
-      token: function (stream, state) {
+      token: function(stream, state) {
         if (stream.sol()) {
           if (stream.match(/^\s*$/, true)) {
             state.prevLineHasContent = false

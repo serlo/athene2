@@ -1,13 +1,12 @@
-/* global define */
 import $ from 'jquery'
 import _ from 'underscore'
 import eventScope from '../../libs/eventscope'
 import t from '../../modules/translator'
-import column_template from './templates/layout/column.html'
+import columnHtmlTemplate from './templates/layout/column.html'
 
-var Column,
-  columnTemplate = _.template(column_template),
-  emptyColumnHtml = '<p>' + t('Click to edit') + '</p>'
+var Column
+var columnTemplate = _.template(columnHtmlTemplate)
+var emptyColumnHtml = '<p>' + t('Click to edit') + '</p>'
 
 Column = function (width, data) {
   var that = this

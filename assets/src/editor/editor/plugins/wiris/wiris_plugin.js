@@ -1,16 +1,15 @@
-/* global define, require, MathJax */
+/* global com */
 import $ from 'jquery'
 import _ from 'underscore'
 
 import Common from '../../../../modules/common'
-import t from '../../../../modules/translator'
-import plugin_template from '../../templates/plugins/wiris/wiris_plugin.html'
+import pluginHtmlTemplate from '../../templates/plugins/wiris/wiris_plugin.html'
 import EditorPlugin from '../serlo_texteditor_plugin'
 
-var FormulaPlugin,
-  wiris,
-  latex2mml = 'https://www.wiris.net/demo/editor/latex2mathml',
-  mml2latex = 'https://www.wiris.net/demo/editor/mathml2latex'
+var FormulaPlugin
+var wiris
+var latex2mml = 'https://www.wiris.net/demo/editor/latex2mathml'
+var mml2latex = 'https://www.wiris.net/demo/editor/mathml2latex'
 
 function ajax (url, data, method) {
   return $.ajax({
@@ -31,7 +30,7 @@ FormulaPlugin.prototype.constructor = FormulaPlugin
 FormulaPlugin.prototype.init = function () {
   var that = this
 
-  that.template = _.template(plugin_template)
+  that.template = _.template(pluginHtmlTemplate)
 
   that.data.name = 'Wiris'
   that.wrap = '$$'
@@ -47,8 +46,8 @@ FormulaPlugin.prototype.init = function () {
 }
 
 FormulaPlugin.prototype.activate = function (token) {
-  var that = this,
-    formular
+  var that = this
+  var formular
 
   that.token = token
 
@@ -87,8 +86,8 @@ FormulaPlugin.prototype.deactivate = function () {
 }
 
 FormulaPlugin.prototype.save = function () {
-  var that = this,
-    data = wiris.getMathML()
+  var that = this
+  var data = wiris.getMathML()
 
   ajax(mml2latex, 'mml=' + encodeURIComponent(data), 'post')
     .done(function (latex) {

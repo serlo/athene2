@@ -1,31 +1,25 @@
-/* global window, jQuery, define */
-var cacheInstance,
-  usedStorage,
-  /**
-             *  supports
-             */
-  supports = {
-    Storage: !!window.Storage,
-    localStorage: !!window.localStorage,
-    sessionStorage: !!window.sessionStorage,
-    JSON: !!window.JSON,
-    jQueryCookie:
-      typeof jQuery === 'function' && typeof jQuery.cookie === 'function'
-  },
-  /**
-             * is the cache supposed to use JSON?
-             *  defaults to true if JSON is available
-             */
-
-  useJSON = supports.JSON
+import $ from 'jquery'
+var cacheInstance
+var usedStorage
+var supports = {
+  Storage: !!window.Storage,
+  localStorage: !!window.localStorage,
+  sessionStorage: !!window.sessionStorage,
+  JSON: !!window.JSON,
+  jQueryCookie: typeof $ === 'function' && typeof $.cookie === 'function'
+}
+/**
+   * is the cache supposed to use JSON?
+   *  defaults to true if JSON is available
+   */
+var useJSON = supports.JSON
 
 /** FakeStorage
-         *
-         *   emulates basic behaviour for Storages
-         *   - gets used, when there is no Storage available
-         *   - uses jQuery.cookie if available
-         */
-
+ *
+ *   emulates basic behaviour for Storages
+ *   - gets used, when there is no Storage available
+ *   - uses jQuery.cookie if available
+ */
 function FakeStorage () {
   this.values = {}
 }
@@ -36,7 +30,7 @@ FakeStorage.prototype.isFake = function () {
 
 FakeStorage.prototype.setItem = function (key, value) {
   if (supports.jQueryCookie) {
-    return jQuery.cookie(key, value, {
+    return $.cookie(key, value, {
       json: useJSON
     })
   }
@@ -46,7 +40,7 @@ FakeStorage.prototype.setItem = function (key, value) {
 
 FakeStorage.prototype.getItem = function (key) {
   if (supports.jQueryCookie) {
-    return jQuery.cookie(key, undefined, {
+    return $.cookie(key, undefined, {
       json: useJSON
     })
   }
@@ -55,7 +49,7 @@ FakeStorage.prototype.getItem = function (key) {
 
 FakeStorage.prototype.removeItem = function (key) {
   if (supports.jQueryCookie) {
-    return jQuery.removeCookie(key)
+    return $.removeCookie(key)
   }
   this.values[key] = undefined
   return true
@@ -161,7 +155,7 @@ function forget () {
 
 Cache.prototype.functions = function (memoryKey) {
   if (memoryKey === undefined) {
-    throw 'No valid memory key given'
+    throw new Error('No valid memory key given')
   }
 
   return {
@@ -178,12 +172,13 @@ Cache.prototype.functions = function (memoryKey) {
          */
 
 function deleteAllCookies () {
-  var cookies = window.document.cookie.split(';'),
-    i,
-    length,
-    cookie,
-    eqPos,
-    name
+  var cookies = window.document.cookie.split(';')
+  var i
+  var length
+  var cookie
+  var eqPos
+  var name
+
   for (i = 0, length = cookies.length; i < length; i += 1) {
     cookie = cookies[i]
     eqPos = cookie.indexOf('=')

@@ -1,8 +1,10 @@
+/* global CodeMirror, MathJax */
 import $ from 'jquery'
 import Showdown from 'showdown'
 import _ from 'underscore'
 
 import eventScope from '../libs/eventscope'
+import Common from '../modules/common'
 import Content from '../modules/content'
 import '../modules/spoiler'
 import SystemNotification from '../modules/system_notification'
@@ -42,17 +44,16 @@ window.jQuery = $
 // Needs to be a require call since `window.$` is needed
 require('bootstrap-sass')
 
-var $body = $('body'),
-  $window = $(window),
-  Editor
+var $body = $('body')
+var $window = $(window)
+var Editor
 
 function getCompleteToken (editor, pos, maxLines, currentToken, firstRun) {
   var prevStartPos = {}
 
   function loop (pos, maxLines, currentToken, firstRun) {
     // Get the token at current position
-    var token = editor.getTokenAt(pos),
-      endPos
+    var token = editor.getTokenAt(pos)
 
     // Check if it's the other one than before
     if (
@@ -67,10 +68,6 @@ function getCompleteToken (editor, pos, maxLines, currentToken, firstRun) {
 
       // We're in the last line, let's stop here
       if (maxLines <= pos.line) {
-        endPos = {
-          ch: token.end,
-          line: pos.line
-        }
         // Dunno what'll happen, let's try
         return token
       }
@@ -141,8 +138,8 @@ Editor.prototype.initialize = function () {
     'change',
     _.throttle(function () {
       if (that.editable) {
-        var value = that.textEditor.getValue(),
-          patch = that.editable.update(value, that.parser.parse(value))
+        var value = that.textEditor.getValue()
+        var patch = that.editable.update(value, that.parser.parse(value))
 
         if (patch.type !== 'identical' && patch.replace.length > 0) {
           _.each(patch.replace, function (el) {
@@ -185,8 +182,8 @@ Editor.prototype.initialize = function () {
   )
 
   that.addEventListener('tokenChange', function (token) {
-    var state = token.type,
-      plugin
+    var state = token.type
+    var plugin
 
     that.pluginManager.deactivate()
 
@@ -416,8 +413,9 @@ $(function () {
       return node.nodeName === 'SPAN' && $(node).hasClass('mathInline')
     },
     function (a, b) {
-      var aHTML = $.trim($('script', a).text()),
-        bHTML = $.trim($(b).text())
+      var aHTML = $.trim($('script', a).text())
+      var bHTML = $.trim($(b).text())
+
       return '%%' + aHTML + '%%' !== bHTML
     }
   )
@@ -430,8 +428,9 @@ $(function () {
       return node.nodeName === 'SPAN' && $(node).hasClass('math')
     },
     function (a, b) {
-      var aHTML = $.trim($('script', a).text()),
-        bHTML = $.trim($(b).text())
+      var aHTML = $.trim($('script', a).text())
+      var bHTML = $.trim($(b).text())
+
       return '$$' + aHTML + '$$' !== bHTML
     }
   )
@@ -444,26 +443,26 @@ $(function () {
   })
 
   function init () {
-    var editor,
-      textEditor,
-      layoutBuilderConfiguration = new LayoutBuilderConfiguration(),
-      parser = new Parser(),
-      converter = new Showdown.Converter({
-        extensions: [
-          'codeprepare',
-          'injections',
-          'table',
-          'htmlstrip',
-          'latex',
-          'atusername',
-          'strikethrough',
-          'spoiler',
-          'spoilerprepare',
-          'latexoutput',
-          'codeoutput'
-        ]
-      }),
-      pluginManager = new PluginManager()
+    var editor
+    var textEditor
+    var layoutBuilderConfiguration = new LayoutBuilderConfiguration()
+    var parser = new Parser()
+    var converter = new Showdown.Converter({
+      extensions: [
+        'codeprepare',
+        'injections',
+        'table',
+        'htmlstrip',
+        'latex',
+        'atusername',
+        'strikethrough',
+        'spoiler',
+        'spoilerprepare',
+        'latexoutput',
+        'codeoutput'
+      ]
+    })
+    var pluginManager = new PluginManager()
 
     // converter.config.math = true;
     // converter.config.stripHTML = true;

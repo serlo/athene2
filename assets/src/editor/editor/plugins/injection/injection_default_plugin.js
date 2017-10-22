@@ -1,16 +1,13 @@
 import $ from 'jquery'
 import _ from 'underscore'
 
-import Common from '../../../../modules/common'
-import t from '../../../../modules/translator'
-import SystemNotification from '../../../../modules/system_notification'
-import plugin_template from '../../templates/plugins/injection/injection_plugin_default.html'
+import pluginHtmlTemplate from '../../templates/plugins/injection/injection_plugin_default.html'
 import EditorPlugin from '../serlo_texteditor_plugin'
 
 var DefaultInjectionPlugin, titleRegexp, hrefRegexp
 
 titleRegexp = new RegExp(/\[[^\]]*\]\(/)
-hrefRegexp = new RegExp(/\([^\)]*\)/)
+hrefRegexp = new RegExp(/\([^)]*\)/)
 
 DefaultInjectionPlugin = function (data) {
   this.state = 'default-injection'
@@ -24,15 +21,15 @@ DefaultInjectionPlugin.prototype.constructor = DefaultInjectionPlugin
 DefaultInjectionPlugin.prototype.init = function () {
   var that = this
 
-  that.template = _.template(plugin_template)
+  that.template = _.template(pluginHtmlTemplate)
 
   that.data.name = 'Injection'
 }
 
 DefaultInjectionPlugin.prototype.activate = function (token) {
-  var that = this,
-    title,
-    href
+  var that = this
+  var title
+  var href
 
   that.data.content = token.string
   title = _.first(that.data.content.match(titleRegexp))

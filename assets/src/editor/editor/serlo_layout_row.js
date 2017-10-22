@@ -1,4 +1,3 @@
-/* global define */
 import $ from 'jquery'
 import _ from 'underscore'
 
@@ -6,10 +5,10 @@ import eventScope from '../../libs/eventscope'
 import t from '../../modules/translator'
 import LayoutAdd from './serlo_layout_add'
 import Column from './serlo_layout_column'
-import row_template from './templates/layout/row.html'
+import rowHtmlTemplate from './templates/layout/row.html'
 
-var Row,
-  rowTemplate = _.template(row_template)
+var Row
+var rowTemplate = _.template(rowHtmlTemplate)
 
 Row = function (columns, index, data, layouts) {
   var that = this

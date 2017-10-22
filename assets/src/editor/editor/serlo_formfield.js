@@ -100,10 +100,9 @@ Field.Textarea = function (field, label) {
             ? 0
             : self.layoutBuilder.rows[self.activeRow.index - 1].columns.length -
               1
+        // prettier-ignore
         next =
-          self.layoutBuilder.rows[self.activeRow.index + iterate].columns[
-            columnIndex
-          ]
+          self.layoutBuilder.rows[self.activeRow.index + iterate].columns[columnIndex]
       }
 
       if (next) {
@@ -178,8 +177,8 @@ Field.Textarea.prototype.addLayoutBuilder = function (
 }
 
 Field.Textarea.prototype.parseFieldData = function () {
-  var self = this,
-    data = $(self.field).val() || '[]'
+  var self = this
+  var data = $(self.field).val() || '[]'
 
   try {
     data = JSON.parse(data)
@@ -196,9 +195,9 @@ Field.Textarea.prototype.parseFieldData = function () {
   }
 
   _.each(data, function (columns, key) {
-    var row = [],
-      data = [],
-      layout
+    var row = []
+    var data = []
+    var layout
 
     _.each(columns, function (column) {
       row.push(column.col)

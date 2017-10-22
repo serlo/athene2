@@ -1,3 +1,4 @@
+/* global Element */
 import $ from 'jquery'
 
 import eventScope from '../../libs/eventscope'
@@ -62,10 +63,10 @@ TextEditorHelper.prototype.action = function () {
       return this.settings.action.apply(this, arguments)
     }
 
-    var cursor = this.textEditor.getCursor(false),
-      selection = Common.trim(this.textEditor.getSelection()),
-      anchor = { line: cursor.line, ch: cursor.ch },
-      head = null
+    var cursor = this.textEditor.getCursor(false)
+    var selection = Common.trim(this.textEditor.getSelection())
+    var anchor = { line: cursor.line, ch: cursor.ch }
+    var head = null
 
     if (selection) {
       this.textEditor.replaceSelection(
@@ -223,8 +224,8 @@ TextEditorHelper.Redo = function (textEditor) {
 }
 
 TextEditorHelper.Fullscreen = function () {
-  var that = this,
-    fullScreenElement
+  var that = this
+  var fullScreenElement
 
   fullScreenElement = document.body
 

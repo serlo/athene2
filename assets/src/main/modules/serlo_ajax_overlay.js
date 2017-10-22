@@ -1,5 +1,3 @@
-/* global define,window */
-/* jslint todo: true */
 /**
 * $.SerloAjaxOverlay opens links in an overlay.
 * Creates an AjaxPage for every asynchronous loaded content,
@@ -18,85 +16,84 @@ import $ from 'jquery'
 
 import Common from '../../modules/common'
 
-var document = window.document,
-  instance,
-  lastScrollTop,
-  tabPages,
-  activePage,
-  pageCache = {},
-  isActive = false,
-  defaults = {
-    linkClass: 'ajax-content',
-    closeClass: 'close-overlay',
-    context: 'body',
-    overlayActiveClass: 'ajax-content-active',
-    ajaxContentSelector: '#content-container',
-    titleSelector: '#pagetitle',
-    activeTabClass: 'active',
-    tabLimit: 5,
-    on: {
-      contentLoaded: function () {
-        // arguments: data, AjaxOverlayInstance
-        // gets called when new content is loaded
-        // 'this' is the AjaxPage instance
-      },
-      contentOpened: function () {
-        // arguments: AjaxOverlayInstance
-        // gets called when an AjaxPage gets opened
-        // 'this' is the AjaxPage instance
-      },
-      error: function () {
-        // gets called when an ajax error appears
-        // 'this' is the AjaxOverlay instance, arguments are all the arguments from jQuery.ajax.error
-      },
-      beforeClose: function () {
-        // gets called right before the AjaxOverlay gets closed
-        // 'this' is the AjaxOverlay instance
-      },
-      afterClose: function () {
-        // gets called right after the AjaxOverlay has been closed
-        // 'this' is the AjaxOverlay instance
-      },
-      beforeOpen: function () {
-        // gets called right before the AjaxOverlay gets opened
-        // 'this' is the AjaxOverlay instance
-      },
-      afterOpen: function () {
-        // gets called right after the AjaxOverlay has been opened
-        // 'this' is the AjaxOverlay instance
-      }
+var document = window.document
+var instance
+var lastScrollTop
+var tabPages
+var activePage
+var pageCache = {}
+var isActive = false
+var defaults = {
+  linkClass: 'ajax-content',
+  closeClass: 'close-overlay',
+  context: 'body',
+  overlayActiveClass: 'ajax-content-active',
+  ajaxContentSelector: '#content-container',
+  titleSelector: '#pagetitle',
+  activeTabClass: 'active',
+  tabLimit: 5,
+  on: {
+    contentLoaded: function () {
+      // arguments: data, AjaxOverlayInstance
+      // gets called when new content is loaded
+      // 'this' is the AjaxPage instance
+    },
+    contentOpened: function () {
+      // arguments: AjaxOverlayInstance
+      // gets called when an AjaxPage gets opened
+      // 'this' is the AjaxPage instance
+    },
+    error: function () {
+      // gets called when an ajax error appears
+      // 'this' is the AjaxOverlay instance, arguments are all the arguments from jQuery.ajax.error
+    },
+    beforeClose: function () {
+      // gets called right before the AjaxOverlay gets closed
+      // 'this' is the AjaxOverlay instance
+    },
+    afterClose: function () {
+      // gets called right after the AjaxOverlay has been closed
+      // 'this' is the AjaxOverlay instance
+    },
+    beforeOpen: function () {
+      // gets called right before the AjaxOverlay gets opened
+      // 'this' is the AjaxOverlay instance
+    },
+    afterOpen: function () {
+      // gets called right after the AjaxOverlay has been opened
+      // 'this' is the AjaxOverlay instance
     }
-  },
-  AjaxOverlay = function (options) {
-    this.options = $.extend(true, {}, defaults, options || {})
-
-    this.$body = $('body')
-
-    this.$overlayHTML = $(
-      '<div id="ajax-content-overlay" class=""><div id="ajax-content-overlay-container"><header id="ajax-content-overlay-head"><ul id="ajax-content-overlay-tabs" class="nav nav-tabs"></ul></header><div id="ajax-content-overlay-inner"></div><footer id="ajax-content-overlay-footer"></footer><div id="ajax-content-overlay-loader"></div></div></div>'
-    )
-    this.$overlayHTML.hide().appendTo(this.options.context)
-
-    this.$overlayInner = $('#ajax-content-overlay-inner')
-    this.$overlayContainer = $('#ajax-content-overlay-container')
-
-    this.$loader = $('#ajax-content-overlay-loader')
-
-    this.$tabs = $('#ajax-content-overlay-tabs')
-
-    this.$scrollEl = $('#ajax-content-overlay')
-
-    this.init()
   }
+}
+var AjaxOverlay = function (options) {
+  this.options = $.extend(true, {}, defaults, options || {})
+
+  this.$body = $('body')
+
+  this.$overlayHTML = $(
+    '<div id="ajax-content-overlay" class=""><div id="ajax-content-overlay-container"><header id="ajax-content-overlay-head"><ul id="ajax-content-overlay-tabs" class="nav nav-tabs"></ul></header><div id="ajax-content-overlay-inner"></div><footer id="ajax-content-overlay-footer"></footer><div id="ajax-content-overlay-loader"></div></div></div>'
+  )
+  this.$overlayHTML.hide().appendTo(this.options.context)
+
+  this.$overlayInner = $('#ajax-content-overlay-inner')
+  this.$overlayContainer = $('#ajax-content-overlay-container')
+
+  this.$loader = $('#ajax-content-overlay-loader')
+
+  this.$tabs = $('#ajax-content-overlay-tabs')
+
+  this.$scrollEl = $('#ajax-content-overlay')
+
+  this.init()
+}
 
 /**
-    * Initializes the onClick event for links in a specific context
-    *
-    * @method init
-    * @param {String} context The context where to search for links. Defaults to options.context
-    * @return Returns itself for chaining
-    */
-
+ * Initializes the onClick event for links in a specific context
+ *
+ * @method init
+ * @param {String} context The context where to search for links. Defaults to options.context
+ * @return Returns itself for chaining
+ */
 AjaxOverlay.prototype.init = function (context) {
   $(context || this.options.context).on(
     'click',
@@ -126,8 +123,8 @@ AjaxOverlay.prototype.init = function (context) {
 AjaxOverlay.prototype.onLinkClick = function (e) {
   if ($(this).hasClass(instance.options.linkClass)) {
     e.preventDefault()
-    var url = $(this).attr('href'),
-      title = $(this).text()
+    var url = $(this).attr('href')
+    var title = $(this).text()
 
     if (!isActive) {
       lastScrollTop = document.body.scrollTop
@@ -231,9 +228,9 @@ AjaxOverlay.prototype.bootAjaxContent = function (url, title) {
     */
 
 AjaxOverlay.prototype.shutDownAjaxContent = function () {
-  var self = this,
-    afterCloseOnce,
-    allowed
+  var self = this
+  var afterCloseOnce
+  var allowed
 
   self.options.on.beforeClose.call(self)
 
@@ -308,8 +305,8 @@ AjaxOverlay.prototype.addPage = function (url, title) {
     */
 
 AjaxOverlay.prototype.showPage = function (url) {
-  var self = this,
-    page = pageCache[url]
+  var self = this
+  var page = pageCache[url]
 
   if (undefined !== page) {
     activePage = page
@@ -333,12 +330,12 @@ AjaxOverlay.prototype.showPage = function (url) {
     */
 
 AjaxOverlay.prototype.renderPageTabs = function () {
-  var $li,
-    dublets = {},
-    self = this,
-    i = 0,
-    length,
-    page
+  var $li
+  var dublets = {}
+  var self = this
+  var i = 0
+  var length
+  var page
 
   self.$tabs.empty()
 
@@ -486,8 +483,8 @@ AjaxOverlay.AjaxPage = function (url, title) {
     */
 
 AjaxOverlay.AjaxPage.prototype.load = function () {
-  var self = this,
-    call
+  var self = this
+  var call
 
   if (self.loaded) {
     self.uber.showPage(self.url).hideLoader()
@@ -532,9 +529,9 @@ AjaxOverlay.AjaxPage.prototype.load = function () {
     * @return true or false
     */
 function elementExistsInArray (element, array) {
-  var i,
-    length,
-    exists = false
+  var i
+  var length
+  var exists = false
 
   for (i = 0, length = array.length; i < length; i += 1) {
     if (array[i] === element) {

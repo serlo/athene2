@@ -1,4 +1,3 @@
-/* global define */
 import $ from 'jquery'
 
 var TriggerAction
@@ -8,8 +7,9 @@ TriggerAction = function () {
     // Edit mode toggle
     if ($(this).data('trigger') === 'ping') {
       $(this).click(function () {
-        var $that = $(this),
-          location = $that.data('href')
+        var $that = $(this)
+        var location = $that.data('href')
+
         if (location) {
           $.ajax({
             url: location

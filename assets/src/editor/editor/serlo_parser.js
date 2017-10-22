@@ -1,4 +1,3 @@
-/* global define */
 var Parser = function () {}
 
 Parser.prototype.setConverter = function (converter, convertFunctionName) {

@@ -1,14 +1,3 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Julian Kempff (julian.kempff@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- *
- * The Main Navigation
- *
- */
 import $ from 'jquery'
 import _ from 'underscore'
 
@@ -17,7 +6,7 @@ import Common from '../../modules/common'
 import t from '../../modules/translator'
 import ReferrerHistory from './serlo_referrer_history'
 
-var defaults, instance, Hierarchy, MenuItem, SubNavigation, SideNavigation
+var defaults, Hierarchy, MenuItem, SubNavigation, SideNavigation
 
 defaults = {
   // main wrapper selector
@@ -113,9 +102,9 @@ MenuItem = function (data) {
      * Renders the a <li> and <a> tag on MenuItem.$el
      **/
 MenuItem.prototype.render = function () {
-  var self = this,
-    $a,
-    $children
+  var self = this
+  var $a
+  var $children
 
   this.$el.empty()
 
@@ -228,18 +217,18 @@ SubNavigation.prototype.reset = function (levels) {
      * Creates the <li> and <a> elements
      **/
 SubNavigation.prototype.render = function () {
-  var self = this,
-    backBtn,
-    parentData,
-    parentLink
+  var self = this
+  var backBtn
+  var parentData
+  var parentLink
 
   self.$el.empty()
 
   _.each(self.levels, function (level) {
-    var $div = $('<div>'),
-      $ul = $('<ul>'),
-      msg,
-      elementCount
+    var $div = $('<div>')
+    var $ul = $('<ul>')
+    var msg
+    var elementCount
 
     // add back btns
     if (level[0].data.parent) {
@@ -361,8 +350,8 @@ Hierarchy = function () {
      * Loops through $root and creates an hierarchial array of objects
      **/
 Hierarchy.prototype.fetchFromDom = function ($root) {
-  var self = this,
-    deepness = []
+  var self = this
+  var deepness = []
 
   self.data = []
   self.$root = $root
@@ -383,19 +372,19 @@ Hierarchy.prototype.fetchFromDom = function ($root) {
       deepness = deepness.splice(0, level)
       deepness.push(i)
 
-      var $listItem = $(this),
-        $link = $listItem
-          .children()
-          .filter('a')
-          .first(),
-        position = [].concat(deepness),
-        hasChildren = $listItem
-          .children()
-          .filter('ul')
-          .find('> li').length,
-        needsFetching = $listItem.data('needs-fetching') !== undefined,
-        sidenav = $listItem.data('sidenav') === undefined,
-        icon
+      var $listItem = $(this)
+      var $link = $listItem
+        .children()
+        .filter('a')
+        .first()
+      var position = [].concat(deepness)
+      var hasChildren = $listItem
+        .children()
+        .filter('ul')
+        .find('> li').length
+      var needsFetching = $listItem.data('needs-fetching') !== undefined
+      var sidenav = $listItem.data('sidenav') === undefined
+      var icon
 
       if (hasChildren) {
         icon = 'chevron-right'
@@ -466,9 +455,9 @@ Hierarchy.prototype.fetchFromJson = function (object, parent) {
       deepness = deepness.splice(0, level)
       deepness.push(i)
 
-      var position = [].concat(deepness),
-        hasChildren = item.children.length,
-        icon
+      var position = [].concat(deepness)
+      var hasChildren = item.children.length
+      var icon
 
       if (hasChildren) {
         icon = 'chevron-right'
@@ -556,10 +545,10 @@ Hierarchy.prototype.findActiveByActive = function () {
      * the active menu item given by the app.
      **/
 Hierarchy.prototype.findActive = function () {
-  var self = this,
-    foundItem,
-    fromStorageItem,
-    currentUrl = ReferrerHistory.getCurrent()
+  var self = this
+  var foundItem
+  var fromStorageItem
+  var currentUrl = ReferrerHistory.getCurrent()
 
   foundItem = this.findActiveByActive()
 
@@ -581,9 +570,9 @@ Hierarchy.prototype.findActive = function () {
      * Searches menu items by URL
      **/
 Hierarchy.prototype.findPreviousMenuItem = function () {
-  var self = this,
-    result,
-    lastUrl = ReferrerHistory.getPrevious()
+  var self = this
+  var result
+  var lastUrl = ReferrerHistory.getPrevious()
 
   result = self.findByUrl(lastUrl)
   if (result) {
@@ -598,9 +587,9 @@ Hierarchy.prototype.findPreviousMenuItem = function () {
      * Searches menu items by URL
      **/
 Hierarchy.prototype.findLastAvailableUrl = function () {
-  var self = this,
-    foundItem,
-    lastUrls = ReferrerHistory.getAll()
+  var self = this
+  var foundItem
+  var lastUrls = ReferrerHistory.getAll()
 
   _.each(lastUrls, function (lastUrl) {
     foundItem = self.findByUrl(lastUrl)
@@ -649,9 +638,9 @@ Hierarchy.prototype.getFlattened = function () {
      *
      **/
 Hierarchy.prototype.getLevels = function (position) {
-  var self = this,
-    cursor = self.data,
-    result = []
+  var self = this
+  var cursor = self.data
+  var result = []
 
   _.each(position, function (index) {
     result.push(cursor[index].children)
@@ -667,8 +656,8 @@ Hierarchy.prototype.getLevels = function (position) {
      *
      **/
 Hierarchy.prototype.getParents = function (position) {
-  var result = [],
-    usePosition = position.slice()
+  var result = []
+  var usePosition = position.slice()
 
   while (usePosition.length) {
     result.push(this.findByPosition(usePosition))
@@ -685,8 +674,8 @@ Hierarchy.prototype.getParents = function (position) {
      *
      **/
 Hierarchy.prototype.getSiblings = function (position) {
-  var usePosition = position.slice(),
-    parent = this.getParent(this.findByPosition(usePosition))
+  var usePosition = position.slice()
+  var parent = this.getParent(this.findByPosition(usePosition))
 
   return parent ? parent.children || [] : []
 }
@@ -745,8 +734,8 @@ SideNavigation = function (options) {
      * Sets options.activeClass for active menu item and its parents
      **/
 SideNavigation.prototype.setActiveBranch = function () {
-  var self = this,
-    position
+  var self = this
+  var position
   // parents,
   // siblings,
   // $rootMenuItem;
@@ -780,7 +769,7 @@ SideNavigation.prototype.setActiveBranch = function () {
     //    }
     // });
 
-    // if (self.options.breadcrumbDepth) {
+    // if (self.options.breadcrumbDepth) {
     //    parents = parents.splice(-1 * self.options.breadcrumbDepth);
     // }
 
@@ -848,8 +837,8 @@ SideNavigation.prototype.setActiveNavigator = function () {
      * Attaches all needed event handlers
      **/
 SideNavigation.prototype.attachEventHandler = function () {
-  var self = this,
-    menuItems = this.hierarchy.getFlattened()
+  var self = this
+  var menuItems = this.hierarchy.getFlattened()
 
   // add 'open' click event to first-level items
   _.each(menuItems, function (menuItem) {
@@ -888,8 +877,8 @@ SideNavigation.prototype.attachEventHandler = function () {
      * Attaches all needed event handlers to new MenuItems
      **/
 SideNavigation.prototype.synchEventHandlers = function () {
-  var self = this,
-    menuItems = this.hierarchy.getFlattened()
+  var self = this
+  var menuItems = this.hierarchy.getFlattened()
 
   // add 'open' click event to first-level items
   _.each(menuItems, function (menuItem) {
@@ -917,14 +906,14 @@ SideNavigation.prototype.synchEventHandlers = function () {
      * This method fetches an menuItems children from the server.
      */
 SideNavigation.prototype.fetch = function (menuItem) {
-  var call,
-    options = defaults.asyncNav,
-    max = options.max,
-    self = this,
-    level = menuItem.data.level + 2,
-    needsFetching = menuItem.data.needsFetching,
-    identifier = menuItem.data.identifier,
-    fetchUrl = options.loc + '/' + level + '/' + max + '/' + identifier
+  var call
+  var options = defaults.asyncNav
+  var max = options.max
+  var self = this
+  var level = menuItem.data.level + 2
+  var needsFetching = menuItem.data.needsFetching
+  var identifier = menuItem.data.identifier
+  var fetchUrl = options.loc + '/' + level + '/' + max + '/' + identifier
 
   if (!needsFetching) {
     self.jumpTo(menuItem)
@@ -1005,9 +994,9 @@ SideNavigation.prototype.jumpTo = function (menuItem) {
      * Animations!!!!
      **/
 SideNavigation.prototype.routeAnimation = function (menuItem) {
-  var self = this,
-    startLevels,
-    breakpoint
+  var self = this
+  var startLevels
+  var breakpoint
 
   if (!self.activeLevels) {
     self.activeLevels = self.hierarchy.getLevels(menuItem.data.position)
@@ -1064,8 +1053,8 @@ SideNavigation.prototype.routeAnimation = function (menuItem) {
      * @param {Function} callback
      **/
 SideNavigation.prototype.animateTo = function (level, callback) {
-  var self = this,
-    targetLeft = (level - 1) * -1 * self.options.subNavigationWidth + 'px'
+  var self = this
+  var targetLeft = (level - 1) * -1 * self.options.subNavigationWidth + 'px'
 
   self.setMoverHeight(level)
 
@@ -1097,9 +1086,9 @@ SideNavigation.prototype.animateTo = function (level, callback) {
      *
      **/
 SideNavigation.prototype.setMoverHeight = function (level) {
-  var self = this,
-    height,
-    $ul
+  var self = this
+  var height
+  var $ul
 
   $ul = self.subNavigation.getListAtLevel(level - 1)
 
@@ -1129,9 +1118,9 @@ SideNavigation.prototype.setMoverHeight = function (level) {
      * @return {Object} MenuItem
      **/
 SideNavigation.prototype.determineBreakpoint = function (start, end) {
-  var result = 1,
-    startReverse = start.slice(),
-    endReverse = end.slice().splice(0, start.length)
+  var result = 1
+  var startReverse = start.slice()
+  var endReverse = end.slice().splice(0, start.length)
 
   if (startReverse.length > endReverse.length) {
     startReverse = startReverse.splice(0, endReverse.length)

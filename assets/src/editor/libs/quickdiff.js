@@ -14,8 +14,8 @@ var navigatePath = function (root, path) {
 
 // Return the shared elements of 2 arrays from the beginning.
 var arrayPrefix = function (a, b) {
-  var sharedlen = Math.min(a.length, b.length),
-    i
+  var sharedlen = Math.min(a.length, b.length)
+  var i
 
   for (i = 0; i < sharedlen; i += 1) {
     if (a[i] !== b[i]) {
@@ -78,11 +78,10 @@ var forwardScan = function (a, b, apath, selectedFilters) {
     }
   }
 
-  var aNode = a.firstChild,
-    bNode = b.firstChild,
-    ret,
-    i = 0,
-    f
+  var aNode = a.firstChild
+  var bNode = b.firstChild
+  var ret
+  var i = 0
 
   // Recur nodes
   if (aNode && bNode) {
@@ -129,13 +128,13 @@ var reverseScan = function (a, b, apath, bpath, selectedFilters) {
     }
   }
 
-  var aNode = a.lastChild,
-    bNode = b.lastChild,
-    aLen = a.childNodes.length,
-    bLen = b.childNodes.length,
-    ret,
-    i = aLen - 1,
-    j = bLen - 1
+  var aNode = a.lastChild
+  var bNode = b.lastChild
+  var aLen = a.childNodes.length
+  var bLen = b.childNodes.length
+  var ret
+  var i = aLen - 1
+  var j = bLen - 1
 
   if (aNode && bNode) {
     do {
@@ -175,9 +174,10 @@ var reverseScan = function (a, b, apath, bpath, selectedFilters) {
 
 // Return a slice of childNodes from a parent.
 var childNodesSlice = function (parentNode, start, end) {
-  var arr = [],
-    i = 0,
-    cnode = parentNode.firstChild
+  var arr = []
+  var i = 0
+  var cnode = parentNode.firstChild
+
   while (i < start) {
     cnode = cnode.nextSibling
     i += 1
@@ -192,28 +192,28 @@ var childNodesSlice = function (parentNode, start, end) {
 
 // Find the difference between two DOM trees, and the operation to change a to b
 var scanDiff = function (a, b, filters) {
-  var for_diff = forwardScan(a, b, [], filters)
-  if (for_diff === false) {
+  var forDiff = forwardScan(a, b, [], filters)
+  if (forDiff === false) {
     return { type: 'identical' }
   }
 
-  var rev_diff = reverseScan(a, b, [], [], filters),
-    prefixA = arrayPrefix(for_diff, rev_diff[0]),
-    prefixB = arrayPrefix(for_diff, rev_diff[1]),
-    sourceSegment,
-    destSegment
+  var revDiff = reverseScan(a, b, [], [], filters)
+  var prefixA = arrayPrefix(forDiff, revDiff[0])
+  var prefixB = arrayPrefix(forDiff, revDiff[1])
+  var sourceSegment
+  var destSegment
 
   if (prefixA === true && prefixB === true) {
-    sourceSegment = [navigatePath(a, for_diff)]
-    destSegment = [navigatePath(b, for_diff)]
+    sourceSegment = [navigatePath(a, forDiff)]
+    destSegment = [navigatePath(b, forDiff)]
   } else {
-    var sharedroot = Math.min(prefixA, prefixB),
-      pathi = for_diff.slice(0, sharedroot),
-      sourceel = navigatePath(a, pathi),
-      destel = navigatePath(b, pathi),
-      leftPointer = for_diff[sharedroot],
-      rightPointerA = rev_diff[0][sharedroot],
-      rightPointerB = rev_diff[1][sharedroot]
+    var sharedroot = Math.min(prefixA, prefixB)
+    var pathi = forDiff.slice(0, sharedroot)
+    var sourceel = navigatePath(a, pathi)
+    var destel = navigatePath(b, pathi)
+    var leftPointer = forDiff[sharedroot]
+    var rightPointerA = revDiff[0][sharedroot]
+    var rightPointerB = revDiff[1][sharedroot]
 
     if (rightPointerA < rightPointerB && leftPointer > rightPointerA) {
       return {

@@ -1,16 +1,3 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Julian Kempff (julian.kempff@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- *
- */
-
-/** maybe use http://dbushell.github.io/Nestable/ instead of jqueryui */
-
-/* global define */
 import $ from 'jquery'
 import _ from 'underscore'
 
@@ -22,17 +9,17 @@ var SortableList
 
 SortableList = function () {
   return $(this).each(function (group) {
-    var $instance = $(this),
-      $saveBtn = $('.sortable-save-action', this),
-      $activateBtn = $('.sortable-activate-action', this),
-      $abortBtn = $('.sortable-abort-action', this),
-      activeClass = 'sortable-active',
-      dataUrl,
-      dataDepth,
-      dataActive,
-      originalHTML,
-      originalData,
-      updatedData
+    var $instance = $(this)
+    var $saveBtn = $('.sortable-save-action', this)
+    var $activateBtn = $('.sortable-activate-action', this)
+    var $abortBtn = $('.sortable-abort-action', this)
+    var activeClass = 'sortable-active'
+    var dataUrl
+    var dataDepth
+    var dataActive
+    var originalHTML
+    var originalData
+    var updatedData
 
     dataUrl = $instance.attr('data-action')
 

@@ -1,4 +1,4 @@
-/* global define, MathJax */
+/* global MathJax */
 import $ from 'jquery'
 
 import play from './serlo_sounds'
@@ -7,8 +7,8 @@ var SingleChoice
 
 SingleChoice = function () {
   function checkDimensions ($self) {
-    var totalWidth = 0,
-      changed = false
+    var totalWidth = 0
+    var changed = false
 
     $('.single-choice-answer-content', $self).each(function () {
       totalWidth += $(this).width()
@@ -34,8 +34,8 @@ SingleChoice = function () {
   }
 
   return $(this).each(function () {
-    var $self = $(this),
-      $singleChoice = $('.single-choice-group', $self)
+    var $self = $(this)
+    var $singleChoice = $('.single-choice-group', $self)
 
     handleResize($self)
     $(window).bind('resizeDelay', function () {
@@ -74,9 +74,9 @@ SingleChoice = function () {
 
     $singleChoice.submit(function (e) {
       e.preventDefault()
-      var $selected = $('.single-choice-answer-content.active', this),
-        $submit = $('.single-choice-submit', $singleChoice),
-        $feedback
+      var $selected = $('.single-choice-answer-content.active', this)
+      var $submit = $('.single-choice-submit', $singleChoice)
+      var $feedback
 
       if ($selected.length === 0) {
         return false

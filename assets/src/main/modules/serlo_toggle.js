@@ -1,4 +1,4 @@
-/* global define, MathJax */
+/* global MathJax */
 import $ from 'jquery'
 
 var ToggleAction
@@ -21,8 +21,9 @@ ToggleAction = function () {
         .unbind('click')
         .click(function (e) {
           e.preventDefault()
-          var $that = $(this),
-            $target = $($that.data('target'))
+          var $that = $(this)
+          var $target = $($that.data('target'))
+
           $that.toggleClass('active')
           $target.toggleClass('hidden')
           $('html, body').animate(
@@ -37,14 +38,15 @@ ToggleAction = function () {
       $(this)
         .unbind('click')
         .click(function () {
-          var $that = $(this),
-            $target = $($that.data('target'))
+          var $that = $(this)
+          var $target = $($that.data('target'))
+
           $target.toggleClass('hidden')
         })
     } else if ($(this).data('toggle') === 'collapse') {
       if (/#solution-\d+/.test($(this).data('target'))) {
-        var $target = $($(this).data('target')),
-          $base = $(this).closest('article')
+        var $target = $($(this).data('target'))
+        var $base = $(this).closest('article')
 
         if (!$base.length) {
           $base = $target

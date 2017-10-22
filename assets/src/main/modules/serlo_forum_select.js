@@ -3,10 +3,9 @@ import t from '../../modules/translator'
 
 var ForumSelect
 
-/* jshint validthis:true  */
 function selectForum (e) {
-  var $that = $(this),
-    url = $that.data('select-forum-href')
+  var $that = $(this)
+  var url = $that.data('select-forum-href')
 
   e.preventDefault()
 
@@ -23,8 +22,9 @@ function selectForum (e) {
     $modal.modal('show')
 
     $('button.select').click(function () {
-      var $this = $(this),
-        href = $this.data('action')
+      var $this = $(this)
+      var href = $this.data('action')
+
       $this.html(t('Please wait...'))
 
       $that.attr('action', href)

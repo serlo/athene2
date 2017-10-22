@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* global renderGGBElement, deployJava, XDomainRequest, ggbApplets, __ggb__giac, console */
 /**
  * (c) International GeoGebra Institute 2013
@@ -24,7 +25,7 @@ var ggbCompiledAppletsLoaded = false
  *              E.g.: {"is3D":false,"AV":false,"SV":false,"CV":false,"EV2":false,"CP":false,"PC":false,"DA":false,"FI":false,"PV":false,"macro":false};
  * @param html5NoWebSimple Set to true to avoid using web Simple for simple html5 applets. In this case the full version is used always.
  */
-var GGBApplet = function () {
+var GGBApplet = function() {
   'use strict'
   var applet = {}
 
@@ -127,7 +128,7 @@ var GGBApplet = function () {
      * @param codebase Can be an URL or a local file path.
      * @param offline Set to true, if the codebase is a local URL and no web URL
      */
-  applet.setHTML5Codebase = function (codebase, offline) {
+  applet.setHTML5Codebase = function(codebase, offline) {
     html5OverwrittenCodebase = codebase
     setHTML5CodebaseInternal(codebase, offline)
   }
@@ -136,7 +137,7 @@ var GGBApplet = function () {
      * Overrides the codebase version for Java.
      * @param version The version of the codebase that shoudl be used for java applets.
      */
-  applet.setJavaCodebaseVersion = function (version) {
+  applet.setJavaCodebaseVersion = function(version) {
     javaCodebaseVersion = version
     setDefaultJavaCodebaseForVersion(version)
   }
@@ -146,16 +147,16 @@ var GGBApplet = function () {
      * If another codebase than the default codebase should be used, this method has to be called before setHTML5Codebase.
      * @param version The version of the codebase that should be used for HTML5 applets.
      */
-  applet.setHTML5CodebaseVersion = function (version, offline) {
+  applet.setHTML5CodebaseVersion = function(version, offline) {
     html5OverwrittenCodebaseVersion = version
     setDefaultHTML5CodebaseForVersion(version, offline)
   }
 
-  applet.getHTML5CodebaseVersion = function () {
+  applet.getHTML5CodebaseVersion = function() {
     return html5CodebaseVersion
   }
 
-  applet.getParameters = function () {
+  applet.getParameters = function() {
     return parameters
   }
 
@@ -164,7 +165,7 @@ var GGBApplet = function () {
      * @param codebase Can be an URL or a local file path.
      * @param offline Set to true, if the codebase is a local URL and no web URL
      */
-  applet.setJavaCodebase = function (codebase, offline) {
+  applet.setJavaCodebase = function(codebase, offline) {
     isOverriddenJavaCodebase = true
 
     if (codebase.slice(-1) === '/') {
@@ -183,15 +184,15 @@ var GGBApplet = function () {
     doSetJavaCodebase(codebase, offline)
   }
 
-  applet.setFontsCSSURL = function (url) {
+  applet.setFontsCSSURL = function(url) {
     fonts_css_url = url
   }
 
-  applet.setGiacJSURL = function (url) {
+  applet.setGiacJSURL = function(url) {
     giac_js_url = url
   }
 
-  applet.toggleAppletTypeControls = function (parentSelector) {
+  applet.toggleAppletTypeControls = function(parentSelector) {
     var currentAppletType = applet.getLoadedAppletType()
     var displayJava = 'none',
       displayHTML5 = 'none'
@@ -219,7 +220,7 @@ var GGBApplet = function () {
     }
   }
 
-  var doSetJavaCodebase = function (codebase, offline) {
+  var doSetJavaCodebase = function(codebase, offline) {
     javaCodebase = codebase
 
     // Check if the codebase is online or local
@@ -251,7 +252,7 @@ var GGBApplet = function () {
      * Cannot be used in combination with setJNLPBaseDir
      * @param newJnlpFilePath The absolute path to the JNLP file.
      */
-  applet.setJNLPFile = function (newJnlpFilePath) {
+  applet.setJNLPFile = function(newJnlpFilePath) {
     jnlpFilePath = newJnlpFilePath
   }
 
@@ -259,7 +260,7 @@ var GGBApplet = function () {
      * Sets an alternative base directory for the JNLP File. The path must not include the version number.
      * @param baseDir
      */
-  applet.setJNLPBaseDir = function (baseDir) {
+  applet.setJNLPBaseDir = function(baseDir) {
     jnlpBaseDir = baseDir
     applet.setJNLPFile(
       jnlpBaseDir + javaCodebaseVersion + '/' + buildJNLPFileName(isJavaOffline)
@@ -274,7 +275,7 @@ var GGBApplet = function () {
      * @param boolean noPreview. Set to true if no preview image should be shown
      * @return The type of the applet that was injected or null if the applet could not be injected.
      */
-  applet.inject = function () {
+  applet.inject = function() {
     var type = 'auto'
     var container_ID = parameters.id
     var container
@@ -306,7 +307,7 @@ var GGBApplet = function () {
 
     continueInject()
 
-    function continueInject () {
+    function continueInject() {
       // Check if the initialization is complete
       if (!initComplete) {
         // Try again in 200 ms.
@@ -350,7 +351,7 @@ var GGBApplet = function () {
     }
   }
 
-  function getWidthHeight (appletElem) {
+  function getWidthHeight(appletElem) {
     var myWidth = 0,
       myHeight = 0
     if (typeof window.innerWidth === 'number') {
@@ -390,7 +391,7 @@ var GGBApplet = function () {
     return { width: myWidth, height: myHeight }
   }
 
-  function getScale (isScreenshoGenerator, appletElem) {
+  function getScale(isScreenshoGenerator, appletElem) {
     if (isScreenshoGenerator) {
       return 1
     }
@@ -403,14 +404,14 @@ var GGBApplet = function () {
     return Math.min(xscale, yscale)
   }
 
-  applet.getViews = function () {
+  applet.getViews = function() {
     return views
   }
 
   /**
      * @returns boolean Whether the system is capable of showing the GeoGebra Java applet
      */
-  applet.isJavaInstalled = function () {
+  applet.isJavaInstalled = function() {
     if (typeof deployJava === 'undefined') {
       // incase deployJava.js not available
       if (navigator.javaEnabled()) {
@@ -445,7 +446,7 @@ var GGBApplet = function () {
     }
   }
 
-  function pluginEnabled (name) {
+  function pluginEnabled(name) {
     var plugins = navigator.plugins,
       i = plugins.length,
       regExp = new RegExp(name, 'i')
@@ -457,7 +458,7 @@ var GGBApplet = function () {
     return false
   }
 
-  var fetchParametersFromTube = function (successCallback) {
+  var fetchParametersFromTube = function(successCallback) {
     var tubeurl, protocol
     // Determine the url for the tube API
     if (parameters.tubeurl !== undefined) {
@@ -523,7 +524,7 @@ var GGBApplet = function () {
       },
       // TODO: add prefapplet type (params:'type' API:'prefapplettype')
 
-      success = function () {
+      success = function() {
         var text = xhr.responseText
         var jsondata = JSON.parse(text) // retrieve result as an JSON object
         var item = jsondata.responses.response.item
@@ -584,7 +585,7 @@ var GGBApplet = function () {
     var url = tubeurl + '/api/json.php'
     var xhr = createCORSRequest('POST', url)
 
-    var onError = function () {
+    var onError = function() {
       log(
         'Error: The request for fetching material_id ' +
           parameters.material_id +
@@ -600,7 +601,7 @@ var GGBApplet = function () {
     // Response handlers.
     xhr.onload = success
     xhr.onerror = onError
-    xhr.onprogress = function () {} // IE9 will abort the xhr.send without this
+    xhr.onprogress = function() {} // IE9 will abort the xhr.send without this
 
     // Send request
     if (xhr.setRequestHeader) {
@@ -611,7 +612,7 @@ var GGBApplet = function () {
   }
 
   // Create the XHR object.
-  function createCORSRequest (method, url) {
+  function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest()
     if ('withCredentials' in xhr) {
       // XHR for Chrome/Firefox/Opera/Safari.
@@ -630,7 +631,7 @@ var GGBApplet = function () {
   /**
      * @return NULL if no version found. Else return some things like: '1.6.0_31'
      */
-  var JavaVersion = function () {
+  var JavaVersion = function() {
     var resutl = null
     // Walk through the full list of mime types.
     for (var i = 0, size = navigator.mimeTypes.length; i < size; i++) {
@@ -650,7 +651,7 @@ var GGBApplet = function () {
   /**
      * @returns boolean Whether the system is capable of showing the GeoGebra HTML5 applet
      */
-  applet.isHTML5Installed = function () {
+  applet.isHTML5Installed = function() {
     if (isInternetExplorer()) {
       if (
         (views.is3D || html5CodebaseScript === 'web3d.nocache.js') &&
@@ -670,7 +671,7 @@ var GGBApplet = function () {
   /**
      * @returns boolean Whether the system is capable of showing precompiled HTML5 applets
      */
-  applet.isCompiledInstalled = function () {
+  applet.isCompiledInstalled = function() {
     if (isInternetExplorer()) {
       if (views.is3D && getIEVersion() < 11) {
         // WebGL is supported since IE 11
@@ -685,16 +686,16 @@ var GGBApplet = function () {
   /**
      * @returns The type of the loaded applet or null if no applet was loaded yet.
      */
-  applet.getLoadedAppletType = function () {
+  applet.getLoadedAppletType = function() {
     return loadedAppletType
   }
 
-  applet.setPreviewImage = function (previewFilePath, loadingFilePath) {
+  applet.setPreviewImage = function(previewFilePath, loadingFilePath) {
     previewImagePath = previewFilePath
     previewLoadingPath = loadingFilePath
   }
 
-  applet.removeExistingApplet = function (appletParent, showScreenshot) {
+  applet.removeExistingApplet = function(appletParent, showScreenshot) {
     var i
     if (typeof appletParent === 'string') {
       appletParent = document.getElementById(appletParent)
@@ -755,7 +756,7 @@ var GGBApplet = function () {
     }
   }
 
-  applet.refreshHitPoints = function () {
+  applet.refreshHitPoints = function() {
     if (parseFloat(ggbHTML5LoadedCodebaseVersion) >= 5.0) {
       return true // Not necessary anymore in 5.0
     }
@@ -769,7 +770,7 @@ var GGBApplet = function () {
     return false
   }
 
-  applet.startAnimation = function () {
+  applet.startAnimation = function() {
     var app = applet.getAppletObject()
     if (app) {
       if (typeof app.startAnimation === 'function') {
@@ -780,7 +781,7 @@ var GGBApplet = function () {
     return false
   }
 
-  applet.stopAnimation = function () {
+  applet.stopAnimation = function() {
     var app = applet.getAppletObject()
     if (app) {
       if (typeof app.stopAnimation === 'function') {
@@ -791,7 +792,7 @@ var GGBApplet = function () {
     return false
   }
 
-  applet.setPreCompiledScriptPath = function (path, version) {
+  applet.setPreCompiledScriptPath = function(path, version) {
     preCompiledScriptPath = path
     if (preCompiledResourcePath === null) {
       preCompiledResourcePath = preCompiledScriptPath
@@ -799,11 +800,11 @@ var GGBApplet = function () {
     preCompiledScriptVersion = version
   }
 
-  applet.setPreCompiledResourcePath = function (path) {
+  applet.setPreCompiledResourcePath = function(path) {
     preCompiledResourcePath = path
   }
 
-  applet.getAppletObject = function () {
+  applet.getAppletObject = function() {
     var appName = parameters.id !== undefined ? parameters.id : 'ggbApplet'
     return window[appName]
   }
@@ -822,7 +823,7 @@ var GGBApplet = function () {
   //        }
   //    }
 
-  var injectJavaApplet = function (appletElem, parameters) {
+  var injectJavaApplet = function(appletElem, parameters) {
     if (views.CV) {
       var giac_url
       //            if (views.CV && (navigator.appVersion.indexOf("Mac")!=-1 || navigator.appVersion.indexOf("Linux")!=-1 || navigator.appVersion.indexOf("X11")!=-1)) {
@@ -835,7 +836,7 @@ var GGBApplet = function () {
       var script = document.createElement('script')
       script.setAttribute('src', giac_url)
 
-      script.onload = function () {
+      script.onload = function() {
         window._GIAC_caseval = __ggb__giac.cwrap(
           '_ZN4giac7casevalEPKc',
           'string',
@@ -930,18 +931,18 @@ var GGBApplet = function () {
     )
   }
 
-  var appendParam = function (applet, name, value) {
+  var appendParam = function(applet, name, value) {
     var param = document.createElement('param')
     param.setAttribute('name', name)
     param.setAttribute('value', value)
     applet.appendChild(param)
   }
 
-  var valBoolean = function (value) {
+  var valBoolean = function(value) {
     return value && value !== 'false'
   }
 
-  var injectHTML5Applet = function (appletElem, parameters, noPreview) {
+  var injectHTML5Applet = function(appletElem, parameters, noPreview) {
     // Decide if the script has to be (re)loaded or renderGGBElement can be used to load the applet
     var loadScript = !isRenderGGBElementEnabled && !scriptLoadStarted
     // Reload the script when not loaded yet, or  currently the wrong version is loaded
@@ -1038,7 +1039,7 @@ var GGBApplet = function () {
         if (typeof parameters.appletOnLoad === 'function') {
           var oriAppletOnload = parameters.appletOnLoad
         }
-        parameters.appletOnLoad = function () {
+        parameters.appletOnLoad = function() {
           var preview = appletElem.querySelector('.ggb_preview')
           if (preview) {
             preview.parentNode.removeChild(preview)
@@ -1074,7 +1075,7 @@ var GGBApplet = function () {
       appletElem.appendChild(article)
     }
 
-    function renderGGBElementWithParams (article, parameters) {
+    function renderGGBElementWithParams(article, parameters) {
       if (
         parameters &&
         typeof parameters.appletOnLoad === 'function' &&
@@ -1091,7 +1092,7 @@ var GGBApplet = function () {
       )
     }
 
-    function renderGGBElementOnTube (a, parameters) {
+    function renderGGBElementOnTube(a, parameters) {
       if (typeof renderGGBElement === 'undefined') {
         // it is possible, that we get here many times, before script are loaded. So best here to save the article element for later - otherwise only last article processed :-)
         if (html5AppletsToProcess === null) {
@@ -1101,10 +1102,10 @@ var GGBApplet = function () {
           article: a,
           params: parameters
         })
-        window.renderGGBElementReady = function () {
+        window.renderGGBElementReady = function() {
           isRenderGGBElementEnabled = true
           if (html5AppletsToProcess !== null && html5AppletsToProcess.length) {
-            html5AppletsToProcess.forEach(function (obj) {
+            html5AppletsToProcess.forEach(function(obj) {
               renderGGBElementWithParams(obj.article, obj.params)
             })
             html5AppletsToProcess = null
@@ -1182,7 +1183,7 @@ var GGBApplet = function () {
 
       var script = document.createElement('script')
 
-      var scriptLoaded = function () {
+      var scriptLoaded = function() {
         renderGGBElementOnTube(article, parameters)
       }
 
@@ -1206,7 +1207,7 @@ var GGBApplet = function () {
     parameters.width = oriWidth
   }
 
-  var injectCompiledApplet = function (appletElem, parameters, noPreview) {
+  var injectCompiledApplet = function(appletElem, parameters, noPreview) {
     var appletObjectName = parameters.id
 
     var scale = getScale(parameters.screenshotGenerator, appletElem)
@@ -1352,7 +1353,7 @@ var GGBApplet = function () {
 
     var script = document.createElement('script')
 
-    var scriptLoaded = function () {
+    var scriptLoaded = function() {
       window[appletObjectName].preCompiledScriptPath = preCompiledScriptPath
       window[appletObjectName].scaleParameter = parameters.scale
 
@@ -1390,7 +1391,7 @@ var GGBApplet = function () {
     appletElem.appendChild(script)
   }
 
-  var injectScreenshot = function (appletElem, parameters) {
+  var injectScreenshot = function(appletElem, parameters) {
     // Add the tag for the preview image
     if (
       previewImagePath !== null &&
@@ -1427,7 +1428,7 @@ var GGBApplet = function () {
     }
   }
 
-  var createScreenShotDiv = function (oriWidth, oriHeight, borderColor) {
+  var createScreenShotDiv = function(oriWidth, oriHeight, borderColor) {
     var previewContainer = document.createElement('div')
     previewContainer.className = 'ggb_preview'
     previewContainer.style.position = 'absolute'
@@ -1478,7 +1479,7 @@ var GGBApplet = function () {
     return previewContainer
   }
 
-  var buildJNLPFileName = function (isOffline) {
+  var buildJNLPFileName = function(isOffline) {
     var version = parseFloat(javaCodebaseVersion)
     var filename = 'applet' + version * 10 + '_'
     if (isOffline) {
@@ -1501,7 +1502,7 @@ var GGBApplet = function () {
      * If auto is passed, the preferred type is html5 for versions >= 4.4 and java for all versions < 4.4.
      * @param preferredType can be 'preferJava', 'preferHTML5', 'java', 'html5', 'auto' or 'screenshot'. Default='auto'
      */
-  var detectAppletType = function (preferredType) {
+  var detectAppletType = function(preferredType) {
     preferredType = preferredType.toLowerCase()
     if (
       preferredType === 'java' ||
@@ -1543,7 +1544,7 @@ var GGBApplet = function () {
     }
   }
 
-  var getIEVersion = function () {
+  var getIEVersion = function() {
     var a = navigator.appVersion
     if (a.indexOf('Trident/7.0') > 0) return 11
     else {
@@ -1551,24 +1552,24 @@ var GGBApplet = function () {
     }
   }
 
-  var isInternetExplorer = function () {
+  var isInternetExplorer = function() {
     return getIEVersion() != 999
   }
 
-  function isFlexibleWorksheet () {
+  function isFlexibleWorksheet() {
     return (
       window.GGBT_wsf_view !== undefined || window.GGBT_wsf_edit !== undefined
     )
   }
 
-  function isFlexibleWorksheetEditor () {
+  function isFlexibleWorksheetEditor() {
     return window.GGBT_wsf_edit !== undefined
   }
 
   /**
      * @param version Can be: 3.2, 4.0, 4.2, 4.4, 5.0, test, test42, test44, test50
      */
-  var setDefaultHTML5CodebaseForVersion = function (version, offline) {
+  var setDefaultHTML5CodebaseForVersion = function(version, offline) {
     html5CodebaseVersion = version
     if (offline) {
       setHTML5CodebaseInternal(html5CodebaseVersion, true)
@@ -1642,7 +1643,7 @@ var GGBApplet = function () {
     setHTML5CodebaseInternal(codebase, false)
   }
 
-  var setHTML5CodebaseInternal = function (codebase, offline) {
+  var setHTML5CodebaseInternal = function(codebase, offline) {
     if (codebase.slice(-1) !== '/') {
       codebase += '/'
     }
@@ -1687,7 +1688,7 @@ var GGBApplet = function () {
     }
   }
 
-  var setDefaultJavaCodebaseForVersion = function (version) {
+  var setDefaultJavaCodebaseForVersion = function(version) {
     // There are no test versions for java. So when test is passed, it will be converted to the normal codebase
     if (version === 'test32') {
       javaCodebaseVersion = '3.2'
@@ -1725,7 +1726,7 @@ var GGBApplet = function () {
     doSetJavaCodebase(codebase, false)
   }
 
-  var log = function (text, parameters) {
+  var log = function(text, parameters) {
     if (window.console && window.console.log) {
       if (
         !parameters ||
@@ -1744,7 +1745,7 @@ var GGBApplet = function () {
     continueInit()
   }
 
-  function continueInit () {
+  function continueInit() {
     var html5Version = ggbVersion
     if (html5OverwrittenCodebaseVersion !== null) {
       html5Version = html5OverwrittenCodebaseVersion

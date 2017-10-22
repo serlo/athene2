@@ -1,4 +1,4 @@
-/* global define, MathJax */
+/* global MathJax */
 import $ from 'jquery'
 import S from 'string'
 import A from 'algebra.js'
@@ -6,11 +6,11 @@ import A from 'algebra.js'
 import play from './serlo_sounds'
 
 var InputChallenge = function ($container) {
-  var type,
-    solution,
-    feedback,
-    wrongInputs,
-    self = this
+  var type
+  var solution
+  var feedback
+  var wrongInputs
+  var self = this
 
   self.$form = $container.find('.input-challenge-group')
   self.$input = $container.find('.input-challenge-input')
@@ -90,8 +90,8 @@ InputChallenge.prototype.init = function () {
 
 InputChallenge.prototype.matchesInput = function (input) {
   try {
-    var solution = this.normalize(input, input.solution),
-      submission = this.normalize(input, this.$input.val())
+    var solution = this.normalize(input, input.solution)
+    var submission = this.normalize(input, this.$input.val())
 
     switch (input.type) {
       case 'input-expression-equal-match-challenge':
@@ -107,9 +107,9 @@ InputChallenge.prototype.matchesInput = function (input) {
 
 InputChallenge.prototype.normalize = function (input, string) {
   var normalizeNumber = function (string) {
-      return S(string).replaceAll(',', '.').s
-    },
-    temp = S(string).collapseWhitespace()
+    return S(string).replaceAll(',', '.').s
+  }
+  var temp = S(string).collapseWhitespace()
 
   switch (input.type) {
     case 'input-number-exact-match-challenge':
@@ -117,7 +117,7 @@ InputChallenge.prototype.normalize = function (input, string) {
         .replaceAll(' /', '/')
         .replaceAll('/ ', '/').s
     case 'input-expression-equal-match-challenge':
-      return new A.parse(normalizeNumber(temp))
+      return A.parse(normalizeNumber(temp))
     default:
       return temp.s.toUpperCase()
   }
@@ -134,6 +134,7 @@ function changeClass ($element, oldClasses, newClasses, time) {
 
 $.fn.InputChallenge = function () {
   return $(this).each(function () {
+    // eslint-disable-next-line no-new
     new InputChallenge($(this))
   })
 }

@@ -1,17 +1,6 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Jonas Keinholz (jonas.keinholz@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link    https://github.com/serlo-org/athene2 for the canonical source repository
- *
- * Breadcrumb
- *
- */
 import $ from 'jquery'
 
-var Breadcrumbs, instance, defaults
+var Breadcrumbs, defaults
 
 defaults = {
   // main wrapper selector
@@ -38,8 +27,8 @@ Breadcrumbs = function (options) {
     return new Breadcrumbs(options)
   }
 
-  var self = this,
-    elements
+  var self = this
+  var elements
 
   self.options = options
     ? $.extend({}, defaults, options)

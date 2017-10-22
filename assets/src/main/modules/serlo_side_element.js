@@ -1,17 +1,16 @@
-/* global define, window */
 import $ from 'jquery'
 import _ from 'underscore'
 
-var SideElement,
-  defaults = {
-    visibleClass: 'visible',
-    // Full Stack Breakpoint Grid
-    fullStackBreakPoint: 1350,
-    // Sidebar Breakpoint Grid
-    sidebarBreakPoint: 980,
-    // Navigation Breakpoint Grid
-    navigationBreakPoint: 1140
-  }
+var SideElement
+var defaults = {
+  visibleClass: 'visible',
+  // Full Stack Breakpoint Grid
+  fullStackBreakPoint: 1350,
+  // Sidebar Breakpoint Grid
+  sidebarBreakPoint: 980,
+  // Navigation Breakpoint Grid
+  navigationBreakPoint: 1140
+}
 
 SideElement = function (options) {
   this.options = options

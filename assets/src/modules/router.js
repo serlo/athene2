@@ -1,4 +1,4 @@
-/* global define, window */
+/* global window */
 import $ from 'jquery'
 
 var Router

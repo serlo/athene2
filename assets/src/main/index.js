@@ -1,3 +1,4 @@
+/* globals gaOptout, MathJax */
 import autosize from 'autosize'
 import $ from 'jquery'
 import 'jquery-sticky'
@@ -76,9 +77,11 @@ const initResizeEvent = () => {
 }
 
 const initNavigation = () => {
+  /* eslint-disable no-new */
   new MobileNavigation()
   new Breadcrumbs()
   new SideNavigation()
+  /* eslint-enable no-new */
 }
 
 const initFooter = () => {

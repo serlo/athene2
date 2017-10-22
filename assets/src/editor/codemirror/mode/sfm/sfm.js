@@ -1,12 +1,13 @@
-CodeMirror.defineMode('sfm', function (cmCfg, modeCfg) {
-  var defStartPos = function (stream, state) {
+/* eslint-disable */
+CodeMirror.defineMode('sfm', function(cmCfg, modeCfg) {
+  var defStartPos = function(stream, state) {
       state.startPos = {
         line: stream.lineNo,
         ch: stream.start
       }
       state.endPos = undefined
     },
-    defEndPos = function (stream, state) {
+    defEndPos = function(stream, state) {
       state.endPos = {
         line: stream.lineNo,
         ch: stream.pos
@@ -14,11 +15,11 @@ CodeMirror.defineMode('sfm', function (cmCfg, modeCfg) {
     }
 
   return {
-    startState: function () {
+    startState: function() {
       return {}
     },
 
-    blankLine: function (state) {
+    blankLine: function(state) {
       // state.wasBlank = true;
       state.inEm = false
       state.inStrong = false
@@ -28,7 +29,7 @@ CodeMirror.defineMode('sfm', function (cmCfg, modeCfg) {
       state.startPos = undefined
     },
 
-    token: function (stream, state) {
+    token: function(stream, state) {
       // START OF LINE
       if (stream.sol()) {
         if (stream.match(/^\s*$/, true)) {

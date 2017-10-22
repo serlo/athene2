@@ -1,19 +1,10 @@
-/**
- *
- * Interactive Mathematical Puzzles
- *
- * @author  Stefan Dirnstorfer
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- */
-/* global define */
 import $ from 'jquery'
 import d3 from 'd3'
 
 import touchop from './serlo_math_puzzle_touchop'
 
-var open = null,
-  touch = false
+var open = null
+var touch = false
 
 // prevent unintended scrolling
 window.addEventListener('touchmove', function (evt) {
@@ -53,16 +44,17 @@ function makePuzzle (parent, obj) {
   window.addEventListener('resize', function () {
     d3.select(parent).classed('open', open === parent)
     if (open === parent && touch) {
-      var serlo_top = d3.select('#page .main')[0][0].offsetTop,
-        serlo_left = d3.select('#page .main')[0][0].offsetLeft,
-        width = Math.min(
-          window.innerWidth - 20,
-          3 / 2 * (window.innerHeight - 20)
-        ),
-        height = Math.min(
-          window.innerHeight - 20,
-          2 / 3 * (window.innerWidth - 20)
-        )
+      var serloTop = d3.select('#page .main')[0][0].offsetTop
+      var serloLeft = d3.select('#page .main')[0][0].offsetLeft
+      var width = Math.min(
+        window.innerWidth - 20,
+        3 / 2 * (window.innerHeight - 20)
+      )
+      var height = Math.min(
+        window.innerHeight - 20,
+        2 / 3 * (window.innerWidth - 20)
+      )
+
       d3
         .select(parent)
         .style('position', 'absolute')
@@ -74,11 +66,11 @@ function makePuzzle (parent, obj) {
         )
         .style(
           'top',
-          window.scrollY - serlo_top + (window.innerHeight - height) / 2 + 'px'
+          window.scrollY - serloTop + (window.innerHeight - height) / 2 + 'px'
         )
         .style(
           'left',
-          window.scrollX - serlo_left + (window.innerWidth - width) / 2 + 'px'
+          window.scrollX - serloLeft + (window.innerWidth - width) / 2 + 'px'
         )
         .transition()
         .style('width', width + 'px')

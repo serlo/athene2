@@ -1,3 +1,4 @@
+/* eslint-disable */
 import $ from 'jquery'
 
 var hasTouch = 'ontouchstart' in window
@@ -7,7 +8,7 @@ var hasTouch = 'ontouchstart' in window
      * events are normally disabled on the dragging element to avoid conflicts
      * https://github.com/ausi/Feature-detection-technique-for-pointer-events/blob/master/modernizr-pointerevents.js
      */
-var hasPointerEvents = (function () {
+var hasPointerEvents = (function() {
   var el = document.createElement('div'),
     docEl = document.documentElement
   if (!('pointerEvents' in el.style)) {
@@ -48,7 +49,7 @@ var defaults = {
   threshold: 20
 }
 
-function Plugin (element, options) {
+function Plugin(element, options) {
   this.w = $(window)
   this.el = $(element)
   this.options = $.extend({}, defaults, options)
@@ -56,7 +57,7 @@ function Plugin (element, options) {
 }
 
 Plugin.prototype = {
-  init: function () {
+  init: function() {
     var list = this
 
     list.reset()
@@ -65,11 +66,11 @@ Plugin.prototype = {
 
     list.placeEl = $('<div class="' + list.options.placeClass + '"/>')
 
-    $.each(this.el.find(list.options.itemNodeName), function (k, el) {
+    $.each(this.el.find(list.options.itemNodeName), function(k, el) {
       list.setParent($(el))
     })
 
-    list.el.on('click', 'button', function (e) {
+    list.el.on('click', 'button', function(e) {
       if (list.dragEl || (!hasTouch && e.button !== 0)) {
         return
       }
@@ -84,7 +85,7 @@ Plugin.prototype = {
       }
     })
 
-    var onStartEvent = function (e) {
+    var onStartEvent = function(e) {
       var handle = $(e.target)
       if (!handle.hasClass(list.options.handleClass)) {
         if (handle.closest('.' + list.options.noDragClass).length) {
@@ -104,14 +105,14 @@ Plugin.prototype = {
       list.dragStart(hasTouch ? e.touches[0] : e)
     }
 
-    var onMoveEvent = function (e) {
+    var onMoveEvent = function(e) {
       if (list.dragEl) {
         e.preventDefault()
         list.dragMove(hasTouch ? e.touches[0] : e)
       }
     }
 
-    var onEndEvent = function (e) {
+    var onEndEvent = function(e) {
       if (list.dragEl) {
         e.preventDefault()
         list.dragStop(hasTouch ? e.touches[0] : e)
@@ -129,7 +130,7 @@ Plugin.prototype = {
       list.w.on(eEnd, onEndEvent)
     }
 
-    var destroyNestable = function () {
+    var destroyNestable = function() {
       if (hasTouch) {
         list.el[0].removeEventListener(eStart, onStartEvent, false)
         window.removeEventListener(eMove, onMoveEvent, false)
@@ -150,18 +151,18 @@ Plugin.prototype = {
     list.el.bind('destroy-nestable', destroyNestable)
   },
 
-  destroy: function () {
+  destroy: function() {
     this.el.trigger('destroy-nestable')
   },
 
-  serialize: function () {
+  serialize: function() {
     var data,
       depth = 0,
       list = this,
-      step = function (level, depth) {
+      step = function(level, depth) {
         var array = [],
           items = level.children(list.options.itemNodeName)
-        items.each(function () {
+        items.each(function() {
           var li = $(this),
             item = $.extend({}, li.data()),
             sub = li.children(list.options.listNodeName)
@@ -176,11 +177,11 @@ Plugin.prototype = {
     return data
   },
 
-  serialise: function () {
+  serialise: function() {
     return this.serialize()
   },
 
-  reset: function () {
+  reset: function() {
     this.mouse = {
       offsetX: 0,
       offsetY: 0,
@@ -208,14 +209,14 @@ Plugin.prototype = {
     this.pointEl = null
   },
 
-  expandItem: function (li) {
+  expandItem: function(li) {
     li.removeClass(this.options.collapsedClass)
     li.children('[data-action="expand"]').hide()
     li.children('[data-action="collapse"]').show()
     li.children(this.options.listNodeName).show()
   },
 
-  collapseItem: function (li) {
+  collapseItem: function(li) {
     var lists = li.children(this.options.listNodeName)
     if (lists.length) {
       li.addClass(this.options.collapsedClass)
@@ -225,21 +226,21 @@ Plugin.prototype = {
     }
   },
 
-  expandAll: function () {
+  expandAll: function() {
     var list = this
-    list.el.find(list.options.itemNodeName).each(function () {
+    list.el.find(list.options.itemNodeName).each(function() {
       list.expandItem($(this))
     })
   },
 
-  collapseAll: function () {
+  collapseAll: function() {
     var list = this
-    list.el.find(list.options.itemNodeName).each(function () {
+    list.el.find(list.options.itemNodeName).each(function() {
       list.collapseItem($(this))
     })
   },
 
-  setParent: function (li) {
+  setParent: function(li) {
     if (li.children(this.options.listNodeName).length) {
       li.prepend($(this.options.expandBtnHTML))
       li.prepend($(this.options.collapseBtnHTML))
@@ -247,13 +248,13 @@ Plugin.prototype = {
     li.children('[data-action="expand"]').hide()
   },
 
-  unsetParent: function (li) {
+  unsetParent: function(li) {
     li.removeClass(this.options.collapsedClass)
     li.children('[data-action]').remove()
     li.children(this.options.listNodeName).remove()
   },
 
-  dragStart: function (e) {
+  dragStart: function(e) {
     var mouse = this.mouse,
       target = $(e.target),
       dragItem = target.closest(this.options.itemNodeName)
@@ -297,7 +298,7 @@ Plugin.prototype = {
     }
   },
 
-  dragStop: function (e) {
+  dragStop: function(e) {
     // fix for zepto.js
     // this.placeEl.replaceWith(this.dragEl.children(this.options.itemNodeName + ':first').detach());
     var el = this.dragEl.children(this.options.itemNodeName).first()
@@ -312,7 +313,7 @@ Plugin.prototype = {
     this.reset()
   },
 
-  dragMove: function (e) {
+  dragMove: function(e) {
     var list,
       parent,
       prev,
@@ -484,11 +485,11 @@ Plugin.prototype = {
   }
 }
 
-$.fn.nestable = function (params) {
+$.fn.nestable = function(params) {
   var lists = this,
     retval = this
 
-  lists.each(function () {
+  lists.each(function() {
     var plugin = $(this).data('nestable')
 
     if (!plugin) {

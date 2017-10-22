@@ -1,13 +1,12 @@
-/* global define, window */
 import _ from 'underscore'
 
 import Common from './common'
 import i18n from './i18n'
 
-var t,
-  config,
-  untranslated = [],
-  defaultLanguage = 'de'
+var t
+var config
+var untranslated = []
+var defaultLanguage = 'de'
 
 config = {
   language: defaultLanguage,
@@ -67,8 +66,8 @@ function replace (string, replacements) {
      * @return {String} The translated string or the original
      **/
 t = Common.memoize(function () {
-  var args = Array.prototype.slice.call(arguments),
-    string = args.shift()
+  var args = Array.prototype.slice.call(arguments)
+  var string = args.shift()
 
   return replace(mayTranslate(string), args)
 })

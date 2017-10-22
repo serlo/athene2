@@ -1,12 +1,9 @@
-import $ from 'jquery'
 import _ from 'underscore'
 
-import Cache from '../../libs/cache'
 import eventScope from '../../libs/eventscope'
 import Modal from '../../modules/modals'
 import t from '../../modules/translator'
 import LayoutAdd from './serlo_layout_add'
-import Column from './serlo_layout_column'
 import Row from './serlo_layout_row'
 
 var LayoutBuilder
@@ -16,8 +13,8 @@ LayoutBuilder = function (configuration) {
     throw new Error('No LayoutBuilderConfiguration set for LayoutBuilder')
   }
 
-  var that = this,
-    layoutAdd
+  var that = this
+  var layoutAdd
 
   eventScope(this)
 
@@ -39,9 +36,9 @@ LayoutBuilder.prototype.addRow = function (
   atIndex,
   doNotTriggerSelect
 ) {
-  var newRow,
-    before,
-    that = this
+  var newRow
+  var before
+  var that = this
 
   newRow = new Row(requestedLayout, that.rows.length, data, that.layouts)
 
@@ -103,8 +100,8 @@ LayoutBuilder.prototype.removeRow = function (row) {
 }
 
 LayoutBuilder.prototype.reOrderRows = function (rowToUpdate, upOrDown) {
-  var that = this,
-    before
+  var that = this
+  var before
 
   that.rows.splice(rowToUpdate.index, 1)
 

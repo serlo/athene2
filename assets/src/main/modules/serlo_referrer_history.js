@@ -1,22 +1,12 @@
-/**
- *
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author  Julian Kempff (julian.kempff@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- *
- * Saves the browser pathname on the client side.
- */
 import _ from 'underscore'
 
 import cache from '../../libs/cache'
 import '../../libs/eventscope'
 
-var ReferrerHistory,
-  cacheKey = 'a2_history',
-  limit = 50,
-  historyCache = cache(cacheKey)
+var ReferrerHistory
+var cacheKey = 'a2_history'
+var limit = 50
+var historyCache = cache(cacheKey)
 
 /**
      * loads history from cache

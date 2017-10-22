@@ -1,4 +1,3 @@
-/* global jQuery */
 import $ from 'jquery'
 
 $.extend($.easing, {

@@ -1,4 +1,4 @@
-/* global define, MathJax */
+/* global MathJax */
 import $ from 'jquery'
 
 import play from './serlo_sounds'
@@ -7,8 +7,8 @@ var MultipleChoice
 
 MultipleChoice = function () {
   function checkDimensions ($self) {
-    var totalWidth = 0,
-      changed = false
+    var totalWidth = 0
+    var changed = false
 
     $('.multiple-choice-answer-content', $self).each(function () {
       totalWidth += $(this).width()
@@ -34,8 +34,8 @@ MultipleChoice = function () {
   }
 
   return $(this).each(function () {
-    var $self = $(this),
-      $group = $('.multiple-choice-group', $self)
+    var $self = $(this)
+    var $group = $('.multiple-choice-group', $self)
 
     handleResize($self)
     $(window).bind('resizeDelay', function () {
@@ -74,29 +74,29 @@ MultipleChoice = function () {
 
     $group.submit(function (e) {
       e.preventDefault()
-      var mistakes = 0,
-        missingSolutions = 0,
-        solutions = [],
-        $submit = $('.multiple-choice-submit', $group),
-        $feedbackFailure = $(
-          '.multiple-choice-answer-feedback.negative',
-          $group
-        ),
-        $feedbackSuccess = $(
-          '.multiple-choice-answer-feedback.positive',
-          $group
-        ),
-        $feedbackMissingSolutions = $(
-          '.multiple-choice-answer-feedback.missing-solutions',
-          $group
-        )
+      var mistakes = 0
+      var missingSolutions = 0
+      var solutions = []
+      var $submit = $('.multiple-choice-submit', $group)
+      var $feedbackFailure = $(
+        '.multiple-choice-answer-feedback.negative',
+        $group
+      )
+      var $feedbackSuccess = $(
+        '.multiple-choice-answer-feedback.positive',
+        $group
+      )
+      var $feedbackMissingSolutions = $(
+        '.multiple-choice-answer-feedback.missing-solutions',
+        $group
+      )
 
       $('.multiple-choice-answer-content', this).each(function (k, v) {
-        var $option = $(v),
-          answer =
-            Boolean($option.hasClass('active')) ||
-            Boolean($option.hasClass('btn-success')),
-          correct = Boolean($option.data().correct)
+        var $option = $(v)
+        var answer =
+          Boolean($option.hasClass('active')) ||
+          Boolean($option.hasClass('btn-success'))
+        var correct = Boolean($option.data().correct)
 
         if (correct && answer) {
           changeClass($option, 'button-default', 'btn-success')

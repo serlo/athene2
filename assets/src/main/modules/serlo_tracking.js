@@ -1,4 +1,3 @@
-/* global define, window */
 import $ from 'jquery'
 
 var Tracking, ga

@@ -2,15 +2,13 @@ import $ from 'jquery'
 import _ from 'underscore'
 
 import Common from '../../../../modules/common'
-import SystemNotification from '../../../../modules/system_notification'
 import t from '../../../../modules/translator'
-import plugin_template from '../../templates/plugins/injection/injection_plugin.html'
+import pluginHtmlTemplate from '../../templates/plugins/injection/injection_plugin.html'
 import EditorPlugin from '../serlo_texteditor_plugin'
 
-var InjectionPlugin, titleRegexp, hrefRegexp
+var InjectionPlugin, hrefRegexp
 
-titleRegexp = new RegExp(/\[[^\]]*\]\(/)
-hrefRegexp = new RegExp(/\([^\)]*\)/)
+hrefRegexp = new RegExp(/\([^)]*\)/)
 
 InjectionPlugin = function (fileuploadOptions) {
   this.state = 'injection'
@@ -23,17 +21,17 @@ InjectionPlugin.prototype.constructor = InjectionPlugin
 InjectionPlugin.prototype.init = function () {
   var that = this
 
-  that.template = _.template(plugin_template)
+  that.template = _.template(pluginHtmlTemplate)
 
   that.data.name = 'Injection'
 }
 
 InjectionPlugin.prototype.activate = function (token) {
-  var that = this,
-    href,
-    availablePlugins,
-    $body,
-    $group
+  var that = this
+  var href
+  var availablePlugins
+  var $body
+  var $group
 
   that.$el = $(that.template(that.data))
 
@@ -89,7 +87,7 @@ InjectionPlugin.prototype.activate = function (token) {
           Common.genericError()
           that.trigger('close')
         }) //   /ggt/123456
-    } else if (href[0] == 'ggt') {
+    } else if (href[0] === 'ggt') {
       that.trigger(
         'toggle-plugin',
         'geogebratube-injection',

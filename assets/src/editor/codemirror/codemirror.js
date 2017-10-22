@@ -1,5 +1,6 @@
+/* eslint-disable */
 // CodeMirror is the only global var we claim
-window.CodeMirror = (function () {
+window.CodeMirror = (function() {
   'use strict'
 
   // BROWSER SNIFFING
@@ -54,7 +55,7 @@ window.CodeMirror = (function () {
 
   // CONSTRUCTOR
 
-  function CodeMirror (place, options) {
+  function CodeMirror(place, options) {
     if (!(this instanceof CodeMirror)) return new CodeMirror(place, options)
 
     this.options = options = options || {}
@@ -108,7 +109,7 @@ window.CodeMirror = (function () {
       setTimeout(bind(onFocus, this), 20)
     } else onBlur(this)
 
-    operation(this, function () {
+    operation(this, function() {
       for (var opt in optionHandlers) {
         if (optionHandlers.propertyIsEnumerable(opt)) {
           optionHandlers[opt](this, options[opt], Init)
@@ -120,7 +121,7 @@ window.CodeMirror = (function () {
 
   // DISPLAY CONSTRUCTOR
 
-  function makeDisplay (place, docStart) {
+  function makeDisplay(place, docStart) {
     var d = {}
 
     var input = (d.input = elt(
@@ -279,9 +280,9 @@ window.CodeMirror = (function () {
 
   // Used to get the editor into a consistent state again when options change.
 
-  function loadMode (cm) {
+  function loadMode(cm) {
     cm.doc.mode = CodeMirror.getMode(cm.options, cm.doc.modeOption)
-    cm.doc.iter(function (line) {
+    cm.doc.iter(function(line) {
       if (line.stateAfter) line.stateAfter = null
       if (line.styles) line.styles = null
     })
@@ -291,7 +292,7 @@ window.CodeMirror = (function () {
     if (cm.curOp) regChange(cm)
   }
 
-  function wrappingChanged (cm) {
+  function wrappingChanged(cm) {
     if (cm.options.lineWrapping) {
       cm.display.wrapper.className += ' CodeMirror-wrap'
       cm.display.sizer.style.minWidth = ''
@@ -305,18 +306,18 @@ window.CodeMirror = (function () {
     estimateLineHeights(cm)
     regChange(cm)
     clearCaches(cm)
-    setTimeout(function () {
+    setTimeout(function() {
       updateScrollbars(cm)
     }, 100)
   }
 
-  function estimateHeight (cm) {
+  function estimateHeight(cm) {
     var th = textHeight(cm.display),
       wrapping = cm.options.lineWrapping
     var perLine =
       wrapping &&
       Math.max(5, cm.display.scroller.clientWidth / charWidth(cm.display) - 3)
-    return function (line) {
+    return function(line) {
       if (lineIsHidden(cm.doc, line)) return 0
       else if (wrapping) {
         return (Math.ceil(line.text.length / perLine) || 1) * th
@@ -324,16 +325,16 @@ window.CodeMirror = (function () {
     }
   }
 
-  function estimateLineHeights (cm) {
+  function estimateLineHeights(cm) {
     var doc = cm.doc,
       est = estimateHeight(cm)
-    doc.iter(function (line) {
+    doc.iter(function(line) {
       var estHeight = est(line)
       if (estHeight != line.height) updateLineHeight(line, estHeight)
     })
   }
 
-  function keyMapChanged (cm) {
+  function keyMapChanged(cm) {
     var map = keyMap[cm.options.keyMap],
       style = map.style
     cm.display.wrapper.className =
@@ -342,22 +343,22 @@ window.CodeMirror = (function () {
     cm.state.disableInput = map.disableInput
   }
 
-  function themeChanged (cm) {
+  function themeChanged(cm) {
     cm.display.wrapper.className =
       cm.display.wrapper.className.replace(/\s*cm-s-\S+/g, '') +
       cm.options.theme.replace(/(^|\s)\s*/g, ' cm-s-')
     clearCaches(cm)
   }
 
-  function guttersChanged (cm) {
+  function guttersChanged(cm) {
     updateGutters(cm)
     regChange(cm)
-    setTimeout(function () {
+    setTimeout(function() {
       alignHorizontally(cm)
     }, 20)
   }
 
-  function updateGutters (cm) {
+  function updateGutters(cm) {
     var gutters = cm.display.gutters,
       specs = cm.options.gutters
     removeChildren(gutters)
@@ -374,7 +375,7 @@ window.CodeMirror = (function () {
     gutters.style.display = i ? '' : 'none'
   }
 
-  function lineLength (doc, line) {
+  function lineLength(doc, line) {
     if (line.height == 0) return 0
     var len = line.text.length,
       merged,
@@ -394,13 +395,13 @@ window.CodeMirror = (function () {
     return len
   }
 
-  function computeMaxLength (cm) {
+  function computeMaxLength(cm) {
     var d = cm.display,
       doc = cm.doc
     d.maxLine = getLine(doc, doc.first)
     d.maxLineLength = lineLength(doc, d.maxLine)
     d.maxLineChanged = true
-    doc.iter(function (line) {
+    doc.iter(function(line) {
       var len = lineLength(doc, line)
       if (len > d.maxLineLength) {
         d.maxLineLength = len
@@ -411,7 +412,7 @@ window.CodeMirror = (function () {
 
   // Make sure the gutters options contains the element
   // "CodeMirror-linenumbers" when the lineNumbers option is true.
-  function setGuttersForLineNumbers (options) {
+  function setGuttersForLineNumbers(options) {
     var found = indexOf(options.gutters, 'CodeMirror-linenumbers')
     if (found == -1 && options.lineNumbers) {
       options.gutters = options.gutters.concat(['CodeMirror-linenumbers'])
@@ -425,7 +426,7 @@ window.CodeMirror = (function () {
 
   // Re-synchronize the fake scrollbars with the actual size of the
   // content. Optionally force a scrollTop.
-  function updateScrollbars (cm) {
+  function updateScrollbars(cm) {
     var d = cm.display,
       docHeight = cm.doc.height
     var totalHeight = docHeight + paddingVert(d)
@@ -485,7 +486,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function visibleLines (display, doc, viewPort) {
+  function visibleLines(display, doc, viewPort) {
     var top = display.scroller.scrollTop,
       height = display.wrapper.clientHeight
     if (typeof viewPort === 'number') top = viewPort
@@ -500,7 +501,7 @@ window.CodeMirror = (function () {
 
   // LINE NUMBERS
 
-  function alignHorizontally (cm) {
+  function alignHorizontally(cm) {
     var display = cm.display
     if (
       !display.alignWidgets &&
@@ -524,7 +525,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function maybeUpdateLineNumberWidth (cm) {
+  function maybeUpdateLineNumberWidth(cm) {
     if (!cm.options.lineNumbers) return false
     var doc = cm.doc,
       last = lineNumberFor(cm.options, doc.first + doc.size - 1),
@@ -552,16 +553,16 @@ window.CodeMirror = (function () {
     return false
   }
 
-  function lineNumberFor (options, i) {
+  function lineNumberFor(options, i) {
     return String(options.lineNumberFormatter(i + options.firstLineNumber))
   }
-  function compensateForHScroll (display) {
+  function compensateForHScroll(display) {
     return getRect(display.scroller).left - getRect(display.sizer).left
   }
 
   // DISPLAY DRAWING
 
-  function updateDisplay (cm, changes, viewPort, forced) {
+  function updateDisplay(cm, changes, viewPort, forced) {
     var oldFrom = cm.display.showingFrom,
       oldTo = cm.display.showingTo,
       updated
@@ -617,7 +618,7 @@ window.CodeMirror = (function () {
   // Uses a set of changes plus the current scroll position to
   // determine which DOM updates have to be made, and makes the
   // updates.
-  function updateDisplayInner (cm, changes, visible, forced) {
+  function updateDisplayInner(cm, changes, visible, forced) {
     var display = cm.display,
       doc = cm.doc
     if (!display.wrapper.clientWidth) {
@@ -713,7 +714,7 @@ window.CodeMirror = (function () {
       updateViewOffset(cm)
       return
     }
-    intact.sort(function (a, b) {
+    intact.sort(function(a, b) {
       return a.from - b.from
     })
 
@@ -747,7 +748,7 @@ window.CodeMirror = (function () {
     return true
   }
 
-  function updateHeightsInViewport (cm) {
+  function updateHeightsInViewport(cm) {
     var display = cm.display
     var prevBottom = display.lineDiv.offsetTop
     for (
@@ -779,7 +780,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function updateViewOffset (cm) {
+  function updateViewOffset(cm) {
     var off = (cm.display.viewOffset = heightAtLine(
       cm,
       getLine(cm.doc, cm.display.showingFrom)
@@ -788,7 +789,7 @@ window.CodeMirror = (function () {
     cm.display.mover.style.top = off + 'px'
   }
 
-  function computeIntact (intact, changes) {
+  function computeIntact(intact, changes) {
     for (var i = 0, l = changes.length || 0; i < l; ++i) {
       var change = changes[i],
         intact2 = [],
@@ -813,7 +814,7 @@ window.CodeMirror = (function () {
     return intact
   }
 
-  function getDimensions (cm) {
+  function getDimensions(cm) {
     var d = cm.display,
       left = {},
       width = {}
@@ -830,7 +831,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function patchDisplay (cm, from, to, intact, updateNumbersFrom) {
+  function patchDisplay(cm, from, to, intact, updateNumbersFrom) {
     var dims = getDimensions(cm)
     var display = cm.display,
       lineNumbers = cm.options.lineNumbers
@@ -840,7 +841,7 @@ window.CodeMirror = (function () {
     var container = display.lineDiv,
       cur = container.firstChild
 
-    function rm (node) {
+    function rm(node) {
       var next = node.nextSibling
       if (webkit && mac && cm.display.currentWheelTarget == node) {
         node.style.display = 'none'
@@ -853,7 +854,7 @@ window.CodeMirror = (function () {
 
     var nextIntact = intact.shift(),
       lineN = from
-    cm.doc.iter(from, to, function (line) {
+    cm.doc.iter(from, to, function(line) {
       if (nextIntact && nextIntact.to == lineN) nextIntact = intact.shift()
       if (lineIsHidden(cm.doc, line)) {
         if (line.height != 0) updateLineHeight(line, 0)
@@ -920,7 +921,7 @@ window.CodeMirror = (function () {
     while (cur) cur = rm(cur)
   }
 
-  function buildLineElement (cm, line, lineNo, dims, reuse) {
+  function buildLineElement(cm, line, lineNo, dims, reuse) {
     var built = buildLineContent(cm, line),
       lineElement = built.pre
     var markers = line.gutterMarkers,
@@ -1060,7 +1061,7 @@ window.CodeMirror = (function () {
     return wrap
   }
 
-  function positionLineWidget (widget, node, wrap, dims) {
+  function positionLineWidget(widget, node, wrap, dims) {
     if (widget.noHScroll) {
       ;(wrap.alignable || (wrap.alignable = [])).push(node)
       var width = dims.wrapperWidth
@@ -1082,7 +1083,7 @@ window.CodeMirror = (function () {
 
   // SELECTION / CURSOR
 
-  function updateSelection (cm) {
+  function updateSelection(cm) {
     var display = cm.display
     var collapsed = posEq(cm.doc.sel.from, cm.doc.sel.to)
     if (collapsed || cm.options.showCursorWhenSelecting) {
@@ -1118,7 +1119,7 @@ window.CodeMirror = (function () {
   }
 
   // No selection, plain cursor
-  function updateSelectionCursor (cm) {
+  function updateSelectionCursor(cm) {
     var display = cm.display,
       pos = cursorCoords(cm, cm.doc.sel.head, 'div')
     display.cursor.style.left = pos.left + 'px'
@@ -1139,7 +1140,7 @@ window.CodeMirror = (function () {
   }
 
   // Highlight selection
-  function updateSelectionRange (cm) {
+  function updateSelectionRange(cm) {
     var display = cm.display,
       doc = cm.doc,
       sel = cm.doc.sel
@@ -1147,7 +1148,7 @@ window.CodeMirror = (function () {
     var clientWidth = display.lineSpace.offsetWidth,
       pl = paddingLeft(cm.display)
 
-    function add (left, top, width, bottom) {
+    function add(left, top, width, bottom) {
       if (top < 0) top = 0
       fragment.appendChild(
         elt(
@@ -1167,11 +1168,11 @@ window.CodeMirror = (function () {
       )
     }
 
-    function drawForLine (line, fromArg, toArg) {
+    function drawForLine(line, fromArg, toArg) {
       var lineObj = getLine(doc, line)
       var lineLen = lineObj.text.length
       var start, end
-      function coords (ch, bias) {
+      function coords(ch, bias) {
         return charCoords(cm, Pos(line, ch), 'div', lineObj, bias)
       }
 
@@ -1179,7 +1180,7 @@ window.CodeMirror = (function () {
         getOrder(lineObj),
         fromArg || 0,
         toArg == null ? lineLen : toArg,
-        function (from, to, dir) {
+        function(from, to, dir) {
           var leftPos = coords(from, 'left'),
             rightPos,
             left,
@@ -1267,14 +1268,14 @@ window.CodeMirror = (function () {
   }
 
   // Cursor-blinking
-  function restartBlink (cm) {
+  function restartBlink(cm) {
     if (!cm.state.focused) return
     var display = cm.display
     clearInterval(display.blinker)
     var on = true
     display.cursor.style.visibility = display.otherCursor.style.visibility = ''
     if (cm.options.cursorBlinkRate > 0) {
-      display.blinker = setInterval(function () {
+      display.blinker = setInterval(function() {
         display.cursor.style.visibility = display.otherCursor.style.visibility = (on = !on)
           ? ''
           : 'hidden'
@@ -1284,13 +1285,13 @@ window.CodeMirror = (function () {
 
   // HIGHLIGHT WORKER
 
-  function startWorker (cm, time) {
+  function startWorker(cm, time) {
     if (cm.doc.mode.startState && cm.doc.frontier < cm.display.showingTo) {
       cm.state.highlight.set(time, bind(highlightWorker, cm))
     }
   }
 
-  function highlightWorker (cm) {
+  function highlightWorker(cm) {
     var doc = cm.doc
     if (doc.frontier < doc.first) doc.frontier = doc.first
     if (doc.frontier >= cm.display.showingTo) return
@@ -1301,7 +1302,7 @@ window.CodeMirror = (function () {
     doc.iter(
       doc.frontier,
       Math.min(doc.first + doc.size, cm.display.showingTo + 500),
-      function (line) {
+      function(line) {
         if (doc.frontier >= cm.display.showingFrom) {
           // Visible
           var oldStyles = line.styles
@@ -1332,7 +1333,7 @@ window.CodeMirror = (function () {
       }
     )
     if (changed.length) {
-      operation(cm, function () {
+      operation(cm, function() {
         for (var i = 0; i < changed.length; ++i) {
           regChange(this, changed[i].start, changed[i].end)
         }
@@ -1345,7 +1346,7 @@ window.CodeMirror = (function () {
   // valid state. If that fails, it returns the line with the
   // smallest indentation, which tends to need the least context to
   // parse correctly.
-  function findStartLine (cm, n, precise) {
+  function findStartLine(cm, n, precise) {
     var minindent,
       minline,
       doc = cm.doc
@@ -1363,7 +1364,7 @@ window.CodeMirror = (function () {
     return minline
   }
 
-  function getStateBefore (cm, n, precise) {
+  function getStateBefore(cm, n, precise) {
     var doc = cm.doc,
       display = cm.display
     if (!doc.mode.startState) return true
@@ -1371,7 +1372,7 @@ window.CodeMirror = (function () {
       state = pos > doc.first && getLine(doc, pos - 1).stateAfter
     if (!state) state = startState(doc.mode)
     else state = copyState(doc.mode, state)
-    doc.iter(pos, n, function (line) {
+    doc.iter(pos, n, function(line) {
       processLine(cm, line, state)
       var save =
         pos == n - 1 ||
@@ -1386,13 +1387,13 @@ window.CodeMirror = (function () {
 
   // POSITION MEASUREMENT
 
-  function paddingTop (display) {
+  function paddingTop(display) {
     return display.lineSpace.offsetTop
   }
-  function paddingVert (display) {
+  function paddingVert(display) {
     return display.mover.offsetHeight - display.lineSpace.offsetHeight
   }
-  function paddingLeft (display) {
+  function paddingLeft(display) {
     var e = removeChildrenAndAdd(
       display.measure,
       elt('pre', null, null, 'text-align: left')
@@ -1400,7 +1401,7 @@ window.CodeMirror = (function () {
     return e.offsetLeft
   }
 
-  function measureChar (cm, line, ch, data, bias) {
+  function measureChar(cm, line, ch, data, bias) {
     var dir = -1
     data = data || measureLine(cm, line)
     if (data.crude) {
@@ -1429,7 +1430,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function findCachedMeasurement (cm, line) {
+  function findCachedMeasurement(cm, line) {
     var cache = cm.display.measureLineCache
     for (var i = 0; i < cache.length; ++i) {
       var memo = cache[i]
@@ -1444,12 +1445,12 @@ window.CodeMirror = (function () {
     }
   }
 
-  function clearCachedMeasurement (cm, line) {
+  function clearCachedMeasurement(cm, line) {
     var exists = findCachedMeasurement(cm, line)
     if (exists) exists.text = exists.measure = exists.markedSpans = null
   }
 
-  function measureLine (cm, line) {
+  function measureLine(cm, line) {
     // First look in the cache
     var cached = findCachedMeasurement(cm, line)
     if (cached) return cached.measure
@@ -1469,7 +1470,7 @@ window.CodeMirror = (function () {
     return measure
   }
 
-  function measureLineInner (cm, line) {
+  function measureLineInner(cm, line) {
     if (
       !cm.options.lineWrapping &&
       line.text.length >= cm.options.crudeMeasuringFrom
@@ -1524,7 +1525,7 @@ window.CodeMirror = (function () {
       removeChildrenAndAdd(display.measure, pre)
     }
 
-    function measureRect (rect) {
+    function measureRect(rect) {
       var top = rect.top - outer.top,
         bot = rect.bottom - outer.top
       if (bot > maxBot) bot = maxBot
@@ -1554,7 +1555,7 @@ window.CodeMirror = (function () {
         bottom: null
       }
     }
-    function finishRect (rect) {
+    function finishRect(rect) {
       rect.bottom = vranges[rect.top + 1]
       rect.top = vranges[rect.top]
     }
@@ -1588,7 +1589,7 @@ window.CodeMirror = (function () {
     return data
   }
 
-  function crudelyMeasureLine (cm, line) {
+  function crudelyMeasureLine(cm, line) {
     var copy = new Line(line.text.slice(0, 100), null)
     if (line.textClass) copy.textClass = line.textClass
     var measure = measureLineInner(cm, copy)
@@ -1603,7 +1604,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function measureLineWidth (cm, line) {
+  function measureLineWidth(cm, line) {
     var hasBadSpan = false
     if (line.markedSpans) {
       for (var i = 0; i < line.markedSpans; ++i) {
@@ -1630,20 +1631,20 @@ window.CodeMirror = (function () {
     return getRect(end).right - getRect(cm.display.lineDiv).left
   }
 
-  function clearCaches (cm) {
+  function clearCaches(cm) {
     cm.display.measureLineCache.length = cm.display.measureLineCachePos = 0
     cm.display.cachedCharWidth = cm.display.cachedTextHeight = null
     if (!cm.options.lineWrapping) cm.display.maxLineChanged = true
     cm.display.lineNumChars = null
   }
 
-  function pageScrollX () {
+  function pageScrollX() {
     return (
       window.pageXOffset ||
       (document.documentElement || document.body).scrollLeft
     )
   }
-  function pageScrollY () {
+  function pageScrollY() {
     return (
       window.pageYOffset ||
       (document.documentElement || document.body).scrollTop
@@ -1651,7 +1652,7 @@ window.CodeMirror = (function () {
   }
 
   // Context is one of "line", "div" (display.lineDiv), "local"/null (editor), or "page"
-  function intoCoordSystem (cm, lineObj, rect, context) {
+  function intoCoordSystem(cm, lineObj, rect, context) {
     if (lineObj.widgets) {
       for (var i = 0; i < lineObj.widgets.length; ++i) {
         if (lineObj.widgets[i].above) {
@@ -1680,7 +1681,7 @@ window.CodeMirror = (function () {
 
   // Context may be "window", "page", "div", or "local"/null
   // Result is in "div" coords
-  function fromCoordSystem (cm, coords, context) {
+  function fromCoordSystem(cm, coords, context) {
     if (context == 'div') return coords
     var left = coords.left,
       top = coords.top
@@ -1698,7 +1699,7 @@ window.CodeMirror = (function () {
     return { left: left - lineSpaceBox.left, top: top - lineSpaceBox.top }
   }
 
-  function charCoords (cm, pos, context, lineObj, bias) {
+  function charCoords(cm, pos, context, lineObj, bias) {
     if (!lineObj) lineObj = getLine(cm.doc, pos.line)
     return intoCoordSystem(
       cm,
@@ -1708,10 +1709,10 @@ window.CodeMirror = (function () {
     )
   }
 
-  function cursorCoords (cm, pos, context, lineObj, measurement) {
+  function cursorCoords(cm, pos, context, lineObj, measurement) {
     lineObj = lineObj || getLine(cm.doc, pos.line)
     if (!measurement) measurement = measureLine(cm, lineObj)
-    function get (ch, right) {
+    function get(ch, right) {
       var m = measureChar(
         cm,
         lineObj,
@@ -1723,7 +1724,7 @@ window.CodeMirror = (function () {
       else m.right = m.left
       return intoCoordSystem(cm, lineObj, m, context)
     }
-    function getBidi (ch, partPos) {
+    function getBidi(ch, partPos) {
       var part = order[partPos],
         right = part.level % 2
       if (
@@ -1755,7 +1756,7 @@ window.CodeMirror = (function () {
     return val
   }
 
-  function PosWithInfo (line, ch, outside, xRel) {
+  function PosWithInfo(line, ch, outside, xRel) {
     var pos = new Pos(line, ch)
     pos.xRel = xRel
     if (outside) pos.outside = true
@@ -1763,7 +1764,7 @@ window.CodeMirror = (function () {
   }
 
   // Coords must be lineSpace-local
-  function coordsChar (cm, x, y) {
+  function coordsChar(cm, x, y) {
     var doc = cm.doc
     y += cm.display.viewOffset
     if (y < 0) return PosWithInfo(doc.first, 0, true, -1)
@@ -1794,13 +1795,13 @@ window.CodeMirror = (function () {
     }
   }
 
-  function coordsCharInner (cm, lineObj, lineNo, x, y) {
+  function coordsCharInner(cm, lineObj, lineNo, x, y) {
     var innerOff = y - heightAtLine(cm, lineObj)
     var wrongLine = false,
       adjust = 2 * cm.display.wrapper.clientWidth
     var measurement = measureLine(cm, lineObj)
 
-    function getX (ch) {
+    function getX(ch) {
       var sp = cursorCoords(cm, Pos(lineNo, ch), 'line', lineObj, measurement)
       wrongLine = true
       if (innerOff > sp.bottom) return sp.left - adjust
@@ -1859,7 +1860,7 @@ window.CodeMirror = (function () {
   }
 
   var measureText
-  function textHeight (display) {
+  function textHeight(display) {
     if (display.cachedTextHeight != null) return display.cachedTextHeight
     if (measureText == null) {
       measureText = elt('pre')
@@ -1878,7 +1879,7 @@ window.CodeMirror = (function () {
     return height || 1
   }
 
-  function charWidth (display) {
+  function charWidth(display) {
     if (display.cachedCharWidth != null) return display.cachedCharWidth
     var anchor = elt('span', 'x')
     var pre = elt('pre', [anchor])
@@ -1896,7 +1897,7 @@ window.CodeMirror = (function () {
   // batched and then all combined and executed at once.
 
   var nextOpId = 0
-  function startOperation (cm) {
+  function startOperation(cm) {
     cm.curOp = {
       // An array of ranges of lines that have to be updated. See
       // updateDisplay.
@@ -1914,7 +1915,7 @@ window.CodeMirror = (function () {
     if (!delayedCallbackDepth++) delayedCallbacks = []
   }
 
-  function endOperation (cm) {
+  function endOperation(cm) {
     var op = cm.curOp,
       doc = cm.doc,
       display = cm.display
@@ -2015,8 +2016,8 @@ window.CodeMirror = (function () {
   }
 
   // Wraps a function in an operation. Returns the wrapped function.
-  function operation (cm1, f) {
-    return function () {
+  function operation(cm1, f) {
+    return function() {
       var cm = cm1 || this,
         withOp = !cm.curOp
       if (withOp) startOperation(cm)
@@ -2028,8 +2029,8 @@ window.CodeMirror = (function () {
       return result
     }
   }
-  function docOperation (f) {
-    return function () {
+  function docOperation(f) {
+    return function() {
       var withOp = this.cm && !this.cm.curOp,
         result
       if (withOp) startOperation(this.cm)
@@ -2041,7 +2042,7 @@ window.CodeMirror = (function () {
       return result
     }
   }
-  function runInOp (cm, f) {
+  function runInOp(cm, f) {
     var withOp = !cm.curOp,
       result
     if (withOp) startOperation(cm)
@@ -2053,7 +2054,7 @@ window.CodeMirror = (function () {
     return result
   }
 
-  function regChange (cm, from, to, lendiff) {
+  function regChange(cm, from, to, lendiff) {
     if (from == null) from = cm.doc.first
     if (to == null) to = cm.doc.first + cm.doc.size
     cm.curOp.changes.push({ from: from, to: to, diff: lendiff })
@@ -2061,18 +2062,18 @@ window.CodeMirror = (function () {
 
   // INPUT HANDLING
 
-  function slowPoll (cm) {
+  function slowPoll(cm) {
     if (cm.display.pollingFast) return
-    cm.display.poll.set(cm.options.pollInterval, function () {
+    cm.display.poll.set(cm.options.pollInterval, function() {
       readInput(cm)
       if (cm.state.focused) slowPoll(cm)
     })
   }
 
-  function fastPoll (cm) {
+  function fastPoll(cm) {
     var missed = false
     cm.display.pollingFast = true
-    function p () {
+    function p() {
       var changed = readInput(cm)
       if (!changed && !missed) {
         missed = true
@@ -2090,7 +2091,7 @@ window.CodeMirror = (function () {
   // compared to the previous content instead. (Modern browsers have
   // events that indicate IME taking place, but these are not widely
   // supported or compatible enough yet to rely on.)
-  function readInput (cm) {
+  function readInput(cm) {
     var input = cm.display.input,
       prevInput = cm.display.prevInput,
       doc = cm.doc,
@@ -2159,7 +2160,7 @@ window.CodeMirror = (function () {
     return true
   }
 
-  function resetInput (cm, user) {
+  function resetInput(cm, user) {
     var minimal,
       selected,
       doc = cm.doc
@@ -2180,7 +2181,7 @@ window.CodeMirror = (function () {
     cm.display.inaccurateSelection = minimal
   }
 
-  function focusInput (cm) {
+  function focusInput(cm) {
     if (
       cm.options.readOnly != 'nocursor' &&
       (!mobile || document.activeElement != cm.display.input)
@@ -2189,20 +2190,20 @@ window.CodeMirror = (function () {
     }
   }
 
-  function isReadOnly (cm) {
+  function isReadOnly(cm) {
     return cm.options.readOnly || cm.doc.cantEdit
   }
 
   // EVENT HANDLERS
 
-  function registerEventHandlers (cm) {
+  function registerEventHandlers(cm) {
     var d = cm.display
     on(d.scroller, 'mousedown', operation(cm, onMouseDown))
     if (ie) {
       on(
         d.scroller,
         'dblclick',
-        operation(cm, function (e) {
+        operation(cm, function(e) {
           if (signalDOMEvent(cm, e)) return
           var pos = posFromMouse(cm, e)
           if (!pos || clickInGutter(cm, e) || eventInWidget(cm.display, e)) {
@@ -2214,57 +2215,57 @@ window.CodeMirror = (function () {
         })
       )
     } else {
-      on(d.scroller, 'dblclick', function (e) {
+      on(d.scroller, 'dblclick', function(e) {
         signalDOMEvent(cm, e) || e_preventDefault(e)
       })
     }
-    on(d.lineSpace, 'selectstart', function (e) {
+    on(d.lineSpace, 'selectstart', function(e) {
       if (!eventInWidget(d, e)) e_preventDefault(e)
     })
     // Gecko browsers fire contextmenu *after* opening the menu, at
     // which point we can't mess with it anymore. Context menu is
     // handled in onMouseDown for Gecko.
     if (!captureMiddleClick) {
-      on(d.scroller, 'contextmenu', function (e) {
+      on(d.scroller, 'contextmenu', function(e) {
         onContextMenu(cm, e)
       })
     }
 
-    on(d.scroller, 'scroll', function () {
+    on(d.scroller, 'scroll', function() {
       if (d.scroller.clientHeight) {
         setScrollTop(cm, d.scroller.scrollTop)
         setScrollLeft(cm, d.scroller.scrollLeft, true)
         signal(cm, 'scroll', cm)
       }
     })
-    on(d.scrollbarV, 'scroll', function () {
+    on(d.scrollbarV, 'scroll', function() {
       if (d.scroller.clientHeight) setScrollTop(cm, d.scrollbarV.scrollTop)
     })
-    on(d.scrollbarH, 'scroll', function () {
+    on(d.scrollbarH, 'scroll', function() {
       if (d.scroller.clientHeight) setScrollLeft(cm, d.scrollbarH.scrollLeft)
     })
 
-    on(d.scroller, 'mousewheel', function (e) {
+    on(d.scroller, 'mousewheel', function(e) {
       onScrollWheel(cm, e)
     })
-    on(d.scroller, 'DOMMouseScroll', function (e) {
+    on(d.scroller, 'DOMMouseScroll', function(e) {
       onScrollWheel(cm, e)
     })
 
-    function reFocus () {
+    function reFocus() {
       if (cm.state.focused) setTimeout(bind(focusInput, cm), 0)
     }
     on(d.scrollbarH, 'mousedown', reFocus)
     on(d.scrollbarV, 'mousedown', reFocus)
     // Prevent wrapper from ever scrolling
-    on(d.wrapper, 'scroll', function () {
+    on(d.wrapper, 'scroll', function() {
       d.wrapper.scrollTop = d.wrapper.scrollLeft = 0
     })
 
     var resizeTimer
-    function onResize () {
+    function onResize() {
       if (resizeTimer == null) {
-        resizeTimer = setTimeout(function () {
+        resizeTimer = setTimeout(function() {
           resizeTimer = null
           // Might be a text scaling operation, clear size caches.
           d.cachedCharWidth = d.cachedTextHeight = knownScrollbarWidth = null
@@ -2277,7 +2278,7 @@ window.CodeMirror = (function () {
     // Above handler holds on to the editor and its data structures.
     // Here we poll to unregister it when the editor is no longer in
     // the document, so that it can be garbage-collected.
-    function unregister () {
+    function unregister() {
       for (
         var p = d.wrapper.parentNode;
         p && p != document.body;
@@ -2291,7 +2292,7 @@ window.CodeMirror = (function () {
     on(
       d.input,
       'keyup',
-      operation(cm, function (e) {
+      operation(cm, function(e) {
         if (
           signalDOMEvent(cm, e) ||
           (cm.options.onKeyEvent && cm.options.onKeyEvent(cm, addStop(e)))
@@ -2301,7 +2302,7 @@ window.CodeMirror = (function () {
         if (e.keyCode == 16) cm.doc.sel.shift = false
       })
     )
-    on(d.input, 'input', function () {
+    on(d.input, 'input', function() {
       if (ie && !ie_lt9 && cm.display.inputHasSelection) {
         cm.display.inputHasSelection = null
       }
@@ -2312,7 +2313,7 @@ window.CodeMirror = (function () {
     on(d.input, 'focus', bind(onFocus, cm))
     on(d.input, 'blur', bind(onBlur, cm))
 
-    function drag_ (e) {
+    function drag_(e) {
       if (
         signalDOMEvent(cm, e) ||
         (cm.options.onDragEvent && cm.options.onDragEvent(cm, addStop(e)))
@@ -2322,19 +2323,19 @@ window.CodeMirror = (function () {
       e_stop(e)
     }
     if (cm.options.dragDrop) {
-      on(d.scroller, 'dragstart', function (e) {
+      on(d.scroller, 'dragstart', function(e) {
         onDragStart(cm, e)
       })
       on(d.scroller, 'dragenter', drag_)
       on(d.scroller, 'dragover', drag_)
       on(d.scroller, 'drop', operation(cm, onDrop))
     }
-    on(d.scroller, 'paste', function (e) {
+    on(d.scroller, 'paste', function(e) {
       if (eventInWidget(d, e)) return
       focusInput(cm)
       fastPoll(cm)
     })
-    on(d.input, 'paste', function () {
+    on(d.input, 'paste', function() {
       // Workaround for webkit bug https://bugs.webkit.org/show_bug.cgi?id=90206
       // Add a char to the end of textarea before paste occur so that
       // selection doesn't span to the end of textarea.
@@ -2354,7 +2355,7 @@ window.CodeMirror = (function () {
       fastPoll(cm)
     })
 
-    function prepareCopy () {
+    function prepareCopy() {
       if (d.inaccurateSelection) {
         d.prevInput = ''
         d.inaccurateSelection = false
@@ -2367,14 +2368,14 @@ window.CodeMirror = (function () {
 
     // Needed to handle Tab key in KHTML
     if (khtml) {
-      on(d.sizer, 'mouseup', function () {
+      on(d.sizer, 'mouseup', function() {
         if (document.activeElement == d.input) d.input.blur()
         focusInput(cm)
       })
     }
   }
 
-  function eventInWidget (display, e) {
+  function eventInWidget(display, e) {
     for (var n = e_target(e); n != display.wrapper; n = n.parentNode) {
       if (
         !n ||
@@ -2386,7 +2387,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function posFromMouse (cm, e, liberal) {
+  function posFromMouse(cm, e, liberal) {
     var display = cm.display
     if (!liberal) {
       var target = e_target(e)
@@ -2415,7 +2416,7 @@ window.CodeMirror = (function () {
   }
 
   var lastClick, lastDoubleClick
-  function onMouseDown (e) {
+  function onMouseDown(e) {
     if (signalDOMEvent(this, e)) return
     var cm = this,
       display = cm.display,
@@ -2426,7 +2427,7 @@ window.CodeMirror = (function () {
     if (eventInWidget(display, e)) {
       if (!webkit) {
         display.scroller.draggable = false
-        setTimeout(function () {
+        setTimeout(function() {
           display.scroller.draggable = true
         }, 100)
       }
@@ -2491,7 +2492,7 @@ window.CodeMirror = (function () {
       !posLess(sel.to, start) &&
       type == 'single'
     ) {
-      var dragEnd = operation(cm, function (e2) {
+      var dragEnd = operation(cm, function(e2) {
         if (webkit) display.scroller.draggable = false
         cm.state.draggingText = false
         off(document, 'mouseup', dragEnd)
@@ -2521,7 +2522,7 @@ window.CodeMirror = (function () {
       startend = sel.to,
       lastPos = start
 
-    function doSelect (cur) {
+    function doSelect(cur) {
       if (posEq(lastPos, cur)) return
       lastPos = cur
 
@@ -2557,7 +2558,7 @@ window.CodeMirror = (function () {
     // if the clear happens after their scheduled firing time).
     var counter = 0
 
-    function extend (e) {
+    function extend(e) {
       var curCount = ++counter
       var cur = posFromMouse(cm, e, true)
       if (!cur) return
@@ -2568,7 +2569,7 @@ window.CodeMirror = (function () {
         var visible = visibleLines(display, doc)
         if (cur.line >= visible.to || cur.line < visible.from) {
           setTimeout(
-            operation(cm, function () {
+            operation(cm, function() {
               if (counter == curCount) extend(e)
             }),
             150
@@ -2581,7 +2582,7 @@ window.CodeMirror = (function () {
             : e.clientY > editorSize.bottom ? 20 : 0
         if (outside) {
           setTimeout(
-            operation(cm, function () {
+            operation(cm, function() {
               if (counter != curCount) return
               display.scroller.scrollTop += outside
               extend(e)
@@ -2592,7 +2593,7 @@ window.CodeMirror = (function () {
       }
     }
 
-    function done (e) {
+    function done(e) {
       counter = Infinity
       e_preventDefault(e)
       focusInput(cm)
@@ -2600,7 +2601,7 @@ window.CodeMirror = (function () {
       off(document, 'mouseup', up)
     }
 
-    var move = operation(cm, function (e) {
+    var move = operation(cm, function(e) {
       if (!ie && !e_button(e)) done(e)
       else extend(e)
     })
@@ -2609,7 +2610,7 @@ window.CodeMirror = (function () {
     on(document, 'mouseup', up)
   }
 
-  function gutterEvent (cm, e, type, prevent, signalfn) {
+  function gutterEvent(cm, e, type, prevent, signalfn) {
     try {
       var mX = e.clientX,
         mY = e.clientY
@@ -2638,12 +2639,12 @@ window.CodeMirror = (function () {
     }
   }
 
-  function contextMenuInGutter (cm, e) {
+  function contextMenuInGutter(cm, e) {
     if (!hasHandler(cm, 'gutterContextMenu')) return false
     return gutterEvent(cm, e, 'gutterContextMenu', false, signal)
   }
 
-  function clickInGutter (cm, e) {
+  function clickInGutter(cm, e) {
     return gutterEvent(cm, e, 'gutterClick', true, signalLater)
   }
 
@@ -2651,7 +2652,7 @@ window.CodeMirror = (function () {
   // re-fire a series of drag-related events right after the drop (#1551)
   var lastDrop = 0
 
-  function onDrop (e) {
+  function onDrop(e) {
     var cm = this
     if (
       signalDOMEvent(cm, e) ||
@@ -2669,9 +2670,9 @@ window.CodeMirror = (function () {
       var n = files.length,
         text = Array(n),
         read = 0
-      var loadFile = function (file, i) {
+      var loadFile = function(file, i) {
         var reader = new FileReader()
-        reader.onload = function () {
+        reader.onload = function() {
           text[i] = reader.result
           if (++read == n) {
             pos = clipPos(cm.doc, pos)
@@ -2718,7 +2719,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function onDragStart (cm, e) {
+  function onDragStart(cm, e) {
     if (ie && (!cm.state.draggingText || +new Date() - lastDrop < 100)) {
       e_stop(e)
       return
@@ -2745,7 +2746,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function setScrollTop (cm, val) {
+  function setScrollTop(cm, val) {
     if (Math.abs(cm.doc.scrollTop - val) < 2) return
     cm.doc.scrollTop = val
     if (!gecko) updateDisplay(cm, [], val)
@@ -2758,7 +2759,7 @@ window.CodeMirror = (function () {
     if (gecko) updateDisplay(cm, [])
     startWorker(cm, 100)
   }
-  function setScrollLeft (cm, val, isScroller) {
+  function setScrollLeft(cm, val, isScroller) {
     if (
       isScroller
         ? val == cm.doc.scrollLeft
@@ -2802,7 +2803,7 @@ window.CodeMirror = (function () {
   else if (chrome) wheelPixelsPerUnit = -0.7
   else if (safari) wheelPixelsPerUnit = -1 / 3
 
-  function onScrollWheel (cm, e) {
+  function onScrollWheel(cm, e) {
     var dx = e.wheelDeltaX,
       dy = e.wheelDeltaY
     if (dx == null && e.detail && e.axis == e.HORIZONTAL_AXIS) dx = e.detail
@@ -2883,7 +2884,7 @@ window.CodeMirror = (function () {
         display.wheelStartY = scroll.scrollTop
         display.wheelDX = dx
         display.wheelDY = dy
-        setTimeout(function () {
+        setTimeout(function() {
           if (display.wheelStartX == null) return
           var movedX = scroll.scrollLeft - display.wheelStartX
           var movedY = scroll.scrollTop - display.wheelStartY
@@ -2903,7 +2904,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function doHandleBinding (cm, bound, dropShift) {
+  function doHandleBinding(cm, bound, dropShift) {
     if (typeof bound === 'string') {
       bound = commands[bound]
       if (!bound) return false
@@ -2925,7 +2926,7 @@ window.CodeMirror = (function () {
     return done
   }
 
-  function allKeyMaps (cm) {
+  function allKeyMaps(cm) {
     var maps = cm.state.keyMaps.slice(0)
     if (cm.options.extraKeys) maps.push(cm.options.extraKeys)
     maps.push(cm.options.keyMap)
@@ -2933,13 +2934,13 @@ window.CodeMirror = (function () {
   }
 
   var maybeTransition
-  function handleKeyBinding (cm, e) {
+  function handleKeyBinding(cm, e) {
     // Handle auto keymap transitions
     var startMap = getKeyMap(cm.options.keyMap),
       next = startMap.auto
     clearTimeout(maybeTransition)
     if (next && !isModifierKey(e)) {
-      maybeTransition = setTimeout(function () {
+      maybeTransition = setTimeout(function() {
         if (getKeyMap(cm.options.keyMap) == startMap) {
           cm.options.keyMap = next.call ? next.call(null, cm) : next
           keyMapChanged(cm)
@@ -2957,16 +2958,16 @@ window.CodeMirror = (function () {
       // that, see if there is a cursor-motion command (starting with
       // 'go') bound to the keyname without 'Shift-'.
       handled =
-        lookupKey('Shift-' + name, keymaps, function (b) {
+        lookupKey('Shift-' + name, keymaps, function(b) {
           return doHandleBinding(cm, b, true)
         }) ||
-        lookupKey(name, keymaps, function (b) {
+        lookupKey(name, keymaps, function(b) {
           if (typeof b === 'string' ? /^go[A-Z]/.test(b) : b.motion) {
             return doHandleBinding(cm, b)
           }
         })
     } else {
-      handled = lookupKey(name, keymaps, function (b) {
+      handled = lookupKey(name, keymaps, function(b) {
         return doHandleBinding(cm, b)
       })
     }
@@ -2983,8 +2984,8 @@ window.CodeMirror = (function () {
     return handled
   }
 
-  function handleCharBinding (cm, e, ch) {
-    var handled = lookupKey("'" + ch + "'", allKeyMaps(cm), function (b) {
+  function handleCharBinding(cm, e, ch) {
+    var handled = lookupKey("'" + ch + "'", allKeyMaps(cm), function(b) {
       return doHandleBinding(cm, b, true)
     })
     if (handled) {
@@ -2996,7 +2997,7 @@ window.CodeMirror = (function () {
   }
 
   var lastStoppedKey = null
-  function onKeyDown (e) {
+  function onKeyDown(e) {
     var cm = this
     if (!cm.state.focused) onFocus(cm)
     if (
@@ -3025,7 +3026,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function onKeyPress (e) {
+  function onKeyPress(e) {
     var cm = this
     if (
       signalDOMEvent(cm, e) ||
@@ -3055,7 +3056,7 @@ window.CodeMirror = (function () {
       this.doc.mode.electricChars.indexOf(ch) > -1
     ) {
       setTimeout(
-        operation(cm, function () {
+        operation(cm, function() {
           indentLine(cm, cm.doc.sel.to.line, 'smart')
         }),
         75
@@ -3066,7 +3067,7 @@ window.CodeMirror = (function () {
     fastPoll(cm)
   }
 
-  function onFocus (cm) {
+  function onFocus(cm) {
     if (cm.options.readOnly == 'nocursor') return
     if (!cm.state.focused) {
       signal(cm, 'focus', cm)
@@ -3082,7 +3083,7 @@ window.CodeMirror = (function () {
     slowPoll(cm)
     restartBlink(cm)
   }
-  function onBlur (cm) {
+  function onBlur(cm) {
     if (cm.state.focused) {
       signal(cm, 'blur', cm)
       cm.state.focused = false
@@ -3092,13 +3093,13 @@ window.CodeMirror = (function () {
       )
     }
     clearInterval(cm.display.blinker)
-    setTimeout(function () {
+    setTimeout(function() {
       if (!cm.state.focused) cm.doc.sel.shift = false
     }, 150)
   }
 
   var detectingSelectAll
-  function onContextMenu (cm, e) {
+  function onContextMenu(cm, e) {
     if (signalDOMEvent(cm, e, 'contextmenu')) return
     var display = cm.display,
       sel = cm.doc.sel
@@ -3134,7 +3135,7 @@ window.CodeMirror = (function () {
     // Adds "Select all" to context menu in FF
     if (posEq(sel.from, sel.to)) display.input.value = display.prevInput = ' '
 
-    function prepareSelectAllHack () {
+    function prepareSelectAllHack() {
       if (display.input.selectionStart != null) {
         var extval = (display.input.value =
           '\u200b' + (posEq(sel.from, sel.to) ? '' : display.input.value))
@@ -3143,7 +3144,7 @@ window.CodeMirror = (function () {
         display.input.selectionEnd = extval.length
       }
     }
-    function rehide () {
+    function rehide() {
       display.inputDiv.style.position = 'relative'
       display.input.style.cssText = oldCSS
       if (ie_lt9) {
@@ -3156,7 +3157,7 @@ window.CodeMirror = (function () {
         if (!ie || ie_lt9) prepareSelectAllHack()
         clearTimeout(detectingSelectAll)
         var i = 0,
-          poll = function () {
+          poll = function() {
             if (display.prevInput == ' ' && display.input.selectionStart == 0) {
               operation(cm, commands.selectAll)(cm)
             } else if (i++ < 10) detectingSelectAll = setTimeout(poll, 500)
@@ -3169,7 +3170,7 @@ window.CodeMirror = (function () {
     if (ie && !ie_lt9) prepareSelectAllHack()
     if (captureMiddleClick) {
       e_stop(e)
-      var mouseup = function () {
+      var mouseup = function() {
         off(window, 'mouseup', mouseup)
         setTimeout(rehide, 20)
       }
@@ -3181,7 +3182,7 @@ window.CodeMirror = (function () {
 
   // UPDATING
 
-  var changeEnd = (CodeMirror.changeEnd = function (change) {
+  var changeEnd = (CodeMirror.changeEnd = function(change) {
     if (!change.text) return change.to
     return Pos(
       change.from.line + change.text.length - 1,
@@ -3190,7 +3191,7 @@ window.CodeMirror = (function () {
   })
 
   // Make sure a position will be valid after the given change.
-  function clipPostChange (doc, change, pos) {
+  function clipPostChange(doc, change, pos) {
     if (!posLess(change.from, pos)) return clipPos(doc, pos)
     var diff = change.text.length - 1 - (change.to.line - change.from.line)
     if (pos.line > change.to.line + diff) {
@@ -3218,7 +3219,7 @@ window.CodeMirror = (function () {
   }
 
   // Hint can be null|"end"|"start"|"around"|{anchor,head}
-  function computeSelAfterChange (doc, change, hint) {
+  function computeSelAfterChange(doc, change, hint) {
     if (
       hint &&
       typeof hint === 'object' // Assumed to be {anchor, head} object
@@ -3236,7 +3237,7 @@ window.CodeMirror = (function () {
     if (hint == 'end') return { anchor: end, head: end }
 
     // hint is null, leave the selection alone as much as possible
-    var adjustPos = function (pos) {
+    var adjustPos = function(pos) {
       if (posLess(pos, change.from)) return pos
       if (!posLess(change.to, pos)) return end
 
@@ -3252,19 +3253,19 @@ window.CodeMirror = (function () {
     return { anchor: adjustPos(doc.sel.anchor), head: adjustPos(doc.sel.head) }
   }
 
-  function filterChange (doc, change, update) {
+  function filterChange(doc, change, update) {
     var obj = {
       canceled: false,
       from: change.from,
       to: change.to,
       text: change.text,
       origin: change.origin,
-      cancel: function () {
+      cancel: function() {
         this.canceled = true
       }
     }
     if (update) {
-      obj.update = function (from, to, text, origin) {
+      obj.update = function(from, to, text, origin) {
         if (from) this.from = clipPos(doc, from)
         if (to) this.to = clipPos(doc, to)
         if (text) this.text = text
@@ -3280,7 +3281,7 @@ window.CodeMirror = (function () {
 
   // Replace the range from from to to by the strings in replacement.
   // change is a {from, to, text [, origin]} object
-  function makeChange (doc, change, selUpdate, ignoreReadOnly) {
+  function makeChange(doc, change, selUpdate, ignoreReadOnly) {
     if (doc.cm) {
       if (!doc.cm.curOp) {
         return operation(doc.cm, makeChange)(
@@ -3327,7 +3328,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function makeChangeNoReadonly (doc, change, selUpdate) {
+  function makeChangeNoReadonly(doc, change, selUpdate) {
     if (
       change.text.length == 1 &&
       change.text[0] == '' &&
@@ -3346,7 +3347,7 @@ window.CodeMirror = (function () {
     )
     var rebased = []
 
-    linkedDocs(doc, function (doc, sharedHist) {
+    linkedDocs(doc, function(doc, sharedHist) {
       if (!sharedHist && indexOf(rebased, doc.history) == -1) {
         rebaseHist(doc.history, change)
         rebased.push(doc.history)
@@ -3360,7 +3361,7 @@ window.CodeMirror = (function () {
     })
   }
 
-  function makeChangeFromHistory (doc, type) {
+  function makeChangeFromHistory(doc, type) {
     if (doc.cm && doc.cm.state.suppressEdits) return
 
     var hist = doc.history
@@ -3398,7 +3399,7 @@ window.CodeMirror = (function () {
       makeChangeSingleDoc(doc, change, after, mergeOldSpans(doc, change))
       var rebased = []
 
-      linkedDocs(doc, function (doc, sharedHist) {
+      linkedDocs(doc, function(doc, sharedHist) {
         if (!sharedHist && indexOf(rebased, doc.history) == -1) {
           rebaseHist(doc.history, change)
           rebased.push(doc.history)
@@ -3408,8 +3409,8 @@ window.CodeMirror = (function () {
     }
   }
 
-  function shiftDoc (doc, distance) {
-    function shiftPos (pos) {
+  function shiftDoc(doc, distance) {
+    function shiftPos(pos) {
       return Pos(pos.line + distance, pos.ch)
     }
     doc.first += distance
@@ -3420,7 +3421,7 @@ window.CodeMirror = (function () {
     doc.sel.to = shiftPos(doc.sel.to)
   }
 
-  function makeChangeSingleDoc (doc, change, selAfter, spans) {
+  function makeChangeSingleDoc(doc, change, selAfter, spans) {
     if (doc.cm && !doc.cm.curOp) {
       return operation(doc.cm, makeChangeSingleDoc)(
         doc,
@@ -3467,7 +3468,7 @@ window.CodeMirror = (function () {
     else updateDoc(doc, change, spans, selAfter)
   }
 
-  function makeChangeSingleDocInEditor (cm, change, spans, selAfter) {
+  function makeChangeSingleDocInEditor(cm, change, spans, selAfter) {
     var doc = cm.doc,
       display = cm.display,
       from = change.from,
@@ -3477,7 +3478,7 @@ window.CodeMirror = (function () {
       checkWidthStart = from.line
     if (!cm.options.lineWrapping) {
       checkWidthStart = lineNo(visualLine(doc, getLine(doc, from.line)))
-      doc.iter(checkWidthStart, to.line + 1, function (line) {
+      doc.iter(checkWidthStart, to.line + 1, function(line) {
         if (line == display.maxLine) {
           recomputeMaxLength = true
           return true
@@ -3495,7 +3496,7 @@ window.CodeMirror = (function () {
     updateDoc(doc, change, spans, selAfter, estimateHeight(cm))
 
     if (!cm.options.lineWrapping) {
-      doc.iter(checkWidthStart, from.line + change.text.length, function (line) {
+      doc.iter(checkWidthStart, from.line + change.text.length, function(line) {
         var len = lineLength(doc, line)
         if (len > display.maxLineLength) {
           display.maxLine = line
@@ -3530,7 +3531,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function replaceRange (doc, code, from, to, origin) {
+  function replaceRange(doc, code, from, to, origin) {
     if (!to) to = from
     if (posLess(to, from)) {
       var tmp = to
@@ -3543,47 +3544,47 @@ window.CodeMirror = (function () {
 
   // POSITION OBJECT
 
-  function Pos (line, ch) {
+  function Pos(line, ch) {
     if (!(this instanceof Pos)) return new Pos(line, ch)
     this.line = line
     this.ch = ch
   }
   CodeMirror.Pos = Pos
 
-  function posEq (a, b) {
+  function posEq(a, b) {
     return a.line == b.line && a.ch == b.ch
   }
-  function posLess (a, b) {
+  function posLess(a, b) {
     return a.line < b.line || (a.line == b.line && a.ch < b.ch)
   }
-  function copyPos (x) {
+  function copyPos(x) {
     return Pos(x.line, x.ch)
   }
 
   // SELECTION
 
-  function clipLine (doc, n) {
+  function clipLine(doc, n) {
     return Math.max(doc.first, Math.min(n, doc.first + doc.size - 1))
   }
-  function clipPos (doc, pos) {
+  function clipPos(doc, pos) {
     if (pos.line < doc.first) return Pos(doc.first, 0)
     var last = doc.first + doc.size - 1
     if (pos.line > last) return Pos(last, getLine(doc, last).text.length)
     return clipToLen(pos, getLine(doc, pos.line).text.length)
   }
-  function clipToLen (pos, linelen) {
+  function clipToLen(pos, linelen) {
     var ch = pos.ch
     if (ch == null || ch > linelen) return Pos(pos.line, linelen)
     else if (ch < 0) return Pos(pos.line, 0)
     else return pos
   }
-  function isLine (doc, l) {
+  function isLine(doc, l) {
     return l >= doc.first && l < doc.first + doc.size
   }
 
   // If shift is held, this will move the selection anchor. Otherwise,
   // it'll set the whole selection.
-  function extendSelection (doc, pos, other, bias) {
+  function extendSelection(doc, pos, other, bias) {
     if (doc.sel.shift || doc.sel.extend) {
       var anchor = doc.sel.anchor
       if (other) {
@@ -3602,7 +3603,7 @@ window.CodeMirror = (function () {
     if (doc.cm) doc.cm.curOp.userSelChange = true
   }
 
-  function filterSelectionChange (doc, anchor, head) {
+  function filterSelectionChange(doc, anchor, head) {
     var obj = { anchor: anchor, head: head }
     signal(doc, 'beforeSelectionChange', doc, obj)
     if (doc.cm) signal(doc.cm, 'beforeSelectionChange', doc.cm, obj)
@@ -3614,7 +3615,7 @@ window.CodeMirror = (function () {
   // Update the selection. Last two args are only used by
   // updateDoc, since they have to be expressed in the line
   // numbers before the update.
-  function setSelection (doc, anchor, head, bias, checkAtomic) {
+  function setSelection(doc, anchor, head, bias, checkAtomic) {
     if (
       (!checkAtomic && hasHandler(doc, 'beforeSelectionChange')) ||
       (doc.cm && hasHandler(doc.cm, 'beforeSelectionChange'))
@@ -3650,11 +3651,11 @@ window.CodeMirror = (function () {
     signalLater(doc, 'cursorActivity', doc)
   }
 
-  function reCheckSelection (cm) {
+  function reCheckSelection(cm) {
     setSelection(cm.doc, cm.doc.sel.from, cm.doc.sel.to, null, 'push')
   }
 
-  function skipAtomic (doc, pos, bias, mayClear) {
+  function skipAtomic(doc, pos, bias, mayClear) {
     var flipped = false,
       curPos = pos
     var dir = bias || 1
@@ -3719,7 +3720,7 @@ window.CodeMirror = (function () {
 
   // SCROLLING
 
-  function scrollCursorIntoView (cm) {
+  function scrollCursorIntoView(cm) {
     var coords = scrollPosIntoView(
       cm,
       cm.doc.sel.head,
@@ -3749,7 +3750,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function scrollPosIntoView (cm, pos, end, margin) {
+  function scrollPosIntoView(cm, pos, end, margin) {
     if (margin == null) margin = 0
     for (;;) {
       var changed = false,
@@ -3776,13 +3777,13 @@ window.CodeMirror = (function () {
     }
   }
 
-  function scrollIntoView (cm, x1, y1, x2, y2) {
+  function scrollIntoView(cm, x1, y1, x2, y2) {
     var scrollPos = calculateScrollPos(cm, x1, y1, x2, y2)
     if (scrollPos.scrollTop != null) setScrollTop(cm, scrollPos.scrollTop)
     if (scrollPos.scrollLeft != null) setScrollLeft(cm, scrollPos.scrollLeft)
   }
 
-  function calculateScrollPos (cm, x1, y1, x2, y2) {
+  function calculateScrollPos(cm, x1, y1, x2, y2) {
     var display = cm.display,
       snapMargin = textHeight(cm.display)
     if (y1 < 0) y1 = 0
@@ -3814,14 +3815,14 @@ window.CodeMirror = (function () {
     return result
   }
 
-  function updateScrollPos (cm, left, top) {
+  function updateScrollPos(cm, left, top) {
     cm.curOp.updateScrollPos = {
       scrollLeft: left == null ? cm.doc.scrollLeft : left,
       scrollTop: top == null ? cm.doc.scrollTop : top
     }
   }
 
-  function addToScrollPos (cm, left, top) {
+  function addToScrollPos(cm, left, top) {
     var pos =
       cm.curOp.updateScrollPos ||
       (cm.curOp.updateScrollPos = {
@@ -3841,7 +3842,7 @@ window.CodeMirror = (function () {
 
   // API UTILITIES
 
-  function indentLine (cm, n, how, aggressive) {
+  function indentLine(cm, n, how, aggressive) {
     var doc = cm.doc
     if (how == null) how = 'add'
     if (how == 'smart') {
@@ -3910,7 +3911,7 @@ window.CodeMirror = (function () {
     line.stateAfter = null
   }
 
-  function changeLine (cm, handle, op) {
+  function changeLine(cm, handle, op) {
     var no = handle,
       line = handle,
       doc = cm.doc
@@ -3922,19 +3923,19 @@ window.CodeMirror = (function () {
     return line
   }
 
-  function findPosH (doc, pos, dir, unit, visually) {
+  function findPosH(doc, pos, dir, unit, visually) {
     var line = pos.line,
       ch = pos.ch,
       origDir = dir
     var lineObj = getLine(doc, line)
     var possible = true
-    function findNextLine () {
+    function findNextLine() {
       var l = line + dir
       if (l < doc.first || l >= doc.first + doc.size) return (possible = false)
       line = l
       return (lineObj = getLine(doc, l))
     }
-    function moveOnce (boundToLine) {
+    function moveOnce(boundToLine) {
       var next = (visually ? moveVisually : moveLogically)(
         lineObj,
         ch,
@@ -3977,7 +3978,7 @@ window.CodeMirror = (function () {
     return result
   }
 
-  function findPosV (cm, pos, dir, unit) {
+  function findPosV(cm, pos, dir, unit) {
     var doc = cm.doc,
       x = pos.left,
       y
@@ -4004,7 +4005,7 @@ window.CodeMirror = (function () {
     return target
   }
 
-  function findWordAt (line, pos) {
+  function findWordAt(line, pos) {
     var start = pos.ch,
       end = pos.ch
     if (line) {
@@ -4014,19 +4015,19 @@ window.CodeMirror = (function () {
       var check = isWordChar(startChar)
         ? isWordChar
         : /\s/.test(startChar)
-          ? function (ch) {
-            return /\s/.test(ch)
-          }
-          : function (ch) {
-            return !/\s/.test(ch) && !isWordChar(ch)
-          }
+          ? function(ch) {
+              return /\s/.test(ch)
+            }
+          : function(ch) {
+              return !/\s/.test(ch) && !isWordChar(ch)
+            }
       while (start > 0 && check(line.charAt(start - 1))) --start
       while (end < line.length && check(line.charAt(end))) ++end
     }
     return { from: Pos(pos.line, start), to: Pos(pos.line, end) }
   }
 
-  function selectLine (cm, line) {
+  function selectLine(cm, line) {
     extendSelection(cm.doc, Pos(line, 0), clipPos(cm.doc, Pos(line + 1, 0)))
   }
 
@@ -4037,14 +4038,14 @@ window.CodeMirror = (function () {
 
   CodeMirror.prototype = {
     constructor: CodeMirror,
-    focus: function () {
+    focus: function() {
       window.focus()
       focusInput(this)
       onFocus(this)
       fastPoll(this)
     },
 
-    setOption: function (option, value) {
+    setOption: function(option, value) {
       var options = this.options,
         old = options[option]
       if (options[option] == value && option != 'mode') return
@@ -4054,17 +4055,17 @@ window.CodeMirror = (function () {
       }
     },
 
-    getOption: function (option) {
+    getOption: function(option) {
       return this.options[option]
     },
-    getDoc: function () {
+    getDoc: function() {
       return this.doc
     },
 
-    addKeyMap: function (map, bottom) {
+    addKeyMap: function(map, bottom) {
       this.state.keyMaps[bottom ? 'push' : 'unshift'](map)
     },
-    removeKeyMap: function (map) {
+    removeKeyMap: function(map) {
       var maps = this.state.keyMaps
       for (var i = 0; i < maps.length; ++i) {
         if (
@@ -4077,7 +4078,7 @@ window.CodeMirror = (function () {
       }
     },
 
-    addOverlay: operation(null, function (spec, options) {
+    addOverlay: operation(null, function(spec, options) {
       var mode = spec.token ? spec : CodeMirror.getMode(this.options, spec)
       if (mode.startState) throw new Error('Overlays may not be stateful.')
       this.state.overlays.push({
@@ -4088,7 +4089,7 @@ window.CodeMirror = (function () {
       this.state.modeGen++
       regChange(this)
     }),
-    removeOverlay: operation(null, function (spec) {
+    removeOverlay: operation(null, function(spec) {
       var overlays = this.state.overlays
       for (var i = 0; i < overlays.length; ++i) {
         var cur = overlays[i].modeSpec
@@ -4101,14 +4102,14 @@ window.CodeMirror = (function () {
       }
     }),
 
-    indentLine: operation(null, function (n, dir, aggressive) {
+    indentLine: operation(null, function(n, dir, aggressive) {
       if (typeof dir !== 'string' && typeof dir !== 'number') {
         if (dir == null) dir = this.options.smartIndent ? 'smart' : 'prev'
         else dir = dir ? 'add' : 'subtract'
       }
       if (isLine(this.doc, n)) indentLine(this, n, dir, aggressive)
     }),
-    indentSelection: operation(null, function (how) {
+    indentSelection: operation(null, function(how) {
       var sel = this.doc.sel
       if (posEq(sel.from, sel.to)) return indentLine(this, sel.from.line, how)
       var e = sel.to.line - (sel.to.ch ? 0 : 1)
@@ -4117,7 +4118,7 @@ window.CodeMirror = (function () {
 
     // Fetch the parser token for a given character. Useful for hacks
     // that want to inspect the mode state (say, for completion).
-    getTokenAt: function (pos, precise) {
+    getTokenAt: function(pos, precise) {
       var doc = this.doc
       pos = clipPos(doc, pos)
       var state = getStateBefore(this, pos.line, precise),
@@ -4149,7 +4150,7 @@ window.CodeMirror = (function () {
       }
     },
 
-    getTokenTypeAt: function (pos) {
+    getTokenTypeAt: function(pos) {
       pos = clipPos(this.doc, pos)
       var styles = getLineStyles(this, getLine(this.doc, pos.line))
       var before = 0,
@@ -4164,13 +4165,13 @@ window.CodeMirror = (function () {
       }
     },
 
-    getModeAt: function (pos) {
+    getModeAt: function(pos) {
       var mode = this.doc.mode
       if (!mode.innerMode) return mode
       return CodeMirror.innerMode(mode, this.getTokenAt(pos).state).mode
     },
 
-    getHelper: function (pos, type) {
+    getHelper: function(pos, type) {
       if (!helpers.hasOwnProperty(type)) return
       var help = helpers[type],
         mode = this.getModeAt(pos)
@@ -4181,13 +4182,13 @@ window.CodeMirror = (function () {
       )
     },
 
-    getStateAfter: function (line, precise) {
+    getStateAfter: function(line, precise) {
       var doc = this.doc
       line = clipLine(doc, line == null ? doc.first + doc.size - 1 : line)
       return getStateBefore(this, line + 1, precise)
     },
 
-    cursorCoords: function (start, mode) {
+    cursorCoords: function(start, mode) {
       var pos,
         sel = this.doc.sel
       if (start == null) pos = sel.head
@@ -4196,21 +4197,21 @@ window.CodeMirror = (function () {
       return cursorCoords(this, pos, mode || 'page')
     },
 
-    charCoords: function (pos, mode) {
+    charCoords: function(pos, mode) {
       return charCoords(this, clipPos(this.doc, pos), mode || 'page')
     },
 
-    coordsChar: function (coords, mode) {
+    coordsChar: function(coords, mode) {
       coords = fromCoordSystem(this, coords, mode || 'page')
       return coordsChar(this, coords.left, coords.top)
     },
 
-    lineAtHeight: function (height, mode) {
+    lineAtHeight: function(height, mode) {
       height = fromCoordSystem(this, { top: height, left: 0 }, mode || 'page')
         .top
       return lineAtHeight(this.doc, height + this.display.viewOffset)
     },
-    heightAtLine: function (line, mode) {
+    heightAtLine: function(line, mode) {
       var end = false,
         last = this.doc.first + this.doc.size - 1
       if (line < this.doc.first) line = this.doc.first
@@ -4229,15 +4230,15 @@ window.CodeMirror = (function () {
       )
     },
 
-    defaultTextHeight: function () {
+    defaultTextHeight: function() {
       return textHeight(this.display)
     },
-    defaultCharWidth: function () {
+    defaultCharWidth: function() {
       return charWidth(this.display)
     },
 
-    setGutterMarker: operation(null, function (line, gutterID, value) {
-      return changeLine(this, line, function (line) {
+    setGutterMarker: operation(null, function(line, gutterID, value) {
+      return changeLine(this, line, function(line) {
         var markers = line.gutterMarkers || (line.gutterMarkers = {})
         markers[gutterID] = value
         if (!value && isEmpty(markers)) line.gutterMarkers = null
@@ -4245,11 +4246,11 @@ window.CodeMirror = (function () {
       })
     }),
 
-    clearGutter: operation(null, function (gutterID) {
+    clearGutter: operation(null, function(gutterID) {
       var cm = this,
         doc = cm.doc,
         i = doc.first
-      doc.iter(function (line) {
+      doc.iter(function(line) {
         if (line.gutterMarkers && line.gutterMarkers[gutterID]) {
           line.gutterMarkers[gutterID] = null
           regChange(cm, i, i + 1)
@@ -4259,8 +4260,8 @@ window.CodeMirror = (function () {
       })
     }),
 
-    addLineClass: operation(null, function (handle, where, cls) {
-      return changeLine(this, handle, function (line) {
+    addLineClass: operation(null, function(handle, where, cls) {
+      return changeLine(this, handle, function(line) {
         var prop =
           where == 'text'
             ? 'textClass'
@@ -4273,8 +4274,8 @@ window.CodeMirror = (function () {
       })
     }),
 
-    removeLineClass: operation(null, function (handle, where, cls) {
-      return changeLine(this, handle, function (line) {
+    removeLineClass: operation(null, function(handle, where, cls) {
+      return changeLine(this, handle, function(line) {
         var prop =
           where == 'text'
             ? 'textClass'
@@ -4295,15 +4296,15 @@ window.CodeMirror = (function () {
       })
     }),
 
-    addLineWidget: operation(null, function (handle, node, options) {
+    addLineWidget: operation(null, function(handle, node, options) {
       return addLineWidget(this, handle, node, options)
     }),
 
-    removeLineWidget: function (widget) {
+    removeLineWidget: function(widget) {
       widget.clear()
     },
 
-    lineInfo: function (line) {
+    lineInfo: function(line) {
       if (typeof line === 'number') {
         if (!isLine(this.doc, line)) return null
         var n = line
@@ -4325,11 +4326,11 @@ window.CodeMirror = (function () {
       }
     },
 
-    getViewport: function () {
+    getViewport: function() {
       return { from: this.display.showingFrom, to: this.display.showingTo }
     },
 
-    addWidget: function (pos, node, scroll, vert, horiz) {
+    addWidget: function(pos, node, scroll, vert, horiz) {
       var display = this.display
       pos = cursorCoords(this, clipPos(this.doc, pos))
       var top = pos.bottom,
@@ -4378,11 +4379,11 @@ window.CodeMirror = (function () {
 
     triggerOnKeyDown: operation(null, onKeyDown),
 
-    execCommand: function (cmd) {
+    execCommand: function(cmd) {
       return commands[cmd](this)
     },
 
-    findPosH: function (from, amount, unit, visually) {
+    findPosH: function(from, amount, unit, visually) {
       var dir = 1
       if (amount < 0) {
         dir = -1
@@ -4395,7 +4396,7 @@ window.CodeMirror = (function () {
       return cur
     },
 
-    moveH: operation(null, function (dir, unit) {
+    moveH: operation(null, function(dir, unit) {
       var sel = this.doc.sel,
         pos
       if (sel.shift || sel.extend || posEq(sel.from, sel.to)) {
@@ -4410,7 +4411,7 @@ window.CodeMirror = (function () {
       extendSelection(this.doc, pos, pos, dir)
     }),
 
-    deleteH: operation(null, function (dir, unit) {
+    deleteH: operation(null, function(dir, unit) {
       var sel = this.doc.sel
       if (!posEq(sel.from, sel.to)) {
         replaceRange(this.doc, '', sel.from, sel.to, '+delete')
@@ -4426,7 +4427,7 @@ window.CodeMirror = (function () {
       this.curOp.userSelChange = true
     }),
 
-    findPosV: function (from, amount, unit, goalColumn) {
+    findPosV: function(from, amount, unit, goalColumn) {
       var dir = 1,
         x = goalColumn
       if (amount < 0) {
@@ -4443,7 +4444,7 @@ window.CodeMirror = (function () {
       return cur
     },
 
-    moveV: operation(null, function (dir, unit) {
+    moveV: operation(null, function(dir, unit) {
       var sel = this.doc.sel
       var pos = cursorCoords(this, sel.head, 'div')
       if (sel.goalColumn != null) pos.left = sel.goalColumn
@@ -4456,7 +4457,7 @@ window.CodeMirror = (function () {
       sel.goalColumn = pos.left
     }),
 
-    toggleOverwrite: function (value) {
+    toggleOverwrite: function(value) {
       if (value != null && value == this.state.overwrite) return
       if ((this.state.overwrite = !this.state.overwrite)) {
         this.display.cursor.className += ' CodeMirror-overwrite'
@@ -4467,14 +4468,14 @@ window.CodeMirror = (function () {
         )
       }
     },
-    hasFocus: function () {
+    hasFocus: function() {
       return this.state.focused
     },
 
-    scrollTo: operation(null, function (x, y) {
+    scrollTo: operation(null, function(x, y) {
       updateScrollPos(this, x, y)
     }),
-    getScrollInfo: function () {
+    getScrollInfo: function() {
       var scroller = this.display.scroller,
         co = scrollerCutOff
       return {
@@ -4487,7 +4488,7 @@ window.CodeMirror = (function () {
       }
     },
 
-    scrollIntoView: operation(null, function (range, margin) {
+    scrollIntoView: operation(null, function(range, margin) {
       if (range == null) range = { from: this.doc.sel.head, to: null }
       else if (typeof range === 'number') {
         range = { from: Pos(range, 0), to: null }
@@ -4517,8 +4518,8 @@ window.CodeMirror = (function () {
       updateScrollPos(this, sPos.scrollLeft, sPos.scrollTop)
     }),
 
-    setSize: operation(null, function (width, height) {
-      function interpret (val) {
+    setSize: operation(null, function(width, height) {
+      function interpret(val) {
         return typeof val === 'number' || /^\d+$/.test(String(val))
           ? val + 'px'
           : val
@@ -4531,11 +4532,11 @@ window.CodeMirror = (function () {
       this.curOp.forceUpdate = true
     }),
 
-    operation: function (f) {
+    operation: function(f) {
       return runInOp(this, f)
     },
 
-    refresh: operation(null, function () {
+    refresh: operation(null, function() {
       var badHeight = this.display.cachedTextHeight == null
       clearCaches(this)
       updateScrollPos(this, this.doc.scrollLeft, this.doc.scrollTop)
@@ -4543,7 +4544,7 @@ window.CodeMirror = (function () {
       if (badHeight) estimateLineHeights(this)
     }),
 
-    swapDoc: operation(null, function (doc) {
+    swapDoc: operation(null, function(doc) {
       var old = this.doc
       old.cm = null
       attachDoc(this, doc)
@@ -4554,16 +4555,16 @@ window.CodeMirror = (function () {
       return old
     }),
 
-    getInputField: function () {
+    getInputField: function() {
       return this.display.input
     },
-    getWrapperElement: function () {
+    getWrapperElement: function() {
       return this.display.wrapper
     },
-    getScrollerElement: function () {
+    getScrollerElement: function() {
       return this.display.scroller
     },
-    getGutterElement: function () {
+    getGutterElement: function() {
       return this.display.gutters
     }
   }
@@ -4576,19 +4577,19 @@ window.CodeMirror = (function () {
   // The default configuration options.
   var defaults = (CodeMirror.defaults = {})
 
-  function option (name, deflt, handle, notOnInit) {
+  function option(name, deflt, handle, notOnInit) {
     CodeMirror.defaults[name] = deflt
     if (handle) {
       optionHandlers[name] = notOnInit
-        ? function (cm, val, old) {
-          if (old != Init) handle(cm, val, old)
-        }
+        ? function(cm, val, old) {
+            if (old != Init) handle(cm, val, old)
+          }
         : handle
     }
   }
 
   var Init = (CodeMirror.Init = {
-    toString: function () {
+    toString: function() {
       return 'CodeMirror.Init'
     }
   })
@@ -4598,7 +4599,7 @@ window.CodeMirror = (function () {
   option(
     'value',
     '',
-    function (cm, val) {
+    function(cm, val) {
       cm.setValue(val)
     },
     true
@@ -4606,7 +4607,7 @@ window.CodeMirror = (function () {
   option(
     'mode',
     null,
-    function (cm, val) {
+    function(cm, val) {
       cm.doc.modeOption = val
       loadMode(cm)
     },
@@ -4619,7 +4620,7 @@ window.CodeMirror = (function () {
   option(
     'tabSize',
     4,
-    function (cm) {
+    function(cm) {
       loadMode(cm)
       clearCaches(cm)
       regChange(cm)
@@ -4632,7 +4633,7 @@ window.CodeMirror = (function () {
   option(
     'theme',
     'default',
-    function (cm) {
+    function(cm) {
       themeChanged(cm)
       guttersChanged(cm)
     },
@@ -4648,7 +4649,7 @@ window.CodeMirror = (function () {
   option(
     'gutters',
     [],
-    function (cm) {
+    function(cm) {
       setGuttersForLineNumbers(cm.options)
       guttersChanged(cm)
     },
@@ -4657,7 +4658,7 @@ window.CodeMirror = (function () {
   option(
     'fixedGutter',
     true,
-    function (cm, val) {
+    function(cm, val) {
       cm.display.gutters.style.left = val
         ? compensateForHScroll(cm.display) + 'px'
         : '0'
@@ -4669,7 +4670,7 @@ window.CodeMirror = (function () {
   option(
     'lineNumbers',
     false,
-    function (cm) {
+    function(cm) {
       setGuttersForLineNumbers(cm.options)
       guttersChanged(cm)
     },
@@ -4678,7 +4679,7 @@ window.CodeMirror = (function () {
   option('firstLineNumber', 1, guttersChanged, true)
   option(
     'lineNumberFormatter',
-    function (integer) {
+    function(integer) {
       return integer
     },
     guttersChanged,
@@ -4688,7 +4689,7 @@ window.CodeMirror = (function () {
 
   option('resetSelectionOnContextMenu', true)
 
-  option('readOnly', false, function (cm, val) {
+  option('readOnly', false, function(cm, val) {
     if (val == 'nocursor') {
       onBlur(cm)
       cm.display.input.blur()
@@ -4707,14 +4708,14 @@ window.CodeMirror = (function () {
   option('workDelay', 100)
   option('flattenSpans', true)
   option('pollInterval', 100)
-  option('undoDepth', 40, function (cm, val) {
+  option('undoDepth', 40, function(cm, val) {
     cm.doc.history.undoDepth = val
   })
   option('historyEventDelay', 500)
   option(
     'viewportMargin',
     10,
-    function (cm) {
+    function(cm) {
       cm.refresh()
     },
     true
@@ -4722,18 +4723,18 @@ window.CodeMirror = (function () {
   option(
     'maxHighlightLength',
     10000,
-    function (cm) {
+    function(cm) {
       loadMode(cm)
       cm.refresh()
     },
     true
   )
   option('crudeMeasuringFrom', 10000)
-  option('moveInputWithCursor', true, function (cm, val) {
+  option('moveInputWithCursor', true, function(cm, val) {
     if (!val) cm.display.inputDiv.style.top = cm.display.inputDiv.style.left = 0
   })
 
-  option('tabindex', null, function (cm, val) {
+  option('tabindex', null, function(cm, val) {
     cm.display.input.tabIndex = val || ''
   })
   option('autofocus', null)
@@ -4744,7 +4745,7 @@ window.CodeMirror = (function () {
   var modes = (CodeMirror.modes = {}),
     mimeModes = (CodeMirror.mimeModes = {})
 
-  CodeMirror.defineMode = function (name, mode) {
+  CodeMirror.defineMode = function(name, mode) {
     if (!CodeMirror.defaults.mode && name != 'null') {
       CodeMirror.defaults.mode = name
     }
@@ -4757,11 +4758,11 @@ window.CodeMirror = (function () {
     modes[name] = mode
   }
 
-  CodeMirror.defineMIME = function (mime, spec) {
+  CodeMirror.defineMIME = function(mime, spec) {
     mimeModes[mime] = spec
   }
 
-  CodeMirror.resolveMode = function (spec) {
+  CodeMirror.resolveMode = function(spec) {
     if (typeof spec === 'string' && mimeModes.hasOwnProperty(spec)) {
       spec = mimeModes[spec]
     } else if (
@@ -4782,7 +4783,7 @@ window.CodeMirror = (function () {
     else return spec || { name: 'null' }
   }
 
-  CodeMirror.getMode = function (options, spec) {
+  CodeMirror.getMode = function(options, spec) {
     var spec = CodeMirror.resolveMode(spec)
     var mfactory = modes[spec.name]
     if (!mfactory) return CodeMirror.getMode(options, 'text/plain')
@@ -4800,9 +4801,9 @@ window.CodeMirror = (function () {
     return modeObj
   }
 
-  CodeMirror.defineMode('null', function () {
+  CodeMirror.defineMode('null', function() {
     return {
-      token: function (stream) {
+      token: function(stream) {
         stream.skipToEnd()
       }
     }
@@ -4810,7 +4811,7 @@ window.CodeMirror = (function () {
   CodeMirror.defineMIME('text/plain', 'null')
 
   var modeExtensions = (CodeMirror.modeExtensions = {})
-  CodeMirror.extendMode = function (mode, properties) {
+  CodeMirror.extendMode = function(mode, properties) {
     var exts = modeExtensions.hasOwnProperty(mode)
       ? modeExtensions[mode]
       : (modeExtensions[mode] = {})
@@ -4819,21 +4820,21 @@ window.CodeMirror = (function () {
 
   // EXTENSIONS
 
-  CodeMirror.defineExtension = function (name, func) {
+  CodeMirror.defineExtension = function(name, func) {
     CodeMirror.prototype[name] = func
   }
-  CodeMirror.defineDocExtension = function (name, func) {
+  CodeMirror.defineDocExtension = function(name, func) {
     Doc.prototype[name] = func
   }
   CodeMirror.defineOption = option
 
   var initHooks = []
-  CodeMirror.defineInitHook = function (f) {
+  CodeMirror.defineInitHook = function(f) {
     initHooks.push(f)
   }
 
   var helpers = (CodeMirror.helpers = {})
-  CodeMirror.registerHelper = function (type, name, value) {
+  CodeMirror.registerHelper = function(type, name, value) {
     if (!helpers.hasOwnProperty(type)) helpers[type] = CodeMirror[type] = {}
     helpers[type][name] = value
   }
@@ -4846,7 +4847,7 @@ window.CodeMirror = (function () {
 
   // Utility functions for working with state. Exported because modes
   // sometimes need to do this.
-  function copyState (mode, state) {
+  function copyState(mode, state) {
     if (state === true) return state
     if (mode.copyState) return mode.copyState(state)
     var nstate = {}
@@ -4859,12 +4860,12 @@ window.CodeMirror = (function () {
   }
   CodeMirror.copyState = copyState
 
-  function startState (mode, a1, a2) {
+  function startState(mode, a1, a2) {
     return mode.startState ? mode.startState(a1, a2) : true
   }
   CodeMirror.startState = startState
 
-  CodeMirror.innerMode = function (mode, state) {
+  CodeMirror.innerMode = function(mode, state) {
     while (mode.innerMode) {
       var info = mode.innerMode(state)
       if (!info || info.mode == mode) break
@@ -4877,10 +4878,10 @@ window.CodeMirror = (function () {
   // STANDARD COMMANDS
 
   var commands = (CodeMirror.commands = {
-    selectAll: function (cm) {
+    selectAll: function(cm) {
       cm.setSelection(Pos(cm.firstLine(), 0), Pos(cm.lastLine()))
     },
-    killLine: function (cm) {
+    killLine: function(cm) {
       var from = cm.getCursor(true),
         to = cm.getCursor(false),
         sel = !posEq(from, to)
@@ -4888,30 +4889,30 @@ window.CodeMirror = (function () {
         cm.replaceRange('', from, Pos(from.line + 1, 0), '+delete')
       } else cm.replaceRange('', from, sel ? to : Pos(from.line), '+delete')
     },
-    deleteLine: function (cm) {
+    deleteLine: function(cm) {
       var l = cm.getCursor().line
       cm.replaceRange('', Pos(l, 0), Pos(l), '+delete')
     },
-    delLineLeft: function (cm) {
+    delLineLeft: function(cm) {
       var cur = cm.getCursor()
       cm.replaceRange('', Pos(cur.line, 0), cur, '+delete')
     },
-    undo: function (cm) {
+    undo: function(cm) {
       cm.undo()
     },
-    redo: function (cm) {
+    redo: function(cm) {
       cm.redo()
     },
-    goDocStart: function (cm) {
+    goDocStart: function(cm) {
       cm.extendSelection(Pos(cm.firstLine(), 0))
     },
-    goDocEnd: function (cm) {
+    goDocEnd: function(cm) {
       cm.extendSelection(Pos(cm.lastLine()))
     },
-    goLineStart: function (cm) {
+    goLineStart: function(cm) {
       cm.extendSelection(lineStart(cm, cm.getCursor().line))
     },
-    goLineStartSmart: function (cm) {
+    goLineStartSmart: function(cm) {
       var cur = cm.getCursor(),
         start = lineStart(cm, cur.line)
       var line = cm.getLineHandle(start.line)
@@ -4922,10 +4923,10 @@ window.CodeMirror = (function () {
         cm.extendSelection(Pos(start.line, inWS ? 0 : firstNonWS))
       } else cm.extendSelection(start)
     },
-    goLineEnd: function (cm) {
+    goLineEnd: function(cm) {
       cm.extendSelection(lineEnd(cm, cm.getCursor().line))
     },
-    goLineRight: function (cm) {
+    goLineRight: function(cm) {
       var top = cm.charCoords(cm.getCursor(), 'div').top + 5
       cm.extendSelection(
         cm.coordsChar(
@@ -4934,81 +4935,81 @@ window.CodeMirror = (function () {
         )
       )
     },
-    goLineLeft: function (cm) {
+    goLineLeft: function(cm) {
       var top = cm.charCoords(cm.getCursor(), 'div').top + 5
       cm.extendSelection(cm.coordsChar({ left: 0, top: top }, 'div'))
     },
-    goLineUp: function (cm) {
+    goLineUp: function(cm) {
       cm.moveV(-1, 'line')
     },
-    goLineDown: function (cm) {
+    goLineDown: function(cm) {
       cm.moveV(1, 'line')
     },
-    goPageUp: function (cm) {
+    goPageUp: function(cm) {
       cm.moveV(-1, 'page')
     },
-    goPageDown: function (cm) {
+    goPageDown: function(cm) {
       cm.moveV(1, 'page')
     },
-    goCharLeft: function (cm) {
+    goCharLeft: function(cm) {
       cm.moveH(-1, 'char')
     },
-    goCharRight: function (cm) {
+    goCharRight: function(cm) {
       cm.moveH(1, 'char')
     },
-    goColumnLeft: function (cm) {
+    goColumnLeft: function(cm) {
       cm.moveH(-1, 'column')
     },
-    goColumnRight: function (cm) {
+    goColumnRight: function(cm) {
       cm.moveH(1, 'column')
     },
-    goWordLeft: function (cm) {
+    goWordLeft: function(cm) {
       cm.moveH(-1, 'word')
     },
-    goGroupRight: function (cm) {
+    goGroupRight: function(cm) {
       cm.moveH(1, 'group')
     },
-    goGroupLeft: function (cm) {
+    goGroupLeft: function(cm) {
       cm.moveH(-1, 'group')
     },
-    goWordRight: function (cm) {
+    goWordRight: function(cm) {
       cm.moveH(1, 'word')
     },
-    delCharBefore: function (cm) {
+    delCharBefore: function(cm) {
       cm.deleteH(-1, 'char')
     },
-    delCharAfter: function (cm) {
+    delCharAfter: function(cm) {
       cm.deleteH(1, 'char')
     },
-    delWordBefore: function (cm) {
+    delWordBefore: function(cm) {
       cm.deleteH(-1, 'word')
     },
-    delWordAfter: function (cm) {
+    delWordAfter: function(cm) {
       cm.deleteH(1, 'word')
     },
-    delGroupBefore: function (cm) {
+    delGroupBefore: function(cm) {
       cm.deleteH(-1, 'group')
     },
-    delGroupAfter: function (cm) {
+    delGroupAfter: function(cm) {
       cm.deleteH(1, 'group')
     },
-    indentAuto: function (cm) {
+    indentAuto: function(cm) {
       cm.indentSelection('smart')
     },
-    indentMore: function (cm) {
+    indentMore: function(cm) {
       cm.indentSelection('add')
     },
-    indentLess: function (cm) {
+    indentLess: function(cm) {
       cm.indentSelection('subtract')
     },
-    insertTab: function (cm) {
+    insertTab: function(cm) {
       cm.replaceSelection('\t', 'end', '+input')
     },
-    defaultTab: function (cm) {
+    defaultTab: function(cm) {
       if (cm.somethingSelected()) cm.indentSelection('add')
       else cm.replaceSelection('\t', 'end', '+input')
     },
-    transposeChars: function (cm) {
+    transposeChars: function(cm) {
       var cur = cm.getCursor(),
         line = cm.getLine(cur.line)
       if (cur.ch > 0 && cur.ch < line.length - 1) {
@@ -5019,13 +5020,13 @@ window.CodeMirror = (function () {
         )
       }
     },
-    newlineAndIndent: function (cm) {
-      operation(cm, function () {
+    newlineAndIndent: function(cm) {
+      operation(cm, function() {
         cm.replaceSelection('\n', 'end', '+input')
         cm.indentLine(cm.getCursor().line, null, true)
       })()
     },
-    toggleOverwrite: function (cm) {
+    toggleOverwrite: function(cm) {
       cm.toggleOverwrite()
     }
   })
@@ -5127,13 +5128,13 @@ window.CodeMirror = (function () {
 
   // KEYMAP DISPATCH
 
-  function getKeyMap (val) {
+  function getKeyMap(val) {
     if (typeof val === 'string') return keyMap[val]
     else return val
   }
 
-  function lookupKey (name, maps, handle) {
-    function lookup (map) {
+  function lookupKey(name, maps, handle) {
+    function lookup(map) {
       map = getKeyMap(map)
       var found = map[name]
       if (found === false) return 'stop'
@@ -5157,11 +5158,11 @@ window.CodeMirror = (function () {
       if (done) return done != 'stop'
     }
   }
-  function isModifierKey (event) {
+  function isModifierKey(event) {
     var name = keyNames[event.keyCode]
     return name == 'Ctrl' || name == 'Alt' || name == 'Shift' || name == 'Mod'
   }
-  function keyName (event, noShift) {
+  function keyName(event, noShift) {
     if (opera && event.keyCode == 34 && event['char']) return false
     var name = keyNames[event.keyCode]
     if (name == null || event.altGraphKey) return false
@@ -5177,7 +5178,7 @@ window.CodeMirror = (function () {
 
   // FROMTEXTAREA
 
-  CodeMirror.fromTextArea = function (textarea, options) {
+  CodeMirror.fromTextArea = function(textarea, options) {
     if (!options) options = {}
     options.value = textarea.value
     if (!options.tabindex && textarea.tabindex) {
@@ -5200,7 +5201,7 @@ window.CodeMirror = (function () {
           hasFocus == document.body)
     }
 
-    function save () {
+    function save() {
       textarea.value = cm.getValue()
     }
     if (textarea.form) {
@@ -5210,7 +5211,7 @@ window.CodeMirror = (function () {
         var form = textarea.form,
           realSubmit = form.submit
         try {
-          var wrappedSubmit = (form.submit = function () {
+          var wrappedSubmit = (form.submit = function() {
             save()
             form.submit = realSubmit
             form.submit()
@@ -5221,14 +5222,14 @@ window.CodeMirror = (function () {
     }
 
     textarea.style.display = 'none'
-    var cm = CodeMirror(function (node) {
+    var cm = CodeMirror(function(node) {
       textarea.parentNode.insertBefore(node, textarea.nextSibling)
     }, options)
     cm.save = save
-    cm.getTextArea = function () {
+    cm.getTextArea = function() {
       return textarea
     }
-    cm.toTextArea = function () {
+    cm.toTextArea = function() {
       save()
       textarea.parentNode.removeChild(cm.getWrapperElement())
       textarea.style.display = ''
@@ -5257,7 +5258,7 @@ window.CodeMirror = (function () {
   //   this.tabSize = tabSize || 8;
   //   this.lastColumnPos = this.lastColumnValue = 0;
   // }
-  function StringStream (string, tabSize, lineNo) {
+  function StringStream(string, tabSize, lineNo) {
     this.pos = this.start = 0
     this.string = string
     this.tabSize = tabSize || 8
@@ -5269,19 +5270,19 @@ window.CodeMirror = (function () {
    */
 
   StringStream.prototype = {
-    eol: function () {
+    eol: function() {
       return this.pos >= this.string.length
     },
-    sol: function () {
+    sol: function() {
       return this.pos == 0
     },
-    peek: function () {
+    peek: function() {
       return this.string.charAt(this.pos) || undefined
     },
-    next: function () {
+    next: function() {
       if (this.pos < this.string.length) return this.string.charAt(this.pos++)
     },
-    eat: function (match) {
+    eat: function(match) {
       var ch = this.string.charAt(this.pos)
       if (typeof match === 'string') var ok = ch == match
       else var ok = ch && (match.test ? match.test(ch) : match(ch))
@@ -5290,30 +5291,30 @@ window.CodeMirror = (function () {
         return ch
       }
     },
-    eatWhile: function (match) {
+    eatWhile: function(match) {
       var start = this.pos
       while (this.eat(match)) {}
       return this.pos > start
     },
-    eatSpace: function () {
+    eatSpace: function() {
       var start = this.pos
       while (/[\s\u00a0]/.test(this.string.charAt(this.pos))) ++this.pos
       return this.pos > start
     },
-    skipToEnd: function () {
+    skipToEnd: function() {
       this.pos = this.string.length
     },
-    skipTo: function (ch) {
+    skipTo: function(ch) {
       var found = this.string.indexOf(ch, this.pos)
       if (found > -1) {
         this.pos = found
         return true
       }
     },
-    backUp: function (n) {
+    backUp: function(n) {
       this.pos -= n
     },
-    column: function () {
+    column: function() {
       if (this.lastColumnPos < this.start) {
         this.lastColumnValue = countColumn(
           this.string,
@@ -5326,12 +5327,12 @@ window.CodeMirror = (function () {
       }
       return this.lastColumnValue
     },
-    indentation: function () {
+    indentation: function() {
       return countColumn(this.string, null, this.tabSize)
     },
-    match: function (pattern, consume, caseInsensitive) {
+    match: function(pattern, consume, caseInsensitive) {
       if (typeof pattern === 'string') {
-        var cased = function (str) {
+        var cased = function(str) {
           return caseInsensitive ? str.toLowerCase() : str
         }
         var substr = this.string.substr(this.pos, pattern.length)
@@ -5346,7 +5347,7 @@ window.CodeMirror = (function () {
         return match
       }
     },
-    current: function () {
+    current: function() {
       return this.string.slice(this.start, this.pos)
     }
   }
@@ -5354,7 +5355,7 @@ window.CodeMirror = (function () {
 
   // TEXTMARKERS
 
-  function TextMarker (doc, type) {
+  function TextMarker(doc, type) {
     this.lines = []
     this.type = type
     this.doc = doc
@@ -5362,7 +5363,7 @@ window.CodeMirror = (function () {
   CodeMirror.TextMarker = TextMarker
   eventMixin(TextMarker)
 
-  TextMarker.prototype.clear = function () {
+  TextMarker.prototype.clear = function() {
     if (this.explicitlyCleared) return
     var cm = this.doc.cm,
       withOp = cm && !cm.curOp
@@ -5405,7 +5406,7 @@ window.CodeMirror = (function () {
     if (withOp) endOperation(cm)
   }
 
-  TextMarker.prototype.find = function () {
+  TextMarker.prototype.find = function() {
     var from, to
     for (var i = 0; i < this.lines.length; ++i) {
       var line = this.lines[i]
@@ -5420,7 +5421,7 @@ window.CodeMirror = (function () {
     return from && { from: from, to: to }
   }
 
-  TextMarker.prototype.changed = function () {
+  TextMarker.prototype.changed = function() {
     var pos = this.find(),
       cm = this.doc.cm
     if (!pos || !cm) return
@@ -5440,13 +5441,13 @@ window.CodeMirror = (function () {
           break
         }
       }
-      runInOp(cm, function () {
+      runInOp(cm, function() {
         cm.curOp.selectionChanged = cm.curOp.forceUpdate = cm.curOp.updateMaxLine = true
       })
     }
   }
 
-  TextMarker.prototype.attachLine = function (line) {
+  TextMarker.prototype.attachLine = function(line) {
     if (!this.lines.length && this.doc.cm) {
       var op = this.doc.cm.curOp
       if (
@@ -5458,7 +5459,7 @@ window.CodeMirror = (function () {
     }
     this.lines.push(line)
   }
-  TextMarker.prototype.detachLine = function (line) {
+  TextMarker.prototype.detachLine = function(line) {
     this.lines.splice(indexOf(this.lines, line), 1)
     if (!this.lines.length && this.doc.cm) {
       var op = this.doc.cm.curOp
@@ -5466,7 +5467,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function markText (doc, from, to, options, type) {
+  function markText(doc, from, to, options, type) {
     if (options && options.shared) {
       return markTextShared(doc, from, to, options, type)
     }
@@ -5510,7 +5511,7 @@ window.CodeMirror = (function () {
       collapsedAtEnd,
       cm = doc.cm,
       updateMaxLine
-    doc.iter(curLine, to.line + 1, function (line) {
+    doc.iter(curLine, to.line + 1, function(line) {
       if (
         cm &&
         marker.collapsed &&
@@ -5539,13 +5540,13 @@ window.CodeMirror = (function () {
       ++curLine
     })
     if (marker.collapsed) {
-      doc.iter(from.line, to.line + 1, function (line) {
+      doc.iter(from.line, to.line + 1, function(line) {
         if (lineIsHidden(doc, line)) updateLineHeight(line, 0)
       })
     }
 
     if (marker.clearOnEnter) {
-      on(marker, 'beforeCursorEnter', function () {
+      on(marker, 'beforeCursorEnter', function() {
         marker.clear()
       })
     }
@@ -5583,12 +5584,12 @@ window.CodeMirror = (function () {
 
   // SHARED TEXTMARKERS
 
-  function SharedTextMarker (markers, primary) {
+  function SharedTextMarker(markers, primary) {
     this.markers = markers
     this.primary = primary
     for (var i = 0, me = this; i < markers.length; ++i) {
       markers[i].parent = this
-      on(markers[i], 'clear', function () {
+      on(markers[i], 'clear', function() {
         me.clear()
       })
     }
@@ -5596,23 +5597,23 @@ window.CodeMirror = (function () {
   CodeMirror.SharedTextMarker = SharedTextMarker
   eventMixin(SharedTextMarker)
 
-  SharedTextMarker.prototype.clear = function () {
+  SharedTextMarker.prototype.clear = function() {
     if (this.explicitlyCleared) return
     this.explicitlyCleared = true
     for (var i = 0; i < this.markers.length; ++i) this.markers[i].clear()
     signalLater(this, 'clear')
   }
-  SharedTextMarker.prototype.find = function () {
+  SharedTextMarker.prototype.find = function() {
     return this.primary.find()
   }
 
-  function markTextShared (doc, from, to, options, type) {
+  function markTextShared(doc, from, to, options, type) {
     options = copyObj(options)
     options.shared = false
     var markers = [markText(doc, from, to, options, type)],
       primary = markers[0]
     var widget = options.replacedWith
-    linkedDocs(doc, function (doc) {
+    linkedDocs(doc, function(doc) {
       if (widget) options.replacedWith = widget.cloneNode(true)
       markers.push(
         markText(doc, clipPos(doc, from), clipPos(doc, to), options, type)
@@ -5627,7 +5628,7 @@ window.CodeMirror = (function () {
 
   // TEXTMARKER SPANS
 
-  function getMarkedSpanFor (spans, marker) {
+  function getMarkedSpanFor(spans, marker) {
     if (spans) {
       for (var i = 0; i < spans.length; ++i) {
         var span = spans[i]
@@ -5635,20 +5636,20 @@ window.CodeMirror = (function () {
       }
     }
   }
-  function removeMarkedSpan (spans, span) {
+  function removeMarkedSpan(spans, span) {
     for (var r, i = 0; i < spans.length; ++i) {
       if (spans[i] != span) (r || (r = [])).push(spans[i])
     }
     return r
   }
-  function addMarkedSpan (line, span) {
+  function addMarkedSpan(line, span) {
     line.markedSpans = line.markedSpans
       ? line.markedSpans.concat([span])
       : [span]
     span.marker.attachLine(line)
   }
 
-  function markedSpansBefore (old, startCh, isInsert) {
+  function markedSpansBefore(old, startCh, isInsert) {
     if (old) {
       for (var i = 0, nw; i < old.length; ++i) {
         var span = old[i],
@@ -5677,7 +5678,7 @@ window.CodeMirror = (function () {
     return nw
   }
 
-  function markedSpansAfter (old, endCh, isInsert) {
+  function markedSpansAfter(old, endCh, isInsert) {
     if (old) {
       for (var i = 0, nw; i < old.length; ++i) {
         var span = old[i],
@@ -5705,7 +5706,7 @@ window.CodeMirror = (function () {
     return nw
   }
 
-  function stretchSpansOverChange (doc, change) {
+  function stretchSpansOverChange(doc, change) {
     var oldFirst =
       isLine(doc, change.from.line) &&
       getLine(doc, change.from.line).markedSpans
@@ -5789,7 +5790,7 @@ window.CodeMirror = (function () {
     return newMarkers
   }
 
-  function mergeOldSpans (doc, change) {
+  function mergeOldSpans(doc, change) {
     var old = getOldSpans(doc, change)
     var stretched = stretchSpansOverChange(doc, change)
     if (!old) return stretched
@@ -5813,9 +5814,9 @@ window.CodeMirror = (function () {
     return old
   }
 
-  function removeReadOnlyRanges (doc, from, to) {
+  function removeReadOnlyRanges(doc, from, to) {
     var markers = null
-    doc.iter(from.line, to.line + 1, function (line) {
+    doc.iter(from.line, to.line + 1, function(line) {
       if (line.markedSpans) {
         for (var i = 0; i < line.markedSpans.length; ++i) {
           var mark = line.markedSpans[i].marker
@@ -5850,7 +5851,7 @@ window.CodeMirror = (function () {
     return parts
   }
 
-  function collapsedSpanAt (line, ch) {
+  function collapsedSpanAt(line, ch) {
     var sps = sawCollapsedSpans && line.markedSpans,
       found
     if (sps) {
@@ -5868,14 +5869,14 @@ window.CodeMirror = (function () {
     }
     return found
   }
-  function collapsedSpanAtStart (line) {
+  function collapsedSpanAtStart(line) {
     return collapsedSpanAt(line, -1)
   }
-  function collapsedSpanAtEnd (line) {
+  function collapsedSpanAtEnd(line) {
     return collapsedSpanAt(line, line.text.length + 1)
   }
 
-  function visualLine (doc, line) {
+  function visualLine(doc, line) {
     var merged
     while ((merged = collapsedSpanAtStart(line))) {
       line = getLine(doc, merged.find().from.line)
@@ -5883,7 +5884,7 @@ window.CodeMirror = (function () {
     return line
   }
 
-  function lineIsHidden (doc, line) {
+  function lineIsHidden(doc, line) {
     var sps = sawCollapsedSpans && line.markedSpans
     if (sps) {
       for (var sp, i = 0; i < sps.length; ++i) {
@@ -5901,7 +5902,7 @@ window.CodeMirror = (function () {
       }
     }
   }
-  function lineIsHiddenInner (doc, line, span) {
+  function lineIsHiddenInner(doc, line, span) {
     if (span.to == null) {
       var end = span.marker.find().to,
         endLine = getLine(doc, end.line)
@@ -5926,14 +5927,14 @@ window.CodeMirror = (function () {
     }
   }
 
-  function detachMarkedSpans (line) {
+  function detachMarkedSpans(line) {
     var spans = line.markedSpans
     if (!spans) return
     for (var i = 0; i < spans.length; ++i) spans[i].marker.detachLine(line)
     line.markedSpans = null
   }
 
-  function attachMarkedSpans (line, spans) {
+  function attachMarkedSpans(line, spans) {
     if (!spans) return
     for (var i = 0; i < spans.length; ++i) spans[i].marker.attachLine(line)
     line.markedSpans = spans
@@ -5941,7 +5942,7 @@ window.CodeMirror = (function () {
 
   // LINE WIDGETS
 
-  var LineWidget = (CodeMirror.LineWidget = function (cm, node, options) {
+  var LineWidget = (CodeMirror.LineWidget = function(cm, node, options) {
     if (options) {
       for (var opt in options) {
         if (options.hasOwnProperty(opt)) this[opt] = options[opt]
@@ -5951,8 +5952,8 @@ window.CodeMirror = (function () {
     this.node = node
   })
   eventMixin(LineWidget)
-  function widgetOperation (f) {
-    return function () {
+  function widgetOperation(f) {
+    return function() {
       var withOp = !this.cm.curOp
       if (withOp) startOperation(this.cm)
       try {
@@ -5963,7 +5964,7 @@ window.CodeMirror = (function () {
       return result
     }
   }
-  LineWidget.prototype.clear = widgetOperation(function () {
+  LineWidget.prototype.clear = widgetOperation(function() {
     var ws = this.line.widgets,
       no = lineNo(this.line)
     if (no == null || !ws) return
@@ -5977,7 +5978,7 @@ window.CodeMirror = (function () {
     if (aboveVisible) addToScrollPos(this.cm, 0, -this.height)
     regChange(this.cm, no, no + 1)
   })
-  LineWidget.prototype.changed = widgetOperation(function () {
+  LineWidget.prototype.changed = widgetOperation(function() {
     var oldH = this.height
     this.height = null
     var diff = widgetHeight(this) - oldH
@@ -5987,7 +5988,7 @@ window.CodeMirror = (function () {
     regChange(this.cm, no, no + 1)
   })
 
-  function widgetHeight (widget) {
+  function widgetHeight(widget) {
     if (widget.height != null) return widget.height
     if (!widget.node.parentNode || widget.node.parentNode.nodeType != 1) {
       removeChildrenAndAdd(
@@ -5998,10 +5999,10 @@ window.CodeMirror = (function () {
     return (widget.height = widget.node.offsetHeight)
   }
 
-  function addLineWidget (cm, handle, node, options) {
+  function addLineWidget(cm, handle, node, options) {
     var widget = new LineWidget(cm, node, options)
     if (widget.noHScroll) cm.display.alignWidgets = true
-    changeLine(cm, handle, function (line) {
+    changeLine(cm, handle, function(line) {
       var widgets = line.widgets || (line.widgets = [])
       if (widget.insertAt == null) widgets.push(widget)
       else {
@@ -6026,14 +6027,14 @@ window.CodeMirror = (function () {
 
   // Line objects. These hold state related to a line, including
   // highlighting info (the styles array).
-  var Line = (CodeMirror.Line = function (text, markedSpans, estimateHeight) {
+  var Line = (CodeMirror.Line = function(text, markedSpans, estimateHeight) {
     this.text = text
     attachMarkedSpans(this, markedSpans)
     this.height = estimateHeight ? estimateHeight(this) : 1
   })
   eventMixin(Line)
 
-  function updateLine (line, text, markedSpans, estimateHeight) {
+  function updateLine(line, text, markedSpans, estimateHeight) {
     line.text = text
     if (line.stateAfter) line.stateAfter = null
     if (line.styles) line.styles = null
@@ -6044,7 +6045,7 @@ window.CodeMirror = (function () {
     if (estHeight != line.height) updateLineHeight(line, estHeight)
   }
 
-  function cleanUpLine (line) {
+  function cleanUpLine(line) {
     line.parent = null
     detachMarkedSpans(line)
   }
@@ -6053,7 +6054,7 @@ window.CodeMirror = (function () {
   // array, which contains alternating fragments of text and CSS
   // classes.
   // FNC HACK added lineNo Parameter
-  function runMode (cm, lineNo, text, mode, state, f) {
+  function runMode(cm, lineNo, text, mode, state, f) {
     var flattenSpans = mode.flattenSpans
     if (flattenSpans == null) flattenSpans = cm.options.flattenSpans
     var curStart = 0,
@@ -6084,13 +6085,13 @@ window.CodeMirror = (function () {
     }
   }
 
-  function highlightLine (cm, line, state) {
+  function highlightLine(cm, line, state) {
     // A styles array always starts with a number identifying the
     // mode/overlays that it is based on (for easy invalidation).
     var st = [cm.state.modeGen]
     // Compute the base array of styles
     // FNC HACK added lineNo Parameter
-    runMode(cm, lineNo(line), line.text, cm.doc.mode, state, function (
+    runMode(cm, lineNo(line), line.text, cm.doc.mode, state, function(
       end,
       style
     ) {
@@ -6103,7 +6104,7 @@ window.CodeMirror = (function () {
         i = 1,
         at = 0
       // FNC HACK added lineNo Parameter
-      runMode(cm, lineNo(line), line.text, overlay.mode, true, function (
+      runMode(cm, lineNo(line), line.text, overlay.mode, true, function(
         end,
         style
       ) {
@@ -6131,7 +6132,7 @@ window.CodeMirror = (function () {
     return st
   }
 
-  function getLineStyles (cm, line) {
+  function getLineStyles(cm, line) {
     if (!line.styles || line.styles[0] != cm.state.modeGen) {
       line.styles = highlightLine(
         cm,
@@ -6144,7 +6145,7 @@ window.CodeMirror = (function () {
 
   // Lightweight form of highlight -- proceed over this line and
   // update state, but don't save a style array.
-  function processLine (cm, line, state) {
+  function processLine(cm, line, state) {
     var mode = cm.doc.mode
     var stream = new StringStream(line.text, cm.options.tabSize)
     if (line.text == '' && mode.blankLine) mode.blankLine(state)
@@ -6155,7 +6156,7 @@ window.CodeMirror = (function () {
   }
 
   var styleToClassCache = {}
-  function interpretTokenStyle (style, builder) {
+  function interpretTokenStyle(style, builder) {
     if (!style) return null
     for (;;) {
       var lineClass = style.match(/(?:^|\s)line-(background-)?(\S+)/)
@@ -6177,7 +6178,7 @@ window.CodeMirror = (function () {
     )
   }
 
-  function buildLineContent (cm, realLine, measure, copyWidgets) {
+  function buildLineContent(cm, realLine, measure, copyWidgets) {
     var merged,
       line = realLine,
       empty = true
@@ -6252,7 +6253,7 @@ window.CodeMirror = (function () {
   }
 
   var tokenSpecialChars = /[\t\u0000-\u0019\u00ad\u200b\u2028\u2029\uFEFF]/g
-  function buildToken (builder, text, style, startStyle, endStyle, title) {
+  function buildToken(builder, text, style, startStyle, endStyle, title) {
     if (!text) return
     if (!tokenSpecialChars.test(text)) {
       builder.col += text.length
@@ -6296,7 +6297,7 @@ window.CodeMirror = (function () {
     builder.pre.appendChild(content)
   }
 
-  function buildTokenMeasure (builder, text, style, startStyle, endStyle) {
+  function buildTokenMeasure(builder, text, style, startStyle, endStyle) {
     var wrapping = builder.cm.options.lineWrapping
     for (var i = 0; i < text.length; ++i) {
       var ch = text.charAt(i),
@@ -6335,14 +6336,14 @@ window.CodeMirror = (function () {
     if (text.length) builder.measuredSomething = true
   }
 
-  function buildTokenSplitSpaces (inner) {
-    function split (old) {
+  function buildTokenSplitSpaces(inner) {
+    function split(old) {
       var out = ' '
       for (var i = 0; i < old.length - 2; ++i) out += i % 2 ? ' ' : '\u00a0'
       out += ' '
       return out
     }
-    return function (builder, text, style, startStyle, endStyle, title) {
+    return function(builder, text, style, startStyle, endStyle, title) {
       return inner(
         builder,
         text.replace(/ {3,}/g, split),
@@ -6354,7 +6355,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function buildCollapsedSpan (builder, size, marker, ignoreWidget) {
+  function buildCollapsedSpan(builder, size, marker, ignoreWidget) {
     var widget = !ignoreWidget && marker.replacedWith
     if (widget) {
       if (builder.copyWidgets) widget = widget.cloneNode(true)
@@ -6379,7 +6380,7 @@ window.CodeMirror = (function () {
 
   // Outputs a number of spans to make up a line, taking highlighting
   // and marked text into account.
-  function insertLineContent (line, builder, styles) {
+  function insertLineContent(line, builder, styles) {
     var spans = line.markedSpans,
       allText = line.text,
       at = 0
@@ -6486,11 +6487,11 @@ window.CodeMirror = (function () {
 
   // DOCUMENT DATA STRUCTURE
 
-  function updateDoc (doc, change, markedSpans, selAfter, estimateHeight) {
-    function spansFor (n) {
+  function updateDoc(doc, change, markedSpans, selAfter, estimateHeight) {
+    function spansFor(n) {
       return markedSpans ? markedSpans[n] : null
     }
-    function update (line, text, spans) {
+    function update(line, text, spans) {
       updateLine(line, text, spans, estimateHeight)
       signalLater(line, 'change', line, change)
     }
@@ -6562,7 +6563,7 @@ window.CodeMirror = (function () {
     setSelection(doc, selAfter.anchor, selAfter.head, null, true)
   }
 
-  function LeafChunk (lines) {
+  function LeafChunk(lines) {
     this.lines = lines
     this.parent = null
     for (var i = 0, e = lines.length, height = 0; i < e; ++i) {
@@ -6573,10 +6574,10 @@ window.CodeMirror = (function () {
   }
 
   LeafChunk.prototype = {
-    chunkSize: function () {
+    chunkSize: function() {
       return this.lines.length
     },
-    removeInner: function (at, n) {
+    removeInner: function(at, n) {
       for (var i = at, e = at + n; i < e; ++i) {
         var line = this.lines[i]
         this.height -= line.height
@@ -6585,10 +6586,10 @@ window.CodeMirror = (function () {
       }
       this.lines.splice(at, n)
     },
-    collapse: function (lines) {
+    collapse: function(lines) {
       lines.splice.apply(lines, [lines.length, 0].concat(this.lines))
     },
-    insertInner: function (at, lines, height) {
+    insertInner: function(at, lines, height) {
       this.height += height
       this.lines = this.lines
         .slice(0, at)
@@ -6596,12 +6597,12 @@ window.CodeMirror = (function () {
         .concat(this.lines.slice(at))
       for (var i = 0, e = lines.length; i < e; ++i) lines[i].parent = this
     },
-    iterN: function (at, n, op) {
+    iterN: function(at, n, op) {
       for (var e = at + n; at < e; ++at) if (op(this.lines[at])) return true
     }
   }
 
-  function BranchChunk (children) {
+  function BranchChunk(children) {
     this.children = children
     var size = 0,
       height = 0
@@ -6617,10 +6618,10 @@ window.CodeMirror = (function () {
   }
 
   BranchChunk.prototype = {
-    chunkSize: function () {
+    chunkSize: function() {
       return this.size
     },
-    removeInner: function (at, n) {
+    removeInner: function(at, n) {
       this.size -= n
       for (var i = 0; i < this.children.length; ++i) {
         var child = this.children[i],
@@ -6645,12 +6646,12 @@ window.CodeMirror = (function () {
         this.children[0].parent = this
       }
     },
-    collapse: function (lines) {
+    collapse: function(lines) {
       for (var i = 0, e = this.children.length; i < e; ++i) {
         this.children[i].collapse(lines)
       }
     },
-    insertInner: function (at, lines, height) {
+    insertInner: function(at, lines, height) {
       this.size += lines.length
       this.height += height
       for (var i = 0, e = this.children.length; i < e; ++i) {
@@ -6673,7 +6674,7 @@ window.CodeMirror = (function () {
         at -= sz
       }
     },
-    maybeSpill: function () {
+    maybeSpill: function() {
       if (this.children.length <= 10) return
       var me = this
       do {
@@ -6695,7 +6696,7 @@ window.CodeMirror = (function () {
       } while (me.children.length > 10)
       me.parent.maybeSpill()
     },
-    iterN: function (at, n, op) {
+    iterN: function(at, n, op) {
       for (var i = 0, e = this.children.length; i < e; ++i) {
         var child = this.children[i],
           sz = child.chunkSize()
@@ -6710,7 +6711,7 @@ window.CodeMirror = (function () {
   }
 
   var nextDocId = 0
-  var Doc = (CodeMirror.Doc = function (text, mode, firstLine) {
+  var Doc = (CodeMirror.Doc = function(text, mode, firstLine) {
     if (!(this instanceof Doc)) return new Doc(text, mode, firstLine)
     if (firstLine == null) firstLine = 0
 
@@ -6743,26 +6744,26 @@ window.CodeMirror = (function () {
 
   Doc.prototype = createObj(BranchChunk.prototype, {
     constructor: Doc,
-    iter: function (from, to, op) {
+    iter: function(from, to, op) {
       if (op) this.iterN(from - this.first, to - from, op)
       else this.iterN(this.first, this.first + this.size, from)
     },
 
-    insert: function (at, lines) {
+    insert: function(at, lines) {
       var height = 0
       for (var i = 0, e = lines.length; i < e; ++i) height += lines[i].height
       this.insertInner(at - this.first, lines, height)
     },
-    remove: function (at, n) {
+    remove: function(at, n) {
       this.removeInner(at - this.first, n)
     },
 
-    getValue: function (lineSep) {
+    getValue: function(lineSep) {
       var lines = getLines(this, this.first, this.first + this.size)
       if (lineSep === false) return lines
       return lines.join(lineSep || '\n')
     },
-    setValue: function (code) {
+    setValue: function(code) {
       var top = Pos(this.first, 0),
         last = this.first + this.size - 1
       makeChange(
@@ -6777,27 +6778,27 @@ window.CodeMirror = (function () {
         true
       )
     },
-    replaceRange: function (code, from, to, origin) {
+    replaceRange: function(code, from, to, origin) {
       from = clipPos(this, from)
       to = to ? clipPos(this, to) : from
       replaceRange(this, code, from, to, origin)
     },
-    getRange: function (from, to, lineSep) {
+    getRange: function(from, to, lineSep) {
       var lines = getBetween(this, clipPos(this, from), clipPos(this, to))
       if (lineSep === false) return lines
       return lines.join(lineSep || '\n')
     },
 
-    getLine: function (line) {
+    getLine: function(line) {
       var l = this.getLineHandle(line)
       return l && l.text
     },
-    setLine: function (line, text) {
+    setLine: function(line, text) {
       if (isLine(this, line)) {
         replaceRange(this, text, Pos(line, 0), clipPos(this, Pos(line)))
       }
     },
-    removeLine: function (line) {
+    removeLine: function(line) {
       if (line) {
         replaceRange(
           this,
@@ -6808,33 +6809,33 @@ window.CodeMirror = (function () {
       } else replaceRange(this, '', Pos(0, 0), clipPos(this, Pos(1, 0)))
     },
 
-    getLineHandle: function (line) {
+    getLineHandle: function(line) {
       if (isLine(this, line)) return getLine(this, line)
     },
-    getLineNumber: function (line) {
+    getLineNumber: function(line) {
       return lineNo(line)
     },
 
-    getLineHandleVisualStart: function (line) {
+    getLineHandleVisualStart: function(line) {
       if (typeof line === 'number') line = getLine(this, line)
       return visualLine(this, line)
     },
 
-    lineCount: function () {
+    lineCount: function() {
       return this.size
     },
-    firstLine: function () {
+    firstLine: function() {
       return this.first
     },
-    lastLine: function () {
+    lastLine: function() {
       return this.first + this.size - 1
     },
 
-    clipPos: function (pos) {
+    clipPos: function(pos) {
       return clipPos(this, pos)
     },
 
-    getCursor: function (start) {
+    getCursor: function(start) {
       var sel = this.sel,
         pos
       if (start == null || start == 'head') pos = sel.head
@@ -6843,11 +6844,11 @@ window.CodeMirror = (function () {
       else pos = sel.from
       return copyPos(pos)
     },
-    somethingSelected: function () {
+    somethingSelected: function() {
       return !posEq(this.sel.head, this.sel.anchor)
     },
 
-    setCursor: docOperation(function (line, ch, extend) {
+    setCursor: docOperation(function(line, ch, extend) {
       var pos = clipPos(
         this,
         typeof line === 'number' ? Pos(line, ch || 0) : line
@@ -6855,7 +6856,7 @@ window.CodeMirror = (function () {
       if (extend) extendSelection(this, pos)
       else setSelection(this, pos, pos)
     }),
-    setSelection: docOperation(function (anchor, head, bias) {
+    setSelection: docOperation(function(anchor, head, bias) {
       setSelection(
         this,
         clipPos(this, anchor),
@@ -6863,14 +6864,14 @@ window.CodeMirror = (function () {
         bias
       )
     }),
-    extendSelection: docOperation(function (from, to, bias) {
+    extendSelection: docOperation(function(from, to, bias) {
       extendSelection(this, clipPos(this, from), to && clipPos(this, to), bias)
     }),
 
-    getSelection: function (lineSep) {
+    getSelection: function(lineSep) {
       return this.getRange(this.sel.from, this.sel.to, lineSep)
     },
-    replaceSelection: function (code, collapse, origin) {
+    replaceSelection: function(code, collapse, origin) {
       makeChange(
         this,
         {
@@ -6882,49 +6883,49 @@ window.CodeMirror = (function () {
         collapse || 'around'
       )
     },
-    undo: docOperation(function () {
+    undo: docOperation(function() {
       makeChangeFromHistory(this, 'undo')
     }),
-    redo: docOperation(function () {
+    redo: docOperation(function() {
       makeChangeFromHistory(this, 'redo')
     }),
 
-    setExtending: function (val) {
+    setExtending: function(val) {
       this.sel.extend = val
     },
 
-    historySize: function () {
+    historySize: function() {
       var hist = this.history
       return { undo: hist.done.length, redo: hist.undone.length }
     },
-    clearHistory: function () {
+    clearHistory: function() {
       this.history = makeHistory(this.history.maxGeneration)
     },
 
-    markClean: function () {
+    markClean: function() {
       this.cleanGeneration = this.changeGeneration()
     },
-    changeGeneration: function () {
+    changeGeneration: function() {
       this.history.lastOp = this.history.lastOrigin = null
       return this.history.generation
     },
-    isClean: function (gen) {
+    isClean: function(gen) {
       return this.history.generation == (gen || this.cleanGeneration)
     },
 
-    getHistory: function () {
+    getHistory: function() {
       return {
         done: copyHistoryArray(this.history.done),
         undone: copyHistoryArray(this.history.undone)
       }
     },
-    setHistory: function (histData) {
+    setHistory: function(histData) {
       var hist = (this.history = makeHistory(this.history.maxGeneration))
       hist.done = histData.done.slice(0)
       hist.undone = histData.undone.slice(0)
     },
 
-    markText: function (from, to, options) {
+    markText: function(from, to, options) {
       return markText(
         this,
         clipPos(this, from),
@@ -6933,7 +6934,7 @@ window.CodeMirror = (function () {
         'range'
       )
     },
-    setBookmark: function (pos, options) {
+    setBookmark: function(pos, options) {
       var realOpts = {
         replacedWith:
           options && (options.nodeType == null ? options.widget : options),
@@ -6942,7 +6943,7 @@ window.CodeMirror = (function () {
       pos = clipPos(this, pos)
       return markText(this, pos, pos, realOpts, 'bookmark')
     },
-    findMarksAt: function (pos) {
+    findMarksAt: function(pos) {
       pos = clipPos(this, pos)
       var markers = [],
         spans = getLine(this, pos.line).markedSpans
@@ -6959,9 +6960,9 @@ window.CodeMirror = (function () {
       }
       return markers
     },
-    getAllMarks: function () {
+    getAllMarks: function() {
       var markers = []
-      this.iter(function (line) {
+      this.iter(function(line) {
         var sps = line.markedSpans
         if (sps) {
           for (var i = 0; i < sps.length; ++i) {
@@ -6972,10 +6973,10 @@ window.CodeMirror = (function () {
       return markers
     },
 
-    posFromIndex: function (off) {
+    posFromIndex: function(off) {
       var ch,
         lineNo = this.first
-      this.iter(function (line) {
+      this.iter(function(line) {
         var sz = line.text.length + 1
         if (sz > off) {
           ch = off
@@ -6986,17 +6987,17 @@ window.CodeMirror = (function () {
       })
       return clipPos(this, Pos(lineNo, ch))
     },
-    indexFromPos: function (coords) {
+    indexFromPos: function(coords) {
       coords = clipPos(this, coords)
       var index = coords.ch
       if (coords.line < this.first || coords.ch < 0) return 0
-      this.iter(this.first, coords.line, function (line) {
+      this.iter(this.first, coords.line, function(line) {
         index += line.text.length + 1
       })
       return index
     },
 
-    copy: function (copyHistory) {
+    copy: function(copyHistory) {
       var doc = new Doc(
         getLines(this, this.first, this.first + this.size),
         this.modeOption,
@@ -7020,7 +7021,7 @@ window.CodeMirror = (function () {
       return doc
     },
 
-    linkedDoc: function (options) {
+    linkedDoc: function(options) {
       if (!options) options = {}
       var from = this.first,
         to = this.first + this.size
@@ -7041,7 +7042,7 @@ window.CodeMirror = (function () {
       ]
       return copy
     },
-    unlinkDoc: function (other) {
+    unlinkDoc: function(other) {
       if (other instanceof CodeMirror) other = other.doc
       if (this.linked) {
         for (var i = 0; i < this.linked.length; ++i) {
@@ -7057,7 +7058,7 @@ window.CodeMirror = (function () {
         var splitIds = [other.id]
         linkedDocs(
           other,
-          function (doc) {
+          function(doc) {
             splitIds.push(doc.id)
           },
           true
@@ -7067,14 +7068,14 @@ window.CodeMirror = (function () {
         other.history.undone = copyHistoryArray(this.history.undone, splitIds)
       }
     },
-    iterLinkedDocs: function (f) {
+    iterLinkedDocs: function(f) {
       linkedDocs(this, f)
     },
 
-    getMode: function () {
+    getMode: function() {
       return this.mode
     },
-    getEditor: function () {
+    getEditor: function() {
       return this.cm
     }
   })
@@ -7085,8 +7086,8 @@ window.CodeMirror = (function () {
   var dontDelegate = 'iter insert remove copy getEditor'.split(' ')
   for (var prop in Doc.prototype) {
     if (Doc.prototype.hasOwnProperty(prop) && indexOf(dontDelegate, prop) < 0) {
-      CodeMirror.prototype[prop] = (function (method) {
-        return function () {
+      CodeMirror.prototype[prop] = (function(method) {
+        return function() {
           return method.apply(this.doc, arguments)
         }
       })(Doc.prototype[prop])
@@ -7095,8 +7096,8 @@ window.CodeMirror = (function () {
 
   eventMixin(Doc)
 
-  function linkedDocs (doc, f, sharedHistOnly) {
-    function propagate (doc, skip, sharedHist) {
+  function linkedDocs(doc, f, sharedHistOnly) {
+    function propagate(doc, skip, sharedHist) {
       if (doc.linked) {
         for (var i = 0; i < doc.linked.length; ++i) {
           var rel = doc.linked[i]
@@ -7111,7 +7112,7 @@ window.CodeMirror = (function () {
     propagate(doc, null, true)
   }
 
-  function attachDoc (cm, doc) {
+  function attachDoc(cm, doc) {
     if (doc.cm) throw new Error('This document is already in use.')
     cm.doc = doc
     doc.cm = cm
@@ -7124,7 +7125,7 @@ window.CodeMirror = (function () {
 
   // LINE UTILITIES
 
-  function getLine (chunk, n) {
+  function getLine(chunk, n) {
     n -= chunk.first
     while (!chunk.lines) {
       for (var i = 0; ; ++i) {
@@ -7140,10 +7141,10 @@ window.CodeMirror = (function () {
     return chunk.lines[n]
   }
 
-  function getBetween (doc, start, end) {
+  function getBetween(doc, start, end) {
     var out = [],
       n = start.line
-    doc.iter(start.line, end.line + 1, function (line) {
+    doc.iter(start.line, end.line + 1, function(line) {
       var text = line.text
       if (n == end.line) text = text.slice(0, end.ch)
       if (n == start.line) text = text.slice(start.ch)
@@ -7152,20 +7153,20 @@ window.CodeMirror = (function () {
     })
     return out
   }
-  function getLines (doc, from, to) {
+  function getLines(doc, from, to) {
     var out = []
-    doc.iter(from, to, function (line) {
+    doc.iter(from, to, function(line) {
       out.push(line.text)
     })
     return out
   }
 
-  function updateLineHeight (line, height) {
+  function updateLineHeight(line, height) {
     var diff = height - line.height
     for (var n = line; n; n = n.parent) n.height += diff
   }
 
-  function lineNo (line) {
+  function lineNo(line) {
     if (line.parent == null) return null
     var cur = line.parent,
       no = indexOf(cur.lines, line)
@@ -7178,7 +7179,7 @@ window.CodeMirror = (function () {
     return no + cur.first
   }
 
-  function lineAtHeight (chunk, h) {
+  function lineAtHeight(chunk, h) {
     var n = chunk.first
     outer: do {
       for (var i = 0, e = chunk.children.length; i < e; ++i) {
@@ -7202,7 +7203,7 @@ window.CodeMirror = (function () {
     return n + i
   }
 
-  function heightAtLine (cm, lineObj) {
+  function heightAtLine(cm, lineObj) {
     lineObj = visualLine(cm.doc, lineObj)
 
     var h = 0,
@@ -7222,7 +7223,7 @@ window.CodeMirror = (function () {
     return h
   }
 
-  function getOrder (line) {
+  function getOrder(line) {
     var order = line.order
     if (order == null) order = line.order = bidiOrdering(line.text)
     return order
@@ -7230,7 +7231,7 @@ window.CodeMirror = (function () {
 
   // HISTORY
 
-  function makeHistory (startGen) {
+  function makeHistory(startGen) {
     return {
       // Arrays of history events. Doing something adds an event to
       // done and clears undo. Undoing moves events from done to
@@ -7249,13 +7250,13 @@ window.CodeMirror = (function () {
     }
   }
 
-  function attachLocalSpans (doc, change, from, to) {
+  function attachLocalSpans(doc, change, from, to) {
     var existing = change['spans_' + doc.id],
       n = 0
     doc.iter(
       Math.max(doc.first, from),
       Math.min(doc.first + doc.size, to),
-      function (line) {
+      function(line) {
         if (line.markedSpans) {
           ;(existing || (existing = change['spans_' + doc.id] = {}))[n] =
             line.markedSpans
@@ -7265,7 +7266,7 @@ window.CodeMirror = (function () {
     )
   }
 
-  function historyChangeFromChange (doc, change) {
+  function historyChangeFromChange(doc, change) {
     var from = { line: change.from.line, ch: change.from.ch }
     var histChange = {
       from: from,
@@ -7275,7 +7276,7 @@ window.CodeMirror = (function () {
     attachLocalSpans(doc, histChange, change.from.line, change.to.line + 1)
     linkedDocs(
       doc,
-      function (doc) {
+      function(doc) {
         attachLocalSpans(doc, histChange, change.from.line, change.to.line + 1)
       },
       true
@@ -7283,7 +7284,7 @@ window.CodeMirror = (function () {
     return histChange
   }
 
-  function addToHistory (doc, change, selAfter, opId) {
+  function addToHistory(doc, change, selAfter, opId) {
     var hist = doc.history
     hist.undone.length = 0
     var time = +new Date(),
@@ -7330,7 +7331,7 @@ window.CodeMirror = (function () {
     hist.lastOrigin = change.origin
   }
 
-  function removeClearedSpans (spans) {
+  function removeClearedSpans(spans) {
     if (!spans) return null
     for (var i = 0, out; i < spans.length; ++i) {
       if (spans[i].marker.explicitlyCleared) {
@@ -7340,7 +7341,7 @@ window.CodeMirror = (function () {
     return !out ? spans : out.length ? out : null
   }
 
-  function getOldSpans (doc, change) {
+  function getOldSpans(doc, change) {
     var found = change['spans_' + doc.id]
     if (!found) return null
     for (var i = 0, nw = []; i < change.text.length; ++i) {
@@ -7351,7 +7352,7 @@ window.CodeMirror = (function () {
 
   // Used both to provide a JSON-safe object in .getHistory, and, when
   // detaching a document, to split the history in two
-  function copyHistoryArray (events, newGroup) {
+  function copyHistoryArray(events, newGroup) {
     for (var i = 0, copy = []; i < events.length; ++i) {
       var event = events[i],
         changes = event.changes,
@@ -7388,7 +7389,7 @@ window.CodeMirror = (function () {
 
   // Rebasing/resetting history to deal with externally-sourced changes
 
-  function rebaseHistSel (pos, from, to, diff) {
+  function rebaseHistSel(pos, from, to, diff) {
     if (to < pos.line) {
       pos.line += diff
     } else if (from < pos.line) {
@@ -7404,7 +7405,7 @@ window.CodeMirror = (function () {
   // copy-on-write scheme for the positions, to avoid having to
   // reallocate them all on every rebase, but also avoid problems with
   // shared position objects being unsafely updated.
-  function rebaseHistArray (array, from, to, diff) {
+  function rebaseHistArray(array, from, to, diff) {
     for (var i = 0; i < array.length; ++i) {
       var sub = array[i],
         ok = true
@@ -7441,7 +7442,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function rebaseHist (hist, change) {
+  function rebaseHist(hist, change) {
     var from = change.from.line,
       to = change.to.line,
       diff = change.text.length - (to - from) - 1
@@ -7451,29 +7452,29 @@ window.CodeMirror = (function () {
 
   // EVENT OPERATORS
 
-  function stopMethod () {
+  function stopMethod() {
     e_stop(this)
   }
   // Ensure an event has a stop method.
-  function addStop (event) {
+  function addStop(event) {
     if (!event.stop) event.stop = stopMethod
     return event
   }
 
-  function e_preventDefault (e) {
+  function e_preventDefault(e) {
     if (e.preventDefault) e.preventDefault()
     else e.returnValue = false
   }
-  function e_stopPropagation (e) {
+  function e_stopPropagation(e) {
     if (e.stopPropagation) e.stopPropagation()
     else e.cancelBubble = true
   }
-  function e_defaultPrevented (e) {
+  function e_defaultPrevented(e) {
     return e.defaultPrevented != null
       ? e.defaultPrevented
       : e.returnValue == false
   }
-  function e_stop (e) {
+  function e_stop(e) {
     e_preventDefault(e)
     e_stopPropagation(e)
   }
@@ -7481,10 +7482,10 @@ window.CodeMirror = (function () {
   CodeMirror.e_preventDefault = e_preventDefault
   CodeMirror.e_stopPropagation = e_stopPropagation
 
-  function e_target (e) {
+  function e_target(e) {
     return e.target || e.srcElement
   }
-  function e_button (e) {
+  function e_button(e) {
     var b = e.which
     if (b == null) {
       if (e.button & 1) b = 1
@@ -7497,7 +7498,7 @@ window.CodeMirror = (function () {
 
   // EVENT HANDLING
 
-  function on (emitter, type, f) {
+  function on(emitter, type, f) {
     if (emitter.addEventListener) emitter.addEventListener(type, f, false)
     else if (emitter.attachEvent) emitter.attachEvent('on' + type, f)
     else {
@@ -7507,7 +7508,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function off (emitter, type, f) {
+  function off(emitter, type, f) {
     if (emitter.removeEventListener) emitter.removeEventListener(type, f, false)
     else if (emitter.detachEvent) emitter.detachEvent('on' + type, f)
     else {
@@ -7522,7 +7523,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function signal (emitter, type /*, values... */) {
+  function signal(emitter, type /*, values... */) {
     var arr = emitter._handlers && emitter._handlers[type]
     if (!arr) return
     var args = Array.prototype.slice.call(arguments, 2)
@@ -7531,7 +7532,7 @@ window.CodeMirror = (function () {
 
   var delayedCallbacks,
     delayedCallbackDepth = 0
-  function signalLater (emitter, type /*, values... */) {
+  function signalLater(emitter, type /*, values... */) {
     var arr = emitter._handlers && emitter._handlers[type]
     if (!arr) return
     var args = Array.prototype.slice.call(arguments, 2)
@@ -7540,27 +7541,27 @@ window.CodeMirror = (function () {
       delayedCallbacks = []
       setTimeout(fireDelayed, 0)
     }
-    function bnd (f) {
-      return function () {
+    function bnd(f) {
+      return function() {
         f.apply(null, args)
       }
     }
     for (var i = 0; i < arr.length; ++i) delayedCallbacks.push(bnd(arr[i]))
   }
 
-  function signalDOMEvent (cm, e, override) {
+  function signalDOMEvent(cm, e, override) {
     signal(cm, override || e.type, cm, e)
     return e_defaultPrevented(e) || e.codemirrorIgnore
   }
 
-  function fireDelayed () {
+  function fireDelayed() {
     --delayedCallbackDepth
     var delayed = delayedCallbacks
     delayedCallbacks = null
     for (var i = 0; i < delayed.length; ++i) delayed[i]()
   }
 
-  function hasHandler (emitter, type) {
+  function hasHandler(emitter, type) {
     var arr = emitter._handlers && emitter._handlers[type]
     return arr && arr.length > 0
   }
@@ -7569,11 +7570,11 @@ window.CodeMirror = (function () {
   CodeMirror.off = off
   CodeMirror.signal = signal
 
-  function eventMixin (ctor) {
-    ctor.prototype.on = function (type, f) {
+  function eventMixin(ctor) {
+    ctor.prototype.on = function(type, f) {
       on(this, type, f)
     }
-    ctor.prototype.off = function (type, f) {
+    ctor.prototype.off = function(type, f) {
       off(this, type, f)
     }
   }
@@ -7586,16 +7587,16 @@ window.CodeMirror = (function () {
   // Returned or thrown by various protocols to signal 'I'm not
   // handling this'.
   var Pass = (CodeMirror.Pass = {
-    toString: function () {
+    toString: function() {
       return 'CodeMirror.Pass'
     }
   })
 
-  function Delayed () {
+  function Delayed() {
     this.id = null
   }
   Delayed.prototype = {
-    set: function (ms, f) {
+    set: function(ms, f) {
       clearTimeout(this.id)
       this.id = setTimeout(f, ms)
     }
@@ -7603,7 +7604,7 @@ window.CodeMirror = (function () {
 
   // Counts the column offset in a string, taking tabs into account.
   // Used mostly to find indentation.
-  function countColumn (string, end, tabSize, startIndex, startValue) {
+  function countColumn(string, end, tabSize, startIndex, startValue) {
     if (end == null) {
       end = string.search(/[^\s\u00a0]/)
       if (end == -1) end = string.length
@@ -7617,16 +7618,16 @@ window.CodeMirror = (function () {
   CodeMirror.countColumn = countColumn
 
   var spaceStrs = ['']
-  function spaceStr (n) {
+  function spaceStr(n) {
     while (spaceStrs.length <= n) spaceStrs.push(lst(spaceStrs) + ' ')
     return spaceStrs[n]
   }
 
-  function lst (arr) {
+  function lst(arr) {
     return arr[arr.length - 1]
   }
 
-  function selectInput (node) {
+  function selectInput(node) {
     if (ios) {
       // Mobile Safari apparently has a bug where select() is broken.
       node.selectionStart = 0
@@ -7639,7 +7640,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function indexOf (collection, elt) {
+  function indexOf(collection, elt) {
     if (collection.indexOf) return collection.indexOf(elt)
     for (var i = 0, e = collection.length; i < e; ++i) {
       if (collection[i] == elt) return i
@@ -7647,34 +7648,34 @@ window.CodeMirror = (function () {
     return -1
   }
 
-  function createObj (base, props) {
-    function Obj () {}
+  function createObj(base, props) {
+    function Obj() {}
     Obj.prototype = base
     var inst = new Obj()
     if (props) copyObj(props, inst)
     return inst
   }
 
-  function copyObj (obj, target) {
+  function copyObj(obj, target) {
     if (!target) target = {}
     for (var prop in obj) if (obj.hasOwnProperty(prop)) target[prop] = obj[prop]
     return target
   }
 
-  function emptyArray (size) {
+  function emptyArray(size) {
     for (var a = [], i = 0; i < size; ++i) a.push(undefined)
     return a
   }
 
-  function bind (f) {
+  function bind(f) {
     var args = Array.prototype.slice.call(arguments, 1)
-    return function () {
+    return function() {
       return f.apply(null, args)
     }
   }
 
   var nonASCIISingleCaseWordChar = /[\u3040-\u309f\u30a0-\u30ff\u3400-\u4db5\u4e00-\u9fcc\uac00-\ud7af]/
-  function isWordChar (ch) {
+  function isWordChar(ch) {
     return (
       /\w/.test(ch) ||
       (ch > '\x80' &&
@@ -7683,7 +7684,7 @@ window.CodeMirror = (function () {
     )
   }
 
-  function isEmpty (obj) {
+  function isEmpty(obj) {
     for (var n in obj) if (obj.hasOwnProperty(n) && obj[n]) return false
     return true
   }
@@ -7692,7 +7693,7 @@ window.CodeMirror = (function () {
 
   // DOM UTILITIES
 
-  function elt (tag, content, className, style) {
+  function elt(tag, content, className, style) {
     var e = document.createElement(tag)
     if (className) e.className = className
     if (style) e.style.cssText = style
@@ -7703,35 +7704,35 @@ window.CodeMirror = (function () {
     return e
   }
 
-  function removeChildren (e) {
+  function removeChildren(e) {
     for (var count = e.childNodes.length; count > 0; --count) {
       e.removeChild(e.firstChild)
     }
     return e
   }
 
-  function removeChildrenAndAdd (parent, e) {
+  function removeChildrenAndAdd(parent, e) {
     return removeChildren(parent).appendChild(e)
   }
 
-  function setTextContent (e, str) {
+  function setTextContent(e, str) {
     if (ie_lt9) {
       e.innerHTML = ''
       e.appendChild(document.createTextNode(str))
     } else e.textContent = str
   }
 
-  function getRect (node) {
+  function getRect(node) {
     return node.getBoundingClientRect()
   }
-  CodeMirror.replaceGetRect = function (f) {
+  CodeMirror.replaceGetRect = function(f) {
     getRect = f
   }
 
   // FEATURE DETECTION
 
   // Detect drag-and-drop
-  var dragAndDrop = (function () {
+  var dragAndDrop = (function() {
     // There is *some* kind of drag-and-drop support in IE6-8, but I
     // couldn't get it to work yet.
     if (ie_lt9) return false
@@ -7746,17 +7747,17 @@ window.CodeMirror = (function () {
   // extra span. This terribly fragile set of tests matches the
   // character combinations that suffer from this phenomenon on the
   // various browsers.
-  function spanAffectsWrapping () {
+  function spanAffectsWrapping() {
     return false
   }
   if (
     gecko // Only for "$'"
   ) {
-    spanAffectsWrapping = function (str, i) {
+    spanAffectsWrapping = function(str, i) {
       return str.charCodeAt(i - 1) == 36 && str.charCodeAt(i) == 39
     }
   } else if (safari && !/Version\/([6-9]|\d\d)\b/.test(navigator.userAgent)) {
-    spanAffectsWrapping = function (str, i) {
+    spanAffectsWrapping = function(str, i) {
       return /\-[^ \-?]|\?[^ !\'\"\),.\-\/:;\?\]\}]/.test(
         str.slice(i - 1, i + 1)
       )
@@ -7765,12 +7766,12 @@ window.CodeMirror = (function () {
     webkit &&
     /Chrome\/(?:29|[3-9]\d|\d\d\d)\./.test(navigator.userAgent)
   ) {
-    spanAffectsWrapping = function (str, i) {
+    spanAffectsWrapping = function(str, i) {
       var code = str.charCodeAt(i - 1)
       return code >= 8208 && code <= 8212
     }
   } else if (webkit) {
-    spanAffectsWrapping = function (str, i) {
+    spanAffectsWrapping = function(str, i) {
       if (i > 1 && str.charCodeAt(i - 1) == 45) {
         if (/\w/.test(str.charAt(i - 2)) && /[^\-?\.]/.test(str.charAt(i))) {
           return true
@@ -7790,7 +7791,7 @@ window.CodeMirror = (function () {
   }
 
   var knownScrollbarWidth
-  function scrollbarWidth (measure) {
+  function scrollbarWidth(measure) {
     if (knownScrollbarWidth != null) return knownScrollbarWidth
     var test = elt(
       'div',
@@ -7806,7 +7807,7 @@ window.CodeMirror = (function () {
   }
 
   var zwspSupported
-  function zeroWidthElement (measure) {
+  function zeroWidthElement(measure) {
     if (zwspSupported == null) {
       var test = elt('span', '\u200b')
       removeChildrenAndAdd(
@@ -7833,50 +7834,50 @@ window.CodeMirror = (function () {
   // alternative way to split lines.
   var splitLines =
     '\n\nb'.split(/\n/).length != 3
-      ? function (string) {
-        var pos = 0,
-          result = [],
-          l = string.length
-        while (pos <= l) {
-          var nl = string.indexOf('\n', pos)
-          if (nl == -1) nl = string.length
-          var line = string.slice(
+      ? function(string) {
+          var pos = 0,
+            result = [],
+            l = string.length
+          while (pos <= l) {
+            var nl = string.indexOf('\n', pos)
+            if (nl == -1) nl = string.length
+            var line = string.slice(
               pos,
               string.charAt(nl - 1) == '\r' ? nl - 1 : nl
             )
-          var rt = line.indexOf('\r')
-          if (rt != -1) {
-            result.push(line.slice(0, rt))
-            pos += rt + 1
-          } else {
-            result.push(line)
-            pos = nl + 1
+            var rt = line.indexOf('\r')
+            if (rt != -1) {
+              result.push(line.slice(0, rt))
+              pos += rt + 1
+            } else {
+              result.push(line)
+              pos = nl + 1
+            }
           }
+          return result
         }
-        return result
-      }
-      : function (string) {
-        return string.split(/\r\n?|\n/)
-      }
+      : function(string) {
+          return string.split(/\r\n?|\n/)
+        }
   CodeMirror.splitLines = splitLines
 
   var hasSelection = window.getSelection
-    ? function (te) {
-      try {
-        return te.selectionStart != te.selectionEnd
-      } catch (e) {
-        return false
+    ? function(te) {
+        try {
+          return te.selectionStart != te.selectionEnd
+        } catch (e) {
+          return false
+        }
       }
-    }
-    : function (te) {
-      try {
-        var range = te.ownerDocument.selection.createRange()
-      } catch (e) {}
-      if (!range || range.parentElement() != te) return false
-      return range.compareEndPoints('StartToEnd', range) != 0
-    }
+    : function(te) {
+        try {
+          var range = te.ownerDocument.selection.createRange()
+        } catch (e) {}
+        if (!range || range.parentElement() != te) return false
+        return range.compareEndPoints('StartToEnd', range) != 0
+      }
 
-  var hasCopyEvent = (function () {
+  var hasCopyEvent = (function() {
     var e = elt('div')
     if ('oncopy' in e) return true
     e.setAttribute('oncopy', 'return;')
@@ -7938,7 +7939,7 @@ window.CodeMirror = (function () {
     63272: 'Delete'
   }
   CodeMirror.keyNames = keyNames
-  ;(function () {
+  ;(function() {
     // Number keys
     for (var i = 0; i < 10; i++) keyNames[i + 48] = String(i)
     // Alphabetic keys
@@ -7951,7 +7952,7 @@ window.CodeMirror = (function () {
 
   // BIDI HELPERS
 
-  function iterateBidiSections (order, from, to, f) {
+  function iterateBidiSections(order, from, to, f) {
     if (!order) return f(from, to, 'ltr')
     var found = false
     for (var i = 0; i < order.length; ++i) {
@@ -7971,24 +7972,24 @@ window.CodeMirror = (function () {
     if (!found) f(from, to, 'ltr')
   }
 
-  function bidiLeft (part) {
+  function bidiLeft(part) {
     return part.level % 2 ? part.to : part.from
   }
-  function bidiRight (part) {
+  function bidiRight(part) {
     return part.level % 2 ? part.from : part.to
   }
 
-  function lineLeft (line) {
+  function lineLeft(line) {
     var order = getOrder(line)
     return order ? bidiLeft(order[0]) : 0
   }
-  function lineRight (line) {
+  function lineRight(line) {
     var order = getOrder(line)
     if (!order) return line.text.length
     return bidiRight(lst(order))
   }
 
-  function lineStart (cm, lineN) {
+  function lineStart(cm, lineN) {
     var line = getLine(cm.doc, lineN)
     var visual = visualLine(cm.doc, line)
     if (visual != line) lineN = lineNo(visual)
@@ -7998,7 +7999,7 @@ window.CodeMirror = (function () {
       : order[0].level % 2 ? lineRight(visual) : lineLeft(visual)
     return Pos(lineN, ch)
   }
-  function lineEnd (cm, lineN) {
+  function lineEnd(cm, lineN) {
     var merged, line
     while ((merged = collapsedSpanAtEnd((line = getLine(cm.doc, lineN))))) {
       lineN = merged.find().to.line
@@ -8010,14 +8011,14 @@ window.CodeMirror = (function () {
     return Pos(lineN, ch)
   }
 
-  function compareBidiLevel (order, a, b) {
+  function compareBidiLevel(order, a, b) {
     var linedir = order[0].level
     if (a == linedir) return true
     if (b == linedir) return false
     return a < b
   }
   var bidiOther
-  function getBidiPartAt (order, pos) {
+  function getBidiPartAt(order, pos) {
     for (var i = 0, found; i < order.length; ++i) {
       var cur = order[i]
       if (cur.from < pos && cur.to > pos) {
@@ -8040,7 +8041,7 @@ window.CodeMirror = (function () {
     return found
   }
 
-  function moveInLine (line, pos, dir, byUnit) {
+  function moveInLine(line, pos, dir, byUnit) {
     if (!byUnit) return pos + dir
     do pos += dir
     while (pos > 0 && isExtendingChar.test(line.text.charAt(pos)))
@@ -8053,7 +8054,7 @@ window.CodeMirror = (function () {
   // tricky part is the 'jumps', where RTL and LTR text touch each
   // other. This often requires the cursor offset to move more than
   // one unit, in order to visually move one unit.
-  function moveVisually (line, start, dir, byUnit) {
+  function moveVisually(line, start, dir, byUnit) {
     var bidi = getOrder(line)
     if (!bidi) return moveLogically(line, start, dir, byUnit)
     var pos = getBidiPartAt(bidi, start),
@@ -8076,7 +8077,7 @@ window.CodeMirror = (function () {
     }
   }
 
-  function moveLogically (line, start, dir, byUnit) {
+  function moveLogically(line, start, dir, byUnit) {
     var target = start + dir
     if (byUnit) {
       while (target > 0 && isExtendingChar.test(line.text.charAt(target))) {
@@ -8109,14 +8110,14 @@ window.CodeMirror = (function () {
   // Returns null if characters are ordered as they appear
   // (left-to-right), or an array of sections ({from, to, level}
   // objects) in the order in which they occur visually.
-  var bidiOrdering = (function () {
+  var bidiOrdering = (function() {
     // Character types for codepoints 0 to 0xff
     var lowTypes =
       'bbbbbbbbbtstwsbbbbbbbbbbbbbbssstwNN%%%NNNNNN,N,N1111111111NNNNNNNLLLLLLLLLLLLLLLLLLLLLLLLLLNNNNNNLLLLLLLLLLLLLLLLLLLLLLLLLLNNNNbbbbbbsbbbbbbbbbbbbbbbbbbbbbbbbbb,N%%%%NNNNLNNNNN%%11NLNNN1LNNNNNLLLLLLLLLLLLLLLLLLLLLLLNLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLNLLLLLLLL'
     // Character types for codepoints 0x600 to 0x6ff
     var arabicTypes =
       'rrrrrrrrrrrr,rNNmmmmmmrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrmmmmmmmmmmmmmmrrrrrrrnnnnnnnnnn%nnrrrmrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrmmmmmmmmmmmmmmmmmmmNmmmmrrrrrrrrrrrrrrrrrr'
-    function charType (code) {
+    function charType(code) {
       if (code <= 0xff) return lowTypes.charAt(code)
       else if (code >= 0x590 && code <= 0x5f4) return 'R'
       else if (code >= 0x600 && code <= 0x6ff) {
@@ -8133,7 +8134,7 @@ window.CodeMirror = (function () {
     // Browsers seem to always treat the boundaries of block elements as being L.
     var outerType = 'L'
 
-    return function (str) {
+    return function(str) {
       if (!bidiRE.test(str)) return false
       var len = str.length,
         types = []
@@ -8236,7 +8237,7 @@ window.CodeMirror = (function () {
       // the fly, without following the level-based algorithm.
       var order = [],
         m
-      for (var i = 0; i < len;) {
+      for (var i = 0; i < len; ) {
         if (countsAsLeft.test(types[i])) {
           var start = i
           for (++i; i < len && countsAsLeft.test(types[i]); ++i) {}
@@ -8245,7 +8246,7 @@ window.CodeMirror = (function () {
           var pos = i,
             at = order.length
           for (++i; i < len && types[i] != 'L'; ++i) {}
-          for (var j = pos; j < i;) {
+          for (var j = pos; j < i; ) {
             if (countsAsNum.test(types[j])) {
               if (pos < j) order.splice(at, 0, { from: pos, to: j, level: 1 })
               var nstart = j
