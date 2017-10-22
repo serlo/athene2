@@ -1,31 +1,31 @@
-/*global define, window*/
-import $ from 'jquery';
-import _ from 'underscore';
+/* global define, window */
+import $ from 'jquery'
+import _ from 'underscore'
 
-import SystemNotification from './system_notification';
-import t from './translator';
+import SystemNotification from './system_notification'
+import t from './translator'
 
 var checkSupportFor = ['JSON', 'localStorage'],
-  fails = [];
+  fails = []
 
-function check() {
+function check () {
   if ($('html').hasClass('old-ie')) {
     SystemNotification.notify(
       t('You are using an outdated web browser. Please consider an update!'),
       'danger'
-    );
+    )
   }
   // check for browser support
-  _.each(checkSupportFor, function(value) {
+  _.each(checkSupportFor, function (value) {
     if (typeof value === 'function') {
-      var failed = value();
+      var failed = value()
       if (failed) {
-        fails.push(failed);
+        fails.push(failed)
       }
     } else if (!window[value]) {
-      fails.push('<strong>' + value + '</strong>');
+      fails.push('<strong>' + value + '</strong>')
     }
-  });
+  })
 
   if (fails.length) {
     SystemNotification.notify(
@@ -36,19 +36,19 @@ function check() {
       'warning',
       true,
       'serlo-supporter'
-    );
+    )
   }
 
-  return fails;
+  return fails
 }
 
-function add(support) {
-  checkSupportFor.push(support);
+function add (support) {
+  checkSupportFor.push(support)
 }
 
 const supp = {
   check: check,
   add: add
-};
+}
 
-export default supp;
+export default supp

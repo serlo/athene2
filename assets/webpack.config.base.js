@@ -1,6 +1,6 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
-const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   target: 'web',
@@ -56,4 +56,4 @@ module.exports = {
       filename: 'commons.js'
     })
   ]
-};
+}

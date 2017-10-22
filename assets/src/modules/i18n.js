@@ -4,8 +4,8 @@
  * Instead edit the language files in /lang/
  **/
 
-/*global define*/
-var i18n = {};
+/* global define */
+var i18n = {}
 
 i18n.de = {
   'Visit %s overview': 'Zur %s Übersicht',
@@ -27,7 +27,7 @@ i18n.de = {
   'Show overview': 'Übersicht anzeigen',
   'Show %d contents for "%s"': '',
   Abort: 'Abbrechen'
-};
+}
 
 i18n.en = {
   'An error occured, please reload.': '',
@@ -47,6 +47,6 @@ i18n.en = {
   'Show overview': '',
   'Show %d contents for "%s"': '',
   Abort: ''
-};
+}
 
-export default i18n;
+export default i18n

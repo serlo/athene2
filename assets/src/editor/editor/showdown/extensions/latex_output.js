@@ -1,62 +1,62 @@
-/*global define, module, window*/
-(function() {
+/* global define, module, window */
+;(function () {
   var serloSpecificCharsToEncode,
-    latexoutput = function() {
+    latexoutput = function () {
       return [
         {
           type: 'output',
-          filter: function(text) {
-            return encodeSerloSpecificChars(text);
+          filter: function (text) {
+            return encodeSerloSpecificChars(text)
           }
         }
-      ];
-    };
+      ]
+    }
 
-  serloSpecificCharsToEncode = (function() {
+  serloSpecificCharsToEncode = (function () {
     var regexp,
       chars = ['*', '`', '_', '{', '}', '[', ']', '&lt;', '\\'],
       replacements = {},
       l = chars.length,
-      i = 0;
+      i = 0
 
     for (; i < l; i++) {
-      replacements['' + i] = chars[i];
+      replacements['' + i] = chars[i]
     }
 
-    regexp = new RegExp('§LT([0-9])', 'gm');
+    regexp = new RegExp('§LT([0-9])', 'gm')
 
-    function replace(whole, match) {
-      return replacements[parseInt(match)] || match;
+    function replace (whole, match) {
+      return replacements[parseInt(match)] || match
     }
 
     return {
       regexp: regexp,
       replace: replace
-    };
-  })();
+    }
+  })()
 
-  function encodeSerloSpecificChars(text) {
+  function encodeSerloSpecificChars (text) {
     return text.replace(
       serloSpecificCharsToEncode.regexp,
       serloSpecificCharsToEncode.replace
-    );
+    )
   }
 
   // Client-side export
   if (typeof define === 'function' && define.amd) {
-    define('showdown_latex_output', ['showdown'], function(Showdown) {
-      Showdown.extensions = Showdown.extensions || {};
-      Showdown.extensions.latexoutput = latexoutput;
-    });
+    define('showdown_latex_output', ['showdown'], function (Showdown) {
+      Showdown.extensions = Showdown.extensions || {}
+      Showdown.extensions.latexoutput = latexoutput
+    })
   } else if (
     typeof window !== 'undefined' &&
     window.Showdown &&
     window.Showdown.extensions
   ) {
-    window.Showdown.extensions.latexoutput = latexoutput;
+    window.Showdown.extensions.latexoutput = latexoutput
   }
   // Server-side export
   if (typeof module !== 'undefined') {
-    module.exports = latexoutput;
+    module.exports = latexoutput
   }
-})();
+})()

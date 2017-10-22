@@ -1,23 +1,23 @@
-/*global define*/
-import $ from 'jquery';
+/* global define */
+import $ from 'jquery'
 
-var TriggerAction;
+var TriggerAction
 
-TriggerAction = function() {
-  return $(this).each(function() {
+TriggerAction = function () {
+  return $(this).each(function () {
     // Edit mode toggle
     if ($(this).data('trigger') === 'ping') {
-      $(this).click(function() {
+      $(this).click(function () {
         var $that = $(this),
-          location = $that.data('href');
+          location = $that.data('href')
         if (location) {
           $.ajax({
             url: location
-          });
+          })
         }
-      });
+      })
     }
-  });
-};
+  })
+}
 
-$.fn.TriggerAction = TriggerAction;
+$.fn.TriggerAction = TriggerAction

@@ -1,4 +1,4 @@
-import 'howler';
+import 'howler'
 
 var soundPath = '/assets/sounds/',
   sounds = {
@@ -8,8 +8,8 @@ var soundPath = '/assets/sounds/',
     wrong: new Howl({
       src: [soundPath + 'wrong.ogg', soundPath + 'wrong.mp3']
     })
-  };
+  }
 
 export default key => {
-  sounds[key].stop().play();
-};
+  sounds[key].stop().play()
+}

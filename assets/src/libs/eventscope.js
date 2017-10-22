@@ -6,57 +6,57 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
-import _ from 'underscore';
+import _ from 'underscore'
 
-function eventScope(element) {
+function eventScope (element) {
   var Events = {},
-    fn = {};
+    fn = {}
 
-  fn.addEventListener = function(type, fn) {
-    Events[type] = Events[type] || [];
-    Events[type].push(fn);
-    return true;
-  };
+  fn.addEventListener = function (type, fn) {
+    Events[type] = Events[type] || []
+    Events[type].push(fn)
+    return true
+  }
 
-  fn.removeEventListener = function(type, fn) {
+  fn.removeEventListener = function (type, fn) {
     return (
       !Events[type] ||
-      (function() {
+      (function () {
         if (fn === undefined) {
-          delete Events[type];
-          return true;
+          delete Events[type]
+          return true
         }
 
-        _.each(Events[type], function(i) {
+        _.each(Events[type], function (i) {
           if (Events[type][i] === fn) {
-            Events[type].splice(i, 1);
-            return false;
+            Events[type].splice(i, 1)
+            return false
           }
-        });
+        })
       })()
-    );
-  };
+    )
+  }
 
-  fn.trigger = function(type) {
+  fn.trigger = function (type) {
     var self = this,
-      slice = Array.prototype.slice.bind(arguments);
+      slice = Array.prototype.slice.bind(arguments)
 
     if (!Events.hasOwnProperty(type)) {
-      return true;
+      return true
     }
 
-    _.each(Events[type], function(fn) {
-      fn.apply(self, slice(1));
-    });
-  };
+    _.each(Events[type], function (fn) {
+      fn.apply(self, slice(1))
+    })
+  }
 
   switch (element.constructor.name) {
     case 'Function':
-      _.extend(element.prototype, fn);
-      break;
+      _.extend(element.prototype, fn)
+      break
     default:
-      _.extend(element, fn);
+      _.extend(element, fn)
   }
 }
 
-export default eventScope;
+export default eventScope

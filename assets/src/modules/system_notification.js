@@ -1,7 +1,7 @@
-/*global define*/
-import $ from 'jquery';
+/* global define */
+import $ from 'jquery'
 
-import t from './translator';
+import t from './translator'
 
 var rootSelector = '#content-layout',
   $wrapper,
@@ -12,63 +12,63 @@ var rootSelector = '#content-layout',
          * allowed status:
          *   success, info, warning, danger
          **/
-  showNotification = function(message, status, html, uniqueID) {
-    var notification;
+  showNotification = function (message, status, html, uniqueID) {
+    var notification
 
     if (!$wrapper) {
-      $wrapper = $('<div id="system-notification">');
-      $(rootSelector).prepend($wrapper);
+      $wrapper = $('<div id="system-notification">')
+      $(rootSelector).prepend($wrapper)
     }
 
     if (uniqueID) {
       if (uniqueNotifications[uniqueID]) {
-        notification = uniqueNotifications[uniqueID];
-        notification.$el.remove();
+        notification = uniqueNotifications[uniqueID]
+        notification.$el.remove()
       } else {
         notification = uniqueNotifications[uniqueID] = new SystemNotification(
           message,
           status,
           html
-        );
+        )
       }
     } else {
-      notification = new SystemNotification(message, status, html);
+      notification = new SystemNotification(message, status, html)
     }
 
-    $wrapper.append(notification.$el);
-  };
+    $wrapper.append(notification.$el)
+  }
 
-SystemNotification = function(message, status, html) {
+SystemNotification = function (message, status, html) {
   var self = this,
     $close = $(
       '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
-    ).click(function() {
-      self.$el.remove();
-    });
+    ).click(function () {
+      self.$el.remove()
+    })
 
-  status = status || 'info';
-  self.$el = $('<div class="alert">');
+  status = status || 'info'
+  self.$el = $('<div class="alert">')
 
   if (status) {
-    self.$el.addClass('alert-' + status);
+    self.$el.addClass('alert-' + status)
   }
 
   if (html) {
-    self.$el.html(message);
+    self.$el.html(message)
   } else {
-    self.$el.text(message);
+    self.$el.text(message)
   }
 
-  self.$el.append($close);
-};
+  self.$el.append($close)
+}
 
 const SN = {
-  notify: function(message, status, html, uniqueID) {
-    showNotification(message, status, html, uniqueID);
+  notify: function (message, status, html, uniqueID) {
+    showNotification(message, status, html, uniqueID)
   },
-  error: function(message) {
-    this.notify(message || errorMessage, 'danger', false, 'generic-error');
+  error: function (message) {
+    this.notify(message || errorMessage, 'danger', false, 'generic-error')
   }
-};
+}
 
-export default SN;
+export default SN

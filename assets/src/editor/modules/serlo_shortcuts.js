@@ -1,10 +1,10 @@
-import $ from 'jquery';
-import _ from 'underscore';
+import $ from 'jquery'
+import _ from 'underscore'
 
-import eventScope from '../../libs/eventscope';
-import Common from '../../modules/common';
+import eventScope from '../../libs/eventscope'
+import Common from '../../modules/common'
 
-var Shortcuts, checkWrapper, commandWrapper;
+var Shortcuts, checkWrapper, commandWrapper
 
 // contains special keyCodes
 // that should be printed
@@ -19,36 +19,36 @@ commandWrapper = {
   entf: Common.KeyCode.entf,
   esc: Common.KeyCode.esc,
   shift: Common.KeyCode.shift
-};
+}
 
-checkWrapper = Common.memoize(function(keyCode) {
+checkWrapper = Common.memoize(function (keyCode) {
   var key,
-    result = keyCode;
+    result = keyCode
 
   for (key in commandWrapper) {
     if (commandWrapper[key] === keyCode) {
-      result = key;
-      break;
+      result = key
+      break
     }
   }
 
-  return result;
-});
+  return result
+})
 
-function triggerShortcut(e) {
-  var commands = [];
+function triggerShortcut (e) {
+  var commands = []
 
   if (e.metaKey) {
-    commands.push('cmd');
+    commands.push('cmd')
   }
   if (e.ctrlKey) {
-    commands.push('ctrl');
+    commands.push('ctrl')
   }
   if (e.altKey) {
-    commands.push('alt');
+    commands.push('alt')
   }
   if (e.shiftKey) {
-    commands.push('shift');
+    commands.push('shift')
   }
 
   if (
@@ -57,25 +57,25 @@ function triggerShortcut(e) {
     e.which !== Common.KeyCode.alt &&
     e.which !== Common.KeyCode.shift
   ) {
-    commands.push(checkWrapper(e.which));
+    commands.push(checkWrapper(e.which))
   }
 
-  commands = commands.join('+');
-  /*jshint validthis:true */
-  this.trigger(commands, e);
-  this.trigger('always', commands, e);
+  commands = commands.join('+')
+  /* jshint validthis:true */
+  this.trigger(commands, e)
+  this.trigger('always', commands, e)
 }
 
-Shortcuts = function() {
-  var that = this;
+Shortcuts = function () {
+  var that = this
 
-  eventScope(that);
+  eventScope(that)
 
   $(window).keydown(
-    _.throttle(function(e) {
-      triggerShortcut.call(that, e);
+    _.throttle(function (e) {
+      triggerShortcut.call(that, e)
     }, 150)
-  );
-};
+  )
+}
 
-export default Shortcuts;
+export default Shortcuts

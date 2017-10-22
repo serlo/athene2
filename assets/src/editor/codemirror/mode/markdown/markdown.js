@@ -1,11 +1,11 @@
 CodeMirror.defineMode(
   'markdown',
-  function(cmCfg, modeCfg) {
-    var htmlFound = CodeMirror.modes.hasOwnProperty('xml');
+  function (cmCfg, modeCfg) {
+    var htmlFound = CodeMirror.modes.hasOwnProperty('xml')
     var htmlMode = CodeMirror.getMode(
       cmCfg,
       htmlFound ? { name: 'xml', htmlMode: true } : 'text/plain'
-    );
+    )
     var aliases = {
       html: 'htmlmixed',
       js: 'javascript',
@@ -16,49 +16,53 @@ CodeMirror.defineMode(
       csharp: 'text/x-csharp',
       'c#': 'text/x-csharp',
       scala: 'text/x-scala'
-    };
+    }
 
-    var getMode = (function() {
+    var getMode = (function () {
       var i,
         modes = {},
         mimes = {},
-        mime;
+        mime
 
-      var list = [];
-      for (var m in CodeMirror.modes)
-        if (CodeMirror.modes.propertyIsEnumerable(m)) list.push(m);
-      for (i = 0; i < list.length; i++) {
-        modes[list[i]] = list[i];
+      var list = []
+      for (var m in CodeMirror.modes) {
+        if (CodeMirror.modes.propertyIsEnumerable(m)) list.push(m)
       }
-      var mimesList = [];
-      for (var m in CodeMirror.mimeModes)
-        if (CodeMirror.mimeModes.propertyIsEnumerable(m))
-          mimesList.push({ mime: m, mode: CodeMirror.mimeModes[m] });
+      for (i = 0; i < list.length; i++) {
+        modes[list[i]] = list[i]
+      }
+      var mimesList = []
+      for (var m in CodeMirror.mimeModes) {
+        if (CodeMirror.mimeModes.propertyIsEnumerable(m)) {
+          mimesList.push({ mime: m, mode: CodeMirror.mimeModes[m] })
+        }
+      }
       for (i = 0; i < mimesList.length; i++) {
-        mime = mimesList[i].mime;
-        mimes[mime] = mimesList[i].mime;
+        mime = mimesList[i].mime
+        mimes[mime] = mimesList[i].mime
       }
 
       for (var a in aliases) {
-        if (aliases[a] in modes || aliases[a] in mimes) modes[a] = aliases[a];
+        if (aliases[a] in modes || aliases[a] in mimes) modes[a] = aliases[a]
       }
 
-      return function(lang) {
-        return modes[lang] ? CodeMirror.getMode(cmCfg, modes[lang]) : null;
-      };
-    })();
+      return function (lang) {
+        return modes[lang] ? CodeMirror.getMode(cmCfg, modes[lang]) : null
+      }
+    })()
 
     // Should underscores in words open/close em/strong?
-    if (modeCfg.underscoresBreakWords === undefined)
-      modeCfg.underscoresBreakWords = true;
+    if (modeCfg.underscoresBreakWords === undefined) {
+      modeCfg.underscoresBreakWords = true
+    }
 
     // Turn on fenced code blocks? ("```" to start/end)
-    if (modeCfg.fencedCodeBlocks === undefined) modeCfg.fencedCodeBlocks = true;
+    if (modeCfg.fencedCodeBlocks === undefined) modeCfg.fencedCodeBlocks = true
 
     // Turn on task lists? ("- [ ] " and "- [x] ")
-    if (modeCfg.taskLists === undefined) modeCfg.taskLists = false;
+    if (modeCfg.taskLists === undefined) modeCfg.taskLists = false
 
-    var codeDepth = 0;
+    var codeDepth = 0
 
     var header = 'header',
       code = 'comment',
@@ -74,444 +78,444 @@ CodeMirror.defineMode(
       linktext = 'link',
       linkhref = 'string',
       em = 'em',
-      strong = 'strong';
+      strong = 'strong'
 
     var hrRE = /^([*\-=_])(?:\s*\1){2,}\s*$/,
       ulRE = /^[*\-+]\s+/,
       olRE = /^[0-9]+\.\s+/,
       taskListRE = /^\[(x| )\](?=\s)/, // Must follow ulRE or olRE
       headerRE = /^(?:\={1,}|-{1,})$/,
-      textRE = /^[^!\[\]*_\\<>` "'(]+/;
+      textRE = /^[^!\[\]*_\\<>` "'(]+/
 
-    function switchInline(stream, state, f) {
-      state.f = state.inline = f;
-      return f(stream, state);
+    function switchInline (stream, state, f) {
+      state.f = state.inline = f
+      return f(stream, state)
     }
 
-    function switchBlock(stream, state, f) {
-      state.f = state.block = f;
-      return f(stream, state);
+    function switchBlock (stream, state, f) {
+      state.f = state.block = f
+      return f(stream, state)
     }
 
     // Blocks
 
-    function blankLine(state) {
+    function blankLine (state) {
       // Reset linkTitle state
-      state.linkTitle = false;
+      state.linkTitle = false
       // Reset EM state
-      state.em = false;
+      state.em = false
       // Reset STRONG state
-      state.strong = false;
+      state.strong = false
       // Reset state.quote
-      state.quote = 0;
+      state.quote = 0
       if (!htmlFound && state.f == htmlBlock) {
-        state.f = inlineNormal;
-        state.block = blockNormal;
+        state.f = inlineNormal
+        state.block = blockNormal
       }
       // Reset state.trailingSpace
-      state.trailingSpace = 0;
-      state.trailingSpaceNewLine = false;
+      state.trailingSpace = 0
+      state.trailingSpaceNewLine = false
       // Mark this line as blank
-      state.thisLineHasContent = false;
-      return null;
+      state.thisLineHasContent = false
+      return null
     }
 
-    function blockNormal(stream, state) {
-      var prevLineIsList = state.list !== false;
+    function blockNormal (stream, state) {
+      var prevLineIsList = state.list !== false
       if (state.list !== false && state.indentationDiff >= 0) {
         // Continued list
         if (state.indentationDiff < 4) {
           // Only adjust indentation if *not* a code block
-          state.indentation -= state.indentationDiff;
+          state.indentation -= state.indentationDiff
         }
-        state.list = null;
+        state.list = null
       } else if (state.list !== false && state.indentation > 0) {
-        state.list = null;
-        state.listDepth = Math.floor(state.indentation / 4);
+        state.list = null
+        state.listDepth = Math.floor(state.indentation / 4)
       } else if (state.list !== false) {
         // No longer a list
-        state.list = false;
-        state.listDepth = 0;
+        state.list = false
+        state.listDepth = 0
       }
 
       if (state.indentationDiff >= 4) {
-        state.indentation -= 4;
-        stream.skipToEnd();
-        return code;
+        state.indentation -= 4
+        stream.skipToEnd()
+        return code
       } else if (stream.eatSpace()) {
-        return null;
+        return null
       } else if (
         stream.peek() === '#' ||
         (state.prevLineHasContent && stream.match(headerRE))
       ) {
-        state.header = true;
+        state.header = true
       } else if (stream.eat('>')) {
-        state.indentation++;
-        state.quote = 1;
-        stream.eatSpace();
+        state.indentation++
+        state.quote = 1
+        stream.eatSpace()
         while (stream.eat('>')) {
-          stream.eatSpace();
-          state.quote++;
+          stream.eatSpace()
+          state.quote++
         }
       } else if (stream.peek() === '[') {
-        return switchInline(stream, state, footnoteLink);
+        return switchInline(stream, state, footnoteLink)
       } else if (stream.match(hrRE, true)) {
-        return hr;
+        return hr
       } else if (
         (!state.prevLineHasContent || prevLineIsList) &&
         (stream.match(ulRE, true) || stream.match(olRE, true))
       ) {
-        state.indentation += 4;
-        state.list = true;
-        state.listDepth++;
+        state.indentation += 4
+        state.list = true
+        state.listDepth++
         if (modeCfg.taskLists && stream.match(taskListRE, false)) {
-          state.taskList = true;
+          state.taskList = true
         }
       } else if (
         modeCfg.fencedCodeBlocks &&
         stream.match(/^```([\w+#]*)/, true)
       ) {
         // try switching mode
-        state.localMode = getMode(RegExp.$1);
-        if (state.localMode) state.localState = state.localMode.startState();
-        switchBlock(stream, state, local);
-        return code;
+        state.localMode = getMode(RegExp.$1)
+        if (state.localMode) state.localState = state.localMode.startState()
+        switchBlock(stream, state, local)
+        return code
       }
 
-      return switchInline(stream, state, state.inline);
+      return switchInline(stream, state, state.inline)
     }
 
-    function htmlBlock(stream, state) {
-      var style = htmlMode.token(stream, state.htmlState);
+    function htmlBlock (stream, state) {
+      var style = htmlMode.token(stream, state.htmlState)
       if (
         htmlFound &&
         style === 'tag' &&
         state.htmlState.type !== 'openTag' &&
         !state.htmlState.context
       ) {
-        state.f = inlineNormal;
-        state.block = blockNormal;
+        state.f = inlineNormal
+        state.block = blockNormal
       }
       if (state.md_inside && stream.current().indexOf('>') != -1) {
-        state.f = inlineNormal;
-        state.block = blockNormal;
-        state.htmlState.context = undefined;
+        state.f = inlineNormal
+        state.block = blockNormal
+        state.htmlState.context = undefined
       }
-      return style;
+      return style
     }
 
-    function local(stream, state) {
+    function local (stream, state) {
       if (stream.sol() && stream.match(/^```/, true)) {
-        state.localMode = state.localState = null;
-        state.f = inlineNormal;
-        state.block = blockNormal;
-        return code;
+        state.localMode = state.localState = null
+        state.f = inlineNormal
+        state.block = blockNormal
+        return code
       } else if (state.localMode) {
-        return state.localMode.token(stream, state.localState);
+        return state.localMode.token(stream, state.localState)
       } else {
-        stream.skipToEnd();
-        return code;
+        stream.skipToEnd()
+        return code
       }
     }
 
     // Inline
-    function getType(state) {
-      var styles = [];
+    function getType (state) {
+      var styles = []
 
       if (state.taskOpen) {
-        return 'meta';
+        return 'meta'
       }
       if (state.taskClosed) {
-        return 'property';
+        return 'property'
       }
 
       if (state.strong) {
-        styles.push(strong);
+        styles.push(strong)
       }
       if (state.em) {
-        styles.push(em);
+        styles.push(em)
       }
 
       if (state.linkText) {
-        styles.push(linktext);
+        styles.push(linktext)
       }
 
       if (state.code) {
-        styles.push(code);
+        styles.push(code)
       }
 
       if (state.header) {
-        styles.push(header);
+        styles.push(header)
       }
       if (state.quote) {
-        styles.push(state.quote % 2 ? quote1 : quote2);
+        styles.push(state.quote % 2 ? quote1 : quote2)
       }
       if (state.list !== false) {
-        var listMod = (state.listDepth - 1) % 3;
+        var listMod = (state.listDepth - 1) % 3
         if (!listMod) {
-          styles.push(list1);
+          styles.push(list1)
         } else if (listMod === 1) {
-          styles.push(list2);
+          styles.push(list2)
         } else {
-          styles.push(list3);
+          styles.push(list3)
         }
       }
 
       if (state.trailingSpaceNewLine) {
-        styles.push('trailing-space-new-line');
+        styles.push('trailing-space-new-line')
       } else if (state.trailingSpace) {
-        styles.push('trailing-space-' + (state.trailingSpace % 2 ? 'a' : 'b'));
+        styles.push('trailing-space-' + (state.trailingSpace % 2 ? 'a' : 'b'))
       }
 
-      return styles.length ? styles.join(' ') : null;
+      return styles.length ? styles.join(' ') : null
     }
 
-    function handleText(stream, state) {
+    function handleText (stream, state) {
       if (stream.match(textRE, true)) {
-        return getType(state);
+        return getType(state)
       }
-      return undefined;
+      return undefined
     }
 
-    function inlineNormal(stream, state) {
-      var style = state.text(stream, state);
-      if (typeof style !== 'undefined') return style;
+    function inlineNormal (stream, state) {
+      var style = state.text(stream, state)
+      if (typeof style !== 'undefined') return style
 
       if (state.list) {
         // List marker (*, +, -, 1., etc)
-        state.list = null;
-        return getType(state);
+        state.list = null
+        return getType(state)
       }
 
       if (state.taskList) {
-        var taskOpen = stream.match(taskListRE, true)[1] !== 'x';
-        if (taskOpen) state.taskOpen = true;
-        else state.taskClosed = true;
-        state.taskList = false;
-        return getType(state);
+        var taskOpen = stream.match(taskListRE, true)[1] !== 'x'
+        if (taskOpen) state.taskOpen = true
+        else state.taskClosed = true
+        state.taskList = false
+        return getType(state)
       }
 
-      state.taskOpen = false;
-      state.taskClosed = false;
+      state.taskOpen = false
+      state.taskClosed = false
 
-      var ch = stream.next();
+      var ch = stream.next()
 
       if (ch === '\\') {
-        stream.next();
-        return getType(state);
+        stream.next()
+        return getType(state)
       }
 
       // Matches link titles present on next line
       if (state.linkTitle) {
-        state.linkTitle = false;
-        var matchCh = ch;
+        state.linkTitle = false
+        var matchCh = ch
         if (ch === '(') {
-          matchCh = ')';
+          matchCh = ')'
         }
-        matchCh = (matchCh + '').replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
-        var regex = '^\\s*(?:[^' + matchCh + '\\\\]+|\\\\\\\\|\\\\.)' + matchCh;
+        matchCh = (matchCh + '').replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1')
+        var regex = '^\\s*(?:[^' + matchCh + '\\\\]+|\\\\\\\\|\\\\.)' + matchCh
         if (stream.match(new RegExp(regex), true)) {
-          return linkhref;
+          return linkhref
         }
       }
 
       // If this block is changed, it may need to be updated in GFM mode
       if (ch === '`') {
-        var t = getType(state);
-        var before = stream.pos;
-        stream.eatWhile('`');
-        var difference = 1 + stream.pos - before;
+        var t = getType(state)
+        var before = stream.pos
+        stream.eatWhile('`')
+        var difference = 1 + stream.pos - before
         if (!state.code) {
-          codeDepth = difference;
-          state.code = true;
-          return getType(state);
+          codeDepth = difference
+          state.code = true
+          return getType(state)
         } else {
           if (difference === codeDepth) {
             // Must be exact
-            state.code = false;
-            return t;
+            state.code = false
+            return t
           }
-          return getType(state);
+          return getType(state)
         }
       } else if (state.code) {
-        return getType(state);
+        return getType(state)
       }
 
       if (ch === '!' && stream.match(/\[[^\]]*\] ?(?:\(|\[)/, false)) {
-        stream.match(/\[[^\]]*\]\([^\)]*\)/);
+        stream.match(/\[[^\]]*\]\([^\)]*\)/)
         // state.inline = state.f = image;
-        return image;
+        return image
       }
 
       if (ch === '[' && stream.match(/.*\](\(| ?\[)/, false)) {
-        state.linkText = true;
-        return getType(state);
+        state.linkText = true
+        return getType(state)
       }
 
       if (ch === ']' && state.linkText) {
-        var type = getType(state);
-        state.linkText = false;
-        state.inline = state.f = linkHref;
-        return type;
+        var type = getType(state)
+        state.linkText = false
+        state.inline = state.f = linkHref
+        return type
       }
 
       if (
         ch === '<' &&
         stream.match(/^(https?|ftps?):\/\/(?:[^\\>]|\\.)+>/, false)
       ) {
-        return switchInline(stream, state, inlineElement(linkinline, '>'));
+        return switchInline(stream, state, inlineElement(linkinline, '>'))
       }
 
       if (ch === '<' && stream.match(/^[^> \\]+@(?:[^\\>]|\\.)+>/, false)) {
-        return switchInline(stream, state, inlineElement(linkemail, '>'));
+        return switchInline(stream, state, inlineElement(linkemail, '>'))
       }
 
       if (ch === '<' && stream.match(/^\w/, false)) {
         if (stream.string.indexOf('>') != -1) {
-          var atts = stream.string.substring(1, stream.string.indexOf('>'));
+          var atts = stream.string.substring(1, stream.string.indexOf('>'))
           if (/markdown\s*=\s*('|"){0,1}1('|"){0,1}/.test(atts)) {
-            state.md_inside = true;
+            state.md_inside = true
           }
         }
-        stream.backUp(1);
-        return switchBlock(stream, state, htmlBlock);
+        stream.backUp(1)
+        return switchBlock(stream, state, htmlBlock)
       }
 
       if (ch === '<' && stream.match(/^\/\w*?>/)) {
-        state.md_inside = false;
-        return 'tag';
+        state.md_inside = false
+        return 'tag'
       }
 
-      var ignoreUnderscore = false;
+      var ignoreUnderscore = false
       if (!modeCfg.underscoresBreakWords) {
         if (
           ch === '_' &&
           stream.peek() !== '_' &&
           stream.match(/(\w)/, false)
         ) {
-          var prevPos = stream.pos - 2;
+          var prevPos = stream.pos - 2
           if (prevPos >= 0) {
-            var prevCh = stream.string.charAt(prevPos);
+            var prevCh = stream.string.charAt(prevPos)
             if (prevCh !== '_' && prevCh.match(/(\w)/, false)) {
-              ignoreUnderscore = true;
+              ignoreUnderscore = true
             }
           }
         }
       }
-      var t = getType(state);
+      var t = getType(state)
       if (ch === '*' || (ch === '_' && !ignoreUnderscore)) {
         if (state.strong === ch && stream.eat(ch)) {
           // Remove STRONG
-          state.strong = false;
-          return t;
+          state.strong = false
+          return t
         } else if (!state.strong && stream.eat(ch)) {
           // Add STRONG
-          state.strong = ch;
-          return getType(state);
+          state.strong = ch
+          return getType(state)
         } else if (state.em === ch) {
           // Remove EM
-          state.em = false;
-          return t;
+          state.em = false
+          return t
         } else if (!state.em) {
           // Add EM
-          state.em = ch;
-          return getType(state);
+          state.em = ch
+          return getType(state)
         }
       } else if (ch === ' ') {
         if (stream.eat('*') || stream.eat('_')) {
           // Probably surrounded by spaces
           if (stream.peek() === ' ') {
             // Surrounded by spaces, ignore
-            return getType(state);
+            return getType(state)
           } else {
             // Not surrounded by spaces, back up pointer
-            stream.backUp(1);
+            stream.backUp(1)
           }
         }
       }
 
       if (ch === ' ') {
         if (stream.match(/ +$/, false)) {
-          state.trailingSpace++;
+          state.trailingSpace++
         } else if (state.trailingSpace) {
-          state.trailingSpaceNewLine = true;
+          state.trailingSpaceNewLine = true
         }
       }
 
-      return getType(state);
+      return getType(state)
     }
 
-    function linkHref(stream, state) {
+    function linkHref (stream, state) {
       // Check if space, and return NULL if so (to avoid marking the space)
       if (stream.eatSpace()) {
-        return null;
+        return null
       }
-      var ch = stream.next();
+      var ch = stream.next()
       if (ch === '(' || ch === '[') {
         return switchInline(
           stream,
           state,
           inlineElement(linkhref, ch === '(' ? ')' : ']')
-        );
+        )
       }
-      return 'error';
+      return 'error'
     }
 
-    function footnoteLink(stream, state) {
+    function footnoteLink (stream, state) {
       if (stream.match(/^[^\]]*\]:/, true)) {
-        state.f = footnoteUrl;
-        return linktext;
+        state.f = footnoteUrl
+        return linktext
       }
-      return switchInline(stream, state, inlineNormal);
+      return switchInline(stream, state, inlineNormal)
     }
 
-    function footnoteUrl(stream, state) {
+    function footnoteUrl (stream, state) {
       // Check if space, and return NULL if so (to avoid marking the space)
       if (stream.eatSpace()) {
-        return null;
+        return null
       }
       // Match URL
-      stream.match(/^[^\s]+/, true);
+      stream.match(/^[^\s]+/, true)
       // Check for link title
       if (stream.peek() === undefined) {
         // End of line, set flag to check next line
-        state.linkTitle = true;
+        state.linkTitle = true
       } else {
         // More content on line, check if link title
         stream.match(
           /^(?:\s+(?:"(?:[^"\\]|\\\\|\\.)+"|'(?:[^'\\]|\\\\|\\.)+'|\((?:[^)\\]|\\\\|\\.)+\)))?/,
           true
-        );
+        )
       }
-      state.f = state.inline = inlineNormal;
-      return linkhref;
+      state.f = state.inline = inlineNormal
+      return linkhref
     }
 
-    var savedInlineRE = [];
-    function inlineRE(endChar) {
+    var savedInlineRE = []
+    function inlineRE (endChar) {
       if (!savedInlineRE[endChar]) {
         // Escape endChar for RegExp (taken from http://stackoverflow.com/a/494122/526741)
-        endChar = (endChar + '').replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+        endChar = (endChar + '').replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1')
         // Match any non-endChar, escaped character, as well as the closing
         // endChar.
         savedInlineRE[endChar] = new RegExp(
           '^(?:[^\\\\]|\\\\.)*?(' + endChar + ')'
-        );
+        )
       }
-      return savedInlineRE[endChar];
+      return savedInlineRE[endChar]
     }
 
-    function inlineElement(type, endChar, next) {
-      next = next || inlineNormal;
-      return function(stream, state) {
-        stream.match(inlineRE(endChar));
-        state.inline = state.f = next;
-        return type;
-      };
+    function inlineElement (type, endChar, next) {
+      next = next || inlineNormal
+      return function (stream, state) {
+        stream.match(inlineRE(endChar))
+        state.inline = state.f = next
+        return type
+      }
     }
 
     return {
-      startState: function() {
+      startState: function () {
         return {
           f: blockNormal,
 
@@ -536,10 +540,10 @@ CodeMirror.defineMode(
           quote: 0,
           trailingSpace: 0,
           trailingSpaceNewLine: false
-        };
+        }
       },
 
-      copyState: function(s) {
+      copyState: function (s) {
         return {
           f: s.f,
 
@@ -568,52 +572,51 @@ CodeMirror.defineMode(
           trailingSpace: s.trailingSpace,
           trailingSpaceNewLine: s.trailingSpaceNewLine,
           md_inside: s.md_inside
-        };
+        }
       },
 
-      token: function(stream, state) {
+      token: function (stream, state) {
         if (stream.sol()) {
           if (stream.match(/^\s*$/, true)) {
-            state.prevLineHasContent = false;
-            return blankLine(state);
+            state.prevLineHasContent = false
+            return blankLine(state)
           } else {
-            state.prevLineHasContent = state.thisLineHasContent;
-            state.thisLineHasContent = true;
+            state.prevLineHasContent = state.thisLineHasContent
+            state.thisLineHasContent = true
           }
 
           // Reset state.header
-          state.header = false;
+          state.header = false
 
           // Reset state.taskList
-          state.taskList = false;
+          state.taskList = false
 
           // Reset state.code
-          state.code = false;
+          state.code = false
 
           // Reset state.trailingSpace
-          state.trailingSpace = 0;
-          state.trailingSpaceNewLine = false;
+          state.trailingSpace = 0
+          state.trailingSpaceNewLine = false
 
-          state.f = state.block;
+          state.f = state.block
           var indentation = stream.match(/^\s*/, true)[0].replace(/\t/g, '    ')
-            .length;
-          var difference =
-            Math.floor((indentation - state.indentation) / 4) * 4;
-          if (difference > 4) difference = 4;
-          var adjustedIndentation = state.indentation + difference;
-          state.indentationDiff = adjustedIndentation - state.indentation;
-          state.indentation = adjustedIndentation;
-          if (indentation > 0) return null;
+            .length
+          var difference = Math.floor((indentation - state.indentation) / 4) * 4
+          if (difference > 4) difference = 4
+          var adjustedIndentation = state.indentation + difference
+          state.indentationDiff = adjustedIndentation - state.indentation
+          state.indentation = adjustedIndentation
+          if (indentation > 0) return null
         }
-        return state.f(stream, state);
+        return state.f(stream, state)
       },
 
       blankLine: blankLine,
 
       getType: getType
-    };
+    }
   },
   'xml'
-);
+)
 
-CodeMirror.defineMIME('text/x-markdown', 'markdown');
+CodeMirror.defineMIME('text/x-markdown', 'markdown')

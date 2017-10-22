@@ -1,4 +1,4 @@
-/*global window, jQuery, define*/
+/* global window, jQuery, define */
 var cacheInstance,
   usedStorage,
   /**
@@ -17,7 +17,7 @@ var cacheInstance,
              *  defaults to true if JSON is available
              */
 
-  useJSON = supports.JSON;
+  useJSON = supports.JSON
 
 /** FakeStorage
          *
@@ -26,57 +26,57 @@ var cacheInstance,
          *   - uses jQuery.cookie if available
          */
 
-function FakeStorage() {
-  this.values = {};
+function FakeStorage () {
+  this.values = {}
 }
 
-FakeStorage.prototype.isFake = function() {
-  return !supports.jQueryCookie;
-};
+FakeStorage.prototype.isFake = function () {
+  return !supports.jQueryCookie
+}
 
-FakeStorage.prototype.setItem = function(key, value) {
+FakeStorage.prototype.setItem = function (key, value) {
   if (supports.jQueryCookie) {
     return jQuery.cookie(key, value, {
       json: useJSON
-    });
+    })
   }
-  this.values[key] = value;
-  return value;
-};
+  this.values[key] = value
+  return value
+}
 
-FakeStorage.prototype.getItem = function(key) {
+FakeStorage.prototype.getItem = function (key) {
   if (supports.jQueryCookie) {
     return jQuery.cookie(key, undefined, {
       json: useJSON
-    });
+    })
   }
-  return this.values[key] || null;
-};
+  return this.values[key] || null
+}
 
-FakeStorage.prototype.removeItem = function(key) {
+FakeStorage.prototype.removeItem = function (key) {
   if (supports.jQueryCookie) {
-    return jQuery.removeCookie(key);
+    return jQuery.removeCookie(key)
   }
-  this.values[key] = undefined;
-  return true;
-};
+  this.values[key] = undefined
+  return true
+}
 
-FakeStorage.prototype.clear = function() {
+FakeStorage.prototype.clear = function () {
   if (supports.jQueryCookie) {
-    deleteAllCookies();
+    deleteAllCookies()
   } else {
-    var key;
+    var key
     for (key in this.values) {
       if (this.values.hasOwnProperty(key)) {
-        this.values[key] = null;
+        this.values[key] = null
       }
     }
   }
-  return true;
-};
+  return true
+}
 
 /* the Storage in use. Defaults to localStorage or FakeStorage */
-usedStorage = supports.localStorage ? window.localStorage : new FakeStorage();
+usedStorage = supports.localStorage ? window.localStorage : new FakeStorage()
 
 /***********
          *  Private available functions
@@ -86,82 +86,82 @@ usedStorage = supports.localStorage ? window.localStorage : new FakeStorage();
          *   returns the Cache itself
          */
 
-function CacheInit() {
-  return Cache;
+function CacheInit () {
+  return Cache
 }
 
 /**
          * decodes JSON
          */
 
-function decodeData(data) {
+function decodeData (data) {
   if (useJSON) {
     try {
-      return JSON.parse(data);
+      return JSON.parse(data)
     } catch (ignore) {
-      console.log('aint no json');
+      console.log('aint no json')
     }
   }
-  return data;
+  return data
 }
 
 /**
          * encodes JSON
          */
 
-function encodeData(data) {
+function encodeData (data) {
   if (useJSON) {
     try {
-      return JSON.stringify(data);
+      return JSON.stringify(data)
     } catch (ignore) {}
   }
-  return data;
+  return data
 }
 
 /** FN Cache
          *   returns all available actions on the given memorykey
          */
 
-function Cache(memoryKey) {
-  return Cache.prototype.functions(memoryKey);
+function Cache (memoryKey) {
+  return Cache.prototype.functions(memoryKey)
 }
 
 /**
          *  memorize function
          */
 
-function memorize(value) {
-  /*jshint validthis:true */
-  usedStorage.setItem(this.memoryKey, encodeData(value));
-  return value;
+function memorize (value) {
+  /* jshint validthis:true */
+  usedStorage.setItem(this.memoryKey, encodeData(value))
+  return value
 }
 
 /**
          *  remember function
          */
 
-function remember() {
-  /*jshint validthis:true */
-  var value = usedStorage.getItem(this.memoryKey);
-  return decodeData(value);
+function remember () {
+  /* jshint validthis:true */
+  var value = usedStorage.getItem(this.memoryKey)
+  return decodeData(value)
 }
 
 /**
          *  forget function
          */
 
-function forget() {
-  /*jshint validthis:true */
-  return usedStorage.removeItem(this.memoryKey);
+function forget () {
+  /* jshint validthis:true */
+  return usedStorage.removeItem(this.memoryKey)
 }
 
 /** prototype.functions
          *    returns an object of actions
          */
 
-Cache.prototype.functions = function(memoryKey) {
+Cache.prototype.functions = function (memoryKey) {
   if (memoryKey === undefined) {
-    throw 'No valid memory key given';
+    throw 'No valid memory key given'
   }
 
   return {
@@ -169,26 +169,26 @@ Cache.prototype.functions = function(memoryKey) {
     memorize: memorize,
     remember: remember,
     forget: forget
-  };
-};
+  }
+}
 
 /*
          * helper function to delete all javascript cookies
          * see http://stackoverflow.com/questions/179355/clearing-all-cookies-with-javascript
          */
 
-function deleteAllCookies() {
+function deleteAllCookies () {
   var cookies = window.document.cookie.split(';'),
     i,
     length,
     cookie,
     eqPos,
-    name;
+    name
   for (i = 0, length = cookies.length; i < length; i += 1) {
-    cookie = cookies[i];
-    eqPos = cookie.indexOf('=');
-    name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-    window.document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    cookie = cookies[i]
+    eqPos = cookie.indexOf('=')
+    name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie
+    window.document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT'
   }
 }
 
@@ -200,64 +200,64 @@ function deleteAllCookies() {
          *  returns false if Cache has no possibility to store any data
          */
 
-Cache.runs = function() {
+Cache.runs = function () {
   return !(
     typeof usedStorage.isFake === 'function' && usedStorage.isFake() === true
-  );
-};
+  )
+}
 
 /** FN setStorage
          *  Sets the Storage Type, if it is supported
          *   "localStorage" || "sessionStorage"
          */
 
-Cache.setStorage = function(storageType) {
+Cache.setStorage = function (storageType) {
   if (
     (storageType === 'localStorage' || storageType === 'sessionStorage') &&
     supports[storageType]
   ) {
-    usedStorage = window[storageType];
-    return true;
+    usedStorage = window[storageType]
+    return true
   }
-  return false;
-};
+  return false
+}
 
 /**
          *  returns the current used storage
          */
 
-Cache.getStorage = function() {
-  return usedStorage;
-};
+Cache.getStorage = function () {
+  return usedStorage
+}
 
 /**
          *  tells the cache to use JSON
          */
 
-Cache.json = function() {
-  useJSON = true;
-  return useJSON;
-};
+Cache.json = function () {
+  useJSON = true
+  return useJSON
+}
 
 /**
          *  tells the cache not to use JSON
          */
 
-Cache.nojson = function() {
-  useJSON = false;
-  return !useJSON;
-};
+Cache.nojson = function () {
+  useJSON = false
+  return !useJSON
+}
 
 /**
          *  tells the cache, to go out, get drunk and forget about everything
          */
 
-Cache.getDrunk = function() {
-  return usedStorage.clear();
-};
-
-if (!cacheInstance) {
-  cacheInstance = new CacheInit();
+Cache.getDrunk = function () {
+  return usedStorage.clear()
 }
 
-export default cacheInstance;
+if (!cacheInstance) {
+  cacheInstance = new CacheInit()
+}
+
+export default cacheInstance

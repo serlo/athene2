@@ -1,6 +1,6 @@
-/*global define, window*/
-import $ from 'jquery';
-import _ from 'underscore';
+/* global define, window */
+import $ from 'jquery'
+import _ from 'underscore'
 
 var SideElement,
   defaults = {
@@ -11,44 +11,44 @@ var SideElement,
     sidebarBreakPoint: 980,
     // Navigation Breakpoint Grid
     navigationBreakPoint: 1140
-  };
+  }
 
-SideElement = function(options) {
+SideElement = function (options) {
   this.options = options
     ? $.extend({}, defaults, options)
-    : $.extend({}, defaults);
+    : $.extend({}, defaults)
 
-  this.$window = $(window);
+  this.$window = $(window)
 
-  this.$elements = $('.side-element');
+  this.$elements = $('.side-element')
 
-  this.attachHandler();
-};
+  this.attachHandler()
+}
 
-SideElement.prototype.attachHandler = function() {
-  var that = this;
+SideElement.prototype.attachHandler = function () {
+  var that = this
 
-  that.$elements.each(function() {
-    var $element = $(this);
+  that.$elements.each(function () {
+    var $element = $(this)
 
-    $('.layout-toggle', $element).click(function() {
-      that.$elements.not($element).removeClass(that.options.visibleClass);
+    $('.layout-toggle', $element).click(function () {
+      that.$elements.not($element).removeClass(that.options.visibleClass)
 
-      $element.toggleClass(that.options.visibleClass);
-    });
-  });
+      $element.toggleClass(that.options.visibleClass)
+    })
+  })
 
   that.$window.resize(
-    _.debounce(function() {
-      that.$elements.removeClass(that.options.visibleClass);
+    _.debounce(function () {
+      that.$elements.removeClass(that.options.visibleClass)
     }, 300)
-  );
-};
+  )
+}
 
 const sideelement = {
-  init: function(options) {
-    return new SideElement(options);
+  init: function (options) {
+    return new SideElement(options)
   }
-};
+}
 
-export default sideelement;
+export default sideelement

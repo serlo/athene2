@@ -1,13 +1,13 @@
-/*global define, window*/
-import _ from 'underscore';
+/* global define, window */
+import _ from 'underscore'
 
-import Common from './common';
-import i18n from './i18n';
+import Common from './common'
+import i18n from './i18n'
 
 var t,
   config,
   untranslated = [],
-  defaultLanguage = 'de';
+  defaultLanguage = 'de'
 
 config = {
   language: defaultLanguage,
@@ -15,25 +15,25 @@ config = {
   // the translator will log
   //  untranslated strings
   debug: false
-};
+}
 
 /**
      * @function mayTranslate
      * @param {String} string The string to translate
      * @return {String} The translated string OR the untouched string
      **/
-function mayTranslate(string) {
+function mayTranslate (string) {
   if (
     i18n[config.language] &&
     i18n[config.language][string] &&
     i18n[config.language][string] !== ''
   ) {
-    return i18n[config.language][string];
+    return i18n[config.language][string]
   }
 
-  Common.expr(config.debug && untranslated.push(string));
+  Common.expr(config.debug && untranslated.push(string))
 
-  return string;
+  return string
 }
 
 /**
@@ -42,21 +42,21 @@ function mayTranslate(string) {
      * @param {Array} replacements An array of strings, to replace placeholders in @param string
      * @return {String} The string, with placeholders replaced by replacement partials
      **/
-function replace(string, replacements) {
-  _.each(replacements, function(partial) {
+function replace (string, replacements) {
+  _.each(replacements, function (partial) {
     switch (typeof partial) {
       case 'string':
-        string = string.replace(/%s/, partial);
-        break;
+        string = string.replace(/%s/, partial)
+        break
       case 'number':
-        string = string.replace(/%d/, partial);
-        break;
+        string = string.replace(/%d/, partial)
+        break
       case 'boolean':
-        string = string.replace(/%b/, partial ? 'true' : 'false');
-        break;
+        string = string.replace(/%b/, partial ? 'true' : 'false')
+        break
     }
-  });
-  return string;
+  })
+  return string
 }
 
 /**
@@ -66,12 +66,12 @@ function replace(string, replacements) {
      * @param {String} String replacements
      * @return {String} The translated string or the original
      **/
-t = Common.memoize(function() {
+t = Common.memoize(function () {
   var args = Array.prototype.slice.call(arguments),
-    string = args.shift();
+    string = args.shift()
 
-  return replace(mayTranslate(string), args);
-});
+  return replace(mayTranslate(string), args)
+})
 
 /**
      * @method config
@@ -79,16 +79,16 @@ t = Common.memoize(function() {
      *
      * sets configurations
      **/
-t.config = function(configuration) {
-  _.extend(config, configuration);
-};
-
-t.getLanguage = function() {
-  return config.language;
-};
-
-if (config.debug) {
-  window.t = t;
+t.config = function (configuration) {
+  _.extend(config, configuration)
 }
 
-export default t;
+t.getLanguage = function () {
+  return config.language
+}
+
+if (config.debug) {
+  window.t = t
+}
+
+export default t

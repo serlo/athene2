@@ -9,15 +9,15 @@
  * The Main Navigation
  *
  */
-import $ from 'jquery';
-import _ from 'underscore';
+import $ from 'jquery'
+import _ from 'underscore'
 
-import eventScope from '../../libs/eventscope';
-import Common from '../../modules/common';
-import t from '../../modules/translator';
-import ReferrerHistory from './serlo_referrer_history';
+import eventScope from '../../libs/eventscope'
+import Common from '../../modules/common'
+import t from '../../modules/translator'
+import ReferrerHistory from './serlo_referrer_history'
 
-var defaults, instance, Hierarchy, MenuItem, SubNavigation, SideNavigation;
+var defaults, instance, Hierarchy, MenuItem, SubNavigation, SideNavigation
 
 defaults = {
   // main wrapper selector
@@ -50,7 +50,7 @@ defaults = {
     // attribute name to identify the menuitem
     identifier: 'identifier'
   }
-};
+}
 
 /**
      * @function deepFlatten
@@ -59,8 +59,8 @@ defaults = {
      *
      * Helper function
      **/
-function deepFlatten(array) {
-  function dm(item) {
+function deepFlatten (array) {
+  function dm (item) {
     if (item.children) {
       return [].concat(
         item,
@@ -68,69 +68,69 @@ function deepFlatten(array) {
           .map(dm)
           .flatten()
           .value()
-      );
+      )
     }
-    return item;
+    return item
   }
   return _.chain(array)
     .map(dm)
-    .flatten();
+    .flatten()
 }
 
 /**
      * @class MenuItem
      * @param {Object} data All informations about the MenuItem (url, title, position, level)
      */
-MenuItem = function(data) {
+MenuItem = function (data) {
   if (
     data.url === undefined ||
     !data.title ||
     !data.position ||
     data.level === undefined
   ) {
-    Common.log('Invalid MenuItem', data);
+    Common.log('Invalid MenuItem', data)
   }
 
   if (data.needsFetching === undefined) {
-    data.needsFetching = true;
+    data.needsFetching = true
   }
 
   if (data.sidenav === undefined) {
-    data.sidenav = true;
+    data.sidenav = true
   }
 
-  eventScope(this);
+  eventScope(this)
 
-  this.data = data;
-  this.$el = $('<li>');
+  this.data = data
+  this.$el = $('<li>')
 
-  this.render();
-};
+  this.render()
+}
 
 /**
      * @method render
      *
      * Renders the a <li> and <a> tag on MenuItem.$el
      **/
-MenuItem.prototype.render = function() {
+MenuItem.prototype.render = function () {
   var self = this,
     $a,
-    $children;
+    $children
 
-  this.$el.empty();
+  this.$el.empty()
 
   if (self.data.level === 0) {
-    self.data.$a.click(function(e) {
-      self.onClick(e);
-    });
+    self.data.$a.click(function (e) {
+      self.onClick(e)
+    })
   } else {
     $a = $('<a>')
       .text(self.data.title)
-      .click(function(e) {
-        self.onClick(e);
+      .click(function (e) {
+        self.onClick(e)
       })
       .attr('href', self.data.url)
-      .appendTo(self.$el);
+      .appendTo(self.$el)
 
     if (self.data.icon) {
       $a.html(
@@ -139,40 +139,40 @@ MenuItem.prototype.render = function() {
           '"></span> <span>' +
           self.data.title +
           '</span>'
-      );
+      )
     }
 
     if (self.data.cssClass) {
-      self.$el.addClass(self.data.cssClass);
+      self.$el.addClass(self.data.cssClass)
     }
 
     if (self.data.renderedChildren && self.data.renderedChildren.length) {
-      $children = $('<ul>');
-      self.$children = $children;
+      $children = $('<ul>')
+      self.$children = $children
 
-      _.each(self.data.renderedChildren, function(child) {
+      _.each(self.data.renderedChildren, function (child) {
         var childItem = new MenuItem(
           _.extend({}, child.data, {
             icon: false,
             needsFetching: false
           })
-        );
+        )
 
-        childItem.addEventListener('reload', function(e) {
+        childItem.addEventListener('reload', function (e) {
           self.trigger('reload', {
             originalEvent: e.originalEvent
-          });
-        });
+          })
+        })
 
-        childItem.$el.appendTo($children);
-      });
+        childItem.$el.appendTo($children)
+      })
 
-      self.$el.append($children);
+      self.$el.append($children)
     }
   }
 
-  return self;
-};
+  return self
+}
 
 /**
      * @method onClick
@@ -180,24 +180,24 @@ MenuItem.prototype.render = function() {
      *
      * OnClick handler for MenuItem
      **/
-MenuItem.prototype.onClick = function(e) {
+MenuItem.prototype.onClick = function (e) {
   if (
     this.data.sidenav &&
     (this.data.needsFetching || this.children) &&
     !this.alwaysReload
   ) {
-    e.preventDefault();
-    e.stopPropagation();
+    e.preventDefault()
+    e.stopPropagation()
     this.trigger('click', {
       originalEvent: e,
       menuItem: this
-    });
+    })
   } else {
     this.trigger('reload', {
       originalEvent: e
-    });
+    })
   }
-};
+}
 
 /**
      * @class SubNavigation
@@ -206,44 +206,44 @@ MenuItem.prototype.onClick = function(e) {
      * Creates <ul>s for each level and renders them
      **/
 
-SubNavigation = function(levels) {
-  this.$el = $('<div id="serlo-side-sub-navigation-mover">');
-  eventScope(this);
-  this.reset(levels);
-};
+SubNavigation = function (levels) {
+  this.$el = $('<div id="serlo-side-sub-navigation-mover">')
+  eventScope(this)
+  this.reset(levels)
+}
 
 /**
      * @method reset
      * @param {Array} levels An array of levels, containing MenuItems, to be rendered in an <ul>
      *
      **/
-SubNavigation.prototype.reset = function(levels) {
-  this.levels = levels;
-  this.render();
-};
+SubNavigation.prototype.reset = function (levels) {
+  this.levels = levels
+  this.render()
+}
 
 /**
      * @method render
      *
      * Creates the <li> and <a> elements
      **/
-SubNavigation.prototype.render = function() {
+SubNavigation.prototype.render = function () {
   var self = this,
     backBtn,
     parentData,
-    parentLink;
+    parentLink
 
-  self.$el.empty();
+  self.$el.empty()
 
-  _.each(self.levels, function(level) {
+  _.each(self.levels, function (level) {
     var $div = $('<div>'),
       $ul = $('<ul>'),
       msg,
-      elementCount;
+      elementCount
 
     // add back btns
     if (level[0].data.parent) {
-      parentData = level[0].data.parent.data;
+      parentData = level[0].data.parent.data
       if (parentData.level === 0) {
         backBtn = new MenuItem({
           icon: 'times',
@@ -253,29 +253,25 @@ SubNavigation.prototype.render = function() {
           position: [],
           needsFetching: false,
           level: -1
-        });
+        })
 
-        backBtn.$el.unbind('click').click(function(e) {
+        backBtn.$el.unbind('click').click(function (e) {
           self.trigger('close', {
             originalEvent: e,
             menuItem: backBtn
-          });
-        });
+          })
+        })
       } else {
-        elementCount = parentData.elementCount;
+        elementCount = parentData.elementCount
         if (
           parentData.url !== '' &&
           parentData.url !== '#' &&
           typeof elementCount !== 'undefined'
         ) {
-          msg = t('Show overview');
+          msg = t('Show overview')
 
           if (elementCount > 0) {
-            msg = t(
-              'Show %d contents for "%s"',
-              elementCount,
-              parentData.title
-            );
+            msg = t('Show %d contents for "%s"', elementCount, parentData.title)
           }
 
           parentLink = new MenuItem(
@@ -285,14 +281,14 @@ SubNavigation.prototype.render = function() {
               level: -1,
               title: msg
             })
-          );
+          )
 
-          parentLink.$el.unbind('click').click(function(e) {
+          parentLink.$el.unbind('click').click(function (e) {
             self.trigger('navigate', {
               original: e,
               menuItem: parentLink
-            });
-          });
+            })
+          })
         }
 
         backBtn = new MenuItem(
@@ -300,42 +296,42 @@ SubNavigation.prototype.render = function() {
             icon: 'arrow-left',
             cssClass: 'sub-nav-header'
           })
-        );
+        )
 
-        backBtn.$el.unbind('click').click(function(e) {
+        backBtn.$el.unbind('click').click(function (e) {
           self.trigger('go back', {
             originalEvent: e,
             menuItem: backBtn
-          });
-        });
+          })
+        })
       }
     }
 
-    $ul.append(backBtn.$el);
+    $ul.append(backBtn.$el)
 
     // add parent link
     if (parentLink) {
-      $ul.append(parentLink.$el);
+      $ul.append(parentLink.$el)
     }
 
     // separator
-    $ul.append('<li class="sub-nav-separator">');
+    $ul.append('<li class="sub-nav-separator">')
 
     // add nav links
-    _.each(level, function(menuItem) {
-      $ul.append(menuItem.render().$el);
-    });
+    _.each(level, function (menuItem) {
+      $ul.append(menuItem.render().$el)
+    })
 
     if (self.levels[0][0].data.parent.data.community) {
-      $div.addClass('is-community');
+      $div.addClass('is-community')
     }
 
-    $div.addClass('sub-nav-slider').append($ul);
-    self.$el.append($div);
-  });
+    $div.addClass('sub-nav-slider').append($ul)
+    self.$el.append($div)
+  })
 
-  return this;
-};
+  return this
+}
 
 /**
      * @method getListAtLevel
@@ -343,20 +339,20 @@ SubNavigation.prototype.render = function() {
      * @return {jQueryObject} $ul The actual <ul> element for given level
      *
      **/
-SubNavigation.prototype.getListAtLevel = function(level) {
+SubNavigation.prototype.getListAtLevel = function (level) {
   return this.$el
     .children()
     .eq(level)
     .find('ul')
-    .first();
-};
+    .first()
+}
 
 /**
      * @class Hierarchy
      **/
-Hierarchy = function() {
-  this.data = [];
-};
+Hierarchy = function () {
+  this.data = []
+}
 
 /**
      * @method fetchFromDom
@@ -364,12 +360,12 @@ Hierarchy = function() {
      *
      * Loops through $root and creates an hierarchial array of objects
      **/
-Hierarchy.prototype.fetchFromDom = function($root) {
+Hierarchy.prototype.fetchFromDom = function ($root) {
   var self = this,
-    deepness = [];
+    deepness = []
 
-  self.data = [];
-  self.$root = $root;
+  self.data = []
+  self.$root = $root
 
   /**
          * @function loop
@@ -382,10 +378,10 @@ Hierarchy.prototype.fetchFromDom = function($root) {
          *
          * Also creates MenuItem instances for every link and adds event handlers
          **/
-  function loop($element, dataHierarchy, level, parent) {
-    $('> li', $element).each(function(i) {
-      deepness = deepness.splice(0, level);
-      deepness.push(i);
+  function loop ($element, dataHierarchy, level, parent) {
+    $('> li', $element).each(function (i) {
+      deepness = deepness.splice(0, level)
+      deepness.push(i)
 
       var $listItem = $(this),
         $link = $listItem
@@ -399,10 +395,10 @@ Hierarchy.prototype.fetchFromDom = function($root) {
           .find('> li').length,
         needsFetching = $listItem.data('needs-fetching') !== undefined,
         sidenav = $listItem.data('sidenav') === undefined,
-        icon;
+        icon
 
       if (hasChildren) {
-        icon = 'chevron-right';
+        icon = 'chevron-right'
       }
 
       dataHierarchy[i] = new MenuItem({
@@ -420,10 +416,10 @@ Hierarchy.prototype.fetchFromDom = function($root) {
         sidenav: sidenav,
         elementCount: $listItem.data('element-count'),
         identifier: $listItem.data(defaults.asyncNav.identifier)
-      });
+      })
 
       if (hasChildren) {
-        dataHierarchy[i].children = [];
+        dataHierarchy[i].children = []
         loop(
           $listItem
             .children()
@@ -432,14 +428,14 @@ Hierarchy.prototype.fetchFromDom = function($root) {
           dataHierarchy[i].children,
           level + 1,
           dataHierarchy[i]
-        );
+        )
       }
-    });
+    })
   }
 
-  loop(self.$root, self.data, 0);
-  return this;
-};
+  loop(self.$root, self.data, 0)
+  return this
+}
 
 /**
      * @method fetchFromJson
@@ -448,10 +444,10 @@ Hierarchy.prototype.fetchFromDom = function($root) {
      *
      * Loops through data and creates an hierarchial array of objects
      **/
-Hierarchy.prototype.fetchFromJson = function(object, parent) {
-  var deepness = parent.data.position.slice();
+Hierarchy.prototype.fetchFromJson = function (object, parent) {
+  var deepness = parent.data.position.slice()
 
-  parent.data.needsFetching = false;
+  parent.data.needsFetching = false
 
   /**
          * @function loop
@@ -465,17 +461,17 @@ Hierarchy.prototype.fetchFromJson = function(object, parent) {
          *
          * Also creates MenuItem instances for every link and adds event handlers
          **/
-  function loop(object, dataHierarchy, level, parent) {
-    $.each(object, function(i, item) {
-      deepness = deepness.splice(0, level);
-      deepness.push(i);
+  function loop (object, dataHierarchy, level, parent) {
+    $.each(object, function (i, item) {
+      deepness = deepness.splice(0, level)
+      deepness.push(i)
 
       var position = [].concat(deepness),
         hasChildren = item.children.length,
-        icon;
+        icon
 
       if (hasChildren) {
-        icon = 'chevron-right';
+        icon = 'chevron-right'
       }
 
       dataHierarchy[i] = new MenuItem({
@@ -488,26 +484,26 @@ Hierarchy.prototype.fetchFromJson = function(object, parent) {
         needsFetching: item.needsFetching,
         elementCount: item.elements,
         identifier: item.identifier
-      });
+      })
 
       if (hasChildren) {
-        dataHierarchy[i].children = [];
+        dataHierarchy[i].children = []
         loop(
           item.children,
           dataHierarchy[i].children,
           level + 1,
           dataHierarchy[i]
-        );
+        )
       }
 
-      return dataHierarchy;
-    });
+      return dataHierarchy
+    })
   }
 
-  parent.children = [];
-  loop(object, parent.children, parent.data.level + 1, parent);
-  return this;
-};
+  parent.children = []
+  loop(object, parent.children, parent.data.level + 1, parent)
+  return this
+}
 
 /**
      * @method findByUrl
@@ -516,20 +512,20 @@ Hierarchy.prototype.fetchFromJson = function(object, parent) {
      *
      * Searches for a menu item by URL
      **/
-Hierarchy.prototype.findByUrl = function(url) {
-  var self = this;
+Hierarchy.prototype.findByUrl = function (url) {
+  var self = this
 
   return _.first(
     deepFlatten(self.data)
-      .filter(function(menuItem) {
+      .filter(function (menuItem) {
         if (menuItem.data.url === url) {
-          return menuItem;
+          return menuItem
         }
-        return false;
+        return false
       })
       .value()
-  );
-};
+  )
+}
 
 /**
      * @method findActiveByActive
@@ -537,20 +533,20 @@ Hierarchy.prototype.findByUrl = function(url) {
      *
      * Searches for a menu item by active property
      **/
-Hierarchy.prototype.findActiveByActive = function() {
-  var self = this;
+Hierarchy.prototype.findActiveByActive = function () {
+  var self = this
 
   return _.last(
     deepFlatten(self.data)
-      .filter(function(menuItem) {
+      .filter(function (menuItem) {
         if (menuItem.data.active) {
-          return true;
+          return true
         }
-        return false;
+        return false
       })
       .value()
-  );
-};
+  )
+}
 
 /**
      * @method findActive
@@ -559,24 +555,24 @@ Hierarchy.prototype.findActiveByActive = function() {
      * Finds the active menu item. Searches for both the last available url as well as
      * the active menu item given by the app.
      **/
-Hierarchy.prototype.findActive = function() {
+Hierarchy.prototype.findActive = function () {
   var self = this,
     foundItem,
     fromStorageItem,
-    currentUrl = ReferrerHistory.getCurrent();
+    currentUrl = ReferrerHistory.getCurrent()
 
-  foundItem = this.findActiveByActive();
+  foundItem = this.findActiveByActive()
 
   if (foundItem !== undefined) {
     if (foundItem.data.url !== currentUrl) {
-      fromStorageItem = self.findPreviousMenuItem();
+      fromStorageItem = self.findPreviousMenuItem()
       if (fromStorageItem) {
-        return fromStorageItem;
+        return fromStorageItem
       }
     }
-    return foundItem;
+    return foundItem
   }
-};
+}
 
 /**
      * @method findPreviousMenuItem
@@ -584,16 +580,16 @@ Hierarchy.prototype.findActive = function() {
      *
      * Searches menu items by URL
      **/
-Hierarchy.prototype.findPreviousMenuItem = function() {
+Hierarchy.prototype.findPreviousMenuItem = function () {
   var self = this,
     result,
-    lastUrl = ReferrerHistory.getPrevious();
+    lastUrl = ReferrerHistory.getPrevious()
 
-  result = self.findByUrl(lastUrl);
+  result = self.findByUrl(lastUrl)
   if (result) {
-    return result;
+    return result
   }
-};
+}
 
 /**
      * @method findLastAvailableUrl
@@ -601,20 +597,19 @@ Hierarchy.prototype.findPreviousMenuItem = function() {
      *
      * Searches menu items by URL
      **/
-Hierarchy.prototype.findLastAvailableUrl = function() {
+Hierarchy.prototype.findLastAvailableUrl = function () {
   var self = this,
     foundItem,
-    lastUrls = ReferrerHistory.getAll();
+    lastUrls = ReferrerHistory.getAll()
 
-  _.each(lastUrls, function(lastUrl) {
-    foundItem = self.findByUrl(lastUrl);
+  _.each(lastUrls, function (lastUrl) {
+    foundItem = self.findByUrl(lastUrl)
     if (foundItem) {
-      return;
     }
-  });
+  })
 
-  return foundItem;
-};
+  return foundItem
+}
 
 /**
      * @method findByPosition
@@ -622,30 +617,30 @@ Hierarchy.prototype.findLastAvailableUrl = function() {
      * @return {MenuItem} or false
      *
      **/
-Hierarchy.prototype.findByPosition = function(position) {
+Hierarchy.prototype.findByPosition = function (position) {
   if (position.length === 1) {
-    return this.data[position[0]];
+    return this.data[position[0]]
   }
 
-  var cursor = this.data[position[0]];
+  var cursor = this.data[position[0]]
 
-  position = position.slice();
-  position.shift();
+  position = position.slice()
+  position.shift()
 
-  _.each(position, function(index) {
-    cursor = cursor.children[index];
-  });
+  _.each(position, function (index) {
+    cursor = cursor.children[index]
+  })
 
-  return cursor || false;
-};
+  return cursor || false
+}
 
 /**
      * @method getFlattened
      * @return {Array} Returns an array of all MenuItems without hierarchy
      **/
-Hierarchy.prototype.getFlattened = function() {
-  return deepFlatten(this.data).value();
-};
+Hierarchy.prototype.getFlattened = function () {
+  return deepFlatten(this.data).value()
+}
 
 /**
      * @method getLevels
@@ -653,17 +648,17 @@ Hierarchy.prototype.getFlattened = function() {
      * @return {Array} an Array of Levels
      *
      **/
-Hierarchy.prototype.getLevels = function(position) {
+Hierarchy.prototype.getLevels = function (position) {
   var self = this,
     cursor = self.data,
-    result = [];
+    result = []
 
-  _.each(position, function(index) {
-    result.push(cursor[index].children);
-    cursor = cursor[index].children;
-  });
-  return result;
-};
+  _.each(position, function (index) {
+    result.push(cursor[index].children)
+    cursor = cursor[index].children
+  })
+  return result
+}
 
 /**
      * @method getParents
@@ -671,17 +666,17 @@ Hierarchy.prototype.getLevels = function(position) {
      * @return {Array} an Array of menuItems
      *
      **/
-Hierarchy.prototype.getParents = function(position) {
+Hierarchy.prototype.getParents = function (position) {
   var result = [],
-    usePosition = position.slice();
+    usePosition = position.slice()
 
   while (usePosition.length) {
-    result.push(this.findByPosition(usePosition));
-    usePosition.pop();
+    result.push(this.findByPosition(usePosition))
+    usePosition.pop()
   }
 
-  return result;
-};
+  return result
+}
 
 /**
      * @method getSiblings
@@ -689,23 +684,23 @@ Hierarchy.prototype.getParents = function(position) {
      * @return {Array} an Array of menuItems - the siblings of the given array
      *
      **/
-Hierarchy.prototype.getSiblings = function(position) {
+Hierarchy.prototype.getSiblings = function (position) {
   var usePosition = position.slice(),
-    parent = this.getParent(this.findByPosition(usePosition));
+    parent = this.getParent(this.findByPosition(usePosition))
 
-  return parent ? parent.children || [] : [];
-};
+  return parent ? parent.children || [] : []
+}
 
 /**
      * @method getParent
      * @param {MenuItem} menuItem A menuItem
      * @return {MenuItem} The direct parent of the given MenuItem
      **/
-Hierarchy.prototype.getParent = function(menuItem) {
-  var parents = this.getParents(menuItem.data.position).reverse();
-  parents.pop();
-  return parents[parents.length - 1];
-};
+Hierarchy.prototype.getParent = function (menuItem) {
+  var parents = this.getParents(menuItem.data.position).reverse()
+  parents.pop()
+  return parents[parents.length - 1]
+}
 
 /**
      * @class SideNavigation
@@ -713,62 +708,62 @@ Hierarchy.prototype.getParent = function(menuItem) {
      *
      * Main constructor
      **/
-SideNavigation = function(options) {
+SideNavigation = function (options) {
   if (!(this instanceof SideNavigation)) {
-    return new SideNavigation(options);
+    return new SideNavigation(options)
   }
 
   this.options = options
     ? $.extend({}, defaults, options)
-    : $.extend({}, defaults);
+    : $.extend({}, defaults)
 
   // when force gets true, a click on $el will propagate
-  this.force = false;
+  this.force = false
 
-  this.$el = $(this.options.mainId);
-  this.$nav = $('<div id="serlo-side-sub-navigation">');
+  this.$el = $(this.options.mainId)
+  this.$nav = $('<div id="serlo-side-sub-navigation">')
   // this.$mover = $('<div id="serlo-side-sub-navigation-mover">');
   // this.$nav.append(this.$mover);
   // this.$mover.css('left', 0);
   this.$breadcrumbs = $(
     '<ul id="serlo-side-navigation-breadcrumbs" class="nav">'
-  );
+  )
 
-  this.hierarchy = new Hierarchy();
-  this.hierarchy.fetchFromDom(this.$el);
+  this.hierarchy = new Hierarchy()
+  this.hierarchy.fetchFromDom(this.$el)
 
-  this.active = this.hierarchy.findActive();
+  this.active = this.hierarchy.findActive()
 
-  this.setActiveBranch();
+  this.setActiveBranch()
 
-  this.attachEventHandler();
-};
+  this.attachEventHandler()
+}
 
 /**
      * @method setActiveBranch
      *
      * Sets options.activeClass for active menu item and its parents
      **/
-SideNavigation.prototype.setActiveBranch = function() {
+SideNavigation.prototype.setActiveBranch = function () {
   var self = this,
-    position;
-  //parents,
-  //siblings,
-  //$rootMenuItem;
+    position
+  // parents,
+  // siblings,
+  // $rootMenuItem;
 
   if (self.active) {
-    position = self.active.data.position;
+    position = self.active.data.position
 
     self.active.$el
       .addClass(self.options.activeClass)
       .parents('li')
-      .addClass(self.options.activeClass);
+      .addClass(self.options.activeClass)
 
     // set the original root elements activeClass
     // $rootMenuItem = $('> li', self.$el).eq(position[0]).addClass(self.options.activeClass);
     $('> li', self.$el)
       .eq(position[0])
-      .addClass(self.options.activeClass);
+      .addClass(self.options.activeClass)
 
     // Create 'breadcrumbs'
     // parents = self.hierarchy.getParents(position).reverse();
@@ -776,34 +771,34 @@ SideNavigation.prototype.setActiveBranch = function() {
     // parents.shift();
     // parents.pop();
 
-    //siblings = self.hierarchy.getSiblings(position);
+    // siblings = self.hierarchy.getSiblings(position);
 
     // set siblings activeClass
-    //_.each(siblings, function (menuItem) {
+    // _.each(siblings, function (menuItem) {
     //    if (_.isEqual(menuItem.data.position, position)) {
     //        menuItem.data.cssClass = self.options.activeClass;
     //    }
-    //});
+    // });
 
-    //if (self.options.breadcrumbDepth) {
+    // if (self.options.breadcrumbDepth) {
     //    parents = parents.splice(-1 * self.options.breadcrumbDepth);
-    //}
+    // }
 
-    //if (!parents.length) {
+    // if (!parents.length) {
     //    parents = siblings;
     //    siblings = [];
-    //}
+    // }
 
-    //if (parents.length && !self.$breadcrumbs.html().length) {
-    //_.each(parents, function (menuItem, key) {
-    //var breadcrumb,
+    // if (parents.length && !self.$breadcrumbs.html().length) {
+    // _.each(parents, function (menuItem, key) {
+    // var breadcrumb,
     //    breadCrumbOptions = {
     //    icon: false,
     //    needsFetching: false,
     //    renderedChildren: (key === parents.length - 1) ? siblings : false
-    //};
+    // };
 
-    //breadcrumb = new MenuItem(_.extend({}, menuItem.data, breadCrumbOptions));
+    // breadcrumb = new MenuItem(_.extend({}, menuItem.data, breadCrumbOptions));
 
     // breadcrumb.addEventListener('click', function (e) {
     //     var parentMenuItem = self.hierarchy.getParent(e.menuItem);
@@ -812,109 +807,108 @@ SideNavigation.prototype.setActiveBranch = function() {
     //     self.jumpTo(parentMenuItem);
     // });
 
-    //breadcrumb.addEventListener('reload', function () {
+    // breadcrumb.addEventListener('reload', function () {
     //   self.force = true;
-    //});
+    // });
 
-    //self.$breadcrumbs.append(breadcrumb.$el);
-    //});
+    // self.$breadcrumbs.append(breadcrumb.$el);
+    // });
 
-    //self.$breadcrumbs.insertAfter($rootMenuItem);
-    //}
+    // self.$breadcrumbs.insertAfter($rootMenuItem);
+    // }
   }
-  return self;
-};
+  return self
+}
 
 /**
      * @method setActiveNavigator
      *
      * Sets the options.activeNavigatorClass for menu items the user is navigating with
      **/
-SideNavigation.prototype.setActiveNavigator = function() {
+SideNavigation.prototype.setActiveNavigator = function () {
   $('.' + this.options.activeNavigatorClass, this.$el).removeClass(
     this.options.activeNavigatorClass
-  );
+  )
 
   if (this.navigatedMenuItem) {
     this.navigatedMenuItem.$el
       .addClass(this.options.activeNavigatorClass)
       .parents('li')
-      .addClass(this.options.activeNavigatorClass);
+      .addClass(this.options.activeNavigatorClass)
     // set the original root elements activeClass
     $('> li', this.$el)
       .eq(this.navigatedMenuItem.data.position[0])
-      .addClass(this.options.activeNavigatorClass);
+      .addClass(this.options.activeNavigatorClass)
   }
-};
+}
 
 /**
      * @method attachEventHandler
      *
      * Attaches all needed event handlers
      **/
-SideNavigation.prototype.attachEventHandler = function() {
+SideNavigation.prototype.attachEventHandler = function () {
   var self = this,
-    menuItems = this.hierarchy.getFlattened();
+    menuItems = this.hierarchy.getFlattened()
 
   // add 'open' click event to first-level items
-  _.each(menuItems, function(menuItem) {
-    menuItem.addEventListener('click', function(e) {
-      e.originalEvent.preventDefault();
-      self.navigatedMenuItem = e.menuItem;
-      self.fetch(e.menuItem);
-    });
+  _.each(menuItems, function (menuItem) {
+    menuItem.addEventListener('click', function (e) {
+      e.originalEvent.preventDefault()
+      self.navigatedMenuItem = e.menuItem
+      self.fetch(e.menuItem)
+    })
 
-    menuItem.addEventListener('reload', function() {
-      self.force = true;
-      self.close();
-    });
+    menuItem.addEventListener('reload', function () {
+      self.force = true
+      self.close()
+    })
 
-    menuItem.data.attached = true;
-  });
+    menuItem.data.attached = true
+  })
 
-  $('body').on('click', function() {
+  $('body').on('click', function () {
     if (self.isOpen) {
-      self.close();
+      self.close()
     }
-  });
+  })
 
-  self.$el.click(function(e) {
+  self.$el.click(function (e) {
     if (!self.force) {
-      e.preventDefault();
-      e.stopPropagation();
-      self.force = false;
-      return;
+      e.preventDefault()
+      e.stopPropagation()
+      self.force = false
     }
-  });
-};
+  })
+}
 
 /**
      * @method synchEventHandlers
      *
      * Attaches all needed event handlers to new MenuItems
      **/
-SideNavigation.prototype.synchEventHandlers = function() {
+SideNavigation.prototype.synchEventHandlers = function () {
   var self = this,
-    menuItems = this.hierarchy.getFlattened();
+    menuItems = this.hierarchy.getFlattened()
 
   // add 'open' click event to first-level items
-  _.each(menuItems, function(menuItem) {
+  _.each(menuItems, function (menuItem) {
     if (!menuItem.data.attached) {
-      menuItem.addEventListener('click', function(e) {
-        e.originalEvent.preventDefault();
-        self.navigatedMenuItem = e.menuItem;
-        self.fetch(e.menuItem, e);
-      });
+      menuItem.addEventListener('click', function (e) {
+        e.originalEvent.preventDefault()
+        self.navigatedMenuItem = e.menuItem
+        self.fetch(e.menuItem, e)
+      })
 
-      menuItem.addEventListener('reload', function() {
-        self.force = true;
-        self.close();
-      });
+      menuItem.addEventListener('reload', function () {
+        self.force = true
+        self.close()
+      })
 
-      menuItem.data.attached = true;
+      menuItem.data.attached = true
     }
-  });
-};
+  })
+}
 
 /**
      * @method fetch
@@ -922,7 +916,7 @@ SideNavigation.prototype.synchEventHandlers = function() {
      *
      * This method fetches an menuItems children from the server.
      */
-SideNavigation.prototype.fetch = function(menuItem) {
+SideNavigation.prototype.fetch = function (menuItem) {
   var call,
     options = defaults.asyncNav,
     max = options.max,
@@ -930,36 +924,36 @@ SideNavigation.prototype.fetch = function(menuItem) {
     level = menuItem.data.level + 2,
     needsFetching = menuItem.data.needsFetching,
     identifier = menuItem.data.identifier,
-    fetchUrl = options.loc + '/' + level + '/' + max + '/' + identifier;
+    fetchUrl = options.loc + '/' + level + '/' + max + '/' + identifier
 
   if (!needsFetching) {
-    self.jumpTo(menuItem);
-    return;
+    self.jumpTo(menuItem)
+    return
   }
 
   call = $.ajax({
     url: fetchUrl,
     dataType: 'json'
-  });
+  })
 
-  call.done(function(data) {
+  call.done(function (data) {
     // We triggered a false positive, there are no children for this item.
     // Therefore, let's open the damn link!
     if (data.length === 0) {
       // this is so super hacky
       // todo: fixme
-      window.location.href = menuItem.data.url;
-      return;
+      window.location.href = menuItem.data.url
+      return
     }
-    self.hierarchy.fetchFromJson(data, menuItem);
-    self.synchEventHandlers();
-    self.jumpTo(menuItem);
-  });
+    self.hierarchy.fetchFromJson(data, menuItem)
+    self.synchEventHandlers()
+    self.jumpTo(menuItem)
+  })
 
-  call.fail(function() {
-    console.log('Fetch not successfull :(');
-  });
-};
+  call.fail(function () {
+    console.log('Fetch not successfull :(')
+  })
+}
 
 /**
      * @method open
@@ -967,28 +961,28 @@ SideNavigation.prototype.fetch = function(menuItem) {
      *
      * Shows the generated Subnavigation
      **/
-SideNavigation.prototype.open = function(menuItem) {
-  this.isOpen = true;
-  this.$nav.appendTo(this.$el);
-  this.routeAnimation(menuItem);
-};
+SideNavigation.prototype.open = function (menuItem) {
+  this.isOpen = true
+  this.$nav.appendTo(this.$el)
+  this.routeAnimation(menuItem)
+}
 
 /**
      * @method close
      *
      * Hides the generated Subnavigations
      **/
-SideNavigation.prototype.close = function() {
-  this.isOpen = false;
-  this.$nav.detach();
+SideNavigation.prototype.close = function () {
+  this.isOpen = false
+  this.$nav.detach()
 
-  this.navigatedMenuItem = null;
-  this.setActiveNavigator();
+  this.navigatedMenuItem = null
+  this.setActiveNavigator()
 
   if (this.subNavigation) {
-    this.subNavigation.$el.css('left', 0);
+    this.subNavigation.$el.css('left', 0)
   }
-};
+}
 
 /**
      * @method jumpTo
@@ -996,13 +990,13 @@ SideNavigation.prototype.close = function() {
      *
      * Starts animation to the clicked MenuItem
      **/
-SideNavigation.prototype.jumpTo = function(menuItem) {
+SideNavigation.prototype.jumpTo = function (menuItem) {
   if (!this.isOpen) {
-    this.open(menuItem);
+    this.open(menuItem)
   } else {
-    this.routeAnimation(menuItem);
+    this.routeAnimation(menuItem)
   }
-};
+}
 
 /**
      * @method routeAnimation
@@ -1010,75 +1004,75 @@ SideNavigation.prototype.jumpTo = function(menuItem) {
      *
      * Animations!!!!
      **/
-SideNavigation.prototype.routeAnimation = function(menuItem) {
+SideNavigation.prototype.routeAnimation = function (menuItem) {
   var self = this,
     startLevels,
-    breakpoint;
+    breakpoint
 
   if (!self.activeLevels) {
-    self.activeLevels = self.hierarchy.getLevels(menuItem.data.position);
+    self.activeLevels = self.hierarchy.getLevels(menuItem.data.position)
 
-    self.subNavigation = new SubNavigation(self.activeLevels);
-    self.subNavigation.addEventListener('go back', function(e) {
-      self.jumpTo(e.menuItem.data.parent);
-    });
-    self.subNavigation.addEventListener('close', function() {
-      self.close();
-    });
-    self.subNavigation.addEventListener('navigate', function() {
-      self.force = true;
-      self.close();
-    });
+    self.subNavigation = new SubNavigation(self.activeLevels)
+    self.subNavigation.addEventListener('go back', function (e) {
+      self.jumpTo(e.menuItem.data.parent)
+    })
+    self.subNavigation.addEventListener('close', function () {
+      self.close()
+    })
+    self.subNavigation.addEventListener('navigate', function () {
+      self.force = true
+      self.close()
+    })
 
     // self.subNavigation.$el.appendTo(self.$mover);
-    self.subNavigation.$el.appendTo(self.$nav);
+    self.subNavigation.$el.appendTo(self.$nav)
   }
 
-  startLevels = self.activeLevels;
+  startLevels = self.activeLevels
 
-  self.activeLevels = self.hierarchy.getLevels(menuItem.data.position);
+  self.activeLevels = self.hierarchy.getLevels(menuItem.data.position)
   // determine position crossing
-  breakpoint = self.determineBreakpoint(startLevels, self.activeLevels);
+  breakpoint = self.determineBreakpoint(startLevels, self.activeLevels)
   // start and end level is 1, we dont need any animation
   if (startLevels.length === 1 && self.activeLevels.length === 1) {
-    self.subNavigation.reset(self.activeLevels);
-    self.setMoverHeight(1);
-    self.setActiveNavigator();
+    self.subNavigation.reset(self.activeLevels)
+    self.setMoverHeight(1)
+    self.setActiveNavigator()
   } else {
     if (breakpoint === startLevels.length) {
       // breakpoint is current level,
       // so we only need one animation
-      self.subNavigation.reset(self.activeLevels);
-      self.setActiveNavigator();
-      self.animateTo(self.activeLevels.length);
+      self.subNavigation.reset(self.activeLevels)
+      self.setActiveNavigator()
+      self.animateTo(self.activeLevels.length)
     } else {
       // we need two animations,
       // first to our breakpoint
       // then to our target
-      self.animateTo(breakpoint, function() {
-        self.subNavigation.reset(self.activeLevels);
-        self.setActiveNavigator();
-        self.animateTo(self.activeLevels.length);
-      });
+      self.animateTo(breakpoint, function () {
+        self.subNavigation.reset(self.activeLevels)
+        self.setActiveNavigator()
+        self.animateTo(self.activeLevels.length)
+      })
     }
   }
-};
+}
 
 /**
      * @method animateTo
      * @param {Number} level
      * @param {Function} callback
      **/
-SideNavigation.prototype.animateTo = function(level, callback) {
+SideNavigation.prototype.animateTo = function (level, callback) {
   var self = this,
-    targetLeft = (level - 1) * -1 * self.options.subNavigationWidth + 'px';
+    targetLeft = (level - 1) * -1 * self.options.subNavigationWidth + 'px'
 
-  self.setMoverHeight(level);
+  self.setMoverHeight(level)
 
   // if (self.$mover.css('left') === targetLeft && callback) {
   if (self.subNavigation.$el.css('left') === targetLeft && callback) {
-    callback();
-    return;
+    callback()
+    return
   }
 
   self.subNavigation.$el.animate(
@@ -1086,34 +1080,34 @@ SideNavigation.prototype.animateTo = function(level, callback) {
       left: targetLeft
     },
     {
-      complete: function() {
+      complete: function () {
         if (callback !== undefined) {
-          callback();
+          callback()
         }
       },
       duration: self.options.animationDuration,
       easing: 'easeOutExpo'
     }
-  );
-};
+  )
+}
 
 /**
      * @method setMoverHeight
      * @param {Number} level
      *
      **/
-SideNavigation.prototype.setMoverHeight = function(level) {
+SideNavigation.prototype.setMoverHeight = function (level) {
   var self = this,
     height,
-    $ul;
+    $ul
 
-  $ul = self.subNavigation.getListAtLevel(level - 1);
+  $ul = self.subNavigation.getListAtLevel(level - 1)
 
   if ($ul.length) {
     if ($ul[0].scrollHeight <= self.options.subNavigationMinHeight) {
-      height = self.options.subNavigationMinHeight;
+      height = self.options.subNavigationMinHeight
     } else {
-      height = $ul[0].scrollHeight + self.options.subNavigationHeightOffset;
+      height = $ul[0].scrollHeight + self.options.subNavigationHeightOffset
     }
 
     self.$nav.animate(
@@ -1124,9 +1118,9 @@ SideNavigation.prototype.setMoverHeight = function(level) {
         duration: self.options.animateionDuration,
         easing: 'easeOutExpo'
       }
-    );
+    )
   }
-};
+}
 
 /**
      * @method determineBreakpoint
@@ -1134,27 +1128,26 @@ SideNavigation.prototype.setMoverHeight = function(level) {
      * @param {Array} end
      * @return {Object} MenuItem
      **/
-SideNavigation.prototype.determineBreakpoint = function(start, end) {
+SideNavigation.prototype.determineBreakpoint = function (start, end) {
   var result = 1,
     startReverse = start.slice(),
-    endReverse = end.slice().splice(0, start.length);
+    endReverse = end.slice().splice(0, start.length)
 
   if (startReverse.length > endReverse.length) {
-    startReverse = startReverse.splice(0, endReverse.length);
+    startReverse = startReverse.splice(0, endReverse.length)
   }
 
-  _.each(startReverse, function(level, index) {
+  _.each(startReverse, function (level, index) {
     if (endReverse[index] !== undefined) {
       if (
         _.isEqual(level[0].data.position, endReverse[index][0].data.position)
       ) {
-        result = index + 1;
-        return;
+        result = index + 1
       }
     }
-  });
+  })
 
-  return result;
-};
+  return result
+}
 
-export default SideNavigation;
+export default SideNavigation

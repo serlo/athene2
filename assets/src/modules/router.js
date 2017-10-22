@@ -1,22 +1,22 @@
-/*global define, window*/
-import $ from 'jquery';
+/* global define, window */
+import $ from 'jquery'
 
-var Router;
+var Router
 
-function navigate(url) {
-  window.location.href = url;
+function navigate (url) {
+  window.location.href = url
 }
 
-function post(path, params, method) {
-  var key, $form;
+function post (path, params, method) {
+  var key, $form
 
-  method = method || 'post';
-  params = params || {};
+  method = method || 'post'
+  params = params || {}
 
   $form = $('<form>').attr({
     method: method,
     action: path
-  });
+  })
 
   for (key in params) {
     if (params.hasOwnProperty(key)) {
@@ -26,33 +26,33 @@ function post(path, params, method) {
           name: key,
           value: params[key]
         })
-        .appendTo($form);
+        .appendTo($form)
     }
   }
 
-  $form.appendTo('body');
-  $form.submit();
+  $form.appendTo('body')
+  $form.submit()
 }
 
-function reload() {
+function reload () {
   if (typeof window.location.reload === 'function') {
-    window.location.reload();
-    return;
+    window.location.reload()
+    return
   }
-  var href = window.location.href;
-  window.location.href = href;
+  var href = window.location.href
+  window.location.href = href
 }
 
 Router = {
-  navigate: function(url) {
-    navigate(url);
+  navigate: function (url) {
+    navigate(url)
   },
-  post: function(url, params, method) {
-    post(url, params, method);
+  post: function (url, params, method) {
+    post(url, params, method)
   },
-  reload: function() {
-    reload();
+  reload: function () {
+    reload()
   }
-};
+}
 
-export default Router;
+export default Router

@@ -1,38 +1,38 @@
-/*global define, setInterval*/
-import $ from 'jquery';
-import moment from 'moment';
+/* global define, setInterval */
+import $ from 'jquery'
+import moment from 'moment'
 
-var TimeAgo;
+var TimeAgo
 
-function updateTime($elem, datetime) {
-  $elem.text(datetime.fromNow());
+function updateTime ($elem, datetime) {
+  $elem.text(datetime.fromNow())
 }
 
-TimeAgo = function() {
-  return $(this).each(function() {
+TimeAgo = function () {
+  return $(this).each(function () {
     var self = this,
       $self = $(self),
       text = $self.text(),
-      datetime = $self.attr('title') || null;
+      datetime = $self.attr('title') || null
 
     if (!datetime) {
-      return;
+      return
     }
 
-    datetime = moment(datetime);
+    datetime = moment(datetime)
 
     if (!datetime.isValid()) {
-      return;
+      return
     }
 
-    $self.attr('title', text);
+    $self.attr('title', text)
 
-    updateTime($self, datetime);
+    updateTime($self, datetime)
 
-    self.interval = setInterval(function() {
-      updateTime($self, datetime);
-    }, 45000);
-  });
-};
+    self.interval = setInterval(function () {
+      updateTime($self, datetime)
+    }, 45000)
+  })
+}
 
-$.fn.TimeAgo = TimeAgo;
+$.fn.TimeAgo = TimeAgo

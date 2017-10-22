@@ -7,28 +7,28 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 
-import _ from 'underscore';
+import _ from 'underscore'
 
-/*global define*/
-var initializers = [];
+/* global define */
+var initializers = []
 
-function addInitializer(fn) {
-  initializers.push(fn);
+function addInitializer (fn) {
+  initializers.push(fn)
 }
 
-function initializeContextual($context) {
-  _.each(initializers, function(init) {
-    init($context);
-  });
+function initializeContextual ($context) {
+  _.each(initializers, function (init) {
+    init($context)
+  })
 }
 
 const Content = {
-  init: function($context) {
-    initializeContextual($context);
+  init: function ($context) {
+    initializeContextual($context)
   },
-  add: function(fn) {
-    addInitializer(fn);
+  add: function (fn) {
+    addInitializer(fn)
   }
-};
+}
 
-export default Content;
+export default Content

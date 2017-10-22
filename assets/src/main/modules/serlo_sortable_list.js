@@ -10,18 +10,18 @@
 
 /** maybe use http://dbushell.github.io/Nestable/ instead of jqueryui */
 
-/*global define*/
-import $ from 'jquery';
-import _ from 'underscore';
+/* global define */
+import $ from 'jquery'
+import _ from 'underscore'
 
-import Common from '../../modules/common';
-import SystemNotification from '../../modules/system_notification';
-import t from '../../modules/translator';
+import Common from '../../modules/common'
+import SystemNotification from '../../modules/system_notification'
+import t from '../../modules/translator'
 
-var SortableList;
+var SortableList
 
-SortableList = function() {
-  return $(this).each(function(group) {
+SortableList = function () {
+  return $(this).each(function (group) {
     var $instance = $(this),
       $saveBtn = $('.sortable-save-action', this),
       $activateBtn = $('.sortable-activate-action', this),
@@ -32,18 +32,18 @@ SortableList = function() {
       dataActive,
       originalHTML,
       originalData,
-      updatedData;
+      updatedData
 
-    dataUrl = $instance.attr('data-action');
+    dataUrl = $instance.attr('data-action')
 
     if (!dataUrl) {
-      throw new Error('No sort action given for sortable wrapper.');
+      throw new Error('No sort action given for sortable wrapper.')
     }
 
-    dataActive = $instance.attr('data-active') || 'true';
-    dataActive = dataActive === 'true' ? true : false;
+    dataActive = $instance.attr('data-active') || 'true'
+    dataActive = dataActive === 'true'
 
-    dataDepth = $instance.attr('data-depth') || 50;
+    dataDepth = $instance.attr('data-depth') || 50
 
     /**
              * @function cleanEmptyChildren
@@ -52,32 +52,32 @@ SortableList = function() {
              * Removes empty children arrays from serialized nestable,
              * to be able to hide the $saveBtn
              **/
-    function cleanEmptyChildren(array) {
-      _.each(array, function(child) {
+    function cleanEmptyChildren (array) {
+      _.each(array, function (child) {
         if (child.children) {
           if (child.children.length) {
-            cleanEmptyChildren(child.children);
+            cleanEmptyChildren(child.children)
           } else {
-            delete child.children;
+            delete child.children
           }
         }
-      });
-      return array;
+      })
+      return array
     }
 
-    function storeOriginalData() {
+    function storeOriginalData () {
       originalHTML = $instance
         .find('> ol')
         .first()
-        .html();
-      originalData = cleanEmptyChildren($instance.nestable('serialize'));
+        .html()
+      originalData = cleanEmptyChildren($instance.nestable('serialize'))
     }
 
-    function activate() {
-      $instance.addClass(activeClass);
+    function activate () {
+      $instance.addClass(activeClass)
 
-      $activateBtn.hide();
-      $abortBtn.show();
+      $activateBtn.hide()
+      $abortBtn.show()
 
       $instance.nestable({
         rootClass: 'sortable',
@@ -95,36 +95,36 @@ SortableList = function() {
         group: group,
         maxDepth: dataDepth,
         threshold: 20
-      });
+      })
 
-      storeOriginalData();
+      storeOriginalData()
     }
 
-    function deactivate() {
+    function deactivate () {
       // Router.reload();
       $instance
         .removeClass(activeClass)
         .nestable('destroy')
         .find('> ol')
         .first()
-        .html(originalHTML);
+        .html(originalHTML)
 
-      $saveBtn.hide();
-      $abortBtn.hide();
-      $activateBtn.show();
+      $saveBtn.hide()
+      $abortBtn.hide()
+      $activateBtn.show()
     }
 
-    $instance.on('change', function() {
-      updatedData = cleanEmptyChildren($instance.nestable('serialize'));
+    $instance.on('change', function () {
+      updatedData = cleanEmptyChildren($instance.nestable('serialize'))
       if (!_.isEqual(updatedData, originalData)) {
-        $saveBtn.show();
+        $saveBtn.show()
       } else {
-        $saveBtn.hide();
+        $saveBtn.hide()
       }
-    });
+    })
 
-    $saveBtn.click(function(e) {
-      e.preventDefault();
+    $saveBtn.click(function (e) {
+      e.preventDefault()
       $.ajax({
         url: dataUrl,
         data: {
@@ -133,37 +133,36 @@ SortableList = function() {
         },
         method: 'post'
       })
-        .then(function() {
-          SystemNotification.notify(t('Order successfully saved'), 'success');
+        .then(function () {
+          SystemNotification.notify(t('Order successfully saved'), 'success')
 
-          storeOriginalData();
+          storeOriginalData()
 
           if (!dataActive) {
-            deactivate();
+            deactivate()
           }
 
-          $saveBtn.hide();
+          $saveBtn.hide()
         })
-        .fail(function() {
-          Common.genericError(arguments);
-        });
-      return;
-    });
+        .fail(function () {
+          Common.genericError(arguments)
+        })
+    })
 
-    $abortBtn.click(function() {
+    $abortBtn.click(function () {
       if (!dataActive) {
-        deactivate();
+        deactivate()
       }
-    });
+    })
 
-    $activateBtn.click(function() {
-      activate();
-    });
+    $activateBtn.click(function () {
+      activate()
+    })
 
     if (dataActive) {
-      activate();
+      activate()
     }
-  });
-};
+  })
+}
 
-$.fn.SortableList = SortableList;
+$.fn.SortableList = SortableList

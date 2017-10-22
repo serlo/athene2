@@ -9,10 +9,10 @@
  * The Mobile Navigation
  *
  */
-import $ from 'jquery';
-import 'jquery-ui';
+import $ from 'jquery'
+import 'jquery-ui'
 
-var MobileNavigation, instance, defaults;
+var MobileNavigation, instance, defaults
 
 defaults = {
   // main wrapper selector
@@ -48,7 +48,7 @@ defaults = {
     // attribute name to identify the menuitem
     identifier: 'identifier'
   }
-};
+}
 
 /**
      * @class MobileNavigation
@@ -56,45 +56,45 @@ defaults = {
      *
      * Main constructor
      **/
-MobileNavigation = function(options) {
+MobileNavigation = function (options) {
   if (!(this instanceof MobileNavigation)) {
-    return new MobileNavigation(options);
+    return new MobileNavigation(options)
   }
 
   this.options = options
     ? $.extend({}, defaults, options)
-    : $.extend({}, defaults);
+    : $.extend({}, defaults)
 
-  this.$el = $(this.options.wrapperId);
+  this.$el = $(this.options.wrapperId)
 
   // create wrappers for the navigations
-  this.$serloNav = $('<ul>', { id: this.options.serloNavId, class: 'nav' });
-  this.$primaryNav = $('<ul>', { id: this.options.primaryNavId, class: 'nav' });
-  this.$mainNav = $('<ul>', { id: this.options.mainNavId, class: 'nav' });
+  this.$serloNav = $('<ul>', { id: this.options.serloNavId, class: 'nav' })
+  this.$primaryNav = $('<ul>', { id: this.options.primaryNavId, class: 'nav' })
+  this.$mainNav = $('<ul>', { id: this.options.mainNavId, class: 'nav' })
 
   // change serlo navigation into a dropdown menu
-  this.$serloNavDropdown = $('<ul>', { class: 'dropdown-menu' });
+  this.$serloNavDropdown = $('<ul>', { class: 'dropdown-menu' })
   this.$serloNav.append(
     $(
       '<li class="dropdown"><a href="#" data-toggle="dropdown">Serlo <b class="caret"></b></a></li>'
     ).append(this.$serloNavDropdown)
-  );
+  )
 
-  this.$el.append(this.$serloNav);
-  this.$el.append(this.$primaryNav);
-  this.$el.append(this.$mainNav);
+  this.$el.append(this.$serloNav)
+  this.$el.append(this.$primaryNav)
+  this.$el.append(this.$mainNav)
 
   // get navigation elements
   this.copyNav('#serlo-menu .navbar-inner>ul', this.$serloNavDropdown, {
     skip: '.notifications, .authentication'
-  });
-  this.copyNav('#side-navigation-social', this.$serloNavDropdown);
-  this.copyNav('#main-nav', this.$mainNav);
-  this.movePrimaries(this.$serloNav, this.$primaryNav);
+  })
+  this.copyNav('#side-navigation-social', this.$serloNavDropdown)
+  this.copyNav('#main-nav', this.$mainNav)
+  this.movePrimaries(this.$serloNav, this.$primaryNav)
 
   // special case when there is no main navigation
   if (this.$mainNav.children().length === 0) {
-    this.$el.addClass('has-no-main-navigation');
+    this.$el.addClass('has-no-main-navigation')
   }
 
   // change first element in main navigation into navigation header
@@ -103,38 +103,38 @@ MobileNavigation = function(options) {
     .first()
     .removeClass('is-hidden')
     .addClass(this.options.navHeaderClass)
-    .click(function(e) {
-      e.preventDefault();
-    });
+    .click(function (e) {
+      e.preventDefault()
+    })
 
   // remove active path from main navigation
-  this.$mainNav.find('li ul').remove();
+  this.$mainNav.find('li ul').remove()
 
-  this.attachEventHandler();
-  this.renderSubNavigation(this.$mainNav);
-};
+  this.attachEventHandler()
+  this.renderSubNavigation(this.$mainNav)
+}
 
 /**
      * @method attachEventHandler
      *
      * Attaches all needed event handlers
      **/
-MobileNavigation.prototype.attachEventHandler = function() {
-  var self = this;
+MobileNavigation.prototype.attachEventHandler = function () {
+  var self = this
 
   // toggle menu and refresh affixes
-  $(self.options.toggleId).click(function() {
+  $(self.options.toggleId).click(function () {
     self.$el.slideToggle({
       duration: 300,
       // easing: 'easeInOutCubic',
-      complete: function() {
-        $(document).trigger('affix-refresh');
+      complete: function () {
+        $(document).trigger('affix-refresh')
       }
-    });
-  });
+    })
+  })
 
-  self.attachDropdownEventHandlers(self.$el.find('.dropdown'));
-};
+  self.attachDropdownEventHandlers(self.$el.find('.dropdown'))
+}
 
 /**
      * @method renderSubNavigation
@@ -142,8 +142,8 @@ MobileNavigation.prototype.attachEventHandler = function() {
      *
      * Renders the sub navigation as dropdown
      */
-MobileNavigation.prototype.renderSubNavigation = function(root) {
-  var self = this;
+MobileNavigation.prototype.renderSubNavigation = function (root) {
+  var self = this
 
   /**
          * @function loop
@@ -152,22 +152,22 @@ MobileNavigation.prototype.renderSubNavigation = function(root) {
          *
          * Changes the destination into a dropdown menu and appends the given elements to it.
          **/
-  function loop(elem, navElements) {
+  function loop (elem, navElements) {
     var link = elem.children().first(),
       dropdown = $('<ul>', {
         class: 'dropdown-menu'
-      });
+      })
 
     // change element into dropdown
-    elem.addClass('dropdown');
+    elem.addClass('dropdown')
 
-    link.attr('href', '#');
-    link.attr('data-toggle', 'dropdown');
-    link.append($('<b class="caret"></b>'));
+    link.attr('href', '#')
+    link.attr('data-toggle', 'dropdown')
+    link.append($('<b class="caret"></b>'))
 
-    self.attachDropdownEventHandlers(elem);
+    self.attachDropdownEventHandlers(elem)
 
-    $.each(navElements, function(i, item) {
+    $.each(navElements, function (i, item) {
       var li = $('<li>', {
           dataNeedsFetching: item.needsFetching,
           dataSidenav: item.sidenav,
@@ -176,49 +176,49 @@ MobileNavigation.prototype.renderSubNavigation = function(root) {
         a = $('<a>', {
           href: item.href,
           text: item.label
-        });
+        })
 
-      li.append(a);
-      dropdown.append(li);
+      li.append(a)
+      dropdown.append(li)
 
       if (item.children.length > 0) {
         // Enable multilevel dropdown menus
-        a.click(function(e) {
-          e.preventDefault();
-          e.stopPropagation();
+        a.click(function (e) {
+          e.preventDefault()
+          e.stopPropagation()
 
-          li.toggleClass('open');
-          elem.addClass('open');
+          li.toggleClass('open')
+          elem.addClass('open')
 
-          $(document).trigger('affix-refresh');
-        });
+          $(document).trigger('affix-refresh')
+        })
 
-        loop(li, item.children);
+        loop(li, item.children)
       }
-    });
+    })
 
-    elem.append(dropdown);
+    elem.append(dropdown)
   }
 
-  root.children().each(function() {
+  root.children().each(function () {
     var elem = $(this),
       sidenav = elem.data(self.options.asyncNav.sidenav) === undefined,
       id = elem.data(self.options.asyncNav.identifier),
-      fetchUrl = self.options.asyncNav.loc + '/2/10/' + id;
+      fetchUrl = self.options.asyncNav.loc + '/2/10/' + id
 
     if (
       !elem.hasClass(self.options.navHeaderClass) &&
       elem.data(self.options.asyncNav.indicator) &&
       sidenav
     ) {
-      $.getJSON(fetchUrl, function(data) {
+      $.getJSON(fetchUrl, function (data) {
         if (data.length > 0) {
-          loop(elem, data);
+          loop(elem, data)
         }
-      });
+      })
     }
-  });
-};
+  })
+}
 
 /**
      * @method copyNav
@@ -228,24 +228,24 @@ MobileNavigation.prototype.renderSubNavigation = function(root) {
      *
      * Copies the <li> from source to destination
      */
-MobileNavigation.prototype.copyNav = function(source, destination, params) {
+MobileNavigation.prototype.copyNav = function (source, destination, params) {
   var defaultParams = {
     // skips source items that match any of these selectors
     skip: ''
-  };
+  }
   params = params
     ? $.extend({}, defaultParams, params)
-    : $.extend({}, defaultParams);
+    : $.extend({}, defaultParams)
 
-  $(source).each(function() {
+  $(source).each(function () {
     if (!$(this).is(params.skip)) {
       $(this)
         .children()
         .clone()
-        .appendTo(destination);
+        .appendTo(destination)
     }
-  });
-};
+  })
+}
 
 /**
      * @method movePrimaries
@@ -254,12 +254,12 @@ MobileNavigation.prototype.copyNav = function(source, destination, params) {
      *
      * Moves <li> items containing primary <a> from source to destination
      */
-MobileNavigation.prototype.movePrimaries = function(source, destination) {
+MobileNavigation.prototype.movePrimaries = function (source, destination) {
   source
     .find(this.options.primaryClass)
     .parent()
-    .appendTo(destination);
-};
+    .appendTo(destination)
+}
 
 /**
      * @method attachDropdownEventHandlers
@@ -268,25 +268,25 @@ MobileNavigation.prototype.movePrimaries = function(source, destination) {
      * Modifies the given dropdown s.th. the affix refreshes on open/close and that clicks outside of dropdown
      * do not close the dropdown.
      */
-MobileNavigation.prototype.attachDropdownEventHandlers = function(el) {
+MobileNavigation.prototype.attachDropdownEventHandlers = function (el) {
   // refresh affix on open/close
   el.on(
     'shown.bs.dropdown hidden.bs.dropdown',
     $(document).trigger('affix-refresh')
-  );
+  )
 
   // clicks outside dropdown should not close the dropdown
   el.on({
-    'shown.bs.dropdown': function() {
-      this.closable = false;
+    'shown.bs.dropdown': function () {
+      this.closable = false
     },
-    click: function() {
-      this.closable = true;
+    click: function () {
+      this.closable = true
     },
-    'hide.bs.dropdown': function() {
-      return this.closable;
+    'hide.bs.dropdown': function () {
+      return this.closable
     }
-  });
-};
+  })
+}
 
-export default MobileNavigation;
+export default MobileNavigation

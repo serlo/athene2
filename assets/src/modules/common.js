@@ -7,23 +7,23 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 
-import _ from 'underscore';
-import eventScope from '../libs/eventscope';
+import _ from 'underscore'
+import eventScope from '../libs/eventscope'
 
-/*global define, window, console, requestAnimationFrame*/
+/* global define, window, console, requestAnimationFrame */
 var Common = {},
   intervals,
-  slice = Array.prototype.slice;
+  slice = Array.prototype.slice
 
-Common.log = (function() {
-  var history = [];
-  return function() {
-    history.push(arguments);
+Common.log = (function () {
+  var history = []
+  return function () {
+    history.push(arguments)
     if (window.console) {
-      console.log(Array.prototype.slice.call(arguments));
+      console.log(Array.prototype.slice.call(arguments))
     }
-  };
-})();
+  }
+})()
 
 Common.KeyCode = {
   left: 37,
@@ -36,59 +36,58 @@ Common.KeyCode = {
   esc: 27,
   shift: 16,
   cmd: 91
-};
+}
 
-Common.CarbonCopy = function(element) {
+Common.CarbonCopy = function (element) {
   if (!(element instanceof Array) && !(element instanceof Object)) {
-    return element;
+    return element
   }
 
-  var copy = (function() {
+  var copy = (function () {
     if (element instanceof Array) {
-      return slice.call(element, 0);
+      return slice.call(element, 0)
     }
 
     if (element instanceof Object) {
-      return _.extend({}, element);
+      return _.extend({}, element)
     }
 
-    throw new Error('Cant copy element');
-  })();
+    throw new Error('Cant copy element')
+  })()
 
-  _.each(copy, function(item, i) {
-    copy[i] = Common.CarbonCopy(item);
-  });
+  _.each(copy, function (item, i) {
+    copy[i] = Common.CarbonCopy(item)
+  })
 
-  return copy;
-};
+  return copy
+}
 
-Common.sortArrayByObjectKey = function(key, array, ascending) {
-  ascending = ascending || false;
-  return array.sort(function(a, b) {
+Common.sortArrayByObjectKey = function (key, array, ascending) {
+  ascending = ascending || false
+  return array.sort(function (a, b) {
     return (
       (a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0) * (ascending ? 1 : -1)
-    );
-  });
-};
+    )
+  })
+}
 
-Common.findObjectByKey = function(key, value, object) {
-  var item;
-  _.each(object, function(val) {
+Common.findObjectByKey = function (key, value, object) {
+  var item
+  _.each(object, function (val) {
     if (val[key] === value) {
-      item = val;
-      return;
+      item = val
     }
-  });
-  return item;
-};
+  })
+  return item
+}
 
-Common.genericError = function() {
+Common.genericError = function () {
   if (console && 'trace' in console) {
-    console.trace();
+    console.trace()
   }
-  Common.log(arguments);
-  Common.trigger('generic error');
-};
+  Common.log(arguments)
+  Common.trigger('generic error')
+}
 
 /*
     * memoize.js
@@ -98,65 +97,65 @@ Common.genericError = function() {
     * perf tests: http://bit.ly/q3zpG3
     * Released under an MIT license.
     */
-Common.memoize = function(fn) {
-  return function() {
+Common.memoize = function (fn) {
+  return function () {
     var args = Array.prototype.slice.call(arguments),
       hash = '',
       i = args.length,
-      currentArg = null;
+      currentArg = null
     while (i--) {
-      currentArg = args[i];
+      currentArg = args[i]
       hash +=
         currentArg === Object(currentArg)
           ? JSON.stringify(currentArg)
-          : currentArg;
+          : currentArg
       if (!fn.memoize) {
-        fn.memoize = {};
+        fn.memoize = {}
       }
     }
     return hash in fn.memoize
       ? fn.memoize[hash]
-      : (fn.memoize[hash] = fn.apply(this, args));
-  };
-};
+      : (fn.memoize[hash] = fn.apply(this, args))
+  }
+}
 
-Common.expr = function(statement) {
-  return statement;
-};
+Common.expr = function (statement) {
+  return statement
+}
 
-Common.trim = function(str) {
-  return str.replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
-};
+Common.trim = function (str) {
+  return str.replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
+}
 
-intervals = {};
+intervals = {}
 
-Common.setInterval = function(fn, timeout) {
-  var interval = +new Date();
+Common.setInterval = function (fn, timeout) {
+  var interval = +new Date()
 
-  intervals[interval] = true;
+  intervals[interval] = true
 
-  function loop() {
+  function loop () {
     if (intervals[interval]) {
-      setTimeout(function() {
-        requestAnimationFrame(loop);
-      }, timeout);
+      setTimeout(function () {
+        requestAnimationFrame(loop)
+      }, timeout)
 
-      fn();
+      fn()
     }
   }
 
-  loop();
+  loop()
 
-  return interval;
-};
+  return interval
+}
 
-Common.clearInterval = function(interval) {
+Common.clearInterval = function (interval) {
   if (intervals[interval]) {
-    delete intervals[interval];
+    delete intervals[interval]
   }
-};
+}
 
-eventScope(Common);
-window.Common = Common;
+eventScope(Common)
+window.Common = Common
 
-export default Common;
+export default Common
