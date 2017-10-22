@@ -17,7 +17,6 @@
   }
 
   .nav.navbar-nav {
-
     &.navbar-border-right {
       border-right: 2px solid $backgroundColor;
     }
@@ -38,7 +37,8 @@
         color: $white;
       }
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         background-color: $themeColor;
         & > a {
           color: $white;
@@ -50,7 +50,8 @@
       position: absolute;
       background: white;
       & > li {
-        &:hover, &:active {
+        &:hover,
+        &:active {
           & > a {
             background-color: $themeColor;
             color: $white;
@@ -70,8 +71,10 @@
     //padding-right: 0;
   }
 
-  .navbar-collapse.in, .navbar-collapse.collapsing {
-    & li, & .navbar-nav {
+  .navbar-collapse.in,
+  .navbar-collapse.collapsing {
+    & li,
+    & .navbar-nav {
       @media only screen and (max-width: $screen-xs-max) {
         //float: none;
       }

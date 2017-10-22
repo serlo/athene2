@@ -1,5 +1,5 @@
-@import "../modules/grid";
-@import "../modules/visibility";
+@import '../modules/grid';
+@import '../modules/visibility';
 
 $homeBackgroundColor: #efefef;
 
@@ -51,24 +51,24 @@ $homeBreakpoint-xxl: 1580px;
   padding-top: 2rem;
   padding-bottom: 2.2rem;
   .home-column {
-      text-align: center;
-      a {
-          white-space: nowrap;
-          @media screen and (min-width: 570px) {
-              padding-left: 8px;
-              padding-bottom: 0;
-              &:first-child {
-                  padding-right: 8px;
-              }
-          }
+    text-align: center;
+    a {
+      white-space: nowrap;
+      @media screen and (min-width: 570px) {
+        padding-left: 8px;
+        padding-bottom: 0;
+        &:first-child {
+          padding-right: 8px;
+        }
       }
+    }
   }
   .home-emph-link {
-      color: #404040;
+    color: #404040;
 
-      i.fa {
-          color: #428bca;
-      }
+    i.fa {
+      color: #428bca;
+    }
   }
 }
 
@@ -98,16 +98,26 @@ $homeBreakpoint-xxl: 1580px;
   color: $gray;
   @media (max-width: 767px) {
     .home-subject-symbol {
-      .blue{fill:#00B2D8;}
-      .green{fill:#BECD2B;}
+      .blue {
+        fill: #00b2d8;
+      }
+      .green {
+        fill: #becd2b;
+      }
     }
   }
-  &:focus, &:hover, &:active {
+  &:focus,
+  &:hover,
+  &:active {
     text-decoration: none;
     color: $serloBlue;
     .home-subject-symbol {
-      .blue{fill:#00B2D8;}
-      .green{fill:#BECD2B;}
+      .blue {
+        fill: #00b2d8;
+      }
+      .green {
+        fill: #becd2b;
+      }
     }
     i {
       color: $serloBlue;
@@ -167,11 +177,13 @@ $homeBreakpoint-xxl: 1580px;
   }
   .home-emph-link {
     color: #fff;
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
+      color: $serloBlueLight;
+      i {
         color: $serloBlueLight;
-        i {
-            color: $serloBlueLight;
-        }
+      }
     }
   }
   p {
@@ -227,7 +239,7 @@ $homeBreakpoint-xxl: 1580px;
   }
   background-repeat: no-repeat;
   background-position-y: 100%;
-  background-size:cover;
+  background-size: cover;
   .home-emph-link {
     color: #fff;
   }
@@ -271,7 +283,6 @@ $homeBreakpoint-xxl: 1580px;
     }
   }
 }
-
 
 .home-principle-row {
   padding: 80px 0;
@@ -333,30 +344,32 @@ $homeBreakpoint-xxl: 1580px;
 
 .home-calls-header {
   text-align: left;
-  @media (max-width: $screen-lg){
+  @media (max-width: $screen-lg) {
     text-align: center;
   }
   padding: 0 0 20px 0;
   margin-top: 20px;
   color: #333;
-    h2 {
-      margin-bottom: 2px;
-      font-size: 28px;
-      font-weight: bold;
+  h2 {
+    margin-bottom: 2px;
+    font-size: 28px;
+    font-weight: bold;
   }
 }
 .home-calls-column {
   font-size: 16px;
   padding: 10px 0;
   text-align: left;
-  @media (max-width: $screen-lg){
+  @media (max-width: $screen-lg) {
     text-align: center;
   }
 
   .home-emph-link {
     font-size: 20px;
-    margin-top:20px;
-    &:focus, &:hover, &:active {
+    margin-top: 20px;
+    &:focus,
+    &:hover,
+    &:active {
       color: $serloGreen;
     }
     i {
@@ -366,7 +379,7 @@ $homeBreakpoint-xxl: 1580px;
 }
 
 .calls-column-1 {
-  @media (max-width: $screen-md){
+  @media (max-width: $screen-md) {
     padding-bottom: 50px;
   }
 }
@@ -407,7 +420,8 @@ $homeBreakpoint-xxl: 1580px;
       margin-right: 227px;
     }
 
-    #subject-nav-wrapper, .subject-nav-center {
+    #subject-nav-wrapper,
+    .subject-nav-center {
       background: none;
       @include box-shadow(none);
     }

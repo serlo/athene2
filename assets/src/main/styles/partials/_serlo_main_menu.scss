@@ -1,7 +1,7 @@
 .side-navigation {
   &.visible {
     .side-element-inner {
-      background: #FFF;
+      background: #fff;
       width: 200px;
     }
   }
@@ -37,7 +37,6 @@
   margin-left: 0; // IE7 :)))
   width: $navigationWidth;
 
-
   > li {
     + li {
       margin-top: 2px;
@@ -63,10 +62,14 @@
   */
 
   .is-community {
-    &, &.is-active, &.is-nav-active {
+    &,
+    &.is-active,
+    &.is-nav-active {
       > a {
         background: $serloGreen;
-        &:hover, &:active, &:focus {
+        &:hover,
+        &:active,
+        &:focus {
           background: lighten($serloGreen, 5%);
         }
       }
@@ -177,7 +180,9 @@
 
       @include theme-font(600);
 
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         background-color: lighten($themeColor, 5%);
       }
       // &:last-child {
@@ -188,7 +193,9 @@
     }
     &.sub-nav-header > a {
       padding-left: 14px;
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         background-color: $themeColor;
       }
     }
@@ -197,17 +204,22 @@
   .is-community {
     li {
       a {
-        &, &.is-nav-active {
+        &,
+        &.is-nav-active {
           background: $serloGreen;
 
-          &:hover, &:active, &:focus {
+          &:hover,
+          &:active,
+          &:focus {
             background-color: lighten($serloGreen, 5%);
           }
         }
       }
 
       &.sub-nav-header > a {
-        &:hover, &:active, &:focus {
+        &:hover,
+        &:active,
+        &:focus {
           background-color: $serloGreen;
         }
       }
@@ -218,8 +230,8 @@
 }
 
 #serlo-side-navigation-breadcrumbs {
-  $parentColor: #588EC3;
-  $siblingsColor: #779DC2;
+  $parentColor: #588ec3;
+  $siblingsColor: #779dc2;
   $arrowWidth: 8px;
 
   position: relative;
@@ -238,7 +250,7 @@
   }
 
   > li {
-      a {
+    a {
       display: block;
       padding: 8px 15px 8px 30px;
 
@@ -265,9 +277,8 @@
   }
 
   > li.is-active {
-
     &:after {
-      content: " ";
+      content: ' ';
       position: absolute;
       right: -12px;
       bottom: 4px;
@@ -303,7 +314,7 @@
         position: relative;
 
         &:after {
-          content: " ";
+          content: ' ';
           position: absolute;
           right: -12px;
           bottom: 4px;
@@ -368,4 +379,3 @@
     padding-right: 0;
   }
 }
-

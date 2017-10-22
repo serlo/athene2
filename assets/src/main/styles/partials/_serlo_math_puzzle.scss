@@ -2,17 +2,17 @@
   margin: 5px 0;
   overflow: hidden;
   background-color: white;
-  outline: rgba(0,0,0,0.8) solid 1px;
+  outline: rgba(0, 0, 0, 0.8) solid 1px;
 
   .exercise {
     margin: 10px 130px -210px 10px;
     height: 200px;
-    overflow : hidden;
+    overflow: hidden;
   }
 
   .status {
-    height : 80px;
-    width : 130px;
+    height: 80px;
+    width: 130px;
     float: right;
     margin: 5px 5px -85px 0;
     background-image: url('../../../images/puzzle_status.svg');
@@ -38,28 +38,29 @@
   .atom {
     text-anchor: middle;
   }
-  [data-goal] .background, .palette .background {
+  [data-goal] .background,
+  .palette .background {
     fill: deepskyblue;
     stroke-width: 1;
   }
   .background {
-    fill : lightgray;
-    stroke: rgba(0,0,0,0.2);
+    fill: lightgray;
+    stroke: rgba(0, 0, 0, 0.2);
   }
 
   .operand > .background {
-      fill: #ffffe0;
-      stroke: black;
+    fill: #ffffe0;
+    stroke: black;
   }
 
   .grabbed [data-goal].operand > .background,
   .grabbed [data-goal] .operand > .background {
-      fill: yellowgreen;
-      stroke-width: 2;
-      stroke : darkgreen;
+    fill: yellowgreen;
+    stroke-width: 2;
+    stroke: darkgreen;
   }
 
-  [data-ismovable=true] {
+  [data-ismovable='true'] {
     cursor: pointer;
   }
 
@@ -105,10 +106,10 @@
   }
 
   .move {
-    fill:white;
-    stroke:black;
-    stroke-width:2;
+    fill: white;
+    stroke: black;
+    stroke-width: 2;
     opacity: 0.5;
-    pointer-events:none;
+    pointer-events: none;
   }
 }

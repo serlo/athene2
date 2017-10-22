@@ -1,9 +1,8 @@
-
-.serlo-de-home  #mission-statement {
+.serlo-de-home #mission-statement {
   display: none;
 }
-.serlo-de-home  #footer {
-    background-color: #efefef;
+.serlo-de-home #footer {
+  background-color: #efefef;
 }
 
 #footer {
@@ -13,12 +12,13 @@
   background-color: #fff;
 
   .nav {
-
     > li > a {
       color: $serloBlue;
       padding: 5px 0;
 
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         background: none;
         color: $serloBlueAlternative;
       }
@@ -29,7 +29,6 @@
     }
   }
 
-
   .footer-wrapper {
     padding-bottom: 40px;
 
@@ -38,7 +37,7 @@
       margin-top: 0;
 
       @media (min-width: $screen-lg-min) {
-        padding:0;
+        padding: 0;
       }
 
       .footer-title {
@@ -86,10 +85,10 @@
   }
 
   #mission-statement {
-
     padding: 0;
 
-    #mission-statement-claim, #mission-statement-actions {
+    #mission-statement-claim,
+    #mission-statement-actions {
       color: $white;
       font-size: 16px;
 
@@ -115,7 +114,8 @@
         min-height: 230px;
       }
 
-      a:hover, a:focus {
+      a:hover,
+      a:focus {
         color: $serloBlueLight;
       }
     }
@@ -125,26 +125,26 @@
       margin: 0;
       padding: 20px 15px 10px 15px;
 
-
       .mission-statement-action {
         text-align: center;
 
         img {
-            vertical-align: baseline;
+          vertical-align: baseline;
         }
 
-        img, svg {
+        img,
+        svg {
           width: 60px;
           fill: white !important;
         }
       }
 
-      a:hover, a:focus {
+      a:hover,
+      a:focus {
         color: lighten($serloGreen, 35%);
       }
     }
   }
-
 
   .social {
     color: $serloBlue;
@@ -161,8 +161,10 @@
     a {
       color: $serloBlue;
 
-      &:hover, &:active, &:focus {
-        color: $serloBlueLight
+      &:hover,
+      &:active,
+      &:focus {
+        color: $serloBlueLight;
       }
     }
   }

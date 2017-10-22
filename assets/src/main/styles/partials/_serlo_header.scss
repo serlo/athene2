@@ -5,7 +5,8 @@
   margin-top: 50px;
 
   @media (min-width: $navigationBreakPoint-min) {
-    .authentification, .notifications {
+    .authentification,
+    .notifications {
       display: none;
     }
   }
@@ -17,7 +18,7 @@
     button {
       margin-left: $pagePaddingMedium;
 
-      font-size: .75em;
+      font-size: 0.75em;
 
       height: 1.8em;
       line-height: 1.8em;
@@ -37,7 +38,8 @@
       }
     }
 
-    .main-headline-link, .main-headline-link:hover{
+    .main-headline-link,
+    .main-headline-link:hover {
       color: inherit;
       text-decoration: none;
     }
@@ -113,7 +115,7 @@
         }
 
         .fa-bell:before {
-          content: "\f0a2";
+          content: '\f0a2';
         }
 
         .caret {
@@ -154,12 +156,15 @@
     .btn-group {
       height: 100%;
 
-      >.btn {
+      > .btn {
         padding: 14px 14px 11px;
         border-width: 0 0 0 1px;
         border-radius: none;
 
-        &:hover, &:focus, &:active, &.active {
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
           z-index: 0;
         }
       }
@@ -185,7 +190,8 @@
     list-style: none;
 
     a {
-      &, &:hover {
+      &,
+      &:hover {
         text-decoration: none;
       }
 
@@ -277,7 +283,8 @@
     input {
       padding-right: 0;
 
-      &, &:focus {
+      &,
+      &:focus {
         background: none;
       }
 
@@ -285,4 +292,3 @@
     }
   }
 }
-

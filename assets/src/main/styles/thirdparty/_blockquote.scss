@@ -1,9 +1,9 @@
 .fa-lg {
-  font-size: 3em
+  font-size: 3em;
 }
 
 .blockquote-box {
-  border-right: 5px solid #E6E6E6;
+  border-right: 5px solid #e6e6e6;
   margin-bottom: 25px;
 
   & > .row {
@@ -12,7 +12,7 @@
 
   &.blockquote-left {
     border-right: none;
-    border-left: 5px solid #E6E6E6;
+    border-left: 5px solid #e6e6e6;
   }
 
   &.blockquote-noborder {
@@ -27,7 +27,7 @@
     width: 100px;
     min-height: 50px;
     text-align: center;
-    background-color: #E6E6E6;
+    background-color: #e6e6e6;
     padding: 20px 0;
     position: relative;
     & > .badge {
@@ -43,9 +43,10 @@
 
   &.blockquote-default {
     border-color: $btn-default-bg;
-    .square, &.square {
+    .square,
+    &.square {
       background-color: $btn-default-border;
-      color: #FFF;
+      color: #fff;
       & > .badge {
         background-color: lighten($btn-default-border, 10%);
       }
@@ -54,9 +55,11 @@
 
   &.blockquote-primary {
     border-color: $btn-primary-bg;
-    .square, &.square, &.square {
+    .square,
+    &.square,
+    &.square {
       background-color: $btn-primary-border;
-      color: #FFF;
+      color: #fff;
       & > .badge {
         background-color: lighten($btn-primary-border, 10%);
       }
@@ -67,7 +70,7 @@
     border-color: $btn-success-bg;
     .square {
       background-color: $btn-success-border;
-      color: #FFF;
+      color: #fff;
       & > .badge {
         background-color: lighten($btn-success-border, 10%);
       }
@@ -78,7 +81,7 @@
     border-color: $btn-info-bg;
     .square {
       background-color: $btn-info-border;
-      color: #FFF;
+      color: #fff;
       & > .badge {
         background-color: lighten($btn-info-border, 10%);
       }
@@ -89,7 +92,7 @@
     border-color: $btn-warning-bg;
     .square {
       background-color: $btn-warning-border;
-      color: #FFF;
+      color: #fff;
       & > .badge {
         background-color: lighten($btn-warning-border, 10%);
       }
@@ -100,7 +103,7 @@
     border-color: $btn-danger-bg;
     .square {
       background-color: $btn-danger-border;
-      color: #FFF;
+      color: #fff;
       & > .badge {
         background-color: lighten($btn-danger-border, 10%);
       }

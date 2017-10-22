@@ -3,7 +3,6 @@
 $baseFont: Arial, serif;
 $themeFont: 'Open Sans', sans-serif;
 
-
 /* COLORS */
 
 /**
@@ -13,7 +12,7 @@ $themeFont: 'Open Sans', sans-serif;
  * more important blue,
  * professional, reliable
  */
-$serloBlue: #007EC1;
+$serloBlue: #007ec1;
 
 /**
  * (Emergency blue)
@@ -21,7 +20,7 @@ $serloBlue: #007EC1;
  * Prefer $serloBlue for the time being,
  * friendly
  */
-$serloBlueAlternative: #00B4D5;
+$serloBlueAlternative: #00b4d5;
 
 /**
  * Community green
@@ -43,39 +42,35 @@ $serloGray: #404040;
  * Gradations for the basic colors
  * Basically all gradations of the basic colors are allowed
  */
-$serloBlueLight:            lighten($serloBlue, 35%);
+$serloBlueLight: lighten($serloBlue, 35%);
 $serloBlueAlternativeLight: lighten($serloBlueAlternative, 35%);
-$serloGreenLight:           #b4e11f;
-$serloGrayLight:            lighten($serloGray, 35%);
-$infoBlue:                  #d9edf7;
-$infoOrange:                #f7b07c;
+$serloGreenLight: #b4e11f;
+$serloGrayLight: lighten($serloGray, 35%);
+$infoBlue: #d9edf7;
+$infoOrange: #f7b07c;
 
 $themeColor: $serloBlue;
 $themeColorLight: lighten($themeColor, 5%);
 $secondaryColor: #2f6c61;
-$backgroundColor: #E4E6E6;
+$backgroundColor: #e4e6e6;
 
 $white: white;
 $black: black;
 $gray: $serloGray;
 $lightGray: lighten($gray, 34%);
-$lighterGray: #F8F8F8;
-
-
+$lighterGray: #f8f8f8;
 
 // TOP NAV BAR
-$navbarBackground: #FBFBFB;
+$navbarBackground: #fbfbfb;
 $navbarBackgroundHighlight: $navbarBackground;
 
 // FOOTER
-$footerBackground: #FFF;
+$footerBackground: #fff;
 
 // BORDER RADIUS OVERRIDE
 $border-radius-base: 2px;
 $border-radius-large: 4px;
 $border-radius-small: 1px;
-
-
 
 // MAIN LAYOUT
 $minWidth: 400px;

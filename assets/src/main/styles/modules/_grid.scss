@@ -2,7 +2,7 @@
   .#{$prefix}-row {
     &:before,
     &:after {
-      content: " ";
+      content: ' ';
       display: table;
     }
     &:after {

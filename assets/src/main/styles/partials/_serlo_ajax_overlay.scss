@@ -1,4 +1,3 @@
-
 .ajax-content-active {
   overflow-y: hidden;
 
@@ -11,7 +10,6 @@
 
     opacity: 0.35;
   }
-
 }
 
 #ajax-content-overlay {
@@ -31,7 +29,7 @@
   z-index: 14;
 
   // transition: 0.25s width 0.01s ease-in-out;
-  // 0.25s transform 0.01s 
+  // 0.25s transform 0.01s
   // transition: 0.35s opacity 0.01s, 0.35s transform 0.01s;
   // transform: translateY(-100%);
   // opacity: 0;
@@ -62,7 +60,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 #ajax-content-overlay-head {
@@ -80,7 +78,6 @@
 }
 
 #ajax-content-overlay-tabs {
-
   li {
     white-space: nowrap;
     a {

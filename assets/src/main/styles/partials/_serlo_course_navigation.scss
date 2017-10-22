@@ -27,7 +27,6 @@
       display: block;
     }
   }
-
 }
 
 ul.nav-course {
@@ -38,18 +37,20 @@ ul.nav-course {
     padding: 0;
     margin: 0;
   }
-  &.active{
+  &.active {
     font-weight: bold;
   }
   &.primary {
-    .pipe, .fa {
+    .pipe,
+    .fa {
       top: 15px;
       bottom: -1px;
     }
   }
 
-  &:last-child{
-    .pipe, .fa {
+  &:last-child {
+    .pipe,
+    .fa {
       top: auto;
       bottom: 15px;
     }
@@ -72,11 +73,11 @@ ul.nav-course {
     right: auto;
     top: -1px;
   }
-  .dots{
+  .dots {
     display: table-cell;
 
     .dot {
-      background-color:$serloBlue;
+      background-color: $serloBlue;
       margin: 4px 0;
       position: relative;
       left: 18px;
@@ -94,7 +95,7 @@ ul.nav-course {
     height: 14px;
     text-align: center;
     background-color: $serloBlue;
-    color: #FFF;
+    color: #fff;
   }
   .list-item {
     box-sizing: border-box;

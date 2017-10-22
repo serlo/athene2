@@ -5611,8 +5611,11 @@ window.CodeMirror = (function() {
       if (gap > 0 && first)
         for (var i = 0; i < first.length; ++i)
           if (first[i].to == null)
-            (gapMarkers || (gapMarkers = []))
-              .push({ from: null, to: null, marker: first[i].marker });
+            (gapMarkers || (gapMarkers = [])).push({
+              from: null,
+              to: null,
+              marker: first[i].marker
+            });
       for (var i = 0; i < gap; ++i) newMarkers.push(gapMarkers);
       newMarkers.push(last);
     }
@@ -6829,8 +6832,10 @@ window.CodeMirror = (function() {
         from
       );
       if (options.sharedHist) copy.history = this.history;
-      (this.linked || (this.linked = []))
-        .push({ doc: copy, sharedHist: options.sharedHist });
+      (this.linked || (this.linked = [])).push({
+        doc: copy,
+        sharedHist: options.sharedHist
+      });
       copy.linked = [
         { doc: this, isParent: true, sharedHist: options.sharedHist }
       ];

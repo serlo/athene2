@@ -4,7 +4,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
-@mixin placeholder-color($color: "white") {
+@mixin placeholder-color($color: 'white') {
   &::-webkit-input-placeholder {
     color: #{$color};
   }
@@ -20,20 +20,19 @@
 }
 
 @mixin triangle($direction, $color, $size) {
-
-  @if $direction == "left" {
+  @if $direction == 'left' {
     border-bottom: $size solid transparent;
     border-right: $size solid $color;
     border-top: $size solid transparent;
-  } @else if $direction == "right" {
+  } @else if $direction == 'right' {
     border-bottom: $size solid transparent;
     border-left: $size solid $color;
     border-top: $size solid transparent;
-  } @else if $direction == "up" {
+  } @else if $direction == 'up' {
     border-bottom: $size solid $color;
     border-left: $size solid transparent;
     border-right: $size solid transparent;
-  } @else if $direction == "down" {
+  } @else if $direction == 'down' {
     border-right: $size solid transparent;
     border-left: $size solid transparent;
     border-top: $size solid $color;
@@ -64,7 +63,7 @@
 @mixin bottom-frame($color) {
   position: relative;
   &::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     width: 100%;
@@ -74,7 +73,8 @@
     border: 3px solid $color;
     border-top-width: 0;
   }
-  input, textarea {
+  input,
+  textarea {
     box-shadow: none;
 
     &::-webkit-input-placeholder {

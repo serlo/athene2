@@ -11,14 +11,17 @@
     cursor: pointer;
   }
   // Single Choice
-  .single-choice-group, .multiple-choice-group {
-    .single-choice-answer-group, .multiple-choice-answer-group {
+  .single-choice-group,
+  .multiple-choice-group {
+    .single-choice-answer-group,
+    .multiple-choice-answer-group {
       p {
         margin: 0;
         padding: 0;
       }
 
-      .single-choice-answer-content, .multiple-choice-answer-content {
+      .single-choice-answer-content,
+      .multiple-choice-answer-content {
         width: 100%;
         border: 0 none;
         color: #000;
@@ -58,7 +61,8 @@
       }
     }
 
-    .single-choice-answer-feedback, .multiple-choice-answer-feedback {
+    .single-choice-answer-feedback,
+    .multiple-choice-answer-feedback {
       &.positive {
         color: $serloGreen;
         font-weight: bold;
@@ -77,11 +81,13 @@
       margin-bottom: 15px;
     }
 
-    .single-choice-solution, .multiple-choice-solution {
+    .single-choice-solution,
+    .multiple-choice-solution {
       padding: 8px 15px 10px;
       margin: 0 -15px;
 
-      .single-choice-submit, .multiple-choice-submit {
+      .single-choice-submit,
+      .multiple-choice-submit {
         visibility: hidden;
         border: 0 none;
         font-size: 14px;
@@ -100,7 +106,9 @@
       &.button-default {
         background-color: $lighterGray;
 
-        &.active, &:hover, &:focus {
+        &.active,
+        &:hover,
+        &:focus {
           background-color: $infoBlue;
         }
       }
@@ -144,39 +152,40 @@
     }
 
     .row {
-        display: none;
+      display: none;
     }
 
     .input-challenge-input-wrapper {
-        padding-right: 0;
-        margin-bottom: 15px;
-        @include bottom-frame($serloBlue);
-        &::before {
-          z-index: inherit;
-        }
+      padding-right: 0;
+      margin-bottom: 15px;
+      @include bottom-frame($serloBlue);
+      &::before {
+        z-index: inherit;
+      }
     }
 
     input.input-challenge-input {
-        height: 43px;
-        text-align: center;
+      height: 43px;
+      text-align: center;
 
-        box-sizing: border-box;
-        border: none;
-        padding: 4px 24px 4px 12px;
-        margin: 0;
-        transition: 0.3s background-color 0s;
-        line-height: 2;
-        // disable iOS input roundings
-        -webkit-appearance: none;
-        border-radius: 0;
+      box-sizing: border-box;
+      border: none;
+      padding: 4px 24px 4px 12px;
+      margin: 0;
+      transition: 0.3s background-color 0s;
+      line-height: 2;
+      // disable iOS input roundings
+      -webkit-appearance: none;
+      border-radius: 0;
 
-        @include placeholder-color($serloGrayLight);
+      @include placeholder-color($serloGrayLight);
 
-        &:focus {
-          outline: 0;
-        }
+      &:focus {
+        outline: 0;
+      }
 
-      &, &:focus {
+      &,
+      &:focus {
         background: none;
       }
 
@@ -187,31 +196,41 @@
     border: 1px solid $backgroundColor;
 
     .input-challenge-solution {
-        padding-top: 8px;
-        margin-top: 15px;
+      padding-top: 8px;
+      margin-top: 15px;
     }
 
-    .single-choice-solution, .multiple-choice-solution, .input-challenge-solution {
+    .single-choice-solution,
+    .multiple-choice-solution,
+    .input-challenge-solution {
       background-color: $infoBlue;
 
-      .single-choice-submit, .multiple-choice-submit, .input-challenge-submit {
+      .single-choice-submit,
+      .multiple-choice-submit,
+      .input-challenge-submit {
         visibility: visible;
 
-        .single-choice-submit-check, &.btn-success .single-choice-submit-correct,
-        .multiple-choice-submit-check, &.btn-success .multiple-choice-submit-correct,
-        .input-challenge-submit-check, &.btn-success .input-challenge-submit-correct {
-          display : block;
+        .single-choice-submit-check,
+        &.btn-success .single-choice-submit-correct,
+        .multiple-choice-submit-check,
+        &.btn-success .multiple-choice-submit-correct,
+        .input-challenge-submit-check,
+        &.btn-success .input-challenge-submit-correct {
+          display: block;
         }
-        .single-choice-submit-correct, &.btn-success .single-choice-submit-check,
-        .multiple-choice-submit-correct, &.btn-success .multiple-choice-submit-check,
-        .input-challenge-submit-correct, &.btn-success .input-challenge-submit-check {
+        .single-choice-submit-correct,
+        &.btn-success .single-choice-submit-check,
+        .multiple-choice-submit-correct,
+        &.btn-success .multiple-choice-submit-check,
+        .input-challenge-submit-correct,
+        &.btn-success .input-challenge-submit-check {
           display: none;
         }
       }
     }
 
     .input-challenge-group .row {
-        display: block;
+      display: block;
     }
   }
   &.extended {

@@ -46,7 +46,8 @@ img.license-intext {
 
       overflow-y: scroll;
 
-      > li > a, > li > .dropdown-menu-item {
+      > li > a,
+      > li > .dropdown-menu-item {
         white-space: normal;
       }
     }
@@ -70,7 +71,12 @@ img.license-intext {
 }
 
 // Hack for anchored links and fixed page headers
-h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
   margin-top: -50px;
   padding-top: 80px;
 }
@@ -87,19 +93,29 @@ svg {
 
 // Trick Fanboy Social List, see https://github.com/FortAwesome/Font-Awesome/issues/1799#issuecomment-50438859
 .fa-social-icon-tw:before {
-  content: "\f081";
+  content: '\f081';
 }
 .fa-social-icon-fb:before {
-  content: "\f082";
+  content: '\f082';
 }
 
 //change offset for inpage links because of sticky nav-bar
 .content {
-  h1, h2, h3, h4, h5, h6,
-  .h1, .h2, .h3, .h4, .h5, .h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
     &:before {
       display: block;
-      content: " ";
+      content: ' ';
       margin-top: -50px;
       height: 50px;
       visibility: hidden;

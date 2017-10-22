@@ -13,25 +13,31 @@
       text-decoration: none;
     }
 
-    &:nth-child(3n+3) {
+    &:nth-child(3n + 3) {
       background-color: $themeColorLight;
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         background-color: darken($themeColorLight, 10%);
         cursor: pointer;
       }
     }
 
-    &:nth-child(3n+2) {
+    &:nth-child(3n + 2) {
       background-color: $secondaryColor;
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         background-color: darken($secondaryColor, 10%);
         cursor: pointer;
       }
     }
 
-    &:nth-child(3n+1) {
+    &:nth-child(3n + 1) {
       background-color: $themeColor;
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         background-color: darken($themeColor, 10%);
         cursor: pointer;
       }

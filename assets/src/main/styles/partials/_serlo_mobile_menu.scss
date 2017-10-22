@@ -1,7 +1,8 @@
 $mobile-serlo-nav-bg: darken($lighterGray, 3%);
 
 @mixin mobile-nav-header {
-  &, &:hover {
+  &,
+  &:hover {
     color: $gray;
     background: $white;
   }
@@ -44,7 +45,7 @@ $mobile-serlo-nav-bg: darken($lighterGray, 3%);
         font-weight: bold;
 
         &:hover {
-          background: darken($serloBlue, 5%)
+          background: darken($serloBlue, 5%);
         }
 
         .caret {
@@ -74,7 +75,7 @@ $mobile-serlo-nav-bg: darken($lighterGray, 3%);
   }
 }
 
- #mobile-nav {
+#mobile-nav {
   @media (min-width: $navigationBreakPoint-min) {
     display: none !important;
   }
@@ -160,129 +161,132 @@ $mobile-serlo-nav-bg: darken($lighterGray, 3%);
     }
   }
 
-   #mobile-main-nav {
-     @media (min-width: $navigationBreakPoint-1-col-min) {
-       right: 50%;
-     }
+  #mobile-main-nav {
+    @media (min-width: $navigationBreakPoint-1-col-min) {
+      right: 50%;
+    }
 
-     @media (min-width: $navigationBreakPoint-2-col-min) {
-       right: 2/3 * 100%;
-     }
+    @media (min-width: $navigationBreakPoint-2-col-min) {
+      right: 2/3 * 100%;
+    }
 
-     li a {
-       color: $white;
-       background: $gray;
-       font-weight: bold;
+    li a {
+      color: $white;
+      background: $gray;
+      font-weight: bold;
 
-       &:hover {
-         background: $serloBlue;
-       }
+      &:hover {
+        background: $serloBlue;
+      }
 
-       .caret {
-         border-top-color: $white;
-         border-bottom-color: $white;
-       }
-     }
+      .caret {
+        border-top-color: $white;
+        border-bottom-color: $white;
+      }
+    }
 
-     .is-community > a {
-       background: $serloGreen;
-       &:hover, &:active, &:focus {
-         background: lighten($serloGreen, 5%);
-       }
-     }
+    .is-community > a {
+      background: $serloGreen;
+      &:hover,
+      &:active,
+      &:focus {
+        background: lighten($serloGreen, 5%);
+      }
+    }
 
-     .dropdown-menu {
-       li a {
-         background: #686868;
+    .dropdown-menu {
+      li a {
+        background: #686868;
 
-         &:hover {
-           background: lighten(#686868, 5%);
-         }
-       }
-     }
-   }
+        &:hover {
+          background: lighten(#686868, 5%);
+        }
+      }
+    }
+  }
 
-   #mobile-primary-nav {
-     @media (min-width: $navigationBreakPoint-1-col-min) {
-       right: 50%;
-     }
+  #mobile-primary-nav {
+    @media (min-width: $navigationBreakPoint-1-col-min) {
+      right: 50%;
+    }
 
-     @media (min-width: $navigationBreakPoint-2-col-min) {
-       right: auto;
-     }
+    @media (min-width: $navigationBreakPoint-2-col-min) {
+      right: auto;
+    }
 
-     li {
-       a {
-         color: $serloBlue;
-         background: $mobile-serlo-nav-bg;
+    li {
+      a {
+        color: $serloBlue;
+        background: $mobile-serlo-nav-bg;
 
-         &:hover {
-           background: darken($mobile-serlo-nav-bg, 5%);
-         }
+        &:hover {
+          background: darken($mobile-serlo-nav-bg, 5%);
+        }
 
-         .caret {
-           border-top-color: $gray;
-           border-bottom-color: $gray;
-         }
-       }
-     }
+        .caret {
+          border-top-color: $gray;
+          border-bottom-color: $gray;
+        }
+      }
+    }
 
-     @media only screen and (max-width: $navigationBreakPoint-2-col-max) {
-       margin-bottom: 2px;
+    @media only screen and (max-width: $navigationBreakPoint-2-col-max) {
+      margin-bottom: 2px;
 
-       li .primary {
-         color: $white;
-         background: $serloBlue;
-         font-weight: bold;
+      li .primary {
+        color: $white;
+        background: $serloBlue;
+        font-weight: bold;
 
-         &:hover {
-           background: lighten($serloBlue, 5%);
-         }
+        &:hover {
+          background: lighten($serloBlue, 5%);
+        }
 
-         .caret {
-           border-top-color: $white;
-           border-bottom-color: $white;
-         }
-       }
-     }
+        .caret {
+          border-top-color: $white;
+          border-bottom-color: $white;
+        }
+      }
+    }
 
-     @media only screen and (min-width: $navigationBreakPoint-2-col-min) {
-       .dropdown-menu {
-         display: block;
-       }
+    @media only screen and (min-width: $navigationBreakPoint-2-col-min) {
+      .dropdown-menu {
+        display: block;
+      }
 
-       li {
-         a {
-           color: $white;
-           background: $serloBlue;
-           font-weight: bold;
+      li {
+        a {
+          color: $white;
+          background: $serloBlue;
+          font-weight: bold;
 
-           &:hover {
-             background: darken($serloBlue, 5%)
-           }
+          &:hover {
+            background: darken($serloBlue, 5%);
+          }
 
-           .caret {
-             border-top-color: $white;
-             border-bottom-color: $white;
-           }
-         }
+          .caret {
+            border-top-color: $white;
+            border-bottom-color: $white;
+          }
+        }
 
-         .primary {
-           @include mobile-nav-header;
+        .primary {
+          @include mobile-nav-header;
 
-           .caret {
-             display: none;
-           }
-         }
-       }
-     }
-   }
+          .caret {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 
-   #mobile-serlo-nav, #mobile-main-nav {
-     .mobile-nav-header a {
-       @include mobile-nav-header;
-     }
-   }
+  #mobile-serlo-nav,
+  #mobile-main-nav {
+    .mobile-nav-header a {
+      @include mobile-nav-header;
+    }
+  }
 
   .dropdown {
     overflow: auto;

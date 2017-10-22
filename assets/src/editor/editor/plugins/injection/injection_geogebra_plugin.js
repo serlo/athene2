@@ -216,10 +216,9 @@ GeogebraInjectionPlugin.prototype.save = function(asImage) {
       );
 
       // Append image to newly created attachment
-      uploadFile(
-        formData,
-        '/attachment/upload/' + attachment.id
-      ).then(function(attachment) {
+      uploadFile(formData, '/attachment/upload/' + attachment.id).then(function(
+        attachment
+      ) {
         proceedSave(attachment);
       });
     } else {

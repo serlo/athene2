@@ -35,7 +35,7 @@ hr {
 
 .dropdown-submenu > a:after {
   display: block;
-  content: " ";
+  content: ' ';
   float: right;
   width: 0;
   height: 0;
@@ -66,7 +66,6 @@ hr {
 /* /Nested Dropdown Menu */
 
 .navbar-light {
-
   .navbar-inner {
     /*#gradient > .vertical($navbarLightBackgroundHighlight, $navbarLightBackground);*/
     border-color: $navbarLightBorder;
@@ -168,20 +167,20 @@ hr {
     }
   }
 
-
-
   // Navbar collapse button
   .btn-navbar {
     /*.buttonBackground(darken($navbarLightBackgroundHighlight, 5%), darken($navbarLightBackground, 5%));*/
   }
-
 }
 
 .btn-control {
   color: #2f6c61;
   background-color: white;
   border-color: #cccccc;
-  &:hover, &:focus, &:active, &.active {
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
     color: white;
     background-color: $secondaryColor;
     border-color: 1 f4840;
@@ -189,7 +188,7 @@ hr {
 }
 
 .btn-group-community {
-  &.open>.btn-primary.dropdown-toggle {
+  &.open > .btn-primary.dropdown-toggle {
     background-color: darken($serloGreen, 5%);
   }
 
@@ -197,7 +196,8 @@ hr {
     background-color: $serloGreen;
     border-color: #fff;
 
-    &:hover, .open>.dropdown-toggle {
+    &:hover,
+    .open > .dropdown-toggle {
       background-color: lighten($serloGreen, 5%);
     }
 
@@ -247,8 +247,8 @@ hr {
 }
 
 .dropdown-menu.left {
-    left: auto;
-    right: 100%;
-    margin-left: 0;
-    margin-right: -1px;    
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: -1px;
 }

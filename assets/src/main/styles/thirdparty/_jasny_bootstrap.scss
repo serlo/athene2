@@ -25,7 +25,7 @@
   display: inline-block;
   padding: 6px 12px;
   background: transparent;
-  background: rgba(0, 0, 0, .15);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 3px 0 0 3px;
 }
 
@@ -324,9 +324,17 @@
 .navmenu-default .navmenu-nav.dropdown-menu > .active > a,
 .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a,
 .navmenu-default .navmenu-nav.dropdown-menu > .active > a:hover,
-.navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:hover,
+.navbar-default
+  .navbar-offcanvas
+  .navmenu-nav.dropdown-menu
+  > .active
+  > a:hover,
 .navmenu-default .navmenu-nav.dropdown-menu > .active > a:focus,
-.navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:focus {
+.navbar-default
+  .navbar-offcanvas
+  .navmenu-nav.dropdown-menu
+  > .active
+  > a:focus {
   background-color: #d7d7d7;
 }
 
@@ -434,9 +442,17 @@
 .navmenu-inverse .navmenu-nav.dropdown-menu > .active > a,
 .navbar-inverse .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a,
 .navmenu-inverse .navmenu-nav.dropdown-menu > .active > a:hover,
-.navbar-inverse .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:hover,
+.navbar-inverse
+  .navbar-offcanvas
+  .navmenu-nav.dropdown-menu
+  > .active
+  > a:hover,
 .navmenu-inverse .navmenu-nav.dropdown-menu > .active > a:focus,
-.navbar-inverse .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:focus {
+.navbar-inverse
+  .navbar-offcanvas
+  .navmenu-nav.dropdown-menu
+  > .active
+  > a:focus {
   background-color: #000;
 }
 
@@ -562,8 +578,8 @@
 }
 
 .canvas-sliding {
-  -webkit-transition: top .35s, left .35s, bottom .35s, right .35s;
-  transition: top .35s, left .35s, bottom .35s, right .35s;
+  -webkit-transition: top 0.35s, left 0.35s, bottom 0.35s, right 0.35s;
+  transition: top 0.35s, left 0.35s, bottom 0.35s, right 0.35s;
 }
 
 .offcanvas-clone {
@@ -728,7 +744,8 @@
 
 /*# sourceMappingURL=jasny-bootstrap.css.map */
 
-.btn-group > .btn:last-child:not(:first-child) .btn-label, .btn-group > .dropdown-toggle:not(:first-child) .btn-label {
+.btn-group > .btn:last-child:not(:first-child) .btn-label,
+.btn-group > .dropdown-toggle:not(:first-child) .btn-label {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }

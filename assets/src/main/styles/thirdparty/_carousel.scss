@@ -40,16 +40,20 @@
 
       &.square-default {
         border-color: $btn-default-bg;
-        .square, &.square {
+        .square,
+        &.square {
           background-color: $btn-default-border;
-          color: #FFF;
+          color: #fff;
           & > .badge {
             background-color: lighten($btn-default-border, 10%);
           }
         }
-        &:hover, &:active {
+        &:hover,
+        &:active {
           border-color: darken($btn-default-bg, 10%);
-          .square, &.square, &.square {
+          .square,
+          &.square,
+          &.square {
             background-color: darken($btn-default-border, 10%);
             & > .badge {
               background-color: $btn-default-border;
@@ -60,16 +64,21 @@
 
       &.square-primary {
         border-color: $btn-primary-bg;
-        .square, &.square, &.square {
+        .square,
+        &.square,
+        &.square {
           background-color: $btn-primary-border;
-          color: #FFF;
+          color: #fff;
           & > .badge {
             background-color: lighten($btn-primary-border, 10%);
           }
         }
-        &:hover, &:active {
+        &:hover,
+        &:active {
           border-color: darken($btn-primary-bg, 10%);
-          .square, &.square, &.square {
+          .square,
+          &.square,
+          &.square {
             background-color: darken($btn-primary-border, 10%);
             & > .badge {
               background-color: $btn-primary-border;
@@ -82,14 +91,17 @@
         border-color: $btn-success-bg;
         .square {
           background-color: $btn-success-border;
-          color: #FFF;
+          color: #fff;
           & > .badge {
             background-color: lighten($btn-success-border, 10%);
           }
         }
-        &:hover, &:active {
+        &:hover,
+        &:active {
           border-color: darken($btn-success-bg, 10%);
-          .square, &.square, &.square {
+          .square,
+          &.square,
+          &.square {
             background-color: darken($btn-success-border, 10%);
             & > .badge {
               background-color: $btn-success-border;
@@ -102,14 +114,17 @@
         border-color: $btn-info-bg;
         .square {
           background-color: $btn-info-border;
-          color: #FFF;
+          color: #fff;
           & > .badge {
             background-color: lighten($btn-info-border, 10%);
           }
         }
-        &:hover, &:active {
+        &:hover,
+        &:active {
           border-color: darken($btn-info-bg, 10%);
-          .square, &.square, &.square {
+          .square,
+          &.square,
+          &.square {
             background-color: darken($btn-info-border, 10%);
             & > .badge {
               background-color: $btn-info-border;
@@ -122,14 +137,17 @@
         border-color: $btn-warning-bg;
         .square {
           background-color: $btn-warning-border;
-          color: #FFF;
+          color: #fff;
           & > .badge {
             background-color: lighten($btn-warning-border, 10%);
           }
         }
-        &:hover, &:active {
+        &:hover,
+        &:active {
           border-color: darken($btn-warning-bg, 10%);
-          .square, &.square, &.square {
+          .square,
+          &.square,
+          &.square {
             background-color: darken($btn-warning-border, 10%);
             & > .badge {
               background-color: $btn-warning-border;
@@ -142,14 +160,17 @@
         border-color: $btn-danger-bg;
         .square {
           background-color: $btn-danger-border;
-          color: #FFF;
+          color: #fff;
           & > .badge {
             background-color: lighten($btn-danger-border, 10%);
           }
         }
-        &:hover, &:active {
+        &:hover,
+        &:active {
           border-color: darken($btn-danger-bg, 10%);
-          .square, &.square, &.square {
+          .square,
+          &.square,
+          &.square {
             background-color: darken($btn-danger-border, 10%);
             & > .badge {
               background-color: $btn-danger-border;
@@ -178,6 +199,6 @@
     display: block;
     font-size: 10px;
     margin-top: 5px;
-    font-weight: bold
+    font-weight: bold;
   }
 }

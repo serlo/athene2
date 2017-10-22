@@ -4,12 +4,11 @@ section.discussions {
 }
 
 .discussion-form {
-
   .discussion-content-wrapper {
     @include bottom-frame($serloGreen);
 
     &::before {
-      z-index:inherit;
+      z-index: inherit;
     }
   }
 
@@ -30,7 +29,8 @@ section.discussions {
       outline: 0;
     }
 
-    &, &:focus {
+    &,
+    &:focus {
       background: none;
     }
 

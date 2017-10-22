@@ -22,12 +22,12 @@ Tracking.prototype.trackCollapse = function() {
 };
 
 Tracking.prototype.trackControls = function() {
-  return $(
-    '[data-toggle="edit-controls"]',
-    this.$context
-  ).on('click', function() {
-    ga('send', 'event', 'button', 'click', 'Clicked on edit controls');
-  });
+  return $('[data-toggle="edit-controls"]', this.$context).on(
+    'click',
+    function() {
+      ga('send', 'event', 'button', 'click', 'Clicked on edit controls');
+    }
+  );
 };
 
 Tracking.prototype.trackSideNavigation = function() {
