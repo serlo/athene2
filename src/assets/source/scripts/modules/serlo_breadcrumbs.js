@@ -43,7 +43,7 @@ define('breadcrumbs', ['jquery'], function ($) {
         }
 
         var self = this,
-            elements;
+            elements, len;
 
         self.options = options ? $.extend({}, defaults, options) : $.extend({}, defaults);
 
@@ -54,25 +54,28 @@ define('breadcrumbs', ['jquery'], function ($) {
             $(this).find('a').append(self.options.icon.clone());
         });
 
-        elements = this.$breadcrumbs.children().slice(0, -1);
+        elements = this.$breadcrumbs.children().slice(0);
+        len = elements.length;
 
         // queue of shown elements
         self.shownElements = [];
         // stack of hidden elements
         self.hiddenElements = [];
 
-        if (elements.length > 0) {
-            self.shownElements = new Array(elements.length - 1);
-
+        if (len > 0) {
             elements.each(function (i, el) {
-                if (i === 0) {
+                //dont add subject, topic name and entity name yet
+                if (i === 0 || i === len - 2 || i === len - 1) {
                     return true;
                 }
 
-                self.shownElements[i - 1] = $(el);
+                self.shownElements.push($(el));
             });
 
-            self.initBacklink(elements.last().clone());
+            self.shownElements.push($(elements[len - 1])); //entity name
+            self.shownElements.push($(elements[0])); //subject name
+            //topic name (= elements[len-2]) is not added, because it should never be hidden
+
             self.initDots();
         } else {
             self.$wrapper.addClass('has-no-backlink');
@@ -83,19 +86,6 @@ define('breadcrumbs', ['jquery'], function ($) {
         $(window).bind('resizeDelay', function () {
             self.adaptHeight();
         });
-    };
-
-    /**
-     * @method initBacklink
-     * @param {jquery} el the backlink
-     */
-    Breadcrumbs.prototype.initBacklink = function (el) {
-        this.backlink = el;
-        this.backlink.addClass('backlink');
-        this.backlink.children().first().find('span').remove();
-        this.backlink.children().first().find('i').removeClass('fa-angle-left').addClass('fa-chevron-left');
-
-        this.$breadcrumbs.append(this.backlink);
     };
 
     /**

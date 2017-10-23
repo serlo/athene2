@@ -4,8 +4,9 @@
       padding-right: $pagePaddingMedium + $sideElementWidthCollapsed;
     }
 
-    @media only screen and (max-width: $screen-xs-max) {
-      padding-right: $sideElementWidthCollapsed
+    @media only screen and (max-width: $screen-sm) {
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 }
