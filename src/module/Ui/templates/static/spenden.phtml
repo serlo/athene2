@@ -1,0 +1,115 @@
+<?php
+/**
+ * Athene2 - Advanced Learning Resources Manager
+ *
+ * @author      Aeneas Rekkas (aeneas.rekkas@serlo.org)
+ * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @link        https://github.com/serlo-org/athene2 for the canonical source repository
+ * @copyright   Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ */
+echo $this->doctype();
+?>
+<html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>">
+<head>
+    <?php $this->headTitle('Spenden'); ?>
+    <?php echo $this->partial('layout/partials/head'); ?>
+    <?php echo $this->partial('layout/partials/styles'); ?>
+    <style>
+        .main {
+            margin-right: 30rem;
+        }
+        .side-context {
+            right: -28rem;
+            width: 26rem;
+            background-color: #fff;
+        }
+        .sidebar-content-group {
+            padding: 8px 10px;
+        }
+        .sidebar-content-group ul {
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+<div class="wrap">
+    <header id="header">
+        <div class="container">
+            <nav id="header-nav">
+                <div id="mobile-nav-toggle">
+                    <a class="main-headline-link" href="/">
+                        <?php echo $this->brand()->getLogo(); ?>
+                    </a>
+                    <?php echo $this->brand()->getBrand(); ?>
+                    <span class="subject-title hidden-xs">Ihre Spende</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="page" class="container clearfix">
+        <section class="main clearfix">
+            <div id="content-layout" class="content clearfix">
+                <article itemscope="" itemtype="http://schema.org/Article">
+                    <header>
+                        <div class="page-header"></div>
+                    </header>
+                    <div itemprop="articleBody">
+                        <article>
+                            <section>
+                                <div class="r">
+                                    <div class="c24">
+                                        <p>
+                                            <img src="https://assets.serlo.org/59773ae6c1395_965eb1c861e5a63b13c03d710cd8bff5119698b6.jpg" alt="test" title="">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="r">
+                                    <div id="fundraisingbox" class="c24">
+                                        <script type="text/javascript" src="https://secure.fundraisingbox.com/app/paymentJS?hash=gtfhzy5ijix2yy35"></script><noscript>Bitte Javascript aktivieren</noscript><a target="_blank" href="http://www.fundraisingbox.com"><img border="0" style="border: 0 !important" src="https://secure.fundraisingbox.com/images/FundraisingBox-Logo-Widget.png" alt="FundraisingBox Logo" /></a>
+                                    </div>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                </article>
+            </div>
+            <aside class="side-element side-context">
+                <div id="sidebar-toggle" class="layout-toggle">
+                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-times"></i>
+                </div>
+                <div class="side-element-inner">
+                    <div class="sidebar-content-group">
+                        <p><b>Ansprechpartnerin</b></p>
+                        <p><img style="width:100%" src="https://assets.serlo.org/59ef0375a7010_8526a3cf89539f0b7e45de61d6de955481a54593.jpg" alt="Ronnit Wilmersdörffer" title=""></p>
+                        <p>Ronnit Wilmersdörffer <br>
+                            <i>(Mitgliederbetreuung und Finanzvorstand)</i>
+                            <br><br>
+                            <b>Kontaktdaten</b>
+                        </p>
+                        <p>ronnit@serlo.org<br>
+                            +49 179 958 5850<br></p>
+                        <br>
+                        <p><b>Serlo unterstützen</b></p>
+                        <p>Mit Ihrer Spende tragen Sie dazu bei, dass hochwertige Bildungsmaterialien für alle kostenlos zugänglich sind.</p>
+                        <p>
+                            Spendengelder fließen unter anderem in
+                            <ul>
+                                <li>Serverkosten</li>
+                                <li>Unterstützung ehrenamtlicher AutorInnen</li>
+                                <li>Weiterentwicklung der Plattform</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </div>
+</div>
+<?php echo $this->partial('layout/partials/scripts'); ?>
+<?php echo $this->partial('layout/partials/default-modal'); ?>
+<?php echo $this->placeholder('modals'); ?>
+<?php echo $this->tracking(); ?>
+<?php echo $this->partial('layout/partials/noscript'); ?>
+</body>
+</html>
