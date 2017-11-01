@@ -15,12 +15,21 @@ echo $this->doctype();
     <?php echo $this->partial('layout/partials/head'); ?>
     <?php echo $this->partial('layout/partials/styles'); ?>
     <style>
-        .main {
-            margin-right: 30rem;
+        .page-header {
+            margin-bottom: 10px;
         }
+        @media only screen and (min-width : 1000px) {
+            .main {
+                margin-right: 30rem;
+            }
+
+            .side-context {
+                right: -28rem;
+                width: 26rem;
+            }
+        }
+
         .side-context {
-            right: -28rem;
-            width: 26rem;
             background-color: #fff;
         }
         .sidebar-content-group {
@@ -46,7 +55,7 @@ echo $this->doctype();
             </nav>
         </div>
     </header>
-    <div id="page" class="container clearfix">
+    <div id="page" class="container has-sidebar clearfix">
         <section class="main clearfix">
             <div id="content-layout" class="content clearfix">
                 <article itemscope="" itemtype="http://schema.org/Article">
@@ -59,7 +68,7 @@ echo $this->doctype();
                                 <div class="r">
                                     <div class="c24">
                                         <p>
-                                            <img src="https://assets.serlo.org/59773ae6c1395_965eb1c861e5a63b13c03d710cd8bff5119698b6.jpg" alt="test" title="">
+                                            <img src="https://assets.serlo.org/59f762922f93d_c1bea0db3a614ccd33887e6f615b4b60a84e642e.jpg" alt="test" title="">
                                         </p>
                                     </div>
                                 </div>
@@ -80,8 +89,8 @@ echo $this->doctype();
                 </div>
                 <div class="side-element-inner">
                     <div class="sidebar-content-group">
-                        <p><b>Ansprechpartnerin</b></p>
-                        <p><img style="width:100%" src="https://assets.serlo.org/59ef0375a7010_8526a3cf89539f0b7e45de61d6de955481a54593.jpg" alt="Ronnit Wilmersdörffer" title=""></p>
+                        <p><b>Ihre Ansprechpartnerin</b></p>
+                        <p><img style="width:100%" src="https://assets.serlo.org/59f762452ae65_a60cc9803cb8b4c6b2fc6f18546909afb4378b11.jpg" alt="Ronnit Wilmersdörffer" title=""></p>
                         <p>Ronnit Wilmersdörffer <br>
                             <i>(Mitgliederbetreuung und Finanzvorstand)</i>
                             <br><br>
