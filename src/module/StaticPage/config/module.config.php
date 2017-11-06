@@ -8,28 +8,38 @@
 namespace StaticPage;
 
 return [
-    'di'              => [
+    'di' => [
         'allowed_controllers' => [
             __NAMESPACE__ . '\Controller\StaticPageController'
         ],
-        'definition'          => [
+        'definition' => [
             'class' => [
                 __NAMESPACE__ . '\Controller\StaticPageController' => []
             ]
         ]
     ],
-    'router'          => [
+    'router' => [
         'routes' => [
-            'spenden' => [
-                'type'          => 'literal',
-                'options'       => [
-                    'route'    => '/spenden',
+            'deutsch' => [
+                'type' => 'hostname',
+                'options' => [
+                    'route' => 'de.:domain.:tld',
                     'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\StaticPageController',
-                        'action'     => 'spenden'
+                        'controller' => __NAMESPACE__ . '\Controller\StaticPageController'
                     ]
                 ],
-                'may_terminate' => true
+                'child_routes' => [
+                    'spenden' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/spenden',
+                            'defaults' => [
+                                'action' => 'spenden'
+                            ]
+                        ],
+                        'may_terminate' => true
+                    ]
+                ]
             ],
         ]
     ]
