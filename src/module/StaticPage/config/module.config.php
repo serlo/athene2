@@ -23,7 +23,12 @@ return [
             'deutsch' => [
                 'type' => 'hostname',
                 'options' => [
-                    'route' => 'de.:domain.:tld',
+                    'route' => ':subdomain.:domain.:tld',
+                    'constraints' => [
+                        'subdomain' => 'de',
+                        'domain' => '.*?',
+                        'tld' => '.*?'
+                    ],
                     'defaults' => [
                         'controller' => __NAMESPACE__ . '\Controller\StaticPageController'
                     ]
