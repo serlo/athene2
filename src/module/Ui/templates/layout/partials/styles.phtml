@@ -1,7 +1,2 @@
 <?php echo $this->headStyle(); ?>
-<?php if ($this->prerelease()): ?>
-   <link href="http://localhost:8081/main.css" rel="stylesheet">
-<?php else: ?>
-  <link href="/assets/styles.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600|Droid+Serif" rel="stylesheet">
-<?php endif; ?>
+<link href="<?php echo $this->assetsHost(); ?>main.css" rel="stylesheet">

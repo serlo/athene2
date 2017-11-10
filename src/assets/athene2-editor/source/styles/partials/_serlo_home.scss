@@ -1,0 +1,16 @@
+#content-container {
+  #main-home & {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+#search-content {
+  #main-home & {
+    width: 386px;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+}

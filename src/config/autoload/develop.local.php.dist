@@ -17,10 +17,6 @@ return [
             'autoescape' => false
         ],
     ],
-    'assetic_configuration' => [
-        'debug' => false,
-        'buildOnRequest' => true
-    ],
     'view_manager'          => [
         'strategies'               => [
             'Ui\Strategy\PhpRendererStrategy'

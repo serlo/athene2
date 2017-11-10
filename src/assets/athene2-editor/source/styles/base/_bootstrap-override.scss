@@ -1,0 +1,21 @@
+$icon-font-path: '/build/styles/fonts/';
+
+/* Override Base Styles */
+$baseBorderRadius: 0px;
+$borderRadiusLarge: 0px;
+$borderRadiusSmall: 0px;
+
+$linkColor: $themeColor;
+$dropdownLinkBackgroundActive: $themeColor;
+
+$alert-border-radius: 0;
+
+/* Override Default Grid */
+$gridGutterWidth: 24px;
+$gridColumnWidth: 73px;
+
+/* Override Navbar Styles */
+$navbarHeight: 25px;
+
+/* Base Font */
+$sansFontFamily: 'Open Sans', sans-serif;
