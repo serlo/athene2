@@ -69,7 +69,8 @@ return [
         'Ads',
         'Log',
         'CacheInvalidator',
-        'Cache'
+        'Cache',
+        "StaticPage"
     ],
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => [
