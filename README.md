@@ -41,16 +41,9 @@ Now follow the upcoming instructions.
 ### Clone the project
 
 ```sh
-# Clone the project and its submodules:
-$ git clone git@github.com:serlo-org/athene2.git --recursive
-
+# Clone the project:
+$ git clone git@github.com:serlo-org/athene2.git
 $ cd athene2
-```
-
-If you forgot to clone recursively, you can also do this to fetch the submodules:
-
-```sh
-$ git submodule update --init --recursive
 ```
 
 ### Bootstrapping the project
