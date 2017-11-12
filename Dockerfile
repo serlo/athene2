@@ -25,7 +25,6 @@ RUN sed -ie 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/g' /etc/locale.gen
 RUN sed -ie 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/g' /etc/locale.gen
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-VOLUME /var/www/html/src/assets
 VOLUME /var/www/html/src/config
 VOLUME /var/www/html/src/lang
 VOLUME /var/www/html/src/module

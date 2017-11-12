@@ -1,0 +1,31 @@
+#footer {
+  @include bar('bottom');
+
+  padding-top: 1em;
+
+  font-size: 0.9em;
+
+  small {
+    color: $gray;
+  }
+
+  a {
+    padding-left: 0;
+    color: $gray;
+
+    &:hover {
+      background: none;
+      text-decoration: underline;
+    }
+  }
+
+}
+
+#footer,
+#footer-push {
+  height: $footerHeight;
+
+  @media only screen and (max-width: $screen-sm) {
+    height: auto;
+  }
+}

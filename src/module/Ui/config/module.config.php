@@ -32,7 +32,7 @@ return [
                 'encrypt' => 'Ui\View\Helper\Encrypt',
             ],
             'factories'  => [
-                'brand'    => __NAMESPACE__ . '\Factory\BrandHelperFactory',
+                'brand' => __NAMESPACE__ . '\Factory\BrandHelperFactory',
                 'tracking' => __NAMESPACE__ . '\Factory\TrackingFactory'
             ]
         ]
@@ -66,10 +66,11 @@ return [
     ],
     'view_helpers'          => [
         'factories'  => [
+            'assetsHost' => __NAMESPACE__ . '\Factory\AssetsHostHelperFactory',
             'pageHeader'  => __NAMESPACE__ . '\Factory\PageHeaderFactory',
             'brand'       => __NAMESPACE__ . '\Factory\BrandHelperFactory',
             'twigPartial' => __NAMESPACE__ . '\Factory\TwigPartialFactory',
-            'tracking'    => __NAMESPACE__ . '\Factory\TrackingFactory'
+            'tracking'    => __NAMESPACE__ . '\Factory\TrackingFactory',
         ],
         'invokables' => [
             'encrypt'         => 'Ui\View\Helper\Encrypt',
@@ -88,151 +89,6 @@ return [
             __NAMESPACE__ . '\Options\BrandHelperOptions'      => __NAMESPACE__ . '\Factory\BrandHelperOptionsFactory',
             __NAMESPACE__ . '\Options\TrackingHelperOptions'   => __NAMESPACE__ . '\Factory\TrackingHelperOptionsFactory',
             __NAMESPACE__ . '\Options\PageHeaderHelperOptions' => __NAMESPACE__ . '\Factory\PageHeaderHelperOptionsFactory',
-        ],
-        'invokables' => [
-            //'AsseticCacheBuster' => 'AsseticBundle\CacheBuster\LastModifiedStrategy',
-        ]
-    ],
-    'assetic_configuration' => [
-        'webPath'          => realpath('public/assets'),
-        'basePath'         => 'assets',
-        'default'          => [
-            'assets'  => [
-                '@libs',
-                '@scripts',
-                '@styles'
-            ],
-            'options' => [
-                'mixin' => false
-            ]
-        ],
-        'routes'           => [
-            'entity/repository/add-revision' => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ],
-            'taxonomy/term/create'           => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ],
-            'taxonomy/term/update'           => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ],
-            'license/update'                 => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ],
-            'page/revision/create'           => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ],
-            'blog/post/create'               => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ],
-            'blog/post/update'               => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ],
-            'user/settings'               => [
-                '@libs',
-                '@editor_scripts',
-                '@styles',
-                '@editor_styles'
-            ]
-        ],
-        'modules'          => [
-            'ui' => [
-                'root_path'   => __DIR__ . '/../../../assets/build',
-                'collections' => [
-                    'libs'           => [
-                        'assets' => [
-                            'bower_components/requirejs/require.js'
-                        ]
-                    ],
-                    'scripts'        => [
-                        'assets' => [
-                            'scripts/main.js'
-                        ]
-                    ],
-                    'styles'         => [
-                        'assets'  => [
-                            'styles/main.css',
-                            '../athene2-editor/build/styles/content.css'
-                        ],
-                        'filters' => [
-                            '?CssRewriteFilter' => [
-                                'name' => 'Assetic\Filter\CssRewriteFilter'
-                            ],
-                        ],
-                    ],
-                    'editor_scripts' => [
-                        'assets' => [
-                            '../athene2-editor/build/scripts/editor.js'
-                        ]
-                    ],
-                    'editor_styles'  => [
-                        'assets' => [
-                            '../athene2-editor/build/styles/editor.css'
-                        ]
-                    ],
-                    'main_fonts'     => [
-                        'assets'  => [
-                            'styles/fonts/*',
-                            'styles/fonts/*.woff',
-                            'styles/fonts/*.svg',
-                            'styles/fonts/*.ttf'
-                        ],
-                        'options' => [
-                            'move_raw' => true
-                        ]
-                    ],
-                    'images'         => [
-                        'assets'  => [
-                            'images/*',
-                            'images/de/*',
-                            'images/en/*'
-                        ],
-                        'options' => [
-                            'move_raw' => true
-                        ]
-                    ],
-                    'sounds'         => [
-                        'assets'  => [
-                            'sounds/*'
-                        ],
-                        'options' => [
-                            'move_raw' => true
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        'rendererToStrategy' => [
-            'Zend\View\Renderer\PhpRenderer'  => 'AsseticBundle\View\NoneStrategy',
-            'Zend\View\Renderer\FeedRenderer' => 'AsseticBundle\View\NoneStrategy',
-            'Zend\View\Renderer\JsonRenderer' => 'AsseticBundle\View\NoneStrategy',
-        ],
-        'acceptableErrors' => [
-            Application::ERROR_CONTROLLER_NOT_FOUND,
-            Application::ERROR_CONTROLLER_INVALID,
-            Application::ERROR_ROUTER_NO_MATCH,
-            GuardInterface::GUARD_UNAUTHORIZED
         ]
     ]
 ];

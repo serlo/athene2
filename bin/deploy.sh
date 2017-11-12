@@ -13,22 +13,14 @@ sh build.sh
 
 pm2 stop server
 pm2 delete server
-cd ../src/assets
-npm update
-
-cd athene2-editor
+cd ../src/assets/athene2-editor
 npm update
 bower update
 grunt build
 pm2 start server/server.js
-cd ..
 
-bower update
-grunt build
-cd ../..
-cd src
+cd ../../
 
-php public/index.php assetic build
 pm2 status
 
 cd ..

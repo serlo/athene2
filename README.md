@@ -65,10 +65,6 @@ $ cp src/public/htaccess.dist src/public/.htaccess
 
 # Install various dependencies
 $ php composer.phar install
-
-# Install and build the assets
-$ (cd src/assets; npm install; npm run build)
-$ (cd src/assets/athene2-editor; npm install; npm run build)
 ```
 
 ### Starting docker-compose
@@ -81,11 +77,11 @@ docker-compose up --build -d
 ##### Wrong php version
 If `php composer.phar install` fails with error
 ```
-Your requirements could not be resolved to an installable set of packages.           
+Your requirements could not be resolved to an installable set of packages.
  Problem 1
- - doctrine/collections v1.4.0 requires php ^5.6 || ^7.0 -> your PHP version (5.5.9) does not satisfy that requirement.                                   
- - doctrine/collections v1.4.0 requires php ^5.6 || ^7.0 -> your PHP version (5.5.9) does not satisfy that requirement.                                   
- - Installation request for doctrine/collections v1.4.0 -> satisfiable by doctrine/collections[v1.4.0].                                           
+ - doctrine/collections v1.4.0 requires php ^5.6 || ^7.0 -> your PHP version (5.5.9) does not satisfy that requirement.
+ - doctrine/collections v1.4.0 requires php ^5.6 || ^7.0 -> your PHP version (5.5.9) does not satisfy that requirement.
+ - Installation request for doctrine/collections v1.4.0 -> satisfiable by doctrine/collections[v1.4.0].
 ```
 then you can try updating php to 5.6:
 
@@ -158,14 +154,21 @@ a different browser.
 
 Development is straight forward, make your changes to the php files and then reload the browser. Done!
 
-If you want to modify the assets, you will have to run the `grunt dev` task
-
+If you want to modify the assets (e.g. `.css`, `.js` files), you will also have to clone and set up https://github.com/serlo-org/athene2-assets:
 ```
-$ cd src/assets
-$ grunt dev
+git clone https://github.com/serlo-org/athene2-assets
+cd athene2-assets
+yarn
+yarn start
 ```
-
-and after the changes are built simply reload the site. Done!
+Furthermore, set `assets_host` to the url of webpack dev server in `src/config/autoload/develop.local.php`:
+```.php
+return [
+    // ...
+    'assets_host' => 'http://localhost:8081/'
+];
+```
+Changes to the assets will automatically reload the browser.
 
 ## Further resources
 

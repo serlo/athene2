@@ -22,7 +22,6 @@ return [
         'Session',
         'ZendDeveloperTools',
         'Application',
-        'AsseticBundle',
         'DoctrineModule',
         'DoctrineORMModule',
         'StrokerCache',

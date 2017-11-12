@@ -20,7 +20,6 @@ services:
     ports:
       - "4567:80"
     volumes:
-      - ./src/assets:/var/www/html/src/assets
       - ./src/config:/var/www/html/src/config
       - ./src/lang:/var/www/html/src/lang
       - ./src/module:/var/www/html/src/module
