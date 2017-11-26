@@ -15,6 +15,9 @@ echo $this->doctype();
     <?php echo $this->partial('layout/partials/head'); ?>
     <?php echo $this->partial('layout/partials/styles'); ?>
     <style>
+        #header-nav {
+            height: auto;
+        }
         .page-header {
             margin-bottom: 10px;
         }
@@ -27,6 +30,14 @@ echo $this->doctype();
                 right: -28rem;
                 width: 26rem;
             }
+            .mission {
+                margin-left:207px;
+            }
+        }
+
+        .mission {
+            max-width:500px;
+            font-size:18px;
         }
 
         .side-context {
@@ -37,6 +48,13 @@ echo $this->doctype();
         }
         .sidebar-content-group ul {
             padding-left: 30px;
+        }
+
+        .donation-name {
+            padding: 5px 5px 5px 0;
+        }
+        .donation-amount {
+            padding: 5px 0 5px 5px;
         }
     </style>
 </head>
@@ -50,9 +68,11 @@ echo $this->doctype();
                         <?php echo $this->brand()->getLogo(); ?>
                     </a>
                     <?php echo $this->brand()->getBrand(); ?>
-                    <span class="subject-title hidden-xs">Ihre Spende</span>
+                    <span class="subject-title">Deine Spende für freie Bildung</span>
                 </div>
             </nav>
+            <div class="mission">Mit deiner Spende trägst du dazu bei, dass hochwertige
+                Bildungsmaterialien für alle kostenlos zugänglich sind.</div>
         </div>
     </header>
     <div id="page" class="container has-sidebar clearfix">
@@ -89,7 +109,7 @@ echo $this->doctype();
                 </div>
                 <div class="side-element-inner">
                     <div class="sidebar-content-group">
-                        <p><b>Ihre Ansprechpartnerin</b></p>
+                        <p><b>Deine Ansprechpartnerin</b></p>
                         <p><img style="width:100%" src="https://assets.serlo.org/59f762452ae65_a60cc9803cb8b4c6b2fc6f18546909afb4378b11.jpg" alt="Ronnit Wilmersdörffer" title=""></p>
                         <p>Ronnit Wilmersdörffer <br>
                             <i>(Mitgliederbetreuung und Finanzvorstand)</i>
@@ -99,16 +119,40 @@ echo $this->doctype();
                         <p>ronnit@serlo.org<br>
                             +49 179 958 5850<br></p>
                         <br>
-                        <p><b>Serlo unterstützen</b></p>
-                        <p>Mit Ihrer Spende tragen Sie dazu bei, dass hochwertige Bildungsmaterialien für alle kostenlos zugänglich sind.</p>
+                        <p><b>Wohin geht Deine Spende</b></p>
                         <p>
                             Spendengelder fließen unter anderem in
                             <ul>
                                 <li>Serverkosten</li>
-                                <li>Unterstützung ehrenamtlicher AutorInnen</li>
+                                <li>Betreuung ehrenamtlicher AutorInnen</li>
                                 <li>Weiterentwicklung der Plattform</li>
                             </ul>
                         </p>
+                        <br>
+                        <p>Eine genaue Aufstellung unserer Finanzen findest du unter www.serlo.org/transparenz</p>
+                        <br>
+                        <p><img style="width:100%" src="https://assets.serlo.org/legacy/546b4f8aab7a2_8ec64f4823d62c6b857c781ab2dd403d6ce597e4.jpg" alt="Initiative Transparente Zivilgesellschaft"></p>
+                        <br>
+                        <p><b>Steuerliche Begünstigungen</b></p>
+                        <p>Serlo Education ist ein anerkannter gemeinnütziger Verein. Deine Spende ist daher steuerlich voll abzugsfähig.</p>
+                        <br>
+                        <p><b>Unsere Partner</b></p>
+                        <p><img  style="width:100%" src="https://assets.serlo.org/legacy/57fc894452370_64b010d69dc9c402f9ea00c5d8ce75507e635d3e.png" alt="Ludwig-Maximilians-Universität München" title="Ludwig-Maximilians-Universität München">
+                            <img  style="width:100%" src="https://assets.serlo.org/legacy/559fc21d72a30_9e1baed5f3f93d7cffdb35ef7cb15f97603a37cd.png" alt="Technische Universität München" title="Technische Universität München">
+                            <img  style="width:100%" src="https://assets.serlo.org/5a1a0a276a6b9_6d34310eb0df059427d6607cd88d9433b1dd4fcc.png" alt="Wikimedia" title="Wikimedia">
+                            <img  style="width:100%" src="https://assets.serlo.org/legacy/56abd09826385_37623ba809c7d6e596297e61c0175072ac8a5a6a.png" alt="EU Kommission" title="EU Kommission">
+                        </p>
+                        <br>
+                        <p><b>Unsere Top-SpenderInnen</b></p>
+                        <table>
+                            <tbody>
+                            <tr><td class="donation-name">Stephan D.</td><td class="donation-amount">3.500€</td></tr>
+                            <tr><td class="donation-name">Imarum GmbH</td><td class="donation-amount">2.250€</td></tr>
+                            <tr><td class="donation-name">Musikschule Ohrwurm</td><td class="donation-amount">2.250€</td></tr>
+                            <tr><td class="donation-name">Bernd F.</td><td class="donation-amount">1.260€</td></tr>
+                            <tr><td class="donation-name">Telefónica Deutschland</td><td class="donation-amount">1.000€</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </aside>
