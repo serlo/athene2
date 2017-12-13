@@ -35,6 +35,22 @@ echo $this->doctype();
             }
         }
 
+        @media only screen and (max-width: 1000px) {
+            #content-layout {
+                padding: 0 60px 20px 20px;
+            }
+
+            .side-context {
+                display: block !important;
+                right: 0;
+            }
+
+            .side-element-inner {
+                width: 26rem !important;
+                right: 26rem !important;
+            }
+        }
+
         .mission {
             max-width:500px;
             font-size:18px;
@@ -43,6 +59,7 @@ echo $this->doctype();
         .side-context {
             background-color: #fff;
         }
+
         .sidebar-content-group {
             padding: 8px 10px;
         }
@@ -97,6 +114,19 @@ echo $this->doctype();
                                         <script type="text/javascript" src="https://secure.fundraisingbox.com/app/paymentJS?hash=gtfhzy5ijix2yy35"></script><noscript>Bitte Javascript aktivieren</noscript><a target="_blank" href="http://www.fundraisingbox.com"><img border="0" style="border: 0 !important" src="https://secure.fundraisingbox.com/images/FundraisingBox-Logo-Widget.png" alt="FundraisingBox Logo" /></a>
                                     </div>
                                 </div>
+                                <div class="r">
+                                    <div class="c24">
+                                        <h2>Alternative Spendenmöglichkeiten</h2>
+                                        <h3 id="spendenkonto">Spendenkonto</h3>
+                                        <p>
+                                            Serlo Education e.V. <br>
+                                            IBAN: DE98 4306 0967 8204 5906 00 <br>
+                                            BIC: GENODEM1GLS (GLS Bank)
+                                        </p>
+                                        <h3 id="bitcoin">Bitcoin-Spende</h3>
+                                        <p>Bitcoin-Adresse: bc1qujf7wy3ssnrnq50de94x7ujsh4plcynx36vptd</p>
+                                    </div>
+                                </div>
                             </section>
                         </article>
                     </div>
@@ -117,7 +147,7 @@ echo $this->doctype();
                             <b>Kontaktdaten</b>
                         </p>
                         <p>ronnit@serlo.org<br>
-                            +49 179 958 5850<br></p>
+                            +49 89 35 85 69 42<br></p>
                         <br>
                         <p><b>Wohin geht Deine Spende</b></p>
                         <p>
@@ -136,9 +166,12 @@ echo $this->doctype();
                         <p><b>Steuerliche Begünstigungen</b></p>
                         <p>Serlo Education ist ein anerkannter gemeinnütziger Verein. Deine Spende ist daher steuerlich voll abzugsfähig.</p>
                         <br>
+                        <p><b>Alternative Spendenmöglichkeiten</b></p>
+                        <p>Du kannst auch via <a href="#spendenkonto">Überweisung</a> oder <a href="#bitcoin">Bitcoin</a> spenden.</p>
+                        <br>
                         <p><b>Unsere Partner</b></p>
-                        <p><img  style="width:100%" src="https://assets.serlo.org/legacy/57fc894452370_64b010d69dc9c402f9ea00c5d8ce75507e635d3e.png" alt="Ludwig-Maximilians-Universität München" title="Ludwig-Maximilians-Universität München">
-                            <img  style="width:100%" src="https://assets.serlo.org/legacy/559fc21d72a30_9e1baed5f3f93d7cffdb35ef7cb15f97603a37cd.png" alt="Technische Universität München" title="Technische Universität München">
+                        <p><img  style="width:100%" src="https://assets.serlo.org/5a316a509e299_77f68315ec777b49b17b93bd328533e2eac59e68.png" alt="Ludwig-Maximilians-Universität München" title="Ludwig-Maximilians-Universität München">
+                            <img  style="width:100%" src="https://assets.serlo.org/5a316a7a6343f_c3311343b1b0c4efa89c9d1cc317303392d5b605.png" alt="Technische Universität München" title="Technische Universität München">
                             <img  style="width:100%" src="https://assets.serlo.org/5a1a0a276a6b9_6d34310eb0df059427d6607cd88d9433b1dd4fcc.png" alt="Wikimedia" title="Wikimedia">
                             <img  style="width:100%" src="https://assets.serlo.org/legacy/56abd09826385_37623ba809c7d6e596297e61c0175072ac8a5a6a.png" alt="EU Kommission" title="EU Kommission">
                         </p>
@@ -146,11 +179,25 @@ echo $this->doctype();
                         <p><b>Unsere Top-SpenderInnen</b></p>
                         <table>
                             <tbody>
-                            <tr><td class="donation-name">Stephan D.</td><td class="donation-amount">3.500€</td></tr>
-                            <tr><td class="donation-name">Imarum GmbH</td><td class="donation-amount">2.250€</td></tr>
-                            <tr><td class="donation-name">Musikschule Ohrwurm</td><td class="donation-amount">2.250€</td></tr>
-                            <tr><td class="donation-name">Bernd F.</td><td class="donation-amount">1.260€</td></tr>
-                            <tr><td class="donation-name">Telefónica Deutschland</td><td class="donation-amount">1.000€</td></tr>
+                            <tr><td class="donation-name">SAP SE</td><td class="donation-amount">7.500 €</td></tr>
+                            <tr><td class="donation-name">Stephan D.</td><td class="donation-amount">3.500 €</td></tr>
+                            <tr><td class="donation-name">Thomas C.</td><td class="donation-amount">2.500 €</td></tr>
+                            <tr><td class="donation-name">Imarum GmbH</td><td class="donation-amount">2.250 €</td></tr>
+                            <tr><td class="donation-name">Musikschule Ohrwurm</td><td class="donation-amount">2.250 €</td></tr>
+                            <tr><td class="donation-name">Bernd F.</td><td class="donation-amount">1.290 €</td></tr>
+                            <tr><td class="donation-name">Telefónica Deutschland</td><td class="donation-amount">1.000 €</td></tr>
+                            <tr><td class="donation-name">Stefan K.</td><td class="donation-amount">930 €</td></tr>
+                            <tr><td class="donation-name">Bernhard K.</td><td class="donation-amount">930 €</td></tr>
+                            <tr><td class="donation-name">Michael Denis R.</td><td class="donation-amount">930 €</td></tr>
+                            <tr><td class="donation-name">Klaus H.</td><td class="donation-amount">890 €</td></tr>
+                            <tr><td class="donation-name">Johanna Vera S.</td><td class="donation-amount">880 €</td></tr>
+                            <tr><td class="donation-name">Stefan S.</td><td class="donation-amount">870 €</td></tr>
+                            <tr><td class="donation-name">Christian E.</td><td class="donation-amount">860 €</td></tr>
+                            <tr><td class="donation-name">Helga S.</td><td class="donation-amount">850 €</td></tr>
+                            <tr><td class="donation-name">Doris P.</td><td class="donation-amount">683 €</td></tr>
+                            <tr><td class="donation-name">Jacob R.</td><td class="donation-amount">660 €</td></tr>
+                            <tr><td class="donation-name">Simon S.</td><td class="donation-amount">660 €</td></tr>
+                            <tr><td class="donation-name">Vincent S.</td><td class="donation-amount">500 €</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -158,6 +205,7 @@ echo $this->doctype();
             </aside>
         </section>
     </div>
+    <div id="footer-push" style="height:50px"></div>
 </div>
 <?php echo $this->partial('layout/partials/scripts'); ?>
 <?php echo $this->partial('layout/partials/default-modal'); ?>
