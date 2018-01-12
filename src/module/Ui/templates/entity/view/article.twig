@@ -1,6 +1,6 @@
 {% set title = 'article' | trans %}
 {% set revision = entity.getCurrentRevision() %}
-{% set content = markdown().toHtml(revision.get('content')) %}
+{% set content = renderer.toHtml(revision.get('content')) %}
 <article>
     <section>
         {{ content }}

@@ -27,6 +27,53 @@ class RepositoryController extends AbstractController
      */
     protected $moduleOptions;
 
+    public function convertAction()
+    {
+        $entity = $this->getEntity();
+
+        if (!$entity || $entity->isTrashed()) {
+            $this->getResponse()->setStatusCode(404);
+            return false;
+        }
+        $type = $this->moduleOptions->getType($entity->getType()->getName());
+        /*if ($type->hasComponent('redirect') && !$this->getRequest()->isXmlHttpRequest()) {
+            // @var $redirect RedirectOptions
+            $redirect = $type->getComponent('redirect');
+
+            if ($redirect->getToType() === 'parent') {
+                $parent = $entity->getParents('link')->first();
+                if (!$parent->isTrashed() && $parent->hasCurrentRevision()) {
+                    return $this->redirect()->toRoute('uuid/get', ['uuid' => $parent->getId()]);
+                }
+            } else {
+                foreach ($entity->getChildren('link', $redirect->getToType()) as $child) {
+                    if (!$child->isTrashed() && $child->hasCurrentRevision()) {
+                        return $this->redirect()->toRoute('uuid/get', ['uuid' => $child->getId()]);
+                    }
+                }
+            }
+        }*/
+
+        $this->assertGranted('entity.revision.create', $entity);
+
+        $model = new ViewModel(['entity' => $entity, 'convert' => true]);
+        $model->setTemplate('entity/page/default');
+
+
+        if ($this->getRequest()->isXmlHttpRequest() || $this->params('isXmlHttpRequest', false)) {
+            $model->setTemplate('entity/view/default');
+        }
+
+        $this->layout('layout/3-col');
+
+        if (!$entity->hasCurrentRevision()) {
+            $this->layout('layout/2-col');
+            $model->setTemplate('entity/page/pending');
+        }
+
+        return $model;
+    }
+
     public function addRevisionAction()
     {
         $entity = $this->getEntity();

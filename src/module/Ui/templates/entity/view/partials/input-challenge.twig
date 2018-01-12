@@ -1,7 +1,7 @@
 {% set revision = entity.getCurrentRevision() %}
 {% set type = entity.getType() %}
 {% set inputSolution = revision.get('solution') %}
-{% set feedback = markdown().toHtml(revision.get('feedback')) %}
+{% set feedback = renderer.toHtml(revision.get('feedback')) %}
 {% set wrongInputs = inputChallenge().fetchWrongInputs(entity) | json_encode() %}
 
 <form class="input-challenge-group">

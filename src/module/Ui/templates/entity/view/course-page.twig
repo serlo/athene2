@@ -1,6 +1,6 @@
 {% set title = 'course-page' | trans %}
 {% set revision = entity.getCurrentRevision() %}
-{% set content = markdown().toHtml(revision.get('content')) | raw %}
+{% set content = renderer.toHtml(revision.get('content')) %}
 
 {% set previous = parent.getPreviousValidSibling('link', entity) %}
 {% set next = parent.getNextValidSibling('link', entity) %}

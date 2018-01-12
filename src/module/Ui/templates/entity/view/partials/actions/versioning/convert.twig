@@ -1,0 +1,11 @@
+{% set options = entity().getOptions(entity) %}
+{% if options.hasComponent('repository') %}
+    {% if not entity.isUnrevised() and not convert and not entity().isOryEditorFormat(entity.getCurrentRevision()) %}
+    <li>
+        <a rel="nofollow" href="{{ url('entity/repository/convert', {'entity': entity.getId()}) }}">
+            <span class="fa fa-pencil"></span>
+            {% trans %} Convert {% endtrans %}
+        </a>
+    </li>
+    {% endif %}
+{% endif %}

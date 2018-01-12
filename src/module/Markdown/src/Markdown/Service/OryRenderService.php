@@ -1,12 +1,11 @@
 <?php
 /**
- * Athene2 - Advanced Learning Resources Manager
- *
- * @author         Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link           https://github.com/serlo-org/athene2 for the canonical source repository
- * @copyright      Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ * Created by PhpStorm.
+ * User: User
+ * Date: 27.11.2017
+ * Time: 17:11
  */
+
 namespace Markdown\Service;
 
 use DNode\DNode;
@@ -15,7 +14,7 @@ use Markdown\Options\ModuleOptions;
 use React\EventLoop\StreamSelectLoop;
 use Zend\Cache\Storage\StorageInterface;
 
-class HtmlRenderService implements RenderServiceInterface
+class OryRenderService implements RenderServiceInterface
 {
 
     /**
@@ -49,7 +48,6 @@ class HtmlRenderService implements RenderServiceInterface
         $this->options = $options;
         $this->storage = $storage;
     }
-
     /**
      * @see \Markdown\Service\RenderServiceInterface::render()
      */
@@ -64,8 +62,9 @@ class HtmlRenderService implements RenderServiceInterface
         $rendered = null;
 
         $this->dnode->connect(
-            $this->options->getHost(),
-            $this->options->getPort(),
+            //'192.168.176.128',
+            '192.168.176.49',
+            '7072',
             function ($remote, $connection) use ($input, &$rendered) {
                 $remote->render(
                     $input,
@@ -84,7 +83,6 @@ class HtmlRenderService implements RenderServiceInterface
                 );
             }
         );
-
         $this->loop->run();
 
         if ($rendered === null) {
@@ -94,5 +92,6 @@ class HtmlRenderService implements RenderServiceInterface
         $this->storage->setItem($key, $rendered);
 
         return $rendered;
+
     }
 }

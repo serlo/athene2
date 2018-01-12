@@ -2,7 +2,7 @@
 <article class="exercisegroup">
     <section class="row" style="margin-right:0px">
         <div class="col-xs-12 col-sm-11" itemprop="articleBody">
-            {{ markdown().toHtml(entity.getCurrentRevision().get('content')) }}
+            {{ renderer.toHtml(entity.getCurrentRevision().get('content')) }}
         </div>
         <div class="col-xs-hidden col-sm-1" style="padding:0">
             <div class="pull-right">

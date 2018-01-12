@@ -166,6 +166,18 @@ return [
                                         'revision' => '[0-9]+'
                                     ]
                                 ]
+                            ],
+                            'convert' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/convert/:entity',
+                                    'defaults' => [
+                                        'action' => 'convert'
+                                    ],
+                                    'constraints' => [
+                                        'entity' => '[0-9]+'
+                                    ]
+                                ]
                             ]
                         ]
                     ],

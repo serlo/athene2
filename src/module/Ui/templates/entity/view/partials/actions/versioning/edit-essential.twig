@@ -3,6 +3,8 @@
     <li>
     {% if entity.isUnrevised() %}
         <a rel="nofollow" href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
+    {% elseif convert or entity().isOryEditorFormat(entity.getCurrentRevision()) %}
+        <a class="ory-edit-button" rel="nofollow">
     {% else %}
         <a rel="nofollow" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
     {% endif %}

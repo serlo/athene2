@@ -14,12 +14,14 @@ return [
         'factories' => [
             __NAMESPACE__ . '\Options\ModuleOptions'     => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
             __NAMESPACE__ . '\Storage\MarkdownStorage'   => __NAMESPACE__ . '\Factory\MarkdownStorageFactory',
-            __NAMESPACE__ . '\Service\HtmlRenderService' => __NAMESPACE__ . '\Factory\HtmlRenderServiceFactory'
+            __NAMESPACE__ . '\Service\HtmlRenderService' => __NAMESPACE__ . '\Factory\HtmlRenderServiceFactory',
+            __NAMESPACE__ . '\Service\OryRenderService' => __NAMESPACE__ . '\Factory\OryRenderServiceFactory'
         ]
     ],
     'view_helpers'    => [
         'factories' => [
-            'markdown' => __NAMESPACE__ . '\Factory\MarkdownHelperFactory'
+            'markdown' => __NAMESPACE__ . '\Factory\MarkdownHelperFactory',
+            'oryRenderer' => __NAMESPACE__ . '\Factory\OryRenderHelperFactory'
         ]
     ],
     'di'              => [
