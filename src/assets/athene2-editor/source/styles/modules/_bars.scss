@@ -1,0 +1,21 @@
+// mixin for the big bars (header/footer)
+@mixin bar($located: "top") {
+  background: $navbar-default-bg;
+  outline: 1px solid #C5C5C5;
+
+  @if $located == "top" {
+    border-bottom: 1px solid white;
+  } @else {
+    border-top: 1px solid white;
+  }
+}
+
+// @mixin bar($located: "top") {
+//     background: white;
+
+//     @if $located == "top" {
+//         border-bottom: 2px solid $themeColor;
+//     } @else {
+//         border-top: 2px solid $themeColor;
+//     }
+// }

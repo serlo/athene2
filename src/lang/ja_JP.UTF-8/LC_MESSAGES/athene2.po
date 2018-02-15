@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2017-09-13 10:38+0200\n"
-"PO-Revision-Date: 2017-09-13 11:17+0200\n"
+"POT-Creation-Date: 2017-10-22 14:03+0200\n"
+"PO-Revision-Date: 2017-10-22 14:11+0200\n"
 "Last-Translator: Serlo <info-de@serlo.org>\n"
 "Language-Team: Japanese\n"
-"Language: ja_JP\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;pageHeader;setSubtitle;addMessage;addSuccessMessage;addErrorMessage;setLabel;setLegend;t\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -20,1255 +20,37 @@ msgstr ""
 "X-Poedit-SearchPath-0: ./../module\n"
 "X-Poedit-SearchPath-1: ./../config\n"
 
-#: /tmp/cache/59b8ee6506b88/a/b/abd486401ab00580fe0dd91aaaf72ef6a02ed427bb8a4411838e6eb2ca35b66f.php:24
-msgid "Activate an account"
-msgstr "アカウントの有効化"
-
-#: /tmp/cache/59b8ee6506b88/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:19
-msgid "Ads"
-msgstr "広告"
-
-#: /tmp/cache/59b8ee6506b88/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:99
-#, php-format
-msgid "Are you new here? %sSign up%s!"
-msgstr "あなたはここに新しいですか。%s登録してください%s!"
-
-#: /tmp/cache/59b8ee6506b88/4/7/47a30ac564dadd8d5b95b50b11193dd62584a51a6fcdc2626ab9e6000fb92a3f.php:21
-#: ../config/instance/navigation/default.php:222
-msgid "Blog"
-msgstr "ブログ"
-
-#: /tmp/cache/59b8ee6506b88/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:151
-msgid "Clicks"
-msgstr "クリック"
-
-#: /tmp/cache/59b8ee6506b88/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:32
-#: /tmp/cache/59b8ee6506b88/e/7/e79cc1c7593f13bb4dacce6b2fb741d2dd940f8b0b4f0c532e1109a5c3bcf044.php:19
-#: ../config/instance/navigation/default.php:205
-msgid "Create ad"
-msgstr "広告を作成"
-
-#: /tmp/cache/59b8ee6506b88/f/d/fdfd000e37bab831d7314ee56f6b66ba914d3e063c290779011d510e3c387293.php:19
-msgid "Debugger"
-msgstr "デバッガー"
-
-#: /tmp/cache/59b8ee6506b88/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:105
-#, php-format
-msgid "Did you forget your %spassword%s?"
-msgstr "あなたの %sパスワード%s を忘れましたか。"
-
-#: /tmp/cache/59b8ee6506b88/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:42
-msgid "Edit About Horizon"
-msgstr "ホライズンに関する編集"
-
-#: /tmp/cache/59b8ee6506b88/3/8/38431cdcaf78fb0931c9d0ca4a2bd2a292d97de12325b96e0d3677ffa32ce463.php:124
-msgid "Frequency"
-msgstr "頻度"
-
-#: /tmp/cache/59b8ee6506b88/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:111
-#, php-format
-msgid "Haven't activated your account yet? %sResend activation mail%s!"
-msgstr "まだ、アカウントを有効化していませんか。%s有効化するためのメールを再送する%s！"
-
-#: /tmp/cache/59b8ee6506b88/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:53
-msgid "Log in"
-msgstr "ログイン"
-
-#: /tmp/cache/59b8ee6506b88/9/3/932d4afae805fb2101be851e5dcd9f8d20091afc3c13ae7e99cadbbd6ed67403.php:22
-msgid "Log out"
-msgstr "ログアウト"
-
-#: /tmp/cache/59b8ee6506b88/4/7/47a30ac564dadd8d5b95b50b11193dd62584a51a6fcdc2626ab9e6000fb92a3f.php:21
-#: /tmp/cache/59b8ee6506b88/4/7/47a30ac564dadd8d5b95b50b11193dd62584a51a6fcdc2626ab9e6000fb92a3f.php:55
-#: /tmp/cache/59b8ee655ef22/f/0/f0758bcd46b5d3207d9f01bb78e3e0bdb581d4b0c9ab6814a70e570a261a15e0.php:19
-#: /tmp/cache/59b8ee67aefb6/7/6/767be009c113f861ed5704eeea584f47d008c9ed237eede400b3a03833b1ad78.php:19
-#: /tmp/cache/59b8ee67aefb6/f/d/fd1d8b87622fe6f1659f5c149c953e30de5377caf6d5ea252a1de9b5750d7ef1.php:19
-#: /tmp/cache/59b8ee67aefb6/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:49
-msgid "Page"
-msgstr "ページ"
-
-#: /tmp/cache/59b8ee6506b88/c/5/c50fb8d793967f5658be1e1bd16f2e2a89f3619343c10db0bd923fc7afb5a2b6.php:19
-msgid "Please enter the id of the adPage"
-msgstr "AdPage の id を入力してください。"
-
-#: /tmp/cache/59b8ee6506b88/5/f/5ff44a55f1429150f60a8459638e7a9eaf0487b999e7f801d5c31138ecca018d.php:24
-#: /tmp/cache/59b8ee6506b88/f/9/f934cff9f781e88ff8b61aeb618ff0834983639af7e4a6c53566af67e4bcf32e.php:24
-msgid "Restore password"
-msgstr "パスワードの復元"
-
-#: /tmp/cache/59b8ee6506b88/e/4/e428fe932b0ede9558de7f82ba1d68c82a93b298b3f93ece99607ac6a7a2bfab.php:19
-msgid "Unpublished"
-msgstr "未公開"
-
-#: /tmp/cache/59b8ee6506b88/6/3/6330fdb7b3cac448cace9e6f1a53a8c97895ab0f9af451c572c1c5c37fad6ad1.php:19
-#: ../config/instance/navigation/default.php:211
-msgid "Update ad"
-msgstr "広告を更新"
-
-#: /tmp/cache/59b8ee6506b88/d/7/d70d4940f0c56e62c9205c0410d0b7315d5c5f5c823939e978b8ba00795aae2b.php:19
-#: ../config/instance/navigation/default.php:265
-msgid "Update password"
-msgstr "パスワードの更新"
-
-#: /tmp/cache/59b8ee6506b88/7/a/7affe9c338e73cea42955b2f24c3fc71bb5f919d89f6c9fed5e6e664199e51ec.php:30
-msgid "You must be logged in to access this page."
-msgstr "このページにアクセスするには、ログインしなければなりません。"
-
-#: /tmp/cache/59b8ee6506b88/4/d/4d3bd2214ec96fbfd68c853f4bac63ccb113723150ef7aed1644b6c5fb1b1172.php:85
-msgid "unpublished"
-msgstr "未公開"
-
-#: /tmp/cache/59b8ee655ef22/6/9/69e628f6e2e202803c76bc574f4dd3d198f0e301e420610ef3de7c1ac68a3c4d.php:84
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:245
-msgid "%author% %time%"
-msgstr "%author% %time%"
-
-#: /tmp/cache/59b8ee655ef22/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:294
-msgid "Answer discussion:"
-msgstr "ディスカッションへの回答"
-
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:130
-msgid "Archive discussion"
-msgstr "ディスカッションの保管"
-
-#: /tmp/cache/59b8ee655ef22/2/1/214776dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:67
-msgid "Choose"
-msgstr "選択"
-
-#: /tmp/cache/59b8ee655ef22/c/d/cde277ee1ffea7f701f64ad81dea0815f6f8fe319175181f8353cddacc0cd4b6.php:19
-msgid "Comment on a discussion"
-msgstr "ディスカッションについてのコメント"
-
-#: /tmp/cache/59b8ee655ef22/f/0/f022a9195793149bf12bc3d9f3063fe19deca654fc9cd7c8de2fb5968c305101.php:35
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:57
-msgid "Comments"
-msgstr ""
-
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:44
-msgid "Directly including in a content on this site"
-msgstr "このサイト上のコンテンツを直接含んでいる"
-
-#: /tmp/cache/59b8ee655ef22/0/c/0c4263250563aff6958d6f951c018de8e8cb740ffbb5a66903ea17b0c007328f.php:26
-msgid "Discuss"
-msgstr "議論する"
-
-#: /tmp/cache/59b8ee655ef22/6/7/6719bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:26
-#: /tmp/cache/59b8ee655ef22/f/0/f0758bcd46b5d3207d9f01bb78e3e0bdb581d4b0c9ab6814a70e570a261a15e0.php:19
-msgid "Discussions"
-msgstr "議論"
-
-#: /tmp/cache/59b8ee655ef22/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:261
-#: /tmp/cache/59b8ee655ef22/6/9/69e628f6e2e202803c76bc574f4dd3d198f0e301e420610ef3de7c1ac68a3c4d.php:53
-msgid "Do you really want to delete this comment?"
-msgstr "このコメントを削除してもよろしいですか。"
-
-#: /tmp/cache/59b8ee655ef22/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:183
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:169
-msgid "Do you really want to delete this discussion?"
-msgstr "このディスカッションを削除してもよろしいですか。"
-
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:151
-msgid "Flag discussion"
-msgstr "フラグの議論"
-
-#: /tmp/cache/59b8ee655ef22/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:55
-msgid "On"
-msgstr "オン"
-
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:238
-msgid "On %type% %object%: %title%"
-msgstr "%type% %object% 上: %title%"
-
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:32
-msgid "On this site:"
-msgstr "このサイトについて："
-
-#: /tmp/cache/59b8ee655ef22/2/1/214776dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:30
-msgid "Please select an appropriate category for your discussion. Choosing the right category helps others to find your discussion faster and to answer you quicker. Thank you!"
-msgstr "あなたの議論のための適切なカテゴリを選択してください。適切なカテゴリを選択することで、他利用者がより早くあなたの議論を見つけ、さらに早く解答することができます。ご協力ありがとうございます。"
-
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:303
-#: ../module/Discussion/src/Discussion/Form/CommentForm.php:75
-msgid "Reply"
-msgstr "返信"
-
-#: /tmp/cache/59b8ee655ef22/2/1/214776dfe7d81efd6882b06322e0544256e9ce160d13f5ff64cadaa486ab70e6.php:63
-msgid "Saving..."
-msgstr "保存中…"
-
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:91
-msgid "Share"
-msgstr "シェア"
-
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:87
-msgid "Share this content"
-msgstr "このコンテンツのシェア"
-
-#: /tmp/cache/59b8ee655ef22/5/3/531b6752ea2f6a38d41c9839410361db347c804716eb987adb6d56f50d53096b.php:19
-#: /tmp/cache/59b8ee655ef22/6/7/6719bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:47
-msgid "Start a new discussion"
-msgstr "新規議論を開始"
-
-#: /tmp/cache/59b8ee655ef22/6/7/6719bd308a324862468e3e345b144de214f1fdf0e891a93fce9d012fba4dbe5b.php:82
-msgid "There are no discussions on this topic yet."
-msgstr "このトピックに関する議論はまだありません。"
-
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:36
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:48
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:57
-#: /tmp/cache/59b8ee655ef22/1/b/1b103a438f9f2e73a017b3ac898565d78de58099926baf9397f4e8f7e8a5433a.php:68
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:33
-#: ../module/Ui/templates/license/manage.phtml:5
-#: ../module/Ui/templates/subject/entity/trash-bin.phtml:20
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:5
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:6
-msgid "Title"
-msgstr "タイトル"
-
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:174
-msgid "Trash discussion"
-msgstr "議論の削除"
-
-#: /tmp/cache/59b8ee655ef22/2/e/2e10e1d314e2aee1405d25602c080835c0335ee1eb661be037d33d5959e6a40f.php:124
-msgid "Unarchive discussion"
-msgstr "議論の破棄"
-
-#: /tmp/cache/59b8ee655ef22/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:46
-msgid "archived"
-msgstr "保管"
-
-#: /tmp/cache/59b8ee655ef22/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:65
-#: /tmp/cache/59b8ee655ef22/f/b/fb173fbbcbf70d6b0a5f3c6b8cf9769d72cd6d2ee7c62f8be2e0b97a52302753.php:221
-#: /tmp/cache/59b8ee6618047/0/4/046c7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:26
-msgid "by"
-msgstr "より"
-
-#: /tmp/cache/59b8ee65b7651/c/4/c43ad14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:45
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:205
-msgid "Abort"
-msgstr "中止"
-
-#: /tmp/cache/59b8ee65b7651/9/f/9fc75c0ffece694e950ffadf42da99217e81807a502eb121223212948534d6da.php:34
-msgid "Math puzzle"
-msgstr ""
-
-#: /tmp/cache/59b8ee65b7651/5/a/5a8e813d1f7b9eca1cf9960a5eb2760f1868667631041bfc75af389d85557e71.php:35
-#: /tmp/cache/59b8ee666e9c0/d/2/d2626cef57bb891877e33781386037a6e614cabfae53bb39152a5fd2989c4983.php:35
-#: /tmp/cache/59b8ee67116f0/d/8/d8ccb9606a9fa99c4e95e08b685f60a6f7ff2aea60fec1443dd7ccfd5d81950e.php:35
-msgid "Now view found for %name%"
-msgstr "%name% のビューが見つかりました。"
-
-#: /tmp/cache/59b8ee65b7651/1/c/1cf659322218286f3cd686172af08db8cb6df65c078da6083483f5c172e86511.php:24
-msgid "Related taxonomies"
-msgstr "関連分類"
-
-#: /tmp/cache/59b8ee65b7651/c/4/c43ad14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:39
-#: /tmp/cache/59b8ee6618047/e/9/e9956846e228fdcfc0deb1b5d8a89cc1a8eb34e5d5c37a0bfe112acace903431.php:102
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:199
-msgid "Save"
-msgstr "保存"
-
-#: /tmp/cache/59b8ee65b7651/c/4/c43ad14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:19
-#: /tmp/cache/59b8ee65b7651/c/4/c43ad14235fa3de9df0b84162c86ecd919ff93ddfee2c536d9a2e94615fda6d0.php:33
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:192
-#: /tmp/cache/59b8ee68aa799/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:130
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:18
-msgid "Sort"
-msgstr "分類する"
-
-#: /tmp/cache/59b8ee65b7651/6/c/6c9722fe54d3c208239138648c0e6c78693e884d4ea408d4363754310d2df0b5.php:33
-#: /tmp/cache/59b8ee6618047/0/9/09e308ef9d1c1c351a5a4baecd6d5f687a2fa709e445e1fe1fe18996cb1a5edf.php:33
-#: /tmp/cache/59b8ee69063df/b/1/b14797a83817a5c3800f6f249e540fec9b956b374ae19c84c99a21c91400c8d9.php:33
-msgid "This content is marked for deletion."
-msgstr "このコンテンツは削除対象としてマークされています。"
-
-#: /tmp/cache/59b8ee65b7651/6/c/6c9722fe54d3c208239138648c0e6c78693e884d4ea408d4363754310d2df0b5.php:26
-#: /tmp/cache/59b8ee6618047/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:81
-#: /tmp/cache/59b8ee6618047/0/9/09e308ef9d1c1c351a5a4baecd6d5f687a2fa709e445e1fe1fe18996cb1a5edf.php:26
-#: /tmp/cache/59b8ee69063df/b/1/b14797a83817a5c3800f6f249e540fec9b956b374ae19c84c99a21c91400c8d9.php:26
-msgid "Warning"
-msgstr "警告"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:40
-#: ../module/Ui/templates/flag/manage.phtml:5
-msgid "#"
-msgstr "#"
-
-#: /tmp/cache/59b8ee6618047/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:49
-msgid "Accept"
-msgstr "受諾"
-
-#: /tmp/cache/59b8ee6618047/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:26
-msgid "Accept revision"
-msgstr "変更の承諾"
-
-#: /tmp/cache/59b8ee6618047/e/9/e9956846e228fdcfc0deb1b5d8a89cc1a8eb34e5d5c37a0bfe112acace903431.php:22
-msgid "Assign resource"
-msgstr "リソースの割り当て"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:51
-msgid "Author"
-msgstr "作成者"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:47
-msgid "Changes"
-msgstr "変更"
-
-#: /tmp/cache/59b8ee6618047/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:45
-#: /tmp/cache/59b8ee6618047/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:45
-#: ../module/Ui/templates/layout/partials/default-modal.phtml:10
-#: ../module/Ui/templates/layout/partials/noscript.phtml:22
-msgid "Close"
-msgstr " 閉じる"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:111
-msgid "Create a new revision starting from this specific revision"
-msgstr ""
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:44
-msgid "Current"
-msgstr "現在"
-
-#: /tmp/cache/59b8ee6618047/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:61
-msgid "Dead node"
-msgstr "デッド・ノード"
-
-#: /tmp/cache/59b8ee6618047/2/4/245782da876650b36b423549040bd199e3ada20b40668449c5899e25c1e2f6af.php:23
-#: /tmp/cache/59b8ee67116f0/b/d/bd9e2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:42
-msgid "Hint"
-msgstr "ヒント"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:19
-#: /tmp/cache/59b8ee66b8e9d/f/d/fde2e8dd2a2b6bf97ed1925d7754b6d4f55e8b10b0581970c1ccdb7d39fa1673.php:31
-#: /tmp/cache/59b8ee685a7b4/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:57
-#: /tmp/cache/59b8ee685a7b4/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:51
-msgid "History"
-msgstr "履歴"
-
-#: /tmp/cache/59b8ee6618047/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:44
-#: /tmp/cache/59b8ee6618047/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:53
-msgid "Pending approval"
-msgstr "承認待ち"
-
-#: /tmp/cache/59b8ee6618047/e/9/e9c45c71d133de76e3bc753c0f047c6e136a0c27238b8a9358f48d72b7467a2e.php:37
-msgid "Please give feedback."
-msgstr "フィードバックを行ってください。"
-
-#: /tmp/cache/59b8ee6618047/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:37
-msgid "Please specify why you are rejecting the submission."
-msgstr "提出を受け入れない理由を明記してください。"
-
-#: /tmp/cache/59b8ee6618047/0/4/046c7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:66
-msgid "Preview"
-msgstr "プレビュー"
-
-#: /tmp/cache/59b8ee6618047/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:49
-msgid "Reject"
-msgstr "拒否"
-
-#: /tmp/cache/59b8ee6618047/f/1/f100af415314d740b973f8a73d9a87f912207665f0568f48f555ef1c8461c367.php:26
-msgid "Reject revision"
-msgstr "リビジョンの拒否"
-
-#: /tmp/cache/59b8ee6618047/0/4/046c7e44ef1793d7c8d4c4f8d0a2d0a68561735b45dc72fd7edd24aacf86eb40.php:60
-msgid "Source"
-msgstr "引用元"
-
-#: /tmp/cache/59b8ee6618047/9/9/99eb37c1373ce8c6936db1692203d034c9c4d393fb681f5e957a295924520bf9.php:34
-msgid "Text exercise"
-msgstr "テキストの練習"
-
-#: /tmp/cache/59b8ee6618047/5/f/5f068c8dcc02918d183c78b7d8d13203a5cc35222fefbc08b3243f086a32d600.php:34
-msgid "Text exercise group"
-msgstr "テキストの練習グループ"
-
-#: /tmp/cache/59b8ee6618047/1/2/1284e707a5bfc5c8b69e8e0e7d5a79f3f2154a21929155bbad627141b60a7470.php:23
-msgid "Text solution"
-msgstr "テキストのソリューション"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:28
-msgid ""
-"There are multiple recent revisions for this object. Please be aware that they may be of very\n"
-"        different nature. Consider reviewing all of them before accepting or merging."
-msgstr "この対象に関する複数の最近のリビジョンがあります。それらは全く違う本質のものかもしれないということをご留意ください。すべてを許可または統合する前に再検討してください。"
-
-#: /tmp/cache/59b8ee6618047/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:97
-msgid "This content is a dead node and has no content. Please edit or remove it."
-msgstr "このコンテンツはデッド・ノードであり、コンテンツがありません。編集するか、削除してください。"
-
-#: /tmp/cache/59b8ee6618047/b/e/be471659b176df291c0ab05f63ee60584ec36b03362ac72a5fb7ce60f692af66.php:91
-msgid "This content is pending approval and may therefore not be viewed yet."
-msgstr "このコンテンツが承認待ちであり、そのためまだ閲覧することができない可能性があります。"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:55
-#: ../module/Ui/templates/flag/detail.phtml:26
-#: ../module/Ui/templates/flag/manage.phtml:8
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:7
-msgid "Timestamp"
-msgstr "タイムスタンプ"
-
-#: /tmp/cache/59b8ee6618047/6/1/617216a7ab3ffdb22eda1fdc1e74a93a5805029a14356d900bf2cec50b308f63.php:19
-msgid "article"
-msgstr "記事"
-
-#: /tmp/cache/59b8ee6618047/c/2/c20c75715445fd05d4143d522513ecc5d9f426b6767f64a806162a960df64df4.php:84
-msgid "show"
-msgstr "表示"
-
-#: /tmp/cache/59b8ee666e9c0/2/c/2cc8b2c76d8e3177d93ca396c554b8f862af4919d21ff3222e888d1f82fb7d85.php:29
-#: ../config/instance/navigation/default.php:168
-#: ../module/Ui/templates/flag/add.phtml:1
-msgid "Flag content"
-msgstr "フラグの内容"
-
-#: /tmp/cache/59b8ee666e9c0/4/c/4cabe034cd4558dd24578f819621b79bee9b637b48d671aaf92d71972cca0d44.php:29
-#: /tmp/cache/59b8ee685a7b4/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:72
-#: /tmp/cache/59b8ee685a7b4/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:66
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:99
-#: /tmp/cache/59b8ee694a27c/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:57
-#: /tmp/cache/59b8ee694a27c/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:55
-msgid "Log"
-msgstr "ログ"
-
-#: /tmp/cache/59b8ee666e9c0/c/5/c5848713cea63cddb503647ac45efa687746c4784611b324922e38d61e7fb980.php:41
-#: /tmp/cache/59b8ee685a7b4/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:45
-msgid "More"
-msgstr "さらに"
-
-#: /tmp/cache/59b8ee666e9c0/4/3/43144f9129b6d3d3992dfaf99c560bf2ff2434bcf4eeb3cff6178b0ab4309936.php:35
-msgid "This Course-Page"
-msgstr ""
-
-#: /tmp/cache/59b8ee666e9c0/c/d/cd871f53505f267e7cddd4f9b4d2da9f65380b88b5ae6bbb431e919b53f69d33.php:28
-#: /tmp/cache/59b8ee666e9c0/4/3/43144f9129b6d3d3992dfaf99c560bf2ff2434bcf4eeb3cff6178b0ab4309936.php:28
-#: /tmp/cache/59b8ee685a7b4/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:36
-#: /tmp/cache/59b8ee694a27c/b/c/bc153aa920ad5de384fcffc53a92e74d36aaa3e7ab6b5644f8335e5339775ffa.php:36
-#: /tmp/cache/59b8ee694a27c/7/f/7f9aec95152368f604bffd60d27e5111235abcc39e27177612c219abac3b9f9c.php:36
-msgid "Toggle Dropdown"
-msgstr "ドロップダウンの切替"
-
-#: /tmp/cache/59b8ee666e9c0/4/3/43144f9129b6d3d3992dfaf99c560bf2ff2434bcf4eeb3cff6178b0ab4309936.php:47
-msgid "Whole Course"
-msgstr ""
-
-#: /tmp/cache/59b8ee666e9c0/3/4/344d7358f2354917ee3a4c9079fed25079dea28aa2577cb7cd4084475f7130c6.php:19
-msgid "course-page"
-msgstr "コース のページ"
-
-#: /tmp/cache/59b8ee666e9c0/0/c/0c4d8f114a0091db60921ec5062323b9076007281d45022b83818ad35b90da32.php:19
-msgid "grouped-text-exercise"
-msgstr "グループ化されたテキストの練習"
-
-#: /tmp/cache/59b8ee666e9c0/8/f/8fb80e23b7f0407688d4444ca15e4c53ffaa17ab0857af3ff92435c00b5cec82.php:19
-msgid "input-expression-equal-match-challenge"
-msgstr ""
-
-#: /tmp/cache/59b8ee666e9c0/5/9/5941d9690c90fcbef800e04cad51468a6bb93a9301376a4db0b1b0bf0c2964a9.php:19
-msgid "input-number-exact-match-challenge"
-msgstr ""
-
-#: /tmp/cache/59b8ee666e9c0/c/8/c86c700484b9786569dcf5a5f9a7852f60e04a92f8dfc22526c9689e47222013.php:19
-msgid "input-string-normalized-match-challenge"
-msgstr ""
-
-#: /tmp/cache/59b8ee666e9c0/b/f/bf59641bfb8c9f7c90e507e26dd0e61715c6e67cb57fa4f900c54e20b5447fa9.php:19
-msgid "math-puzzle"
-msgstr ""
-
-#: /tmp/cache/59b8ee666e9c0/b/7/b7e620779fc10a3e329a2fc420dcebfd1ca8e34b1872cb8a7871d50736f2bc98.php:19
-msgid "multiple-choice-right-answer"
-msgstr ""
-
-#: /tmp/cache/59b8ee666e9c0/1/6/16180852260ee97b991cf284e4bc603f8740ab4766d2daa7f955285bfb7d7bc0.php:19
-msgid "multiple-choice-wrong-answer"
-msgstr ""
-
-#: /tmp/cache/59b8ee66b8e9d/d/e/de4e5bda15080de80594ea1dce5ff700b2e95ccdfa7c6acf6cc5c2cb7c5e9bff.php:48
-#: /tmp/cache/59b8ee66b8e9d/d/e/de4e5bda15080de80594ea1dce5ff700b2e95ccdfa7c6acf6cc5c2cb7c5e9bff.php:88
-msgid "Add %type%"
-msgstr "%type% の追加"
-
-#: /tmp/cache/59b8ee66b8e9d/1/0/107d7d37da6c949661a5edc46abcd2510522487da01c6b01ad5f3876734b0e69.php:31
-msgid "Change license"
-msgstr "ライセンスの変更"
-
-#: /tmp/cache/59b8ee66b8e9d/d/f/dff79e6571606c659c85e57f4f6e52ea72e7f9d7b565a70a632c48567d739420.php:42
-msgid "Change parent %name%"
-msgstr "親 %name%の変更"
-
-#: /tmp/cache/59b8ee66b8e9d/2/d/2d475e96272a98b9fcbb5a77d32cc4ae168dfc1267966de8bdfb8b8efda3c659.php:91
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:180
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:273
-msgid "Check"
-msgstr ""
-
-#: /tmp/cache/59b8ee66b8e9d/2/d/2d475e96272a98b9fcbb5a77d32cc4ae168dfc1267966de8bdfb8b8efda3c659.php:98
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:188
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:281
-msgid "Correct!"
-msgstr ""
-
-#: /tmp/cache/59b8ee66b8e9d/5/8/58574abb79e8fcd1b063277568a5aff3011f603f7ee97f16243eb40df168a9c0.php:43
-#: /tmp/cache/59b8ee685a7b4/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:75
-#: /tmp/cache/59b8ee685a7b4/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:31
-msgid "Edit"
-msgstr "編集"
-
-#: /tmp/cache/59b8ee66b8e9d/b/5/b5142daec5e7f6b2266129ba351fee636766e19a8f3cca8895cc07a51636fefd.php:36
-msgid "Edit topic and curriculum assignments"
-msgstr "トピックとカリキュラムの割り当ての編集"
-
-#: /tmp/cache/59b8ee66b8e9d/2/d/2d475e96272a98b9fcbb5a77d32cc4ae168dfc1267966de8bdfb8b8efda3c659.php:78
-#: /tmp/cache/59b8ee67116f0/0/c/0cd37c323887ec937204d2701dddfb0fe3336d1d21ecbf1da9e0a536278adb9a.php:93
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:169
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:262
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:326
-msgid "Hide solution"
-msgstr "ソリューションの非表示"
-
-#: /tmp/cache/59b8ee66b8e9d/7/5/7591a701616155b47294d034fa2e7ddb383d334555206c22198d28c195b53e8b.php:35
-msgid "Info"
-msgstr "情報"
-
-#: /tmp/cache/59b8ee66b8e9d/a/d/ade97147a193ffe3ee565a646e330379f699371bc5329a9a922e987f8315a05f.php:31
-#: ../config/instance/navigation/default.php:188
-#: ../module/Ui/templates/license/detail.phtml:3
-msgid "License"
-msgstr "ライセンス"
-
-#: /tmp/cache/59b8ee66b8e9d/d/8/d8de3b1aa3698c8d90bb7c882020e18c9c61b6d699c8cb9a2d5195cb981c6326.php:31
-msgid "Manage related items"
-msgstr "関連アイテムの管理"
-
-#: /tmp/cache/59b8ee66b8e9d/7/1/71d45061fcbd9df384179af174011558c4b7f3f1626ad4eac9d11d81395cfb2b.php:30
-msgid "Move to trash"
-msgstr "ゴミ箱へ移動"
-
-#: /tmp/cache/59b8ee66b8e9d/b/8/b846341ff3bbb243206f61673c435df8f0e185cc4cdf3818dc36a44778a2c66e.php:34
-msgid "Order children"
-msgstr "子の整理"
-
-#: /tmp/cache/59b8ee66b8e9d/d/e/de4e5bda15080de80594ea1dce5ff700b2e95ccdfa7c6acf6cc5c2cb7c5e9bff.php:70
-msgid "Restore %type%"
-msgstr ""
-
-#: /tmp/cache/59b8ee66b8e9d/2/d/2d475e96272a98b9fcbb5a77d32cc4ae168dfc1267966de8bdfb8b8efda3c659.php:71
-#: /tmp/cache/59b8ee67116f0/0/c/0cd37c323887ec937204d2701dddfb0fe3336d1d21ecbf1da9e0a536278adb9a.php:89
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:165
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:258
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:322
-msgid "Show solution"
-msgstr "ソリューションの表示"
-
-#: /tmp/cache/59b8ee66b8e9d/1/2/129c9a85b7d461878398ef5d9c91e9ccdab3e76b60d094793467f18834ca57cb.php:48
-msgid "Subitem"
-msgstr ""
-
-#: /tmp/cache/59b8ee66b8e9d/2/d/2d475e96272a98b9fcbb5a77d32cc4ae168dfc1267966de8bdfb8b8efda3c659.php:36
-msgid "Type answer"
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/8/1/8101085f85bdddaf51e7f4119fe56cc71fa229700b3c3b804f81cec2dc283fc5.php:34
-#: /tmp/cache/59b8ee680ab27/7/1/71aabda5a7793bc4e689f2e3d7f25316db5b105cd0b9f57a7d35ec97a500bd91.php:39
-msgid "%user% archived %discussion%"
-msgstr "%user%は%discussion%を保存しました。"
-
-#: /tmp/cache/59b8ee67116f0/b/d/bd9e2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:60
-msgid "A hint has been created but no content has been added yet or it is pending approval."
-msgstr "ヒントが作成されましたが、コンテンツがまだ追加されてないか承認待ちです。"
-
-#: /tmp/cache/59b8ee67116f0/1/5/153280e2f0429aa36f783925eb30e78858ed93c853ee63a8b2381e4c081119c6.php:55
-msgid "A solution has been created but no content has been added yet or it is pending approval."
-msgstr "ソリューションが作成されましたが、コンテンツがまだ追加されてないか承認待ちです。"
-
-#: /tmp/cache/59b8ee67116f0/5/6/567a6243e17b88bac408aa88d7c2cce5b0860447ed5ba89cab3beb12f3965120.php:95
-msgid "Could not embed video - platform unknown"
-msgstr "不明なプラットフォームのため、ビデオを埋め込むことができませんでした。"
-
-#: /tmp/cache/59b8ee67116f0/0/c/0cd37c323887ec937204d2701dddfb0fe3336d1d21ecbf1da9e0a536278adb9a.php:73
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:306
-msgid "Hide hint"
-msgstr "ヒントの非表示"
-
-#: /tmp/cache/59b8ee67116f0/3/6/36dc4635c6ea4d110e7501dc392d0634ed34fc9328775625d3f77e48a8f4e23b.php:34
-msgid "I want to comment this"
-msgstr "ここにコメントしたいです。"
-
-#: /tmp/cache/59b8ee67116f0/7/d/7d4d767b7e88be51c098444a93846a6a7de146ac11439d5c2378f15b8884be20.php:32
-#, php-format
-msgid "No template found for event %s"
-msgstr "イベント %s のテンプレートが見つかりません"
-
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:33
-msgid "Right!"
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/0/c/0cd37c323887ec937204d2701dddfb0fe3336d1d21ecbf1da9e0a536278adb9a.php:69
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:302
-msgid "Show hint"
-msgstr "ヒントの表示"
-
-#: /tmp/cache/59b8ee67116f0/9/4/94e3fb05ff35c06f8101a491a8827949cc462993487b17cd34937261a69240b6.php:25
-#: /tmp/cache/59b8ee67116f0/7/7/7728bcb3fb14fef3735f73cfd3db60229dd7b2dffbc0a426b1b574acfa01cf01.php:25
-msgid "This answer has been created but no content has been added yet or it is pending approval."
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:240
-msgid "This solution is correct!"
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/2/0/2095f2bbb883e577bead844976c9094a8361c7ca137059d6fe3c6437420425f7.php:228
-msgid "This solution is not correct."
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/9/4/94e3fb05ff35c06f8101a491a8827949cc462993487b17cd34937261a69240b6.php:21
-#: /tmp/cache/59b8ee67116f0/7/7/7728bcb3fb14fef3735f73cfd3db60229dd7b2dffbc0a426b1b574acfa01cf01.php:21
-msgid "Wrong."
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/f/2/f249b76704bf1c6483df5461ea5041949260f1fe009efc10cc445d8389ea6044.php:19
-msgid "single-choice-right-answer"
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/5/0/501d543c2a770db313eb340436404d2fb6fd991b875172b48e9c6f73837fe73d.php:19
-msgid "single-choice-wrong-answer"
-msgstr ""
-
-#: /tmp/cache/59b8ee67116f0/f/b/fbe2b6188122f16da728f7a83ae53c80674cee07382349cbcf07e1fc54fb5b54.php:19
-msgid "text-exercise"
-msgstr "テキストの演習"
-
-#: /tmp/cache/59b8ee67116f0/3/6/36dc4635c6ea4d110e7501dc392d0634ed34fc9328775625d3f77e48a8f4e23b.php:19
-msgid "text-exercise-group"
-msgstr "テキストの練習グループ"
-
-#: /tmp/cache/59b8ee67116f0/b/d/bd9e2016be64c6c929bd1cc06bdc530f4f53e303111d160d05b45208753d48df.php:19
-msgid "text-hint"
-msgstr "テキストのヒント"
-
-#: /tmp/cache/59b8ee67116f0/1/5/153280e2f0429aa36f783925eb30e78858ed93c853ee63a8b2381e4c081119c6.php:19
-msgid "text-solution"
-msgstr "テキストのソリューション"
-
-#: /tmp/cache/59b8ee67116f0/5/6/567a6243e17b88bac408aa88d7c2cce5b0860447ed5ba89cab3beb12f3965120.php:19
-msgid "video"
-msgstr "動画"
-
-#: /tmp/cache/59b8ee67643d6/e/a/ea2aa15d393f8cc514699be0d568d9355a5c4ab692ee6df87586c56b615eb80d.php:25
-msgid "%user% associated %object% with %term%"
-msgstr "%user% は、%object% と%term% とを関連付けました。"
-
-#: /tmp/cache/59b8ee67643d6/0/7/07f7939ec435c7cc782935a2e59d89724266adfd4e502fc9096005e1f93c959f.php:27
-msgid "%user% changed %term% parent from %old% to %new%"
-msgstr "%user% は、%old% から %new% に %term% 親を変更"
-
-#: /tmp/cache/59b8ee67643d6/0/c/0cb2f9c3a07be8f039e907da1868285a62f5497f931f6af17cfeb31b16d2cbb4.php:25
-msgid "%user% changed the license of %object%"
-msgstr "%user% は、%object% のライセンスを変更しました。"
-
-#: /tmp/cache/59b8ee67643d6/b/9/b9f2ffb6bffb31af45b0205e7c167aada0859c30e47eabbb69da9506a41e448d.php:35
-msgid "%user% checked out %revision% in %repository%"
-msgstr "%user%は%repository%内の%revision%をチェックアウトしました。"
-
-#: /tmp/cache/59b8ee67643d6/b/9/b9f2ffb6bffb31af45b0205e7c167aada0859c30e47eabbb69da9506a41e448d.php:30
-msgid "%user% checked out %revision% in %repository%: \"%reason%\""
-msgstr "%user%は%repository%内の%revision%をチェックアウトしました：\"%reason%\""
-
-#: /tmp/cache/59b8ee67643d6/a/0/a09199f3ff2f1f4d725972ba214c0a72823c0b94771f8113159456b0e145a35d.php:36
-msgid "%user% commented %discussion%: %content%"
-msgstr "%user%は%discussion%にコメントしました: %content%"
-
-#: /tmp/cache/59b8ee67643d6/e/1/e1c173983e2fc035bf5b83bc53bca0fac33a8040d3d0d5138def9c11ac6f53bc.php:23
-msgid "%user% created %term%"
-msgstr "%user% は作成を %term%"
-
-#: /tmp/cache/59b8ee67643d6/4/c/4c93b9659e2e947541be9a039d72dd004b3847db99e5cb9737f026921e8e1f73.php:25
-msgid "%user% created a new %type%: %object%"
-msgstr "%user% は、新しい %type% を作成しました: %object%"
-
-#: /tmp/cache/59b8ee67643d6/7/a/7ad53d5960154422bb0424a26b8515965115a981bae58456ca31df583ae8652d.php:25
-msgid "%user% created a new version of %repository%"
-msgstr "%user% は、%repository% の新しいバージョンを作成しました。"
-
-#: /tmp/cache/59b8ee67643d6/f/7/f7d4054b7a466ecc8e72973ccf58358aba7f83ec5df71770581052e420248be1.php:25
-msgid "%user% dissociated %object% from %term%"
-msgstr "%user%は%term% から%object%を分離"
-
-#: /tmp/cache/59b8ee67643d6/1/e/1e404c8f1d37fda17247551da72a377c7f797017b095bd4fc0a0bd444e89ed1b.php:25
-msgid "%user% linked %object% with %parent%"
-msgstr "%user%は%object%を%parent%にリンクしました。"
-
-#: /tmp/cache/59b8ee67643d6/0/d/0de42edd4dba838ff511eb7bc819a1eb07df3f8ef8f07a458d246cb04462793c.php:35
-msgid "%user% rejected %revision% in %repository% without a reason"
-msgstr "%user%は%repository%内の%revision%を理由なく拒否しました。"
-
-#: /tmp/cache/59b8ee67643d6/0/d/0de42edd4dba838ff511eb7bc819a1eb07df3f8ef8f07a458d246cb04462793c.php:30
-msgid "%user% rejected %revision% in %repository%: \"%reason%\""
-msgstr "%user%は%repository%内の%revision%を拒否しました：　\"%reason%\""
-
-#: /tmp/cache/59b8ee67643d6/2/3/239a00054effba831f441866250cfbc10f10d2d03efbcd9795130d66bf0af286.php:23
-#: /tmp/cache/59b8ee680ab27/6/8/686f4eb58346c70afcba217122e7613caa4be1748c1ce5602b84f48728b9db78.php:39
-#: /tmp/cache/59b8ee685a7b4/7/1/71174e8ebf82ae3e5a9dfec2f4b85ee75562f3de92654ffd3fd3a8d42ef0ebea.php:28
-msgid "%user% restored %object%"
-msgstr "%user%は%object%を復元"
-
-#: /tmp/cache/59b8ee67643d6/e/d/ed340b72fb603be3c64363bc68e79cd8d7d92a1b5fcdf432ba14bf379a9bb7f9.php:36
-msgid "%user% started a new discussion %discussion% on %on%"
-msgstr "%user% は、%on% に新しいディスカッション %discussion% を開始しました"
-
-#: /tmp/cache/59b8ee67643d6/9/a/9a77293b48c78f8138e8bb108909d156973d61a1cdebd64f53e7311f3bd86bc9.php:23
-#: /tmp/cache/59b8ee685a7b4/a/2/a23dbeec174b2ec80d4f7d58393cb54c629db73f3f3adcc0348b72548aae0de5.php:28
-msgid "%user% trashed %object%"
-msgstr "%user%は%object%をゴミ箱に移動"
-
-#: /tmp/cache/59b8ee67643d6/5/f/5fdca952ad851e8e4b67eaf9a29ddedb1668c8dfafde47ca4affcec06ce08a4e.php:23
-msgid "%user% updated %term%"
-msgstr "%user%は%term%を更新"
-
-#: /tmp/cache/59b8ee67aefb6/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:73
-msgid "Activate"
-msgstr "有効化"
-
-#: /tmp/cache/59b8ee67aefb6/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:114
-msgid "Add page"
-msgstr "ページの追加"
-
-#: /tmp/cache/59b8ee67aefb6/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:104
-msgid "Add parameter"
-msgstr "パラメーターの追加"
-
-#: /tmp/cache/59b8ee67aefb6/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:61
-msgid "Deactivate"
-msgstr "無効化"
-
-#: /tmp/cache/59b8ee67aefb6/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:30
-msgid "Emails"
-msgstr "メール"
-
-#: /tmp/cache/59b8ee67aefb6/7/6/767be009c113f861ed5704eeea584f47d008c9ed237eede400b3a03833b1ad78.php:19
-#: /tmp/cache/59b8ee67aefb6/5/d/5da14eda2e78498a776a49de7340a62b4742692cd8d2f2e5f6dfd95916203b53.php:19
-#: /tmp/cache/59b8ee67aefb6/f/d/fd1d8b87622fe6f1659f5c149c953e30de5377caf6d5ea252a1de9b5750d7ef1.php:19
-#: ../config/instance/navigation/default.php:277
-msgid "Event log"
-msgstr "イベントログ"
-
-#: /tmp/cache/59b8ee67aefb6/2/5/2523c33c5e5df5279342c61dded3449341babe725a023b2cefad6b644c997271.php:23
-msgid ""
-"Hello %user%,<br>\n"
-"<br>\n"
-"here's a heads up of what has happened on %brand%:<br>"
-msgstr ""
-"こんにちは %user%、<br>\n"
-" <br>\n"
-"これは%brand% で起こっているの警告です: <br>"
-
-#: /tmp/cache/59b8ee67aefb6/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:23
-msgid "Information"
-msgstr "情報"
-
-#: /tmp/cache/59b8ee67aefb6/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:29
-msgid "Instance: "
-msgstr "実例："
-
-#: /tmp/cache/59b8ee67aefb6/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:19
-#: ../config/instance/navigation/default.php:109
-#: ../module/Ui/templates/navigation/containers.phtml:1
-msgid "Manage navigation"
-msgstr "ナビの管理"
-
-#: /tmp/cache/59b8ee67aefb6/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:19
-msgid "Manage subscriptions"
-msgstr "サブスクリプションの管理"
-
-#: /tmp/cache/59b8ee67aefb6/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:36
-msgid "Name: "
-msgstr "名前："
-
-#: /tmp/cache/59b8ee67aefb6/b/5/b5c41c0fc2c42837b4d01dc02800b5f65bf23f5a1fccbeca42dc3db219b6a1aa.php:36
-msgid "No template found for notification \"%type%\""
-msgstr "通知”%type%”のテンプレートが見つかりません"
-
-#: /tmp/cache/59b8ee67aefb6/b/5/b5c41c0fc2c42837b4d01dc02800b5f65bf23f5a1fccbeca42dc3db219b6a1aa.php:47
-msgid "No view found for %name%"
-msgstr "%name%のビューが見つかりません"
-
-#: /tmp/cache/59b8ee67aefb6/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:26
-#: ../module/Ui/templates/flag/detail.phtml:8
-#: ../module/Ui/templates/flag/manage.phtml:6
-msgid "Object"
-msgstr "オブジェクト："
-
-#: /tmp/cache/59b8ee67aefb6/4/9/499b54b5304af146f225b2e2e9d487256b4d48eae0fef139156059c7b4f3e256.php:19
-msgid "Page settings"
-msgstr "ページの設定"
-
-#: /tmp/cache/59b8ee67aefb6/4/3/43a18e71946c76540340c63b33d321e9f19a93ac64c5ed458717ae4ba06c8920.php:60
-#: /tmp/cache/59b8ee685a7b4/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:19
-#: ../config/instance/navigation/default.php:21
-msgid "Pages"
-msgstr "ページ"
-
-#: /tmp/cache/59b8ee67aefb6/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:145
-msgid "Remove page"
-msgstr "ページの削除"
-
-#: /tmp/cache/59b8ee67aefb6/c/2/c2b406d31b21333d538d6109ae6d283304f4e53680949168c680f5ca53c61d84.php:134
-#: /tmp/cache/59b8ee685a7b4/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:125
-#: /tmp/cache/59b8ee685a7b4/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:119
-msgid "Settings"
-msgstr "設定"
-
-#: /tmp/cache/59b8ee67aefb6/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:34
-msgid "Subscription"
-msgstr "購読"
-
-#: /tmp/cache/59b8ee67aefb6/7/e/7e74b7151383908be7c621614ee6f3a4e7c5ad50d1ecee509fb371218d1ee51e.php:83
-#: /tmp/cache/59b8ee680ab27/8/d/8d0234ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:26
-#: /tmp/cache/59b8ee680ab27/8/d/8d0234ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:50
-#: /tmp/cache/59b8ee680ab27/8/d/8d0234ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:67
-#: /tmp/cache/59b8ee680ab27/3/d/3d43343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:25
-#: /tmp/cache/59b8ee680ab27/3/d/3d43343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:45
-#: /tmp/cache/59b8ee680ab27/3/d/3d43343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:60
-#: /tmp/cache/59b8ee680ab27/e/9/e98d06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:25
-#: /tmp/cache/59b8ee680ab27/e/9/e98d06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:45
-#: /tmp/cache/59b8ee680ab27/e/9/e98d06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:60
-msgid "Unsubscribe"
-msgstr "購読の解除"
-
-#: /tmp/cache/59b8ee67aefb6/4/2/42f8a446ae98d066407d34ec0f6131297ce386a53fee01e8817321a914cd3b86.php:93
-msgid "You have no notifications."
-msgstr "通知がありません。"
-
-#: /tmp/cache/59b8ee67aefb6/b/3/b35f09ac63a58f3a9edfb53cc43c8487efdf2ac58d913eac056649e091a5c2ae.php:21
-msgid "You have unread notifications on %brand%"
-msgstr "あなたは%brand%の通知を未読です。"
-
-#: /tmp/cache/59b8ee680ab27/7/0/70e4e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:44
-msgid "%user% accepted a %revision% of %repository% without a reason"
-msgstr "%user%は%repository%の%revision%を理由なく許可しました。"
-
-#: /tmp/cache/59b8ee680ab27/7/0/70e4e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:37
-msgid "%user% accepted a %revision% of %repository%: %reason%"
-msgstr "%user%は%repository%の%revision%を理由なく許可しました：%reason%"
-
-#: /tmp/cache/59b8ee680ab27/6/0/60c22b940a79fec22a0b9ba11f7cb7265e2ecb9c20583d4bfe74e9987d13de84.php:34
-msgid "%user% added %object% to %parent%"
-msgstr "%user%は、%parent%に%object%を追加"
-
-#: /tmp/cache/59b8ee680ab27/f/3/f3740bcebbf0fc2817654c4e859d13a49dcff3bb6b282893c5e6753a079e81ff.php:30
-msgid "%user% associated %term% with %object%"
-msgstr "%user% は、%object%に%term%を関連付け"
-
-#: /tmp/cache/59b8ee680ab27/8/d/8dbecc4219b50d1b355c6a9a1492a88a18b95f9316051c1db04bd4d2c0fe5b93.php:43
-msgid "%user% commented on %discussion%: %content%"
-msgstr "%user%は%discussion%にコメントしました: %content%"
-
-#: /tmp/cache/59b8ee680ab27/1/b/1bcb0248d2fd936ac56fee5a801c294f9ee77b44241d81c53967eb3e3e100867.php:34
-msgid "%user% created a %revision% in %repository%"
-msgstr "%user% は、%repository%に%revision%を作成"
-
-#: /tmp/cache/59b8ee680ab27/f/7/f76abb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:44
-msgid "%user% rejected a %revision% of %repository% without a reason"
-msgstr "%user%は%repository%の%revision%を理由なく拒否"
-
-#: /tmp/cache/59b8ee680ab27/f/7/f76abb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:37
-msgid "%user% rejected a %revision% of %repository%: %reason%"
-msgstr "%user%は%repository%の%revision%を拒否：%reason%"
-
-#: /tmp/cache/59b8ee680ab27/1/9/190050328e70b1741163328b11c6889941eaec73358c67ebe411d5540ab38c6f.php:30
-msgid "%user% removed %object% from %object%"
-msgstr "%user%は%object%から%object%を削除  "
-
-#: /tmp/cache/59b8ee680ab27/3/1/3106e8d0811add19dc9d56753dc9219e26ecd02ee030f482590a81a0442db1a7.php:43
-msgid "%user% started %discussion% on %object%: %title%"
-msgstr "%user%は%object%に%discussion%を始めた:%title%"
-
-#: /tmp/cache/59b8ee680ab27/1/3/13cde258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:36
-#: /tmp/cache/59b8ee680ab27/7/2/72726bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:34
-#: /tmp/cache/59b8ee680ab27/6/2/62c105d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:31
-msgid "Receive notifications"
-msgstr "通知の受取り"
-
-#: /tmp/cache/59b8ee680ab27/1/3/13cde258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:47
-#: /tmp/cache/59b8ee680ab27/7/2/72726bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:43
-#: /tmp/cache/59b8ee680ab27/6/2/62c105d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:40
-msgid "Receive notifications and emails"
-msgstr "通知やメールの受信"
-
-#: /tmp/cache/59b8ee680ab27/8/d/8d0234ad3c373da583eea6737b43ddcfb2bcb6c549ff6074de21d1153f83412c.php:38
-#: /tmp/cache/59b8ee680ab27/3/d/3d43343e1137c8bb7ebc4807769c00f6ea9840b343f5694d7d5ada59aafbce16.php:36
-#: /tmp/cache/59b8ee680ab27/e/9/e98d06e8464dc3c9832933e01599a13916f6c3ac4bad7215c9aaed998a80165f.php:36
-msgid "Stop sending emails"
-msgstr "メールの送信を停止"
-
-#: /tmp/cache/59b8ee680ab27/1/3/13cde258d911f8dc274f9a66b7354f2e314a7352063af02f3d1965895dba3fd2.php:24
-#: /tmp/cache/59b8ee680ab27/7/2/72726bd267bbe60dbc515328b59a055b8f0ae071850dd48e3a71a08bd83ab5e4.php:23
-#: /tmp/cache/59b8ee680ab27/6/2/62c105d484f3c14e0747c59d7cd3041b58da6169eb6ae11d2a15da5cc7182ba2.php:22
-msgid "Subscribe"
-msgstr "購読する"
-
-#: /tmp/cache/59b8ee680ab27/1/b/1bcb0248d2fd936ac56fee5a801c294f9ee77b44241d81c53967eb3e3e100867.php:29
-#: /tmp/cache/59b8ee680ab27/7/0/70e4e2718785d56f852e9502ba7eaff9ac4912a83a6e7d5bfd7c23a47fcbde17.php:29
-#: /tmp/cache/59b8ee680ab27/f/7/f76abb34f53ebe32fd4cb16287bb5317335c889d21f3b5d9ff41616ef46068b0.php:29
-msgid "revision"
-msgstr "リビジョン"
-
-#: /tmp/cache/59b8ee685a7b4/9/d/9d39c06123d16536c175fbeb544e810f8f255d342ff4f4239452e26fdc4fcd7f.php:36
-msgid "%user% changed %term%'s parent from %old% to %new%"
-msgstr "%user% は、%term%の親を%old%から%new%に変更"
-
-#: /tmp/cache/59b8ee685a7b4/8/2/826fafa298efd594e59705660a35aed4ca87f339a857c62782951ecbfdf6d54f.php:28
-msgid "%user% updated %object%"
-msgstr "%user%は%object%を更新"
-
-#: /tmp/cache/59b8ee685a7b4/7/8/781096c7530d74165b1f86a2e3a3fcbcadb64d0b0866741480d0449c7a72ef13.php:19
-msgid "Add a category"
-msgstr "カテゴリの追加"
-
-#: /tmp/cache/59b8ee685a7b4/0/8/08b64bff2410a7861c570d4b26ed37492100a4c0cc71c214898b48ddfa965a9f.php:19
-msgid "Add external link"
-msgstr "外部リンクの追加"
-
-#: /tmp/cache/59b8ee685a7b4/5/5/5560a1fc8e574fc8f6d797e29402026e670698a2f07a5943917b6e999e194fa0.php:19
-msgid "Add internal link"
-msgstr "内部リンクの追加"
-
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:54
-msgid "Author:"
-msgstr "作成者："
-
-#: /tmp/cache/59b8ee685a7b4/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:127
-msgid "Create a new page"
-msgstr "新しいページの作成"
-
-#: /tmp/cache/59b8ee685a7b4/9/1/91cd8b9687090e8fbf6c2dad93ee1795f60e7685d89b01a1cf592ebc4ec6b269.php:19
-#: ../config/instance/navigation/default.php:27
-msgid "Create a page"
-msgstr "ページを作成"
-
-#: /tmp/cache/59b8ee685a7b4/c/c/ccf19b79c4f4569ac5f6eaec78b1f21f886bddfa733db1bd49bade882d158173.php:19
-msgid "Create a revision"
-msgstr "リビジョンの作成"
-
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:170
-msgid "Edit page"
-msgstr "ページの編集"
-
-#: /tmp/cache/59b8ee685a7b4/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:57
-msgid "No revision checked out yet."
-msgstr "チェック アウトされたリビジョンがありません"
-
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:19
-msgid "Revisions"
-msgstr "リビジョン"
-
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:137
-msgid "Set as base"
-msgstr "ベースとして設定"
-
-#: /tmp/cache/59b8ee685a7b4/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:108
-#: /tmp/cache/59b8ee685a7b4/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:102
-msgid "Set as base revision"
-msgstr "ベースリビジョンとして設定"
-
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:64
-msgid "Time:"
-msgstr "時間:"
-
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:44
-#: ../module/Ads/src/Ads/Form/AdForm.php:33
-#: ../module/Blog/src/Blog/Form/CreatePostForm.php:68
-#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:49
-#: ../module/Contexter/src/Contexter/Form/ContextForm.php:37
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:31
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:31
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:33
-#: ../module/Entity/src/Entity/Form/VideoForm.php:33
-#: ../module/License/src/License/Form/LicenseForm.php:34
-#: ../module/Page/src/Page/Form/RevisionForm.php:27
-#: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:30
-#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:31
-#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:31
-msgid "Title:"
-msgstr "タイトル："
-
-#: /tmp/cache/59b8ee685a7b4/0/4/043b9e102a2c6df71a72afac7ffa7e3ff6368c64988bd560bca80cf981da2cad.php:91
-#: /tmp/cache/59b8ee685a7b4/1/8/188c07a339abf919f3eb0a69fc683861a3ca88cc5c9fbc31d034e325e4f9648e.php:90
-#: /tmp/cache/59b8ee685a7b4/9/8/9838a8153bff32614f8ea42e83af2666985aa67f60528ef68b401505f5d180e7.php:84
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:117
-msgid "Trash"
-msgstr "ごみ箱"
-
-#: /tmp/cache/59b8ee685a7b4/0/4/04b43796e2176095808f4e2341323223128175cab0327a99d8f694340028a1de.php:19
-#: ../config/instance/navigation/default.php:33
-msgid "Update a page"
-msgstr "ページを更新"
-
-#: /tmp/cache/59b8ee685a7b4/0/6/06381bfe72e3defafd9b1c700f14dcaefe800383a80ad7e44a188cc61f30ee73.php:85
-msgid "Use for editing"
-msgstr "編集用"
-
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:51
-#: ../module/Ui/templates/license/manage.phtml:8
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:8
-msgid "Actions"
-msgstr "アクション"
-
-#: /tmp/cache/59b8ee68aa799/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:142
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:20
-msgid "Cancel"
-msgstr "キャンセル"
-
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:158
-msgid "Category"
-msgstr "カテゴリ"
-
-#: /tmp/cache/59b8ee68aa799/e/e/eee93e61f8c52d3852495099aca5aa0ffeb56e26f42e627491779d284fb65e52.php:19
-msgid "Copy associations"
-msgstr "関連のコピー"
-
-#: /tmp/cache/59b8ee68aa799/7/3/7377bb8c1db0e220d930996d685319bfe9d5e97b0691b44477467f9a7c842cb9.php:19
-msgid "Create term"
-msgstr "用語の作成"
-
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:178
-msgid "External"
-msgstr "外部"
-
-#: /tmp/cache/59b8ee68aa799/9/3/93c87f4ee99e4617e9b2d42a50fe9547e24d2611993ec18176a7847e07a9c158.php:24
-msgid "Further exercises"
-msgstr "追加演習"
-
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:168
-msgid "Internal"
-msgstr "内部"
-
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:23
-msgid "Manage related links"
-msgstr "関連リンクの管理"
-
-#: /tmp/cache/59b8ee68aa799/0/2/02b3ee2f3efdbd2f0ea2f693ca076fc2292b79a8d6a4a43890e3d53719ab3266.php:19
-msgid "Move associations"
-msgstr "関連付けの移動"
-
-#: /tmp/cache/59b8ee68aa799/9/1/91778b3c058dccc6f82af7a4a85ca6279b9f73d5465ce0e73a719423b7693d27.php:21
-#: /tmp/cache/59b8ee694a27c/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:41
-#: /tmp/cache/59b8ee694a27c/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:39
-#: ../config/instance/navigation/default.php:47
-msgid "Organize"
-msgstr "整理"
-
-#: /tmp/cache/59b8ee68aa799/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:136
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:19
-msgid "Save new order"
-msgstr "新しい順序の保存"
-
-#: /tmp/cache/59b8ee68aa799/8/1/81d2720b271ea83445e36bffb8ff3b998ab40972d70919700aaca28aca107370.php:23
-#: /tmp/cache/59b8ee68aa799/e/9/e9edd14f30b9fa533f7c9edd50226e8328e5d1a4e5a2a8486c91c1a2d89b068b.php:24
-#: ../module/Ui/templates/layout/partials/search.phtml:6
-msgid "Search"
-msgstr "検索"
-
-#: /tmp/cache/59b8ee68aa799/f/3/f335cef104b64e1cede6aede42d51d2183465b682214549e642e7e5b43ef7dd4.php:24
-msgid "Search results"
-msgstr "結果の検索"
-
-#: /tmp/cache/59b8ee68aa799/9/9/999386126c28191c568b48eef4c361f2d969e4b40a14da2e00751dac944e6903.php:23
-msgid "Start learning now!"
-msgstr "今すぐ学習を開始！"
-
-#: /tmp/cache/59b8ee68aa799/4/c/4c406d0d3f3787d2212ad28ef8f57f63e99d6bb15218609da2c7fe7b7fca2109.php:33
-msgid "Template for %name% not found."
-msgstr "%name%のテンプレートが見つかりません。"
-
-#: /tmp/cache/59b8ee68aa799/c/a/ca1c9412a8196707619c3ce25a68c77187bb0dfa5ef4257a1f582ce8ce8ffb1e.php:123
-msgid "Tools"
-msgstr "ツール"
-
-#: /tmp/cache/59b8ee68aa799/7/3/73317544aaea7436340107e8edd518125e14597ea383812dd8a2ebda2838a05f.php:42
-#: ../module/Ui/templates/flag/detail.phtml:17
-#: ../module/Ui/templates/flag/manage.phtml:7
-#: ../module/Ui/templates/subject/entity/trash-bin.phtml:21
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:6
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:7
-msgid "Type"
-msgstr "タイプ："
-
-#: /tmp/cache/59b8ee69063df/f/d/fdc560036ca3ec9e0e019322723b7506dd2299069c31407d034132c46532b484.php:19
-msgid "curriculum"
-msgstr "カリキュラム"
-
-#: /tmp/cache/59b8ee69063df/0/8/08dca70a0edeebcd500efdc21895df9e84d88d86a73d946cebcd40572260b1b9.php:19
-msgid "curriculum-topic"
-msgstr "カリキュラム―トピック"
-
-#: /tmp/cache/59b8ee69063df/3/2/32c065c0bab471911867dc2fb67722035a945ec52c8e281abaf073523db4e940.php:19
-msgid "curriculum-topic-folder"
-msgstr "カリキュラム―トピック―フォルダー"
-
-#: /tmp/cache/59b8ee69063df/7/9/79b68b39ce0ba2691aa2b338f22bcdc2803281a60030b02c4f17a61dca424960.php:19
-msgid "locale"
-msgstr "設定情報"
-
-#: /tmp/cache/59b8ee694a27c/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:70
-msgid "Add content"
-msgstr "コンテンツの追加"
-
-#: /tmp/cache/59b8ee694a27c/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
-msgid "Articles"
-msgstr "記事"
-
-#: /tmp/cache/59b8ee694a27c/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:127
-#: /tmp/cache/59b8ee694a27c/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:87
-msgid "Batch copy items"
-msgstr "アイテムの一括複製"
-
-#: /tmp/cache/59b8ee694a27c/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:143
-#: /tmp/cache/59b8ee694a27c/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:103
-msgid "Batch move items"
-msgstr "アイテムの一括移動"
-
-#: /tmp/cache/59b8ee694a27c/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:151
-msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/21654\">Terms of Service</a>."
-msgstr "<em>サインアップ</em> をクリックすると、あなたは私たちの <a href=\"/21654\"> サービスの利用規約</a> に同意したことになります。"
-
-#: /tmp/cache/59b8ee694a27c/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
-msgid "Courses"
-msgstr "コース"
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:79
-msgid "Edits"
-msgstr ""
-
-#: /tmp/cache/59b8ee694a27c/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:75
-msgid "Email"
-msgstr "メール"
-
-#: /tmp/cache/59b8ee694a27c/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:89
-msgid "Exercises"
-msgstr "演習"
-
-#: /tmp/cache/59b8ee694a27c/d/b/dbd95d48b6707c3c587d87c539cb0ceba52b5e72ea79eb05da97946ac416518a.php:47
-msgid "Groups"
-msgstr "グループ"
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:202
-msgid "Last seen"
-msgstr "閲覧"
-
-#: /tmp/cache/59b8ee694a27c/3/d/3d14ae2a6d629e882af40cbea4bf15d14a3be13a7c29b3ff17586572563d04b6.php:19
-msgid "My settings"
-msgstr "マイセッティング"
-
-#: /tmp/cache/59b8ee694a27c/e/c/ecb12413fb9ed5e037e819539b5872253ee30b1d024452c2daac27bed6339063.php:111
-#: /tmp/cache/59b8ee694a27c/1/5/15bd6e07c029f6376a4206025c82d6ff016a156c0e7f0190d6efae9fc6536c35.php:71
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:1
-msgid "Order content"
-msgstr "内容の順序"
-
-#: /tmp/cache/59b8ee694a27c/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:113
-#: ../module/User/src/User/Form/Login.php:41
-msgid "Password"
-msgstr "パスワード"
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:19
-msgid "Profile"
-msgstr "プロファイル"
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:178
-msgid "Recent activities"
-msgstr "最近のアクティビティ"
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:101
-msgid "Reviews"
-msgstr ""
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:216
-#: /tmp/cache/59b8ee69a2071/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:28
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:16
-#: ../module/Ui/templates/authorization/role/roles.phtml:11
-msgid "Roles"
-msgstr "役割"
-
-#: /tmp/cache/59b8ee694a27c/2/f/2fe72f0b515004b59e946b309b21d14ff794390e2775ff15fd7f45b7e7440bc7.php:263
-#, php-format
-msgid "Show %ecount% exercises..."
-msgstr "%ecount% 演習の表示"
-
-#: /tmp/cache/59b8ee694a27c/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:24
-msgid "Sign up"
-msgstr "登録"
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:35
-msgid "Statistics"
-msgstr "統計学"
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:123
-msgid "Taxonomy associations"
-msgstr ""
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:145
-msgid "Taxonomy changes"
-msgstr ""
-
-#: /tmp/cache/59b8ee694a27c/3/6/36fc324346af3b8ef0bb24dec57e586c874546b2479a4c00d36b930b5d365948.php:167
-msgid "Total deletions"
-msgstr ""
-
-#: /tmp/cache/59b8ee694a27c/a/3/a33a5f0124ea6930f3bb761c72d967a4ccecd4d96b6bb39065a862cc2b954efe.php:19
-msgid "Update term"
-msgstr "用語の更新"
-
-#: /tmp/cache/59b8ee694a27c/9/2/929ed964e2fa247c4f1bbfebf618b1765c94239f30785b22bc4bdc09d12de28f.php:53
-#: /tmp/cache/59b8ee69a2071/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:24
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:15
-msgid "Username"
-msgstr "ユーザー名"
-
-#: /tmp/cache/59b8ee694a27c/a/9/a9dd0110fa8691d32404dc0d33d7bb677e99ac3f93294f42046ee66a614ceae0.php:48
-msgid "Videos"
-msgstr "ビデオ"
-
-#: /tmp/cache/59b8ee694a27c/0/a/0ac33929433f83a2ce8691e29e61df5c3b4447b613e8c1796c10944bb18b4b41.php:19
-msgid "subject"
-msgstr "件名"
-
-#: /tmp/cache/59b8ee694a27c/d/5/d52ae24cf4e6ff6fd54ae7a0d3ae2941dbc23451b88d66e4d44ffe9cc56f1ad5.php:19
-msgid "topic"
-msgstr "トピック"
-
-#: /tmp/cache/59b8ee694a27c/8/b/8bdc57c33604f04685bb19635ba474115fdf1397490f025047263f5a8257a928.php:19
-msgid "topic-folder"
-msgstr "トピックフォルダー"
-
-#: /tmp/cache/59b8ee69a2071/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:32
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:17
-msgid "Last login"
-msgstr "最終ログイン"
-
-#: /tmp/cache/59b8ee69a2071/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:36
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:18
-msgid "Logins"
-msgstr "ログイン"
-
-#: /tmp/cache/59b8ee69a2071/8/e/8eb2c63d3a023f3c7dff529944be96670bc6b3b636b7ebba058368810338d4be.php:69
-msgid "Never"
-msgstr "サインインされていません"
-
-#: /tmp/cache/59b8ee69a2071/2/7/27319e303595527c214e058ab82e2945a742b61394cfb62afe21fee9a23631a5.php:19
-#: ../config/instance/navigation/default.php:144
-#: ../module/Ui/templates/authorization/role/show.phtml:19
-msgid "Users"
-msgstr "ユーザ"
-
 #: ../config/instance/navigation/default.php:15
 #: ../module/Ui/templates/admin/home/index.phtml:11
 msgid "Backend"
 msgstr "バックエンド"
 
+#: ../config/instance/navigation/default.php:21
+#: ../module/Ui/templates/navigation/container/get.twig:19
+#: ../module/Ui/templates/page/pages.twig:1
+msgid "Pages"
+msgstr "ページ"
+
+#: ../config/instance/navigation/default.php:27
+#: ../module/Ui/templates/page/create.twig:1
+msgid "Create a page"
+msgstr "ページを作成"
+
+#: ../config/instance/navigation/default.php:33
+#: ../module/Ui/templates/page/update.twig:1
+msgid "Update a page"
+msgstr "ページを更新"
+
 #: ../config/instance/navigation/default.php:41
 msgid "Taxonomy"
 msgstr "分類"
+
+#: ../config/instance/navigation/default.php:47
+#: ../module/Ui/templates/taxonomy/term/organize.twig:2
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:9
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:8
+msgid "Organize"
+msgstr "整理"
 
 #: ../config/instance/navigation/default.php:71
 msgid "Authorization"
@@ -1298,6 +80,12 @@ msgstr "権限を追加"
 msgid "Navigation"
 msgstr "ナビゲーション"
 
+#: ../config/instance/navigation/default.php:109
+#: ../module/Ui/templates/navigation/containers.phtml:1
+#: ../module/Ui/templates/navigation/container/get.twig:1
+msgid "Manage navigation"
+msgstr "ナビの管理"
+
 #: ../config/instance/navigation/default.php:114
 #: ../module/Ui/templates/navigation/container/create.phtml:1
 msgid "Create container"
@@ -1318,6 +106,12 @@ msgstr "パラメーター キーを作成"
 msgid "Update parameter"
 msgstr "パラメーターを更新"
 
+#: ../config/instance/navigation/default.php:144
+#: ../module/Ui/templates/authorization/role/show.phtml:19
+#: ../module/Ui/templates/user/users/users.twig:1
+msgid "Users"
+msgstr "ユーザ"
+
 #: ../config/instance/navigation/default.php:150
 msgid "Recycle bin"
 msgstr "ごみ箱"
@@ -1331,6 +125,12 @@ msgstr "フラグ"
 msgid "Flag detail"
 msgstr "フラグの詳細"
 
+#: ../config/instance/navigation/default.php:168
+#: ../module/Ui/templates/flag/add.phtml:1
+#: ../module/Ui/templates/entity/view/partials/actions/flag/create.twig:5
+msgid "Flag content"
+msgstr "フラグの内容"
+
 #: ../config/instance/navigation/default.php:176
 msgid "Licenses"
 msgstr "ライセンス"
@@ -1340,9 +140,31 @@ msgstr "ライセンス"
 msgid "Add license"
 msgstr "ライセンスを追加"
 
+#: ../config/instance/navigation/default.php:188
+#: ../module/Ui/templates/license/detail.phtml:3
+#: ../module/Ui/templates/entity/view/partials/actions/license/show.twig:6
+msgid "License"
+msgstr "ライセンス"
+
 #: ../config/instance/navigation/default.php:200
 msgid "Horizon"
 msgstr "ホライゾン"
+
+#: ../config/instance/navigation/default.php:205
+#: ../module/Ui/templates/ads/ads.twig:6
+#: ../module/Ui/templates/ads/create.twig:1
+msgid "Create ad"
+msgstr "広告を作成"
+
+#: ../config/instance/navigation/default.php:211
+#: ../module/Ui/templates/ads/update.twig:1
+msgid "Update ad"
+msgstr "広告を更新"
+
+#: ../config/instance/navigation/default.php:222
+#: ../module/Ui/templates/blog/blog/view.twig:2
+msgid "Blog"
+msgstr "ブログ"
 
 #: ../config/instance/navigation/default.php:237
 msgid "Me"
@@ -1356,9 +178,21 @@ msgstr ""
 msgid "Edit profile"
 msgstr "プロフィールを編集"
 
+#: ../config/instance/navigation/default.php:265
+#: ../module/Ui/templates/authentication/change-password.twig:1
+msgid "Update password"
+msgstr "パスワードの更新"
+
 #: ../config/instance/navigation/default.php:271
 msgid "Subscriptions"
 msgstr "ファロー"
+
+#: ../config/instance/navigation/default.php:277
+#: ../module/Ui/templates/event/history/all.twig:1
+#: ../module/Ui/templates/event/history/object.twig:1
+#: ../module/Ui/templates/event/history/user.twig:1
+msgid "Event log"
+msgstr "イベントログ"
 
 #: ../module/Admin/src/Admin/Form/DebuggerForm.php:27
 msgid "Message:"
@@ -1370,12 +204,29 @@ msgid "The element could not be removed (validation failed)"
 msgstr ""
 
 #: ../module/Ads/src/Ads/Form/AdForm.php:34
+#: ../module/Blog/src/Blog/Form/CreatePostForm.php:68
+#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:49
+#: ../module/Contexter/src/Contexter/Form/ContextForm.php:37
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:31
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:31
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:33
+#: ../module/Entity/src/Entity/Form/VideoForm.php:33
+#: ../module/License/src/License/Form/LicenseForm.php:34
+#: ../module/Page/src/Page/Form/RevisionForm.php:27
+#: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:30
+#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:31
+#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:31
+#: ../module/Ui/templates/page/revisions.twig:8
+msgid "Title:"
+msgstr "タイトル："
+
+#: ../module/Ads/src/Ads/Form/AdForm.php:35
 #: ../module/Page/src/Page/Form/RepositoryForm.php:34
 #: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:32
 msgid "Url:"
 msgstr "URL："
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:35
+#: ../module/Ads/src/Ads/Form/AdForm.php:36
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:69
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:50
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:32
@@ -1395,9 +246,13 @@ msgstr "URL："
 msgid "Content:"
 msgstr "内容"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:44
+#: ../module/Ads/src/Ads/Form/AdForm.php:45
 msgid "frequency"
 msgstr "頻度"
+
+#: ../module/Ads/src/Ads/Form/AdForm.php:47
+msgid "Banner"
+msgstr ""
 
 #: ../module/Ads/src/Ads/Form/AdPageForm.php:28
 msgid "Page ID:"
@@ -1520,6 +375,11 @@ msgstr "このコメントに賛成票を投じることはできません。"
 #: ../module/Discussion/src/Discussion/Form/CommentForm.php:70
 msgid "Your response"
 msgstr ""
+
+#: ../module/Discussion/src/Discussion/Form/CommentForm.php:75
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:118
+msgid "Reply"
+msgstr "返信"
 
 #: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:70
 msgid "Ask a question or suggest an improvement"
@@ -1786,6 +646,11 @@ msgstr "メールアドレスまたはユーザ名"
 msgid "Password:"
 msgstr "パスワード"
 
+#: ../module/User/src/User/Form/Login.php:41
+#: ../module/Ui/templates/user/user/register.twig:42
+msgid "Password"
+msgstr "パスワード"
+
 #: ../module/User/src/User/Form/Login.php:44
 msgid "Remember me"
 msgstr "設定を保存します"
@@ -1869,6 +734,29 @@ msgstr ""
 #: ../module/Ui/templates/admin/home/index.phtml:14
 msgid "Welcome to the backend. Explore the possiblities on the right!"
 msgstr "バックエンドへようこそ。右にある「可能性」をのぞいてみましょう！"
+
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:15
+#: ../module/Ui/templates/user/user/register.twig:15
+#: ../module/Ui/templates/user/users/partial/users-table.twig:4
+msgid "Username"
+msgstr "ユーザー名"
+
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:16
+#: ../module/Ui/templates/authorization/role/roles.phtml:11
+#: ../module/Ui/templates/user/user/profile.twig:99
+#: ../module/Ui/templates/user/users/partial/users-table.twig:5
+msgid "Roles"
+msgstr "役割"
+
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:17
+#: ../module/Ui/templates/user/users/partial/users-table.twig:6
+msgid "Last login"
+msgstr "最終ログイン"
+
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:18
+#: ../module/Ui/templates/user/users/partial/users-table.twig:7
+msgid "Logins"
+msgstr "ログイン"
 
 #: ../module/Ui/templates/authorization/role/roles.phtml:28
 msgid "role"
@@ -2043,6 +931,28 @@ msgstr "利用可能な例外はありません。"
 msgid "Read the following, if you're really good with computers:"
 msgstr "もしコンピュータが得意でしたら、以下をお読みください。"
 
+#: ../module/Ui/templates/flag/detail.phtml:8
+#: ../module/Ui/templates/flag/manage.phtml:6
+#: ../module/Ui/templates/notification/subscription/manage.twig:5
+msgid "Object"
+msgstr "オブジェクト："
+
+#: ../module/Ui/templates/flag/detail.phtml:17
+#: ../module/Ui/templates/flag/manage.phtml:7
+#: ../module/Ui/templates/subject/entity/trash-bin.phtml:21
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:6
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:7
+#: ../module/Ui/templates/related-content/manage.twig:10
+msgid "Type"
+msgstr "タイプ："
+
+#: ../module/Ui/templates/flag/detail.phtml:26
+#: ../module/Ui/templates/flag/manage.phtml:8
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:7
+#: ../module/Ui/templates/entity/repository/history.twig:15
+msgid "Timestamp"
+msgstr "タイムスタンプ"
+
 #: ../module/Ui/templates/flag/detail.phtml:35
 #: ../module/Ui/templates/flag/manage.phtml:9
 msgid "Reporter"
@@ -2056,49 +966,61 @@ msgstr "内容"
 msgid "Manage flags"
 msgstr "フラグの管理"
 
-#: ../module/Ui/templates/layout/de/serlo-home.phtml:25
-#: ../module/Ui/templates/layout/en/serlo-home.phtml:25
+#: ../module/Ui/templates/flag/manage.phtml:5
+#: ../module/Ui/templates/entity/repository/history.twig:11
+msgid "#"
+msgstr "#"
+
+#: ../module/Ui/templates/layout/de/serlo-home.phtml:27
+#: ../module/Ui/templates/layout/en/serlo-home.phtml:27
 #: ../module/Ui/templates/layout/partials/header.phtml:19
 msgid "Toggle navigation"
 msgstr "ナビゲーションの切り替え"
+
+#: ../module/Ui/templates/layout/partials/default-modal.phtml:10
+#: ../module/Ui/templates/layout/partials/noscript.phtml:22
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:16
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:16
+msgid "Close"
+msgstr " 閉じる"
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:11
 msgid "Okay"
 msgstr "OK"
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:4
-msgid "Stay in touch:"
-msgstr ""
-
-#: ../module/Ui/templates/layout/partials/footer.phtml:15
 msgid "Serlo.org is the Wikipedia for learning."
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:16
+#: ../module/Ui/templates/layout/partials/footer.phtml:5
 msgid "We are a community of visionaries working tirelessly to make great education freely available to everyone."
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:17
+#: ../module/Ui/templates/layout/partials/footer.phtml:6
 msgid "Learn more"
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:24
+#: ../module/Ui/templates/layout/partials/footer.phtml:13
 msgid "Join the cause"
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:30
+#: ../module/Ui/templates/layout/partials/footer.phtml:19
 msgid "Donate"
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:44
+#: ../module/Ui/templates/layout/partials/footer.phtml:35
 msgid "General"
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:52
+#: ../module/Ui/templates/layout/partials/footer.phtml:43
 msgid "Subjects"
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:60
+#: ../module/Ui/templates/layout/partials/footer.phtml:51
+msgid "Stay in touch:"
+msgstr ""
+
+#: ../module/Ui/templates/layout/partials/footer.phtml:59
 msgid "Legal terms"
 msgstr ""
 
@@ -2114,9 +1036,27 @@ msgstr "このサイトを使用するために JavaScript を有効にしてく
 msgid "Show me how to enable JavaScript"
 msgstr "Java スクリプトの設定を有効にする方法をみる"
 
+#: ../module/Ui/templates/layout/partials/search.phtml:6
+#: ../module/Ui/templates/search/form.twig:3
+#: ../module/Ui/templates/search/search.twig:3
+msgid "Search"
+msgstr "検索"
+
 #: ../module/Ui/templates/license/manage.phtml:1
 msgid "Manage licenses"
 msgstr "ライセンスの管理"
+
+#: ../module/Ui/templates/license/manage.phtml:5
+#: ../module/Ui/templates/subject/entity/trash-bin.phtml:20
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:5
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:6
+#: ../module/Ui/templates/common/share.twig:9
+#: ../module/Ui/templates/common/share.twig:13
+#: ../module/Ui/templates/common/share.twig:17
+#: ../module/Ui/templates/common/share.twig:21
+#: ../module/Ui/templates/related-content/manage.twig:7
+msgid "Title"
+msgstr "タイトル"
 
 #: ../module/Ui/templates/license/manage.phtml:6
 msgid "Default"
@@ -2125,6 +1065,12 @@ msgstr "初期設定"
 #: ../module/Ui/templates/license/manage.phtml:7
 msgid "Url"
 msgstr "URL"
+
+#: ../module/Ui/templates/license/manage.phtml:8
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:8
+#: ../module/Ui/templates/related-content/manage.twig:13
+msgid "Actions"
+msgstr "アクション"
 
 #: ../module/Ui/templates/license/manage.phtml:27
 msgid "Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE"
@@ -2222,6 +1168,30 @@ msgstr "このアイテムを削除しますか。これおよびこれに関す
 msgid "Unrevised learning resources"
 msgstr "改訂されていない学習リソース"
 
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:1
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:39
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:22
+msgid "Order content"
+msgstr "内容の順序"
+
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:18
+#: ../module/Ui/templates/entity/link/order.twig:1
+#: ../module/Ui/templates/entity/link/order.twig:9
+#: ../module/Ui/templates/related-content/manage.twig:63
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:46
+msgid "Sort"
+msgstr "分類する"
+
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:19
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:49
+msgid "Save new order"
+msgstr "新しい順序の保存"
+
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:20
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:52
+msgid "Cancel"
+msgstr "キャンセル"
+
 #: ../module/Ui/templates/upload/form.phtml:2
 msgid "Upload a file"
 msgstr "ファイルのアップロード"
@@ -2238,3 +1208,1036 @@ msgstr "ID"
 #, php-format
 msgid "Do you really want to purge the item <strong>%s</strong>? It and all references to it will be lost forever!"
 msgstr "項目 <strong>%s</strong> を削除しますか。この項目およびこれらに関するすべての参照は、永久に失われます！"
+
+#: ../module/Ui/templates/admin/debugger.twig:1
+msgid "Debugger"
+msgstr "デバッガー"
+
+#: ../module/Ui/templates/ads/ads.twig:1
+msgid "Ads"
+msgstr "広告"
+
+#: ../module/Ui/templates/ads/ads.twig:10
+msgid "Edit About Horizon"
+msgstr "ホライズンに関する編集"
+
+#: ../module/Ui/templates/ads/ads.twig:41
+msgid "Frequency"
+msgstr "頻度"
+
+#: ../module/Ui/templates/ads/ads.twig:50
+msgid "Clicks"
+msgstr "クリック"
+
+#: ../module/Ui/templates/ads/setAdPage.twig:1
+msgid "Please enter the id of the adPage"
+msgstr "AdPage の id を入力してください。"
+
+#: ../module/Ui/templates/authentication/activate.twig:3
+msgid "Activate an account"
+msgstr "アカウントの有効化"
+
+#: ../module/Ui/templates/authentication/login.twig:6
+msgid "You must be logged in to access this page."
+msgstr "このページにアクセスするには、ログインしなければなりません。"
+
+#: ../module/Ui/templates/authentication/login.twig:13
+msgid "Log in"
+msgstr "ログイン"
+
+#: ../module/Ui/templates/authentication/login.twig:37
+msgid "Are you new here? %sSign up%s!"
+msgstr "あなたはここに新しいですか。%s登録してください%s!"
+
+#: ../module/Ui/templates/authentication/login.twig:40
+msgid "Did you forget your %spassword%s?"
+msgstr "あなたの %sパスワード%s を忘れましたか。"
+
+#: ../module/Ui/templates/authentication/login.twig:43
+msgid "Haven't activated your account yet? %sResend activation mail%s!"
+msgstr "まだ、アカウントを有効化していませんか。%s有効化するためのメールを再送する%s！"
+
+#: ../module/Ui/templates/authentication/logout.twig:2
+msgid "Log out"
+msgstr "ログアウト"
+
+#: ../module/Ui/templates/authentication/reset-password/restore.twig:3
+#: ../module/Ui/templates/authentication/reset-password/select.twig:3
+msgid "Restore password"
+msgstr "パスワードの復元"
+
+#: ../module/Ui/templates/blog/blog/view-all.twig:1
+msgid "Unpublished"
+msgstr "未公開"
+
+#: ../module/Ui/templates/blog/blog/view-partial.twig:21
+msgid "unpublished"
+msgstr "未公開"
+
+#: ../module/Ui/templates/blog/blog/view.twig:2
+#: ../module/Ui/templates/blog/blog/view.twig:16
+#: ../module/Ui/templates/discussion/discussions/index.twig:1
+#: ../module/Ui/templates/event/history/all.twig:1
+#: ../module/Ui/templates/event/history/user.twig:2
+#: ../module/Ui/templates/navigation/container/get.twig:14
+msgid "Page"
+msgstr "ページ"
+
+#: ../module/Ui/templates/common/share.twig:8
+msgid "On this site:"
+msgstr "このサイトについて："
+
+#: ../module/Ui/templates/common/share.twig:12
+msgid "Directly including in a content on this site"
+msgstr "このサイト上のコンテンツを直接含んでいる"
+
+#: ../module/Ui/templates/common/share.twig:30
+msgid "Share this content"
+msgstr "このコンテンツのシェア"
+
+#: ../module/Ui/templates/common/share.twig:31
+msgid "Share"
+msgstr "シェア"
+
+#: ../module/Ui/templates/discussion/discussion/comment.twig:1
+msgid "Comment on a discussion"
+msgstr "ディスカッションについてのコメント"
+
+#: ../module/Ui/templates/discussion/discussion/select/forum.twig:6
+msgid "Please select an appropriate category for your discussion. Choosing the right category helps others to find your discussion faster and to answer you quicker. Thank you!"
+msgstr "あなたの議論のための適切なカテゴリを選択してください。適切なカテゴリを選択することで、他利用者がより早くあなたの議論を見つけ、さらに早く解答することができます。ご協力ありがとうございます。"
+
+#: ../module/Ui/templates/discussion/discussion/select/forum.twig:16
+msgid "Saving..."
+msgstr "保存中…"
+
+#: ../module/Ui/templates/discussion/discussion/select/forum.twig:17
+msgid "Choose"
+msgstr "選択"
+
+#: ../module/Ui/templates/discussion/discussion/show.twig:13
+msgid "archived"
+msgstr "保管"
+
+#: ../module/Ui/templates/discussion/discussion/show.twig:17
+msgid "On"
+msgstr "オン"
+
+#: ../module/Ui/templates/discussion/discussion/show.twig:19
+#: ../module/Ui/templates/discussion/discussion/show.twig:77
+#: ../module/Ui/templates/entity/repository/compare-revision.twig:3
+msgid "by"
+msgstr "より"
+
+#: ../module/Ui/templates/discussion/discussion/show.twig:62
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:60
+msgid "Do you really want to delete this discussion?"
+msgstr "このディスカッションを削除してもよろしいですか。"
+
+#: ../module/Ui/templates/discussion/discussion/show.twig:94
+#: ../module/Ui/templates/discussion/helper/default/comment.twig:16
+msgid "Do you really want to delete this comment?"
+msgstr "このコメントを削除してもよろしいですか。"
+
+#: ../module/Ui/templates/discussion/discussion/show.twig:107
+msgid "Answer discussion:"
+msgstr "ディスカッションへの回答"
+
+#: ../module/Ui/templates/discussion/discussion/start.twig:1
+#: ../module/Ui/templates/discussion/discussions.twig:15
+msgid "Start a new discussion"
+msgstr "新規議論を開始"
+
+#: ../module/Ui/templates/discussion/discussions.twig:5
+#: ../module/Ui/templates/discussion/discussions/index.twig:1
+msgid "Discussions"
+msgstr "議論"
+
+#: ../module/Ui/templates/discussion/discussions.twig:30
+msgid "There are no discussions on this topic yet."
+msgstr "このトピックに関する議論はまだありません。"
+
+#: ../module/Ui/templates/discussion/helper/default/comment.twig:31
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:97
+msgid "%author% %time%"
+msgstr "%author% %time%"
+
+#: ../module/Ui/templates/discussion/helper/default/default.twig:7
+#: ../module/Ui/templates/user/user/profile.twig:19
+msgid "Comments"
+msgstr ""
+
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:41
+msgid "Unarchive discussion"
+msgstr "議論の破棄"
+
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:43
+msgid "Archive discussion"
+msgstr "ディスカッションの保管"
+
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:52
+msgid "Flag discussion"
+msgstr "フラグの議論"
+
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:62
+msgid "Trash discussion"
+msgstr "議論の削除"
+
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:92
+msgid "On %type% %object%: %title%"
+msgstr "%type% %object% 上: %title%"
+
+#: ../module/Ui/templates/discussion/partials/discuss-button.twig:3
+msgid "Discuss"
+msgstr "議論する"
+
+#: ../module/Ui/templates/entity/link/order.twig:12
+#: ../module/Ui/templates/entity/taxonomy/update.twig:29
+#: ../module/Ui/templates/related-content/manage.twig:67
+msgid "Save"
+msgstr "保存"
+
+#: ../module/Ui/templates/entity/link/order.twig:15
+#: ../module/Ui/templates/related-content/manage.twig:70
+msgid "Abort"
+msgstr "中止"
+
+#: ../module/Ui/templates/entity/page/aggregate/taxonomy.twig:4
+msgid "Related taxonomies"
+msgstr "関連分類"
+
+#: ../module/Ui/templates/entity/page/default.twig:8
+#: ../module/Ui/templates/entity/view/default.twig:8
+#: ../module/Ui/templates/entity/view/toc/default.twig:8
+msgid "Now view found for %name%"
+msgstr "%name% のビューが見つかりました。"
+
+#: ../module/Ui/templates/entity/page/math-puzzle.twig:7
+msgid "Math puzzle"
+msgstr ""
+
+#: ../module/Ui/templates/entity/page/partials/alerts.twig:5
+#: ../module/Ui/templates/entity/page/pending.twig:25
+#: ../module/Ui/templates/entity/repository/partials/alerts.twig:5
+#: ../module/Ui/templates/taxonomy/term/page/partials/alerts.twig:5
+msgid "Warning"
+msgstr "警告"
+
+#: ../module/Ui/templates/entity/page/partials/alerts.twig:10
+#: ../module/Ui/templates/entity/repository/partials/alerts.twig:10
+#: ../module/Ui/templates/taxonomy/term/page/partials/alerts.twig:10
+msgid "This content is marked for deletion."
+msgstr "このコンテンツは削除対象としてマークされています。"
+
+#: ../module/Ui/templates/entity/page/pending.twig:12
+#: ../module/Ui/templates/entity/page/pending.twig:14
+msgid "Pending approval"
+msgstr "承認待ち"
+
+#: ../module/Ui/templates/entity/page/pending.twig:16
+msgid "Dead node"
+msgstr "デッド・ノード"
+
+#: ../module/Ui/templates/entity/page/pending.twig:31
+msgid "This content is pending approval and may therefore not be viewed yet."
+msgstr "このコンテンツが承認待ちであり、そのためまだ閲覧することができない可能性があります。"
+
+#: ../module/Ui/templates/entity/page/pending.twig:35
+msgid "This content is a dead node and has no content. Please edit or remove it."
+msgstr "このコンテンツはデッド・ノードであり、コンテンツがありません。編集するか、削除してください。"
+
+#: ../module/Ui/templates/entity/page/text-exercise-group.twig:7
+msgid "Text exercise group"
+msgstr "テキストの練習グループ"
+
+#: ../module/Ui/templates/entity/page/text-exercise.twig:7
+msgid "Text exercise"
+msgstr "テキストの練習"
+
+#: ../module/Ui/templates/entity/page/text-hint.twig:4
+#: ../module/Ui/templates/entity/view/text-hint.twig:12
+msgid "Hint"
+msgstr "ヒント"
+
+#: ../module/Ui/templates/entity/page/text-solution.twig:4
+msgid "Text solution"
+msgstr "テキストのソリューション"
+
+#: ../module/Ui/templates/entity/repository/compare-revision.twig:17
+msgid "Source"
+msgstr "引用元"
+
+#: ../module/Ui/templates/entity/repository/compare-revision.twig:18
+msgid "Preview"
+msgstr "プレビュー"
+
+#: ../module/Ui/templates/entity/repository/history.twig:1
+#: ../module/Ui/templates/entity/view/partials/actions/versioning/history.twig:6
+#: ../module/Ui/templates/page/partials/actions.twig:18
+#: ../module/Ui/templates/page/partials/controls.twig:15
+msgid "History"
+msgstr "履歴"
+
+#: ../module/Ui/templates/entity/repository/history.twig:4
+msgid ""
+"There are multiple recent revisions for this object. Please be aware that they may be of very\n"
+"        different nature. Consider reviewing all of them before accepting or merging."
+msgstr "この対象に関する複数の最近のリビジョンがあります。それらは全く違う本質のものかもしれないということをご留意ください。すべてを許可または統合する前に再検討してください。"
+
+#: ../module/Ui/templates/entity/repository/history.twig:12
+msgid "Current"
+msgstr "現在"
+
+#: ../module/Ui/templates/entity/repository/history.twig:13
+msgid "Changes"
+msgstr "変更"
+
+#: ../module/Ui/templates/entity/repository/history.twig:14
+msgid "Author"
+msgstr "作成者"
+
+#: ../module/Ui/templates/entity/repository/history.twig:25
+msgid "show"
+msgstr "表示"
+
+#: ../module/Ui/templates/entity/repository/history.twig:34
+msgid "Create a new revision starting from this specific revision"
+msgstr ""
+
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:6
+msgid "Accept revision"
+msgstr "変更の承諾"
+
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:11
+msgid "Please give feedback."
+msgstr "フィードバックを行ってください。"
+
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:17
+msgid "Accept"
+msgstr "受諾"
+
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:6
+msgid "Reject revision"
+msgstr "リビジョンの拒否"
+
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:11
+msgid "Please specify why you are rejecting the submission."
+msgstr "提出を受け入れない理由を明記してください。"
+
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:17
+msgid "Reject"
+msgstr "拒否"
+
+#: ../module/Ui/templates/entity/taxonomy/update.twig:2
+msgid "Assign resource"
+msgstr "リソースの割り当て"
+
+#: ../module/Ui/templates/entity/view/article.twig:1
+msgid "article"
+msgstr "記事"
+
+#: ../module/Ui/templates/entity/view/course-page.twig:1
+msgid "course-page"
+msgstr "コース のページ"
+
+#: ../module/Ui/templates/entity/view/grouped-text-exercise.twig:1
+msgid "grouped-text-exercise"
+msgstr "グループ化されたテキストの練習"
+
+#: ../module/Ui/templates/entity/view/input-expression-equal-match-challenge.twig:1
+msgid "input-expression-equal-match-challenge"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/input-number-exact-match-challenge.twig:1
+msgid "input-number-exact-match-challenge"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/input-string-normalized-match-challenge.twig:1
+msgid "input-string-normalized-match-challenge"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/math-puzzle.twig:1
+msgid "math-puzzle"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/multiple-choice-right-answer.twig:1
+msgid "multiple-choice-right-answer"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/multiple-choice-wrong-answer.twig:1
+msgid "multiple-choice-wrong-answer"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/actions/big.twig:10
+#: ../module/Ui/templates/page/partials/actions.twig:12
+msgid "More"
+msgstr "さらに"
+
+#: ../module/Ui/templates/entity/view/partials/actions/controls.twig:5
+#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:5
+#: ../module/Ui/templates/page/partials/controls.twig:9
+#: ../module/Ui/templates/taxonomy/term/templates/partials/controls.twig:9
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-controls.twig:9
+msgid "Toggle Dropdown"
+msgstr "ドロップダウンの切替"
+
+#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:9
+msgid "This Course-Page"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:15
+msgid "Whole Course"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/actions/event/history.twig:5
+#: ../module/Ui/templates/page/partials/actions.twig:24
+#: ../module/Ui/templates/page/partials/controls.twig:21
+#: ../module/Ui/templates/page/revisions.twig:31
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:16
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:15
+msgid "Log"
+msgstr "ログ"
+
+#: ../module/Ui/templates/entity/view/partials/actions/license/update.twig:6
+msgid "Change license"
+msgstr "ライセンスの変更"
+
+#: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:12
+#: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:33
+msgid "Add %type%"
+msgstr "%type% の追加"
+
+#: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:23
+msgid "Restore %type%"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/actions/link/sort.twig:8
+msgid "Order children"
+msgstr "子の整理"
+
+#: ../module/Ui/templates/entity/view/partials/actions/link/update.twig:10
+msgid "Change parent %name%"
+msgstr "親 %name%の変更"
+
+#: ../module/Ui/templates/entity/view/partials/actions/related-content/manage.twig:6
+msgid "Manage related items"
+msgstr "関連アイテムの管理"
+
+#: ../module/Ui/templates/entity/view/partials/actions/small-essential.twig:9
+msgid "Subitem"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/actions/taxonomy/update.twig:8
+msgid "Edit topic and curriculum assignments"
+msgstr "トピックとカリキュラムの割り当ての編集"
+
+#: ../module/Ui/templates/entity/view/partials/actions/trash.twig:6
+msgid "Move to trash"
+msgstr "ゴミ箱へ移動"
+
+#: ../module/Ui/templates/entity/view/partials/actions/versioning/edit-essential.twig:10
+#: ../module/Ui/templates/page/pages.twig:19
+#: ../module/Ui/templates/page/partials/actions.twig:5
+msgid "Edit"
+msgstr "編集"
+
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:11
+msgid "Type answer"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:25
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:35
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:59
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:119
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:149
+msgid "Show solution"
+msgstr "ソリューションの表示"
+
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:29
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:36
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:60
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:120
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:150
+msgid "Hide solution"
+msgstr "ソリューションの非表示"
+
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:37
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:66
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:126
+msgid "Check"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:41
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:71
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:131
+msgid "Correct!"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:7
+msgid "Info"
+msgstr "情報"
+
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:28
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:142
+msgid "Show hint"
+msgstr "ヒントの表示"
+
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:29
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:143
+msgid "Hide hint"
+msgstr "ヒントの非表示"
+
+#: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:2
+#: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:2
+msgid "Wrong."
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:4
+#: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:4
+msgid "This answer has been created but no content has been added yet or it is pending approval."
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:8
+msgid "Right!"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:92
+msgid "This solution is not correct."
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:101
+msgid "This solution is correct!"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:110
+msgid "Not quite. There is something missing!"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/single-choice-right-answer.twig:1
+msgid "single-choice-right-answer"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/single-choice-wrong-answer.twig:1
+msgid "single-choice-wrong-answer"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/text-exercise-group.twig:1
+msgid "text-exercise-group"
+msgstr "テキストの練習グループ"
+
+#: ../module/Ui/templates/entity/view/text-exercise-group.twig:10
+msgid "I want to comment this"
+msgstr "ここにコメントしたいです。"
+
+#: ../module/Ui/templates/entity/view/text-exercise.twig:1
+msgid "text-exercise"
+msgstr "テキストの演習"
+
+#: ../module/Ui/templates/entity/view/text-hint.twig:1
+msgid "text-hint"
+msgstr "テキストのヒント"
+
+#: ../module/Ui/templates/entity/view/text-hint.twig:20
+msgid "A hint has been created but no content has been added yet or it is pending approval."
+msgstr "ヒントが作成されましたが、コンテンツがまだ追加されてないか承認待ちです。"
+
+#: ../module/Ui/templates/entity/view/text-solution.twig:1
+msgid "text-solution"
+msgstr "テキストのソリューション"
+
+#: ../module/Ui/templates/entity/view/text-solution.twig:18
+msgid "A solution has been created but no content has been added yet or it is pending approval."
+msgstr "ソリューションが作成されましたが、コンテンツがまだ追加されてないか承認待ちです。"
+
+#: ../module/Ui/templates/entity/view/video.twig:1
+msgid "video"
+msgstr "動画"
+
+#: ../module/Ui/templates/entity/view/video.twig:31
+msgid "Could not embed video - platform unknown"
+msgstr "不明なプラットフォームのため、ビデオを埋め込むことができませんでした。"
+
+#: ../module/Ui/templates/event/helper/event/default.twig:6
+msgid "No template found for event %s"
+msgstr "イベント %s のテンプレートが見つかりません"
+
+#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:8
+#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:10
+msgid "%user% archived %discussion%"
+msgstr "%user%は%discussion%を保存しました。"
+
+#: ../module/Ui/templates/event/helper/event/discussion/comment/create.twig:9
+msgid "%user% commented %discussion%: %content%"
+msgstr "%user%は%discussion%にコメントしました: %content%"
+
+#: ../module/Ui/templates/event/helper/event/discussion/create.twig:9
+msgid "%user% started a new discussion %discussion% on %on%"
+msgstr "%user% は、%on% に新しいディスカッション %discussion% を開始しました"
+
+#: ../module/Ui/templates/event/helper/event/entity/create.twig:5
+msgid "%user% created a new %type%: %object%"
+msgstr "%user% は、新しい %type% を作成しました: %object%"
+
+#: ../module/Ui/templates/event/helper/event/entity/link/create.twig:5
+msgid "%user% linked %object% with %parent%"
+msgstr "%user%は%object%を%parent%にリンクしました。"
+
+#: ../module/Ui/templates/event/helper/event/entity/revision/add.twig:5
+msgid "%user% created a new version of %repository%"
+msgstr "%user% は、%repository% の新しいバージョンを作成しました。"
+
+#: ../module/Ui/templates/event/helper/event/entity/revision/checkout.twig:7
+msgid "%user% checked out %revision% in %repository%: \"%reason%\""
+msgstr "%user%は%repository%内の%revision%をチェックアウトしました：\"%reason%\""
+
+#: ../module/Ui/templates/event/helper/event/entity/revision/checkout.twig:11
+msgid "%user% checked out %revision% in %repository%"
+msgstr "%user%は%repository%内の%revision%をチェックアウトしました。"
+
+#: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:7
+msgid "%user% rejected %revision% in %repository%: \"%reason%\""
+msgstr "%user%は%repository%内の%revision%を拒否しました：　\"%reason%\""
+
+#: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:11
+msgid "%user% rejected %revision% in %repository% without a reason"
+msgstr "%user%は%repository%内の%revision%を理由なく拒否しました。"
+
+#: ../module/Ui/templates/event/helper/event/license/object/set.twig:5
+msgid "%user% changed the license of %object%"
+msgstr "%user% は、%object% のライセンスを変更しました。"
+
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/associate.twig:5
+msgid "%user% associated %object% with %term%"
+msgstr "%user% は、%object% と%term% とを関連付けました。"
+
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/create.twig:4
+msgid "%user% created %term%"
+msgstr "%user% は作成を %term%"
+
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/dissociate.twig:5
+msgid "%user% dissociated %object% from %term%"
+msgstr "%user%は%term% から%object%を分離"
+
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/parent/change.twig:6
+msgid "%user% changed %term% parent from %old% to %new%"
+msgstr "%user% は、%old% から %new% に %term% 親を変更"
+
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/update.twig:4
+msgid "%user% updated %term%"
+msgstr "%user%は%term%を更新"
+
+#: ../module/Ui/templates/event/helper/event/uuid/restore.twig:4
+#: ../module/Ui/templates/notification/type/discussion/restore.twig:10
+#: ../module/Ui/templates/notification/type/uuid/restore.twig:6
+msgid "%user% restored %object%"
+msgstr "%user%は%object%を復元"
+
+#: ../module/Ui/templates/event/helper/event/uuid/trash.twig:4
+#: ../module/Ui/templates/notification/type/uuid/trash.twig:6
+msgid "%user% trashed %object%"
+msgstr "%user%は%object%をゴミ箱に移動"
+
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:4
+msgid ""
+"Hello %user%,<br>\n"
+"<br>\n"
+"here's a heads up of what has happened on %brand%:<br>"
+msgstr ""
+"こんにちは %user%、<br>\n"
+" <br>\n"
+"これは%brand% で起こっているの警告です: <br>"
+
+#: ../module/Ui/templates/mailman/messages/notification/subject.twig:3
+msgid "You have unread notifications on %brand%"
+msgstr "あなたは%brand%の通知を未読です。"
+
+#: ../module/Ui/templates/navigation/container/get.twig:2
+msgid "Information"
+msgstr "情報"
+
+#: ../module/Ui/templates/navigation/container/get.twig:5
+msgid "Instance: "
+msgstr "実例："
+
+#: ../module/Ui/templates/navigation/container/get.twig:8
+msgid "Name: "
+msgstr "名前："
+
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:20
+msgid "Add parameter"
+msgstr "パラメーターの追加"
+
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:24
+msgid "Add page"
+msgstr "ページの追加"
+
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:32
+#: ../module/Ui/templates/page/partials/actions.twig:47
+#: ../module/Ui/templates/page/partials/controls.twig:44
+msgid "Settings"
+msgstr "設定"
+
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:37
+msgid "Remove page"
+msgstr "ページの削除"
+
+#: ../module/Ui/templates/navigation/page/update.twig:1
+msgid "Page settings"
+msgstr "ページの設定"
+
+#: ../module/Ui/templates/notification/notification.twig:9
+msgid "No template found for notification \"%type%\""
+msgstr "通知”%type%”のテンプレートが見つかりません"
+
+#: ../module/Ui/templates/notification/notification.twig:14
+msgid "No view found for %name%"
+msgstr "%name%のビューが見つかりません"
+
+#: ../module/Ui/templates/notification/notifications.twig:21
+msgid "You have no notifications."
+msgstr "通知がありません。"
+
+#: ../module/Ui/templates/notification/subscription/manage.twig:1
+msgid "Manage subscriptions"
+msgstr "サブスクリプションの管理"
+
+#: ../module/Ui/templates/notification/subscription/manage.twig:6
+msgid "Emails"
+msgstr "メール"
+
+#: ../module/Ui/templates/notification/subscription/manage.twig:7
+msgid "Subscription"
+msgstr "購読"
+
+#: ../module/Ui/templates/notification/subscription/manage.twig:17
+msgid "Deactivate"
+msgstr "無効化"
+
+#: ../module/Ui/templates/notification/subscription/manage.twig:21
+msgid "Activate"
+msgstr "有効化"
+
+#: ../module/Ui/templates/notification/subscription/manage.twig:24
+#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:5
+#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:17
+#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:26
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:4
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:14
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:21
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:4
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:14
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:21
+msgid "Unsubscribe"
+msgstr "購読の解除"
+
+#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:4
+#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:3
+#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:2
+msgid "Subscribe"
+msgstr "購読する"
+
+#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:10
+#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:8
+#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:5
+msgid "Receive notifications"
+msgstr "通知の受取り"
+
+#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:15
+#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:11
+#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:8
+msgid "Receive notifications and emails"
+msgstr "通知やメールの受信"
+
+#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:11
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:10
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:10
+msgid "Stop sending emails"
+msgstr "メールの送信を停止"
+
+#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:12
+msgid "%user% commented on %discussion%: %content%"
+msgstr "%user%は%discussion%にコメントしました: %content%"
+
+#: ../module/Ui/templates/notification/type/discussion/create.twig:12
+msgid "%user% started %discussion% on %object%: %title%"
+msgstr "%user%は%object%に%discussion%を始めた:%title%"
+
+#: ../module/Ui/templates/notification/type/entity/link/create.twig:8
+msgid "%user% added %object% to %parent%"
+msgstr "%user%は、%parent%に%object%を追加"
+
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:6
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:6
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:6
+msgid "revision"
+msgstr "リビジョン"
+
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:9
+msgid "%user% created a %revision% in %repository%"
+msgstr "%user% は、%repository%に%revision%を作成"
+
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:10
+msgid "%user% accepted a %revision% of %repository%: %reason%"
+msgstr "%user%は%repository%の%revision%を理由なく許可しました：%reason%"
+
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:14
+msgid "%user% accepted a %revision% of %repository% without a reason"
+msgstr "%user%は%repository%の%revision%を理由なく許可しました。"
+
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:10
+msgid "%user% rejected a %revision% of %repository%: %reason%"
+msgstr "%user%は%repository%の%revision%を拒否：%reason%"
+
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:14
+msgid "%user% rejected a %revision% of %repository% without a reason"
+msgstr "%user%は%repository%の%revision%を理由なく拒否"
+
+#: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:7
+msgid "%user% associated %term% with %object%"
+msgstr "%user% は、%object%に%term%を関連付け"
+
+#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:7
+msgid "%user% removed %object% from %object%"
+msgstr "%user%は%object%から%object%を削除  "
+
+#: ../module/Ui/templates/notification/type/taxonomy/term/parent/change.twig:9
+msgid "%user% changed %term%'s parent from %old% to %new%"
+msgstr "%user% は、%term%の親を%old%から%new%に変更"
+
+#: ../module/Ui/templates/notification/type/taxonomy/term/update.twig:6
+msgid "%user% updated %object%"
+msgstr "%user%は%object%を更新"
+
+#: ../module/Ui/templates/page/pages.twig:10
+msgid "No revision checked out yet."
+msgstr "チェック アウトされたリビジョンがありません"
+
+#: ../module/Ui/templates/page/pages.twig:26
+#: ../module/Ui/templates/page/partials/actions.twig:32
+#: ../module/Ui/templates/page/partials/controls.twig:29
+#: ../module/Ui/templates/page/revisions.twig:38
+msgid "Trash"
+msgstr "ごみ箱"
+
+#: ../module/Ui/templates/page/pages.twig:36
+msgid "Create a new page"
+msgstr "新しいページの作成"
+
+#: ../module/Ui/templates/page/partials/actions.twig:40
+#: ../module/Ui/templates/page/partials/controls.twig:37
+msgid "Set as base revision"
+msgstr "ベースリビジョンとして設定"
+
+#: ../module/Ui/templates/page/revision/create.twig:1
+msgid "Create a revision"
+msgstr "リビジョンの作成"
+
+#: ../module/Ui/templates/page/revisions.twig:1
+msgid "Revisions"
+msgstr "リビジョン"
+
+#: ../module/Ui/templates/page/revisions.twig:12
+msgid "Author:"
+msgstr "作成者："
+
+#: ../module/Ui/templates/page/revisions.twig:16
+msgid "Time:"
+msgstr "時間:"
+
+#: ../module/Ui/templates/page/revisions.twig:26
+msgid "Use for editing"
+msgstr "編集用"
+
+#: ../module/Ui/templates/page/revisions.twig:45
+msgid "Set as base"
+msgstr "ベースとして設定"
+
+#: ../module/Ui/templates/page/revisions.twig:57
+msgid "Edit page"
+msgstr "ページの編集"
+
+#: ../module/Ui/templates/related-content/add-category.twig:1
+msgid "Add a category"
+msgstr "カテゴリの追加"
+
+#: ../module/Ui/templates/related-content/add-external.twig:1
+msgid "Add external link"
+msgstr "外部リンクの追加"
+
+#: ../module/Ui/templates/related-content/add-internal.twig:1
+msgid "Add internal link"
+msgstr "内部リンクの追加"
+
+#: ../module/Ui/templates/related-content/manage.twig:3
+msgid "Manage related links"
+msgstr "関連リンクの管理"
+
+#: ../module/Ui/templates/related-content/manage.twig:48
+msgid "Category"
+msgstr "カテゴリ"
+
+#: ../module/Ui/templates/related-content/manage.twig:52
+msgid "Internal"
+msgstr "内部"
+
+#: ../module/Ui/templates/related-content/manage.twig:56
+msgid "External"
+msgstr "外部"
+
+#: ../module/Ui/templates/search/results.twig:3
+msgid "Search results"
+msgstr "結果の検索"
+
+#: ../module/Ui/templates/subject/home/index.twig:2
+msgid "Start learning now!"
+msgstr "今すぐ学習を開始！"
+
+#: ../module/Ui/templates/taxonomy/term/aggregate/siblings.twig:4
+msgid "Further exercises"
+msgstr "追加演習"
+
+#: ../module/Ui/templates/taxonomy/term/batch-copy.twig:1
+msgid "Copy associations"
+msgstr "関連のコピー"
+
+#: ../module/Ui/templates/taxonomy/term/batch-move.twig:1
+msgid "Move associations"
+msgstr "関連付けの移動"
+
+#: ../module/Ui/templates/taxonomy/term/create.twig:1
+msgid "Create term"
+msgstr "用語の作成"
+
+#: ../module/Ui/templates/taxonomy/term/entity/default.twig:7
+msgid "Template for %name% not found."
+msgstr "%name%のテンプレートが見つかりません。"
+
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:42
+msgid "Tools"
+msgstr "ツール"
+
+#: ../module/Ui/templates/taxonomy/term/templates/curriculum-topic-folder.twig:1
+msgid "curriculum-topic-folder"
+msgstr "カリキュラム―トピック―フォルダー"
+
+#: ../module/Ui/templates/taxonomy/term/templates/curriculum-topic.twig:1
+msgid "curriculum-topic"
+msgstr "カリキュラム―トピック"
+
+#: ../module/Ui/templates/taxonomy/term/templates/curriculum.twig:1
+msgid "curriculum"
+msgstr "カリキュラム"
+
+#: ../module/Ui/templates/taxonomy/term/templates/locale.twig:1
+msgid "locale"
+msgstr "設定情報"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:23
+msgid "Add content"
+msgstr "コンテンツの追加"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:46
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:29
+msgid "Batch copy items"
+msgstr "アイテムの一括複製"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:53
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:36
+msgid "Batch move items"
+msgstr "アイテムの一括移動"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:13
+msgid "Courses"
+msgstr "コース"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:13
+msgid "Articles"
+msgstr "記事"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:13
+msgid "Videos"
+msgstr "ビデオ"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:28
+msgid "Exercises"
+msgstr "演習"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/groups.twig:13
+msgid "Groups"
+msgstr "グループ"
+
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subfolders.twig:91
+msgid "Show %ecount% exercises..."
+msgstr "%ecount% 演習の表示"
+
+#: ../module/Ui/templates/taxonomy/term/templates/subject.twig:1
+msgid "subject"
+msgstr "件名"
+
+#: ../module/Ui/templates/taxonomy/term/templates/topic-folder.twig:1
+msgid "topic-folder"
+msgstr "トピックフォルダー"
+
+#: ../module/Ui/templates/taxonomy/term/templates/topic.twig:1
+msgid "topic"
+msgstr "トピック"
+
+#: ../module/Ui/templates/taxonomy/term/update.twig:1
+msgid "Update term"
+msgstr "用語の更新"
+
+#: ../module/Ui/templates/user/user/profile.twig:1
+msgid "Profile"
+msgstr "プロファイル"
+
+#: ../module/Ui/templates/user/user/profile.twig:8
+msgid "Statistics"
+msgstr "統計学"
+
+#: ../module/Ui/templates/user/user/profile.twig:30
+msgid "Edits"
+msgstr ""
+
+#: ../module/Ui/templates/user/user/profile.twig:41
+msgid "Reviews"
+msgstr ""
+
+#: ../module/Ui/templates/user/user/profile.twig:52
+msgid "Taxonomy associations"
+msgstr ""
+
+#: ../module/Ui/templates/user/user/profile.twig:63
+msgid "Taxonomy changes"
+msgstr ""
+
+#: ../module/Ui/templates/user/user/profile.twig:74
+msgid "Total deletions"
+msgstr ""
+
+#: ../module/Ui/templates/user/user/profile.twig:79
+msgid "Recent activities"
+msgstr "最近のアクティビティ"
+
+#: ../module/Ui/templates/user/user/profile.twig:92
+msgid "Last seen"
+msgstr "閲覧"
+
+#: ../module/Ui/templates/user/user/register.twig:3
+msgid "Sign up"
+msgstr "登録"
+
+#: ../module/Ui/templates/user/user/register.twig:25
+msgid "Email"
+msgstr "メール"
+
+#: ../module/Ui/templates/user/user/register.twig:59
+msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/21654\">Terms of Service</a>."
+msgstr "<em>サインアップ</em> をクリックすると、あなたは私たちの <a href=\"/21654\"> サービスの利用規約</a> に同意したことになります。"
+
+#: ../module/Ui/templates/user/user/settings.twig:1
+msgid "My settings"
+msgstr "マイセッティング"
+
+#: ../module/Ui/templates/user/users/partial/users-table.twig:18
+msgid "Never"
+msgstr "サインインされていません"

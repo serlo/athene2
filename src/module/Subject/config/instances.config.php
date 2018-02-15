@@ -167,6 +167,32 @@ return [
                         'course',
                         'text-exercise-group'
                     ]
+                ],
+                'community' => [
+                    'allowed_taxonomies' => [
+                        'topic'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group'
+                    ]
+                ],
+                'testbereich' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group',
+                        'math-puzzle'
+                    ]
                 ]
             ],
             'english' => [
@@ -210,10 +236,9 @@ return [
                         'text-exercise-group'
                     ]
                 ],
-                'wiki' => [
+                'community' => [
                     'allowed_taxonomies' => [
-                        'topic',
-                        'locale'
+                        'topic'
                     ],
                     'allowed_entities'   => [
                         'article',
@@ -247,6 +272,20 @@ return [
                         'video',
                         'course',
                         'text-exercise-group'
+                    ]
+                ],
+                'test area' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale'
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group',
+                        'math-puzzle'
                     ]
                 ]
             ]

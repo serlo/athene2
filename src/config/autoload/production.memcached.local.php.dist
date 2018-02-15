@@ -63,10 +63,6 @@ return [
             'autoescape' => false
         ],
     ],
-    'assetic_configuration' => [
-        'debug' => false,
-        'buildOnRequest' => false
-    ],
     'log' => [
         'exceptions' => true
     ],

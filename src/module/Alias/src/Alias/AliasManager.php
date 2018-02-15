@@ -138,7 +138,7 @@ class AliasManager implements AliasManagerInterface
         /* @var $entity Entity\AliasInterface */
         $criteria = ['uuid' => $uuid->getId()];
         $order    = ['timestamp' => 'DESC'];
-        $results  = $this->getAliasRepository()->findBy($criteria, $order);
+        $results  = $this->getAliasRepository()->findBy($criteria, $order, 1);
         $entity   = current($results);
 
         if (!is_object($entity)) {
@@ -169,7 +169,7 @@ class AliasManager implements AliasManagerInterface
 
         $criteria = ['source' => $source, 'instance' => $instance->getId()];
         $order    = ['timestamp' => 'DESC'];
-        $results  = $this->getAliasRepository()->findBy($criteria, $order);
+        $results  = $this->getAliasRepository()->findBy($criteria, $order, 1);
         $entity   = current($results);
 
         if (!is_object($entity)) {
@@ -190,7 +190,7 @@ class AliasManager implements AliasManagerInterface
         /* @var $entity Entity\AliasInterface */
         $criteria = ['alias' => $alias, 'instance' => $instance->getId()];
         $order    = ['timestamp' => 'DESC'];
-        $results  = $this->getAliasRepository()->findBy($criteria, $order);
+        $results  = $this->getAliasRepository()->findBy($criteria, $order, 1);
         $entity   = current($results);
 
         if (!is_object($entity)) {
@@ -232,7 +232,7 @@ class AliasManager implements AliasManagerInterface
         /* @var $entity Entity\AliasInterface */
         $criteria = ['alias' => $alias];
         $order    = ['timestamp' => 'DESC'];
-        $results  = $this->getAliasRepository()->findBy($criteria, $order);
+        $results  = $this->getAliasRepository()->findBy($criteria, $order, 1);
         $entity   = current($results);
 
         if (!is_object($entity)) {
