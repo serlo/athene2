@@ -27,8 +27,8 @@ echo $this->doctype();
                         <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
-                    <?php echo $this->brand()->getLogo(); ?>
-                    <?php echo $this->brand()->getBrand(); ?>
+                    <a href="https://de.serlo.org"><?php echo $this->brand()->getLogo(); ?>
+                    <?php echo $this->brand()->getBrand(); ?></a>
                     <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
                             ->menu()
                             ->setPartial('layout/navigation/partial/active-subject')
@@ -85,9 +85,9 @@ echo $this->doctype();
                 <?php echo $this->partial('layout/partials/notifications'); ?>
                 <div class="flasher"></div>
                 <h1 class="home-header">
-                    <?php echo $this->brand()->getLogo(); ?>
+                    <a href="/"><?php echo $this->brand()->getLogo(); ?>
                     <?php echo $this->brand()->getBrand(); ?>
-                    <span class="header-text">Die freie Lernplattform</span>
+                    <span class="header-text">Die freie Lernplattform</span></a>
                 </h1>
 
                 <div class="col-md-12 col-lg-10 col-lg-offset-1">
