@@ -27,8 +27,8 @@ echo $this->doctype();
                         <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
-                    <?php echo $this->brand()->getLogo(); ?>
-                    <?php echo $this->brand()->getBrand(); ?>
+                    <a href="https://de.serlo.org"><?php echo $this->brand()->getLogo(); ?>
+                    <?php echo $this->brand()->getBrand(); ?></a>
                     <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
                             ->menu()
                             ->setPartial('layout/navigation/partial/active-subject')
@@ -84,11 +84,11 @@ echo $this->doctype();
             <div id="content-layout" class="clearfix">
                 <?php echo $this->partial('layout/partials/notifications'); ?>
                 <div class="flasher"></div>
-                <div class="home-header">
-                    <?php echo $this->brand()->getLogo(); ?>
+                <h1 class="home-header">
+                    <a href="/"><?php echo $this->brand()->getLogo(); ?>
                     <?php echo $this->brand()->getBrand(); ?>
-                    <div class="header-text">Die freie Lernplattform</div>
-                </div>
+                    <span class="header-text">Die freie Lernplattform</span></a>
+                </h1>
 
                 <div class="col-md-12 col-lg-10 col-lg-offset-1">
                     <div class="home-row home-subject-row">
@@ -101,10 +101,10 @@ echo $this->doctype();
                                 </div>
                                 <div class="row home-subject-column">
                                     <div class="col-xs-12">
-                                        <span class="home-subject">
+                                        <h2 class="home-subject">
                                             Mathematik <br> lernen
                                             <i class="fa fa-arrow-circle-right home-subject"></i>
-                                        </span>
+                                        </h2>
                                     </div>
                                 </div>
                             </a>
@@ -118,10 +118,10 @@ echo $this->doctype();
                                 </div>
                                 <div class="row home-subject-column">
                                     <div class="col-xs-12">
-                                        <span class="home-subject">
+                                        <h2 class="home-subject">
                                             Alphabetisierung <br> für NeusprachlerInnen
                                             <i class="fa fa-arrow-circle-right home-subject"></i>
-                                        </span>
+                                        </h2>
                                     </div>
                                 </div>
                             </a>
@@ -134,10 +134,10 @@ echo $this->doctype();
                                     </div>
                                 </div>
                                 <div class="row home-subject-column">
-                                    <span class="home-subject">
+                                    <h2 class="home-subject">
                                         Nachhaltigkeit <br> lernen
                                         <i class="fa fa-arrow-circle-right home-subject"></i>
-                                    </span>
+                                    </h2>
                                 </div>
                             </a>
                         </div>
@@ -150,10 +150,10 @@ echo $this->doctype();
                                 </div>
                                 <div class="row home-subject-column">
                                     <div class="col-xs-12">
-                                        <span class="home-subject">
+                                        <h2 class="home-subject">
                                             Biologie <br> lernen
                                             <i class="fa fa-arrow-circle-right home-subject"></i>
-                                        </span>
+                                        </h2>
                                     </div>
                                 </div>
                             </a>
@@ -164,8 +164,8 @@ echo $this->doctype();
 
                 <div class="home-extra-links home-row ">
                     <div class="home-column">
-                        <a class="home-emph-link" href="https://de.serlo.org/eltern">Startseite für <b>Eltern</b> <i class="fa fa-arrow-circle-right"></i></a>
-                        <a class="home-emph-link" href="https://de.serlo.org/lehrkraefte">Startseite für <b>LehrerInnen</b> <i class="fa fa_custom fa-arrow-circle-right"></i></a>
+                        <h3><a class="home-emph-link" href="https://de.serlo.org/eltern">Einstieg für <b>Eltern</b> <i class="fa fa-arrow-circle-right"></i></a></h3>
+                        <h3><a class="home-emph-link" href="https://de.serlo.org/lehrkraefte">Einstieg für <b>LehrerInnen</b> <i class="fa fa_custom fa-arrow-circle-right"></i></a></h3>
                     </div>
 
                 </div>
@@ -243,9 +243,9 @@ echo $this->doctype();
                         </a>
                     </div>
                     <div class="col-md-4 col-md-offset-2 col-lg-offset-0 col-lg-4 home-calls-column">
-                        <a href="/jobs" class="home-emph-link">
+                        <h3><a href="/jobs" class="home-emph-link">
                             Jobs und Engagement <i class="fa fa-arrow-circle-right"></i>
-                        </a>
+                        </a></h3>
                     </div>
                 </div>
                 </div>
@@ -266,18 +266,18 @@ echo $this->doctype();
                             <p>Bildung gehört uns allen! Werden Sie Mitglied in unserer Organisation
                                 Serlo Education e.V. und so zu MitherausgeberIn der freien Lernplattform.</p>
                             <div class="hidden-md hidden-lg">
-                                <a class="home-emph-link" href="/beitreten">
+                                <h3><a class="home-emph-link" href="/beitreten">
                                     Mitglied werden <i class="fa fa-arrow-circle-right"></i>
-                                </a>
+                                </a></h3>
                             </div>
                         </div>
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-2 col-lg-offset-1 col-lg-3 home-calls-column">
                             <p>Softwareentwicklung und Lerninhalte erstellen kostet Geld. Wir freuen uns sehr,
                                 wenn Sie Serlo mit einer Spende unterstützen.</p>
                             <div class="hidden-md hidden-lg">
-                                <a class="home-emph-link" href="/spenden">
+                                <h3><a class="home-emph-link" href="/spenden">
                                     Spenden <i class="fa fa-arrow-circle-right"></i>
-                                </a>
+                                </a></h3>
                             </div>
                         </div>
                     </div>
