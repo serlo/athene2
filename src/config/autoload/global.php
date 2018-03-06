@@ -68,5 +68,5 @@ return [
             'previous_uri_query_key'         => 'redir'
         ]
     ],
-    'assets_host' => 'https://package-registry.serlo.org/athene2-assets@0/'
+    'assets_host' => 'https://package-registry.serlo.org/athene2-assets@1/'
 ];
