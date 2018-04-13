@@ -1,7 +1,7 @@
 {% set revision = entity.getCurrentRevision() %}
 {% set type = entity.getType() %}
 {% set inputSolution = revision.get('solution') %}
-{% set feedback = renderer.toHtml(revision.get('feedback')) %}
+{% set feedback = renderer.toHtml(revision.get('feedback'), entity.getId()) %}
 {% set wrongInputs = inputChallenge().fetchWrongInputs(entity) | json_encode() %}
 
 <form class="input-challenge-group">
@@ -15,7 +15,11 @@
                data-wrong-inputs="{{ wrongInputs | escape('html_attr') }}">
     </div>
     <div class="row">
-        <div class="col-xs-12 input-challenge-feedback pull-right collapse"></div>
+        <div class="col-xs-12 input-challenge-feedback pull-right collapse editable"
+             data-id="{{ entity.getId() }}"
+             data-edit-field="feedback"
+             data-edit-type="ory"
+        ></div>
     </div>
     <div class="input-challenge-solution">
         {% if showSolution %}

@@ -9,6 +9,7 @@
  */
 namespace Entity\Controller;
 
+use Common\Form\CsrfForm;
 use Entity\Entity\EntityInterface;
 use Entity\Options\ModuleOptions;
 use Versioning\Entity\RevisionInterface;
@@ -17,6 +18,7 @@ use Versioning\RepositoryManagerAwareTrait;
 use Zend\Form\Form;
 use Zend\Mvc\Exception;
 use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class RepositoryController extends AbstractController
 {
@@ -27,6 +29,43 @@ class RepositoryController extends AbstractController
      */
     protected $moduleOptions;
 
+    public function formAction()
+    {
+        $entity = $this->getEntity();
+
+
+        if (!$entity || $entity->isTrashed()) {
+            $this->getResponse()->setStatusCode(404);
+            return false;
+        }
+        $this->assertGranted('entity.revision.create', $entity);
+/*        $revision = $this->getRevision($entity, $this->params('revision'));
+
+        if (is_object($revision)) {
+            $data = [];
+            foreach ($revision->getFields() as $field) {
+                $data[$field->getName()] = $field->getValue();
+            }
+        }*/
+
+        $form = $this->getForm($entity, $this->params('revision'));
+        $view = new ViewModel(['entity' => $entity, 'form' => $form]);
+/*        $form->isValid();
+        $data = $form->getData();//getInputFilter()->getRawValues();
+
+        $license   = $entity->getLicense();
+        $agreement = $license->getAgreement() ? $license->getAgreement() : $license->getTitle();
+        $data['license']['agreement'] = $agreement;
+
+        return new JsonModel($data);*/
+
+
+        $this->layout('athene2-editor');
+        $view->setTemplate('entity/repository/update-revision');
+
+        return $view;
+    }
+
     public function convertAction()
     {
         $entity = $this->getEntity();
@@ -35,34 +74,11 @@ class RepositoryController extends AbstractController
             $this->getResponse()->setStatusCode(404);
             return false;
         }
-        $type = $this->moduleOptions->getType($entity->getType()->getName());
-        /*if ($type->hasComponent('redirect') && !$this->getRequest()->isXmlHttpRequest()) {
-            // @var $redirect RedirectOptions
-            $redirect = $type->getComponent('redirect');
-
-            if ($redirect->getToType() === 'parent') {
-                $parent = $entity->getParents('link')->first();
-                if (!$parent->isTrashed() && $parent->hasCurrentRevision()) {
-                    return $this->redirect()->toRoute('uuid/get', ['uuid' => $parent->getId()]);
-                }
-            } else {
-                foreach ($entity->getChildren('link', $redirect->getToType()) as $child) {
-                    if (!$child->isTrashed() && $child->hasCurrentRevision()) {
-                        return $this->redirect()->toRoute('uuid/get', ['uuid' => $child->getId()]);
-                    }
-                }
-            }
-        }*/
 
         $this->assertGranted('entity.revision.create', $entity);
 
         $model = new ViewModel(['entity' => $entity, 'convert' => true]);
-        $model->setTemplate('entity/page/default');
-
-
-        if ($this->getRequest()->isXmlHttpRequest() || $this->params('isXmlHttpRequest', false)) {
-            $model->setTemplate('entity/view/default');
-        }
+        $model->setTemplate('entity/view/default');
 
         $this->layout('layout/3-col');
 
@@ -70,6 +86,7 @@ class RepositoryController extends AbstractController
             $this->layout('layout/2-col');
             $model->setTemplate('entity/page/pending');
         }
+        $model->setTerminal(true);
 
         return $model;
     }
@@ -237,6 +254,7 @@ class RepositoryController extends AbstractController
         $agreement = $license->getAgreement() ? $license->getAgreement() : $license->getTitle();
         $form->get('license')->get('agreement')->setLabel($agreement);
         $form->get('changes')->setValue('');
+
 
         return $form;
     }

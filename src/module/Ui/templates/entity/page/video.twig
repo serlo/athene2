@@ -8,7 +8,12 @@
         {% do placeholder('controls').set(controls) %}
         {% do placeholder('isLeaf').set(true) %}
         {% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
-        <h1><span itemprop="name">{{ title }}</span></h1>
+        <h1><span itemprop="name"
+                  class="editable"
+                  data-id="{{ entity.getId() }}"
+                  data-edit-field="title"
+                  data-edit-type="text"
+            >{{ title }}</span></h1>
         {% include 'entity/view/partials/actions/big' %}
     </div>
     {% include 'entity/page/partials/alerts' %}

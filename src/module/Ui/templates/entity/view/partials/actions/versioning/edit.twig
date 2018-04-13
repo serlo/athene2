@@ -7,9 +7,9 @@
         </a>
     {% else %}
         {% if convert or entity().isOryEditorFormat(entity.getCurrentRevision()) %}
-        <a rel="nofollow" class="btn btn-success ory-edit-button is-edit">
+        <a rel="nofollow" data-id="{{ entity.getId() }}" class="btn btn-success ory-edit-button">
         {% else %}
-        <a rel="nofollow" class="btn btn-success" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
+        <a rel="nofollow" data-id="{{ entity.getId() }}" class="btn btn-success" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
         {% endif %}
             <span class="fa fa-pencil"></span>
         </a>

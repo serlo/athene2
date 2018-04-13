@@ -1,5 +1,5 @@
 {% set title = 'video' | trans %}
-{% set description = markdown().toHtml(entity.getCurrentRevision().get('description')) %}
+{% set description = renderer.toHtml(entity.getCurrentRevision().get('description'), entity.getId()) %}
 <article>
     <section>
         {% set url = entity.getCurrentRevision().get('content') %}
@@ -36,7 +36,10 @@
             </p>
         {% endif %}
     </section>
-    <section itemprop="description">
+    <section itemprop="description editable"
+             data-id="{{ entity.getId() }}"
+             data-edit-field="description"
+             data-edit-type="ory">
         {{ description }}
     </section>
     {% include 'entity/view/partials/license' %}

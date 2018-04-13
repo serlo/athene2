@@ -75,7 +75,7 @@ class EntityHelper extends AbstractHelper
     }
 
     public function isOryEditorFormat(RevisionInterface $revision) {
-        $parsed = \GuzzleHttp\json_decode($revision->get('content'));
+        $parsed = json_decode($revision->get('content'), true);
         return $parsed !== null && isset($parsed['cells']);
     }
 }

@@ -178,6 +178,18 @@ return [
                                         'entity' => '[0-9]+'
                                     ]
                                 ]
+                            ],
+                            'form' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/form/:entity',
+                                    'defaults' => [
+                                        'action' => 'form'
+                                    ],
+                                    'constraints' => [
+                                        'entity' => '[0-9]+'
+                                    ]
+                                ]
                             ]
                         ]
                     ],

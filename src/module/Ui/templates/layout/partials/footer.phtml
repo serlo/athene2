@@ -72,4 +72,18 @@
 
 <div id="controls"></div>
 
+<div id="loading" style="display:none;">
+    <div class="modal fade in is-block" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content" style="text-align:center;">
+                <h4 class="modal-title">
+                    <?php echo $this->translate('Loading'); ?>
+                </h4>
+                <img src="http://fs1.directupload.net/images/180410/qnfsrpoi.gif">
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in"></div>
+</div>
+
 <?php echo $this->partial('layout/partials/scripts'); ?>

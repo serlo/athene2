@@ -1,8 +1,8 @@
 {% set title = 'article' | trans %}
 {% set revision = entity.getCurrentRevision() %}
-{% set content = renderer.toHtml(revision.get('content')) %}
+{% set content = renderer.toHtml(revision.get('content'), entity.getId()) %}
 <article>
-    <section>
+    <section class="editable" data-id="{{ entity.getId() }}" data-edit-field="content" data-edit-type="ory">
         {{ content }}
     </section>
 

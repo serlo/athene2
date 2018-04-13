@@ -11,9 +11,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 editable"
+                         data-id="{{ entity.getId() }}"
+                         data-edit-field="content"
+                         data-edit-type="ory"
+                    >
                         {% if revision %}
-                            {{ renderer.toHtml(revision.get('content')) | raw }}
+                            {{ renderer.toHtml(revision.get('content'), entity.getId()) | raw }}
                         {% elseif not entity.getHead() %}
                             {% trans %} A solution has been created but no content has been added yet or it is pending approval. {% endtrans %}
                         {% endif %}

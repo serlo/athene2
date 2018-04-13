@@ -4,20 +4,27 @@
 {% set displayContent = 'This answer has been created but no content has been added yet or it is pending approval.' | trans %}
 {% set feedbackContent = '' %}
 {% if revision %}
-    {% set feedbackContent = renderer.toHtml(revision.get('feedback')) %}
-    {% set displayContent = renderer.toHtml(revision.get('content')) %}
+    {% set feedbackContent = renderer.toHtml(revision.get('feedback'), entity.getId()) %}
+    {% set displayContent = renderer.toHtml(revision.get('content'), entity.getId()) %}
 {% endif %}
 {% set feedback = feedbackContent ? feedbackContent : defaultFeedback %}
 
 <div class="col-sm-3 multiple-choice-answer-group" itemprop="articleBody">
-    <button class="btn multiple-choice-answer-content button-default"
+    <button class="btn multiple-choice-answer-content button-default editable"
             name="multiple-choice-answer-choice-{{  parent.getID() }}"
-            data-correct="{{ right }}">
+            data-correct="{{ right }}"
+            data-id="{{ entity.getId() }}"
+            data-edit-field="content"
+            data-edit-type="ory"
+    >
         {{ displayContent | raw }}
     </button>
     {% if not right %}
         <div class="multiple-choice-answer-feedback collapse">
-            <div class="alert alert-warning">
+            <div class="alert alert-warning editable"
+                 data-id="{{ entity.getId() }}"
+                 data-edit-field="feedback"
+                 data-edit-type="ory">
                 {{ feedback | raw }}
             </div>
         </div>

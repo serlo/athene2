@@ -13,7 +13,8 @@ interface RenderServiceInterface
 {
     /**
      * @param string $content
+     * @param int $id
      * @return string
      */
-    public function render($content);
+    public function render($content, $id);
 }
