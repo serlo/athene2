@@ -29,12 +29,12 @@
                 <td><?php echo $entity->getType(); ?></td>
                 <td>
                     <div class="btn-group">
-                    <?php if ($this->isGranted('uuid.restore', $entity)): ?>
+                    <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'restore'), $entity)): ?>
 					<a class="btn btn-success btn-xs"
 						href="<?php echo $this->url('uuid/restore', array('id' => $entity->getId())); ?>"><span
 						class="fa fa-refresh"></span></a>
                     <?php endif; ?>
-                    <?php if ($this->isGranted('uuid.purge', $entity)): ?>
+                    <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'purge'), $entity)): ?>
                         <?php $trashbutton = '<button class="dialog btn btn-danger btn-xs"
                             data-content="'.$this->translate('Do you really want to purge this item? It and all references to it will be lost forever!').'"
                             data-type="danger">
