@@ -1806,8 +1806,8 @@ msgid "%user% rejected %revision% in %repository%: \"%reason%\""
 msgstr "%user% hat %revision% in %repository% abgelehnt: \"%reason%\""
 
 #: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:11
-msgid "%user% rejected %revision% in %repository% without a reason"
-msgstr "%user% hat %revision% in %repository% ohne Begründung abgelehnt"
+msgid "%user% rejected %revision% in %repository%"
+msgstr "%user% hat %revision% in %repository% abgelehnt"
 
 #: ../module/Ui/templates/event/helper/event/license/object/set.twig:5
 msgid "%user% changed the license of %object%"
@@ -1988,16 +1988,16 @@ msgid "%user% accepted a %revision% of %repository%: %reason%"
 msgstr "%user% hat eine %revision% von %repository% akzeptiert: %reason%"
 
 #: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:14
-msgid "%user% accepted a %revision% of %repository% without a reason"
-msgstr "%user% hat eine %revision% von %repository% ohne Begründung akzeptiert"
+msgid "%user% accepted a %revision% of %repository%"
+msgstr "%user% hat eine %revision% von %repository% akzeptiert"
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:10
 msgid "%user% rejected a %revision% of %repository%: %reason%"
 msgstr "%user% hat eine %revision% von %repository% abgelehnt: \"%reason%\""
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:14
-msgid "%user% rejected a %revision% of %repository% without a reason"
-msgstr "%user% hat eine %revision% in %repository% ohne Begründung abgelehnt"
+msgid "%user% rejected a %revision% of %repository%"
+msgstr "%user% hat eine %revision% in %repository% abgelehnt"
 
 #: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:7
 msgid "%user% associated %term% with %object%"
