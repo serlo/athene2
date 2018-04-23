@@ -272,7 +272,9 @@ class NavigationController extends AbstractActionController
         $this->assertGranted('navigation.manage', $page);
         $this->pageForm->bind($page);
         if ($this->getRequest()->isPost()) {
-            $data = $this->params()->fromPost();
+            $data = array_merge($this->params()->fromPost(), [
+                'parent' => $this->params('parent', null)
+            ]);
             $this->pageForm->setData($data);
             if ($this->pageForm->isValid()) {
                 $this->navigationManager->updatePage($this->pageForm);
