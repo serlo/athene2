@@ -3,6 +3,7 @@ namespace Page\Controller;
 
 use Alias\AliasManagerAwareTrait;
 use Alias\AliasManagerInterface;
+use Common\Controller\AbstractAPIAwareActionController;
 use Common\Traits\ObjectManagerAwareTrait;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
@@ -16,10 +17,9 @@ use User\Manager\UserManagerInterface;
 use Versioning\RepositoryManagerAwareTrait;
 use Versioning\RepositoryManagerInterface;
 use Zend\Form\FormInterface;
-use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController
+class IndexController extends AbstractAPIAwareActionController
 {
     use InstanceManagerAwareTrait, RepositoryManagerAwareTrait;
     use PageManagerAwareTrait;
@@ -193,6 +193,7 @@ class IndexController extends AbstractActionController
 
     public function viewAction()
     {
+        $this->setupAPI();
         $pageRepository = $this->getPageRepository();
         if (!$pageRepository) {
             return $this->notFound();

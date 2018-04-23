@@ -20,24 +20,24 @@ echo $this->doctype();
 <!-- moved to 2-col -->
 <body itemscope itemtype="http://schema.org/WebPage">
     <div class="wrap">
-    	<?php echo $this->partial('layout/partials/header'); ?>
+        <?php echo $this->partial('layout/partials/header'); ?>
 
-    	<div id="page" class="container">
-    		<?php echo $this->partial('layout/partials/left-sidebar'); ?>
-    		<section id="main">
-    			<div id="main-container">
-    				<div id="content-layout">
+        <div id="page" class="container">
+            <?php echo $this->partial('layout/partials/left-sidebar'); ?>
+            <section id="main">
+                <div id="main-container">
+                    <div id="content-layout">
                         <?php echo $this->partial('layout/partials/notifications'); ?>
                         <div id="content-container" class="content">
                             <?php echo $this->partial('layout/partials/main'); ?>
                         </div>
-    				</div>
-    			</div>
-    		</section>
-            <?php echo $this->banner(); ?>
-            <?php echo $this->placeholder('discussions'); ?>
+                    </div>
+                </div>
+            </section>
+            <?php echo $this->partial('layout/partials/banner'); ?>
+            <?php echo $this->partial('layout/partials/discussions'); ?>
             <?php echo $this->partial('layout/partials/right-sidebar'); ?>
-    	</div>
+        </div>
         <?php /* sticky footer: */ ?>
         <!-- <div id="footer-push"></div> -->
         <?php echo $this->partial('layout/partials/footer'); ?>

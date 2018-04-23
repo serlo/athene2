@@ -43,6 +43,8 @@ class SignpostController extends AbstractActionController
 
         if (!$this->getRequest()->isXmlHttpRequest()) {
             $url      = $this->url()->fromRoute($routeName, $routeParams);
+            $query = http_build_query($this->params()->fromQuery());
+            $url = strlen($query) > 0 ? $url . '?' . $query : $url;
             $response = $this->redirect()->toUrl($url);
             $this->getResponse()->setStatusCode(301);
             return $response;

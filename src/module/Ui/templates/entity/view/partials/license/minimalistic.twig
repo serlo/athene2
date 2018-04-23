@@ -1,4 +1,14 @@
 <section>
+    {% if (layout().usingAPI) %}
+        <div class="row">
+            <div class="col-xs-12">
+                {{ 'Source' | trans }}:
+                <a href="/{{ entity.getId() }}" target="_blank">
+                    {{ 'The Open Learning Platform Serlo.org' | trans }}
+                </a>
+            </div>
+        </div>
+    {% endif %}
     <div class="row">
         <div class="col-xs-12">
             <a href="{{ entity.getLicense().getUrl() }}"

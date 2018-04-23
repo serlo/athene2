@@ -1,25 +1,32 @@
-<aside class="side-navigation side-element">
-    <div class="layout-toggle">
-        <i class="fa fa-bars"></i>
-        <i class="fa fa-times"></i>
-    </div>
-    <div class="side-element-inner">
-        <?php
-        echo $this->navigation('default_navigation')
+<?php if (!$this->layout()->hideLeftSidebar): ?>
+    <?php $isCourse = $this->registry()->get('rnav-is-course'); ?>
+    <?php if (!empty($isCourse) && $isCourse): ?>
+        <?php echo $this->registry()->get('rnav'); ?>
+    <?php else: ?>
+        <aside class="side-navigation side-element">
+            <div class="layout-toggle">
+                <i class="fa fa-bars"></i>
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="side-element-inner">
+                <?php
+                echo $this->navigation('default_navigation')
+                            ->menu()
+                            ->setPartial('layout/navigation/side-navigation')
+                            ->setOnlyActiveBranch(false)
+                            ->setMinDepth(0)
+                            ->setMaxDepth(1)
+                            ->setUlClass('nav clear')
+                            ->render();
+                ?>
+                <?php
+                echo $this->navigation('social_navigation')
                     ->menu()
-                    ->setPartial('layout/navigation/side-navigation')
-                    ->setOnlyActiveBranch(false)
-                    ->setMinDepth(0)
-                    ->setMaxDepth(1)
+                    ->setPartial('layout/navigation/social')
                     ->setUlClass('nav clear')
                     ->render();
-        ?>
-        <?php
-        echo $this->navigation('social_navigation')
-            ->menu()
-            ->setPartial('layout/navigation/social')
-            ->setUlClass('nav clear')
-            ->render();
-        ?>
-    </div>
-</aside>
+                ?>
+            </div>
+        </aside>
+    <?php endif; ?>
+<?php endif; ?>
