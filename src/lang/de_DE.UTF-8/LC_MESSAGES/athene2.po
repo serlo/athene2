@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2017-10-22 14:03+0200\n"
-"PO-Revision-Date: 2017-10-22 14:10+0200\n"
+"POT-Creation-Date: 2018-04-23 10:37+0200\n"
+"PO-Revision-Date: 2018-04-23 10:53+0200\n"
 "Last-Translator: Serlo <info-de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -612,8 +612,8 @@ msgid "description:"
 msgstr "Beschreibung:"
 
 #: ../module/User/src/User/Controller/UserController.php:99
-msgid "You have registered successfully andwill soon receive an email with instructions onhow to activate your account."
-msgstr "Du hast dich erfolgreich registierst. In Kürze erhältst du eine E-Mail mit Anweisungen, wie du deinen Account aktivieren kannst."
+msgid "You have registered successfully and will soon receive an email with instructions on how to activate your account."
+msgstr "Du hast dich erfolgreich registriert. In Kürze erhältst du eine E-Mail mit Anweisungen, wie du deinen Account aktivieren kannst."
 
 #: ../module/User/src/User/Controller/UserController.php:164
 msgid "Your profile has been saved"

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2017-10-22 14:03+0200\n"
-"PO-Revision-Date: 2017-10-22 14:11+0200\n"
+"POT-Creation-Date: 2018-04-23 10:37+0200\n"
+"PO-Revision-Date: 2018-04-23 10:54+0200\n"
 "Last-Translator: Serlo <info-de@serlo.org>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -612,8 +612,8 @@ msgid "description:"
 msgstr "記述："
 
 #: ../module/User/src/User/Controller/UserController.php:99
-msgid "You have registered successfully andwill soon receive an email with instructions onhow to activate your account."
-msgstr "登録が完了しました。使用説明およびアカウントをアクティベイトするメールが届きます。"
+msgid "You have registered successfully and will soon receive an email with instructions on how to activate your account."
+msgstr ""
 
 #: ../module/User/src/User/Controller/UserController.php:164
 msgid "Your profile has been saved"
@@ -1799,8 +1799,8 @@ msgid "%user% rejected %revision% in %repository%: \"%reason%\""
 msgstr "%user%は%repository%内の%revision%を拒否しました：　\"%reason%\""
 
 #: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:11
-msgid "%user% rejected %revision% in %repository% without a reason"
-msgstr "%user%は%repository%内の%revision%を理由なく拒否しました。"
+msgid "%user% rejected %revision% in %repository%"
+msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/license/object/set.twig:5
 msgid "%user% changed the license of %object%"
@@ -1981,16 +1981,16 @@ msgid "%user% accepted a %revision% of %repository%: %reason%"
 msgstr "%user%は%repository%の%revision%を理由なく許可しました：%reason%"
 
 #: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:14
-msgid "%user% accepted a %revision% of %repository% without a reason"
-msgstr "%user%は%repository%の%revision%を理由なく許可しました。"
+msgid "%user% accepted a %revision% of %repository%"
+msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:10
 msgid "%user% rejected a %revision% of %repository%: %reason%"
 msgstr "%user%は%repository%の%revision%を拒否：%reason%"
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:14
-msgid "%user% rejected a %revision% of %repository% without a reason"
-msgstr "%user%は%repository%の%revision%を理由なく拒否"
+msgid "%user% rejected a %revision% of %repository%"
+msgstr ""
 
 #: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:7
 msgid "%user% associated %term% with %object%"
