@@ -3,3 +3,4 @@
 <?php echo $this->headTitle($this->brand()->getHeadTitle(true))->setSeparator(' » '); ?>
 <?php echo $this->headMeta(); ?>
 <?php echo $this->headLink(['rel' => 'icon', 'href' => '/favicon.ico', 'type' => 'image/x-icon']); ?>
+<?php echo $this->headLink(['rel' => 'search', 'href' => '/opensearch.xml', 'title' => 'Serlo (de)','type' => 'application/opensearchdescription+xml']); ?>
