@@ -97,8 +97,8 @@ class UserController extends AbstractUserController
                 $this->getUserManager()->flush();
                 $this->flashMessenger()->addSuccessMessage(
                     'You have registered successfully and'
-                    . 'will soon receive an email with instructions on'
-                    . 'how to activate your account.'
+                    . ' will soon receive an email with instructions on'
+                    . ' how to activate your account.'
                 );
                 return $this->redirect()->toUrl($this->params('ref', '/'));
             }
