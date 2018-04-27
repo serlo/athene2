@@ -11,7 +11,7 @@
         {% endtrans %}
     {% else %}
         {% trans %}
-        {{ user }} accepted a {{ revision }} of {{ repository }} without a reason
+        {{ user }} accepted a {{ revision }} of {{ repository }}
         {% endtrans %}
     {% endif %}
     <small> - {{ timeago().render(event.getTimestamp()) }}</small>
