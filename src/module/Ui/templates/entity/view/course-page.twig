@@ -5,6 +5,7 @@
 {% set previous = parent.getPreviousValidSibling('link', entity) %}
 {% set next = parent.getNextValidSibling('link', entity) %}
 
+<article>
 {% if previous is not null %}
     <div class="row">
         <div class="col-xs-12">
@@ -51,6 +52,7 @@
 {% endif %}
 
 {% include 'entity/view/partials/license' %}
+</article>
 
 {% set discussions %}
 <section id="discussion-{{ entity.getId() }}" class="discussions clearfix">

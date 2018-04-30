@@ -1,6 +1,11 @@
 {% set title = false %}
 {% if entity.getHead() %}
-    {% set title = entity.getHead().get('title') %}
+    {% set head = entity.getHead() %}
+    {% set title = head.get('title') %}
+    {% set content = entity().isOryEditorFormat(entity.getCurrentRevision()) ? oryRenderer() : markdown() %}
+    {% set convert = false %}
+{% else %}
+    {% set convert = true %}
 {% endif %}
 {% do headTitle(entity.getId()) %}
 <div class="page-header">
@@ -16,7 +21,8 @@
             {{ entity.getId() }} <small>{{ 'Dead node' | trans }}</small>
         {% endif %}
     </h1>
-    {% include 'entity/view/partials/actions/big' %}
+    {% set controls = include('entity/view/partials/actions/big') %}
+    {% do placeholder('controls').set(controls) %}
 </div>
 {% include 'entity/page/partials/alerts' %}
 <div class="panel panel-danger">

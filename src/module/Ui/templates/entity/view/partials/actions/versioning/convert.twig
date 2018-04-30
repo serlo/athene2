@@ -1,6 +1,7 @@
 {% set options = entity().getOptions(entity) %}
 {% if options.hasComponent('repository') %}
-    {% if not entity.isUnrevised() and not convert and not entity().isOryEditorFormat(entity.getCurrentRevision()) %}
+    {% if not entity.isUnrevised() and isGranted('entity.revision.create', entity)
+        and not convert and not entity().isOryEditorFormat(entity.getCurrentRevision()) %}
     <li>
         <a rel="nofollow" class="convert-button" data-content-id="{{ entity.getId() }}">
             <span class="fa fa-pencil"></span>

@@ -31,7 +31,7 @@ class TextHintForm extends Form
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
-                'plain'
+                'plain control'
             )
         );
         $this->add(new AgreementFieldset($license));

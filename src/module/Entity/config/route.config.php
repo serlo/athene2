@@ -167,24 +167,25 @@ return [
                                     ]
                                 ]
                             ],
+                            'first-revision' => [
+                                'type'    => 'segment',
+                                'options' => [
+                                    'route'       => '/first-revision/:entity[/:revision]',
+                                    'defaults'    => [
+                                        'action' => 'firstRevision'
+                                    ],
+                                    'constraints' => [
+                                        'entity' => '[0-9]+',
+                                        'revision' => '[0-9]+'
+                                    ]
+                                ]
+                            ],
                             'convert' => [
                                 'type' => 'segment',
                                 'options' => [
                                     'route' => '/convert/:entity',
                                     'defaults' => [
                                         'action' => 'convert'
-                                    ],
-                                    'constraints' => [
-                                        'entity' => '[0-9]+'
-                                    ]
-                                ]
-                            ],
-                            'form' => [
-                                'type' => 'segment',
-                                'options' => [
-                                    'route' => '/form/:entity',
-                                    'defaults' => [
-                                        'action' => 'form'
                                     ],
                                     'constraints' => [
                                         'entity' => '[0-9]+'
