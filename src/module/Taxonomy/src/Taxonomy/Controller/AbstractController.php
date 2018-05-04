@@ -8,15 +8,15 @@
  */
 namespace Taxonomy\Controller;
 
+use Common\Controller\AbstractAPIAwareActionController;
 use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
 use Taxonomy\Entity\TaxonomyTermInterface;
 use Taxonomy\Form\TermForm;
 use Taxonomy\Manager\TaxonomyManagerAwareTrait;
 use Taxonomy\Manager\TaxonomyManagerInterface;
-use Zend\Mvc\Controller\AbstractActionController;
 
-class AbstractController extends AbstractActionController
+class AbstractController extends AbstractAPIAwareActionController
 {
     use TaxonomyManagerAwareTrait;
     use InstanceManagerAwareTrait;

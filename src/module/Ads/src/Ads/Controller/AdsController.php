@@ -99,9 +99,6 @@ class AdsController extends AbstractActionController
         return $this->redirect()->toRoute('ads');
     }
 
-    /*
-     * public function shuffleAction() { $instance = $this->getInstanceManager()->getInstanceFromRequest(); $this->assertGranted('ad.get', $instance); $ads = $this->getAdsManager()->findShuffledAds($instance, 3); $view = new ViewModel([ 'ads' => $ads ]); $view->setTemplate('ads/shuffle'); return $view; }
-     */
     public function editAction()
     {
         $form = new AdForm();

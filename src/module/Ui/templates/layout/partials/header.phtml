@@ -9,10 +9,14 @@
  * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
  */
 ?>
-
 <header id="header">
-    <?php echo $this->partial('layout/partials/top-bar'); ?>
-    <div class="container">
+    <?php if (!$this->layout()->hideTopbar): ?>
+        <?php echo $this->partial('layout/partials/top-bar'); ?>
+    <?php endif; ?>
+    <?php if (!$this->layout()->fullWidth): ?>
+        <div class="container">
+    <?php endif; ?>
+    <?php if (!$this->layout()->hideTopbar): ?>
         <nav id="header-nav">
             <div id="mobile-nav-toggle">
                 <button>
@@ -55,13 +59,15 @@
         </nav>
 
         <div id="mobile-nav"></div>
-
-        <?php if (empty($this->placeholder('hideSubjectNav')->getValue())): ?>
+    <?php endif; ?>
+    <?php if (empty($this->placeholder('hideSubjectNav')->getValue()) && !$this->layout()->hideBreadcrumbs): ?>
         <nav id="subject-nav">
             <div id="subject-nav-wrapper">
                 <div class="subject-nav-center">
                     <div class="pull-right controls">
-                        <?php echo $this->placeholder('controls'); ?>
+                        <?php if (!$this->layout()->usingAPI): ?>
+                            <?php echo $this->placeholder('controls'); ?>
+                        <?php endif; ?>
                     </div>
                     <ol id="breadcrumbs">
                         <?php echo $this->navigation('default_navigation')
@@ -75,6 +81,8 @@
                 <?php echo $this->partial('layout/partials/search'); ?>
             </div>
         </nav>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
+    <?php if (!$this->layout()->fullWidth): ?>
+        </div>
+    <?php endif; ?>
 </header>

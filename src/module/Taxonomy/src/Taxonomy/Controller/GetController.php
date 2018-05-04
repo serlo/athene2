@@ -16,6 +16,8 @@ class GetController extends AbstractController
 {
     public function indexAction()
     {
+        $this->setupAPI();
+
         try {
             $term = $this->getTerm();
         } catch (TermNotFoundException $e) {

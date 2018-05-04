@@ -8,12 +8,12 @@
  */
 namespace Entity\Controller;
 
+use Common\Controller\AbstractAPIAwareActionController;
 use Entity\Entity\EntityInterface;
 use Entity\Exception\EntityNotFoundException;
 use Entity\Manager\EntityManagerAwareTrait;
-use Zend\Mvc\Controller\AbstractActionController;
 
-abstract class AbstractController extends AbstractActionController
+abstract class AbstractController extends AbstractAPIAwareActionController
 {
     use EntityManagerAwareTrait;
 

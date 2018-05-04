@@ -26,6 +26,7 @@ class PageController extends AbstractController
 
     public function indexAction()
     {
+        $this->setupAPI();
         $entity = $this->getEntity();
         if (!$entity) {
             $this->getResponse()->setStatusCode(404);

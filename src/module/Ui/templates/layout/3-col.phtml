@@ -8,37 +8,60 @@
  * @copyright   Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
  */
 echo $this->doctype();
+
+$classes = array('wrap');
+
+if ($this->layout()->fullWidth) {
+    array_push($classes, 'full-width');
+}
+
+if (!$this->layout()->hideLeftSidebar) {
+    array_push($classes, 'has-navigation');
+}
+
+if (!$this->layout()->hideRightSidebar) {
+    array_push($classes, 'has-context');
+}
+
+$class = join(' ', $classes);
+
+$pageClasses = array('clearfix');
+
+if (!empty($this->registry()->get('rnav'))) {
+    array_push($pageClasses, 'has-sidebar');
+}
+
+if (!$this->layout()->fullWidth) {
+    array_push($pageClasses, 'container');
+}
+
+$pageClass = join(' ', $pageClasses);
 ?>
 <!--[if lt IE 9 ]>
 <html class="old-ie fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <!--<![endif]-->
 <head>
-    <?php print $this->partial('layout/partials/head'); ?>
+    <?php echo $this->partial('layout/partials/head'); ?>
     <?php echo $this->partial('layout/partials/styles'); ?>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
-<div class="wrap has-navigation has-context">
+<div class="<?php echo $class ?>">
     <?php echo $this->partial('layout/partials/header'); ?>
 
-    <div id="page" class="container clearfix<?php echo (!empty($this->registry()->get('rnav')) ? ' has-sidebar' : '') ?>">
-        <?php $isCourse = $this->registry()->get('rnav-is-course');
-            if(!empty($isCourse) && $isCourse) {
-                echo $this->registry()->get('rnav');
-            } else {
-                echo $this->partial('layout/partials/left-sidebar');
-            } ?>
+    <div id="page" class="<?php echo $pageClass ?>">
+        <?php echo $this->partial('layout/partials/left-sidebar'); ?>
         <section class="main clearfix">
             <div id="content-layout" class="content clearfix">
                 <?php echo $this->partial('layout/partials/notifications'); ?>
                 <?php echo $this->partial('layout/partials/main'); ?>
             </div>
-            <?php echo $this->banner(); ?>
-            <?php echo $this->placeholder('discussions'); ?>
-            <?php if(empty($isCourse) || !$isCourse) {
-                echo $this->partial('layout/partials/right-sidebar');
-            } ?>
-            <?php echo $this->horizon(3); ?>
+            <?php echo $this->partial('layout/partials/banner'); ?>
+            <?php echo $this->partial('layout/partials/discussions'); ?>
+            <?php if (empty($isCourse) || !$isCourse): ?>
+                <?php echo $this->partial('layout/partials/right-sidebar'); ?>
+            <?php endif; ?>
+            <?php echo $this->partial('layout/partials/horizon'); ?>
         </section>
     </div>
     <div id="footer-push"></div>
