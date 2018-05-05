@@ -3,11 +3,9 @@
         {% set subfolders = "" %}
         {% set group = "" %}
         {% set subfolderLimit = 3 %}
-        <div class="row">
+        <nav class="row taxonomy">
             <div class="col-sm-6 col-xs-12">
-                <p>
-                    <span class="h3"><a href="{{ url('taxonomy/term/get', {'term': child.getId()}) }}">{{ child.getName() }}</a></span>
-                </p>
+                <h2><a href="{{ url('taxonomy/term/get', {'term': child.getId()}) }}">{{ child.getName() }}</a></h2>
                 <p>
                     {% if child.getDescription() %}
                         {{ markdown().toHtml(child.getDescription()) }}
@@ -19,13 +17,11 @@
                     {% set entities = childsChild.getAssociated('entities') %}
                     {% set entities = entity().getVisible(entities) %}
                     {% set currentSub %}
-                    <div class="col-xs-12">
-                        <p>
-                            <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">
-                                {{ childsChild.getName() }} ({{ childsChild.findChildrenByTrashed(false).count() + entities.count()}})
-                            </a>
-                        </p>
-                    </div>
+                    <li>
+                        <a href="{{ url('taxonomy/term/get', {'term': childsChild.getId()}) }}">
+                            {{ childsChild.getName() }} ({{ childsChild.findChildrenByTrashed(false).count() + entities.count()}})
+                        </a>
+                    </li>
                     {% endset %}
                     {% set subfolders = subfolders ~ currentSub %}
                 {% endfor %}
@@ -36,9 +32,9 @@
                             <span class="fa fa-1-5x fa-folder-open-o"></span>
                         </div>
                         <div class="col-xs-10">
-                            <div class="row">
+                            <ul>
                                 {{ subfolders }}
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 {% endif %}
@@ -54,13 +50,13 @@
                                     <span class="fa fa-1-5x fa-{{ cycle(['graduation-cap', 'newspaper-o', 'play-circle'], i) }}"></span>
                                 </div>
                                 <div class="col-xs-10">
-                                    <div class="row">
+                                    <ul>
                                         {% for link in types.get(type) %}
-                                            <div class="col-xs-12">
+                                            <li>
                                                 {% include 'taxonomy/term/entity/default' with {'entity': link} only %}
-                                            </div>
+                                            </li>
                                         {% endfor %}
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         {% endif %}
@@ -108,7 +104,7 @@
                     </div>
                 {% endif %}
             </div>
-        </div>
+        </nav>
         <hr>
     {% endfor %}
 </div>
