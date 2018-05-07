@@ -57,12 +57,97 @@ class Normalize extends AbstractHelper
     {
         /* @var $headTitle HeadTitle */
         $headTitle  = $this->getView()->plugin('headTitle');
-        $normalized = $this->normalize($object);
-        $title      = $normalized->getTitle();
+        $brand  = $this->getView()->brand();
+
+        if($object == NULL) {
+            $title = $brand->getBrand(true) . " – " . $brand->getSlogan();
+            $headTitle($title);
+            return $this;
+        }
+
+        if(is_string($object)){
+            $title = $object;
+            $type = 'string';
+            $typeName = $this->getView()->translate( 'curriculum' );
+            var_dump($typeName);
+        }
+
+        else {
+            $normalized = $this->normalize($object);
+
+            $type = $normalized->getType();
+            $typeName = $this->getView()->translate( $normalized->getType() );
+
+            $title = '';
+            $titleFallback = $normalized->getTitle();
+        }
+
+        // TODO: topic folder -> keine Klammer (weil der Titel eh immer Aufgaben zu xyz heißen muss)
+
+        /*
+        old version of topic folder {% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' ' ~ (term.getTaxonomy.getName() | trans)) %}
+
+        old version of topic {% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' ' ~ ( term.getTaxonomy.getName() | trans)) %} #} */
+        // "Page revision" can cause problems?
+
+        $titlePostfix = ' – ' . $brand->getHeadTitle(true);
+
+        $maxStringLen = 65;
+
+        if ( in_array($type, array('article','course','course-page','video')) ) {
+            $title = $object->getCurrentRevision()->get('meta_title');
+        }
+
+        if($title == '') {
+            $title = $titleFallback;
+        }
+
+        switch ($type) {
+
+            case 'course-page':
+                // e.g. Verschieben und Stauchen | 1. Startseite
+                $parent = $object->getParents('link')->first();
+                $parentTitle = $parent->getCurrentRevision()->get('title');
+                $normalizedParent = $this->normalize($parent);
+                $parentTitleFallback = $normalizedParent->getTitle();
+                if($parentTitle == '') {
+                    $parentTitle = $parentTitleFallback;
+                }
+                $title = $parentTitle . " | " .$title;
+                break;
+
+            case 'curriculum':
+            case 'curriculum-topic-folder':
+            case 'curriculum-topic':
+            case 'locale':
+            case 'string':
+            case 'topic':
+            case 'article':
+            case 'video':
+            case 'course':
+            break;
+
+            default:
+                $title = $titleFallback . " – " . $brand->getBrand(true); //eg. Mathe Community – Serlo.org
+                break;
+        }
+
+         //add "(Kurs)"
+        if ( in_array($type, array('course','course-page','video', 'topic', 'curriculum', 'curriculum-topic-folder', 'curriculum-topic', 'locale', 'string')) ) {
+            if( strlen($title) < ($maxStringLen-strlen($typeName)) ){
+                   $title .=  ' (' . $typeName . ')';
+            }
+        }
+
+        //add "– lernen mit serlo"
+        if ( in_array($type, array('article','course','course-page','video', 'topic', 'curriculum', 'curriculum-topic-folder', 'curriculum-topic', 'locale')) ) {
+            if( strlen($title) < ($maxStringLen-strlen($titlePostfix)) ){
+                $title .= ' ' . $titlePostfix;
+            }
+        }
+
         $headTitle($title);
-
         return $this;
-
     }
 
     public function possible($object)
