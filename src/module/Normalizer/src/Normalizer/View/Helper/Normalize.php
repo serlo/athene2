@@ -53,7 +53,6 @@ class Normalize extends AbstractHelper
         $meta->setProperty('fb:pages', '155020041197918');
         $meta->setProperty('fb:profile_id', '155020041197918');
         $meta->setProperty('og:url', $link);
-        // $meta->setProperty('og:url', $link);
         $this->getView()->headLink(['rel' => 'search', 'href' => '/opensearch.xml', 'title' => 'Serlo (de)','type' => 'application/opensearchdescription+xml']);
 
         return $this;
@@ -63,7 +62,6 @@ class Normalize extends AbstractHelper
     public function getCanonicalLink($object){
         //TODO: use IDs to create short canonical links
         $link = $this->toUrl($object, true);
-        var_dump($link);
         return $link;
     }
 
@@ -146,8 +144,7 @@ class Normalize extends AbstractHelper
         }
 
         switch ($type) {
-            case 'course-page':
-                // e.g. Verschieben und Stauchen | 1. Startseite
+            case 'course-page': // e.g. Verschieben und Stauchen | 1. Startseite
                 $parent = $object->getParents('link')->first();
                 $parentTitle = $parent->getCurrentRevision()->get('title');
                 $normalizedParent = $this->normalize($parent);
