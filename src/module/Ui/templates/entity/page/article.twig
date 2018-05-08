@@ -1,4 +1,5 @@
 {% do normalize().headTitle(entity) %}
+{% do normalize().headMeta(entity) %}
 
 {% set title = entity.getCurrentRevision().get('title') %}
 {% include 'entity/page/partials/placeholders' %}
