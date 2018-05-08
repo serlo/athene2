@@ -38,24 +38,76 @@ class Normalize extends AbstractHelper
         $robots     = $metadata->getRobots();
         $preview    = $this->toPreview($object);
         $image      = $this->getMetaImage($object);
-        $meta->setProperty('og:title', $title);
-        $meta->setProperty('og:image', $image);
+        $site_name  = $this->getView()->brand()->getBrand(true);
+        $link       = $this->getCanonicalLink($object);
+
+        $this->getView()->headLink(['rel' => 'canonical', 'href' => $link ]);
         $meta->appendName('description', $preview);
         $meta->appendName('keywords', implode(', ', $keywords));
         $meta->appendName('robots', $robots);
+        $meta->setProperty('og:title', $title);
+        $meta->setProperty('og:type', 'website');
+        $meta->setProperty('og:image', $image);
+        $meta->setProperty('og:description', $preview);
+        $meta->setProperty('og:site_name', $site_name);
+        $meta->setProperty('fb:pages', '155020041197918');
+        $meta->setProperty('fb:profile_id', '155020041197918');
+        $meta->setProperty('og:url', $link);
+        // $meta->setProperty('og:url', $link);
+        $this->getView()->headLink(['rel' => 'search', 'href' => '/opensearch.xml', 'title' => 'Serlo (de)','type' => 'application/opensearchdescription+xml']);
 
         return $this;
     }
 
+
+    public function getCanonicalLink($object){
+        //TODO: use IDs to create short canonical links
+        $link = $this->toUrl($object, true);
+        var_dump($link);
+        return $link;
+    }
+
     public function getMetaImage($object)
     {
-        //TODO: Change path depending ob subject
-        return 'https://de.serlo.org/assets/images/meta_serlo.jpg';
+        $subject = '';
+        $fileName = 'meta_serlo.jpg';
+
+        $subject = trim(strtolower(strip_tags( $this->getView()->navigation('default_navigation')->menu()->setPartial('layout/navigation/partial/active-subject')->setOnlyActiveBranch(true)->setMinDepth(0)->setMaxDepth(0)->render())));
+
+        switch ($subject) {
+            case 'mathematik':
+            case 'math':
+                $fileName = 'meta_serlo_mathe.png';
+                break;
+
+            case 'angewandte nachhaltigkeit':
+            case 'applied sustainability':
+                $fileName = 'meta_serlo_nachhaltigkeit.png';
+                break;
+
+            case 'biologie':
+            case 'biology':
+                $fileName = 'meta_serlo_bio.png';
+                break;
+
+            default:
+                break;
+        }
+        return 'https://de.serlo.org/assets/images/'.$fileName;
     }
 
     public function headTitle($object)
     {
         /* @var $headTitle HeadTitle */
+
+        // TODO: topic folder -> keine Klammer (weil der Titel eh immer Aufgaben zu xyz heißen muss)
+
+        /*
+        old version of topic folder {% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' ' ~ (term.getTaxonomy.getName() | trans)) %}
+
+        old version of topic {% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' ' ~ ( term.getTaxonomy.getName() | trans)) %} #} */
+        // "Page revision" can cause problems?
+
         $headTitle  = $this->getView()->plugin('headTitle');
         $brand  = $this->getView()->brand();
 
@@ -69,7 +121,6 @@ class Normalize extends AbstractHelper
             $title = $object;
             $type = 'string';
             $typeName = $this->getView()->translate( 'curriculum' );
-            var_dump($typeName);
         }
 
         else {
@@ -81,14 +132,6 @@ class Normalize extends AbstractHelper
             $title = '';
             $titleFallback = $normalized->getTitle();
         }
-
-        // TODO: topic folder -> keine Klammer (weil der Titel eh immer Aufgaben zu xyz heißen muss)
-
-        /*
-        old version of topic folder {% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' ' ~ (term.getTaxonomy.getName() | trans)) %}
-
-        old version of topic {% do headTitle(term.getName() ~ ' - ' ~ (taxonomy().getAncestorName(term, 'subject')) ~ ' ' ~ ( term.getTaxonomy.getName() | trans)) %} #} */
-        // "Page revision" can cause problems?
 
         $titlePostfix = ' – ' . $brand->getHeadTitle(true);
 
@@ -103,7 +146,6 @@ class Normalize extends AbstractHelper
         }
 
         switch ($type) {
-
             case 'course-page':
                 // e.g. Verschieben und Stauchen | 1. Startseite
                 $parent = $object->getParents('link')->first();
@@ -115,7 +157,6 @@ class Normalize extends AbstractHelper
                 }
                 $title = $parentTitle . " | " .$title;
                 break;
-
             case 'curriculum':
             case 'curriculum-topic-folder':
             case 'curriculum-topic':
@@ -128,7 +169,7 @@ class Normalize extends AbstractHelper
             break;
 
             default:
-                $title = $titleFallback . " – " . $brand->getBrand(true); //eg. Mathe Community – Serlo.org
+                $title = $titleFallback . ' – ' . $brand->getBrand(true); //eg. Mathe Community – Serlo.org
                 break;
         }
 
@@ -145,7 +186,6 @@ class Normalize extends AbstractHelper
                 $title .= ' ' . $titlePostfix;
             }
         }
-
         $headTitle($title);
         return $this;
     }
