@@ -171,6 +171,7 @@ return [
                 'community' => [
                     'allowed_taxonomies' => [
                         'topic'
+                        'locale'
                     ],
                     'allowed_entities'   => [
                         'article',
@@ -178,6 +179,7 @@ return [
                         'video',
                         'course',
                         'text-exercise-group'
+                        'math-puzzle'
                     ]
                 ],
                 'testbereich' => [
@@ -239,6 +241,7 @@ return [
                 'community' => [
                     'allowed_taxonomies' => [
                         'topic'
+                        'locale'
                     ],
                     'allowed_entities'   => [
                         'article',
@@ -246,6 +249,7 @@ return [
                         'video',
                         'course',
                         'text-exercise-group'
+                        'math-puzzle'
                     ]
                 ],
                 'music' => [
