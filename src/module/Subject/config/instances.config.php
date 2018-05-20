@@ -170,14 +170,16 @@ return [
                 ],
                 'community' => [
                     'allowed_taxonomies' => [
-                        'topic'
+                        'topic',
+                        'locale'
                     ],
                     'allowed_entities'   => [
                         'article',
                         'text-exercise',
                         'video',
                         'course',
-                        'text-exercise-group'
+                        'text-exercise-group',
+                        'math-puzzle'
                     ]
                 ],
                 'testbereich' => [
@@ -238,14 +240,16 @@ return [
                 ],
                 'community' => [
                     'allowed_taxonomies' => [
-                        'topic'
+                        'topic',
+                        'locale'
                     ],
                     'allowed_entities'   => [
                         'article',
                         'text-exercise',
                         'video',
                         'course',
-                        'text-exercise-group'
+                        'text-exercise-group',
+                        'math-puzzle'
                     ]
                 ],
                 'music' => [
