@@ -1,22 +1,20 @@
 <?php
-namespace Ui\Factory;
+namespace Newsletter\Factory;
 
-use Ui\View\Helper\AssetsHost;
+use \DrewM\MailChimp\MailChimp;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AssetsHostHelperFactory implements FactoryInterface
+class MailChimpFactory implements FactoryInterface
 {
     /**
-     * Create service
-     *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @return MailChimp
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $serviceLocator = $serviceLocator->getServiceLocator();
         $config = $serviceLocator->get('Config');
-        return new AssetsHost($config);
+        $apiKey = $config['newsletter_options']['api_key'];
+        return new MailChimp($apiKey);
     }
 }
