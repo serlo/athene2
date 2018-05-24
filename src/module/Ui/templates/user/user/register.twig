@@ -53,18 +53,10 @@
     </div>
 </fieldset>
 <fieldset>
-    <legend>{{ "Stay in touch!"|trans }}</legend>
+    <legend>{{ 'Stay in touch!' | trans }}</legend>
     <div class="form-group">
         <p>
-            {% trans %}
-                <strong>Sign up to our newsletter to receive quarterly updates about our work.</strong>
-                Serlo Education e.V. will use the information you provided to send you the newsletter and
-                (optionally) personalise these mailings. We will also supply insights on aspects of Serlo
-                that may be particularly interesting to you, based on the information you provided. To
-                enable us to keep serlo.org free of charge and free of advertising we send out a fundraiser
-                campaign through our newsletter list annually around Christmas. Please confirm below if you
-                would like to give us permission to contact you in this way.
-            {% endtrans %}
+            {% trans %}<strong>Sign up to our newsletter to receive quarterly updates about our work.</strong> Serlo Education e.V. will use the information you provided to send you the newsletter and (optionally) personalise these mailings. We will also supply insights on aspects of Serlo that may be particularly interesting to you, based on the information you provided. To enable us to keep serlo.org free of charge and free of advertising we send out a fundraiser campaign through our newsletter list annually around Christmas. Please confirm below if you would like to give us permission to contact you in this way.{% endtrans %}
         </p>
     </div>
     <div class="form-group{{ newsletterOptInErrors ? ' has-error' }}">
@@ -98,17 +90,7 @@
     </div>
     <div class="form-group">
         <p>
-            {% trans %}
-                You can revoke your consent to contact you via email at any time by clicking the unsubscribe
-                link in any mailing or send us an email at <a href="mailto:de@serlo.org">de@serlo.org</a>.
-                Your privacy is very important to us. For the processing of our mailing activities we work with
-                MailChimp as a service provider. MailChimp underlies a strict data processing agreement with us
-                that ensures the protection of your data in accordance with the European General Data Protection
-                Regulations. By subscribing to our newsletter you agree with our Privacy Policy and acknowledge
-                that your data will be processed by MailChimp in accordance with their
-                <a href="https://mailchimp.com/legal/privacy/" target="_blank">Privacy Policy</a> and
-                <a href="https://mailchimp.com/legal/terms/" target="_blank">Terms</a>.
-            {% endtrans %}
+            {% trans %}You can revoke your consent to contact you via email at any time by clicking the unsubscribe link in any mailing or send us an email at <a href="mailto:de@serlo.org">de@serlo.org</a>. Your privacy is very important to us. For the processing of our mailing activities we work with MailChimp as a service provider. MailChimp underlies a strict data processing agreement with us that ensures the protection of your data in accordance with the European General Data Protection Regulations. By subscribing to our newsletter you agree with our <a href="/22964" target="_blank">Privacy Policy</a> and acknowledge that your data will be processed by MailChimp in accordance with their <a href="https://mailchimp.com/legal/privacy/" target="_blank">Privacy Policy</a> and <a href="https://mailchimp.com/legal/terms/" target="_blank">Terms</a>.{% endtrans %}
         </p>
     </div>
 </fieldset>
@@ -116,11 +98,7 @@
     <hr />
     <div class="form-group">
         <p>
-            {% trans %}
-                By clicking <em>Sign up</em>, you agree to our <a href="/22964">Privacy Policy</a> and
-                <a href="/21654">Terms</a>. You may receive email notifications from us and can opt out at
-                any time.
-            {% endtrans %}
+            {% trans %}By clicking <em>Sign up</em>, you agree to our <a href="/22964" target="_blank">Privacy Policy</a> and <a href="/21654" target="_blank">Terms</a>. You may receive email notifications from us and can opt out at any time.{% endtrans %}
         </p>
     </div>
     <div class="form-group">

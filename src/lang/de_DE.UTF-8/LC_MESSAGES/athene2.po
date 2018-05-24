@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2018-04-23 10:37+0200\n"
-"PO-Revision-Date: 2018-04-23 10:53+0200\n"
-"Last-Translator: Serlo <info-de@serlo.org>\n"
+"POT-Creation-Date: 2018-05-24 18:52+0200\n"
+"PO-Revision-Date: 2018-05-24 19:21+0200\n"
+"Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr "Papierkorb"
 
 #: ../config/instance/navigation/default.php:156
 msgid "Flags"
-msgstr "Meldungen"
+msgstr "Gemeldete Inhalte"
 
 #: ../config/instance/navigation/default.php:162
 #: ../module/Ui/templates/flag/detail.phtml:5
@@ -319,7 +319,7 @@ msgid "Name:"
 msgstr "Name:"
 
 #: ../module/Authorization/src/Authorization/Form/UserForm.php:27
-#: ../module/User/src/User/Form/Register.php:34
+#: ../module/User/src/User/Form/Register.php:35
 msgid "Username:"
 msgstr "Benutzername:"
 
@@ -526,7 +526,7 @@ msgstr "Der Parameter wurde erfolgreich gelöscht"
 msgid "The parameter could not be removed (validation failed)"
 msgstr "Der Parameter konnte nicht entfernt werden. (Validierung fehlgeschlagen)"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:280
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:282
 msgid "The page was successfully updated"
 msgstr "Die Seite wurde erfolgreich geändert"
 
@@ -556,7 +556,7 @@ msgstr "Das Objekt, das du abonnieren möchtest, existiert nicht."
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:104
 msgid "You can't update your subscription because you did not subscribe to this object."
-msgstr "Dein Abonnement kann nicht aktualisiert werden, da Du dieses Objekt noch nicht abonniert hast."
+msgstr "Dein Abonnement kann nicht aktualisiert werden, da du dieses Objekt noch nicht abonniert hast."
 
 #: ../module/Notification/src/Notification/Controller/SubscriptionController.php:129
 msgid "You are no longer receiving notifications for this content."
@@ -629,7 +629,7 @@ msgid "New password:"
 msgstr "Neues Passwort eingeben:"
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:32
-#: ../module/User/src/User/Form/Register.php:58
+#: ../module/User/src/User/Form/Register.php:51
 msgid "Confirm password:"
 msgstr "Passwort wiederholen:"
 
@@ -642,12 +642,11 @@ msgid "Email address or Username"
 msgstr "E-Mail-Adresse oder Benutzername"
 
 #: ../module/User/src/User/Form/Login.php:39
-#: ../module/User/src/User/Form/Register.php:53
+#: ../module/User/src/User/Form/Register.php:46
 msgid "Password:"
 msgstr "Passwort eingeben:"
 
 #: ../module/User/src/User/Form/Login.php:41
-#: ../module/Ui/templates/user/user/register.twig:42
 msgid "Password"
 msgstr "Passwort"
 
@@ -659,7 +658,7 @@ msgstr "Eingeloggt bleiben"
 msgid "Repeat new password:"
 msgstr "Neues Passwort wiederholen:"
 
-#: ../module/User/src/User/Form/Register.php:36
+#: ../module/User/src/User/Form/Register.php:37
 msgid "Enter username"
 msgstr "Benutzername eingeben"
 
@@ -667,21 +666,37 @@ msgstr "Benutzername eingeben"
 msgid "Enter email address"
 msgstr "E-Mail-Adresse eingeben"
 
-#: ../module/User/src/User/Form/Register.php:47
-msgid "Confirm email:"
-msgstr "E-Mail-Adresse wiederholen:"
-
-#: ../module/User/src/User/Form/Register.php:49
-msgid "Confirm email address"
-msgstr "E-Mail-Adresse bestätigen"
-
-#: ../module/User/src/User/Form/Register.php:55
+#: ../module/User/src/User/Form/Register.php:48
 msgid "Enter password"
 msgstr "Passwort eingeben"
 
-#: ../module/User/src/User/Form/Register.php:60
+#: ../module/User/src/User/Form/Register.php:53
 msgid "Confirm password"
 msgstr "Passwort wiederholen"
+
+#: ../module/User/src/User/Form/Register.php:56
+msgid "First name (optional):"
+msgstr "Vorname (optional):"
+
+#: ../module/User/src/User/Form/Register.php:57
+msgid "Enter first name"
+msgstr "Vorname eingeben"
+
+#: ../module/User/src/User/Form/Register.php:60
+msgid "Last name (optional):"
+msgstr "Nachname (optional):"
+
+#: ../module/User/src/User/Form/Register.php:61
+msgid "Enter last name"
+msgstr "Nachname eingeben"
+
+#: ../module/User/src/User/Form/Register.php:64
+msgid "I agree that Serlo Education e.V. may contact me via email."
+msgstr "Ja, Serlo Education e.V. darf mich per Email kontaktieren."
+
+#: ../module/User/src/User/Form/Register.php:76
+msgid "I am here as…"
+msgstr "Ich bin hier als…"
 
 #: ../module/User/src/User/Form/RegisterFilter.php:43
 msgid "This email address is already in use. Please use a different one."
@@ -695,15 +710,11 @@ msgstr "Dieser Benutzername ist leider schon vergeben. Bitte wähle einen andere
 msgid "Your username may only contain letters, digits, underscores (_) and hyphens (-). Please use a different one."
 msgstr "Der Benutzername darf nur aus Buchstaben, Ziffern, Unterstrichen (_) und Bindestrichen (-) bestehen. Bitte wähle einen anderen."
 
-#: ../module/User/src/User/Form/RegisterFilter.php:96
-msgid "The email address entered does not match the confirmation address. Ensure the addresses entered are identical."
-msgstr "Die beiden angegebenen E-Mail-Adressen stimmen nicht überein."
-
-#: ../module/User/src/User/Form/RegisterFilter.php:113
+#: ../module/User/src/User/Form/RegisterFilter.php:95
 msgid "Your password needs to be at least 6 characters long."
 msgstr "Dein Passwort muss mindestens 6 Zeichen lang sein."
 
-#: ../module/User/src/User/Form/RegisterFilter.php:121
+#: ../module/User/src/User/Form/RegisterFilter.php:103
 msgid "The password entered does not match the confirmation password. Ensure the passwords entered are identical."
 msgstr "Die beiden angegebenen Passwörter stimmen nicht überein."
 
@@ -736,7 +747,6 @@ msgid "Welcome to the backend. Explore the possiblities on the right!"
 msgstr "Willkommen in der Winkelgasse, Harry!"
 
 #: ../module/Ui/templates/authorization/role/partial/users-table.phtml:15
-#: ../module/Ui/templates/user/user/register.twig:15
 #: ../module/Ui/templates/user/users/partial/users-table.twig:4
 msgid "Username"
 msgstr "Benutzername"
@@ -973,7 +983,7 @@ msgstr "#"
 
 #: ../module/Ui/templates/layout/de/serlo-home.phtml:27
 #: ../module/Ui/templates/layout/en/serlo-home.phtml:27
-#: ../module/Ui/templates/layout/partials/header.phtml:19
+#: ../module/Ui/templates/layout/partials/header.phtml:23
 msgid "Toggle navigation"
 msgstr "Navigation ein-/ausblenden"
 
@@ -988,39 +998,39 @@ msgstr "Schließen"
 msgid "Okay"
 msgstr "Okay"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:4
+#: ../module/Ui/templates/layout/partials/footer.phtml:5
 msgid "Serlo.org is the Wikipedia for learning."
 msgstr "Serlo.org ist die Wikipedia fürs Lernen."
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:5
+#: ../module/Ui/templates/layout/partials/footer.phtml:6
 msgid "We are a community of visionaries working tirelessly to make great education freely available to everyone."
 msgstr "Wir sind eine engagierte Gemeinschaft, die daran arbeitet, hochwertige Bildung weltweit frei verfügbar zu machen."
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:6
+#: ../module/Ui/templates/layout/partials/footer.phtml:7
 msgid "Learn more"
 msgstr "Mehr erfahren"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:13
+#: ../module/Ui/templates/layout/partials/footer.phtml:14
 msgid "Join the cause"
 msgstr "Mitmachen"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:19
+#: ../module/Ui/templates/layout/partials/footer.phtml:20
 msgid "Donate"
 msgstr "Spenden"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:35
+#: ../module/Ui/templates/layout/partials/footer.phtml:36
 msgid "General"
 msgstr "Allgemein"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:43
+#: ../module/Ui/templates/layout/partials/footer.phtml:44
 msgid "Subjects"
 msgstr "Fächer"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:51
+#: ../module/Ui/templates/layout/partials/footer.phtml:52
 msgid "Stay in touch:"
 msgstr "Dabei bleiben:"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:59
+#: ../module/Ui/templates/layout/partials/footer.phtml:60
 msgid "Legal terms"
 msgstr "Rechtlich"
 
@@ -1132,15 +1142,15 @@ msgid ""
 "\n"
 "We’re thrilled you’ve decided to write a comment or contribute to serlo.org.\n"
 "To find out how to get started on editing and creating content, please visit the community homepage: https://de.serlo.org/community.\n"
-"If you have any questions, problems or feedback for us, feel free to get in touch via community-de@serlo.org.\n"
+"If you have any questions, problems or feedback for us, feel free to get in touch via de@serlo.org.\n"
 "\n"
 "Enjoy Serlo!"
 msgstr ""
 "Liebe*r %s,\n"
 "\n"
 "wir freuen uns, dass du einen Kommentar schreiben oder an serlo.org mitarbeiten möchtest!\n"
-"Wo und wie du dich beteiligen kannst, erfährst du auf der Community-Startseite: https://de.serlo.org/community\n"
-"Bei Fragen oder Problemen melde dich gerne bei community-de@serlo.org.\n"
+"Wo und wie du dich beteiligen kannst, erfährst du auf der Community-Startseite: https://de.serlo.org/community.\n"
+" Bei Fragen oder Problemen melde dich gerne bei community-de@serlo.org.\n"
 "\n"
 "Viel Spaß mit Serlo!"
 
@@ -1159,7 +1169,7 @@ msgstr "Schlüssel"
 
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:14
 msgid "Trashed learning resources"
-msgstr "gelöschte Lernressourcen"
+msgstr "Gelöschte Lerninhalte"
 
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:22
 msgid "Action"
@@ -1414,7 +1424,8 @@ msgstr "Zugehörige Themen"
 #: ../module/Ui/templates/entity/page/default.twig:8
 #: ../module/Ui/templates/entity/view/default.twig:8
 #: ../module/Ui/templates/entity/view/toc/default.twig:8
-msgid "Now view found for %name%"
+#: ../module/Ui/templates/notification/notification.twig:14
+msgid "No view found for %name%"
 msgstr "Keine Ansicht für %name% gefunden"
 
 #: ../module/Ui/templates/entity/page/math-puzzle.twig:7
@@ -1469,6 +1480,7 @@ msgid "Text solution"
 msgstr "Text-Lösung"
 
 #: ../module/Ui/templates/entity/repository/compare-revision.twig:17
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:5
 msgid "Source"
 msgstr "Quelle"
 
@@ -1624,7 +1636,7 @@ msgstr "Folien sortieren"
 
 #: ../module/Ui/templates/entity/view/partials/actions/link/update.twig:10
 msgid "Change parent %name%"
-msgstr "Elter %name% ändern"
+msgstr "Diesen Inhalt zu einem anderen Überelement (%name%) verschieben"
 
 #: ../module/Ui/templates/entity/view/partials/actions/related-content/manage.twig:6
 msgid "Manage related items"
@@ -1681,6 +1693,10 @@ msgid "Correct!"
 msgstr "Stimmt!"
 
 #: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:7
+msgid "The Open Learning Platform Serlo.org"
+msgstr "Die freie Lernplattform Serlo.org"
+
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:17
 msgid "Info"
 msgstr "Information"
 
@@ -1696,8 +1712,8 @@ msgstr "Tipp ausblenden"
 
 #: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:2
 #: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:2
-msgid "Wrong."
-msgstr "Falsch."
+msgid "Nope. Try again!"
+msgstr "Leider nein. Probier's nochmal!"
 
 #: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:4
 #: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:4
@@ -1895,10 +1911,6 @@ msgstr "Seiteneinstellungen"
 #: ../module/Ui/templates/notification/notification.twig:9
 msgid "No template found for notification \"%type%\""
 msgstr "Keine Ansicht für Benachrichtigung \"%type%\" gefunden"
-
-#: ../module/Ui/templates/notification/notification.twig:14
-msgid "No view found for %name%"
-msgstr "Keine Ansicht für %name% gefunden"
 
 #: ../module/Ui/templates/notification/notifications.twig:21
 msgid "You have no notifications."
@@ -2233,13 +2245,21 @@ msgstr "Zuletzt gesehen"
 msgid "Sign up"
 msgstr "Registrieren"
 
-#: ../module/Ui/templates/user/user/register.twig:25
-msgid "Email"
-msgstr "E-Mail-Adresse"
+#: ../module/Ui/templates/user/user/register.twig:56
+msgid "Stay in touch!"
+msgstr "Bleib auf dem Laufenden!"
 
 #: ../module/Ui/templates/user/user/register.twig:59
-msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/21654\">Terms of Service</a>."
-msgstr "Indem du auf <em>Registrieren</em> klickst, erklärst du dich mit unseren <a href=\"/21654\">Nutzungsbedingungen</a> einverstanden."
+msgid "<strong>Sign up to our newsletter to receive quarterly updates about our work.</strong> Serlo Education e.V. will use the information you provided to send you the newsletter and (optionally) personalise these mailings. We will also supply insights on aspects of Serlo that may be particularly interesting to you, based on the information you provided. To enable us to keep serlo.org free of charge and free of advertising we send out a fundraiser campaign through our newsletter list annually around Christmas. Please confirm below if you would like to give us permission to contact you in this way."
+msgstr "<strong>In unserem Newsletter informieren wir dich einmal im Quartal kompakt über unsere Aktivitäten.</strong> Serlo Education e.V. nutzt deine Angaben um dir den Newsletter zuzustellen, für eine personalisierte Ansprache in den Mailings (optional), und um dich über für dich besonders interessante Aspekte von Serlo zu informieren. Um unser Angebot dauerhaft kostenlos und werbefrei halten zu können, versenden wir außerdem einmal jährlich um Weihnachten eine Spendenkampagne über unseren Newsletterverteiler. Bitte teile uns mit, ob wir dich auf diese Art per E-Mail kontaktieren dürfen."
+
+#: ../module/Ui/templates/user/user/register.twig:93
+msgid "You can revoke your consent to contact you via email at any time by clicking the unsubscribe link in any mailing or send us an email at <a href=\"mailto:de@serlo.org\">de@serlo.org</a>. Your privacy is very important to us. For the processing of our mailing activities we work with MailChimp as a service provider. MailChimp underlies a strict data processing agreement with us that ensures the protection of your data in accordance with the European General Data Protection Regulations. By subscribing to our newsletter you agree with our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and acknowledge that your data will be processed by MailChimp in accordance with their <a href=\"https://mailchimp.com/legal/privacy/\" target=\"_blank\">Privacy Policy</a> and <a href=\"https://mailchimp.com/legal/terms/\" target=\"_blank\">Terms</a>."
+msgstr "Du kannst deine Einwilligung jederzeit zurückziehen, indem du den Abmelden-Link im Footer eines Newsletters klickst, oder per E-Mail an <a href=\"mailto:de@serlo.org\">de@serlo.org</a>. Wir nehmen den Schutz deiner Daten sehr ernst. Für die Abwicklung unserer Emailkommunikation nutzen wir den Drittanbieter MailChimp. Dieser unterliegt einem Auftragsdatenverarbeitungsabkommen mit uns, das den Schutz deiner Daten im Einklang mit der EU-Datenschutzverordnung gewährleistet. Indem du den Newsletter abonnierst, erklärst du dich mit unseren <a href=\"/22964\" target=\"_blank\">Datenschutzrichtlinien</a> einverstanden, und nimmst zur Kenntnis, dass deine Daten von MailChimp im Einklang mit deren <a href=\"https://mailchimp.com/legal/privacy/\" target=\"_blank\">Datenschutzrichtlinen</a> und <a href=\"https://mailchimp.com/legal/terms/\" target=\"_blank\">Nutzungsbedingungen</a> verarbeitet werden."
+
+#: ../module/Ui/templates/user/user/register.twig:101
+msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and <a href=\"/21654\" target=\"_blank\">Terms</a>. You may receive email notifications from us and can opt out at any time."
+msgstr "Indem du auf <em>Registrieren</em> klickst, erklärst du dich mit unseren <a href=\"/22964\" target=\"_blank\">Datenschutzrichtlinien</a> und <a href=\"/21654\" target=\"_blank\">Nutzungsbedingungen</a> einverstanden. Wir schicken dir eventuell Benachrichtigungen per Email, die du jederzeit abbestellen kannst."
 
 #: ../module/Ui/templates/user/user/settings.twig:1
 msgid "My settings"
