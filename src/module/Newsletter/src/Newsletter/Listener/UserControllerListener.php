@@ -75,8 +75,6 @@ class UserControllerListener extends AbstractSharedListenerAggregate
         }
 
         $result = $this->mailChimp->post('lists/a7bb2bbc4f/members', $request);
-
-        print_r($result);
     }
 
     protected function getMonitoredClass()
