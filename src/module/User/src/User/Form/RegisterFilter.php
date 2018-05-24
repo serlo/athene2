@@ -85,24 +85,6 @@ class RegisterFilter extends InputFilter
 
         $this->add(
             [
-                'name'       => 'emailConfirm',
-                'required'   => true,
-                'validators' => [
-                    [
-                        'name'    => 'Identical',
-                        'options' => [
-                            'token'   => 'email',
-                            'message' => t(
-                                'The email address entered does not match the confirmation address. Ensure the addresses entered are identical.'
-                            )
-                        ]
-                    ]
-                ]
-            ]
-        );
-
-        $this->add(
-            [
                 'name'       => 'passwordConfirm',
                 'required'   => true,
                 'validators' => [
@@ -136,6 +118,13 @@ class RegisterFilter extends InputFilter
                         'name' => 'Authentication\HashFilter'
                     ]
                 ]
+            ]
+        );
+
+        $this->add(
+            [
+                'name' => 'interests',
+                'required' => false
             ]
         );
     }

@@ -12,6 +12,6 @@ class AssetsHost extends AbstractHelper
 
     public function __invoke()
     {
-        return $this->config["assets_host"];
+        return $this->config['assets_host'];
     }
 }

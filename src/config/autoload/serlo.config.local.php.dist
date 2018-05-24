@@ -22,6 +22,9 @@ return [
         'sender'   => 'notifications@mail.serlo.org',
         'location' => 'https://www.serlo.org'
     ],
+    'newsletter_options' => [
+        'api_key' => 'SECRET'
+    ]
     'instance' => [
         'strategy' => 'Instance\Strategy\DomainStrategy'
     ],
