@@ -18,6 +18,7 @@
     </thead>
     {% for revision in revisions %}
         {% set isCurrent = (revision == currentRevision) %}
+        {% set isOry = entity().isOryEditorFormat(revision) %}
         <tr class="{{ isCurrent ? 'active ' : '' }}{{ revision.isTrashed() ? 'warning' : '' }}">
             <td>
                 {{ revision.getId() }}
@@ -30,7 +31,7 @@
             <td>{{ normalize().toAnchor(revision.getAuthor()) }}</td>
             <td>{{ timeago().render(revision.getTimestamp()) }}</td>
             <td>
-                <a href="{{ url('entity/repository/add-revision', {'entity': entity.getId(), 'revision': revision.getId()}) }}"
+                <a href="{{ url( isOry ? 'entity/repository/add-revision' : 'entity/repository/add-revision-old', {'entity': entity.getId(), 'revision': revision.getId()}) }}"
                    data-toggle="tooltip" title="{% trans %} Create a new revision starting from this specific revision {% endtrans %}">
                     <span class="fa fa-pencil"></span>
                 </a>

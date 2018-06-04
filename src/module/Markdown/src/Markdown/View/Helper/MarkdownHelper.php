@@ -34,19 +34,18 @@ class MarkdownHelper extends AbstractHelper
     /**
      * @param string $content
      * @param bool   $catch
-     * @param int $id
      * @return string
      */
-    public function toHtml($content, $id = -1,  $catch = true)
+    public function toHtml($content,  $catch = true)
     {
         if ($catch) {
             try {
-                return $this->getRenderService()->render($content, $id);
+                return $this->getRenderService()->render($content);
             } catch (RuntimeException $e) {
                 return htmlspecialchars($content);
             }
         } else {
-            return $this->getRenderService()->render($content, $id);
+            return $this->getRenderService()->render($content);
         }
     }
 }

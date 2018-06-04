@@ -42,7 +42,7 @@ class EntityControllerListener extends AbstractSharedListenerAggregate
         $result = new UrlResult();
         $result->setResult(
             $e->getTarget()->url()->fromRoute(
-                'entity/repository/first-revision',
+                'entity/repository/add-revision-old',
                 [
                     'entity' => $entity->getId()
                 ]

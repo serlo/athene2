@@ -154,41 +154,31 @@ return [
                                     ]
                                 ]
                             ],
+                            'add-revision-old' => [
+                                'type'    => 'segment',
+                                'options' => [
+                                    'route'       => '/add-revision-old/:entity[/:revision]',
+                                    'defaults'    => [
+                                        'action' => 'addRevision',
+                                        'old' => true
+                                    ],
+                                    'constraints' => [
+                                        'entity' => '[0-9]+',
+                                        'revision' => '[0-9]+'
+                                    ]
+                                ]
+                            ],
                             'add-revision' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'       => '/add-revision/:entity[/:revision]',
                                     'defaults'    => [
-                                        'action' => 'addRevision'
+                                        'action' => 'addRevision',
+                                        'old' => false
                                     ],
                                     'constraints' => [
                                         'entity' => '[0-9]+',
                                         'revision' => '[0-9]+'
-                                    ]
-                                ]
-                            ],
-                            'first-revision' => [
-                                'type'    => 'segment',
-                                'options' => [
-                                    'route'       => '/first-revision/:entity[/:revision]',
-                                    'defaults'    => [
-                                        'action' => 'firstRevision'
-                                    ],
-                                    'constraints' => [
-                                        'entity' => '[0-9]+',
-                                        'revision' => '[0-9]+'
-                                    ]
-                                ]
-                            ],
-                            'convert' => [
-                                'type' => 'segment',
-                                'options' => [
-                                    'route' => '/convert/:entity',
-                                    'defaults' => [
-                                        'action' => 'convert'
-                                    ],
-                                    'constraints' => [
-                                        'entity' => '[0-9]+'
                                     ]
                                 ]
                             ]
@@ -273,6 +263,20 @@ return [
                                     'defaults' => [
                                         'controller' => __NAMESPACE__ . '\Controller\TOCController',
                                         'action'    => 'index'
+                                    ]
+                                ]
+                            ],
+                            'convert' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/convert',
+                                    'defaults' => [
+                                        'controller' => __NAMESPACE__ . '\Controller\PageController',
+                                        'action' => 'index',
+                                        'convert' => true
+                                    ],
+                                    'constraints' => [
+                                        'entity' => '[0-9]+'
                                     ]
                                 ]
                             ]

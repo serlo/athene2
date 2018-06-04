@@ -53,7 +53,7 @@ class HtmlRenderService implements RenderServiceInterface
     /**
      * @see \Markdown\Service\RenderServiceInterface::render()
      */
-    public function render($input, $id = -1)
+    public function render($input)
     {
         $key = hash('sha512', $input);
 

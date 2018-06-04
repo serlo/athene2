@@ -18,7 +18,7 @@
                  data-edit-field="content"
                  data-edit-type="ory">
                 {% if revision %}
-                    {{ renderer.toHtml(revision.get('content'), entity.getId()) | raw }}
+                    {{ renderer.toHtml(revision.get('content')) | raw }}
                 {% elseif not entity.getHead() %}
                     {% trans %} A hint has been created but no content has been added yet or it is pending approval. {% endtrans %}
                 {% endif %}

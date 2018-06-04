@@ -1,12 +1,17 @@
 {% set options = entity().getOptions(entity) %}
+{% set revisionGranted = isGranted('entity.revision.create', entity) %}
 {% if options.hasComponent('repository') %}
     <li>
     {% if entity.isUnrevised() %}
         <a rel="nofollow" href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
     {% elseif convert or entity().isOryEditorFormat(entity.getCurrentRevision()) %}
-        <a class="ory-edit-button" data-id="{{ entity.getId() }}" rel="nofollow">
+        {% if revisionGranted %}
+            <a class="ory-edit-button" data-id="{{ entity.getId() }}" rel="nofollow">
+        {% else %}
+            <a data-id="{{ entity.getId() }}" rel="nofollow" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
+        {% endif %}
     {% else %}
-        <a data-id="{{ entity.getId() }}" rel="nofollow" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
+        <a data-id="{{ entity.getId() }}" rel="nofollow" href="{{ url('entity/repository/add-revision-old', {'entity': entity.getId()}) }}">
     {% endif %}
             <span class="fa fa-pencil"></span>
             {% trans %} Edit {% endtrans %}

@@ -34,7 +34,7 @@ class VideoForm extends Form
         $this->add((new Textarea('description'))->setAttribute('id', 'description')->setLabel('Description:'));
         $this->add((new Url('content'))->setAttribute('id', 'content')->setLabel('Video url:'));
         $this->add(
-            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')
+            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')->setAttribute('class', 'meta')
         );
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(

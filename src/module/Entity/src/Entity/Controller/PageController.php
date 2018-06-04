@@ -52,7 +52,7 @@ class PageController extends AbstractController
             }
         }
 
-        $model = new ViewModel(['entity' => $entity]);
+        $model = new ViewModel(['entity' => $entity, 'convert' => $this->params('convert', false)]);
         $model->setTemplate('entity/page/default');
 
         if ($this->params('isXmlHttpRequest', false)) {

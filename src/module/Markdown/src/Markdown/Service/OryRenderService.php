@@ -51,7 +51,7 @@ class OryRenderService implements RenderServiceInterface
     /**
      * @see \Markdown\Service\RenderServiceInterface::render()
      */
-    public function render($input, $id)
+    public function render($input)
     {
         $key = hash('sha512', $input);
 
@@ -64,10 +64,9 @@ class OryRenderService implements RenderServiceInterface
         $this->dnode->connect(
             '192.168.176.250',
             '7072',
-            function ($remote, $connection) use ($input, $id, &$rendered) {
+            function ($remote, $connection) use ($input, &$rendered) {
                 $remote->render(
                     $input,
-                    $id,
                     function ($output, $exception = null, $error = null) use (&$rendered, $connection) {
                         if ($exception !== null) {
                             $connection->end();

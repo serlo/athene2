@@ -5,12 +5,12 @@
 {% include 'entity/page/partials/placeholders' %}
 <div itemscope itemtype="http://schema.org/Article">
     <div class="page-header">
-        <h1><span itemprop=”name”
-                  class="editable"
-                  data-id="{{ entity.getId() }}"
-                  data-edit-field="title"
-                  data-edit-type="text"
-            >{{ title }}</span></h1>
+        <div class="editable"
+             data-id="{{ entity.getId() }}"
+             data-edit-field="title"
+             data-edit-type="text">
+            <h1><span itemprop="name">{{ title }}</span></h1>
+        </div>
         {% include 'entity/view/partials/actions/big' %}
     </div>
     <div itemprop="articleBody">

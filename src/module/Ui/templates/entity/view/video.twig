@@ -1,5 +1,5 @@
 {% set title = 'video' | trans %}
-{% set description = renderer.toHtml(entity.getCurrentRevision().get('description'), entity.getId()) %}
+{% set description = renderer.toHtml(entity.getCurrentRevision().get('description')) %}
 <article>
     <section>
         {% set url = entity.getCurrentRevision().get('content') %}

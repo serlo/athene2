@@ -29,41 +29,6 @@ class RepositoryController extends AbstractController
      */
     protected $moduleOptions;
 
-    public function convertAction()
-    {
-        $entity = $this->getEntity();
-
-        if (!$entity || $entity->isTrashed()) {
-            $this->getResponse()->setStatusCode(404);
-            return false;
-        }
-
-        $this->assertGranted('entity.revision.create', $entity);
-
-        $model = new ViewModel(['entity' => $entity, 'convert' => true]);
-        $model->setTemplate('entity/page/default');
-
-        if ($this->params('isXmlHttpRequest', false)) {
-            $model->setTemplate('entity/view/default');
-        }
-
-        $this->layout('layout/3-col');
-
-        if (!$entity->hasCurrentRevision()) {
-            $this->layout('layout/2-col');
-            $model->setTemplate('entity/page/pending');
-        }
-        $model->setTerminal(true);
-
-        return $model;
-    }
-
-    public function firstRevisionAction() {
-        $view = $this->addRevisionAction();
-        $this->layout('layout/3-col');
-        $view->setTemplate('entity/repository/update-revision-ory');
-        return $view;
-    }
 
     public function addRevisionAction()
     {
@@ -101,9 +66,13 @@ class RepositoryController extends AbstractController
             }
         }
 
-        $this->layout('athene2-editor');
-        $view->setTemplate('entity/repository/update-revision');
-
+        if ($this->params('old', false)) {
+            $this->layout('athene2-editor');
+            $view->setTemplate('entity/repository/update-revision');
+        } else {
+            $this->layout('layout/3-col');
+            $view->setTemplate('entity/repository/update-revision-ory');
+        }
         return $view;
     }
 
@@ -151,6 +120,7 @@ class RepositoryController extends AbstractController
         ]);
 
         $view->setTemplate('entity/repository/compare-revision');
+        $this->layout('layout/1-col');
 
         return $view;
     }
