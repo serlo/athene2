@@ -66,7 +66,8 @@ return [
     ],
     'view_helpers'          => [
         'factories'  => [
-            'assetsHost' => __NAMESPACE__ . '\Factory\AssetsHostHelperFactory',
+            'recaptcha'   => __NAMESPACE__ . '\Factory\RecaptchaHelperFactory',
+            'assetsHost'  => __NAMESPACE__ . '\Factory\AssetsHostHelperFactory',
             'pageHeader'  => __NAMESPACE__ . '\Factory\PageHeaderFactory',
             'brand'       => __NAMESPACE__ . '\Factory\BrandHelperFactory',
             'twigPartial' => __NAMESPACE__ . '\Factory\TwigPartialFactory',

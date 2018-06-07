@@ -74,9 +74,5 @@ class Register extends Form
             ))
             ->setEmptyOption('')
             ->setLabel('I am here as…'));
-
-        $this->add((new Submit('submit'))
-            ->setValue('Sign up')
-            ->setAttribute('class', 'btn btn-success pull-right'));
     }
 }
