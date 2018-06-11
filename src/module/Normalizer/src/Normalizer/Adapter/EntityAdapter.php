@@ -87,7 +87,14 @@ class EntityAdapter extends AbstractAdapter
     {
         $entity   = $this->getObject();
         $keywords = [];
-        foreach ($entity->getTaxonomyTerms() as $term) {
+        $terms = $entity->getTaxonomyTerms();
+        if (!$terms->count()) {
+            $parents = $entity->getParents('link');
+            if($parents->count()) {
+                $terms = $parents->first()->getTaxonomyTerms();
+            }
+        }
+        foreach ($terms as $term) {
             while ($term->hasParent()) {
                 $keywords[] = $term->getName();
                 $term       = $term->getParent();
