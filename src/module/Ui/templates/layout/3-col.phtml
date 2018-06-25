@@ -58,6 +58,7 @@ $pageClass = join(' ', $pageClasses);
             </div>
             <?php echo $this->partial('layout/partials/banner'); ?>
             <?php echo $this->partial('layout/partials/discussions'); ?>
+            <?php $isCourse = $this->registry()->get('rnav-is-course'); ?>
             <?php if (empty($isCourse) || !$isCourse): ?>
                 <?php echo $this->partial('layout/partials/right-sidebar'); ?>
             <?php endif; ?>
