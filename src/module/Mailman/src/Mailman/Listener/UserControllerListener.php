@@ -10,7 +10,6 @@ namespace Mailman\Listener;
 
 use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
-use Zend\I18n\Translator\TranslatorAwareTrait;
 use Zend\View\Model\ViewModel;
 
 class UserControllerListener extends AbstractListener
@@ -32,17 +31,21 @@ class UserControllerListener extends AbstractListener
 
         $subject = new ViewModel();
         $body    = new ViewModel([
-            'user' => $user
+            'user' => $user,
         ]);
 
         $subject->setTemplate('mailman/messages/register/subject');
         $body->setTemplate('mailman/messages/register/body');
 
-        $this->getMailman()->send(
-            $user->getEmail(),
-            $this->getMailman()->getDefaultSender(),
-            $this->getRenderer()->render($subject),
-            $this->getRenderer()->render($body)
-        );
+        try {
+            $this->getMailman()->send(
+                $user->getEmail(),
+                $this->getMailman()->getDefaultSender(),
+                $this->getRenderer()->render($subject),
+                $this->getRenderer()->render($body)
+            );
+        } catch (\Throwable $e) {
+            // catch exception
+        }
     }
 }
