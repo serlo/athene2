@@ -210,7 +210,7 @@ class AliasManager implements AliasManagerInterface
         throw new Exception\CanonicalUrlNotFoundException(sprintf('No canonical url found'));
     }
 
-    public function findSourceByAlias($alias, $useCache = false)
+    public function findSourceByAlias($alias, InstanceInterface $instance, $useCache = false)
     {
         if (!is_string($alias)) {
             throw new Exception\InvalidArgumentException(sprintf(
@@ -219,7 +219,7 @@ class AliasManager implements AliasManagerInterface
             ));
         }
 
-        $key = 'source:by:alias:' . $alias;
+        $key = 'source:by:alias:' . $instance->getId() . ':' . $alias;
         if ($useCache && $this->storage->hasItem($key)) {
             // The item is null so it didn't get found.
             $item = $this->storage->getItem($key);
