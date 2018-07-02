@@ -46,7 +46,12 @@ class EntityHelper extends AbstractHelper
     {
         return $entities->filter(
             function (EntityInterface $e) {
-                return !$e->isTrashed() && $e->hasCurrentRevision();
+                if ($this->getView()->isGranted('login')) {
+                    $unrevised = ($e->hasHead() && $e->isUnrevised());
+                    return !$e->isTrashed() && ($e->hasCurrentRevision() || $unrevised);
+                } else {
+                    return !$e->isTrashed() && $e->hasCurrentRevision();
+                }
             }
         );
     }

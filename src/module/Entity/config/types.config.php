@@ -12,6 +12,27 @@ namespace Entity;
 return [
     'entity' => [
         'types' => [
+            'applet' => [
+                'content' => 'description',
+                'components' => [
+                    'repository' => [
+                        'form' => __NAMESPACE__ . '\Form\AppletForm',
+                        'fields' => [
+                            'title',
+                            'url',
+                            'content',
+                            'reasoning',
+                            'changes',
+                            'meta_title',
+                            'meta_description'
+                        ]
+                    ],
+                    'license' => [],
+                    'taxonomy' => [],
+                    'related_content' => [],
+                    'search' => []
+                ],
+            ],
             'math-puzzle' => [
                 'title' => 'id',
                 'description' => 'content',
