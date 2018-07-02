@@ -1,0 +1,33 @@
+{% set description = markdown().toHtml(entity.getCurrentRevision().get('content')) %}
+<article>
+    <section>
+        {% set url = entity.getCurrentRevision().get('url') %}
+        {% if url matches '{^(https?:\\/\\/)?(.*?(geogebra\\.org\\/m\\/.+|ggbm\\.at\\/.+))}' %}
+            {% set id =  url | split('/') | last %}
+        {% endif %}
+        {% if id is defined %}
+            {% set src = 'https://www.geogebra.org/material/iframe/id/' ~ id %}
+            <p class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item"
+                        src="{{ src }}"></iframe>
+            </p>
+        {% else %}
+            <p class="text-center">
+                <strong>
+                    {% trans %} Could not embed geogebra applet. Unknown url format. {% endtrans %}
+                </strong>
+                <br />
+            </p>
+        {% endif %}
+    </section>
+    <section itemprop="description">
+        {{ description }}
+    </section>
+    {% include 'entity/view/partials/license' %}
+</article>
+{% set discussions %}
+    <section id="discussion-{{ entity.getId() }}" class="discussions clearfix">
+        {{ discussion(entity).render() }}
+    </section>
+{% endset %}
+{% do placeholder('discussions').set(discussions) %}

@@ -165,8 +165,8 @@ return [
             __NAMESPACE__ . '\Form\TextHintForm' => __NAMESPACE__ . '\Factory\TextHintFormFactory',
             __NAMESPACE__ . '\Form\VideoForm' => __NAMESPACE__ . '\Factory\VideoFormFactory',
             __NAMESPACE__ . '\Form\MathPuzzleForm' => __NAMESPACE__ . '\Factory\MathPuzzleFormFactory',
-            __NAMESPACE__ . '\Form\InputChallengeForm' => __NAMESPACE__ . '\Factory\InputChallengeFormFactory'
-
+            __NAMESPACE__ . '\Form\InputChallengeForm' => __NAMESPACE__ . '\Factory\InputChallengeFormFactory',
+            __NAMESPACE__ . '\Form\AppletForm' => __NAMESPACE__ . '\Factory\AppletFormFactory',
         ]
     ],
     'controllers' => [

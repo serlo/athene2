@@ -22,7 +22,8 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
-                        'math-puzzle'
+                        'math-puzzle',
+                        'applet'
                     ]
                 ],
                 'englisch'                 => [
@@ -179,7 +180,8 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
-                        'math-puzzle'
+                        'math-puzzle',
+                        'applet'
                     ]
                 ],
                 'testbereich' => [
@@ -193,7 +195,8 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
-                        'math-puzzle'
+                        'math-puzzle',
+                        'applet'
                     ]
                 ]
             ],
@@ -209,7 +212,8 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
-                        'math-puzzle'
+                        'math-puzzle',
+                        'applet'
                     ]
                 ],
                 'sustainability' => [
@@ -249,7 +253,8 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
-                        'math-puzzle'
+                        'math-puzzle',
+                        'applet'
                     ]
                 ],
                 'music' => [
@@ -289,7 +294,8 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
-                        'math-puzzle'
+                        'math-puzzle',
+                        'applet'
                     ]
                 ]
             ]

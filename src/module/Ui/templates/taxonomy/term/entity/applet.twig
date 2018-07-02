@@ -1,0 +1,7 @@
+{% if entity.hasCurrentRevision() %}
+    <p>
+        <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
+            {{ entity.getCurrentRevision().get('title') }}
+        </a>
+    </p>
+{% endif %}
