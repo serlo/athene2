@@ -56,8 +56,9 @@ interface AliasManagerInterface extends Flushable
 
     /**
      * @param string $alias
+     * @param InstanceInterface $instance
      * @param bool   $useCache
      * @return string
      */
-    public function findSourceByAlias($alias, $useCache = false);
+    public function findSourceByAlias($alias, InstanceInterface $instance, $useCache = false);
 }
