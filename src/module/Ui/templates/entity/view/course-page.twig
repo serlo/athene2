@@ -10,10 +10,10 @@
         <div class="col-xs-12">
             <div class="icon-link">
                 <a href="{{ normalize().toUrl(previous) }}">
-                    <h4>
+                    <span class="h4">
                         <i class="fa fa-arrow-circle-left fa-2x"></i>
                         &ensp;<span>{{ previous.getCurrentRevision().get('title') }}</span>
-                    </h4>
+                    </span>
                 </a>
             </div>
         </div>
@@ -37,10 +37,10 @@
             <div class="pull-right">
                 <div class="icon-link icon-link-lower">
                     <a href="{{ normalize().toUrl(next) }}">
-                        <h4>
+                        <span class="h4">
                             <span>{{ next.getCurrentRevision().get('title') }}</span>&ensp;
                             <i class="fa fa-arrow-circle-right fa-2x"></i>
-                        </h4>
+                        </span>
                     </a>
                 </div>
             </div>

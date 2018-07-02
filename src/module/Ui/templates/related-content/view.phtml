@@ -5,7 +5,7 @@
             <?php foreach ($this->aggregated as $related): ?>
                 <?php if ($related->getType() == 'category'): ?>
                     <li class="nav-aside-header">
-                        <h4><?php echo $related->getTitle(); ?></h4>
+                        <span class="h4"><?php echo $related->getTitle(); ?></span>
                     </li>
                 <?php elseif ($related->getType() == 'internal'): ?>
                     <li>
