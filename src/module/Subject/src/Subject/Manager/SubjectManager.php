@@ -64,7 +64,7 @@ class SubjectManager implements SubjectManagerInterface
 
     public function getTrashedEntities(TaxonomyTermInterface $term)
     {
-        $key = hash('sha256', serialize($term));
+        $key = 'trashed:' .hash('sha256', serialize($term));
         if ($this->storage->hasItem($key)) {
             return $this->storage->getItem($key);
         }
@@ -78,7 +78,7 @@ class SubjectManager implements SubjectManagerInterface
 
     public function getUnrevisedRevisions(TaxonomyTermInterface $term)
     {
-        $key = hash('sha256', serialize($term));
+        $key = 'unrevised:' . hash('sha256', serialize($term));
         if ($this->storage->hasItem($key)) {
             return $this->storage->getItem($key);
         }
