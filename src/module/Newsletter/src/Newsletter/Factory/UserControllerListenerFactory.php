@@ -13,7 +13,11 @@ class UserControllerListenerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $mailChimp = $serviceLocator->get('\DrewM\MailChimp\MailChimp');
+        try {
+            $mailChimp = $serviceLocator->get('Newsletter\MailChimp');
+        } catch (\Throwable $e) {
+            $mailChimp = null;
+        }
 
         return new UserControllerListener($mailChimp);
     }
