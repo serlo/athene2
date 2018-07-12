@@ -2,16 +2,18 @@
 {% set description = markdown().toHtml(entity.getCurrentRevision().get('description')) %}
 <article>
     <section>
-        {% set id = entity.getCurrentRevision().get('content') %}
+        {% set url = entity.getCurrentRevision().get('content') %}
 
-        {% if id matches '{^(https?:\\/\\/)?(.*?youtube\\.com\\/watch\\?v=.+|.*?youtu\\.be\\/.+)}' %}
-            {% set src = 'https://www.youtube.com/embed/' ~ (id|split('?v='))|slice(1)|join ~ '?html5=1' %}
+        {% if url matches '{^(https?:\\/\\/)?(.*?youtube\\.com\\/watch\\?v=.+|.*?youtu\\.be\\/.+)}' %}
+            {% set id = url | split('?v=') | last | split('/') | last | split('&') | first %}
+            {% set src = 'https://www.youtube-nocookie.com/embed/%s?html5=1' | format(id) %}
             {% set type = 'youtube' %}
-        {% elseif id matches '{^(https?:\\/\\/)?(.*?vimeo\\.com\\/.+)}' %}
-            {% set src = '//player.vimeo.com/video/' ~ (id|split('/')|last) %}
+        {% elseif url matches '{^(https?:\\/\\/)?(.*?vimeo\\.com\\/.+)}' %}
+            {% set id = url | split('/') | last %}
+            {% set src = 'https://player.vimeo.com/video/%s' | format(id) %}
             {% set type = 'vimeo' %}
-        {% elseif id matches '{^(https?:\\/\\/)?(.*?upload\\.wikimedia\\.org\\/.+)}'%}
-            {% set src = id %}
+        {% elseif url matches '{^(https?:\\/\\/)?(.*?upload\\.wikimedia\\.org\\/.+)}'%}
+            {% set src = url %}
             {% set type = 'wikimedia' %}
         {% endif %}
 
