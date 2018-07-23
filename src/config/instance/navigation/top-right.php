@@ -9,7 +9,6 @@
  */
 return [
     'navigation' => [
-        'top-right' => [
-        ]
-    ]
+        'top-right' => [],
+    ],
 ];
