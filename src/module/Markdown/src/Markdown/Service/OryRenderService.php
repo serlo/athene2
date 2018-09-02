@@ -62,7 +62,7 @@ class OryRenderService implements RenderServiceInterface
         $rendered = null;
 
         $this->dnode->connect(
-            '192.168.176.250',
+            '192.168.176.112',
             '7072',
             function ($remote, $connection) use ($input, &$rendered) {
                 $remote->render(

@@ -5,11 +5,9 @@
     {% if entity.isUnrevised() %}
         <a rel="nofollow" href="{{ url('entity/repository/history', {'entity': entity.getId()}) }}">
     {% elseif convert or entity().isOryEditorFormat(entity.getCurrentRevision()) %}
-        {% if revisionGranted %}
-            <a class="ory-edit-button" data-id="{{ entity.getId() }}" rel="nofollow">
-        {% else %}
-            <a data-id="{{ entity.getId() }}" rel="nofollow" href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
-        {% endif %}
+        <a class="{{ revisionGranted ? 'ory-edit-button' : ''}}" data-id="{{ entity.getId() }}"
+           rel="nofollow"
+           href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
     {% else %}
         <a data-id="{{ entity.getId() }}" rel="nofollow" href="{{ url('entity/repository/add-revision-old', {'entity': entity.getId()}) }}">
     {% endif %}

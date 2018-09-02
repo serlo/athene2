@@ -1,8 +1,14 @@
 <div class="btn-group btn-group-community">
     {% if isGranted('page.revision.create', page) %}
-     <a class="btn btn-success" href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
-         <span class="fa fa-pencil"></span>
-     </a>
+        {% if convert or revision.isOryEditorFormat() %}
+        <a rel="nofollow" data-id="{{ page.getId() }}"
+           class="btn btn-success ory-edit-button"
+           href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
+        {% else %}
+        <a class="btn btn-success" href="{{ url('page/revision/create-old', {'page': page.getId(), 'revision': revision.getId()}) }}">
+        {% endif %}
+             <span class="fa fa-pencil"></span>
+         </a>
     {% endif %}
     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="caret"></span>
@@ -42,6 +48,14 @@
                 <a href="{{ url('page/update', {'page': page.getId()}) }}">
                     <span class="fa fa-cog"></span>
                     {% trans %} Settings {% endtrans %}
+                </a>
+            </li>
+        {% endif %}
+        {% if isGranted('page.revision.create', page) and not convert and not revision.isOryEditorFormat() %}
+            <li>
+                <a rel="nofollow" href="{{ url('page/view/convert', {'page': page.getId()}) }}" class="convert-button" data-content-id="{{ page.getId() }}">
+                    <span class="fa fa-pencil"></span>
+                    {% trans %} Convert {% endtrans %}
                 </a>
             </li>
         {% endif %}

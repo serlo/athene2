@@ -274,9 +274,6 @@ return [
                                         'controller' => __NAMESPACE__ . '\Controller\PageController',
                                         'action' => 'index',
                                         'convert' => true
-                                    ],
-                                    'constraints' => [
-                                        'entity' => '[0-9]+'
                                     ]
                                 ]
                             ]
