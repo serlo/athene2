@@ -22,6 +22,9 @@ return [
         'factories' => [
             'markdown' => __NAMESPACE__ . '\Factory\MarkdownHelperFactory',
             'oryRenderer' => __NAMESPACE__ . '\Factory\OryRenderHelperFactory'
+        ],
+        'invokables' => [
+            'isOryEditorFormat' => __NAMESPACE__ . '\View\Helper\OryFormatHelper'
         ]
     ],
     'di'              => [
