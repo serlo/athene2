@@ -8,7 +8,9 @@
         </a>
     {% else %}
         {% if convert or entity().isOryEditorFormat(entity.getCurrentRevision()) %}
-            <a rel="nofollow" data-id="{{ entity.getId() }}"
+            <a rel="nofollow"
+               data-id="{{ entity.getId() }}"
+               data-type="{{ entity.getType() }}"
                class="btn btn-success {{ revisionGranted and entity.hasCurrentRevision() ? 'ory-edit-button' : '' }}"
                href="{{ url('entity/repository/add-revision', {'entity': entity.getId()}) }}">
         {% else %}
