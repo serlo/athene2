@@ -22,9 +22,11 @@ class OryRenderServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $options = $serviceLocator->get('Markdown\Options\ModuleOptions');
         $storage = $serviceLocator->get('Markdown\Storage\MarkdownStorage');
-        $service = new OryRenderService($options, $storage);
+        $config  = $serviceLocator->get('config');
+        $url     = $config['editor_renderer']['url'];
+
+        $service = new OryRenderService($url, $storage);
 
         return $service;
     }

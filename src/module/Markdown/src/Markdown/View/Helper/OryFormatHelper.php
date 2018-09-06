@@ -9,10 +9,6 @@
  */
 namespace Markdown\View\Helper;
 
-use Exception;
-use Markdown\Exception\RuntimeException;
-use Markdown\Service\RenderServiceAwareTrait;
-use Markdown\Service\RenderServiceInterface;
 use Zend\View\Helper\AbstractHelper;
 
 class OryFormatHelper extends AbstractHelper
@@ -22,7 +18,8 @@ class OryFormatHelper extends AbstractHelper
         return $this->isOryEditorFormat($string);
     }
 
-    public function isOryEditorFormat($string) {
+    public function isOryEditorFormat($string)
+    {
         $parsed = json_decode($string, true);
         return $parsed !== null && isset($parsed['cells']);
     }

@@ -9,7 +9,6 @@
  */
 namespace Markdown\View\Helper;
 
-use Exception;
 use Markdown\Exception\RuntimeException;
 use Markdown\Service\RenderServiceAwareTrait;
 use Markdown\Service\RenderServiceInterface;
@@ -36,7 +35,7 @@ class MarkdownHelper extends AbstractHelper
      * @param bool   $catch
      * @return string
      */
-    public function toHtml($content,  $catch = true)
+    public function toHtml($content, $catch = true)
     {
         if ($catch) {
             try {

@@ -1,36 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 27.11.2017
- * Time: 17:11
- */
-
 namespace Markdown\Service;
 
-use DNode\DNode;
 use Markdown\Exception;
-use Markdown\Options\ModuleOptions;
-use React\EventLoop\StreamSelectLoop;
 use Zend\Cache\Storage\StorageInterface;
 
 class OryRenderService implements RenderServiceInterface
 {
-
-    /**
-     * @var StreamSelectLoop
-     */
-    protected $loop;
-
-    /**
-     * @var Donde
-     */
-    protected $dnode;
-
-    /**
-     * @var ModuleOptions
-     */
-    protected $options;
+    protected $url;
 
     /**
      * @var StorageInterface
@@ -38,14 +14,12 @@ class OryRenderService implements RenderServiceInterface
     protected $storage;
 
     /**
-     * @param ModuleOptions    $options
+     * @param string           $url
      * @param StorageInterface $storage
      */
-    public function __construct(ModuleOptions $options, StorageInterface $storage)
+    public function __construct($url, StorageInterface $storage)
     {
-        $this->loop    = new StreamSelectLoop();
-        $this->dnode   = new DNode($this->loop);
-        $this->options = $options;
+        $this->url     = $url;
         $this->storage = $storage;
     }
     /**
@@ -53,44 +27,38 @@ class OryRenderService implements RenderServiceInterface
      */
     public function render($input)
     {
-        $key = hash('sha512', $input);
+        $key = 'editor-renderer-' . hash('sha512', $input);
 
         if ($this->storage->hasItem($key)) {
-            //return $this->storage->getItem($key);
+            return $this->storage->getItem($key);
         }
 
         $rendered = null;
+        $data     = array('state' => $input);
 
-        $this->dnode->connect(
-            '192.168.176.112',
-            '7072',
-            function ($remote, $connection) use ($input, &$rendered) {
-                $remote->render(
-                    $input,
-                    function ($output, $exception = null, $error = null) use (&$rendered, $connection) {
-                        if ($exception !== null) {
-                            $connection->end();
-                            throw new Exception\RuntimeException(sprintf(
-                                'Bridge threw exception "%s" with message "%s".',
-                                $exception,
-                                $error
-                            ));
-                        }
-                        $rendered = $output;
-                        $connection->end();
-                    }
-                );
-            }
+        $httpHeader = array(
+            'Accept: application/json',
+            'Content-Type: application/json',
         );
-        $this->loop->run();
 
-        if ($rendered === null) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        try {
+            $rendered = json_decode($result, true)['html'];
+        } catch (Exception $e) {
             throw new Exception\RuntimeException(sprintf('Broken pipe'));
         }
 
         $this->storage->setItem($key, $rendered);
 
         return $rendered;
-
     }
 }

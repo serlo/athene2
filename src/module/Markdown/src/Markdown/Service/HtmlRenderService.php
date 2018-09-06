@@ -55,10 +55,10 @@ class HtmlRenderService implements RenderServiceInterface
      */
     public function render($input)
     {
-        $key = hash('sha512', $input);
+        $key = 'html-renderer-' . hash('sha512', $input);
 
         if ($this->storage->hasItem($key)) {
-            //return $this->storage->getItem($key);
+            return $this->storage->getItem($key);
         }
 
         $rendered = null;
