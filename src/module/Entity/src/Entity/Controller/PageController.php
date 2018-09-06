@@ -62,7 +62,6 @@ class PageController extends AbstractController
         $this->layout('layout/3-col');
 
         if (!$entity->hasCurrentRevision()) {
-//            $this->layout('layout/2-col');
             $model->setTemplate('entity/page/pending');
         }
 
