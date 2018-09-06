@@ -1,8 +1,9 @@
+{% set renderer = entity().isOryEditorFormat(revision) ? oryRenderer() : markdown() %}
 {% for field in revision.getFields() %}
     <div class="panel panel-default">
         <div class="panel-heading">{{ field.getName()  | trans }}</div>
         <div class="panel-body">
-            {{ markdown().toHtml(field.getValue()) }}
+            {{ renderer.toHtml(field.getValue()) }}
         </div>
     </div>
 {% endfor %}

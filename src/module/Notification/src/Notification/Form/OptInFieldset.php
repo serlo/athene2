@@ -23,11 +23,14 @@ class OptInFieldset extends Fieldset implements InputFilterProviderInterface
         $subscribe->setName('subscribe');
         $subscribe->setLabel('Add to watchlist.');
         $subscribe->setChecked(true);
+        $subscribe->setAttribute('class', 'control');
+
 
         $mailman = new Element\Checkbox('mailman');
         $mailman->setName('mailman');
         $mailman->setLabel('Receive notifications via email.');
         $mailman->setChecked(true);
+        $mailman->setAttribute('class', 'control');
 
         $this->add($subscribe);
         $this->add($mailman);

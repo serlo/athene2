@@ -9,7 +9,6 @@
  */
 namespace Markdown\View\Helper;
 
-use Exception;
 use Markdown\Exception\RuntimeException;
 use Markdown\Service\RenderServiceAwareTrait;
 use Markdown\Service\RenderServiceInterface;

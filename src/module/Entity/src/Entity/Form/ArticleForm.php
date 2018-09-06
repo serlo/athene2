@@ -31,16 +31,16 @@ class ArticleForm extends Form
         $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
         $this->add(
-            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')
+            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')->setAttribute('class', 'meta')
         );
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
-                'plain'
+                'plain control'
             )
         );
-        $this->add((new Text('meta_title'))->setAttribute('id', 'meta_title')->setLabel('Search Engine Title:'));
-        $this->add((new Text('meta_description'))->setAttribute('id', 'meta_description')->setLabel('Search Engine Description:'));
+        $this->add((new Text('meta_title'))->setAttribute('id', 'meta_title')->setLabel('Search Engine Title:')->setAttribute('class', 'meta'));
+        $this->add((new Text('meta_description'))->setAttribute('id', 'meta_description')->setLabel('Search Engine Description:')->setAttribute('class', 'meta'));
         $this->add(new AgreementFieldset($license));
         $this->add(new Controls());
 

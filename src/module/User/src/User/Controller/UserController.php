@@ -177,7 +177,7 @@ class UserController extends AbstractUserController
 
         $view = new ViewModel(['user' => $user, 'form' => $form]);
         $view->setTemplate('user/user/settings');
-        $this->layout('athene2-editor');
+        $this->layout('layout/3-col');
 
         return $view;
     }

@@ -9,6 +9,7 @@
  */
 namespace Entity\Controller;
 
+use Common\Form\CsrfForm;
 use Entity\Entity\EntityInterface;
 use Entity\Options\ModuleOptions;
 use Versioning\Entity\RevisionInterface;
@@ -17,6 +18,7 @@ use Versioning\RepositoryManagerAwareTrait;
 use Zend\Form\Form;
 use Zend\Mvc\Exception;
 use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class RepositoryController extends AbstractController
 {
@@ -26,6 +28,7 @@ class RepositoryController extends AbstractController
      * @var ModuleOptions
      */
     protected $moduleOptions;
+
 
     public function addRevisionAction()
     {
@@ -63,9 +66,13 @@ class RepositoryController extends AbstractController
             }
         }
 
-        $this->layout('athene2-editor');
-        $view->setTemplate('entity/repository/update-revision');
-
+        if ($this->params('old', false)) {
+            $this->layout('athene2-editor');
+            $view->setTemplate('entity/repository/update-revision');
+        } else {
+            $this->layout('layout/3-col');
+            $view->setTemplate('entity/repository/update-revision-ory');
+        }
         return $view;
     }
 
@@ -113,6 +120,7 @@ class RepositoryController extends AbstractController
         ]);
 
         $view->setTemplate('entity/repository/compare-revision');
+        $this->layout('layout/1-col');
 
         return $view;
     }
@@ -190,6 +198,7 @@ class RepositoryController extends AbstractController
         $agreement = $license->getAgreement() ? $license->getAgreement() : $license->getTitle();
         $form->get('license')->get('agreement')->setLabel($agreement);
         $form->get('changes')->setValue('');
+
 
         return $form;
     }

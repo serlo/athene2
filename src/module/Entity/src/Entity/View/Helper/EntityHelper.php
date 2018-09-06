@@ -11,6 +11,7 @@ namespace Entity\View\Helper;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Entity\Entity\EntityInterface;
+use Entity\Entity\RevisionInterface;
 use Entity\Exception;
 use Entity\Options\ModuleOptionsAwareTrait;
 use Zend\View\Helper\AbstractHelper;
@@ -71,5 +72,10 @@ class EntityHelper extends AbstractHelper
         return $this->getModuleOptions()->getType(
             $entity->getType()->getName()
         );
+    }
+
+    public function isOryEditorFormat(RevisionInterface $revision) {
+        $parsed = json_decode($revision->get('content'), true);
+        return $parsed !== null && isset($parsed['cells']);
     }
 }

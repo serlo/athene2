@@ -87,7 +87,7 @@ class IndexController extends AbstractAPIAwareActionController
                 $this->getEventManager()->trigger('page.create', $this, $params);
                 $this->getPageManager()->flush();
                 $this->getEventManager()->trigger('page.create.postFlush', $this, $params);
-                $this->redirect()->toRoute('page/revision/create', ['page' => $repository->getId()]);
+                $this->redirect()->toRoute('page/revision/create-old', ['page' => $repository->getId()]);
             }
         }
 
@@ -125,9 +125,15 @@ class IndexController extends AbstractAPIAwareActionController
             }
         }
 
-        $view = new ViewModel(['form' => $form]);
-        $view->setTemplate('page/revision/create');
-        $this->layout('editor/layout');
+        if ($this->params('old')) {
+            $view = new ViewModel(['form' => $form]);
+            $view->setTemplate('page/revision/create');
+            $this->layout('editor/layout');
+        } else {
+            $view = new ViewModel(['form' => $form, 'page' => $page]);
+            $view->setTemplate('page/revision/create-ory');
+            $this->layout('layout/3-col');
+        }
 
         return $view;
     }
@@ -204,7 +210,7 @@ class IndexController extends AbstractAPIAwareActionController
             return $this->notFound();
         }
 
-        $view = new ViewModel(['revision' => $revision, 'page' => $pageRepository]);
+        $view = new ViewModel(['revision' => $revision, 'page' => $pageRepository, 'convert' => $this->params('convert', false)]);
 
         $this->assertGranted('page.get', $pageRepository);
         $view->setTemplate('page/revision/view');
