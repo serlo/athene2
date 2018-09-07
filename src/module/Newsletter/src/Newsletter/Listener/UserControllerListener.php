@@ -13,9 +13,9 @@ class UserControllerListener extends AbstractSharedListenerAggregate
     use MailChimpAwareTrait;
 
     /**
-     * @param MailChimp $mailChimp
+     * @param mixed $mailChimp
      */
-    public function __construct(?MailChimp $mailChimp)
+    public function __construct($mailChimp)
     {
         $this->mailChimp = $mailChimp;
     }
