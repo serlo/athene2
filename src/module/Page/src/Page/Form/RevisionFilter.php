@@ -18,6 +18,7 @@ class RevisionFilter extends InputFilter
             [
                 'name'     => 'title',
                 'required' => true,
+                'filters'  => [['name' => 'HtmlEntities']],
             ]
         );
 
