@@ -8,36 +8,30 @@
  */
 namespace Ui;
 
-use Zend\Mvc\Application;
-use ZfcRbac\Guard\GuardInterface;
-
 return [
-    'navigation'            => [
+    'navigation'         => [
         'hydratables' => [
-            'default'    => [
-                'hydrators' => []
+            'default'   => [
+                'hydrators' => [],
             ],
-            'top-center' => [
-                'hydrators' => []
+            'top-right' => [
+                'hydrators' => [],
             ],
-            'top-right'  => [
-                'hydrators' => []
-            ]
-        ]
+        ],
     ],
-    'zfctwig'               => [
+    'zfctwig'            => [
         'helper_manager' => [
             'invokables' => [
                 'partial' => 'Zend\View\Helper\Partial',
                 'encrypt' => 'Ui\View\Helper\Encrypt',
             ],
             'factories'  => [
-                'brand' => __NAMESPACE__ . '\Factory\BrandHelperFactory',
-                'tracking' => __NAMESPACE__ . '\Factory\TrackingFactory'
-            ]
-        ]
+                'brand'    => __NAMESPACE__ . '\Factory\BrandHelperFactory',
+                'tracking' => __NAMESPACE__ . '\Factory\TrackingFactory',
+            ],
+        ],
     ],
-    'view_manager'          => [
+    'view_manager'       => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
@@ -52,19 +46,19 @@ return [
             'layout/3-col'   => __DIR__ . '/../templates/layout/3-col.phtml',
             'error/404'      => __DIR__ . '/../templates/error/404.phtml',
             'error/403'      => __DIR__ . '/../templates/error/403.phtml',
-            'error/index'    => __DIR__ . '/../templates/error/index.phtml'
+            'error/index'    => __DIR__ . '/../templates/error/index.phtml',
         ],
         'strategies'               => [
             'Zend\View\Strategy\JsonStrategy',
             'ViewFeedStrategy',
-        ]
+        ],
     ],
-    'controller_plugins'    => [
+    'controller_plugins' => [
         'factories' => [
-            'brand' => __NAMESPACE__ . '\Factory\BrandPluginFactory'
-        ]
+            'brand' => __NAMESPACE__ . '\Factory\BrandPluginFactory',
+        ],
     ],
-    'view_helpers'          => [
+    'view_helpers'       => [
         'factories'  => [
             'recaptcha'   => __NAMESPACE__ . '\Factory\RecaptchaHelperFactory',
             'assetsHost'  => __NAMESPACE__ . '\Factory\AssetsHostHelperFactory',
@@ -74,22 +68,22 @@ return [
             'tracking'    => __NAMESPACE__ . '\Factory\TrackingFactory',
         ],
         'invokables' => [
-            'encrypt'         => 'Ui\View\Helper\Encrypt',
-            'timeago'         => 'Ui\View\Helper\Timeago',
-            'registry'        => 'Ui\View\Helper\Registry',
-            'toAlpha'         => 'Ui\View\Helper\ToAlpha',
-            'prerelease'      => 'Ui\View\Helper\PreRelease',
-            'diff'            => 'Ui\View\Helper\DiffHelper',
-            'preview'         => 'Ui\View\Helper\PreviewHelper',
-            'randomBanner'    => 'Ui\View\Helper\RandomBanner'
-        ]
+            'encrypt'      => 'Ui\View\Helper\Encrypt',
+            'timeago'      => 'Ui\View\Helper\Timeago',
+            'registry'     => 'Ui\View\Helper\Registry',
+            'toAlpha'      => 'Ui\View\Helper\ToAlpha',
+            'prerelease'   => 'Ui\View\Helper\PreRelease',
+            'diff'         => 'Ui\View\Helper\DiffHelper',
+            'preview'      => 'Ui\View\Helper\PreviewHelper',
+            'randomBanner' => 'Ui\View\Helper\RandomBanner',
+        ],
     ],
-    'service_manager'       => [
-        'factories'  => [
+    'service_manager'    => [
+        'factories' => [
             'Ui\Renderer\PhpDebugRenderer'                     => __NAMESPACE__ . '\Factory\PhpDebugRenderFactory',
             __NAMESPACE__ . '\Options\BrandHelperOptions'      => __NAMESPACE__ . '\Factory\BrandHelperOptionsFactory',
             __NAMESPACE__ . '\Options\TrackingHelperOptions'   => __NAMESPACE__ . '\Factory\TrackingHelperOptionsFactory',
             __NAMESPACE__ . '\Options\PageHeaderHelperOptions' => __NAMESPACE__ . '\Factory\PageHeaderHelperOptionsFactory',
-        ]
-    ]
+        ],
+    ],
 ];

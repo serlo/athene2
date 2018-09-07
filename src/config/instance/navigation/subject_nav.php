@@ -9,6 +9,6 @@
  */
 return [
     'navigation' => [
-        'subject-nav' => []
-    ]
+        'subject-nav' => [],
+    ],
 ];
