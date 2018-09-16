@@ -114,7 +114,7 @@ class AliasManager implements AliasManagerInterface
 
         $old = $this->objectManager->getBypassIsolation();
         $this->objectManager->setBypassIsolation(true);
-        $alias = $this->findUniqueAlias($alias, $aliasFallback, $object);
+        $alias = $this->findUniqueAlias($alias, $aliasFallback, $object, $instance);
         $this->objectManager->setBypassIsolation($old);
         if ($alias instanceof AliasInterface) {
             // Found existing alias, no need to create new one
@@ -230,7 +230,7 @@ class AliasManager implements AliasManagerInterface
         }
 
         /* @var $entity Entity\AliasInterface */
-        $criteria = ['alias' => $alias];
+        $criteria = ['alias' => $alias, 'instance' => $instance->getId()];
         $order    = ['timestamp' => 'DESC'];
         $results  = $this->getAliasRepository()->findBy($criteria, $order, 1);
         $entity   = current($results);
@@ -274,13 +274,14 @@ class AliasManager implements AliasManagerInterface
     }
 
     /**
-     * @param $alias
+     * @param $alias,
+     * @param InstanceInterface $instance
      * @return Entity\AliasInterface[]
      */
-    protected function findAliases($alias)
+    protected function findAliases($alias, InstanceInterface $instance)
     {
         $className = $this->getEntityClassName();
-        $criteria  = ['alias' => $alias];
+        $criteria  = ['alias' => $alias, 'instance' => $instance->getId()];
         $order     = ['timestamp' => 'DESC'];
         $aliases   = $this->getObjectManager()->getRepository($className)->findBy($criteria, $order);
         foreach ($this->inMemoryAliases as $memoryAlias) {
@@ -292,10 +293,10 @@ class AliasManager implements AliasManagerInterface
         return $aliases;
     }
 
-    protected function findUniqueAlias($alias, $fallback, UuidInterface $object)
+    protected function findUniqueAlias($alias, $fallback, UuidInterface $object, InstanceInterface $instance)
     {
         $alias   = $this->slugify($alias);
-        $aliases = $this->findAliases($alias);
+        $aliases = $this->findAliases($alias, $instance);
         foreach ($aliases as $entity) {
             if ($entity->getObject() === $object) {
                 // Alias exists and its the same object -> update timestamp
@@ -303,7 +304,7 @@ class AliasManager implements AliasManagerInterface
                 $this->objectManager->persist($entity);
                 return $entity;
             }
-            return $this->findUniqueAlias($fallback, $fallback . '-' . uniqid(), $object);
+            return $this->findUniqueAlias($fallback, $fallback . '-' . uniqid(), $object, $instance);
         }
         return $alias;
     }
