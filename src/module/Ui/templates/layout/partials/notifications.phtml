@@ -1,27 +1,33 @@
 <div class="flasher">
     <?php
-    if ($this->flashMessenger()->hasSuccessMessages()) {
-        echo '<div class="alert alert-success">';
-        echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-        foreach ($this->flashmessenger()->getSuccessMessages() as $message)
-            echo '<p>' . $message . '</p>';
-        echo '</div>';
+if ($this->flashMessenger()->hasSuccessMessages()) {
+    echo '<div class="alert alert-success">';
+    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+    foreach ($this->flashmessenger()->getSuccessMessages() as $message) {
+        echo '<p>' . $this->translate($message) . '</p>';
     }
-    
-    if ($this->flashMessenger()->hasErrorMessages()) {
-        echo '<div class="alert alert-danger">';
-        echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-        foreach ($this->flashmessenger()->getErrorMessages() as $message)
-            echo '<p>' . $message . '</p>';
-        echo '</div>';
+
+    echo '</div>';
+}
+
+if ($this->flashMessenger()->hasErrorMessages()) {
+    echo '<div class="alert alert-danger">';
+    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+    foreach ($this->flashmessenger()->getErrorMessages() as $message) {
+        echo '<p>' . $this->translate($message) . '</p>';
     }
-    
-    if ($this->flashMessenger()->hasMessages()) {
-        echo '<div class="alert alert-info">';
-        echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-        foreach ($this->flashmessenger()->getMessages() as $message)
-            echo '<p>' . $message . '</p>';
-        echo '</div>';
+
+    echo '</div>';
+}
+
+if ($this->flashMessenger()->hasMessages()) {
+    echo '<div class="alert alert-info">';
+    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+    foreach ($this->flashmessenger()->getMessages() as $message) {
+        echo '<p>' . $this->translate($message) . '</p>';
     }
-    ?>
+
+    echo '</div>';
+}
+?>
 </div>
