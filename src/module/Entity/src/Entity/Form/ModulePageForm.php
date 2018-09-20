@@ -52,7 +52,7 @@ class ModulePageForm extends Form
 
         $inputFilter = new InputFilter('course-page');
         $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
-        $inputFilter->add(['name' => 'content', 'required' => true, 'filters' => [['name' => 'HtmlEntities' ]]]);
+        $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities' ]]]);
         $this->setInputFilter($inputFilter);
     }
