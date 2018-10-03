@@ -79,7 +79,7 @@ class LinkController extends AbstractController
 
         }
 
-        $children = $entity->getChildren($scope);
+        $children = $entity->getValidChildren($scope);
         $view     = new ViewModel(['entity' => $entity, 'children' => $children, 'scope' => $scope]);
         $view->setTemplate('entity/link/order');
         $this->layout('layout/1-col');
