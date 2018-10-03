@@ -14,8 +14,7 @@ echo $this->doctype();
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html class="fuelux" lang="<?php echo $this->currentLanguage(); ?>"> <!--<![endif]-->
 <head>
-    <?php print $this->partial('layout/partials/head'); ?>
-    <link href="<?php echo $this->assetsHost(); ?>commons.css" rel="stylesheet">
+    <?php print $this->partial('layout/partials/head');?>
     <link href="<?php echo $this->assetsHost(); ?>editor.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600|Droid+Serif" rel="stylesheet">
 </head>
@@ -32,10 +31,10 @@ echo $this->doctype();
                     </button>
                     <?php if ($this->ref): ?>
                         <a class="helper btn btn-danger btn-labeled" data-toggle="tooltip" data-placement="bottom"
-                           title="Reject changes" href="<?php $this->ref; ?>">
+                           title="Reject changes" href="<?php $this->ref;?>">
                         <span class="btn-label"><span class="fa fa-trash"></span></span>Cancel
                     </a>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </div>
             </div>
         </div>
