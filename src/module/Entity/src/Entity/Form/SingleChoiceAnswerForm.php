@@ -18,8 +18,7 @@ use Zend\InputFilter\InputFilter;
 
 class SingleChoiceAnswerForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('single-choice-answer');
         $this->add(new CsrfToken('csrf'));
@@ -41,7 +40,7 @@ class SingleChoiceAnswerForm extends Form
         $inputFilter = new InputFilter('single-choice-answer');
         $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'feedback', 'required' => false]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities' ]]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
         $this->setInputFilter($inputFilter);
     }
 }

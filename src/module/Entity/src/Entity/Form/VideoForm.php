@@ -21,8 +21,7 @@ use Zend\Validator\Regex;
 
 class VideoForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('video');
         $this->add(new CsrfToken('csrf'));
@@ -49,27 +48,28 @@ class VideoForm extends Form
         $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
         $inputFilter->add(
             [
-                'name' => 'content',
-                'required' => true,
-                'filters' => [
+                'name'       => 'content',
+                'required'   => true,
+                'filters'    => [
                     [
-                        'name' => 'StripTags'
-                    ]
+                        'name' => 'StripTags',
+                    ],
                 ],
                 'validators' => [
                     [
-                        'name'  => 'Regex',
+                        'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^(https?:\/\/)?(.*?(youtube\.com\/watch\?v=.+|youtu\.be\/.+|vimeo\.com\/.+|upload\.wikimedia\.org\/.+(\.webm|\.ogg)?))~',
+                            'pattern'  => '~^(https?:\/\/)?(.*?(youtube\.com\/watch\?v=.+|youtu\.be\/.+|vimeo\.com\/.+|upload\.wikimedia\.org\/.+(\.webm|\.ogg)?))~',
                             'messages' => [
-                                Regex::NOT_MATCH => 'Video-URL invalid, supported platforms are Youtube, Vimeo and Wikimedia Commons'
-                            ]
-                        ]
-                    ]
-                ]
-            ]);
+                                Regex::NOT_MATCH => 'Video-URL invalid, supported platforms are Youtube, Vimeo and Wikimedia Commons',
+                            ],
+                        ],
+                    ],
+                ],
+            ]
+        );
         $inputFilter->add(['name' => 'reasoning', 'required' => false]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities' ]]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
         $this->setInputFilter($inputFilter);
     }
 }

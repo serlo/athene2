@@ -19,8 +19,7 @@ use Zend\InputFilter\InputFilter;
 
 class ModuleForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('course');
         $this->add(new CsrfToken('csrf'));
@@ -45,7 +44,7 @@ class ModuleForm extends Form
         $inputFilter = new InputFilter('course');
         $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
         $inputFilter->add(['name' => 'reasoning', 'required' => false]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities' ]]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
         $this->setInputFilter($inputFilter);
     }
 }
