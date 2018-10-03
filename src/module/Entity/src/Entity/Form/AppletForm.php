@@ -22,8 +22,7 @@ use Zend\Validator\Regex;
 
 class AppletForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('applet');
         $this->add(new CsrfToken('csrf'));
@@ -49,33 +48,34 @@ class AppletForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('applet');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
         $inputFilter->add(
             [
-                'name' => 'url',
-                'required' => true,
-                'filters' => [
+                'name'       => 'url',
+                'required'   => true,
+                'filters'    => [
                     [
-                        'name' => 'StripTags'
-                    ]
+                        'name' => 'StripTags',
+                    ],
                 ],
                 'validators' => [
                     [
-                        'name'  => 'Regex',
+                        'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^(https?:\/\/)?(.*?(geogebra\.org\/m\/.+|ggbm\.at\/.+))~',
+                            'pattern'  => '~^(https?:\/\/)?(.*?(geogebra\.org\/m\/.+|ggbm\.at\/.+))~',
                             'messages' => [
-                                Regex::NOT_MATCH => 'Applet-URL invalid. Use one of the form geogebra.org/m/id or ggbm.at/id'
-                            ]
-                        ]
-                    ]
-                ]
-            ]);
-        $inputFilter->add(['name' => 'content', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'meta_title', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'meta_description', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+                                Regex::NOT_MATCH => 'Applet-URL invalid. Use one of the form geogebra.org/m/id or ggbm.at/id',
+                            ],
+                        ],
+                    ],
+                ],
+            ]
+        );
+        $inputFilter->add(['name' => 'content', 'required' => false]);
+        $inputFilter->add(['name' => 'meta_title', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'meta_description', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'reasoning', 'required' => false]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
         $this->setInputFilter($inputFilter);
     }
 }

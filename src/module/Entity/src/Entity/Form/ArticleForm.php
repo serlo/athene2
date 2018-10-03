@@ -19,8 +19,7 @@ use Zend\InputFilter\InputFilter;
 
 class ArticleForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('article');
         $this->add(new CsrfToken('csrf'));
@@ -45,12 +44,13 @@ class ArticleForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('article');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'meta_title', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'meta_description', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'meta_title', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'meta_description', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'reasoning', 'required' => false]);
         $inputFilter->add(['name' => 'content', 'required' => true]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+
         $this->setInputFilter($inputFilter);
     }
 }

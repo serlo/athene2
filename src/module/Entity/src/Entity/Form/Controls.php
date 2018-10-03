@@ -16,7 +16,6 @@ use Zend\InputFilter\InputFilterProviderInterface;
 
 class Controls extends Fieldset implements InputFilterProviderInterface
 {
-
     public function __construct()
     {
         parent::__construct('controls');

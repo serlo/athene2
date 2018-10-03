@@ -15,8 +15,7 @@ use Zend\InputFilter\InputFilter;
 
 class MoveForm extends Form
 {
-
-    function __construct()
+    public function __construct()
     {
         parent::__construct('move');
         $this->add(new CsrfToken('csrf'));
@@ -31,11 +30,11 @@ class MoveForm extends Form
                 'attributes' => [
                     'type'        => 'text',
                     'tabindex'    => 1,
-                    'placeholder' => 'ID (e.g.: 123)'
+                    'placeholder' => 'ID (e.g.: 123)',
                 ],
                 'options'    => [
-                    'label' => 'Move to: '
-                ]
+                    'label' => 'Move to: ',
+                ],
             ]
         );
 
@@ -46,8 +45,8 @@ class MoveForm extends Form
                     'type'     => 'submit',
                     'value'    => 'Move',
                     'tabindex' => 2,
-                    'class'    => 'btn btn-success pull-right'
-                ]
+                    'class'    => 'btn btn-success pull-right',
+                ],
             ]
         );
 
@@ -57,9 +56,9 @@ class MoveForm extends Form
                 'required'   => true,
                 'validators' => [
                     [
-                        'name' => 'int'
+                        'name' => 'int',
                     ],
-                ]
+                ],
             ]
         );
     }

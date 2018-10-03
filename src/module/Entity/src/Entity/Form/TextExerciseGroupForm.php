@@ -18,8 +18,7 @@ use Zend\InputFilter\InputFilter;
 
 class TextExerciseGroupForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('text-exercise-group');
         $this->add(new CsrfToken('csrf'));
@@ -39,7 +38,7 @@ class TextExerciseGroupForm extends Form
 
         $inputFilter = new InputFilter('text-exercise-group');
         $inputFilter->add(['name' => 'content', 'required' => true]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
         $this->setInputFilter($inputFilter);
     }
 }

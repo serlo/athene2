@@ -20,8 +20,7 @@ use Zend\InputFilter\InputFilter;
 
 class ModulePageForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('course-page');
         $this->add(new CsrfToken('csrf'));
@@ -29,16 +28,15 @@ class ModulePageForm extends Form
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-
         $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
         $select = new Select('icon');
         $select->setLabel('Select an icon');
         $select->setAttribute('id', 'icon');
         $select->setValueOptions(array(
-                'explanation' => 'Explanation',
-                'play' => 'Video',
-                'question' => 'Exercises'
-            ));
+            'explanation' => 'Explanation',
+            'play'        => 'Video',
+            'question'    => 'Exercises',
+        ));
         $select->setAttribute('class', 'meta');
         $this->add($select);
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
@@ -52,9 +50,9 @@ class ModulePageForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('course-page');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
         $inputFilter->add(['name' => 'content', 'required' => true]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
         $this->setInputFilter($inputFilter);
     }
 }

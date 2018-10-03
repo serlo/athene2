@@ -18,8 +18,7 @@ use Zend\InputFilter\InputFilter;
 
 class MathPuzzleForm extends Form
 {
-
-    function __construct(LicenseInterface $license)
+    public function __construct(LicenseInterface $license)
     {
         parent::__construct('math-puzzle');
         $this->add(new CsrfToken('csrf'));
@@ -46,7 +45,7 @@ class MathPuzzleForm extends Form
         $inputFilter = new InputFilter('math-puzzle');
         $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'source', 'required' => true]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
         $this->setInputFilter($inputFilter);
     }
 }
