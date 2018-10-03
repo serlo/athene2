@@ -109,6 +109,18 @@ return [
                                 'page' => '[0-9]+'
                             ],
                         ],
+                        'child_routes' => [
+                            'convert'  => [
+                                'type' => 'literal',
+                                'options' => [
+                                    'route' => '/convert',
+                                    'defaults' => [
+                                        'action' => 'view',
+                                        'convert' => true
+                                    ]
+                                ]
+                            ]
+                        ]
                     ],
                     'revision' => [
                         'type'         => 'segment',
@@ -150,12 +162,27 @@ return [
                                     ],
                                 ]
                             ],
+                            'create-old'   => [
+                                'type'    => 'segment',
+                                'options' => [
+                                    'route'       => '/create-old/:page[/:revision]',
+                                    'defaults'    => [
+                                        'action' => 'createRevision',
+                                        'old'    => true
+                                    ],
+                                    'constraints' => [
+                                        'page'     => '[0-9]+',
+                                        'revision' => '[0-9]*',
+                                    ],
+                                ]
+                            ],
                             'create'   => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'       => '/create/:page[/:revision]',
                                     'defaults'    => [
-                                        'action' => 'createRevision'
+                                        'action' => 'createRevision',
+                                        'old'    => false
                                     ],
                                     'constraints' => [
                                         'page'     => '[0-9]+',

@@ -1,10 +1,11 @@
 {% set title = 'course-page' | trans %}
 {% set revision = entity.getCurrentRevision() %}
-{% set content = markdown().toHtml(revision.get('content')) | raw %}
+{% set content = renderer.toHtml(revision.get('content')) %}
 
 {% set previous = parent.getPreviousValidSibling('link', entity) %}
 {% set next = parent.getNextValidSibling('link', entity) %}
 
+<article>
 {% if previous is not null %}
     <div class="row">
         <div class="col-xs-12">
@@ -22,11 +23,13 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <h1 class="heading-content">{{ revision.get('title') }}</h1>
+        <h1 class="heading-content editable" data-id="{{ entity.getId() }}" data-edit-field="title" data-edit-type="text">
+            {{ revision.get('title') }}
+        </h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 editable" data-id="{{ entity.getId() }}" data-edit-field="content" data-edit-type="ory">
         {{ content }}
     </div>
 </div>
@@ -49,6 +52,7 @@
 {% endif %}
 
 {% include 'entity/view/partials/license' %}
+</article>
 
 {% set discussions %}
 <section id="discussion-{{ entity.getId() }}" class="discussions clearfix">

@@ -28,14 +28,14 @@ class ModuleForm extends Form
         $this->setAttribute('class', 'clearfix');
 
         $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
-        $this->add((new Textarea('description'))->setAttribute('id', 'description')->setLabel('Description:'));
+        $this->add((new Textarea('description'))->setAttribute('id', 'description')->setLabel('Description:')->setAttribute('class', 'meta'));
         $this->add(
-            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')
+            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')->setAttribute('class', 'meta')
         );
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
-                'plain'
+                'plain control'
             )
         );
         $this->add(new AgreementFieldset($license));

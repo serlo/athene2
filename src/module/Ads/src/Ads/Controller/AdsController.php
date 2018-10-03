@@ -156,12 +156,12 @@ class AdsController extends AbstractActionController
             $this->redirect()->toRoute('ads/about/setabout');
         } else {
             $repository = $adPage->getPageRepository();
-
+            $revision = $repository->getCurrentRevision();
             $this->redirect()->toRoute(
-                'page/revision/create',
+                $revision->isOryEditorFormat() ? 'page/revision/create': 'page/revision/create-old',
                 [
                     'page'     => $repository->getId(),
-                    'revision' => $repository->getCurrentRevision()
+                    'revision' => $revision
                 ]
             );
         }

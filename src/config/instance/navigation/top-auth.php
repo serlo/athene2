@@ -14,24 +14,24 @@ return [
                 'label'         => '',
                 'route'         => 'user/me',
                 'icon'          => 'user',
-                'needsIdentity' => true
+                'needsIdentity' => true,
             ],
             [
                 'label'         => 'Sign up',
                 'route'         => 'user/register',
-                'needsIdentity' => false
+                'needsIdentity' => false,
             ],
             [
                 'label'         => 'Log in',
                 'route'         => 'authentication/login',
                 'icon'          => 'user',
-                'needsIdentity' => false
+                'needsIdentity' => false,
             ],
             [
                 'label'         => 'Log out',
                 'route'         => 'authentication/logout',
-                'needsIdentity' => true
-            ]
-        ]
-    ]
+                'needsIdentity' => true,
+            ],
+        ],
+    ],
 ];

@@ -12,8 +12,8 @@ namespace Navigation;
 return [
     'navigation'         => [
         'providers' => [
-            'Navigation\Provider\ContainerRepositoryProvider'
-        ]
+            'Navigation\Provider\ContainerRepositoryProvider',
+        ],
     ],
     'doctrine'           => [
         'driver' => [
@@ -21,15 +21,15 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
     ],
     'zfc_rbac'           => [
         'assertion_map' => [
@@ -42,7 +42,7 @@ return [
         ],
         'factories'  => [
             'menu' => __NAMESPACE__ . '\Factory\NavigationMenuHelperFactory',
-        ]
+        ],
     ],
     'service_manager'    => [
         'factories' => [
@@ -60,45 +60,43 @@ return [
             'top_left_navigation'                                   => __NAMESPACE__ . '\Factory\TopLeftNavigationFactory',
             'top_right_navigation'                                  => __NAMESPACE__ . '\Factory\TopRightNavigationFactory',
             'top_auth_navigation'                                   => __NAMESPACE__ . '\Factory\TopAuthNavigationFactory',
-            'top_center_navigation'                                 => __NAMESPACE__ . '\Factory\TopCenterNavigationFactory',
             'footer_left_navigation'                                => __NAMESPACE__ . '\Factory\FooterLeftNavigationFactory',
             'footer_right_navigation'                               => __NAMESPACE__ . '\Factory\FooterRightNavigationFactory',
             'subject_navigation'                                    => __NAMESPACE__ . '\Factory\SubjectNavigationFactory',
-            'frontpage_navigation'                                  => __NAMESPACE__ . '\Factory\FrontPageNavigationFactory',
             'default_navigation'                                    => __NAMESPACE__ . '\Factory\UniqueDefaultNavigationFactory',
             'social_navigation'                                     => __NAMESPACE__ . '\Factory\SocialNavigationFactory',
-        ]
+        ],
     ],
     'view_helpers'       => [
         'factories' => [
-            'navigation' => __NAMESPACE__ . '\Factory\NavigationHelperFactory'
-        ]
+            'navigation' => __NAMESPACE__ . '\Factory\NavigationHelperFactory',
+        ],
     ],
     'zfctwig'            => [
         'helper_manager' => [
             'factories' => [
-                'navigation' => __NAMESPACE__ . '\Factory\TwigNavigationHelperFactory'
-            ]
-        ]
+                'navigation' => __NAMESPACE__ . '\Factory\TwigNavigationHelperFactory',
+            ],
+        ],
     ],
     'controllers'        => [
         'factories' => [
             __NAMESPACE__ . '\Controller\NavigationController' => __NAMESPACE__ . '\Factory\NavigationControllerFactory',
-            __NAMESPACE__ . '\Controller\RenderController '    => __NAMESPACE__ . '\Factory\RenderControllerFactory'
-        ]
+            __NAMESPACE__ . '\Controller\RenderController '    => __NAMESPACE__ . '\Factory\RenderControllerFactory',
+        ],
     ],
     'di'                 => [
         'instance' => [
             'preferences' => [
-                __NAMESPACE__ . '\Manager\NavigationManagerInterface' => __NAMESPACE__ . '\Manager\NavigationManager'
-            ]
-        ]
+                __NAMESPACE__ . '\Manager\NavigationManagerInterface' => __NAMESPACE__ . '\Manager\NavigationManager',
+            ],
+        ],
     ],
     'class_resolver'     => [
         __NAMESPACE__ . '\Entity\ContainerInterface'    => __NAMESPACE__ . '\Entity\Container',
         __NAMESPACE__ . '\Entity\PageInterface'         => __NAMESPACE__ . '\Entity\Page',
         __NAMESPACE__ . '\Entity\ParameterInterface'    => __NAMESPACE__ . '\Entity\Parameter',
-        __NAMESPACE__ . '\Entity\ParameterKeyInterface' => __NAMESPACE__ . '\Entity\ParameterKey'
+        __NAMESPACE__ . '\Entity\ParameterKeyInterface' => __NAMESPACE__ . '\Entity\ParameterKey',
     ],
     'router'             => [
         'routes' => [
@@ -107,8 +105,8 @@ return [
                 'options'      => [
                     'route'    => '/navigation',
                     'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\NavigationController'
-                    ]
+                        'controller' => __NAMESPACE__ . '\Controller\NavigationController',
+                    ],
                 ],
                 'child_routes' => [
                     'render'    => [
@@ -117,11 +115,11 @@ return [
                             'route'       => '/render/:action/:navigation/:current/:depth/:branch',
                             'constraints' => [
                                 'branch' => '(.)+',
-                                'action' => 'json'
+                                'action' => 'json',
                             ],
                             'defaults'    => [
-                                'controller' => __NAMESPACE__ . '\Controller\RenderController'
-                            ]
+                                'controller' => __NAMESPACE__ . '\Controller\RenderController',
+                            ],
                         ],
                     ],
                     'manage'    => [
@@ -129,9 +127,9 @@ return [
                         'options' => [
                             'route'    => '/manage',
                             'defaults' => [
-                                'action' => 'index'
-                            ]
-                        ]
+                                'action' => 'index',
+                            ],
+                        ],
                     ],
                     'container' => [
                         'type'         => 'literal',
@@ -144,27 +142,27 @@ return [
                                 'options' => [
                                     'route'    => '/get/:container',
                                     'defaults' => [
-                                        'action' => 'getContainer'
-                                    ]
-                                ]
+                                        'action' => 'getContainer',
+                                    ],
+                                ],
                             ],
                             'create' => [
                                 'type'    => 'literal',
                                 'options' => [
                                     'route'    => '/create',
                                     'defaults' => [
-                                        'action' => 'createContainer'
-                                    ]
-                                ]
+                                        'action' => 'createContainer',
+                                    ],
+                                ],
                             ],
                             'remove' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/remove/:container',
                                     'defaults' => [
-                                        'action' => 'removeContainer'
-                                    ]
-                                ]
+                                        'action' => 'removeContainer',
+                                    ],
+                                ],
                             ],
                         ],
                     ],
@@ -179,36 +177,36 @@ return [
                                 'options' => [
                                     'route'    => '/get/:container',
                                     'defaults' => [
-                                        'action' => 'getPage'
-                                    ]
-                                ]
+                                        'action' => 'getPage',
+                                    ],
+                                ],
                             ],
                             'create' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/create/:container[/:parent]',
                                     'defaults' => [
-                                        'action' => 'createPage'
-                                    ]
-                                ]
+                                        'action' => 'createPage',
+                                    ],
+                                ],
                             ],
                             'update' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/update/:page',
                                     'defaults' => [
-                                        'action' => 'updatePage'
-                                    ]
-                                ]
+                                        'action' => 'updatePage',
+                                    ],
+                                ],
                             ],
                             'remove' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/remove/:page',
                                     'defaults' => [
-                                        'action' => 'removePage'
-                                    ]
-                                ]
+                                        'action' => 'removePage',
+                                    ],
+                                ],
                             ],
                         ],
                     ],
@@ -223,27 +221,27 @@ return [
                                 'options' => [
                                     'route'    => '/create/:page[/:parent]',
                                     'defaults' => [
-                                        'action' => 'createParameter'
-                                    ]
-                                ]
+                                        'action' => 'createParameter',
+                                    ],
+                                ],
                             ],
                             'remove' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/remove/:parameter',
                                     'defaults' => [
-                                        'action' => 'removeParameter'
-                                    ]
-                                ]
+                                        'action' => 'removeParameter',
+                                    ],
+                                ],
                             ],
                             'update' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/update/:parameter',
                                     'defaults' => [
-                                        'action' => 'updateParameter'
-                                    ]
-                                ]
+                                        'action' => 'updateParameter',
+                                    ],
+                                ],
                             ],
                             'key'    => [
                                 'type'         => 'segment',
@@ -256,16 +254,16 @@ return [
                                         'options' => [
                                             'route'    => '/create',
                                             'defaults' => [
-                                                'action' => 'createParameterKey'
-                                            ]
-                                        ]
+                                                'action' => 'createParameterKey',
+                                            ],
+                                        ],
                                     ],
-                                ]
-                            ]
+                                ],
+                            ],
                         ],
                     ],
-                ]
-            ]
-        ]
-    ]
+                ],
+            ],
+        ],
+    ],
 ];

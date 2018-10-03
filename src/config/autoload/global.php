@@ -13,22 +13,22 @@
 return [
     'zfctwig'         => [
         'environment_options' => [
-            'cache' => __DIR__ . '/../../data/twig'
+            'cache' => __DIR__ . '/../../data/twig',
         ],
-        'extensions' => [
+        'extensions'          => [
             'Twig_Extensions_Extension_I18n',
-        ]
+        ],
     ],
     'doctrine'        => [
         'entitymanager' => [
             'orm_default' => [
                 'connection'    => 'orm_default',
                 'configuration' => 'orm_default',
-            ]
-        ]
+            ],
+        ],
     ],
     'router'          => [
-        'router_class' => 'Zend\Mvc\Router\Http\TranslatorAwareTreeRouteStack'
+        'router_class' => 'Zend\Mvc\Router\Http\TranslatorAwareTreeRouteStack',
     ],
     'session'         => [
         'config'     => [
@@ -38,26 +38,26 @@ return [
                 'cookie_lifetime'     => 2419200,
                 'remember_me_seconds' => 2419200,
                 'use_cookies'         => true,
-                'cookie_secure'       => false
-            ]
+                'cookie_secure'       => false,
+            ],
         ],
         'storage'    => 'Zend\Session\Storage\SessionArrayStorage',
         'validators' => [
             'Zend\Session\Validator\RemoteAddr',
-            'Zend\Session\Validator\HttpUserAgent'
+            'Zend\Session\Validator\HttpUserAgent',
         ],
     ],
     'di'              => [
         'instance' => [
             'preferences' => [
                 'Zend\ServiceManager\ServiceLocatorInterface' => 'ServiceManager',
-                'Doctrine\Common\Persistence\ObjectManager'   => 'Doctrine\ORM\EntityManager'
-            ]
-        ]
+                'Doctrine\Common\Persistence\ObjectManager'   => 'Doctrine\ORM\EntityManager',
+            ],
+        ],
     ],
     'sphinx'          => [
         'host' => '127.0.0.1',
-        'port' => 9306
+        'port' => 9306,
     ],
     'zendDiCompiler'  => [],
     'zfc_rbac'        => [
@@ -65,8 +65,11 @@ return [
             'redirect_to_route_connected'    => 'authorization/forbidden',
             'redirect_to_route_disconnected' => 'authentication/login',
             'append_previous_uri'            => true,
-            'previous_uri_query_key'         => 'redir'
-        ]
+            'previous_uri_query_key'         => 'redir',
+        ],
     ],
-    'assets_host' => 'https://package-registry.serlo.org/athene2-assets@1/'
+    'assets_host'     => 'https://package-registry.serlo.org/athene2-assets@2/',
+    'editor_renderer' => [
+        'url' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer',
+    ],
 ];

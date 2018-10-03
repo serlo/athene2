@@ -29,6 +29,7 @@ class AgreementFieldset extends Fieldset implements InputFilterProviderInterface
         );
         $checkbox->setLabel($agreement);
         $checkbox->setLabelOptions(['disable_html_escape' => true]);
+        $checkbox->setAttribute('class', 'control');
         $this->add($checkbox);
     }
 

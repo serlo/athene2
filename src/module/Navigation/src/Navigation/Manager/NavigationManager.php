@@ -12,7 +12,6 @@ namespace Navigation\Manager;
 use Authorization\Service\AuthorizationAssertionTrait;
 use Authorization\Service\AuthorizationService;
 use ClassResolver\ClassResolverInterface;
-use Common\Traits\FlushableTrait;
 use Doctrine\Common\Persistence\ObjectManager;
 use Instance\Entity\InstanceInterface;
 use Instance\Manager\InstanceManagerInterface;
@@ -70,12 +69,10 @@ class NavigationManager implements NavigationManagerInterface
         'default',
         'footer-left',
         'footer-right',
-        'top-center',
         'top-left',
-        'front-page',
         'top-right',
         'social',
-        'subject-nav'
+        'subject-nav',
     ];
 
     public function __construct(
@@ -154,7 +151,7 @@ class NavigationManager implements NavigationManagerInterface
         $container  = $repository->findOneBy(
             [
                 'type'     => $type->getId(),
-                'instance' => $instance->getId()
+                'instance' => $instance->getId(),
             ]
         );
 
@@ -176,7 +173,7 @@ class NavigationManager implements NavigationManagerInterface
 
         return $repository->findBy(
             [
-                'instance' => $instance->getId()
+                'instance' => $instance->getId(),
             ]
         );
     }

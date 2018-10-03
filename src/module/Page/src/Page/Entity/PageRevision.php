@@ -125,4 +125,9 @@ class PageRevision extends Uuid implements PageRevisionInterface
             $this->$key = $default;
         }
     }
+
+    public function isOryEditorFormat() {
+        $parsed = json_decode($this->getContent(), true);
+        return $parsed !== null && isset($parsed['cells']);
+    }
 }

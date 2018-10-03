@@ -9,7 +9,6 @@
  */
 return [
     'navigation' => [
-        'social' => [
-        ]
-    ]
+        'social' => [],
+    ],
 ];
