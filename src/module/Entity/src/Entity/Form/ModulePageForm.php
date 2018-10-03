@@ -37,12 +37,13 @@ class ModulePageForm extends Form
             'play'        => 'Video',
             'question'    => 'Exercises',
         ));
+        $select->setAttribute('class', 'meta');
         $this->add($select);
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
-                'plain'
+                'plain control'
             )
         );
         $this->add(new AgreementFieldset($license));
