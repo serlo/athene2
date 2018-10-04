@@ -68,8 +68,8 @@ return [
             'previous_uri_query_key'         => 'redir',
         ],
     ],
-    'assets_host'     => 'https://package-registry.serlo.org/athene2-assets@3/',
+    'assets_host'     => 'https://packages.serlo.org/athene2-assets@a/',
     'editor_renderer' => [
-        'url' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer',
+        'url' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
     ],
 ];
