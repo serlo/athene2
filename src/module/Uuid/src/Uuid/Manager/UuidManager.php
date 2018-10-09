@@ -21,6 +21,8 @@ use Uuid\Exception;
 use Uuid\Exception\NotFoundException;
 use Uuid\Options\ModuleOptions;
 use Zend\EventManager\EventManagerAwareTrait;
+use Zend\Paginator\Adapter\ArrayAdapter;
+use Zend\Paginator\Paginator;
 use ZfcRbac\Service\AuthorizationService;
 
 class UuidManager implements UuidManagerInterface
@@ -65,13 +67,31 @@ class UuidManager implements UuidManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function findByTrashed($trashed)
+    public function findByTrashed($trashed, $page)
     {
         $className = $this->getClassResolver()->resolveClassName('Uuid\Entity\UuidInterface');
-        $criteria  = ['trashed' => $trashed];
-        $entities  = $this->getObjectManager()->getRepository($className)->findBy($criteria);
+        $eventLogClassName = $this->getClassResolver()->resolveClassName('Event\Entity\EventLogInterface');
+        $eventTypeClassName = $this->getClassResolver()->resolveClassName('Event\Entity\EventInterface');
+        $results = $this->objectManager->createQueryBuilder()->select('u')->addSelect('MAX(e.date) AS date')->from($className, 'u')
+            ->leftJoin($eventLogClassName, 'e', 'WITH', 'e.uuid = u')
+            ->leftJoin($eventTypeClassName, 't', 'WITH', 'e.event = t')
+            ->where('u.trashed = :trashed')->andWhere('t.name = :type')
+            ->groupBy('u')
+            ->orderBy('date', 'DESC')
+            ->setParameter('trashed', true)->setParameter('type', 'uuid/trash')
+            ->getQuery()->getResult();
 
-        return new ArrayCollection($entities);
+        $purified = [];
+        foreach($results as $result) {
+            $purified[] = [
+                "entity" => $result[0],
+                "date"   => new \DateTime($result["date"])
+            ];
+        }
+        $paginator = new Paginator(new ArrayAdapter($purified));
+        $paginator->setCurrentPageNumber($page);
+        $paginator->setItemCountPerPage(100);
+        return $paginator;
     }
 
     /**
