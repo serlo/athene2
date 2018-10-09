@@ -66,11 +66,11 @@ class Register extends Form
         $this->add((new Select('interests'))
             ->setAttribute('required', false)
             ->setValueOptions(array(
-                'dec9a97288' => 'Parent',
-                '05a5ab768a' => 'Teacher',
-                'bbffc7a064' => 'Pupil',
-                'ebff3b63f6' => 'University student',
-                'd251aad97e' => 'Other'
+                'dec9a97288' => $translator->translate('Parent'),
+                '05a5ab768a' => $translator->translate('Teacher'),
+                'bbffc7a064' => $translator->translate('Pupil'),
+                'ebff3b63f6' => $translator->translate('University student'),
+                'd251aad97e' => $translator->translate('Other')
             ))
             ->setEmptyOption('')
             ->setLabel('I am here as…'));
