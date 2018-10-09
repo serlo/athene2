@@ -18,6 +18,7 @@ use Taxonomy\Entity\TaxonomyTermInterface;
 use Taxonomy\Manager\TaxonomyManagerAwareTrait;
 use Taxonomy\Manager\TaxonomyManagerInterface;
 use Zend\Cache\Storage\StorageInterface;
+use Entity\Manager\EntityManagerInterface;
 
 class SubjectManager implements SubjectManagerInterface
 {
@@ -32,15 +33,23 @@ class SubjectManager implements SubjectManagerInterface
      * @var Normalizer
      */
     protected $normalizer;
+    
+    /**
+     * @var EntityManagerInterface
+     */
+    protected $entityManager;
+    
 
     public function __construct(
         Normalizer $normalizer,
         StorageInterface $storage,
-        TaxonomyManagerInterface $taxonomyManager
+        TaxonomyManagerInterface $taxonomyManager,
+        EntityManagerInterface $entityManager
     ) {
         $this->taxonomyManager = $taxonomyManager;
         $this->storage         = $storage;
         $this->normalizer      = $normalizer;
+        $this->entityManager = $entityManager;
     }
 
     public function findSubjectByString($name, InstanceInterface $instance)
@@ -75,37 +84,7 @@ class SubjectManager implements SubjectManagerInterface
         $this->storage->setItem($key, $collection);
         return $collection;
     }
-
-    public function getUnrevisedRevisions(TaxonomyTermInterface $term)
-    {
-        $key = 'unrevised:' . hash('sha256', serialize($term));
-        if ($this->storage->hasItem($key)) {
-            return $this->storage->getItem($key);
-        }
-
-        $entities   = $this->getEntities($term);
-        $collection = new ArrayCollection();
-        $this->iterEntities($entities, $collection, 'isRevised');
-        $iterator = $collection->getIterator();
-        $iterator->ksort();
-        $collection = new ArrayCollection(iterator_to_array($iterator));
-        $this->storage->setItem($key, $collection);
-        return $collection;
-    }
-
-    protected function getEntities(TaxonomyTermInterface $term)
-    {
-        return $term->getAssociatedRecursive('entities');
-    }
-
-    protected function isRevised(EntityInterface $entity, Collection $collection)
-    {
-        if ($entity->isUnrevised() && !$collection->contains($entity)) {
-            $normalized = $this->normalizer->normalize($entity->getHead());
-            $collection->set(-$normalized->getMetadata()->getCreationDate()->getTimestamp(), $normalized);
-        }
-    }
-
+    
     protected function isTrashed(EntityInterface $entity, Collection $collection)
     {
         if ($entity->getTrashed()) {
@@ -113,6 +92,45 @@ class SubjectManager implements SubjectManagerInterface
             $normalized = $this->normalizer->normalize($entity);
             $collection->add($normalized);
         }
+    }
+    
+
+    public function getUnrevisedRevisions(TaxonomyTermInterface $term)
+    {
+
+        $entities =  $this->entityManager->findAllUnrevised();     
+        
+        //collection for filtered entities by $term
+        $filteredEntities = new ArrayCollection();
+        
+      
+        //find all entities where $term matches (also in parents)
+        foreach ($entities as $entity){
+            foreach ($entity->getTaxonomyTerms() as  $tempTerm){
+                
+                if( $tempTerm->knowsAncestor($term)){
+                    $filteredEntities->add($entity);
+                }       
+            }          
+        }
+        
+         $collection = new ArrayCollection();
+         $this->iterEntities($filteredEntities, $collection, 'normalize');
+         $iterator = $collection->getIterator();
+         $iterator->ksort();
+         $collection = new ArrayCollection(iterator_to_array($iterator));
+         return $collection;
+    }
+
+    protected function getEntities(TaxonomyTermInterface $term)
+    {
+        return $term->getAssociatedRecursive('entities');
+    }
+
+    protected function normalize(EntityInterface $entity, Collection $collection)
+    {
+            $normalized = $this->normalizer->normalize($entity->getHead());
+            $collection->set(-$normalized->getMetadata()->getCreationDate()->getTimestamp(), $normalized);
     }
 
     protected function iterEntities(Collection $entities, Collection $collection, $callback)

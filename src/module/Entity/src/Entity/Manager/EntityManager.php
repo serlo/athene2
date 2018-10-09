@@ -13,12 +13,14 @@ use ClassResolver\ClassResolverAwareTrait;
 use Common\Traits\FlushableTrait;
 use Common\Traits\ObjectManagerAwareTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Query;
 use Entity\Entity\EntityInterface;
 use Entity\Exception;
 use Instance\Entity\InstanceInterface;
 use Type\TypeManagerAwareTrait;
 use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\EventManager\EventManagerAwareTrait;
+use Entity\Entity\Entity;
 
 class EntityManager implements EntityManagerInterface
 {
@@ -26,6 +28,12 @@ class EntityManager implements EntityManagerInterface
     use ClassResolverAwareTrait;
     use EventManagerAwareTrait, FlushableTrait;
     use AuthorizationAssertionTrait;
+    
+    /**
+     * @var string
+     */
+    protected $entityInterface = 'Entity\Entity\EntityInterface';
+    
 
     public function createEntity($typeName, array $data = [], InstanceInterface $instance)
     {
@@ -76,4 +84,26 @@ class EntityManager implements EntityManagerInterface
 
         return $entity;
     }
+   
+    public function findAllUnrevised()
+    {
+        
+        
+        $entityClassName = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
+        $uuidClassName = $this->getClassResolver()->resolveClassName('Uuid\Entity\UuidInterface');
+        $revisionClassName = $this->getClassResolver()->resolveClassName('Entity\Entity\RevisionInterface');
+                
+        $results = $this->objectManager->createQueryBuilder()->select('e')->from($entityClassName, 'e')
+        ->Join($revisionClassName, 'r', 'WITH', 'e = r.repository')
+        ->Join($uuidClassName, 'u', 'WITH', 'u = r')
+        ->andWhere('r > e.currentRevision OR e.currentRevision is null')
+        ->andWhere('u.trashed = :trashed')
+        ->setParameter('trashed', false)
+        ->getQuery()->getResult();
+        
+        
+        return new ArrayCollection($results);
+
+    }
+
 }
