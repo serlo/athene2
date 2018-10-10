@@ -28,26 +28,23 @@ class EntityManager implements EntityManagerInterface
     use ClassResolverAwareTrait;
     use EventManagerAwareTrait, FlushableTrait;
     use AuthorizationAssertionTrait;
-    
-    /**
-     * @var string
-     */
-    protected $entityInterface = 'Entity\Entity\EntityInterface';
-    
 
     public function createEntity($typeName, array $data = [], InstanceInterface $instance)
     {
         $this->assertGranted('entity.create', $instance);
-
+        
         /* @var $entity EntityInterface */
         $entity = $this->getClassResolver()->resolve('Entity\Entity\EntityInterface');
-        $type   = $this->getTypeManager()->findTypeByName($typeName);
-
+        $type = $this->getTypeManager()->findTypeByName($typeName);
+        
         $entity->setInstance($instance);
         $entity->setType($type);
-        $this->getEventManager()->trigger('create', $this, ['entity' => $entity, 'data' => $data]);
+        $this->getEventManager()->trigger('create', $this, [
+            'entity' => $entity,
+            'data' => $data
+        ]);
         $this->getObjectManager()->persist($entity);
-
+        
         return $entity;
     }
 
@@ -56,7 +53,9 @@ class EntityManager implements EntityManagerInterface
         $old = $this->objectManager->getBypassIsolation();
         $this->objectManager->setBypassIsolation($bypassInstanceIsolation);
         $className = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
-        $results   = $this->getObjectManager()->getRepository($className)->findAll();
+        $results = $this->getObjectManager()
+            ->getRepository($className)
+            ->findAll();
         $this->objectManager->setBypassIsolation($old);
         return new ArrayCollection($results);
     }
@@ -66,8 +65,12 @@ class EntityManager implements EntityManagerInterface
         $old = $this->objectManager->getBypassIsolation();
         $this->objectManager->setBypassIsolation($bypassInstanceIsolation);
         $className = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
-        $type      = $this->getTypeManager()->findTypeByName($name);
-        $results   = $this->getObjectManager()->getRepository($className)->findBy(['type' => $type->getId()]);
+        $type = $this->getTypeManager()->findTypeByName($name);
+        $results = $this->getObjectManager()
+            ->getRepository($className)
+            ->findBy([
+            'type' => $type->getId()
+        ]);
         $this->objectManager->setBypassIsolation($old);
         return new ArrayCollection($results);
     }
@@ -75,35 +78,33 @@ class EntityManager implements EntityManagerInterface
     public function getEntity($id)
     {
         $className = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
-        $entity    = $this->getObjectManager()->find($className, $id);
-
-        if (!is_object($entity)) {
+        $entity = $this->getObjectManager()->find($className, $id);
+        
+        if (! is_object($entity)) {
             throw new Exception\EntityNotFoundException(sprintf('Entity "%d" not found.', $id));
         }
         $this->assertGranted('entity.get', $entity);
-
+        
         return $entity;
     }
-   
+
     public function findAllUnrevised()
     {
-        
-        
         $entityClassName = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
         $uuidClassName = $this->getClassResolver()->resolveClassName('Uuid\Entity\UuidInterface');
         $revisionClassName = $this->getClassResolver()->resolveClassName('Entity\Entity\RevisionInterface');
-                
-        $results = $this->objectManager->createQueryBuilder()->select('e')->from($entityClassName, 'e')
-        ->Join($revisionClassName, 'r', 'WITH', 'e = r.repository')
-        ->Join($uuidClassName, 'u', 'WITH', 'u = r')
-        ->andWhere('r > e.currentRevision OR e.currentRevision is null')
-        ->andWhere('u.trashed = :trashed')
-        ->setParameter('trashed', false)
-        ->getQuery()->getResult();
         
+        $results = $this->objectManager->createQueryBuilder()
+            ->select('e')
+            ->from($entityClassName, 'e')
+            ->Join($revisionClassName, 'r', 'WITH', 'e = r.repository')
+            ->Join($uuidClassName, 'u', 'WITH', 'u = r')
+            ->andWhere('r > e.currentRevision OR e.currentRevision is null')
+            ->andWhere('u.trashed = :trashed')
+            ->setParameter('trashed', false)
+            ->getQuery()
+            ->getResult();
         
         return new ArrayCollection($results);
-
     }
-
 }
