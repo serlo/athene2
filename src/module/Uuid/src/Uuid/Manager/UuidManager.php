@@ -15,6 +15,8 @@ use Common\Traits\FlushableTrait;
 use Common\Traits\ObjectManagerAwareTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Util\ClassUtils;
+use Doctrine\ORM\Query;
+use Event\Entity\EventLog;
 use Instance\Manager\InstanceAwareEntityManager;
 use Uuid\Entity\UuidInterface;
 use Uuid\Exception;
@@ -67,7 +69,7 @@ class UuidManager implements UuidManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function findByTrashed($trashed, $page)
+    public function findTrashed($page)
     {
         $className = $this->getClassResolver()->resolveClassName('Uuid\Entity\UuidInterface');
         $eventLogClassName = $this->getClassResolver()->resolveClassName('Event\Entity\EventLogInterface');

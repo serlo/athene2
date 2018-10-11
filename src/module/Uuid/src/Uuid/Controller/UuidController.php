@@ -21,7 +21,7 @@ class UuidController extends AbstractActionController
     public function recycleBinAction()
     {
         $page        = $this->params()->fromQuery('page', 1);
-        $elements = $this->getUuidManager()->findByTrashed(true, $page);
+        $elements = $this->getUuidManager()->findTrashed($page);
         $view     = new ViewModel(['elements' => $elements]);
         $view->setTemplate('uuid/recycle-bin');
         return $view;
