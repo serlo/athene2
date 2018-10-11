@@ -36,7 +36,6 @@ interface UuidManagerInterface extends Flushable
      * }
      * </code>
      *
-     * @param bool $trashed
      * @param int $page
      * @return Paginator
      */

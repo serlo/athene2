@@ -31,7 +31,6 @@ class UuidManagerFactory implements FactoryInterface
         $moduleOptions        = $serviceLocator->get('Uuid\Options\ModuleOptions');
         $authorizationService = $this->getAuthorizationService($serviceLocator);
         $entityManager        = $this->getEntityManager($serviceLocator);
-//        $eventManager         = $serviceLocator->get('Event\EventManager');
         $classResolver        = $this->getClassResolver($serviceLocator);
         $uuidManager          = new UuidManager($authorizationService, $classResolver, $moduleOptions, $entityManager);
 
