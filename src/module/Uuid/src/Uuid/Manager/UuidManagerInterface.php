@@ -28,7 +28,7 @@ interface UuidManagerInterface extends Flushable
     /**
      * Finds trashed Uuids together with the date of the trash event.
      * <code>
-     * $elements = $um->findTrashed();
+     * $elements = $um->findTrashed($page);
      * foreach($elements as $element)
      * {
      *    echo $element["entity"]->getId();
