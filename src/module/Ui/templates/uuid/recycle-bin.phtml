@@ -23,7 +23,7 @@
                     <div class="btn-group">
                         <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'restore'), $entity)): ?>
                             <a class="btn btn-success btn-xs" href="<?php echo $this->url('uuid/restore', array('id' => $entity->getId())); ?>">
-                                <span class="fa fa-star"></span>
+                                <span class="fa fa-recycle"></span>
                             </a>
                         <?php endif; ?>
                         <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'purge'), $entity)): ?>
