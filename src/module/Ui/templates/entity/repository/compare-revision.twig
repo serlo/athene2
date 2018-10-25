@@ -72,7 +72,7 @@
                         </button>
                     {% elseif revision.isTrashed() and isGranted('entity.revision.restore', revision) %}
                         <a class="btn btn-default btn-md" href="{{ url('uuid/restore', {'id': revision.getId()}) }}">
-                            <span class="fa fa-refresh"></span>
+                            <span class="fa fa-recycle"></span>
                         </a>
                     {% endif %}
                 </div>
