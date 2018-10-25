@@ -59,9 +59,9 @@ class VideoForm extends Form
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern'  => '~^(https?:\/\/)?(.*?(youtube\.com\/watch\?v=.+|youtu\.be\/.+|vimeo\.com\/.+|upload\.wikimedia\.org\/.+(\.webm|\.ogg)?))~',
+                            'pattern'  => '~^(https?:\/\/)?(.*?(youtube\.com\/watch\?v=.+|youtu\.be\/.+|vimeo\.com\/.+|upload\.wikimedia\.org\/.+(\.webm|\.ogg)?|br\.de\/.+))~',
                             'messages' => [
-                                Regex::NOT_MATCH => 'Video-URL invalid, supported platforms are Youtube, Vimeo and Wikimedia Commons',
+                                Regex::NOT_MATCH => 'Video-URL invalid, supported platforms are Youtube, Vimeo, Wikimedia Commons and BR-Mediathek',
                             ],
                         ],
                     ],
