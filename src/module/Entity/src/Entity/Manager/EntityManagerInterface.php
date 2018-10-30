@@ -36,6 +36,13 @@ interface EntityManagerInterface extends Flushable
      * @return EntityInterface[]|Collection
      */
     public function findEntitiesByTypeName($name, $bypassInstanceIsolation = false);
+    
+    /**
+     *  Finds all unrevised Entities
+     *  
+     *  @return EntityInterface[]|Collection
+     */
+    public function findAllUnrevised();
 
     /**
      * @param int $id
