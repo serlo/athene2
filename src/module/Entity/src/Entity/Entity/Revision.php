@@ -10,10 +10,10 @@ namespace Entity\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\ORM\Mapping as ORM;
 use User\Entity\UserInterface;
 use Uuid\Entity\Uuid;
 use Versioning\Entity\RepositoryInterface;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * An entity link.

@@ -18,7 +18,6 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-
 
 - Update translations ([#769](https://github.com/serlo-org/athene2/issues/769))
 - Make [trash bin](https://de.serlo.org/uuid/recycle-bin) faster ([#763](https://github.com/serlo-org/athene2/pull/763))
-- Make [unrevised revisions](https://de.serlo.org/mathe/entity/unrevised) faster ([#780](https://github.com/serlo-org/athene2/pull/780))
 - Enable newsletter pop-up on [Ressourcen für PädagogInnen](https://de.serlo.org/community/ressourcen-paedagoginnen) ([#778](https://github.com/serlo-org/athene2/pull/778))
 
 ### Fixed
