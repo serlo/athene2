@@ -15,11 +15,15 @@
         {% elseif url matches '{^(https?:\\/\\/)?(.*?upload\\.wikimedia\\.org\\/.+)}'%}
             {% set src = url %}
             {% set type = 'wikimedia' %}
+        {% elseif url matches '{^(https?:\\/\\/)?(.*?br\\.de\\/.+)}' %}
+            {% set id = url | split('/') | last %}
+            {% set src = 'https://www.br.de/mediathek/embed/%s' | format(id) %}
+            {% set type = 'br' %}
         {% endif %}
 
         {% if src is defined %}
             <p class="embed-responsive embed-responsive-16by9">
-                {% if type == "wikimedia" %}
+                {% if type == 'wikimedia' %}
                     <video controls class="embed-responsive-item"
                         src="{{ src }}"></video>
                 {% else %}

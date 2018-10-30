@@ -1,4 +1,4 @@
-{% if isGranted('entity.trash', entity) %}
+{% if not entity.getTrashed() and isGranted('entity.trash', entity) %}
     <li>
         {% set trashbutton %}
         <button class="btn dropdown-menu-item">
@@ -7,5 +7,14 @@
         </button>
         {% endset %}
         {% include 'common/csrfform' with {'form': uuidForm().getTrashForm(entity.getId()), 'sendbutton': trashbutton} %}
+    </li>
+{% elseif entity.getTrashed() and isGranted('entity.restore', entity) %}
+    <li>
+        <a rel="nofollow" href="{{ url('uuid/restore', {'id' : entity.getId()}) }}">
+            <span class="fa fa-recycle"></span>
+            {% trans %}
+                Restore
+            {% endtrans %}
+        </a>
     </li>
 {% endif %}

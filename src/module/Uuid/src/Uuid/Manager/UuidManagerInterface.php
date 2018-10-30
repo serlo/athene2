@@ -11,6 +11,7 @@ namespace Uuid\Manager;
 use Common\ObjectManager\Flushable;
 use Doctrine\Common\Collections\Collection;
 use Uuid\Entity\UuidInterface;
+use Zend\Paginator\Paginator;
 
 interface UuidManagerInterface extends Flushable
 {
@@ -25,19 +26,20 @@ interface UuidManagerInterface extends Flushable
     public function findAll();
 
     /**
-     * Finds Uuuids by their trashed attribute.
+     * Finds trashed Uuids together with the date of the trash event.
      * <code>
-     * $uuids = $um->findByTrashed(true);
-     * foreach($uuids as $uuid)
+     * $elements = $um->findTrashed($page);
+     * foreach($elements as $element)
      * {
-     *    echo $uuid->getId();
+     *    echo $element["entity"]->getId();
+     *    echo $element["date"];
      * }
      * </code>
      *
-     * @param bool $trashed
-     * @return UuidInterface[]
+     * @param int $page
+     * @return Paginator
      */
-    public function findByTrashed($trashed);
+    public function findTrashed($page);
 
     /**
      * Get an Uuid.

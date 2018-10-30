@@ -3,7 +3,6 @@
 {% set metaDescription = entity.getCurrentRevision().get('meta_description') %}
 {% set metaTitle = entity.getCurrentRevision().get('meta_title') %}
 
-
 {% do normalize().headMeta(entity) %}
 
 {% if metaDescription %}

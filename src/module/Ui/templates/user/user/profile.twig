@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="col-sm-4">
-        {% set count = eventLog().countEventsFoundByActorAndNames(user, ['uuid/delete']) %}
+        {% set count = eventLog().countEventsFoundByActorAndNames(user, ['uuid/trash']) %}
         <div class="nest-statistics" data-amount="{{ count }}">
         </div>
         <div class="statistics">

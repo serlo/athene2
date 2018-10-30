@@ -28,7 +28,7 @@
                     <?php if ($this->isGranted('entity.restore', $this->subject)): ?>
 					<a class="btn btn-success btn-xs"
 						href="<?php echo $this->url('uuid/restore', array('id' => $entity->getId())); ?>"><span
-						class="fa fa-refresh"></span></a>
+						class="fa fa-recycle"></span></a>
                     <?php endif; ?>
                     <?php if ($this->isGranted('entity.purge', $this->subject)): ?>
                         <?php $trashbutton = '<button class="dialog btn btn-danger btn-xs"

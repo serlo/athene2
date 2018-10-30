@@ -1,25 +1,29 @@
-<?php echo $this->pageHeader('Uuid recycle bin')->render(); ?>
+<?php echo $this->pageHeader('Uuid recycle bin')->setSubtitle($this->translate('Page') . ' ' . $this->elements->getCurrentPageNumber())->render(); ?>
 <table class="table">
     <thead>
         <tr>
             <th><?php echo $this->translate('ID'); ?></th>
             <th><?php echo $this->translate('Title'); ?></th>
             <th><?php echo $this->translate('Type'); ?></th>
+            <th><?php echo $this->translate('Timestamp') ?></th>
             <th><?php echo $this->translate('Actions'); ?></th>
         </tr>
     </thead>
     <tbody>
-        <?php /* @var $entity \Uuid\Entity\UuidHolder */ ?>
-        <?php foreach($this->entities as $entity): ?>
+        <?php foreach($this->elements as $element): ?>
+        <?php /* @var $entity \Uuid\Entity\UuidInterface */ ?>
+        <?php $entity = $element["entity"]; ?>
+        <?php $date = $element["date"]; ?>
             <tr>
-                <td><?php echo $this->normalize()->toTitle($entity); ?></td>
+                <td><?php echo $entity->getId() ?></td>
                 <td><?php echo $this->normalize()->toAnchor($entity); ?></td>
                 <td><?php echo $this->translate($this->normalize()->toType($entity)); ?></td>
+                <td><?php echo $this->timeago()->render($date); ?></td>
                 <td>
                     <div class="btn-group">
                         <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'restore'), $entity)): ?>
                             <a class="btn btn-success btn-xs" href="<?php echo $this->url('uuid/restore', array('id' => $entity->getId())); ?>">
-                                <span class="fa fa-star"></span>
+                                <span class="fa fa-recycle"></span>
                             </a>
                         <?php endif; ?>
                         <?php if ($this->isGranted($this->uuid()->getPermission($entity, 'purge'), $entity)): ?>
@@ -39,3 +43,4 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<?php echo $this->paginationControl($this->elements, 'Sliding', 'common/paginator', ['route'=> 'uuid/recycle-bin']); ?>
