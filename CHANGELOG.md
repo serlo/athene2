@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [Build 2] - 2017-10-30
 
 This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-org/athene2-assets/blob/master/CHANGELOG.md))
 
@@ -30,5 +30,6 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo-org/athene2/commit/e485b49b632799c6011e9ddf0be1efa56325a7ab...HEAD
+[unreleased]: https://github.com/serlo-org/athene2/compare/2...HEAD
+[Build 2]: https://github.com/serlo-org/athene2/compare/e485b49b632799c6011e9ddf0be1efa56325a7ab...2
 [Build 1]: https://github.com/serlo-org/athene2/commit/e485b49b632799c6011e9ddf0be1efa56325a7ab
