@@ -1,6 +1,5 @@
 # Debian 8 Athene2 Base Image Bootstrap
 
-
 ```
 adduser serlo --disabled-password --disabled-login
 apt-get -y update
@@ -21,7 +20,7 @@ locale-gen de_DE.UTF-8
 
 apt-get install -y solr-tomcat nodejs npm ruby-sass ruby-compass
 
-# npm pm2 --unsafe-perm 
+# npm pm2 --unsafe-perm
 npm -g install bower grunt grunt-cli pm2 dnode
 
 sudo sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/fpm/php.ini
@@ -37,7 +36,8 @@ sudo service php5-fpm restart
 sudo service apache2 restart
 ```
 
-Insert into */etc/apache2/sites-enabled/athene2.conf*:
+Insert into _/etc/apache2/sites-enabled/athene2.conf_:
+
 ```
 <VirtualHost *:80>
         ServerName de.serlo.org
@@ -53,22 +53,22 @@ Insert into */etc/apache2/sites-enabled/athene2.conf*:
                 IndexIgnore .htaccess *~ *.bak *.old
                 Options -Indexes FollowSymLinks MultiViews
                 AllowOverride All
-                
+
                 # Apache 2.2
                 # Order allow,deny
                 # Allow from all
-                
+
                 # Apache 2.4
                 Require all granted
-                
+
                 AddDefaultCharset utf-8
                 AddCharset utf-8 .js .css
-                
+
                 <Files .*>
                         # Apache 2.2
                         # Order Deny,Allow
                         # Deny From All
-                        
+
                         # Apache 2.4
                         Require all denied
                 </Files>
@@ -91,13 +91,13 @@ Insert into */etc/apache2/sites-enabled/athene2.conf*:
         LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
         ErrorLog /var/log/apache2/athene2.error.log
         CustomLog "|/usr/bin/rotatelogs /var/log/apache2/athene2.serlo.org.%Y.%m.%d 172800" combined
-        
+
         LogLevel warn
         ServerSignature Off
 </VirtualHost>
 ```
 
-You should now set up mysql (set user, upload database dump). You can do so by going to http://server-ip-address/phpmyadmin . If you want to change this directory (which you should), take a look at the config in */etc/apache2/conf-enabled/phpmyadmin.conf*.
+You should now set up mysql (set user, upload database dump). You can do so by going to http://server-ip-address/phpmyadmin . If you want to change this directory (which you should), take a look at the config in _/etc/apache2/conf-enabled/phpmyadmin.conf_.
 
 ```
 cd /home/serlo
@@ -116,6 +116,7 @@ chmod 774 -R /home/serlo/athene2
 ```
 
 There are also two scripts which should be executed regularly
+
 ```
 su serlo
 crontab -e
@@ -126,41 +127,39 @@ crontab -e
 * 05 * * * su - serlo -c '(cd .../athene2/src/public; php index.php session gc)'
 ```
 
-
 # Converting phtml to twig (Careful, buggy!)
 
 1. Echo
- 1. `\<\?php\s*echo (.*);\s*\?>`
- 2. `{{ $1 }}`
-2. If
- 1. `\<\?php\s*if\s*\((.*)\)\:\s*\?\>`
- 2. `{% if $1 %}`
- 3. `\<\?php\s*endif;\s*\?\>`
- 4. `{% endif %}`
-3. Foreach
- 1. `\<\?php\s*foreach\s*\((.*)\s*as\s*(.*)\)\:\s*\?\>`
- 2. `{% for $2 in $1 %}`
- 3. `\<\?php\s*endforeach;\s*\?\>`
- 4. `{% endfor %}`
-4. This
- 1. `\$this\-\>`
- 2. ``
-5. ->
- 1. `\-\>`
- 2. `.`
-6. $
- 1. `\$([a-zA-Z0-9]+)`
- 2. `$1`
-7. array
- 1. `array\(([a-zA-Z\'\=\>\(\)\-]+)\)`
- 2. `{ $1 }`
-9. array =>
- 1. `\=\>`
- 2. `:`
-8. translate
- 1. `translate\((.*)\)`
- 2. `$1 | trans`
-
+1. `\<\?php\s*echo (.*);\s*\?>`
+1. `{{ $1 }}`
+1. If
+1. `\<\?php\s*if\s*\((.*)\)\:\s*\?\>`
+1. `{% if $1 %}`
+1. `\<\?php\s*endif;\s*\?\>`
+1. `{% endif %}`
+1. Foreach
+1. `\<\?php\s*foreach\s*\((.*)\s*as\s*(.*)\)\:\s*\?\>`
+1. `{% for $2 in $1 %}`
+1. `\<\?php\s*endforeach;\s*\?\>`
+1. `{% endfor %}`
+1. This
+1. `\$this\-\>`
+1. ``
+1. ->
+1. `\-\>`
+1. `.`
+1. $
+1. `\$([a-zA-Z0-9]+)`
+1. `$1`
+1. array
+1. `array\(([a-zA-Z\'\=\>\(\)\-]+)\)`
+1. `{ $1 }`
+1. array =>
+1. `\=\>`
+1. `:`
+1. translate
+1. `translate\((.*)\)`
+1. `$1 | trans`
 
 POEDIT
 

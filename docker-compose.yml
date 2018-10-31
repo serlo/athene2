@@ -1,7 +1,6 @@
 version: '2'
 
 services:
-
   mysqld:
     image: mysql:5.7
     volumes:
@@ -18,7 +17,7 @@ services:
       - mysqld:mysqld
       - markdown:markdown
     ports:
-      - "4567:80"
+      - '4567:80'
     volumes:
       - ./src/config:/var/www/html/src/config
       - ./src/lang:/var/www/html/src/lang
@@ -34,4 +33,4 @@ services:
     links:
       - mysqld:db
     ports:
-      - "8080:80"
+      - '8080:80'
