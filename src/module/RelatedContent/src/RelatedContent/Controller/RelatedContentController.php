@@ -45,7 +45,7 @@ class RelatedContentController extends AbstractActionController
     public function addExternalAction()
     {
         $container  = $this->getContainer();
-        if(!$container){
+        if (!$container) {
             return false;
         }
 
@@ -70,7 +70,7 @@ class RelatedContentController extends AbstractActionController
     public function addInternalAction()
     {
         $container  = $this->getContainer();
-        if(!$container){
+        if (!$container) {
             return false;
         }
 
@@ -110,7 +110,7 @@ class RelatedContentController extends AbstractActionController
     public function manageAction()
     {
         $container  = $this->getContainer();
-        if(!$container){
+        if (!$container) {
             return false;
         }
 
@@ -118,7 +118,7 @@ class RelatedContentController extends AbstractActionController
         $view       = new ViewModel([
             'aggregated' => $aggregated,
             'container'  => $container,
-            'form'       => new CsrfForm('remove-related-element')
+            'form'       => new CsrfForm('remove-related-element'),
         ]);
         $view->setTemplate('related-content/manage');
         $this->layout('layout/1-col');

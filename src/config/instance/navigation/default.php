@@ -27,15 +27,15 @@ return [
                                 'label' => t('Create a page'),
                                 'route' => 'page/create',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('Update a page'),
                                 'route' => 'page/update',
                                 'visible' => false,
-                                'translate' => true
-                            ]
-                        ]
+                                'translate' => true,
+                            ],
+                        ],
                     ],
                     [
                         'label' => t('Taxonomy'),
@@ -47,25 +47,25 @@ return [
                                 'label' => t('Organize'),
                                 'route' => 'taxonomy/term/organize',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'route' => 'taxonomy/term/action',
-                                'visible' => false
+                                'visible' => false,
                             ],
                             [
                                 'route' => 'taxonomy/term/create',
-                                'visible' => false
+                                'visible' => false,
                             ],
                             [
                                 'route' => 'taxonomy/term/update',
-                                'visible' => false
+                                'visible' => false,
                             ],
                             [
                                 'route' => 'taxonomy/term/sort-associated',
-                                'visible' => false
-                            ]
-                        ]
+                                'visible' => false,
+                            ],
+                        ],
                     ],
                     [
                         'label' => t('Authorization'),
@@ -83,20 +83,20 @@ return [
                                 'label' => t('Create role'),
                                 'route' => 'authorization/role/create',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('Add user'),
                                 'route' => 'authorization/role/user/add',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('Add permission'),
                                 'route' => 'authorization/role/permission/add',
                                 'visible' => false,
-                                'translate' => true
-                            ]
+                                'translate' => true,
+                            ],
                         ],
                     ],
                     [
@@ -114,43 +114,43 @@ return [
                                 'label' => t('Create container'),
                                 'route' => 'navigation/container/create',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'route' => 'navigation/page/get',
-                                'visible' => false
+                                'visible' => false,
                             ],
                             [
                                 'label' => t('Create parameter'),
                                 'route' => 'navigation/parameter/create',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('Create parameter key'),
                                 'route' => 'navigation/parameter/key/create',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('Update parameter'),
                                 'route' => 'navigation/parameter/update',
                                 'visible' => false,
-                                'translate' => true
-                            ]
-                        ]
+                                'translate' => true,
+                            ],
+                        ],
                     ],
                     [
                         'label' => t('Users'),
                         'icon' => 'user',
                         'route' => 'users',
-                        'translate' => true
+                        'translate' => true,
                     ],
                     [
                         'label' => t('Recycle bin'),
                         'icon' => 'trash',
                         'route' => 'uuid/recycle-bin',
-                        'translate' => true
+                        'translate' => true,
                     ],
                     [
                         'label' => t('Flags'),
@@ -162,15 +162,15 @@ return [
                                 'label' => t('Flag detail'),
                                 'route' => 'flag/detail',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('Flag content'),
                                 'route' => 'flag/add',
                                 'visible' => false,
-                                'translate' => true
-                            ]
-                        ]
+                                'translate' => true,
+                            ],
+                        ],
                     ],
                     [
                         'label' => t('Licenses'),
@@ -182,19 +182,19 @@ return [
                                 'label' => t('Add license'),
                                 'route' => 'license/add',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('License'),
                                 'route' => 'license/detail',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'route' => 'license/update',
-                                'visible' => false
-                            ]
-                        ]
+                                'visible' => false,
+                            ],
+                        ],
                     ],
                     [
                         'label' => t('Horizon'),
@@ -205,18 +205,18 @@ return [
                                 'label' => t('Create ad'),
                                 'route' => 'ads/add',
                                 'visible' => false,
-                                'translate' => true
+                                'translate' => true,
                             ],
                             [
                                 'label' => t('Update ad'),
                                 'route' => 'ads/ad/edit',
                                 'visible' => false,
-                                'translate' => true
-                            ]
+                                'translate' => true,
+                            ],
                         ],
-                        'translate' => true
-                    ]
-                ]
+                        'translate' => true,
+                    ],
+                ],
             ],
             'blog' => [
                 'label' => t('Blog'),
@@ -225,13 +225,13 @@ return [
                 'pages' => [
                     [
                         'route' => 'blog/post/create',
-                        'visible' => false
+                        'visible' => false,
                     ],
                     [
                         'route' => 'blog/post/view',
-                        'visible' => false
-                    ]
-                ]
+                        'visible' => false,
+                    ],
+                ],
             ],
             'me' => [
                 'label' => t('Me'),
@@ -244,51 +244,51 @@ return [
                     ],
                     [
                         'route' => 'user/register',
-                        'visible' => false
+                        'visible' => false,
                     ],
                     [
                         'route' => 'user/me',
-                        'visible' => false
+                        'visible' => false,
                     ],
                     [
                         'label' => t('Public profile'),
                         'route' => 'user/public',
-                        'translate' => true
+                        'translate' => true,
                     ],
                     [
                         'label' => t('Edit profile'),
                         'route' => 'user/settings',
                         'icon' => 'wrench',
-                        'translate' => true
+                        'translate' => true,
                     ],
                     [
                         'label' => t('Update password'),
                         'route' => 'authentication/password/change',
                         'icon' => 'lock',
-                        'translate' => true
+                        'translate' => true,
                     ],
                     [
                         'label' => t('Subscriptions'),
                         'route' => 'subscriptions/manage',
                         'icon' => 'eye-open',
-                        'translate' => true
+                        'translate' => true,
                     ],
                     [
                         'label' => t('Event log'),
                         'route' => 'event/history/user/me',
-                        'translate' => true
-                    ]
-                ]
+                        'translate' => true,
+                    ],
+                ],
             ],
             'home' => [
                 'route' => 'home',
                 'pages' => [
                     [
                         'route' => 'home',
-                        'visible' => false
-                    ]
-                ]
-            ]
-        ]
-    ]
+                        'visible' => false,
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

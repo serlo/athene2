@@ -14,8 +14,8 @@ use Zend\ServiceManager\ServiceManager;
 
 class ClassResolverTest extends \PHPUnit_Framework_TestCase
 {
-
-    protected $classResolver, $serviceLocatorMock;
+    protected $classResolver;
+    protected $serviceLocatorMock;
 
     public function setUp()
     {

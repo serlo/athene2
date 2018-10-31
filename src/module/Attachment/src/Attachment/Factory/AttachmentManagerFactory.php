@@ -9,7 +9,6 @@
 
 namespace Attachment\Factory;
 
-
 use Attachment\Manager\AttachmentManager;
 use ClassResolver\ClassResolverFactoryTrait;
 use Common\Factory\AuthorizationServiceFactoryTrait;
@@ -45,5 +44,4 @@ class AttachmentManagerFactory implements FactoryInterface
 
         return $instance;
     }
-
 }

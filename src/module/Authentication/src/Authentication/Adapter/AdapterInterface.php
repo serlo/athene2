@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -15,14 +15,14 @@ interface AdapterInterface extends AI
 {
 
     /**
-     * 
+     *
      * @param string $email
      * @return self
      */
     public function setIdentity($email);
 
     /**
-     * 
+     *
      * @param string $password
      * @return self
      */

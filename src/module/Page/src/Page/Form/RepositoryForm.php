@@ -16,7 +16,6 @@ use Zend\InputFilter\InputFilter;
 
 class RepositoryForm extends Form
 {
-
     public function __construct(ObjectManager $objectManager, PageRepositoryInterface $pageRepository, TaxonomyManagerInterface $taxonomyManager)
     {
         parent::__construct('createPage');
@@ -39,8 +38,8 @@ class RepositoryForm extends Form
                 'name'    => 'instance',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'Instance\Entity\Instance'
-                ]
+                    'target_class'   => 'Instance\Entity\Instance',
+                ],
             ]
         );
 
@@ -52,8 +51,8 @@ class RepositoryForm extends Form
                     'object_manager' => $objectManager,
                     'label'          => 'License',
                     'target_class'   => 'License\Entity\License',
-                    'property'       => 'title'
-                )
+                    'property'       => 'title',
+                ),
             )
         );
 
@@ -65,7 +64,7 @@ class RepositoryForm extends Form
                     'object_manager' => $objectManager,
                     'label'          => 'Roles',
                     'target_class'   => 'User\Entity\Role',
-                )
+                ),
             )
         );
 
@@ -81,10 +80,10 @@ class RepositoryForm extends Form
                         'name'    => 'Taxonomy\Validator\ValidAssociation',
                         'options' => [
                             'target'           => $this,
-                            'taxonomy_manager' => $taxonomyManager
-                        ]
-                    ]
-                ]
+                            'taxonomy_manager' => $taxonomyManager,
+                        ],
+                    ],
+                ],
             ]
         );
     }

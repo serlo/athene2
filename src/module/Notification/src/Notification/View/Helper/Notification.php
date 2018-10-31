@@ -18,7 +18,8 @@ use ZfcTwig\View\TwigRenderer;
 
 class Notification extends AbstractHelper
 {
-    protected $template, $aggregatedUsers;
+    protected $template;
+    protected $aggregatedUsers;
 
     /**
      * @var StorageInterface

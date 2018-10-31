@@ -14,7 +14,6 @@ use Zend\EventManager\SharedEventManagerInterface;
 
 class PageControllerListener extends AbstractListener
 {
-
     public function attachShared(SharedEventManagerInterface $events)
     {
         $events->attach($this->getMonitoredClass(), 'page.create.postFlush', [$this, 'onUpdate']);

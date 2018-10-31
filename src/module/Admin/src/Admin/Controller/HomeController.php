@@ -13,7 +13,6 @@ use Zend\View\Model\ViewModel;
 
 class HomeController extends AbstractActionController
 {
-
     public function actionIndex()
     {
         return new ViewModel();

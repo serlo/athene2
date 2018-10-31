@@ -12,7 +12,6 @@ use Zend\EventManager\Event;
 
 class LinkServiceListener extends AbstractListener
 {
-
     public function onLink(Event $e)
     {
         $entity   = $e->getParam('entity');
@@ -22,8 +21,8 @@ class LinkServiceListener extends AbstractListener
         $params = [
             [
                 'name'  => 'parent',
-                'value' => $e->getParam('parent')
-            ]
+                'value' => $e->getParam('parent'),
+            ],
         ];
 
         $this->logEvent('entity/link/create', $instance, $entity, $params);
@@ -38,8 +37,8 @@ class LinkServiceListener extends AbstractListener
         $params = [
             [
                 'name'  => 'parent',
-                'value' => $e->getParam('parent')
-            ]
+                'value' => $e->getParam('parent'),
+            ],
         ];
 
         $this->logEvent('entity/link/remove', $instance, $entity, $params);
@@ -52,7 +51,7 @@ class LinkServiceListener extends AbstractListener
             'unlink',
             [
                 $this,
-                'onUnlink'
+                'onUnlink',
             ]
         );
 
@@ -61,7 +60,7 @@ class LinkServiceListener extends AbstractListener
             'link',
             [
                 $this,
-                'onLink'
+                'onLink',
             ]
         );
     }

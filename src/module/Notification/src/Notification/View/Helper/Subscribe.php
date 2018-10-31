@@ -10,7 +10,6 @@
 
 namespace Notification\View\Helper;
 
-
 use Notification\SubscriptionManagerInterface;
 use User\Manager\UserManagerInterface;
 use Uuid\Entity\UuidInterface;

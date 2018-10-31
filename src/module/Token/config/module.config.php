@@ -12,21 +12,21 @@ namespace Token;
 return [
     'di' => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Tokenizer'
+            __NAMESPACE__ . '\Tokenizer',
         ],
         'definition'          => [
             'class' => [
                 __NAMESPACE__ . '\Tokenizer' => [
                     'setServiceLocator' => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'            => [
             'preferences' => [
-                __NAMESPACE__ . '\TokenizerInterface' => __NAMESPACE__ . '\Tokenizer'
-            ]
-        ]
-    ]
+                __NAMESPACE__ . '\TokenizerInterface' => __NAMESPACE__ . '\Tokenizer',
+            ],
+        ],
+    ],
 ];

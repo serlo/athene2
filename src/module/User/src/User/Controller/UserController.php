@@ -24,7 +24,7 @@ class UserController extends AbstractUserController
         'login'            => 'User\Form\Login',
         'user_select'      => 'User\Form\SelectUserForm',
         'restore_password' => 'User\Form\LostPassword',
-        'settings'         => 'User\Form\SettingsForm'
+        'settings'         => 'User\Form\SettingsForm',
     ];
 
     public function meAction()
@@ -89,7 +89,7 @@ class UserController extends AbstractUserController
                     [
                         'user'     => $user,
                         'instance' => $this->getInstanceManager()->getInstanceFromRequest(),
-                        'data'     => $data
+                        'data'     => $data,
                     ]
                 );
 
@@ -105,7 +105,7 @@ class UserController extends AbstractUserController
         }
 
         $view = new ViewModel([
-            'form' => $form
+            'form' => $form,
         ]);
 
         return $view;
@@ -120,9 +120,9 @@ class UserController extends AbstractUserController
                     $this->getUserManager()->getObjectManager(),
                     $this->getServiceLocator()->get('MvcTranslator')
                 );
-            } else if ($name === 'settings') {
+            } elseif ($name === 'settings') {
                 $this->forms[$name] = new $form($this->getUserManager()->getObjectManager());
-            } else if ($name === 'login') {
+            } elseif ($name === 'login') {
                 $this->forms[$name] = new $form($this->getServiceLocator()->get('MvcTranslator'));
             } else {
                 $this->forms[$name] = new $form();
@@ -170,7 +170,7 @@ class UserController extends AbstractUserController
             $form = new SettingsForm($this->getUserManager()->getObjectManager());
             $data = [
                 'email' => $user->getEmail(),
-                'description' => $user->getDescription()
+                'description' => $user->getDescription(),
             ];
             $form->setData($data);
         }

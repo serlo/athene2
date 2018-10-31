@@ -12,8 +12,8 @@ namespace Blog;
 return [
     'zendDiCompiler' => [
         'scanDirectories' => [
-            __DIR__ . '/../src'
-        ]
+            __DIR__ . '/../src',
+        ],
     ],
     'zfc_rbac'       => [
         'assertion_map' => [
@@ -24,17 +24,17 @@ return [
             'blog.post.trash'            => 'Authorization\Assertion\InstanceAssertion',
             'blog.post.delete'           => 'Authorization\Assertion\InstanceAssertion',
             'blog.posts.get.unpublished' => 'Authorization\Assertion\InstanceAssertion',
-            'blog.posts.get'             => 'Authorization\Assertion\InstanceAssertion'
-        ]
+            'blog.posts.get'             => 'Authorization\Assertion\InstanceAssertion',
+        ],
     ],
     'uuid'           => [
         'permissions' => [
             'Blog\Entity\Post' => [
                 'trash'   => 'blog.post.trash',
                 'restore' => 'blog.post.restore',
-                'purge'   => 'blog.post.purge'
+                'purge'   => 'blog.post.purge',
             ],
-        ]
+        ],
     ],
     'doctrine'       => [
         'driver' => [
@@ -42,19 +42,19 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
     ],
     'di'             => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\BlogController'
+            __NAMESPACE__ . '\Controller\BlogController',
         ],
         'definition'          => [
             'class' => [
@@ -63,35 +63,35 @@ return [
                 __NAMESPACE__ . '\Controller\BlogController' => [],
                 __NAMESPACE__ . '\Manager\BlogManager'       => [
                     'setTaxonomyManager'      => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setClassResolver'        => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setObjectManager'        => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setUuidManager'          => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setInstanceManager'      => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setAuthorizationService' => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'            => [
             'preferences' => [
-                __NAMESPACE__ . '\Manager\BlogManagerInterface' => __NAMESPACE__ . '\Manager\BlogManager'
-            ]
-        ]
+                __NAMESPACE__ . '\Manager\BlogManagerInterface' => __NAMESPACE__ . '\Manager\BlogManager',
+            ],
+        ],
     ],
     'class_resolver' => [
         __NAMESPACE__ . '\Entity\PostInterface'         => __NAMESPACE__ . '\Entity\Post',
         __NAMESPACE__ . '\Service\PostServiceInterface' => __NAMESPACE__ . '\Service\PostService',
-        __NAMESPACE__ . '\Manager\PostManagerInterface' => __NAMESPACE__ . '\Manager\PostManager'
-    ]
+        __NAMESPACE__ . '\Manager\PostManagerInterface' => __NAMESPACE__ . '\Manager\PostManager',
+    ],
 ];

@@ -14,7 +14,6 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class CacheListenerFactory implements FactoryInterface
 {
-
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $options            = $serviceLocator->get('CacheInvalidator\Options\CacheOptions');

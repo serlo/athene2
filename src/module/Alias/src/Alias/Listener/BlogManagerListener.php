@@ -20,7 +20,7 @@ class BlogManagerListener extends AbstractListener
             'create',
             [
                 $this,
-                'onUpdate'
+                'onUpdate',
             ]
         );
 
@@ -29,7 +29,7 @@ class BlogManagerListener extends AbstractListener
             'update',
             [
                 $this,
-                'onUpdate'
+                'onUpdate',
             ]
         );
     }

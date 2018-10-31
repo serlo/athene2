@@ -38,7 +38,7 @@ class AliasController extends AbstractActionController
         }
 
         try {
-            $source = $this->aliasManager->findSourceByAlias($alias, $instance,true);
+            $source = $this->aliasManager->findSourceByAlias($alias, $instance, true);
         } catch (AliasNotFoundException $e) {
             $this->getResponse()->setStatusCode(404);
             return false;
@@ -63,7 +63,7 @@ class AliasController extends AbstractActionController
             ArrayUtils::merge(
                 $params,
                 [
-                    'forwarded' => true
+                    'forwarded' => true,
                 ]
             )
         );

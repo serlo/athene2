@@ -84,10 +84,10 @@ class UuidManager implements UuidManagerInterface
             ->getQuery()->getResult();
 
         $purified = [];
-        foreach($results as $result) {
+        foreach ($results as $result) {
             $purified[] = [
                 "entity" => $result[0],
-                "date"   => new \DateTime($result["date"])
+                "date"   => new \DateTime($result["date"]),
             ];
         }
         $paginator = new Paginator(new ArrayAdapter($purified));

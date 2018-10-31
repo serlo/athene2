@@ -9,13 +9,13 @@
 
 namespace Navigation\Factory;
 
-
 use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\View\Helper\Navigation\PluginManager;
 
-class NavigationHelperPluginManagerFactory implements FactoryInterface {
+class NavigationHelperPluginManagerFactory implements FactoryInterface
+{
     /**
      * Create service
      *

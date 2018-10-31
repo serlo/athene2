@@ -79,7 +79,7 @@ class DiscussionManager implements DiscussionManagerInterface
                 'comment'    => $comment,
                 'discussion' => $comment->getParent(),
                 'instance'   => $comment->getInstance(),
-                'data'       => $form->getData()
+                'data'       => $form->getData(),
             ]
         );
 
@@ -105,7 +105,7 @@ class DiscussionManager implements DiscussionManagerInterface
             ->getQuery()->getResult();
 
         $purified = [];
-        foreach($results as $result) {
+        foreach ($results as $result) {
             $purified[] = $result[0];
         }
 
@@ -199,7 +199,7 @@ class DiscussionManager implements DiscussionManagerInterface
                 'on'         => $comment->getObject(),
                 'discussion' => $comment,
                 'instance'   => $comment->getInstance(),
-                'data'       => $form->getData()
+                'data'       => $form->getData(),
             ]
         );
 

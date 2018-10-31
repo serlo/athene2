@@ -65,7 +65,7 @@ class UserManager implements UserManagerInterface
     {
         $user = $this->getUserEntityRepository()->findOneBy(
             [
-                'token' => $username
+                'token' => $username,
             ]
         );
 
@@ -80,7 +80,7 @@ class UserManager implements UserManagerInterface
     {
         $user = $this->getUserEntityRepository()->findOneBy(
             [
-                'username' => $username
+                'username' => $username,
             ]
         );
 
@@ -95,7 +95,7 @@ class UserManager implements UserManagerInterface
     {
         $user = $this->getUserEntityRepository()->findOneBy(
             [
-                'email' => $email
+                'email' => $email,
             ]
         );
 

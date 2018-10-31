@@ -14,7 +14,6 @@ use Zend\InputFilter\InputFilterProviderInterface;
 
 class OptInHiddenFieldset extends Fieldset implements InputFilterProviderInterface
 {
-
     public function __construct()
     {
         parent::__construct('subscription');
@@ -36,12 +35,12 @@ class OptInHiddenFieldset extends Fieldset implements InputFilterProviderInterfa
         return [
             [
                 'name'     => 'subscribe',
-                'required' => true
+                'required' => true,
             ],
             [
                 'name'     => 'mailman',
-                'required' => true
-            ]
+                'required' => true,
+            ],
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -17,11 +17,10 @@ use Zend\Validator\Regex;
 
 class TermFieldset extends Fieldset implements InputFilterProviderInterface
 {
-
-    function __construct()
+    public function __construct()
     {
         parent::__construct('term');
-        
+
         $this->add((new Text('name'))->setAttribute('id', 'term[name]')->setLabel('Name:'));
     }
 
@@ -32,29 +31,29 @@ class TermFieldset extends Fieldset implements InputFilterProviderInterface
                 'required' => true,
                 'filters' => [
                     [
-                        'name' => 'StripTags'
-                    ]
+                        'name' => 'StripTags',
+                    ],
                 ],
                 'validators' => [
                     [
                         'name'    => 'NotEmpty',
                         'options' => [
                             'messages' => [
-                                NotEmpty::IS_EMPTY => 'The title can\'t be empty'
-                            ]
-                        ]
+                                NotEmpty::IS_EMPTY => 'The title can\'t be empty',
+                            ],
+                        ],
                     ],
                     [
                         'name'    => 'Regex',
                         'options' => [
                             'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß,\:\.]*$~',
                             'messages' => [
-                                Regex::NOT_MATCH => 'Title should not contain special characters'
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                Regex::NOT_MATCH => 'Title should not contain special characters',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 }

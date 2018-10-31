@@ -10,7 +10,6 @@
 
 namespace Session\Factory;
 
-
 use Session\Controller\SessionController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

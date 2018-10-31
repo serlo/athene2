@@ -40,17 +40,17 @@ class SettingsForm extends Form
                 'required' => true,
                 'validators' => [
                     [
-                        'name' => 'EmailAddress'
+                        'name' => 'EmailAddress',
                     ],
                     [
                         'name' => 'User\Validator\UniqueUser',
                         'options' => [
                             'object_repository' => $entityManager->getRepository('User\Entity\User'),
                             'fields' => ['email'],
-                            'object_manager' => $entityManager
-                        ]
-                    ]
-                ]
+                            'object_manager' => $entityManager,
+                        ],
+                    ],
+                ],
             ]);
         }
     }

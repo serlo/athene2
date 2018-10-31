@@ -12,7 +12,6 @@ use Zend\EventManager\Event;
 
 class EntityManagerListener extends AbstractListener
 {
-
     public function onCreate(Event $e)
     {
         $entity   = $e->getParam('entity');
@@ -29,7 +28,7 @@ class EntityManagerListener extends AbstractListener
             'create',
             [
                 $this,
-                'onCreate'
+                'onCreate',
             ]
         );
     }

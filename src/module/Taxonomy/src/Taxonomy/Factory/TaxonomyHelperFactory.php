@@ -13,7 +13,8 @@ use Taxonomy\View\Helper\TaxonomyHelper;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class TaxonomyHelperFactory implements FactoryInterface {
+class TaxonomyHelperFactory implements FactoryInterface
+{
     /**
      * Create service
      *
@@ -29,5 +30,4 @@ class TaxonomyHelperFactory implements FactoryInterface {
 
         return $plugin;
     }
-
 }

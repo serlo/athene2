@@ -54,7 +54,7 @@ class CommentAdapter extends AbstractAdapter
     {
         return [
             'id' => $this->getObject()->hasParent() ? $this->getObject()->getParent()->getId() :
-                    $this->getObject()->getId()
+                    $this->getObject()->getId(),
         ];
     }
 

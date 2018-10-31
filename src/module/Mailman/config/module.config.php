@@ -11,8 +11,8 @@ namespace Mailman;
 return [
     'mailman'         => [
         'adapters' => [
-            'Mailman\Adapter\ZendMailAdapter'
-        ]
+            'Mailman\Adapter\ZendMailAdapter',
+        ],
     ],
     'service_manager' => [
         'factories' => [
@@ -22,8 +22,8 @@ return [
             __NAMESPACE__ . '\Listener\AuthenticationControllerListener' => __NAMESPACE__ . '\Factory\AuthenticationControllerListenerFactory',
             __NAMESPACE__ . '\Listener\UserControllerListener'           => __NAMESPACE__ . '\Factory\UserControllerListenerFactory',
             __NAMESPACE__ . '\Listener\NotificationWorkerListener'       => __NAMESPACE__ . '\Factory\NotificationWorkerListenerFactory',
-            'Zend\Mail\Transport\SmtpOptions'                            => __NAMESPACE__ . '\Factory\SmtpOptionsFactory'
-        ]
+            'Zend\Mail\Transport\SmtpOptions'                            => __NAMESPACE__ . '\Factory\SmtpOptionsFactory',
+        ],
     ],
     'smtp_options'    => [
         'name'              => 'localhost.localdomain',
@@ -31,14 +31,14 @@ return [
         'connection_class'  => 'smtp',
         'connection_config' => [
             'username' => 'postmaster',
-            'password' => ''
-        ]
+            'password' => '',
+        ],
     ],
     'di'              => [
         'instance' => [
             'preferences' => [
-                'Mailman\MailmanInterface' => 'Mailman\Mailman'
-            ]
-        ]
+                'Mailman\MailmanInterface' => 'Mailman\Mailman',
+            ],
+        ],
     ],
 ];

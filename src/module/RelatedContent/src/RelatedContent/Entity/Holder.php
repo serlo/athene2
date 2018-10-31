@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -70,14 +70,14 @@ class Holder implements HolderInterface
         $keys = [
             'internal',
             'external',
-            'category'
+            'category',
         ];
         foreach ($keys as $key) {
             if (is_object($this->$key)) {
                 return $this->$key;
             }
         }
-        return NULL;
+        return null;
     }
 
     public function setContainer(ContainerInterface $container)

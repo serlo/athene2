@@ -35,5 +35,4 @@ trait AuthenticationServiceAwareTrait
 
         return $this;
     }
-
 }

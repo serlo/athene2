@@ -27,7 +27,6 @@ use Page\Manager\PageManagerAwareTrait;
 
 class AdsManager implements AdsManagerInterface
 {
-    
     use ObjectManagerAwareTrait, AuthorizationAssertionTrait;
     use ClassResolverAwareTrait, AttachmentManagerAwareTrait,PageManagerAwareTrait;
 
@@ -64,7 +63,7 @@ class AdsManager implements AdsManagerInterface
     {
         $this->assertGranted('ad.get', $instance);
         $criteria = [
-            'instance' => $instance->getId()
+            'instance' => $instance->getId(),
         ];
         $className = $this->getClassResolver()->resolveClassName('Ads\Entity\AdInterface');
         $ads = $this->getObjectManager()
@@ -73,15 +72,16 @@ class AdsManager implements AdsManagerInterface
         return $ads;
     }
 
-    public function setAdPage(InstanceInterface $instance,$id) {
+    public function setAdPage(InstanceInterface $instance, $id)
+    {
         $this->assertGranted('ad.get', $instance);
         $adPage = $this->getClassResolver()->resolve('Ads\Entity\AdPageInterface');
         $adPage->setInstance($instance);
         $repository = $this->getPageManager()->getPageRepository($id);
         $adPage->setPageRepository($repository);
-        return $adPage;    
+        return $adPage;
     }
-    
+
     public function createAdPage(InstanceInterface $instance)
     {
         $this->assertGranted('ad.get', $instance);
@@ -90,8 +90,8 @@ class AdsManager implements AdsManagerInterface
         $repository = $this->getPageManager()->createPageRepository(array(
             'instance' => $instance,
             'roles' => array(
-                6
-            )
+                6,
+            ),
         ), $instance);
         $adPage->setPageRepository($repository);
         return $adPage;
@@ -104,7 +104,7 @@ class AdsManager implements AdsManagerInterface
         $adPage = $this->getObjectManager()
             ->getRepository($className)
             ->findOneBy(array(
-            'instance' => $instance
+            'instance' => $instance,
         ));
         if (! is_object($adPage)) {
             return null;
@@ -125,12 +125,12 @@ class AdsManager implements AdsManagerInterface
             ->getConnection()
             ->prepare($sql);
         $stmt->execute();
-        
+
         $adArray = $stmt->fetchAll();
         $adCollection = array();
-        
+
         $className = $this->getClassResolver()->resolveClassName('Ads\Entity\AdInterface');
-        
+
         foreach ($adArray as $ad) {
             $addCollection[] = $this->getObjectManager()
                 ->getRepository($className)
@@ -153,15 +153,15 @@ class AdsManager implements AdsManagerInterface
         if (! is_numeric($id)) {
             throw new InvalidArgumentException(sprintf('Expected numeric but got %s', gettype($id)));
         }
-        
+
         $className = $this->getClassResolver()->resolveClassName('Ads\Entity\AdInterface');
         $ad = $this->getObjectManager()->find($className, $id);
         $this->assertGranted('ad.get', $ad);
-        
+
         if (! $ad) {
             throw new AdNotFoundException(sprintf('%s', $id));
         }
-        
+
         return $ad;
     }
 

@@ -29,7 +29,6 @@ class NotificationController extends AbstractActionController
     ) {
         $this->notificationManager  = $notificationManager;
         $this->authorizationService = $authorizationService;
-
     }
 
     public function readAction()

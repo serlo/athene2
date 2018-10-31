@@ -14,75 +14,75 @@ return [
             __NAMESPACE__ . '\Options\ModuleOptions'  => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
             __NAMESPACE__ . '\Manager\SubjectManager' => __NAMESPACE__ . '\Factory\SubjectManagerFactory',
             __NAMESPACE__ . '\Hydrator\Navigation'    => __NAMESPACE__ . '\Factory\NavigationFactory',
-            __NAMESPACE__ . '\Storage\SubjectStorage' => __NAMESPACE__ . '\Factory\SubjectStorageFactory'
-        ]
+            __NAMESPACE__ . '\Storage\SubjectStorage' => __NAMESPACE__ . '\Factory\SubjectStorageFactory',
+        ],
     ],
     'view_helpers'    => [
         'factories' => [
-            'subject' => __NAMESPACE__ . '\Factory\SubjectHelperFactory'
-        ]
+            'subject' => __NAMESPACE__ . '\Factory\SubjectHelperFactory',
+        ],
     ],
     'taxonomy'        => [
         'types' => [
             'topic-folder'            => [
                 'allowed_associations' => [
-                    'Entity\Entity\EntityInterface'
+                    'Entity\Entity\EntityInterface',
                 ],
                 'allowed_parents'      => [
-                    'topic'
+                    'topic',
                 ],
-                'rootable'             => false
+                'rootable'             => false,
             ],
             'topic'                   => [
                 'allowed_parents'      => [
                     'subject',
-                    'topic'
+                    'topic',
                 ],
                 'allowed_associations' => [
-                    'Entity\Entity\EntityInterface'
+                    'Entity\Entity\EntityInterface',
                 ],
-                'rootable'             => false
+                'rootable'             => false,
             ],
             'subject'                 => [
                 'allowed_parents' => [
-                    'root'
+                    'root',
                 ],
-                'rootable'        => false
+                'rootable'        => false,
             ],
             'locale'                  => [
                 'allowed_parents' => [
                     'subject',
-                    'locale'
+                    'locale',
                 ],
-                'rootable'        => false
+                'rootable'        => false,
             ],
             'curriculum'              => [
                 'allowed_parents' => [
                     'subject',
-                    'locale'
+                    'locale',
                 ],
-                'rootable'        => false
+                'rootable'        => false,
             ],
             'curriculum-topic'        => [
                 'allowed_associations' => [
-                    'Entity\Entity\EntityInterface'
+                    'Entity\Entity\EntityInterface',
                 ],
                 'allowed_parents'      => [
                     'curriculum',
-                    'curriculum-topic'
+                    'curriculum-topic',
                 ],
-                'rootable'             => false
+                'rootable'             => false,
             ],
             'curriculum-topic-folder' => [
                 'allowed_associations' => [
-                    'Entity\Entity\EntityInterface'
+                    'Entity\Entity\EntityInterface',
                 ],
                 'allowed_parents'      => [
-                    'curriculum-topic'
+                    'curriculum-topic',
                 ],
-                'rootable'             => false
-            ]
-        ]
+                'rootable'             => false,
+            ],
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -90,7 +90,7 @@ return [
                 'type'         => 'Subject',
                 'options'      => [
                     'route'      => '/:subject',
-                    'identifier' => 'subject'
+                    'identifier' => 'subject',
                 ],
                 'child_routes' => [
                     'entity' => [
@@ -100,8 +100,8 @@ return [
                             'defaults' => [
                                 'controller' => __NAMESPACE__ . '\Controller\EntityController',
                                 'action'     => 'index',
-                            ]
-                        ]
+                            ],
+                        ],
                     ],
                     //'home'   => [
                     //    'type'    => 'segment',
@@ -113,62 +113,62 @@ return [
                     //        ]
                     //    ]
                     //]
-                ]
-            ]
+                ],
+            ],
         ],
     ],
     'route_manager'   => [
         'invokables' => [
-            'Subject' => __NAMESPACE__ . '\Route\SubjectRoute'
+            'Subject' => __NAMESPACE__ . '\Route\SubjectRoute',
         ],
     ],
     'di'              => [
         'allowed_controllers' => [
             __NAMESPACE__ . '\Controller\TaxonomyController',
             __NAMESPACE__ . '\Controller\EntityController',
-            __NAMESPACE__ . '\Controller\HomeController'
+            __NAMESPACE__ . '\Controller\HomeController',
         ],
         'definition'          => [
             'class' => [
                 __NAMESPACE__ . '\Controller\HomeController'     => [
                     'setInstanceManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setSubjectManager'  => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setTaxonomyManager' => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\Controller\TaxonomyController' => [
                     'setInstanceManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setSubjectManager'  => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setTaxonomyManager' => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\Controller\EntityController'   => [
                     'setInstanceManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setSubjectManager'  => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setTaxonomyManager' => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'            => [
             'preferences' => [
-                __NAMESPACE__ . '\Manager\SubjectManagerInterface' => __NAMESPACE__ . '\Manager\SubjectManager'
-            ]
-        ]
-    ]
+                __NAMESPACE__ . '\Manager\SubjectManagerInterface' => __NAMESPACE__ . '\Manager\SubjectManager',
+            ],
+        ],
+    ],
 ];

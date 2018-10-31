@@ -16,7 +16,7 @@ class Slugify implements FilterInterface
      * @param string $text
      * @return bool|mixed
      */
-    static protected function slugify($text)
+    protected static function slugify($text)
     {
         // replace non letter or digits by -
         $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
@@ -45,7 +45,7 @@ class Slugify implements FilterInterface
      * @param string $delimiter
      * @return mixed|string
      */
-    static protected function toAscii($str, $delimiter = '-')
+    protected static function toAscii($str, $delimiter = '-')
     {
         $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
         $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);

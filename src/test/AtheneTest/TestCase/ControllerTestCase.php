@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	    Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -24,19 +24,19 @@ abstract class ControllerTestCase extends ObjectManagerTestCase
     {
         $languageManagerMock = $this->getMock('Language\Manager\LanguageManager');
         $languageServiceMock = $this->getMock('Language\Service\LanguageService');
-        
+
         $languageManagerMock->expects($this->atLeastOnce())
             ->method('getLanguageFromRequest')
             ->will($this->returnValue($languageServiceMock));
-        
+
         $languageServiceMock->expects($this->any())
             ->method('getId')
             ->will($this->returnValue($id));
-        
+
         $languageServiceMock->expects($this->any())
             ->method('getCode')
             ->will($this->returnValue($code));
-        
+
         return $languageManagerMock;
     }
 
@@ -45,10 +45,10 @@ abstract class ControllerTestCase extends ObjectManagerTestCase
         if ($this->controller->getPluginManager() instanceof \PHPUnit_Framework_MockObject_MockObject) {
             return $this->controller->getPluginManager();
         }
-        
+
         $pluginManager = $this->getMock('Zend\Mvc\Controller\PluginManager');
         $this->controller->setPluginManager($pluginManager);
-        
+
         return $pluginManager;
     }
 }

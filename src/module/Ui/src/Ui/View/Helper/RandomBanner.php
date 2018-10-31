@@ -13,32 +13,31 @@ use Zend\Form\View\Helper\AbstractHelper;
 
 class RandomBanner extends AbstractHelper
 {
-
     protected $hands= [
         '/assets/images/de/hand-1.png',
         '/assets/images/de/hand-2.png',
         '/assets/images/de/hand-3.png',
         '/assets/images/de/hand-4.png',
-        '/assets/images/de/hand-5.png'
+        '/assets/images/de/hand-5.png',
     ];
 
     protected $messages = [
         [
             'Serlo ist und bleibt komplett kostenlos und ohne Werbung!',
-            'Trotzdem kostet der Betrieb der Website Geld. Bitte unterstütze uns mit 2 Euro - einfach per SMS!'
+            'Trotzdem kostet der Betrieb der Website Geld. Bitte unterstütze uns mit 2 Euro - einfach per SMS!',
         ],
         [
             'Wir finden, dass jeder Mensch freien Zugang zu guter Bildung haben sollte.',
-            'Du auch? Mit einem Beitrag von 2 € - einfach per SMS - kannst du uns helfen, diesem Traum näher zu kommen.'
+            'Du auch? Mit einem Beitrag von 2 € - einfach per SMS - kannst du uns helfen, diesem Traum näher zu kommen.',
         ],
         [
             'Serlo wird von vielen Student/innen, Schüler/innen und Lehrer/innen ehrenamtlich aufgebaut.',
-            'Das ist nur möglich dank der Arbeit unseres kleinen Teams von bezahlten Mitarbeiter/innen. Bitte unterstütze uns mit 2 Euro - einfach per SMS!'
+            'Das ist nur möglich dank der Arbeit unseres kleinen Teams von bezahlten Mitarbeiter/innen. Bitte unterstütze uns mit 2 Euro - einfach per SMS!',
         ],
         [
             'Wir finden, du solltest in der Schule selbstbestimmter lernen dürfen!',
-            'Deshalb bauen wir Serlo so, dass du zu jeder Zeit alles lernen kannst und eigene Themen einbringen darfst. Bitte unterstütze uns bei dieser Mission - mit 2 Euro, einfach per SMS!'
-        ]
+            'Deshalb bauen wir Serlo so, dass du zu jeder Zeit alles lernen kannst und eigene Themen einbringen darfst. Bitte unterstütze uns bei dieser Mission - mit 2 Euro, einfach per SMS!',
+        ],
     ];
 
     public function __invoke()
@@ -46,7 +45,8 @@ class RandomBanner extends AbstractHelper
         return $this;
     }
 
-    public function getRandomElement($array) {
+    public function getRandomElement($array)
+    {
         $randomKey = mt_rand(0, count($array) - 1);
 
         return $array[$randomKey];

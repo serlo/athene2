@@ -50,7 +50,7 @@ class LinkService implements LinkServiceInterface
             $this,
             [
                 'entity' => $child,
-                'parent' => $parent
+                'parent' => $parent,
             ]
         );
 
@@ -71,13 +71,12 @@ class LinkService implements LinkServiceInterface
         $link     = $this->findLinkByChild($parent, $child->getId(), $type);
 
         if (is_object($link)) {
-
             $this->getEventManager()->trigger(
                 'unlink',
                 $this,
                 [
                     'entity' => $child,
-                    'parent' => $parent
+                    'parent' => $parent,
                 ]
             );
 

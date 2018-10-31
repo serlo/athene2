@@ -67,7 +67,7 @@ class BlogController extends AbstractActionController
                 [
                     'blog'     => $blog,
                     'author'   => $identity,
-                    'instance' => $blog->getInstance()
+                    'instance' => $blog->getInstance(),
                 ]
             );
             $form->setData($data);
@@ -80,7 +80,7 @@ class BlogController extends AbstractActionController
 
         $view = new ViewModel([
             'blog' => $blog,
-            'form' => $form
+            'form' => $form,
         ]);
 
         $view->setTemplate('blog/blog/post/create');
@@ -139,7 +139,7 @@ class BlogController extends AbstractActionController
 
         $view = new ViewModel([
             'blog'      => $blog,
-            'paginator' => $paginator
+            'paginator' => $paginator,
         ]);
 
         $view->setTemplate('blog/blog/view');
@@ -162,7 +162,7 @@ class BlogController extends AbstractActionController
 
         $view = new ViewModel([
             'blog'      => $blog,
-            'paginator' => $paginator
+            'paginator' => $paginator,
         ]);
         $view->setTemplate('blog/blog/view-all');
 
@@ -176,7 +176,7 @@ class BlogController extends AbstractActionController
 
         $view = new ViewModel([
             'blog' => $post->getBlog(),
-            'post' => $post
+            'post' => $post,
         ]);
 
         $view->setTemplate('blog/blog/post/view');

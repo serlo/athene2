@@ -14,7 +14,8 @@ use Zend\Log\Writer\Stream;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class LoggerFactory implements FactoryInterface {
+class LoggerFactory implements FactoryInterface
+{
     /**
      * Create service
      *

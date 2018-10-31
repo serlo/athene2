@@ -41,5 +41,4 @@ class NavigationManagerFactory implements FactoryInterface
 
         return $instance;
     }
-
 }

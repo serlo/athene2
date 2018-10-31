@@ -20,7 +20,6 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
 
 class TaxonomyTermHydrator implements HydratorInterface
 {
-
     use TermManagerAwareTrait, UuidManagerAwareTrait;
 
     /**
@@ -58,12 +57,12 @@ class TaxonomyTermHydrator implements HydratorInterface
             'id'          => is_object($object) ? $object->getId() : null,
             'term'        => [
                 'id'   => is_object($term) ? $term->getId() : null,
-                'name' => is_object($term) ? $term->getName() : null
+                'name' => is_object($term) ? $term->getName() : null,
             ],
             'taxonomy'    => is_object($object->getTaxonomy()) ? $object->getTaxonomy()->getId() : null,
             'parent'      => is_object($object->getParent()) ? $object->getParent()->getId() : null,
             'description' => $object->getDescription(),
-            'position'    => $object->getPosition()
+            'position'    => $object->getPosition(),
         ];
     }
 

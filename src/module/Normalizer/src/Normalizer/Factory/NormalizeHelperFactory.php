@@ -29,5 +29,4 @@ class NormalizeHelperFactory implements FactoryInterface
 
         return $normalize;
     }
-
 }

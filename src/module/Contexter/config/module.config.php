@@ -19,7 +19,7 @@ return [
             'contexter.route.add'      => 'Authorization\Assertion\InstanceAssertion',
             'contexter.route.get'      => 'Authorization\Assertion\InstanceAssertion',
             'contexter.route.remove'   => 'Authorization\Assertion\InstanceAssertion',
-        ]
+        ],
     ],
     'Manager\ContextManager' => [
         'router' => [
@@ -29,92 +29,92 @@ return [
                     'controllers' => [
                         [
                             'controller' => 'Entity\Controller\RepositoryController',
-                            'action'     => 'addRevision'
+                            'action'     => 'addRevision',
                         ],
                         [
                             'controller' => 'Entity\Controller\RepositoryController',
-                            'action'     => 'history'
+                            'action'     => 'history',
                         ],
                         [
                             'controller' => 'Entity\Controller\RepositoryController',
-                            'action'     => 'compare'
+                            'action'     => 'compare',
                         ],
                         [
                             'controller' => 'Entity\Controller\TaxonomyController',
-                            'action'     => 'update'
+                            'action'     => 'update',
                         ],
                         [
                             'controller' => 'Entity\Controller\PageController',
-                            'action'     => 'index'
-                        ]
-                    ]
+                            'action'     => 'index',
+                        ],
+                    ],
                 ],
                 [
                     'adapter'     => __NAMESPACE__ . '\Adapter\RelatedContentControllerAdapter',
                     'controllers' => [
                         [
                             'controller' => 'RelatedContent\Controller\RelatedContentController',
-                            'action'     => 'manage'
+                            'action'     => 'manage',
                         ],
                         [
                             'controller' => 'RelatedContent\Controller\RelatedContentController',
-                            'action'     => 'addInternal'
+                            'action'     => 'addInternal',
                         ],
                         [
                             'controller' => 'RelatedContent\Controller\RelatedContentController',
-                            'action'     => 'addExternal'
+                            'action'     => 'addExternal',
                         ],
                         [
                             'controller' => 'RelatedContent\Controller\RelatedContentController',
-                            'action'     => 'addCategory'
+                            'action'     => 'addCategory',
                         ],
-                    ]
+                    ],
                 ],
                 [
                     'adapter'     => __NAMESPACE__ . '\Adapter\TaxonomyTermControllerAdapter',
                     'controllers' => [
                         [
                             'controller' => 'Taxonomy\Controller\TermController',
-                            'action'     => 'organize'
+                            'action'     => 'organize',
                         ],
                         [
                             'controller' => 'Taxonomy\Controller\TermController',
-                            'action'     => 'orderAssociated'
+                            'action'     => 'orderAssociated',
                         ],
                         [
                             'controller' => 'Taxonomy\Controller\GetController',
-                            'action'     => 'index'
-                        ]
-                    ]
+                            'action'     => 'index',
+                        ],
+                    ],
                 ],
                 [
                     'adapter'     => __NAMESPACE__ . '\Adapter\SubjectControllerAdapter',
                     'controllers' => [
                         [
                             'controller' => 'Subject\Controller\EntityController',
-                            'action'     => 'unrevised'
+                            'action'     => 'unrevised',
                         ],
-                    ]
-                ]
-            ]
-        ]
+                    ],
+                ],
+            ],
+        ],
     ],
     'contexter'              => [
         'types' => [
             'help',
-            'guideline'
-        ]
+            'guideline',
+        ],
     ],
     'view_helpers'           => [
         'factories' => [
-            'contexter' => __NAMESPACE__ . '\Factory\ContexterHelperFactory'
-        ]
+            'contexter' => __NAMESPACE__ . '\Factory\ContexterHelperFactory',
+        ],
     ],
     'class_resolver'         => [
         'Contexter\Entity\ContextInterface'        => 'Contexter\Entity\Context',
         'Contexter\Entity\TypeInterface'           => 'Contexter\Entity\Type',
         'Contexter\Entity\RouteInterface'          => 'Contexter\Entity\Route',
-        'Contexter\Entity\RouteParameterInterface' => 'Contexter\Entity\RouteParameter'
+        'Contexter\Entity\RouteParameterInterface' => 'Contexter\Entity\RouteParameter',
     ],
     'doctrine'               => [
         'driver' => [
@@ -122,14 +122,14 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
     ],
 ];

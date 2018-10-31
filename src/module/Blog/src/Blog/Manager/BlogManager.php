@@ -56,7 +56,7 @@ class BlogManager implements BlogManagerInterface
     public function findAllBlogs(InstanceInterface $instanceService)
     {
         $taxonomy = $this->getTaxonomyManager()->findTaxonomyByName('blog', $instanceService);
-        foreach($taxonomy->getChildren() as $child){
+        foreach ($taxonomy->getChildren() as $child) {
             $this->assertGranted('blog.get', $child);
         }
         return $taxonomy->getChildren();

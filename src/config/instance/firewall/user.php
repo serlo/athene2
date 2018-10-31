@@ -18,11 +18,11 @@ return [
                         'login',
                         'register',
                         'restorePassword',
-                        'activate'
+                        'activate',
                     ],
                     'roles'      => [
-                        'guest'
-                    ]
+                        'guest',
+                    ],
                 ],
                 [
                     'controller' => 'User\Controller\UserController',
@@ -30,24 +30,24 @@ return [
                         'me',
                         'logout',
                         'settings',
-                        'changePassword'
+                        'changePassword',
                     ],
                     'roles'      => [
-                        'login'
-                    ]
+                        'login',
+                    ],
                 ],
                 [
                     'controller' => 'User\Controller\UserController',
                     'actions'    => [
                         'addRole',
                         'removeRole',
-                        'purge'
+                        'purge',
                     ],
                     'roles'      => [
-                        'sysadmin'
-                    ]
-                ]
-            ]
-        ]
-    ]
+                        'sysadmin',
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

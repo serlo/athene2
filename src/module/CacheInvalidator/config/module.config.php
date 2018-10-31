@@ -15,8 +15,8 @@ return [
         'factories' => [
             __NAMESPACE__ . '\Listener\CacheListener'         => __NAMESPACE__ . '\Factory\CacheListenerFactory',
             __NAMESPACE__ . '\Invalidator\InvalidatorManager' => __NAMESPACE__ . '\Factory\InvalidatorManagerFactory',
-            __NAMESPACE__ . '\Options\CacheOptions'           => __NAMESPACE__ . '\Factory\CacheOptionsFactory'
-        ]
+            __NAMESPACE__ . '\Options\CacheOptions'           => __NAMESPACE__ . '\Factory\CacheOptionsFactory',
+        ],
     ],
 //    'cache_invalidator' => [
 //        'invalidators' => [

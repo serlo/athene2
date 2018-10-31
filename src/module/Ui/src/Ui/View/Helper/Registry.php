@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -13,7 +13,6 @@ use Zend\View\Helper\AbstractHelper;
 
 class Registry extends AbstractHelper
 {
-
     protected $registry = [];
 
     public function __invoke()
@@ -23,7 +22,7 @@ class Registry extends AbstractHelper
 
     public function add($key, $value)
     {
-        if(!array_key_exists($key, $this->registry)){
+        if (!array_key_exists($key, $this->registry)) {
             $this->registry[$key] = [];
         }
         $this->registry[$key][] = $value;
@@ -34,12 +33,12 @@ class Registry extends AbstractHelper
     {
         if (array_key_exists($key, $this->registry)) {
             $return = '';
-            foreach($this->registry[$key] as $value){
+            foreach ($this->registry[$key] as $value) {
                 $return .= $value;
             }
             return $return;
         } else {
-            return NULL;
+            return null;
         }
     }
 }

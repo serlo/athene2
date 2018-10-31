@@ -37,7 +37,7 @@ class RepositoryManagerListener extends AbstractListener
             'commit',
             [
                 $this,
-                'onCommitRevision'
+                'onCommitRevision',
             ],
             2
         );

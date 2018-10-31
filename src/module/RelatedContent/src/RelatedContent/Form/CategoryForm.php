@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -17,7 +17,7 @@ use Zend\InputFilter\InputFilter;
 
 class CategoryForm extends Form
 {
-    function __construct()
+    public function __construct()
     {
         parent::__construct('category');
         $this->add(new CsrfToken('csrf'));
@@ -26,20 +26,20 @@ class CategoryForm extends Form
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter('category');
         $this->setInputFilter($inputFilter);
-        
+
         $this->add((new Text('title'))->setLabel('Title:'));
-        
+
         $this->add((new Submit('submit'))->setValue('Add')
             ->setAttribute('class', 'btn btn-success pull-right'));
-        
+
         $inputFilter->add([
             'name' => 'title',
             'required' => true,
             'filters' => [
                 [
-                    'name' => 'StripTags'
-                ]
-            ]
+                    'name' => 'StripTags',
+                ],
+            ],
         ]);
     }
 }

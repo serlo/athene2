@@ -15,7 +15,6 @@ use Zend\InputFilter\InputFilter;
 
 class UrlForm extends Form
 {
-
     public function __construct()
     {
         parent::__construct('uri');
@@ -34,9 +33,9 @@ class UrlForm extends Form
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
     }

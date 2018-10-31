@@ -19,7 +19,6 @@ use Zend\EventManager\SharedEventManagerInterface;
 
 class TaxonomyManagerListener extends AbstractListener
 {
-
     public function onCreate(Event $e)
     {
         /* @var $term TaxonomyTermInterface */

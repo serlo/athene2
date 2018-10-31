@@ -14,7 +14,7 @@ class Module
     public static $listeners = [
         'Notification\Listener\RepositoryManagerListener',
         'Notification\Listener\DiscussionManagerListener',
-        'Notification\Listener\AuthenticationControllerListener'
+        'Notification\Listener\AuthenticationControllerListener',
     ];
 
     public function getConfig()
@@ -28,17 +28,16 @@ class Module
 
         $autoloader['Zend\Loader\StandardAutoloader'] = [
             'namespaces' => [
-                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__
-            ]
+                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+            ],
         ];
 
         if (file_exists(__DIR__ . '/autoload_classmap.php')) {
             return [
                 'Zend\Loader\ClassMapAutoloader' => [
                     __DIR__ . '/autoload_classmap.php',
-                ]
+                ],
             ];
-
         }
 
         return $autoloader;

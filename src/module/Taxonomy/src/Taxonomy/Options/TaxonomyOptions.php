@@ -12,7 +12,6 @@ use Zend\Stdlib\AbstractOptions;
 
 class TaxonomyOptions extends AbstractOptions
 {
-
     protected $allowedChildren = [];
 
     protected $allowedParents = [];

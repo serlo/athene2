@@ -2,5 +2,5 @@
 return [
     'subject'    => 'fach',
     'topic'      => 'thema',
-    'curriculum' => 'lehrplan'
+    'curriculum' => 'lehrplan',
 ];

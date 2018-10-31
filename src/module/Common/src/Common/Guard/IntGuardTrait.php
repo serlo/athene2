@@ -12,7 +12,8 @@ namespace Common\Guard;
 /**
  * Provide a guard method against int data
  */
-trait IntGuardTrait {
+trait IntGuardTrait
+{
 
     /**
      * Verify that the data is an int

@@ -16,7 +16,7 @@ interface AdPageInterface extends InstanceAwareInterface
     /**
      * Gets the Repository
      *
-     * @return PageRepositoryInterface 
+     * @return PageRepositoryInterface
      */
     public function getPageRepository();
 }

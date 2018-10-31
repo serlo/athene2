@@ -29,7 +29,6 @@ use ZfcRbac\Service\AuthorizationService;
 use ZfcRbac\Service\AuthorizationServiceAwareTrait;
 use Google\Cloud\ServiceBuilder;
 
-
 class AttachmentManager implements AttachmentManagerInterface
 {
     use ClassResolverAwareTrait;
@@ -62,7 +61,7 @@ class AttachmentManager implements AttachmentManagerInterface
         $this->moduleOptions        = $moduleOptions;
 
         $gcloud = new ServiceBuilder([
-            'projectId' => $this->moduleOptions->getProjectId()
+            'projectId' => $this->moduleOptions->getProjectId(),
         ]);
 
         $this->bucket = $gcloud->storage()->bucket($this->moduleOptions->getBucket());
@@ -126,8 +125,8 @@ class AttachmentManager implements AttachmentManagerInterface
                 'name' => $hash,
                 'metadata' => [
                     'name' => $filename,
-                    'contentLanguage' => $contentLanguage
-                ]
+                    'contentLanguage' => $contentLanguage,
+                ],
             ]
         );
 

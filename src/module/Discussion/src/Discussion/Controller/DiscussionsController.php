@@ -26,14 +26,15 @@ class DiscussionsController extends AbstractController
 
         $view = new ViewModel([
             'discussions' => $discussions,
-            'user'        => $this->getUserManager()->getUserFromAuthenticator()
+            'user'        => $this->getUserManager()->getUserFromAuthenticator(),
         ]);
 
         $view->setTemplate('discussion/discussions/index');
         return $view;
     }
 
-    public function redirectAction() {
+    public function redirectAction()
+    {
         $r = $this->redirect()->toRoute('discussion/discussions');
         $this->getResponse()->setStatusCode(301);
         return $r;

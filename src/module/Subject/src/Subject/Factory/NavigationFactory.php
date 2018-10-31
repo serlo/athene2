@@ -32,5 +32,4 @@ class NavigationFactory implements FactoryInterface
 
         return $service;
     }
-
 }

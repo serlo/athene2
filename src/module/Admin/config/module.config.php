@@ -18,8 +18,8 @@ return [
                     'route'    => '/backend',
                     'defaults' => [
                         'controller' => 'Admin\Controller\HomeController',
-                        'action'     => 'index'
-                    ]
+                        'action'     => 'index',
+                    ],
                 ],
             ],
             'debugger' => [
@@ -28,22 +28,22 @@ return [
                     'route'    => '/debugger',
                     'defaults' => [
                         'controller' => 'Admin\Controller\DebuggerController',
-                        'action'     => 'index'
-                    ]
+                        'action'     => 'index',
+                    ],
                 ],
-            ]
-        ]
+            ],
+        ],
     ],
     'di'     => [
         'allowed_controllers' => [
             'Admin\Controller\HomeController',
-            'Admin\Controller\DebuggerController'
+            'Admin\Controller\DebuggerController',
         ],
         'definition'          => [
             'class' => [
                 'Admin\Controller\HomeController' => [
-                ]
-            ]
-        ]
-    ]
+                ],
+            ],
+        ],
+    ],
 ];

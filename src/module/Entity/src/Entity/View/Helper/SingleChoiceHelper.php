@@ -17,7 +17,8 @@ use Zend\View\Helper\AbstractHelper;
 
 class SingleChoiceHelper extends AbstractHelper
 {
-    public function __invoke() {
+    public function __invoke()
+    {
         return $this;
     }
 
@@ -25,18 +26,19 @@ class SingleChoiceHelper extends AbstractHelper
      * @param EntityInterface $entity
      * @return array
      */
-    public function fetchSingleChoice(EntityInterface $entity) {
+    public function fetchSingleChoice(EntityInterface $entity)
+    {
         $answers = [];
         foreach ($entity->getValidChildren('link', 'single-choice-right-answer') as $add) {
             $answers[] = [
                 'right' => true,
-                'entity' => $add
+                'entity' => $add,
             ];
         }
         foreach ($entity->getValidChildren('link', 'single-choice-wrong-answer') as $add) {
             $answers[] = [
                 'right' => false,
-                'entity' => $add
+                'entity' => $add,
             ];
         }
         shuffle($answers);
@@ -47,7 +49,8 @@ class SingleChoiceHelper extends AbstractHelper
      * @param EntityInterface $entity
      * @return String
      */
-    public function fetchPositiveFeedback(EntityInterface $entity) {
+    public function fetchPositiveFeedback(EntityInterface $entity)
+    {
         foreach ($entity->getChildren('link', 'single-choice-right-answer') as $positive) {
             if ($positive->hasCurrentRevision()) {
                 return $positive->getCurrentRevision()->get('feedback');

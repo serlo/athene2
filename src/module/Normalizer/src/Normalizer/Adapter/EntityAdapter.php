@@ -90,7 +90,7 @@ class EntityAdapter extends AbstractAdapter
         $terms = $entity->getTaxonomyTerms();
         if (!$terms->count()) {
             $parents = $entity->getParents('link');
-            if($parents->count()) {
+            if ($parents->count()) {
                 $terms = $parents->first()->getTaxonomyTerms();
             }
         }
@@ -128,7 +128,7 @@ class EntityAdapter extends AbstractAdapter
     protected function getRouteParams()
     {
         return [
-            'entity' => $this->getObject()->getId()
+            'entity' => $this->getObject()->getId(),
         ];
     }
 

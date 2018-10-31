@@ -36,5 +36,4 @@ class NotificationHelperFactory implements FactoryInterface
 
         return new Notification($notificationManager, $storage, $renderer, $userManager);
     }
-
 }

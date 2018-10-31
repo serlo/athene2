@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -18,22 +18,22 @@ class UserHydrator implements HydratorInterface
     public function extract($object)
     {
         $object = $this->isValid($object);
-        
+
         return [
             'id' => $object->getId(),
             'email' => $object->getEmail(),
             'username' => $object->getUsername(),
-            'password' => $object->getPassword()
+            'password' => $object->getPassword(),
         ];
     }
 
     public function hydrate(array $data, $object)
     {
         $object = $this->isValid($object);
-    	$data = ArrayUtils::merge($this->extract($object), $data);
+        $data = ArrayUtils::merge($this->extract($object), $data);
 
-    	$object->setUsername($data['username']);
-    	$object->setPassword($data['password']);
+        $object->setUsername($data['username']);
+        $object->setPassword($data['password']);
         $object->setEmail($data['email']);
 
         return $object;
@@ -41,7 +41,7 @@ class UserHydrator implements HydratorInterface
 
     /**
      *
-     * @param UserInterface $object            
+     * @param UserInterface $object
      * @return UserInterface
      */
     protected function isValid(UserInterface $object)

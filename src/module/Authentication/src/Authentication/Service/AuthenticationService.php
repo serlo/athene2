@@ -141,7 +141,15 @@ class AuthenticationService extends ZendAuthenticationService
     protected function setCookie($value, $expires = null, $lifetime = null)
     {
         $cookie = new SetCookie(
-            (string)$this->cookieName, $value, $expires, $this->cookiePath, null, null, true, $lifetime, null
+            (string)$this->cookieName,
+            $value,
+            $expires,
+            $this->cookiePath,
+            null,
+            null,
+            true,
+            $lifetime,
+            null
         );
         $this->response->getHeaders()->addHeader($cookie);
     }

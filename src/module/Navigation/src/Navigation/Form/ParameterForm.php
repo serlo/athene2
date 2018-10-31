@@ -40,7 +40,7 @@ class ParameterForm extends Form
         $this->add(
             (new Select('key'))->setLabel('Key:')->setOptions(
                 [
-                    'value_options' => $types
+                    'value_options' => $types,
                 ]
             )
         );
@@ -53,8 +53,8 @@ class ParameterForm extends Form
                 'name'    => 'page',
                 'options' => [
                     'object_manager' => $entityManager,
-                    'target_class'   => 'Navigation\Entity\Page'
-                ]
+                    'target_class'   => 'Navigation\Entity\Page',
+                ],
             ]
         );
         $this->add(
@@ -63,8 +63,8 @@ class ParameterForm extends Form
                 'name'    => 'parent',
                 'options' => [
                     'object_manager' => $entityManager,
-                    'target_class'   => 'Navigation\Entity\Parameter'
-                ]
+                    'target_class'   => 'Navigation\Entity\Parameter',
+                ],
             ]
         );
 
@@ -75,7 +75,7 @@ class ParameterForm extends Form
         $filter->add(
             [
                 'name'     => 'page',
-                'required' => true
+                'required' => true,
             ]
         );
     }

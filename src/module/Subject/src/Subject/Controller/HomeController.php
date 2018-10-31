@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -13,11 +13,10 @@ use Zend\View\Model\ViewModel;
 
 class HomeController extends AbstractController
 {
-
     public function indexAction()
     {
         $view = new ViewModel([
-            'subject' => $this->getSubject()
+            'subject' => $this->getSubject(),
         ]);
         $view->setTemplate('subject/home/index');
         return $view;

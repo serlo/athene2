@@ -65,7 +65,7 @@ class InstanceAssertion implements AssertionInterface
             $instance = null;
         } elseif ($context instanceof InstanceProviderInterface) {
             $instance = $context->getInstance();
-            if(!is_object($instance)){
+            if (!is_object($instance)) {
                 throw new RuntimeException(sprintf('%s provides an instance of null', get_class($context)));
             }
         } elseif ($context instanceof InstanceInterface) {

@@ -28,7 +28,7 @@ class TokenProvider extends AbstractProvider implements ProviderInterface
     {
         return [
             'path' => $this->getPath($this->getObject()),
-            'id'   => $this->getObject()->getId()
+            'id'   => $this->getObject()->getId(),
         ];
     }
 

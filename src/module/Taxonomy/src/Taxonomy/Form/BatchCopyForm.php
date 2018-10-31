@@ -17,8 +17,7 @@ use Zend\InputFilter\InputFilter;
 
 class BatchCopyForm extends Form
 {
-
-    function __construct(array $associations = [])
+    public function __construct(array $associations = [])
     {
         parent::__construct('taxonomyTerm');
         $this->add(new CsrfToken('csrf'));
@@ -47,11 +46,11 @@ class BatchCopyForm extends Form
                 'required'    => true,
                 'allow_empty' => false,
                 'filters'     => [
-                    ['name' => 'Int']
+                    ['name' => 'Int'],
                 ],
                 'validators'  => [
-                    ['name' => 'Digits']
-                ]
+                    ['name' => 'Digits'],
+                ],
             ]
         );
     }

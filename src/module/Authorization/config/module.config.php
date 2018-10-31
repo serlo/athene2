@@ -13,20 +13,20 @@ return [
     'zfc_rbac'           => [
         'guard_manager'     => [
             'factories' => [
-                __NAMESPACE__ . '\Guard\HydratableControllerGuard' => __NAMESPACE__ . '\Factory\HydratableControllerGuardFactory'
-            ]
+                __NAMESPACE__ . '\Guard\HydratableControllerGuard' => __NAMESPACE__ . '\Factory\HydratableControllerGuardFactory',
+            ],
         ],
         'assertion_manager' => [
             'factories' => [
                 'Authorization\Assertion\RoleAssertion'            => __NAMESPACE__ . '\Factory\RoleAssertionFactory',
                 'Authorization\Assertion\InstanceAssertion'        => __NAMESPACE__ . '\Factory\InstanceAssertionFactory',
                 'Authorization\Assertion\RequestInstanceAssertion' => __NAMESPACE__ . '\Factory\RequestInstanceAssertionFactory',
-            ]
+            ],
         ],
         'assertion_map'     => [
             'authorization.identity.grant.role'  => 'Authorization\Assertion\RoleAssertion',
             'authorization.identity.revoke.role' => 'Authorization\Assertion\RoleAssertion',
-        ]
+        ],
     ],
     'service_manager'    => [
         'factories' => [
@@ -35,32 +35,32 @@ return [
             'ZfcRbac\Service\AuthorizationService'     => __NAMESPACE__ . '\Factory\AuthorizationServiceFactory',
             'ZfcRbac\Assertion\AssertionPluginManager' => __NAMESPACE__ . '\Factory\AssertionPluginManagerFactory',
             'Authorization\Form\RoleForm'              => __NAMESPACE__ . '\Factory\RoleFormFactory',
-        ]
+        ],
     ],
     'controller_plugins' => [
         'invokables' => [
-            'assertGranted' => 'Authorization\Controller\Plugin\AssertGranted'
-        ]
+            'assertGranted' => 'Authorization\Controller\Plugin\AssertGranted',
+        ],
     ],
     'controllers'        => [
         'factories'  => [
-            __NAMESPACE__ . '\Controller\RoleController' => __NAMESPACE__ . '\Factory\RoleControllerFactory'
+            __NAMESPACE__ . '\Controller\RoleController' => __NAMESPACE__ . '\Factory\RoleControllerFactory',
         ],
         'invokables' => [
-            __NAMESPACE__ . '\Controller\ForbiddenController' => __NAMESPACE__ . '\Controller\ForbiddenController'
-        ]
+            __NAMESPACE__ . '\Controller\ForbiddenController' => __NAMESPACE__ . '\Controller\ForbiddenController',
+        ],
     ],
     'class_resolver'     => [
         __NAMESPACE__ . '\Entity\RoleInterface'                   => 'User\Entity\Role',
         __NAMESPACE__ . '\Entity\PermissionInterface'             => 'User\Entity\PermissionKey',
-        __NAMESPACE__ . '\Entity\ParametrizedPermissionInterface' => 'User\Entity\Permission'
+        __NAMESPACE__ . '\Entity\ParametrizedPermissionInterface' => 'User\Entity\Permission',
     ],
     'di'                 => [
         'instance' => [
             'preferences' => [
-                __NAMESPACE__ . '\Service\RoleServiceInterface' => __NAMESPACE__ . '\Service\RoleService'
+                __NAMESPACE__ . '\Service\RoleServiceInterface' => __NAMESPACE__ . '\Service\RoleService',
             ],
-        ]
+        ],
     ],
     'router'             => [
         'routes' => [
@@ -76,8 +76,8 @@ return [
                             'route'    => '/forbidden',
                             'defaults' => [
                                 'controller' => __NAMESPACE__ . '\Controller\ForbiddenController',
-                                'action'     => 'index'
-                            ]
+                                'action'     => 'index',
+                            ],
                         ],
                     ],
                     'roles'     => [
@@ -86,8 +86,8 @@ return [
                             'route'    => '/roles',
                             'defaults' => [
                                 'controller' => __NAMESPACE__ . '\Controller\RoleController',
-                                'action'     => 'roles'
-                            ]
+                                'action'     => 'roles',
+                            ],
                         ],
                     ],
                     'role'      => [
@@ -95,8 +95,8 @@ return [
                         'options'      => [
                             'route'    => '/role',
                             'defaults' => [
-                                'controller' => __NAMESPACE__ . '\Controller\RoleController'
-                            ]
+                                'controller' => __NAMESPACE__ . '\Controller\RoleController',
+                            ],
                         ],
                         'child_routes' => [
                             'show'       => [
@@ -104,27 +104,27 @@ return [
                                 'options' => [
                                     'route'    => '/show/:role',
                                     'defaults' => [
-                                        'action' => 'show'
-                                    ]
-                                ]
+                                        'action' => 'show',
+                                    ],
+                                ],
                             ],
                             'create'     => [
                                 'type'    => 'literal',
                                 'options' => [
                                     'route'    => '/create',
                                     'defaults' => [
-                                        'action' => 'createRole'
-                                    ]
-                                ]
+                                        'action' => 'createRole',
+                                    ],
+                                ],
                             ],
                             'all'        => [
                                 'type'    => 'literal',
                                 'options' => [
                                     'route'    => '/all',
                                     'defaults' => [
-                                        'action' => 'all'
-                                    ]
-                                ]
+                                        'action' => 'all',
+                                    ],
+                                ],
                             ],
                             'user'       => [
                                 'type'    => 'literal',
@@ -137,20 +137,20 @@ return [
                                         'options' => [
                                             'route'    => '/add/:role',
                                             'defaults' => [
-                                                'action' => 'addUser'
-                                            ]
-                                        ]
+                                                'action' => 'addUser',
+                                            ],
+                                        ],
                                     ],
                                     'remove' => [
                                         'type'    => 'segment',
                                         'options' => [
                                             'route'    => '/remove/:role',
                                             'defaults' => [
-                                                'action' => 'removeUser'
-                                            ]
-                                        ]
-                                    ]
-                                ]
+                                                'action' => 'removeUser',
+                                            ],
+                                        ],
+                                    ],
+                                ],
                             ],
                             'permission' => [
                                 'type'         => 'segment',
@@ -163,25 +163,25 @@ return [
                                         'options' => [
                                             'route'    => '/add/:role',
                                             'defaults' => [
-                                                'action' => 'addPermission'
-                                            ]
-                                        ]
+                                                'action' => 'addPermission',
+                                            ],
+                                        ],
                                     ],
                                     'remove' => [
                                         'type'    => 'segment',
                                         'options' => [
                                             'route'    => '/remove/:role/:permission',
                                             'defaults' => [
-                                                'action' => 'removePermission'
-                                            ]
-                                        ]
-                                    ]
-                                ]
+                                                'action' => 'removePermission',
+                                            ],
+                                        ],
+                                    ],
+                                ],
                             ],
-                        ]
-                    ]
-                ]
+                        ],
+                    ],
+                ],
             ],
-        ]
-    ]
+        ],
+    ],
 ];

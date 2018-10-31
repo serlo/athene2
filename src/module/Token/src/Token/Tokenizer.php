@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -32,7 +32,7 @@ class Tokenizer implements TokenizerInterface
 
     /**
      *
-     * @param ProviderInterface $provider            
+     * @param ProviderInterface $provider
      * @return self
      */
     protected function setProvider(Provider\ProviderInterface $provider)
@@ -46,17 +46,17 @@ class Tokenizer implements TokenizerInterface
         if (! is_object($provider)) {
             $provider = $this->getServiceLocator()->get($provider);
         }
-        
+
         $this->setProvider($provider);
         $this->getProvider()->setObject($object);
-        
+
         // WHY DO YOU NOT WORK WHEN { IS THE FIRST CHAR
         $tokenString = ':' . $tokenString;
-        
+
         $returnString = $tokenString;
-        
+
         $token = strtok($tokenString, '{');
-        while ($token !== FALSE) {
+        while ($token !== false) {
             $token = strtok('}');
             $replace = '{' . $token . '}';
             $with = $this->transliterateToken($token);
@@ -64,7 +64,7 @@ class Tokenizer implements TokenizerInterface
             $returnString = str_replace($replace, $with, $returnString, $limit);
             $token = strtok('{');
         }
-        
+
         // WHY DO YOU NOT WORK WHEN { IS THE FIRST CHAR
         $return = substr($returnString, 1);
         return $return;

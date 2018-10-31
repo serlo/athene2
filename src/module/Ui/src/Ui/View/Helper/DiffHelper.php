@@ -18,7 +18,7 @@ class DiffHelper extends AbstractHelper
         return $this;
     }
 
-    function html($old, $new)
+    public function html($old, $new)
     {
         $old = strip_tags($old);
         $new = strip_tags($new);
@@ -36,7 +36,7 @@ class DiffHelper extends AbstractHelper
         return $ret;
     }
 
-    function markdown($old, $new)
+    public function markdown($old, $new)
     {
         $pattern = '@[{"col":[0-9]+,"content":"@is';
         $old     = preg_replace($pattern, "", $old);
@@ -50,7 +50,7 @@ class DiffHelper extends AbstractHelper
         return $out;
     }
 
-    function text($old, $new)
+    public function text($old, $new)
     {
         $maxlen = $omax = $nmax = 0;
         foreach ($old as $oindex => $ovalue) {

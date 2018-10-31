@@ -13,7 +13,6 @@ use ClassResolverTest\Fake\ClassResolverAware;
 
 class ClassResolverAwareTraitTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $trait;
 
     public function setUp()

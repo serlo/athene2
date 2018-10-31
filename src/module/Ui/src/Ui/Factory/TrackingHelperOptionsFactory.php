@@ -27,5 +27,4 @@ class TrackingHelperOptionsFactory implements FactoryInterface
         $options = isset($config['tracking']) ? $config['tracking'] : [];
         return new TrackingHelperOptions($options);
     }
-
 }

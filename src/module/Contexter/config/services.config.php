@@ -13,29 +13,29 @@ return [
     'service_manager' => [
         'factories' => [
             __NAMESPACE__ . '\Router\Router'         => __NAMESPACE__ . '\Factory\RouterFactory',
-            __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory'
-        ]
+            __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
+        ],
     ],
     'di'              => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\ContextController'
+            __NAMESPACE__ . '\Controller\ContextController',
         ],
         'definition'          => [
             'class' => [
                 __NAMESPACE__ . '\Adapter\EntityControllerAdapter' => [
                     'setInstanceManager' => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\Controller\ContextController'    => [],
-                __NAMESPACE__ . '\Manager\ContextManager'          => []
-            ]
+                __NAMESPACE__ . '\Manager\ContextManager'          => [],
+            ],
         ],
         'instance'            => [
             'preferences' => [
                 __NAMESPACE__ . '\Manager\ContextManagerInterface' => __NAMESPACE__ . '\Manager\ContextManager',
-                __NAMESPACE__ . '\Router\RouterInterface'          => __NAMESPACE__ . '\Router\Router'
-            ]
-        ]
-    ]
+                __NAMESPACE__ . '\Router\RouterInterface'          => __NAMESPACE__ . '\Router\Router',
+            ],
+        ],
+    ],
 ];

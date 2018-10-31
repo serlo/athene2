@@ -103,7 +103,7 @@ class NavigationController extends AbstractActionController
         if ($this->getRequest()->isPost()) {
             $data = array_merge($this->params()->fromPost(), [
                 'container' => $container,
-                'parent' => $this->params('parent', null)
+                'parent' => $this->params('parent', null),
             ]);
 
             $this->pageForm->setData($data);
@@ -136,7 +136,7 @@ class NavigationController extends AbstractActionController
         } else {
             $data = [
                 'page'   => $page,
-                'parent' => $this->params('parent', null)
+                'parent' => $this->params('parent', null),
             ];
             $this->parameterForm->setData($data);
             $this->referer()->store();
@@ -179,7 +179,7 @@ class NavigationController extends AbstractActionController
         $view = new ViewModel([
             'container'    => $container,
             'positionForm' => $this->pageForm,
-            'form'         => new CsrfForm('navigation')
+            'form'         => new CsrfForm('navigation'),
         ]);
 
         $view->setTemplate('navigation/container/get');
@@ -273,7 +273,7 @@ class NavigationController extends AbstractActionController
         $this->pageForm->bind($page);
         if ($this->getRequest()->isPost()) {
             $data = array_merge($this->params()->fromPost(), [
-                'parent' => $this->params('parent', null)
+                'parent' => $this->params('parent', null),
             ]);
             $this->pageForm->setData($data);
             if ($this->pageForm->isValid()) {

@@ -37,7 +37,7 @@ abstract class AbstractDispatchListener extends AbstractSharedListenerAggregate
             MvcEvent::EVENT_DISPATCH,
             [
                 $this,
-                'onDispatch'
+                'onDispatch',
             ]
         );
     }
@@ -56,10 +56,10 @@ abstract class AbstractDispatchListener extends AbstractSharedListenerAggregate
 
         $terms = $entity->getTaxonomyTerms();
 
-        if($terms->isEmpty()){
-            foreach($entity->getParents('link') as $parent){
+        if ($terms->isEmpty()) {
+            foreach ($entity->getParents('link') as $parent) {
                 $terms = $parent->getTaxonomyTerms();
-                if(!$terms->isEmpty()) {
+                if (!$terms->isEmpty()) {
                     break;
                 }
             }
@@ -75,7 +75,7 @@ abstract class AbstractDispatchListener extends AbstractSharedListenerAggregate
             $params            = [
                 'term'       => $term->getId(),
                 'controller' => 'Taxonomy\Controller\GetController',
-                'action'     => 'index'
+                'action'     => 'index',
             ];
             $routeMatch        = new RouteMatch($params);
 

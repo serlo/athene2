@@ -18,7 +18,6 @@ use Zend\InputFilter\InputFilter;
 
 class FlagForm extends Form
 {
-
     public function __construct(Collection $types)
     {
         parent::__construct('context');
@@ -38,7 +37,7 @@ class FlagForm extends Form
         $this->add(
             (new Select('type'))->setLabel('Type:')->setOptions(
                 [
-                    'value_options' => $values
+                    'value_options' => $values,
                 ]
             )
         );
@@ -55,16 +54,16 @@ class FlagForm extends Form
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
 
         $inputFilter->add(
             [
                 'name'     => 'type',
-                'required' => true
+                'required' => true,
             ]
         );
     }

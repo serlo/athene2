@@ -76,7 +76,6 @@ class LinkController extends AbstractController
             return $this->redirect()->toUrl($this->referer()->fromStorage());
         } else {
             $this->referer()->store();
-
         }
 
         $children = $entity->getValidChildren($scope);

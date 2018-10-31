@@ -82,7 +82,7 @@ class IndexController extends AbstractAPIAwareActionController
                 $data       = $form->getData(FormInterface::VALUES_AS_ARRAY);
                 $params     = [
                     'repository' => $repository,
-                    'slug'       => $data['slug']
+                    'slug'       => $data['slug'],
                 ];
                 $this->getEventManager()->trigger('page.create', $this, $params);
                 $this->getPageManager()->flush();

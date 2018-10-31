@@ -9,7 +9,6 @@
 
 namespace Page\Form;
 
-
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Zend\Form\Fieldset;
@@ -17,7 +16,6 @@ use Zend\InputFilter\InputFilterProviderInterface;
 
 class RoleFieldset extends Fieldset implements InputFilterProviderInterface
 {
-
     public function __construct(ObjectManager $objectManager)
     {
         parent::__construct('components');
@@ -31,7 +29,7 @@ class RoleFieldset extends Fieldset implements InputFilterProviderInterface
                 'required'   => false,
                 'filters'    => array(),
                 'validators' => array(),
-            )
+            ),
         );
     }
 }

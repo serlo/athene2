@@ -14,7 +14,8 @@ use Zend\Form\Form;
 
 class FormHelper extends AbstractHelper
 {
-    public function __invoke() {
+    public function __invoke()
+    {
         return $this;
     }
 
@@ -26,7 +27,8 @@ class FormHelper extends AbstractHelper
         $form->setAttribute('action', $url);
         return $form;
     }
-    public function getPurgeForm($objectID) {
+    public function getPurgeForm($objectID)
+    {
         $url = $this->getView()->url('uuid/purge', ['id' => $objectID]);
         /** @var Form $form */
         $form = new CsrfForm('uuid-purge');

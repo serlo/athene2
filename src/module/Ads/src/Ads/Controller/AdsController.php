@@ -32,7 +32,7 @@ class AdsController extends AbstractActionController
         $ads  = $this->getAdsManager()->findAllAds($instance);
         $view = new ViewModel([
             'ads' => $ads,
-            'form' => new CsrfForm('remove-ad')
+            'form' => new CsrfForm('remove-ad'),
         ]);
         $view->setTemplate('ads/ads');
 
@@ -62,7 +62,7 @@ class AdsController extends AbstractActionController
                     [
                         'attachment' => $upload,
                         'author'     => $user,
-                        'instance'   => $instance
+                        'instance'   => $instance,
                     ]
                 );
 
@@ -74,7 +74,7 @@ class AdsController extends AbstractActionController
         }
 
         $view = new ViewModel([
-            'form' => $form
+            'form' => $form,
         ]);
         $view->setTemplate('ads/create');
 
@@ -140,7 +140,7 @@ class AdsController extends AbstractActionController
         }
 
         $view = new ViewModel([
-            'form' => $form
+            'form' => $form,
         ]);
         $view->setTemplate('ads/update');
 
@@ -161,7 +161,7 @@ class AdsController extends AbstractActionController
                 $revision->isOryEditorFormat() ? 'page/revision/create': 'page/revision/create-old',
                 [
                     'page'     => $repository->getId(),
-                    'revision' => $revision
+                    'revision' => $revision,
                 ]
             );
         }
@@ -187,7 +187,7 @@ class AdsController extends AbstractActionController
         }
 
         $view = new ViewModel([
-            'form' => $form
+            'form' => $form,
         ]);
         $view->setTemplate('ads/setAdPage');
 
@@ -207,7 +207,7 @@ class AdsController extends AbstractActionController
         return $this->redirect()->toRoute(
             'page/view',
             [
-                'page' => $repository
+                'page' => $repository,
             ]
         );
     }

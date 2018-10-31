@@ -15,7 +15,6 @@ use Zend\View\Model\ViewModel;
 
 class AuthenticationControllerListener extends AbstractListener
 {
-
     public function attachShared(SharedEventManagerInterface $events)
     {
         $class = $this->getMonitoredClass();
@@ -36,7 +35,7 @@ class AuthenticationControllerListener extends AbstractListener
 
         $subject = new ViewModel();
         $body    = new ViewModel([
-            'user' => $user
+            'user' => $user,
         ]);
 
         $subject->setTemplate('mailman/messages/welcome/subject');
@@ -57,7 +56,7 @@ class AuthenticationControllerListener extends AbstractListener
 
         $subject = new ViewModel();
         $body    = new ViewModel([
-            'user' => $user
+            'user' => $user,
         ]);
 
         $subject->setTemplate('mailman/messages/register/subject');
@@ -78,7 +77,7 @@ class AuthenticationControllerListener extends AbstractListener
 
         $subject = new ViewModel();
         $body    = new ViewModel([
-            'user' => $user
+            'user' => $user,
         ]);
 
         $subject->setTemplate('mailman/messages/restore-password/subject');
@@ -91,5 +90,4 @@ class AuthenticationControllerListener extends AbstractListener
             $this->getRenderer()->render($body)
         );
     }
-
 }

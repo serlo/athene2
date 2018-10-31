@@ -36,7 +36,7 @@ class ParameterFieldset extends Fieldset implements InputFilterProviderInterface
                             'disable_inarray_validator' => true,
                             'value_options'             => $options,
                             'empty_option'              => 'Ignore',
-                            'label'                     => $key
+                            'label'                     => $key,
                         ),
                         'required' => false,
                         'name'     => $key,
@@ -70,10 +70,10 @@ class ParameterFieldset extends Fieldset implements InputFilterProviderInterface
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^[a-zA-Z\-_\\\\/0-9]*$~'
-                        ]
-                    ]
-                ]
+                            'pattern' => '~^[a-zA-Z\-_\\\\/0-9]*$~',
+                        ],
+                    ],
+                ],
             ];
         }
 

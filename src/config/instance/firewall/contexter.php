@@ -16,10 +16,10 @@ return [
                 [
                     'controller' => __NAMESPACE__ . '\Controller\ContextController',
                     'roles'      => [
-                        'admin'
-                    ]
+                        'admin',
+                    ],
                 ],
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

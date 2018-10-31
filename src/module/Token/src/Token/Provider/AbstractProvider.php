@@ -10,7 +10,6 @@ namespace Token\Provider;
 
 abstract class AbstractProvider implements ProviderInterface
 {
-
     protected $object;
 
     /**

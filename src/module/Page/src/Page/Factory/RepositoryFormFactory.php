@@ -33,5 +33,4 @@ class RepositoryFormFactory implements FactoryInterface
         $taxonomyManager = $this->getTaxonomyManager($serviceLocator);
         return new RepositoryForm($entityManager, $page, $taxonomyManager);
     }
-
 }

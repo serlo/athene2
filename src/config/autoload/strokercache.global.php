@@ -21,10 +21,10 @@ return [
                         'page/view',
                         'navigation/render',
                         'sitemap',
-                        'uuid/get'
-                    ]
-                ]
-            ]
-        ]
-    ]
+                        'uuid/get',
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

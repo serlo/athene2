@@ -9,7 +9,6 @@
 
 namespace Attachment\Form;
 
-
 use Zend\Form\Element\File;
 use Zend\Form\Fieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
@@ -44,7 +43,7 @@ class AttachmentFieldset extends Fieldset implements InputFilterProviderInterfac
                     [
                         'name'    => 'Zend\Validator\File\Size',
                         'options' => [
-                            'max' => '4MB'
+                            'max' => '4MB',
                         ],
                     ],
                     [
@@ -59,11 +58,11 @@ class AttachmentFieldset extends Fieldset implements InputFilterProviderInterfac
                             'tif',
                             'tiff',
                             'svg',
-                            'xml'
-                        ]
+                            'xml',
+                        ],
                     ],
-                ]
-            ]
+                ],
+            ],
         ];
     }
 }

@@ -10,21 +10,21 @@ return [
                         'route'    => 'pagespeed build',
                         'defaults' => [
                             'controller' => 'PageSpeed\Controller\PageSpeedController',
-                            'action'     => 'build'
-                        ]
-                    ]
+                            'action'     => 'build',
+                        ],
+                    ],
                 ],
-            ]
+            ],
         ],
     ],
     'di'      => [
         'allowed_controllers' => [
-            'PageSpeed\Controller\PageSpeedController'
+            'PageSpeed\Controller\PageSpeedController',
         ],
         'definition'          => [
             'class' => [
-                'PageSpeed\Controller\PageSpeedController' => []
-            ]
+                'PageSpeed\Controller\PageSpeedController' => [],
+            ],
         ],
-    ]
+    ],
 ];

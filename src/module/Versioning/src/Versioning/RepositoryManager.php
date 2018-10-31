@@ -72,7 +72,7 @@ class RepositoryManager implements RepositoryManagerInterface
                 'repository' => $repository,
                 'revision'   => $revision,
                 'actor'      => $user,
-                'reason'     => $reason
+                'reason'     => $reason,
             ]
         );
 
@@ -106,7 +106,7 @@ class RepositoryManager implements RepositoryManagerInterface
                 'repository' => $repository,
                 'revision'   => $revision,
                 'data'       => $data,
-                'author'     => $user
+                'author'     => $user,
             ]
         );
 
@@ -139,10 +139,10 @@ class RepositoryManager implements RepositoryManagerInterface
         $previousTimestamp = null;
         $previousRevision = $revision;
 
-        foreach($repository->getRevisions() as $revision){
+        foreach ($repository->getRevisions() as $revision) {
             $timestamp = $revision->getTimestamp();
-            if($timestamp < $date){
-                if($previousTimestamp === null || $previousTimestamp < $timestamp) {
+            if ($timestamp < $date) {
+                if ($previousTimestamp === null || $previousTimestamp < $timestamp) {
                     $previousTimestamp = $timestamp;
                     $previousRevision = $revision;
                 }
@@ -181,7 +181,7 @@ class RepositoryManager implements RepositoryManagerInterface
                 'repository' => $repository,
                 'revision'   => $revision,
                 'actor'      => $user,
-                'reason'     => $reason
+                'reason'     => $reason,
             ]
         );
     }

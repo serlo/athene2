@@ -55,7 +55,7 @@ class PageRevisionAdapter extends AbstractAdapter
     protected function getRouteParams()
     {
         return [
-            'revision' => $this->getObject()->getId()
+            'revision' => $this->getObject()->getId(),
         ];
     }
 

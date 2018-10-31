@@ -92,7 +92,7 @@ class AuthenticationController extends AbstractActionController
 
             $view = new ViewModel([
                 'form'     => $form,
-                'messages' => $messages
+                'messages' => $messages,
             ]);
             $view->setTemplate('authentication/activate');
 
@@ -128,7 +128,7 @@ class AuthenticationController extends AbstractActionController
         $view = new ViewModel([
             'user'     => $user,
             'form'     => $form,
-            'messages' => $messages
+            'messages' => $messages,
         ]);
 
         $view->setTemplate('authentication/change-password');
@@ -148,7 +148,6 @@ class AuthenticationController extends AbstractActionController
         $this->layout('layout/1-col');
 
         if ($this->getRequest()->isPost()) {
-
             $post = $this->params()->fromPost();
             $form->setData($post);
 
@@ -183,7 +182,7 @@ class AuthenticationController extends AbstractActionController
         $view = new ViewModel([
             'form'          => $form,
             'errorMessages' => $messages,
-            'redir'         => $this->params()->fromQuery('redir')
+            'redir'         => $this->params()->fromQuery('redir'),
         ]);
 
         $view->setTemplate('authentication/login');

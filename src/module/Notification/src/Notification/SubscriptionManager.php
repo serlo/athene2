@@ -42,7 +42,7 @@ class SubscriptionManager implements SubscriptionManagerInterface
         $className    = $this->getClassResolver()->resolveClassName('Notification\Entity\SubscriptionInterface');
         $criteria     = [
             'user'   => $user->getId(),
-            'object' => $object->getId()
+            'object' => $object->getId(),
         ];
         $subscription = $this->getObjectManager()->getRepository($className)->findOneBy($criteria);
 
@@ -55,7 +55,7 @@ class SubscriptionManager implements SubscriptionManagerInterface
         $className    = $this->getClassResolver()->resolveClassName('Notification\Entity\SubscriptionInterface');
         $criteria     = [
             'user'   => $user->getId(),
-            'object' => $object->getId()
+            'object' => $object->getId(),
         ];
         $subscription = $this->getObjectManager()->getRepository($className)->findOneBy($criteria);
         return $subscription;
@@ -66,7 +66,7 @@ class SubscriptionManager implements SubscriptionManagerInterface
         $className    = $this->getClassResolver()->resolveClassName('Notification\Entity\SubscriptionInterface');
         $criteria     = [
             'user'   => $user->getId(),
-            'object' => $object->getId()
+            'object' => $object->getId(),
         ];
         $subscription = $this->getObjectManager()->getRepository($className)->findOneBy($criteria);
         return is_object($subscription);
@@ -77,7 +77,7 @@ class SubscriptionManager implements SubscriptionManagerInterface
         $className    = $this->getClassResolver()->resolveClassName('Notification\Entity\SubscriptionInterface');
         $criteria     = [
             'user'   => $user->getId(),
-            'object' => $object->getId()
+            'object' => $object->getId(),
         ];
         $subscription = $this->getObjectManager()->getRepository($className)->findOneBy($criteria);
 

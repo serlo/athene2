@@ -32,7 +32,7 @@ class PermissionForm extends Form
         $this->add((new Select('permission'))->setLabel('Permission:')->setValueOptions($values));
 
         $values = [
-            -1 => 'Global'
+            -1 => 'Global',
         ];
         foreach ($instances as $instance) {
             $values[$instance->getId()] = $instance->getName();
@@ -47,7 +47,7 @@ class PermissionForm extends Form
         $inputFilter->add(
             [
                 'name'     => 'permission',
-                'required' => true
+                'required' => true,
             ]
         );
 

@@ -9,7 +9,6 @@
 
 namespace Attachment\Factory;
 
-
 use Attachment\Options\ModuleOptions;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
