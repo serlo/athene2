@@ -11,7 +11,8 @@
   "scripts": {
     "format": "npm-run-all format:*",
     "format:php": "php php-cs-fixer.phar fix --config=php-cs-fixer.config.php",
-    "format:prettier": "prettier --write \"*.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
+    "format:prettier": "prettier --write \"*.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\"",
+    "start": "docker-compose up"
   },
   "dependencies": {},
   "devDependencies": {
