@@ -1,7 +1,7 @@
 # Athene2
 
 
-[![Build status](https://img.shields.io/travis/com/serlo-org/athene2.svg)](https://travis-ci.com/serlo-org/athene2) [![Kanban board](https://img.shields.io/badge/Kanban-board-brightgreen.svg)](https://github.com/serlo-org/athene2/projects/1)
+[![Build status](https://img.shields.io/travis/com/serlo-org/athene2.svg)](https://travis-ci.com/serlo-org/athene2) [![Kanban board](https://img.shields.io/badge/Kanban-board-brightgreen.svg)](https://github.com/orgs/serlo-org/projects/1)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
