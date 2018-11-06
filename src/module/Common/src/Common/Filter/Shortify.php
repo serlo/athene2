@@ -18,7 +18,7 @@ class Shortify implements FilterInterface
      *
      * Please use the smallest possible bundle for a language
      */
-    public static $stopWords = [
+    private static $stopWords = [
         'en' => [
             'I', 'a', 'about', 'an',
             'are', 'as', 'at', 'be',
@@ -49,7 +49,7 @@ class Shortify implements FilterInterface
         ],
     ];
 
-    public static $regex = null;
+    private static $regex = null;
 
     /**
      * @return string

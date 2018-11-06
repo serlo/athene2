@@ -130,36 +130,36 @@ crontab -e
 # Converting phtml to twig (Careful, buggy!)
 
 1. Echo
-1. `\<\?php\s*echo (.*);\s*\?>`
-1. `{{ $1 }}`
-1. If
-1. `\<\?php\s*if\s*\((.*)\)\:\s*\?\>`
-1. `{% if $1 %}`
-1. `\<\?php\s*endif;\s*\?\>`
-1. `{% endif %}`
-1. Foreach
-1. `\<\?php\s*foreach\s*\((.*)\s*as\s*(.*)\)\:\s*\?\>`
-1. `{% for $2 in $1 %}`
-1. `\<\?php\s*endforeach;\s*\?\>`
-1. `{% endfor %}`
-1. This
-1. `\$this\-\>`
-1. ``
-1. ->
-1. `\-\>`
-1. `.`
-1. $
-1. `\$([a-zA-Z0-9]+)`
-1. `$1`
-1. array
-1. `array\(([a-zA-Z\'\=\>\(\)\-]+)\)`
-1. `{ $1 }`
-1. array =>
-1. `\=\>`
-1. `:`
-1. translate
-1. `translate\((.*)\)`
-1. `$1 | trans`
+   1. `\<\?php\s*echo (.*);\s*\?>`
+   2. `{{ $1 }}`
+2. If
+   1. `\<\?php\s*if\s*\((.*)\)\:\s*\?\>`
+   2. `{% if $1 %}`
+   3. `\<\?php\s*endif;\s*\?\>`
+   4. `{% endif %}`
+3. Foreach
+   1. `\<\?php\s*foreach\s*\((.*)\s*as\s*(.*)\)\:\s*\?\>`
+   2. `{% for $2 in $1 %}`
+   3. `\<\?php\s*endforeach;\s*\?\>`
+   4. `{% endfor %}`
+4. This
+   1. `\$this\-\>`
+   2. ``
+5. ->
+   1. `\-\>`
+   2. `.`
+6. $
+   1. `\$([a-zA-Z0-9]+)`
+   2. `$1`
+7. array
+   1. `array\(([a-zA-Z\'\=\>\(\)\-]+)\)`
+   2. `{ $1 }`
+8. array =>
+   1. `\=\>`
+   2. `:`
+9. translate
+   1. `translate\((.*)\)`
+   2. `$1 | trans`
 
 POEDIT
 
