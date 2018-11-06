@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+### Added
+
+- Add `package.json` so that we can use `yarn` as task runner
+- Add yarn script `start` that executes `docker-compose up`
+- Add yarn script `format:prettier` that executes prettier (formats Markdown, YAML, JSON, etc.)
+- Add yarn script `format:php` that executes php-cs-fixer (formats PHP according to PSR-2 with some additional rules)
+
 ## [Build 2] - 2017-10-30
 
 This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-org/athene2-assets/blob/master/CHANGELOG.md))
