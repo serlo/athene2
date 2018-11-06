@@ -3,17 +3,29 @@
 	<thead>
 		<tr>
 			<th><?php echo $this->translate('Title'); ?></th>
+            <th><?php echo $this->translate('Revision'); ?></th>
 			<th><?php echo $this->translate('Type'); ?></th>
             <th><?php echo $this->translate('Timestamp'); ?></th>
 		</tr>
 	</thead>
 	<tbody>
-        <?php foreach($this->entities as $entity): ?>
+        <?php $previousEntityId = -1; ?>
+        <?php /** @var \Entity\Entity\RevisionInterface $revision */ ?>
+        <?php foreach($this->revisions as $revision): ?>
+        <?php $normalized = $this->normalize($revision); ?>
+        <?php /** @var \Normalizer\Entity\NormalizedInterface $entity */ ?>
+        <?php $entity = $this->normalize($revision->getRepository()); ?>
         <tr>
-			<td><a href="<?php echo $this->url($entity->getRouteName(), $entity->getRouteParams()); ?>"><?php echo $entity->getTitle(); ?></a></td>
-            <td><?php echo $this->translate($entity->getType()); ?></td>
-            <td><?php echo $this->timeago()->render($entity->getMetadata()->getCreationDate()); ?></td>
+            <td style="width:30%">
+                <?php if ($entity->getId() !== $previousEntityId): ?>
+                    <?php echo $entity->getTitle(); ?>
+                <?php endif; ?>
+            </td>
+			<td><a href="<?php echo $this->url($normalized->getRouteName(), $normalized->getRouteParams()); ?>"><?php echo $normalized->getId(); ?></a></td>
+            <td><?php echo $this->translate($normalized->getType()); ?></td>
+            <td><?php echo $this->timeago()->render($normalized->getMetadata()->getCreationDate()); ?></td>
 		</tr>
+        <?php $previousEntityId = $entity->getId(); ?>
         <?php endforeach; ?>
 	</tbody>
 </table>

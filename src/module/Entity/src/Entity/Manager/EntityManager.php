@@ -91,20 +91,26 @@ class EntityManager implements EntityManagerInterface
         return $entity;
     }
 
-    public function findAllUnrevised()
+    public function findAllUnrevisedRevisions()
     {
-        $entityClassName = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
+        $entityClassName = $this->getClassResolver()->resolveClassName('Entity\Entity\RevisionInterface');
         //TODO: unhack
-        $sql = 'SELECT DISTINCT e1_.id AS id FROM entity_revision e2_ INNER JOIN `uuid` u3_ ON e2_.id = u3_.id INNER JOIN entity e1_ ON (e1_.id = e2_.repository_id) WHERE ( e1_.current_revision_id IS NULL OR e2_.id > e1_.current_revision_id ) AND u3_.trashed = 0';
+        $sql = 'SELECT r.id AS id ' .
+                'FROM entity_revision r ' .
+                'INNER JOIN `uuid` u_r ON r.id = u_r.id ' .
+                'INNER JOIN entity e ON e.id = r.repository_id ' .
+                'INNER JOIN `uuid` u_e ON e.id = u_e.id ' .
+                'WHERE ( e.current_revision_id IS NULL OR r.id > e.current_revision_id ) ' .
+                'AND u_r.trashed = 0 AND u_e.trashed = 0';
         $q = $this->objectManager->getConnection()->prepare($sql);
         $q->execute();
-        $unrevisedEntityIdsNested = $q->fetchAll();
-        $unrevisedEntityIds = [];
-        foreach ($unrevisedEntityIdsNested as $unrevisedEntityIdArray) {
-            $unrevisedEntityIds[] = $unrevisedEntityIdArray["id"];
+        $unrevisedRevisionIdsNested = $q->fetchAll();
+        $unrevisedRevisionIds = [];
+        foreach ($unrevisedRevisionIdsNested as $unrevisedRevisionIdArray) {
+            $unrevisedRevisionIds[] = $unrevisedRevisionIdArray["id"];
         }
         $results = $this->getObjectManager()->getRepository($entityClassName)->findBy([
-            'id' => $unrevisedEntityIds
+            'id' => $unrevisedRevisionIds
         ]);
         return new ArrayCollection($results);
     }

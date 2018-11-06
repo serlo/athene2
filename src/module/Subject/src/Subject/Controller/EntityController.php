@@ -24,8 +24,8 @@ class EntityController extends AbstractController
     public function unrevisedAction()
     {
         $subject  = $this->getSubject();
-        $entities = $this->getSubjectManager()->getUnrevisedRevisions($subject);
-        $view     = new ViewModel(['entities' => $entities, 'subject' => $subject]);
+        $revisions = $this->getSubjectManager()->getUnrevisedRevisions($subject);
+        $view     = new ViewModel(['revisions' => $revisions, 'subject' => $subject]);
         $view->setTemplate('subject/entity/unrevised');
         return $view;
     }
