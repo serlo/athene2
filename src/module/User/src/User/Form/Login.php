@@ -31,26 +31,26 @@ class Login extends Form
 
         $this->add(
             (new Text('email'))
-            ->setLabel('Email address:')
-            ->setAttribute('required', 'required')
-            ->setAttribute('placeholder', $translator->translate('Email address or Username'))
+                ->setLabel('Email address:')
+                ->setAttribute('required', 'required')
+                ->setAttribute('placeholder', $translator->translate('Email address or Username'))
         );
         $this->add(
             (new Password('password'))
-            ->setLabel('Password:')
-            ->setAttribute('required', 'required')
-            ->setAttribute('placeholder', $translator->translate('Password'))
+                ->setLabel('Password:')
+                ->setAttribute('required', 'required')
+                ->setAttribute('placeholder', $translator->translate('Password'))
         );
         $this->add(
             (new Checkbox('remember'))
-            ->setLabel('Remember me')
-            ->setChecked(true)
+                ->setLabel('Remember me')
+                ->setChecked(true)
         );
 
         $this->add(
             (new Submit('submit'))
-            ->setValue('Login')
-            ->setAttribute('class', 'btn btn-success pull-right')
+                ->setValue('Login')
+                ->setAttribute('class', 'btn btn-success pull-right')
         );
 
         $filter->add(
