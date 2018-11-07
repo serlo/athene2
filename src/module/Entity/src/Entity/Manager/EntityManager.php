@@ -13,12 +13,17 @@ use ClassResolver\ClassResolverAwareTrait;
 use Common\Traits\FlushableTrait;
 use Common\Traits\ObjectManagerAwareTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 use Entity\Entity\EntityInterface;
+use Entity\Entity\RevisionInterface;
 use Entity\Exception;
 use Instance\Entity\InstanceInterface;
 use Type\TypeManagerAwareTrait;
 use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\EventManager\EventManagerAwareTrait;
+use Entity\Entity\Entity;
 
 class EntityManager implements EntityManagerInterface
 {
@@ -33,11 +38,14 @@ class EntityManager implements EntityManagerInterface
 
         /* @var $entity EntityInterface */
         $entity = $this->getClassResolver()->resolve('Entity\Entity\EntityInterface');
-        $type   = $this->getTypeManager()->findTypeByName($typeName);
+        $type = $this->getTypeManager()->findTypeByName($typeName);
 
         $entity->setInstance($instance);
         $entity->setType($type);
-        $this->getEventManager()->trigger('create', $this, ['entity' => $entity, 'data' => $data]);
+        $this->getEventManager()->trigger('create', $this, [
+            'entity' => $entity,
+            'data' => $data,
+        ]);
         $this->getObjectManager()->persist($entity);
 
         return $entity;
@@ -48,7 +56,9 @@ class EntityManager implements EntityManagerInterface
         $old = $this->objectManager->getBypassIsolation();
         $this->objectManager->setBypassIsolation($bypassInstanceIsolation);
         $className = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
-        $results   = $this->getObjectManager()->getRepository($className)->findAll();
+        $results = $this->getObjectManager()
+            ->getRepository($className)
+            ->findAll();
         $this->objectManager->setBypassIsolation($old);
         return new ArrayCollection($results);
     }
@@ -58,8 +68,12 @@ class EntityManager implements EntityManagerInterface
         $old = $this->objectManager->getBypassIsolation();
         $this->objectManager->setBypassIsolation($bypassInstanceIsolation);
         $className = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
-        $type      = $this->getTypeManager()->findTypeByName($name);
-        $results   = $this->getObjectManager()->getRepository($className)->findBy(['type' => $type->getId()]);
+        $type = $this->getTypeManager()->findTypeByName($name);
+        $results = $this->getObjectManager()
+            ->getRepository($className)
+            ->findBy([
+            'type' => $type->getId(),
+        ]);
         $this->objectManager->setBypassIsolation($old);
         return new ArrayCollection($results);
     }
@@ -67,13 +81,37 @@ class EntityManager implements EntityManagerInterface
     public function getEntity($id)
     {
         $className = $this->getClassResolver()->resolveClassName('Entity\Entity\EntityInterface');
-        $entity    = $this->getObjectManager()->find($className, $id);
+        $entity = $this->getObjectManager()->find($className, $id);
 
-        if (!is_object($entity)) {
+        if (! is_object($entity)) {
             throw new Exception\EntityNotFoundException(sprintf('Entity "%d" not found.', $id));
         }
         $this->assertGranted('entity.get', $entity);
 
         return $entity;
+    }
+
+    public function findAllUnrevisedRevisions()
+    {
+        $entityClassName = $this->getClassResolver()->resolveClassName('Entity\Entity\RevisionInterface');
+        //TODO: unhack
+        $sql = 'SELECT r.id AS id ' .
+                'FROM entity_revision r ' .
+                'INNER JOIN `uuid` u_r ON r.id = u_r.id ' .
+                'INNER JOIN entity e ON e.id = r.repository_id ' .
+                'INNER JOIN `uuid` u_e ON e.id = u_e.id ' .
+                'WHERE ( e.current_revision_id IS NULL OR r.id > e.current_revision_id ) ' .
+                'AND u_r.trashed = 0 AND u_e.trashed = 0';
+        $q = $this->objectManager->getConnection()->prepare($sql);
+        $q->execute();
+        $unrevisedRevisionIdsNested = $q->fetchAll();
+        $unrevisedRevisionIds = [];
+        foreach ($unrevisedRevisionIdsNested as $unrevisedRevisionIdArray) {
+            $unrevisedRevisionIds[] = $unrevisedRevisionIdArray["id"];
+        }
+        $results = $this->getObjectManager()->getRepository($entityClassName)->findBy([
+            'id' => $unrevisedRevisionIds,
+        ]);
+        return new ArrayCollection($results);
     }
 }

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2018-10-16 13:55+0200\n"
-"PO-Revision-Date: 2018-10-16 14:12+0200\n"
+"POT-Creation-Date: 2018-11-07 15:13+0100\n"
+"PO-Revision-Date: 2018-11-07 15:16+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -203,10 +203,10 @@ msgstr "Nachricht:"
 msgid "The element could not be removed (validation failed)"
 msgstr "Das Element konnte nicht entfernt werden. (Validierung fehlgeschlagen)"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:34
-#: ../module/Blog/src/Blog/Form/CreatePostForm.php:68
-#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:49
-#: ../module/Contexter/src/Contexter/Form/ContextForm.php:37
+#: ../module/Ads/src/Ads/Form/AdForm.php:33
+#: ../module/Blog/src/Blog/Form/CreatePostForm.php:67
+#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:48
+#: ../module/Contexter/src/Contexter/Form/ContextForm.php:36
 #: ../module/Entity/src/Entity/Form/AppletForm.php:33
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:30
 #: ../module/Entity/src/Entity/Form/ModuleForm.php:30
@@ -215,21 +215,21 @@ msgstr "Das Element konnte nicht entfernt werden. (Validierung fehlgeschlagen)"
 #: ../module/License/src/License/Form/LicenseForm.php:34
 #: ../module/Page/src/Page/Form/RevisionForm.php:27
 #: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:30
-#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:31
-#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:31
+#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:30
+#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:30
 #: ../module/Ui/templates/page/revisions.twig:8
 msgid "Title:"
 msgstr "Titel:"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:35
-#: ../module/Page/src/Page/Form/RepositoryForm.php:34
-#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:32
+#: ../module/Ads/src/Ads/Form/AdForm.php:34
+#: ../module/Page/src/Page/Form/RepositoryForm.php:33
+#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:31
 msgid "Url:"
 msgstr "URL:"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:36
-#: ../module/Blog/src/Blog/Form/CreatePostForm.php:69
-#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:50
+#: ../module/Ads/src/Ads/Form/AdForm.php:35
+#: ../module/Blog/src/Blog/Form/CreatePostForm.php:68
+#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:49
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:31
 #: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:29
 #: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:29
@@ -241,25 +241,25 @@ msgstr "URL:"
 #: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:29
 #: ../module/Entity/src/Entity/Form/TextHintForm.php:29
 #: ../module/Entity/src/Entity/Form/TextSolutionForm.php:29
-#: ../module/Flag/src/Flag/Form/FlagForm.php:46
+#: ../module/Flag/src/Flag/Form/FlagForm.php:45
 #: ../module/License/src/License/Form/LicenseForm.php:35
 #: ../module/Page/src/Page/Form/RevisionForm.php:31
 msgid "Content:"
 msgstr "Inhalt:"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:45
+#: ../module/Ads/src/Ads/Form/AdForm.php:44
 msgid "frequency"
 msgstr "Frequenz"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:47
+#: ../module/Ads/src/Ads/Form/AdForm.php:46
 msgid "Banner"
 msgstr "Banner"
 
-#: ../module/Ads/src/Ads/Form/AdPageForm.php:28
+#: ../module/Ads/src/Ads/Form/AdPageForm.php:27
 msgid "Page ID:"
 msgstr "Seiten ID:"
 
-#: ../module/Attachment/src/Attachment/Form/AttachmentFieldset.php:27
+#: ../module/Attachment/src/Attachment/Form/AttachmentFieldset.php:26
 msgid "Attach file:"
 msgstr "Datei anhängen:"
 
@@ -283,13 +283,13 @@ msgstr "Wir haben dir eine Aktivierungsmail geschickt. Überprüfe gegebenenfall
 msgid "Your password has successfully been changed."
 msgstr "Dein Passwort wurde erfolgreich geändert."
 
-#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:227
+#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:226
 msgid "You have been sent an email with instructions on how to restore your password! Please check your spam folder as well."
 msgstr "Wir haben dir eine E-Mail mit Anweisungen geschickt, wie du dein Passwort zurücksetzen kannst! Überprüfe gegebenenfalls deinen Spam-Ordner."
 
 #: ../module/Authentication/src/Authentication/Form/ActivateForm.php:29
-#: ../module/User/src/User/Form/Register.php:41
-#: ../module/User/src/User/Form/SelectUserForm.php:31
+#: ../module/User/src/User/Form/Register.php:40
+#: ../module/User/src/User/Form/SelectUserForm.php:30
 #: ../module/User/src/User/Form/SettingsForm.php:31
 msgid "Email:"
 msgstr "E-Mail-Adresse:"
@@ -315,25 +315,25 @@ msgid "Instance:"
 msgstr "Instanz:"
 
 #: ../module/Authorization/src/Authorization/Form/RoleForm.php:45
-#: ../module/Term/src/Term/Form/TermFieldset.php:25
+#: ../module/Term/src/Term/Form/TermFieldset.php:24
 msgid "Name:"
 msgstr "Name:"
 
 #: ../module/Authorization/src/Authorization/Form/UserForm.php:27
-#: ../module/User/src/User/Form/Register.php:35
+#: ../module/User/src/User/Form/Register.php:34
 msgid "Username:"
 msgstr "Benutzername:"
 
-#: ../module/Blog/src/Blog/Form/CreatePostForm.php:74
-#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:55
+#: ../module/Blog/src/Blog/Form/CreatePostForm.php:73
+#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:54
 msgid "Publish date:"
 msgstr "Veröffentlicht am:"
 
-#: ../module/Contexter/src/Contexter/Form/ContextForm.php:36
+#: ../module/Contexter/src/Contexter/Form/ContextForm.php:35
 msgid "Select a type:"
 msgstr "Wähle einen Typ:"
 
-#: ../module/Contexter/src/Contexter/Form/ContextForm.php:38
+#: ../module/Contexter/src/Contexter/Form/ContextForm.php:37
 msgid "Object-ID:"
 msgstr "Objekt-ID:"
 
@@ -345,7 +345,7 @@ msgstr "Welche Parameter sollen beachtet werden?"
 msgid "<strong>"
 msgstr "<strong>"
 
-#: ../module/Contexter/src/Contexter/Form/UrlForm.php:26
+#: ../module/Contexter/src/Contexter/Form/UrlForm.php:25
 msgid "Uri:"
 msgstr "URI:"
 
@@ -373,20 +373,20 @@ msgstr "Du hast diesen Kommentar bereits aufgewertet."
 msgid "You can't upvote this comment."
 msgstr "Du kannst diesen Kommentar nicht aufwerten."
 
-#: ../module/Discussion/src/Discussion/Form/CommentForm.php:70
+#: ../module/Discussion/src/Discussion/Form/CommentForm.php:69
 msgid "Your response"
 msgstr "Deine Antwort"
 
-#: ../module/Discussion/src/Discussion/Form/CommentForm.php:75
+#: ../module/Discussion/src/Discussion/Form/CommentForm.php:74
 #: ../module/Ui/templates/discussion/helper/default/discussion.twig:118
 msgid "Reply"
 msgstr "Antwort abschicken"
 
-#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:70
+#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:69
 msgid "Ask a question or suggest an improvement"
 msgstr "Frage oder Verbesserungsvorschlag"
 
-#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:75
+#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:74
 msgid "Submit"
 msgstr "Kommentar abschicken"
 
@@ -474,7 +474,7 @@ msgstr "Deine Aktion war erfolgreich."
 msgid "The flag could not be removed (validation failed)"
 msgstr "Die Meldung konnte nicht entfernt werden. (Validierung fehlgeschlagen)"
 
-#: ../module/Flag/src/Flag/Form/FlagForm.php:39
+#: ../module/Flag/src/Flag/Form/FlagForm.php:38
 #: ../module/Navigation/src/Navigation/Form/ContainerForm.php:40
 msgid "Type:"
 msgstr "Typ:"
@@ -499,7 +499,7 @@ msgstr "Symbol-URL:"
 msgid "This is the default license for this instance."
 msgstr "Dies ist die Standard-Lizenz für diese Instanz."
 
-#: ../module/License/src/License/Form/UpdateLicenseForm.php:35
+#: ../module/License/src/License/Form/UpdateLicenseForm.php:34
 msgid "Select a license:"
 msgstr "Wähle eine Lizenz:"
 
@@ -572,19 +572,19 @@ msgstr "Dein Abonnement kann nicht aktualisiert werden, da du dieses Objekt noch
 msgid "You are no longer receiving notifications for this content."
 msgstr "Du erhältst keine Benachrichtigungen für diesen Inhalt mehr."
 
-#: ../module/Notification/src/Notification/Form/OptInFieldset.php:24
+#: ../module/Notification/src/Notification/Form/OptInFieldset.php:23
 msgid "Add to watchlist."
 msgstr "Benachrichtigungen zu diesem Inhalt bekommen."
 
-#: ../module/Notification/src/Notification/Form/OptInFieldset.php:31
+#: ../module/Notification/src/Notification/Form/OptInFieldset.php:30
 msgid "Receive notifications via email."
 msgstr "Benachrichtigungen auch per E-Mail erhalten."
 
-#: ../module/Page/src/Page/Form/RepositoryForm.php:35
+#: ../module/Page/src/Page/Form/RepositoryForm.php:34
 msgid "Discussions enabled"
 msgstr "Diskussionen aktivieren"
 
-#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:32
+#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:31
 msgid "Reference:"
 msgstr "Referenz:"
 
@@ -604,11 +604,11 @@ msgstr "Elemente wurden erfolgreich kopiert!"
 msgid "Your changes have been saved!"
 msgstr "Deine Änderungen wurden gespeichert!"
 
-#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:34
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:33
 msgid "Copy to:"
 msgstr "Kopieren nach:"
 
-#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:38
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:37
 #: ../module/Taxonomy/src/Taxonomy/Form/BatchMoveForm.php:37
 msgid "Elements"
 msgstr "Elemente"
@@ -617,7 +617,7 @@ msgstr "Elemente"
 msgid "Move to:"
 msgstr "Verschieben nach:"
 
-#: ../module/Taxonomy/src/Taxonomy/Form/TermForm.php:61
+#: ../module/Taxonomy/src/Taxonomy/Form/TermForm.php:60
 msgid "description:"
 msgstr "Beschreibung:"
 
@@ -634,12 +634,12 @@ msgid "Current password:"
 msgstr "Aktuelles Passwort eingeben:"
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:31
-#: ../module/User/src/User/Form/LostPassword.php:31
+#: ../module/User/src/User/Form/LostPassword.php:30
 msgid "New password:"
 msgstr "Neues Passwort eingeben:"
 
 #: ../module/User/src/User/Form/ChangePasswordForm.php:32
-#: ../module/User/src/User/Form/Register.php:51
+#: ../module/User/src/User/Form/Register.php:50
 msgid "Confirm password:"
 msgstr "Passwort wiederholen:"
 
@@ -651,80 +651,80 @@ msgstr "E-Mail-Adresse:"
 msgid "Email address or Username"
 msgstr "E-Mail-Adresse oder Benutzername"
 
-#: ../module/User/src/User/Form/Login.php:39
-#: ../module/User/src/User/Form/Register.php:46
+#: ../module/User/src/User/Form/Login.php:40
+#: ../module/User/src/User/Form/Register.php:45
 msgid "Password:"
 msgstr "Passwort eingeben:"
 
-#: ../module/User/src/User/Form/Login.php:41
+#: ../module/User/src/User/Form/Login.php:42
 msgid "Password"
 msgstr "Passwort"
 
-#: ../module/User/src/User/Form/Login.php:44
+#: ../module/User/src/User/Form/Login.php:46
 msgid "Remember me"
 msgstr "Eingeloggt bleiben"
 
-#: ../module/User/src/User/Form/LostPassword.php:32
+#: ../module/User/src/User/Form/LostPassword.php:31
 msgid "Repeat new password:"
 msgstr "Neues Passwort wiederholen:"
 
-#: ../module/User/src/User/Form/Register.php:37
+#: ../module/User/src/User/Form/Register.php:36
 msgid "Enter username"
 msgstr "Benutzername eingeben"
 
-#: ../module/User/src/User/Form/Register.php:43
+#: ../module/User/src/User/Form/Register.php:42
 msgid "Enter email address"
 msgstr "E-Mail-Adresse eingeben"
 
-#: ../module/User/src/User/Form/Register.php:48
+#: ../module/User/src/User/Form/Register.php:47
 msgid "Enter password"
 msgstr "Passwort eingeben"
 
-#: ../module/User/src/User/Form/Register.php:53
+#: ../module/User/src/User/Form/Register.php:52
 msgid "Confirm password"
 msgstr "Passwort wiederholen"
 
-#: ../module/User/src/User/Form/Register.php:56
+#: ../module/User/src/User/Form/Register.php:55
 msgid "First name (optional):"
 msgstr "Vorname (optional):"
 
-#: ../module/User/src/User/Form/Register.php:57
+#: ../module/User/src/User/Form/Register.php:56
 msgid "Enter first name"
 msgstr "Vorname eingeben"
 
-#: ../module/User/src/User/Form/Register.php:60
+#: ../module/User/src/User/Form/Register.php:59
 msgid "Last name (optional):"
 msgstr "Nachname (optional):"
 
-#: ../module/User/src/User/Form/Register.php:61
+#: ../module/User/src/User/Form/Register.php:60
 msgid "Enter last name"
 msgstr "Nachname eingeben"
 
-#: ../module/User/src/User/Form/Register.php:64
+#: ../module/User/src/User/Form/Register.php:63
 msgid "I agree that Serlo Education e.V. may contact me via email."
 msgstr "Ja, Serlo Education e.V. darf mich per Email kontaktieren."
 
-#: ../module/User/src/User/Form/Register.php:69
+#: ../module/User/src/User/Form/Register.php:68
 msgid "Parent"
 msgstr "Elternteil"
 
-#: ../module/User/src/User/Form/Register.php:70
+#: ../module/User/src/User/Form/Register.php:69
 msgid "Teacher"
 msgstr "LehrerIn"
 
-#: ../module/User/src/User/Form/Register.php:71
+#: ../module/User/src/User/Form/Register.php:70
 msgid "Pupil"
 msgstr "SchülerIn"
 
-#: ../module/User/src/User/Form/Register.php:72
+#: ../module/User/src/User/Form/Register.php:71
 msgid "University student"
 msgstr "StudentIn"
 
-#: ../module/User/src/User/Form/Register.php:73
+#: ../module/User/src/User/Form/Register.php:72
 msgid "Other"
 msgstr "Sonstige"
 
-#: ../module/User/src/User/Form/Register.php:76
+#: ../module/User/src/User/Form/Register.php:75
 msgid "I am here as…"
 msgstr "Ich bin hier als…"
 
@@ -752,23 +752,23 @@ msgstr "Die beiden angegebenen Passwörter stimmen nicht überein."
 msgid "About me:"
 msgstr "Über mich:"
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:38
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:39
 msgid "The content has been trashed."
 msgstr "Der Inhalt wurde in den Papierkorb verschoben."
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:40
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:41
 msgid "The content could not be trashed (validation failed)"
 msgstr "Der Inhalt konnte nicht in den Papierkorb verschoben werden. (Validierung fehlgeschlagen)"
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:50
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:51
 msgid "The content has been restored."
 msgstr "Der Inhalt wurde wiederhergestellt."
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:63
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:64
 msgid "The content has been removed."
 msgstr "Der Inhalt wurde entfernt."
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:65
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:66
 msgid "The content could not be removed (validation failed)"
 msgstr "Der Inhalt konnte nicht entfernt werden. (Validierung fehlgeschlagen)"
 
@@ -980,7 +980,7 @@ msgstr "Objekt"
 #: ../module/Ui/templates/flag/detail.phtml:17
 #: ../module/Ui/templates/flag/manage.phtml:7
 #: ../module/Ui/templates/subject/entity/trash-bin.phtml:17
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:6
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:7
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:7
 #: ../module/Ui/templates/related-content/manage.twig:10
 msgid "Type"
@@ -988,7 +988,8 @@ msgstr "Typ"
 
 #: ../module/Ui/templates/flag/detail.phtml:26
 #: ../module/Ui/templates/flag/manage.phtml:8
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:7
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:8
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:8
 #: ../module/Ui/templates/entity/repository/history.twig:15
 msgid "Timestamp"
 msgstr "Zeitstempel"
@@ -1111,7 +1112,7 @@ msgid "Url"
 msgstr "URL"
 
 #: ../module/Ui/templates/license/manage.phtml:8
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:8
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:9
 #: ../module/Ui/templates/related-content/manage.twig:13
 msgid "Actions"
 msgstr "Aktionen"
@@ -1217,6 +1218,10 @@ msgstr "Möchtest du wirklich diese Datei löschen? Die Datei und alle Verweise 
 msgid "Unrevised learning resources"
 msgstr "Nicht überprüfte Bearbeitungen"
 
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:6
+msgid "Revision"
+msgstr "Bearbeitung"
+
 #: ../module/Ui/templates/taxonomy/term/order-associated.phtml:1
 #: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:39
 #: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:22
@@ -1249,11 +1254,25 @@ msgstr "Datei hochladen"
 msgid "Uuid recycle bin"
 msgstr "Papierkorb"
 
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:1
+#: ../module/Ui/templates/blog/blog/view.twig:2
+#: ../module/Ui/templates/blog/blog/view.twig:16
+#: ../module/Ui/templates/discussion/discussions/index.twig:1
+#: ../module/Ui/templates/event/history/all.twig:1
+#: ../module/Ui/templates/event/history/user.twig:2
+#: ../module/Ui/templates/navigation/container/get.twig:14
+msgid "Page"
+msgstr "Seite"
+
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:1
+msgid " "
+msgstr ""
+
 #: ../module/Ui/templates/uuid/recycle-bin.phtml:5
 msgid "ID"
 msgstr "ID"
 
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:28
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:32
 #, php-format
 msgid "Do you really want to purge the item <strong>%s</strong>? It and all references to it will be lost forever!"
 msgstr "Möchtest du wirklich den Inhalt <strong>%s</strong> löschen? Der Inhalt und alle Verweise darauf werden unwiderruflich gelöscht!"
@@ -1322,15 +1341,6 @@ msgstr "Unveröffentlicht"
 #: ../module/Ui/templates/blog/blog/view-partial.twig:21
 msgid "unpublished"
 msgstr "Unveröffentlichte Blogeinträge"
-
-#: ../module/Ui/templates/blog/blog/view.twig:2
-#: ../module/Ui/templates/blog/blog/view.twig:16
-#: ../module/Ui/templates/discussion/discussions/index.twig:1
-#: ../module/Ui/templates/event/history/all.twig:1
-#: ../module/Ui/templates/event/history/user.twig:2
-#: ../module/Ui/templates/navigation/container/get.twig:14
-msgid "Page"
-msgstr "Seite"
 
 #: ../module/Ui/templates/common/share.twig:8
 msgid "On this site:"
@@ -1696,6 +1706,10 @@ msgstr "Zuweisung zu Themen und Lehrplänen bearbeiten"
 msgid "Move to trash"
 msgstr "In den Papierkorb verschieben"
 
+#: ../module/Ui/templates/entity/view/partials/actions/trash.twig:16
+msgid "Restore"
+msgstr "Wiederherstellen"
+
 #: ../module/Ui/templates/entity/view/partials/actions/versioning/convert.twig:8
 #: ../module/Ui/templates/page/partials/controls.twig:58
 msgid "Convert"
@@ -1823,7 +1837,7 @@ msgstr "Eine Lösung wurde erstellt, aber ihr noch kein Inhalt hinzugefügt oder
 msgid "video"
 msgstr "Video"
 
-#: ../module/Ui/templates/entity/view/video.twig:33
+#: ../module/Ui/templates/entity/view/video.twig:37
 msgid "Could not embed video - platform unknown"
 msgstr "Leider konnte das Video nicht eingebunden werden, da diese Platform nicht unterstützt wird"
 

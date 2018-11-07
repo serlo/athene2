@@ -11,6 +11,7 @@ namespace Entity\Manager;
 use Common\ObjectManager\Flushable;
 use Doctrine\Common\Collections\Collection;
 use Entity\Entity\EntityInterface;
+use Entity\Entity\RevisionInterface;
 use Instance\Entity\InstanceInterface;
 
 interface EntityManagerInterface extends Flushable
@@ -36,6 +37,13 @@ interface EntityManagerInterface extends Flushable
      * @return EntityInterface[]|Collection
      */
     public function findEntitiesByTypeName($name, $bypassInstanceIsolation = false);
+
+    /**
+     *  Finds all unrevised Entities
+     *
+     *  @return RevisionInterface[]|Collection
+     */
+    public function findAllUnrevisedRevisions();
 
     /**
      * @param int $id
