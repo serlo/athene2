@@ -9,7 +9,6 @@
 
 namespace Navigation\View\Helper;
 
-
 use Exception;
 use Zend\Cache\Storage\StorageInterface;
 

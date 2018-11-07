@@ -12,7 +12,8 @@ namespace Common\Guard;
 /**
  * Provide a guard method against numeric data
  */
-trait NumericGuardTrait {
+trait NumericGuardTrait
+{
 
     /**
      * Verify that the data is an int

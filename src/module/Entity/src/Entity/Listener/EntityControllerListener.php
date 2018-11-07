@@ -15,7 +15,6 @@ use Zend\EventManager\SharedEventManagerInterface;
 
 class EntityControllerListener extends AbstractSharedListenerAggregate
 {
-
     public function attachShared(SharedEventManagerInterface $events)
     {
         $events->attach(
@@ -23,7 +22,7 @@ class EntityControllerListener extends AbstractSharedListenerAggregate
             'create.postFlush',
             [
                 $this,
-                'onCreate'
+                'onCreate',
             ],
             -1000
         );
@@ -44,7 +43,7 @@ class EntityControllerListener extends AbstractSharedListenerAggregate
             $e->getTarget()->url()->fromRoute(
                 'entity/repository/add-revision-old',
                 [
-                    'entity' => $entity->getId()
+                    'entity' => $entity->getId(),
                 ]
             )
         );

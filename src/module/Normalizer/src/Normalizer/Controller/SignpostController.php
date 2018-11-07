@@ -77,7 +77,7 @@ class SignpostController extends AbstractActionController
             'id'                        => $object->getId(),
             'type'                      => $type,
             'url'                       => $url,
-            '__disableTemplateDebugger' => true
+            '__disableTemplateDebugger' => true,
         ]);
 
         $view->addChild($response, 'response');
@@ -90,7 +90,7 @@ class SignpostController extends AbstractActionController
     {
         $object = $this->getUuidManager()->getUuid($this->params('id'), false);
 
-        if($object instanceof EntityInterface) {
+        if ($object instanceof EntityInterface) {
             $type = 'entity';
         } elseif ($object instanceof Container) {
             $type = 'attachment';
@@ -104,7 +104,7 @@ class SignpostController extends AbstractActionController
 
         return new JsonModel([
             'id' => $object->getId(),
-            'type' => $type
+            'type' => $type,
         ]);
     }
 

@@ -88,7 +88,7 @@ class RoleController extends AbstractActionController
             $this->referer()->store();
         }
 
-        $view = new ViewModel(['form' => $form,]);
+        $view = new ViewModel(['form' => $form]);
 
         $view->setTemplate('authorization/role/permission/add');
 
@@ -127,7 +127,7 @@ class RoleController extends AbstractActionController
         $view = new ViewModel([
             'error' => $error,
             'form'  => $form,
-            'user'  => $user
+            'user'  => $user,
         ]);
 
         $view->setTemplate('authorization/role/user/add');
@@ -166,7 +166,7 @@ class RoleController extends AbstractActionController
 
         $form = new CsrfForm('remove-permission');
 
-       if ($this->getRequest()->isPost()) {
+        if ($this->getRequest()->isPost()) {
             $form->setData($this->getRequest()->getPost());
 
             if ($form->isValid()) {
@@ -175,7 +175,7 @@ class RoleController extends AbstractActionController
             } else {
                 $this->flashMessenger()->addErrorMessage('The permission could not be removed (validation failed)');
             }
-       }
+        }
 
         $this->redirect()->toUrl($this->referer()->toUrl());
         return null;
@@ -215,7 +215,7 @@ class RoleController extends AbstractActionController
         $view = new ViewModel([
             'error' => $error,
             'form'  => $form,
-            'user'  => $user
+            'user'  => $user,
         ]);
 
         $view->setTemplate('authorization/role/user/remove');
@@ -227,7 +227,8 @@ class RoleController extends AbstractActionController
     {
         $roles = $this->getRoleService()->findAllRoles();
 
-        if (!($this->isGranted('authorization.role.create') ||
+        if (!(
+            $this->isGranted('authorization.role.create') ||
               $this->isGranted('authorization.role.grant.permission') ||
               $this->isGranted('authorization.role.revoke.permission')
         )) {
@@ -258,7 +259,8 @@ class RoleController extends AbstractActionController
         $role = $this->params('role');
         $role = $this->getRoleService()->getRole($role);
 
-        if (!($this->isGranted('authorization.role.revoke.permission') ||
+        if (!(
+            $this->isGranted('authorization.role.revoke.permission') ||
               $this->isGranted('authorization.role.grant.permission') ||
               $this->isGranted('authorization.identity.revoke.role', $role) ||
               $this->isGranted('authorization.identity.grant.role', $role)
@@ -270,7 +272,7 @@ class RoleController extends AbstractActionController
             'role'  => $role,
             'removePermissionForm' => new CsrfForm('remove-permission'),
             'users' => $role->getUsers(),
-            'removeUserForm' => new CsrfForm('remove-user')
+            'removeUserForm' => new CsrfForm('remove-user'),
         ]);
 
         return $view;

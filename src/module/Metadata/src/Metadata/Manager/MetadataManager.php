@@ -86,7 +86,7 @@ class MetadataManager implements MetadataManagerInterface
         $className = $this->getClassResolver()->resolveClassName('Metadata\Entity\MetadataInterface');
         $criteria  = [
             'object' => $object->getId(),
-            'key'    => $key->getId()
+            'key'    => $key->getId(),
         ];
         return $this->getObjectManager()->getRepository($className)->findBy($criteria);
     }
@@ -111,7 +111,7 @@ class MetadataManager implements MetadataManagerInterface
         $criteria  = [
             'object' => $object->getId(),
             'key'    => $key->getId(),
-            'value'  => $value
+            'value'  => $value,
         ];
         $entity    = $this->getObjectManager()->getRepository($className)->findOneBy($criteria);
 

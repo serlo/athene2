@@ -36,7 +36,7 @@ class InstanceHelper extends AbstractHelper
     {
         $data = [
             'instances' => $this->instanceManager->findAllInstances(),
-            'current'   => $this->instanceManager->getInstanceFromRequest()
+            'current'   => $this->instanceManager->getInstanceFromRequest(),
         ];
 
         return $this->getView()->partial('instance/helper/select', $data);

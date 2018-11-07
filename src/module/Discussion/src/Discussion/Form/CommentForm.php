@@ -18,8 +18,7 @@ use Zend\InputFilter\InputFilter;
 
 class CommentForm extends AbstractForm
 {
-
-    function __construct(ObjectManager $objectManager)
+    public function __construct(ObjectManager $objectManager)
     {
         parent::__construct('comment');
         $this->add(new CsrfToken('csrf'));
@@ -37,8 +36,8 @@ class CommentForm extends AbstractForm
                 'name'    => 'author',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'User\Entity\User'
-                ]
+                    'target_class'   => 'User\Entity\User',
+                ],
             ]
         );
         $this->add(
@@ -47,8 +46,8 @@ class CommentForm extends AbstractForm
                 'name'    => 'parent',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'Discussion\Entity\Comment'
-                ]
+                    'target_class'   => 'Discussion\Entity\Comment',
+                ],
             ]
         );
         $this->add(
@@ -57,8 +56,8 @@ class CommentForm extends AbstractForm
                 'name'    => 'instance',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'Instance\Entity\Instance'
-                ]
+                    'target_class'   => 'Instance\Entity\Instance',
+                ],
             ]
         );
 

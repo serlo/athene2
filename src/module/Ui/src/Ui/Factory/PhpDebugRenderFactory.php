@@ -13,7 +13,8 @@ use Ui\Renderer\PhpDebugRenderer;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class PhpDebugRenderFactory implements FactoryInterface {
+class PhpDebugRenderFactory implements FactoryInterface
+{
     /**
      * Create service
      *

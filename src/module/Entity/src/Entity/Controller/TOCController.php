@@ -35,7 +35,7 @@ class TOCController extends AbstractController
         }
 
         $view = new ViewModel([
-            'entity' => $entity
+            'entity' => $entity,
         ]);
 
         $view->setTemplate('entity/view/toc/default');

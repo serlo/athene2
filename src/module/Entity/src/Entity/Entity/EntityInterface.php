@@ -18,8 +18,7 @@ use Type\Entity\TypeAwareInterface;
 use Uuid\Entity\UuidInterface;
 use Versioning\Entity\RepositoryInterface;
 
-interface EntityInterface
-    extends UuidInterface, InstanceAwareInterface, RepositoryInterface, LinkableInterface, LicenseAwareInterface,
+interface EntityInterface extends UuidInterface, InstanceAwareInterface, RepositoryInterface, LinkableInterface, LicenseAwareInterface,
             TaxonomyTermAwareInterface, TypeAwareInterface
 {
 

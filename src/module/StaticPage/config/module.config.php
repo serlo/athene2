@@ -10,13 +10,13 @@ namespace StaticPage;
 return [
     'di' => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\StaticPageController'
+            __NAMESPACE__ . '\Controller\StaticPageController',
         ],
         'definition' => [
             'class' => [
-                __NAMESPACE__ . '\Controller\StaticPageController' => []
-            ]
-        ]
+                __NAMESPACE__ . '\Controller\StaticPageController' => [],
+            ],
+        ],
     ],
     'router' => [
         'routes' => [
@@ -27,11 +27,11 @@ return [
                     'constraints' => [
                         'subdomain' => 'de',
                         'domain' => '.*?',
-                        'tld' => '.*?'
+                        'tld' => '.*?',
                     ],
                     'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\StaticPageController'
-                    ]
+                        'controller' => __NAMESPACE__ . '\Controller\StaticPageController',
+                    ],
                 ],
                 'child_routes' => [
                     'spenden' => [
@@ -39,13 +39,13 @@ return [
                         'options' => [
                             'route' => '/spenden',
                             'defaults' => [
-                                'action' => 'spenden'
-                            ]
+                                'action' => 'spenden',
+                            ],
                         ],
-                        'may_terminate' => true
-                    ]
-                ]
+                        'may_terminate' => true,
+                    ],
+                ],
             ],
-        ]
-    ]
+        ],
+    ],
 ];

@@ -13,7 +13,7 @@ return [
     'zfc_rbac'           => [
         'assertion_map' => [
             'instance.get' => 'Authorization\Assertion\InstanceAssertion',
-        ]
+        ],
     ],
     'doctrine_factories' => [
         'entitymanager' => __NAMESPACE__ . '\Factory\InstanceAwareEntityManagerFactory',
@@ -25,8 +25,8 @@ return [
                 'options'      => [
                     'route'    => '/instance',
                     'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\InstanceController'
-                    ]
+                        'controller' => __NAMESPACE__ . '\Controller\InstanceController',
+                    ],
                 ],
                 'child_routes' => [
                     'switch' => [
@@ -34,13 +34,13 @@ return [
                         'options' => [
                             'route'    => '/switch/:instance',
                             'defaults' => [
-                                'action' => 'switch'
-                            ]
-                        ]
+                                'action' => 'switch',
+                            ],
+                        ],
                     ],
-                ]
-            ]
-        ]
+                ],
+            ],
+        ],
     ],
     'doctrine'           => [
         'driver' => [
@@ -48,46 +48,46 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
     ],
     'view_helpers'       => [
         'factories' => [
             'instance' => __NAMESPACE__ . '\Factory\InstanceHelperFactory',
-            'currentLanguage' => __NAMESPACE__ . '\Factory\LanguageHelperFactory'
-        ]
+            'currentLanguage' => __NAMESPACE__ . '\Factory\LanguageHelperFactory',
+        ],
     ],
     'controllers'        => [
         'factories' => [
-            __NAMESPACE__ . '\Controller\InstanceController' => __NAMESPACE__ . '\Factory\InstanceControllerFactory'
-        ]
+            __NAMESPACE__ . '\Controller\InstanceController' => __NAMESPACE__ . '\Factory\InstanceControllerFactory',
+        ],
     ],
     'service_manager'    => [
         'invokables' => [
-            __NAMESPACE__ . '\Strategy\StrategyPluginManager'
+            __NAMESPACE__ . '\Strategy\StrategyPluginManager',
         ],
         'factories'  => [
             __NAMESPACE__ . '\Manager\InstanceManager'            => __NAMESPACE__ . '\Factory\InstanceManagerFactory',
             __NAMESPACE__ . '\Options\InstanceOptions'            => __NAMESPACE__ . '\Factory\InstanceOptionsFactory',
             __NAMESPACE__ . '\Listener\IsolationBypassedListener' => __NAMESPACE__ . '\Factory\IsolationBypassedListenerFactory',
-            'Zend\I18n\Translator\TranslatorInterface'            => 'Zend\I18n\Translator\TranslatorServiceFactory'
-        ]
+            'Zend\I18n\Translator\TranslatorInterface'            => 'Zend\I18n\Translator\TranslatorServiceFactory',
+        ],
     ],
     'di'                 => [
         'instance' => [
             'preferences' => [
-                __NAMESPACE__ . '\Manager\InstanceManagerInterface' => __NAMESPACE__ . '\Manager\InstanceManager'
+                __NAMESPACE__ . '\Manager\InstanceManagerInterface' => __NAMESPACE__ . '\Manager\InstanceManager',
             ],
-        ]
+        ],
     ],
     'class_resolver'     => [
         __NAMESPACE__ . '\Entity\InstanceInterface' => __NAMESPACE__ . '\Entity\Instance',
-    ]
+    ],
 ];

@@ -10,7 +10,6 @@
 
 namespace Navigation\Controller;
 
-
 use Alias\AliasManagerInterface;
 use Alias\Exception\AliasNotFoundException;
 use Taxonomy\Controller\AbstractController;
@@ -82,7 +81,7 @@ class RenderController extends AbstractController
             'current'                   => $current,
             'depth'                     => $depth,
             'branch'                    => $branch,
-            '__disableTemplateDebugger' => true
+            '__disableTemplateDebugger' => true,
         ]);
 
         $view->setTemplate($template);

@@ -21,7 +21,6 @@ use Zend\Form\Form;
 
 class AdForm extends Form implements AttachmentFieldsetProvider
 {
-
     public function __construct()
     {
         parent::__construct('createAd');
@@ -40,7 +39,7 @@ class AdForm extends Form implements AttachmentFieldsetProvider
                     '0' => 'Never',
                     '1' => 'Less',
                     '2' => 'Normal',
-                    '3' => 'More'
+                    '3' => 'More',
                 ]
             )->setAttribute('required', 'required')->setLabel('frequency')
         );

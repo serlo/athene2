@@ -24,13 +24,13 @@ return [
                             'reasoning',
                             'changes',
                             'meta_title',
-                            'meta_description'
-                        ]
+                            'meta_description',
+                        ],
                     ],
                     'license' => [],
                     'taxonomy' => [],
                     'related_content' => [],
-                    'search' => []
+                    'search' => [],
                 ],
             ],
             'math-puzzle' => [
@@ -42,22 +42,22 @@ return [
                         'fields' => [
                             'content',
                             'source',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'text-solution' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'text-hint' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
-                    'taxonomy' => []
-                ]
+                    'taxonomy' => [],
+                ],
 
             ],
             'text-exercise' => [
@@ -68,43 +68,43 @@ return [
                         'form' => __NAMESPACE__ . '\Form\TextExerciseForm',
                         'fields' => [
                             'content',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'text-solution' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'text-hint' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'single-choice-right-answer' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'single-choice-wrong-answer' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'multiple-choice-wrong-answer' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'multiple-choice-right-answer' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
-                    'taxonomy' => []
-                ]
+                    'taxonomy' => [],
+                ],
             ],
             'text-exercise-group' => [
                 'title' => 'id',
@@ -114,19 +114,19 @@ return [
                         'form' => __NAMESPACE__ . '\Form\TextExerciseGroupForm',
                         'fields' => [
                             'content',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'grouped-text-exercise' => [
-                                'multiple' => true
-                            ]
-                        ]
+                                'multiple' => true,
+                            ],
+                        ],
                     ],
                     'license' => [],
-                    'taxonomy' => []
-                ]
+                    'taxonomy' => [],
+                ],
             ],
             'grouped-text-exercise' => [
                 'title' => 'id',
@@ -136,50 +136,50 @@ return [
                         'form' => __NAMESPACE__ . '\Form\GroupedTextExerciseForm',
                         'fields' => [
                             'content',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'text-solution' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'text-hint' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'single-choice-wrong-answer' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'single-choice-right-answer' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'multiple-choice-wrong-answer' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'multiple-choice-right-answer' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => false
-                            ]
+                                'multiple' => false,
+                            ],
                         ],
                         'parents' => [
                             'text-exercise-group' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'multiple-choice-wrong-answer' => [
                 'title' => 'id',
@@ -190,24 +190,24 @@ return [
                         'fields' => [
                             'content',
                             'changes',
-                            'feedback'
-                        ]
+                            'feedback',
+                        ],
                     ],
                     'link' => [
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'multiple-choice-right-answer' => [
                 'title' => 'id',
@@ -217,24 +217,24 @@ return [
                         'form' => __NAMESPACE__ . '\Form\MultipleChoiceRightAnswerForm',
                         'fields' => [
                             'content',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'single-choice-wrong-answer' => [
                 'title' => 'id',
@@ -245,24 +245,24 @@ return [
                         'fields' => [
                             'content',
                             'changes',
-                            'feedback'
-                        ]
+                            'feedback',
+                        ],
                     ],
                     'link' => [
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'single-choice-right-answer' => [
                 'title' => 'id',
@@ -273,24 +273,24 @@ return [
                         'fields' => [
                             'content',
                             'changes',
-                            'feedback'
-                        ]
+                            'feedback',
+                        ],
                     ],
                     'link' => [
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'input-string-normalized-match-challenge' => [
                 'title' => 'id',
@@ -302,43 +302,43 @@ return [
                             'solution',
                             'feedback',
                             'changes',
-                        ]
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => true
-                            ]
+                                'multiple' => true,
+                            ],
                         ],
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'input-number-exact-match-challenge' => [
                 'title' => 'id',
@@ -350,43 +350,43 @@ return [
                             'solution',
                             'feedback',
                             'changes',
-                        ]
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => true
-                            ]
+                                'multiple' => true,
+                            ],
                         ],
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'input-expression-equal-match-challenge' => [
                 'title' => 'id',
@@ -398,43 +398,43 @@ return [
                             'solution',
                             'feedback',
                             'changes',
-                        ]
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => true
+                                'multiple' => true,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => true
-                            ]
+                                'multiple' => true,
+                            ],
                         ],
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-string-normalized-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-number-exact-match-challenge' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'input-expression-equal-match-challenge' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'text-solution' => [
                 'title' => 'id',
@@ -444,24 +444,24 @@ return [
                         'form' => __NAMESPACE__ . '\Form\TextSolutionForm',
                         'fields' => [
                             'content',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'video' => [
                 'content' => 'description',
@@ -473,13 +473,13 @@ return [
                             'description',
                             'content',
                             'reasoning',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'license' => [],
                     'taxonomy' => [],
                     'related_content' => [],
-                    'search' => []
+                    'search' => [],
                 ],
             ],
             'text-hint' => [
@@ -489,24 +489,24 @@ return [
                     'repository' => [
                         'form' => __NAMESPACE__ . '\Form\TextHintForm',
                         'fields' => [
-                            'content'
-                        ]
+                            'content',
+                        ],
                     ],
                     'link' => [
                         'parents' => [
                             'text-exercise' => [
-                                'multiple' => false
+                                'multiple' => false,
                             ],
                             'grouped-text-exercise' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'redirect' => [
-                        'toType' => 'parent'
-                    ]
-                ]
+                        'toType' => 'parent',
+                    ],
+                ],
             ],
             'article' => [
                 'description' => 'content',
@@ -519,14 +519,14 @@ return [
                             'reasoning',
                             'changes',
                             'meta_title',
-                            'meta_description'
-                        ]
+                            'meta_description',
+                        ],
                     ],
                     'license' => [],
                     'taxonomy' => [],
                     'related_content' => [],
-                    'search' => []
-                ]
+                    'search' => [],
+                ],
             ],
             'course' => [
                 'content' => 'description',
@@ -537,15 +537,15 @@ return [
                             'title',
                             'description',
                             'reasoning',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'children' => [
                             'course-page' => [
-                                'multiple' => true
-                            ]
-                        ]
+                                'multiple' => true,
+                            ],
+                        ],
                     ],
                     'license' => [],
                     'taxonomy' => [],
@@ -553,9 +553,9 @@ return [
                     'related_content' => [],
                     'search' => [],
                     'redirect' => [
-                        'toType' => 'course-page'
-                    ]
-                ]
+                        'toType' => 'course-page',
+                    ],
+                ],
             ],
             'course-page' => [
                 'description' => 'content',
@@ -566,19 +566,19 @@ return [
                             'title',
                             'icon',
                             'content',
-                            'changes'
-                        ]
+                            'changes',
+                        ],
                     ],
                     'link' => [
                         'parents' => [
                             'course' => [
-                                'multiple' => false
-                            ]
-                        ]
+                                'multiple' => false,
+                            ],
+                        ],
                     ],
-                    'license' => []
-                ]
-            ]
-        ]
-    ]
+                    'license' => [],
+                ],
+            ],
+        ],
+    ],
 ];

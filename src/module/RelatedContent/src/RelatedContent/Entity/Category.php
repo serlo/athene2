@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -29,12 +29,12 @@ class Category extends AbstractType implements CategoryInterface
      * @ORM\Column(type="string")
      */
     protected $name;
-    
+
     public function getTitle()
     {
         return $this->name;
     }
-    
+
     public function setTitle($title)
     {
         $this->name = $title;

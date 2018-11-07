@@ -20,8 +20,7 @@ use Zend\InputFilter\InputFilter;
 
 class UpdatePostForm extends Form
 {
-
-    function __construct(ObjectManager $objectManager)
+    public function __construct(ObjectManager $objectManager)
     {
         parent::__construct('post');
         $this->add(new CsrfToken('csrf'));
@@ -41,8 +40,8 @@ class UpdatePostForm extends Form
                 'name'    => 'author',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'User\Entity\User'
-                ]
+                    'target_class'   => 'User\Entity\User',
+                ],
             ]
         );
 
@@ -62,31 +61,31 @@ class UpdatePostForm extends Form
                 'required'   => true,
                 'filters'    => [
                     [
-                        'name' => 'StripTags'
-                    ]
+                        'name' => 'StripTags',
+                    ],
                 ],
                 'validators' => [
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß/&\.\,\!\?]+$~'
-                        ]
-                    ]
-                ]
+                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß/&\.\,\!\?]+$~',
+                        ],
+                    ],
+                ],
             ]
         );
 
         $inputFilter->add(
             [
                 'name'     => 'author',
-                'required' => true
+                'required' => true,
             ]
         );
 
         $inputFilter->add(
             [
                 'name'     => 'content',
-                'required' => true
+                'required' => true,
             ]
         );
     }

@@ -21,7 +21,7 @@ class Module
      * @var array
      */
     public static $listeners = [
-        'Instance\Listener\IsolationBypassedListener'
+        'Instance\Listener\IsolationBypassedListener',
     ];
 
     public function getAutoloaderConfig()
@@ -30,17 +30,16 @@ class Module
 
         $autoloader['Zend\Loader\StandardAutoloader'] = [
             'namespaces' => [
-                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__
-            ]
+                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+            ],
         ];
 
         if (file_exists(__DIR__ . '/autoload_classmap.php')) {
             return [
                 'Zend\Loader\ClassMapAutoloader' => [
                     __DIR__ . '/autoload_classmap.php',
-                ]
+                ],
             ];
-
         }
 
         return $autoloader;
@@ -84,13 +83,13 @@ class Module
         putenv('LC_ALL=' . $locale);
         putenv('LC_MESSAGES=' . $locale);
 
-        if(function_exists('bindtextdomain')){
+        if (function_exists('bindtextdomain')) {
             bindtextdomain('athene2', __DIR__ . '/../../lang');
         }
-        if(function_exists('bind_textdomain_codeset')){
+        if (function_exists('bind_textdomain_codeset')) {
             bind_textdomain_codeset('athene2', 'UTF-8');
         }
-        if(function_exists('textdomain')){
+        if (function_exists('textdomain')) {
             textdomain('athene2');
         }
 

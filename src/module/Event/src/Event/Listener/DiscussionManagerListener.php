@@ -16,7 +16,6 @@ use Zend\EventManager\SharedEventManagerInterface;
  */
 class DiscussionManagerListener extends AbstractListener
 {
-
     public function attachShared(SharedEventManagerInterface $events)
     {
         $class = $this->getMonitoredClass();
@@ -58,8 +57,8 @@ class DiscussionManagerListener extends AbstractListener
         $params     = [
             [
                 'name'  => 'discussion',
-                'value' => $discussion
-            ]
+                'value' => $discussion,
+            ],
         ];
         $this->logEvent('discussion/comment/create', $instance, $comment, $params);
     }
@@ -90,8 +89,8 @@ class DiscussionManagerListener extends AbstractListener
         $params     = [
             [
                 'name'  => 'on',
-                'value' => $e->getParam('on')
-            ]
+                'value' => $e->getParam('on'),
+            ],
         ];
 
         $this->logEvent('discussion/create', $instance, $discussion, $params);

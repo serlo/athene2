@@ -47,7 +47,7 @@ class TaxonomyController extends AbstractController
                         $this,
                         [
                             'entity' => $entity,
-                            'term'   => $term
+                            'term'   => $term,
                         ]
                     );
                 }
@@ -65,7 +65,7 @@ class TaxonomyController extends AbstractController
 
         $view = new ViewModel([
             'terms'  => $taxonomy->getChildren(),
-            'entity' => $entity
+            'entity' => $entity,
         ]);
         $view->setTemplate('entity/taxonomy/update');
 

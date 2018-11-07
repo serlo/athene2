@@ -9,7 +9,6 @@
 
 namespace Alias\Factory;
 
-
 use Alias\View\Helper\Url;
 use Zend\Console\Console;
 use Zend\ServiceManager\FactoryInterface;

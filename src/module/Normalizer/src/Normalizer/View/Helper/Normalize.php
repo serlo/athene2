@@ -64,7 +64,6 @@ class Normalize extends AbstractHelper
         $headTitle($title);
 
         return $this;
-
     }
 
     public function possible($object)

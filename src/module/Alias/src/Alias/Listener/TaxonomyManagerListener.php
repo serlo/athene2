@@ -70,7 +70,7 @@ class TaxonomyManagerListener extends AbstractListener
 
     protected function process(TaxonomyTermInterface $term)
     {
-        if(!$term->hasParent()){
+        if (!$term->hasParent()) {
             return;
         }
 

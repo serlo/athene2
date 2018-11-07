@@ -21,7 +21,7 @@ class EntityOptions extends AbstractOptions
         'Entity\Options\LinkOptions',
         'Entity\Options\RelatedContentOptions',
         'Entity\Options\SearchOptions',
-        'Entity\Options\RedirectOptions'
+        'Entity\Options\RedirectOptions',
     ];
     /**
      * @var string

@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -13,7 +13,6 @@ use RelatedContent\Entity\TypeInterface;
 
 abstract class AbstractResult implements ResultInterface
 {
-
     protected $object;
 
     public function getObject()

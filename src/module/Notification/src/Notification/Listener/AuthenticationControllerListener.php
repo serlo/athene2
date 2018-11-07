@@ -28,7 +28,7 @@ class AuthenticationControllerListener extends AbstractListener
             'activated',
             [
                 $this,
-                'onActivated'
+                'onActivated',
             ]
         );
     }

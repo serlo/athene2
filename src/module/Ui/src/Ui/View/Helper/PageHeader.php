@@ -112,7 +112,7 @@ class PageHeader extends AbstractHelper
                 'subtext'  => $this->subtext,
                 'backLink' => $this->backLink,
                 'append'   => $this->append,
-                'prepend'  => $this->prepend
+                'prepend'  => $this->prepend,
             ]
         );
     }

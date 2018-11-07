@@ -20,8 +20,7 @@ use Zend\InputFilter\InputFilter;
 
 class CreatePostForm extends Form
 {
-
-    function __construct(ObjectManager $objectManager, HydratorPluginAwareDoctrineObject $hydrator)
+    public function __construct(ObjectManager $objectManager, HydratorPluginAwareDoctrineObject $hydrator)
     {
         parent::__construct('post');
         $this->add(new CsrfToken('csrf'));
@@ -40,8 +39,8 @@ class CreatePostForm extends Form
                 'name'    => 'blog',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'Taxonomy\Entity\TaxonomyTerm'
-                ]
+                    'target_class'   => 'Taxonomy\Entity\TaxonomyTerm',
+                ],
             ]
         );
         $this->add(
@@ -50,8 +49,8 @@ class CreatePostForm extends Form
                 'name'    => 'instance',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'Instance\Entity\Instance'
-                ]
+                    'target_class'   => 'Instance\Entity\Instance',
+                ],
             ]
         );
         $this->add(
@@ -60,8 +59,8 @@ class CreatePostForm extends Form
                 'name'    => 'author',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'User\Entity\User'
-                ]
+                    'target_class'   => 'User\Entity\User',
+                ],
             ]
         );
 
@@ -81,45 +80,45 @@ class CreatePostForm extends Form
                 'required'   => true,
                 'filters'    => [
                     [
-                        'name' => 'StripTags'
-                    ]
+                        'name' => 'StripTags',
+                    ],
                 ],
                 'validators' => [
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß/&\.\,\!\?]+$~'
-                        ]
-                    ]
-                ]
+                            'pattern' => '~^[a-zA-Z\-_ 0-9äöüÄÖÜß/&\.\,\!\?]+$~',
+                        ],
+                    ],
+                ],
             ]
         );
 
         $inputFilter->add(
             [
                 'name'     => 'author',
-                'required' => true
+                'required' => true,
             ]
         );
 
         $inputFilter->add(
             [
                 'name'     => 'blog',
-                'required' => true
+                'required' => true,
             ]
         );
 
         $inputFilter->add(
             [
                 'name'     => 'instance',
-                'required' => true
+                'required' => true,
             ]
         );
 
         $inputFilter->add(
             [
                 'name'     => 'content',
-                'required' => true
+                'required' => true,
             ]
         );
     }

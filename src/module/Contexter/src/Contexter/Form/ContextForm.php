@@ -17,7 +17,6 @@ use Zend\InputFilter\InputFilter;
 
 class ContextForm extends Form
 {
-
     public function __construct(array $parameters, array $types)
     {
         parent::__construct('context');
@@ -32,7 +31,7 @@ class ContextForm extends Form
             $values[$type] = $type;
         }
 
-        $this->add(['name' => 'route', 'type' => 'Hidden',]);
+        $this->add(['name' => 'route', 'type' => 'Hidden']);
         $this->add((new Select('type'))->setLabel('Select a type:')->setValueOptions($values));
         $this->add((new Text('title'))->setLabel('Title:'));
         $this->add((new Text('object'))->setLabel('Object-ID:'));
@@ -47,17 +46,17 @@ class ContextForm extends Form
                 'required'   => true,
                 'filters'    => [
                     [
-                        'name' => 'StripTags'
-                    ]
+                        'name' => 'StripTags',
+                    ],
                 ],
                 'validators' => [
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^[a-zA-Z\- 0-9üöäÜÖÄ!]+$~'
-                        ]
-                    ]
-                ]
+                            'pattern' => '~^[a-zA-Z\- 0-9üöäÜÖÄ!]+$~',
+                        ],
+                    ],
+                ],
 
             ]
         );
@@ -69,12 +68,12 @@ class ContextForm extends Form
                 'allow_empty' => false,
                 'validators'  => [
                     [
-                        'name' => 'NotEmpty'
+                        'name' => 'NotEmpty',
                     ],
                     [
-                        'name' => 'Digits'
-                    ]
-                ]
+                        'name' => 'Digits',
+                    ],
+                ],
             ]
         );
 
@@ -86,10 +85,10 @@ class ContextForm extends Form
                     [
                         'name'    => 'Regex',
                         'options' => [
-                            'pattern' => '~^[a-zA-Z]*$~'
-                        ]
-                    ]
-                ]
+                            'pattern' => '~^[a-zA-Z]*$~',
+                        ],
+                    ],
+                ],
             ]
         );
     }

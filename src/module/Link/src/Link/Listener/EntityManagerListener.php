@@ -37,9 +37,7 @@ class EntityManagerListener extends AbstractSharedListenerAggregate
             )->getComponent($type);
 
             $this->getLinkService()->associate($parent, $child, $linkOptions);
-
         } elseif (isset($options['parent'])) {
-
             $parent      = $entity;
             $child       = $this->getEntityManager()->getEntity($options['child']);
             $linkOptions = $this->getModuleOptions()->getType(
@@ -60,7 +58,7 @@ class EntityManagerListener extends AbstractSharedListenerAggregate
             'create',
             [
                 $this,
-                'onCreate'
+                'onCreate',
             ],
             2
         );

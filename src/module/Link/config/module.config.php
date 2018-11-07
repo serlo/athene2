@@ -13,33 +13,33 @@ return [
             'class' => [
                 __NAMESPACE__ . '\Listener\EntityManagerListener' => [
                     'setLinkService'   => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setEntityManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setModuleOptions' => [
-                        'required' => true
+                        'required' => true,
                     ],
                 ],
                 __NAMESPACE__ . '\Service\LinkService'            => [
                     'setObjectManager'        => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setTypeManager'          => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setAuthorizationService' => [
-                        'required' => true
+                        'required' => true,
                     ],
-                ]
-            ]
+                ],
+            ],
         ],
         'instance'   => [
             'preferences' => [
-                'Link\Service\LinkServiceInterface' => 'Link\Service\LinkService'
-            ]
-        ]
+                'Link\Service\LinkServiceInterface' => 'Link\Service\LinkService',
+            ],
+        ],
     ],
     'doctrine' => [
         'driver' => [
@@ -47,14 +47,14 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
-    ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+    ],
 ];

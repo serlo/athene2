@@ -45,7 +45,7 @@ class AgreementFieldset extends Fieldset implements InputFilterProviderInterface
             [
                 'name'     => 'agreement',
                 'required' => true,
-            ]
+            ],
         ];
     }
 }

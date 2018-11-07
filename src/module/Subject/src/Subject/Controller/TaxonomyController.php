@@ -31,7 +31,7 @@ class TaxonomyController extends AbstractController
         $types    = [];
         $subject = $term->findAncestorByTypeName('subject');
 
-        if(!is_object($subject)){
+        if (!is_object($subject)) {
             $this->getResponse()->setStatusCode(404);
             return false;
         }
@@ -52,7 +52,7 @@ class TaxonomyController extends AbstractController
             'terms'   => $term ? $term->getChildren() : $subject->getChildren(),
             'subject' => $subject,
             'links'   => $entities,
-            'types'   => $types
+            'types'   => $types,
         ]);
 
         $view->setTemplate('subject/taxonomy/page/default');

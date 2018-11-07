@@ -22,58 +22,58 @@ return [
             'discussion.comment.restore' => 'Authorization\Assertion\InstanceAssertion',
             'discussion.comment.purge'   => 'Authorization\Assertion\InstanceAssertion',
             'discussion.comment.create'  => 'Authorization\Assertion\InstanceAssertion',
-        ]
+        ],
     ],
     'uuid'            => [
         'permissions' => [
             'Discussion\Entity\Comment' => [
                 'trash'   => 'discussion.comment.trash',
                 'restore' => 'discussion.comment.restore',
-                'purge'   => 'discussion.comment.purge'
+                'purge'   => 'discussion.comment.purge',
             ],
-        ]
+        ],
     ],
     'view_helpers'    => [
         'factories' => [
-            'discussion' => __NAMESPACE__ . '\Factory\DiscussionHelperFactory'
-        ]
+            'discussion' => __NAMESPACE__ . '\Factory\DiscussionHelperFactory',
+        ],
     ],
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\DiscussionManager' => __NAMESPACE__ . '\Factory\DiscussionManagerFactory'
-        ]
+            __NAMESPACE__ . '\DiscussionManager' => __NAMESPACE__ . '\Factory\DiscussionManagerFactory',
+        ],
     ],
     'taxonomy'        => [
         'types' => [
             'forum-category' => [
                 'allowed_parents' => [
                     'root',
-                    'forum-category'
+                    'forum-category',
                 ],
-                'rootable'        => false
+                'rootable'        => false,
             ],
             'forum'          => [
                 'allowed_associations' => [
-                    'Discussion\Entity\CommentInterface'
+                    'Discussion\Entity\CommentInterface',
                 ],
                 'allowed_parents'      => [
                     'forum-category',
-                    'forum'
+                    'forum',
                 ],
-                'rootable'             => false
-            ]
-        ]
+                'rootable'             => false,
+            ],
+        ],
     ],
     'class_resolver'  => [
         'Discussion\Entity\CommentInterface' => 'Discussion\Entity\Comment',
-        'Discussion\Entity\VoteInterface'    => 'Discussion\Entity\Vote'
+        'Discussion\Entity\VoteInterface'    => 'Discussion\Entity\Vote',
     ],
     'router'          => [
         'routes' => [
             'discussion' => [
                 'type'         => 'segment',
                 'options'      => [
-                    'route' => ''
+                    'route' => '',
                 ],
                 'child_routes' => [
                     'view'        => [
@@ -82,9 +82,9 @@ return [
                             'route'    => '/discussion/:id',
                             'defaults' => [
                                 'controller' => 'Discussion\Controller\DiscussionController',
-                                'action'     => 'show'
-                            ]
-                        ]
+                                'action'     => 'show',
+                            ],
+                        ],
                     ],
                     'discussions' => [
                         'type'          => 'literal',
@@ -92,8 +92,8 @@ return [
                             'route'    => '/discussions',
                             'defaults' => [
                                 'controller' => 'Discussion\Controller\DiscussionsController',
-                                'action'     => 'index'
-                            ]
+                                'action'     => 'index',
+                            ],
                         ],
                         'may_terminate' => true,
                         'child_routes'  => [
@@ -102,17 +102,17 @@ return [
                                 'options' => [
                                     'route' => '/:id',
                                     'defaults' => [
-                                        'action'     => 'redirect'
-                                    ]
-                                ]
+                                        'action'     => 'redirect',
+                                    ],
+                                ],
                             ],
-                        ]
+                        ],
                     ],
                     'discussion'  => [
                         'type'         => 'literal',
                         'options'      => [
                             'route'    => '/discussion',
-                            'defaults' => []
+                            'defaults' => [],
                         ],
                         'child_routes' => [
                             'start'   => [
@@ -121,21 +121,21 @@ return [
                                     'route'       => '/start/:on[/:forum]',
                                     'defaults'    => [
                                         'controller' => 'Discussion\Controller\DiscussionController',
-                                        'action'     => 'start'
+                                        'action'     => 'start',
                                     ],
                                     'constraints' => [
                                         'on'    => '[0-9]+',
-                                        'forum' => '[0-9]+'
-                                    ]
-                                ]
+                                        'forum' => '[0-9]+',
+                                    ],
+                                ],
                             ],
                             'select'  => [
                                 'type'         => 'literal',
                                 'options'      => [
                                     'route'    => '/select',
                                     'defaults' => [
-                                        'controller' => 'Discussion\Controller\DiscussionController'
-                                    ]
+                                        'controller' => 'Discussion\Controller\DiscussionController',
+                                    ],
                                 ],
                                 'child_routes' => [
                                     'forum' => [
@@ -143,14 +143,14 @@ return [
                                         'options' => [
                                             'route'       => '/forum/:on',
                                             'defaults'    => [
-                                                'action' => 'selectForum'
+                                                'action' => 'selectForum',
                                             ],
                                             'constraints' => [
-                                                'on' => '[0-9]+'
-                                            ]
-                                        ]
+                                                'on' => '[0-9]+',
+                                            ],
+                                        ],
                                     ],
-                                ]
+                                ],
                             ],
                             'comment' => [
                                 'type'    => 'segment',
@@ -158,12 +158,12 @@ return [
                                     'route'       => '/comment/:discussion',
                                     'defaults'    => [
                                         'controller' => 'Discussion\Controller\DiscussionController',
-                                        'action'     => 'comment'
+                                        'action'     => 'comment',
                                     ],
                                     'constraints' => [
-                                        'discussion' => '[0-9]+'
-                                    ]
-                                ]
+                                        'discussion' => '[0-9]+',
+                                    ],
+                                ],
                             ],
                             'vote'    => [
                                 'type'    => 'segment',
@@ -171,13 +171,13 @@ return [
                                     'route'       => '/vote/:vote/:comment',
                                     'defaults'    => [
                                         'controller' => 'Discussion\Controller\DiscussionController',
-                                        'action'     => 'vote'
+                                        'action'     => 'vote',
                                     ],
                                     'constraints' => [
                                         'vote'    => 'up|down',
-                                        'comment' => '[0-9]+'
-                                    ]
-                                ]
+                                        'comment' => '[0-9]+',
+                                    ],
+                                ],
                             ],
                             'archive' => [
                                 'type'    => 'segment',
@@ -185,23 +185,23 @@ return [
                                     'route'       => '/archive/:comment',
                                     'defaults'    => [
                                         'controller' => 'Discussion\Controller\DiscussionController',
-                                        'action'     => 'archive'
+                                        'action'     => 'archive',
                                     ],
                                     'constraints' => [
-                                        'comment' => '[0-9]+'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
+                                        'comment' => '[0-9]+',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
     'di'              => [
         'allowed_controllers' => [
             'Discussion\Controller\DiscussionController',
-            'Discussion\Controller\DiscussionsController'
+            'Discussion\Controller\DiscussionsController',
         ],
         'definition'          => [
             'class' => [
@@ -209,39 +209,39 @@ return [
                 'Discussion\Form\CommentForm'                 => [],
                 'Discussion\Controller\DiscussionsController' => [
                     'setDiscussionManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setInstanceManager'   => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setTaxonomyManager'   => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setUserManager'       => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 'Discussion\Controller\DiscussionController'  => [
                     'setDiscussionManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setUuidManager'       => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setInstanceManager'   => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setUserManager'       => [
-                        'required' => true
+                        'required' => true,
                     ],
-                ]
-            ]
+                ],
+            ],
         ],
         'instance'            => [
             'preferences' => [
-                'Discussion\DiscussionManagerInterface' => 'Discussion\DiscussionManager'
-            ]
-        ]
+                'Discussion\DiscussionManagerInterface' => 'Discussion\DiscussionManager',
+            ],
+        ],
     ],
     'doctrine'        => [
         'driver' => [
@@ -249,14 +249,14 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
-    ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+    ],
 ];

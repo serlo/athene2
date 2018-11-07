@@ -18,8 +18,7 @@ use Zend\InputFilter\InputFilter;
 
 class TermForm extends Form
 {
-
-    function __construct(TaxonomyTermHydrator $taxonomyTermHydrator)
+    public function __construct(TaxonomyTermHydrator $taxonomyTermHydrator)
     {
         parent::__construct('taxonomyTerm');
         $this->add(new CsrfToken('csrf'));
@@ -33,7 +32,7 @@ class TermForm extends Form
             [
                 'name'       => 'parent',
                 'attributes' => [
-                    'type' => 'hidden'
+                    'type' => 'hidden',
                 ],
             ]
         );
@@ -42,7 +41,7 @@ class TermForm extends Form
             [
                 'name'       => 'position',
                 'attributes' => [
-                    'type' => 'hidden'
+                    'type' => 'hidden',
                 ],
             ]
         );
@@ -51,7 +50,7 @@ class TermForm extends Form
             [
                 'name'       => 'taxonomy',
                 'attributes' => [
-                    'type' => 'hidden'
+                    'type' => 'hidden',
                 ],
             ]
         );
@@ -70,15 +69,15 @@ class TermForm extends Form
                 'required' => false,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
         $filter->add(
             [
                 'name'     => 'taxonomy',
-                'required' => true
+                'required' => true,
             ]
         );
     }

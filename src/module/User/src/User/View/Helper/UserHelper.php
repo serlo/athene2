@@ -21,7 +21,8 @@ class UserHelper extends AbstractHelper
     /**
      * @param UserManagerInterface $userManager
      */
-    public function __construct(UserManagerInterface $userManager) {
+    public function __construct(UserManagerInterface $userManager)
+    {
         $this->userManager = $userManager;
     }
 
@@ -36,7 +37,8 @@ class UserHelper extends AbstractHelper
     /**
      * @return \User\Entity\UserInterface
      */
-    public function getAuthenticatedUserID() {
+    public function getAuthenticatedUserID()
+    {
         $user = $this->userManager->getUserFromAuthenticator();
         return $user ? $user->getId() : '';
     }

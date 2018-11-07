@@ -17,8 +17,7 @@ use Zend\InputFilter\InputFilter;
 
 class ExternalForm extends Form
 {
-
-    function __construct()
+    public function __construct()
     {
         parent::__construct('external');
         $this->add(new CsrfToken('csrf'));
@@ -41,9 +40,9 @@ class ExternalForm extends Form
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
 
@@ -53,9 +52,9 @@ class ExternalForm extends Form
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
     }

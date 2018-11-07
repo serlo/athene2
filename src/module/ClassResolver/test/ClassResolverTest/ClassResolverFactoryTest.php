@@ -13,7 +13,6 @@ use Zend\ServiceManager\ServiceManager;
 
 class ClassResolverFactoryTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testFactory()
     {
         $serviceManager = new ServiceManager();
@@ -21,8 +20,8 @@ class ClassResolverFactoryTest extends \PHPUnit_Framework_TestCase
             'Config',
             [
                 'class_resolver' => [
-                    'FooInterface' => 'Bar'
-                ]
+                    'FooInterface' => 'Bar',
+                ],
             ]
         );
 

@@ -14,7 +14,6 @@ use Zend\EventManager\Event;
 
 class TaxonomyManagerListener extends AbstractListener
 {
-
     public function attachShared(\Zend\EventManager\SharedEventManagerInterface $events)
     {
         $class = $this->getMonitoredClass();
@@ -43,8 +42,8 @@ class TaxonomyManagerListener extends AbstractListener
             [
                 [
                     'name'  => 'object',
-                    'value' => $e->getParam('object')
-                ]
+                    'value' => $e->getParam('object'),
+                ],
             ]
         );
     }
@@ -71,8 +70,8 @@ class TaxonomyManagerListener extends AbstractListener
             [
                 [
                     'name'  => 'object',
-                    'value' => $e->getParam('object')
-                ]
+                    'value' => $e->getParam('object'),
+                ],
             ]
         );
     }
@@ -92,12 +91,12 @@ class TaxonomyManagerListener extends AbstractListener
             [
                 [
                     'name'  => 'from',
-                    'value' => $from ? $from : 'no parent'
+                    'value' => $from ? $from : 'no parent',
                 ],
                 [
                     'name'  => 'to',
-                    'value' => $to ? $from : 'no parent'
-                ]
+                    'value' => $to ? $from : 'no parent',
+                ],
             ]
         );
     }

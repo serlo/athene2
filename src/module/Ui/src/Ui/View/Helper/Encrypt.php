@@ -10,7 +10,6 @@
 
 namespace Ui\View\Helper;
 
-
 use Zend\View\Helper\AbstractHelper;
 
 class Encrypt extends AbstractHelper

@@ -4,13 +4,13 @@ namespace Session;
 return [
     'service_manager' => [
         'factories' => [
-            'Zend\Session\SaveHandler\SaveHandlerInterface' => __NAMESPACE__ . '\Factory\SaveHandlerFactory'
-        ]
+            'Zend\Session\SaveHandler\SaveHandlerInterface' => __NAMESPACE__ . '\Factory\SaveHandlerFactory',
+        ],
     ],
     'controllers'      => [
         'factories' => [
-            'Session\Controller\SessionController' => __NAMESPACE__ . '\Factory\SessionControllerFactory'
-        ]
+            'Session\Controller\SessionController' => __NAMESPACE__ . '\Factory\SessionControllerFactory',
+        ],
     ],
     'console'         => [
         'router' => [
@@ -20,11 +20,11 @@ return [
                         'route'    => 'session gc',
                         'defaults' => [
                             'controller' => 'Session\Controller\SessionController',
-                            'action'     => 'gc'
-                        ]
-                    ]
+                            'action'     => 'gc',
+                        ],
+                    ],
                 ],
-            ]
+            ],
         ],
     ],
 ];

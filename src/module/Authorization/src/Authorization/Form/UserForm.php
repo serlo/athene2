@@ -33,7 +33,7 @@ class UserForm extends Form
         $inputFilter->add(
             [
                 'name'     => 'user',
-                'required' => true
+                'required' => true,
             ]
         );
 

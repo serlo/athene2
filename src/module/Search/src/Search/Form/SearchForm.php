@@ -33,7 +33,7 @@ class SearchForm extends Form
         $inputFilter->add(
             [
                 'name'     => 'q',
-                'required' => true
+                'required' => true,
             ]
         );
     }

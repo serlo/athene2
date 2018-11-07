@@ -17,7 +17,7 @@ return [
                 'related-content/add-category' => ['moderator'],
                 'related-content/remove'       => ['moderator'],
                 'related-content/order'        => ['moderator'],
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

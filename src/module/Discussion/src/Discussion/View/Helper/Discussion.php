@@ -26,7 +26,8 @@ class Discussion extends AbstractHelper
     use \Discussion\DiscussionManagerAwareTrait, \Common\Traits\ConfigAwareTrait, \User\Manager\UserManagerAwareTrait,
         \Taxonomy\Manager\TaxonomyManagerAwareTrait, \Instance\Manager\InstanceManagerAwareTrait;
 
-    protected $discussions, $object;
+    protected $discussions;
+    protected $object;
 
     protected $form;
 
@@ -190,7 +191,7 @@ class Discussion extends AbstractHelper
                     'isArchived'  => $this->archived,
                     'object'      => $this->getObject(),
                     'forum'     => $this->getForum(),
-                    'leftWidth' => $leftWidth
+                    'leftWidth' => $leftWidth,
                 ]
             );
         } else {
@@ -214,7 +215,7 @@ class Discussion extends AbstractHelper
         return [
             'template' => 'discussion/helper/default/default',
             'root'     => 'root',
-            'forum'    => 'forum'
+            'forum'    => 'forum',
         ];
     }
 }

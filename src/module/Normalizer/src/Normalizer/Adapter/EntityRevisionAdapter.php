@@ -68,7 +68,7 @@ class EntityRevisionAdapter extends AbstractAdapter
     {
         return [
             'entity'   => $this->getObject()->getRepository()->getId(),
-            'revision' => $this->getObject()->getId()
+            'revision' => $this->getObject()->getId(),
         ];
     }
 

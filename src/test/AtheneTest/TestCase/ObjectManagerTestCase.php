@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	    Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -13,13 +13,12 @@ namespace AtheneTest\TestCase;
 
 class ObjectManagerTestCase extends \PHPUnit_Framework_TestCase
 {
-
-    protected final function mockEntityManager()
+    final protected function mockEntityManager()
     {
         return $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
     }
 
-    protected final function mockEntityRepository()
+    final protected function mockEntityRepository()
     {
         return $this->getMockBuilder('Doctrine\ORM\EntityRepository')
             ->disableOriginalConstructor()

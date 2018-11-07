@@ -9,7 +9,6 @@
  */
 namespace Contexter\Adapter;
 
-
 use Instance\Entity\InstanceAwareInterface;
 use RelatedContent\Controller\RelatedContentController;
 

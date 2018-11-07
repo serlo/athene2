@@ -15,7 +15,7 @@ return [
                 'uuid/trash'       => ['moderator'],
                 'uuid/restore'     => ['moderator'],
                 'uuid/recycle-bin' => ['guest'],
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

@@ -9,7 +9,6 @@
  */
 namespace Instance\Manager;
 
-
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;

@@ -70,7 +70,7 @@ class NotificationWorkerListener extends AbstractListener
         $subject = new ViewModel();
         $body    = new ViewModel([
             'user'          => $user,
-            'notifications' => $notifications
+            'notifications' => $notifications,
         ]);
 
         $subject->setTemplate('mailman/messages/notification/subject');

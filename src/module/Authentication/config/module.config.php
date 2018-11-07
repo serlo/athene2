@@ -13,22 +13,22 @@ return [
         'factories' => [
             'Zend\Authentication\AuthenticationService'   => __NAMESPACE__ . '\Factory\AuthenticationServiceFactory',
             __NAMESPACE__ . '\Storage\UserSessionStorage' => __NAMESPACE__ . '\Factory\UserSessionStorageFactory',
-            __NAMESPACE__ . '\HashService'                => __NAMESPACE__ . '\Factory\HashServiceFactory'
+            __NAMESPACE__ . '\HashService'                => __NAMESPACE__ . '\Factory\HashServiceFactory',
 
-        ]
+        ],
     ],
     'controllers'     => [
         'factories' => [
-            __NAMESPACE__ . '\Controller\AuthenticationController' => __NAMESPACE__ . '\Factory\AuthenticationControllerFactory'
-        ]
+            __NAMESPACE__ . '\Controller\AuthenticationController' => __NAMESPACE__ . '\Factory\AuthenticationControllerFactory',
+        ],
     ],
     'di'              => [
         'instance' => [
             'preferences' => [
                 __NAMESPACE__ . '\HashServiceInterface'     => __NAMESPACE__ . '\HashService',
                 __NAMESPACE__ . '\Adapter\AdapterInterface' => __NAMESPACE__ . '\Adapter\UserAuthAdapter',
-            ]
-        ]
+            ],
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -38,7 +38,7 @@ return [
                     'route'    => '/auth',
                     'defaults' => [
                         'controller' => __NAMESPACE__ . '\Controller\AuthenticationController',
-                    ]
+                    ],
                 ],
                 'child_routes' => [
                     'login'    => [
@@ -47,9 +47,9 @@ return [
                         'options'       => [
                             'route'    => '/login',
                             'defaults' => [
-                                'action' => 'login'
-                            ]
-                        ]
+                                'action' => 'login',
+                            ],
+                        ],
                     ],
                     'logout'   => [
                         'type'    => 'literal',
@@ -57,9 +57,9 @@ return [
                         'options'       => [
                             'route'    => '/logout',
                             'defaults' => [
-                                'action' => 'logout'
-                            ]
-                        ]
+                                'action' => 'logout',
+                            ],
+                        ],
                     ],
                     'activate' => [
                         'type'          => 'segment',
@@ -67,14 +67,14 @@ return [
                         'options'       => [
                             'route'    => '/activate[/:token]',
                             'defaults' => [
-                                'action' => 'activate'
-                            ]
-                        ]
+                                'action' => 'activate',
+                            ],
+                        ],
                     ],
                     'password' => [
                         'type'    => 'literal',
                         'options'      => [
-                            'route' => '/password'
+                            'route' => '/password',
                         ],
                         'child_routes' => [
                             'change'  => [
@@ -83,9 +83,9 @@ return [
                                 'options'       => [
                                     'route'    => '/change',
                                     'defaults' => [
-                                        'action' => 'changePassword'
-                                    ]
-                                ]
+                                        'action' => 'changePassword',
+                                    ],
+                                ],
                             ],
                             'restore' => [
                                 'type'          => 'segment',
@@ -93,14 +93,14 @@ return [
                                 'options'       => [
                                     'route'    => '/restore[/:token]',
                                     'defaults' => [
-                                        'action' => 'restorePassword'
-                                    ]
-                                ]
-                            ]
-                        ]
+                                        'action' => 'restorePassword',
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
-                ]
-            ]
-        ]
-    ]
+                ],
+            ],
+        ],
+    ],
 ];

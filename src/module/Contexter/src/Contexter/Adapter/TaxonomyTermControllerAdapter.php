@@ -33,7 +33,7 @@ class TaxonomyTermControllerAdapter extends AbstractAdapter
         $entity     = $controller->getTerm($params['term']);
         $array      = [
             'type'     => $entity->getType()->getName(),
-            'instance' => $entity->getInstance()->getName()
+            'instance' => $entity->getInstance()->getName(),
         ];
 
         $this->retrieveTerms($entity, $array);

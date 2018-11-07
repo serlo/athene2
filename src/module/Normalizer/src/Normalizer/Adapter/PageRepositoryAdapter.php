@@ -80,7 +80,7 @@ class PageRepositoryAdapter extends AbstractAdapter
     protected function getRouteParams()
     {
         return [
-            'page' => $this->getObject()->getId()
+            'page' => $this->getObject()->getId(),
         ];
     }
 

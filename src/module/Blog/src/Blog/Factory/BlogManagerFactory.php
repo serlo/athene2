@@ -13,7 +13,8 @@ use Blog\Manager\BlogManager;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class BlogManagerFactory implements FactoryInterface {
+class BlogManagerFactory implements FactoryInterface
+{
     /**
      * Create service
      *
@@ -24,5 +25,4 @@ class BlogManagerFactory implements FactoryInterface {
     {
         $instance = new BlogManager();
     }
-
 }

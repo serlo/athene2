@@ -83,7 +83,7 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
     protected $allowedRelations = [
         'entities' => 'termTaxonomyEntities',
         'termTaxonomyEntities',
-        'blogPosts'
+        'blogPosts',
     ];
 
     public function __construct()
@@ -113,7 +113,7 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
             $count     = 0;
             $relations = [
                 'entities',
-                'blogPosts'
+                'blogPosts',
             ];
 
             foreach ($relations as $relation) {
@@ -174,7 +174,7 @@ class TaxonomyTerm extends Uuid implements TaxonomyTermInterface
             $elements = [];
             $fields   = [
                 'entities',
-                'blogPosts'
+                'blogPosts',
             ];
 
             foreach ($fields as $field) {

@@ -42,7 +42,7 @@ class SitemapController extends AbstractActionController
         $view = new ViewModel();
         $this->getResponse()->getHeaders()->addHeaders(
             [
-                'Content-Type' => 'text/html'
+                'Content-Type' => 'text/html',
             ]
         );
         $view->setTemplate('normalizer/sitemap');
@@ -72,7 +72,7 @@ class SitemapController extends AbstractActionController
         $view = new ViewModel(['objects' => $objects]);
         $this->getResponse()->getHeaders()->addHeaders(
             [
-                'Content-Type' => 'text/html'
+                'Content-Type' => 'text/html',
             ]
         );
         $view->setTemplate('normalizer/sitemap-uuid');

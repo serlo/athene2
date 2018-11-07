@@ -12,12 +12,14 @@ namespace Alias\Factory;
 use Alias\AliasManagerInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-trait AliasManagerFactoryTrait {
+trait AliasManagerFactoryTrait
+{
     /**
      * @param ServiceLocatorInterface $serviceLocator
      * @return AliasManagerInterface
      */
-    public function getAliasManager(ServiceLocatorInterface $serviceLocator){
+    public function getAliasManager(ServiceLocatorInterface $serviceLocator)
+    {
         return $serviceLocator->get('Alias\AliasManager');
     }
 }

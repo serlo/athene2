@@ -18,7 +18,6 @@ class UpdateLicenseForm extends Form
 {
     public function __construct(array $licenses)
     {
-
         parent::__construct('context');
         $this->add(new CsrfToken('csrf'));
 

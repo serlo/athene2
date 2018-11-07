@@ -34,7 +34,7 @@ class EntityControllerAdapter extends AbstractAdapter
         $entity     = $controller->getEntity($params['entity']);
         $array      = [
             'type'     => $entity->getType()->getName(),
-            'instance' => $entity->getInstance()->getName()
+            'instance' => $entity->getInstance()->getName(),
         ];
 
         $this->retrieveTerms($entity, $array);

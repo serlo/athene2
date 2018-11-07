@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -14,15 +14,18 @@ use Zend\View\Helper\AbstractHelper;
 
 class Timeago extends AbstractHelper
 {
-    public function __invoke(){
+    public function __invoke()
+    {
         return $this;
     }
-    
-    public function format(\Datetime $datetime){
+
+    public function format(\Datetime $datetime)
+    {
         return $datetime->format('Y-m-d H:i:s');
     }
-    
-    public function render(Datetime $datetime){
+
+    public function render(Datetime $datetime)
+    {
         return '<abbr class="timeago" title="'.$this->format($datetime).'">'.$this->format($datetime).'</abbr>';
     }
 }

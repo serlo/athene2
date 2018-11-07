@@ -12,7 +12,6 @@ use Zend\Mvc\MvcEvent;
 
 class Module
 {
-
     public static $listeners = [
 //        'CacheInvalidator\Listener\CacheListener'
     ];
@@ -23,17 +22,16 @@ class Module
 
         $autoloader['Zend\Loader\StandardAutoloader'] = [
             'namespaces' => [
-                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__
-            ]
+                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+            ],
         ];
 
         if (file_exists(__DIR__ . '/autoload_classmap.php')) {
             return [
                 'Zend\Loader\ClassMapAutoloader' => [
                     __DIR__ . '/autoload_classmap.php',
-                ]
+                ],
             ];
-
         }
 
         return $autoloader;

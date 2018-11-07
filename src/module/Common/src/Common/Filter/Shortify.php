@@ -18,7 +18,7 @@ class Shortify implements FilterInterface
      *
      * Please use the smallest possible bundle for a language
      */
-    static $stopWords = [
+    private static $stopWords = [
         'en' => [
             'I', 'a', 'about', 'an',
             'are', 'as', 'at', 'be',
@@ -27,7 +27,7 @@ class Shortify implements FilterInterface
             'of', 'on', 'or', 'that',
             'the', 'this', 'to', 'was',
             'what', 'when', 'where', 'who',
-            'will', 'with', 'the', 'www'
+            'will', 'with', 'the', 'www',
         ],
         'de' => [
             'aber', 'als', 'am', 'an', 'auch', 'auf', 'aus', 'bei',
@@ -45,16 +45,17 @@ class Shortify implements FilterInterface
             'sowie', 'und', 'unser', 'unsere', 'unter', 'vom', 'von', 'vor',
             'wann', 'warum', 'was', 'weiter', 'weitere', 'wenn', 'wer', 'werde',
             'werden', 'werdet', 'weshalb', 'wie', 'wieder', 'wieso', 'wir',
-            'wird', 'wirst', 'wo', 'woher', 'wohin', 'zu', 'zum', 'zur', 'über'
-        ]
+            'wird', 'wirst', 'wo', 'woher', 'wohin', 'zu', 'zum', 'zur', 'über',
+        ],
     ];
 
-    static $regex = null;
+    private static $regex = null;
 
     /**
      * @return string
      */
-    static protected function getRegex() {
+    protected static function getRegex()
+    {
         if (self::$regex === null) {
             $words = '';
             foreach (self::$stopWords as $lang) {
@@ -73,7 +74,7 @@ class Shortify implements FilterInterface
      * @param string $text
      * @return bool|mixed
      */
-    static protected function shortify($text)
+    protected static function shortify($text)
     {
         $text = preg_replace(self::getRegex(), ' ', $text);
         return trim($text);

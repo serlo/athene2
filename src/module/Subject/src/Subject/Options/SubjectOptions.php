@@ -1,7 +1,7 @@
 <?php
 /**
- * 
- * 
+ *
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	    Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -15,7 +15,6 @@ use Zend\Stdlib\AbstractOptions;
 
 class SubjectOptions extends AbstractOptions
 {
-
     protected $allowedTaxonomies = [];
 
     protected $allowedEntities = [];
@@ -40,7 +39,7 @@ class SubjectOptions extends AbstractOptions
 
     /**
      *
-     * @param array $allowedTaxonomies            
+     * @param array $allowedTaxonomies
      * @return self
      */
     public function setAllowedTaxonomies(array $allowedTaxonomies)
@@ -51,7 +50,7 @@ class SubjectOptions extends AbstractOptions
 
     /**
      *
-     * @param array $allowedEntities            
+     * @param array $allowedEntities
      * @return self
      */
     public function setAllowedEntities(array $allowedEntities)
@@ -61,7 +60,7 @@ class SubjectOptions extends AbstractOptions
     }
 
     /**
-     * 
+     *
      * @param string $taxonomy
      * @return boolean
      */
@@ -71,7 +70,7 @@ class SubjectOptions extends AbstractOptions
     }
 
     /**
-     * 
+     *
      * @param string $entity
      * @return boolean
      */

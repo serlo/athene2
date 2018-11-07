@@ -10,8 +10,7 @@ namespace Ads\Exception;
 
 class AdNotFoundException extends \Exception
 {
-
-    function __construct($ad)
+    public function __construct($ad)
     {
         parent::__construct("Ad `{$ad}` not found.");
     }

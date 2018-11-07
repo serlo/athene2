@@ -70,7 +70,7 @@ return [
         'CacheInvalidator',
         'Cache',
         'StaticPage',
-        'Newsletter'
+        'Newsletter',
     ],
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => [
@@ -80,7 +80,7 @@ return [
         // Module class.
         'module_paths'             => [
             __DIR__ . '/../module',
-            __DIR__ . '/../vendor'
+            __DIR__ . '/../vendor',
         ],
         // An array of paths from which to glob configuration files after
         // modules are loaded. These effectively overide configuration
@@ -88,7 +88,7 @@ return [
         'config_glob_paths'        => [
             'config/autoload/{,*.}{global,local}.php',
             'config/instance/{,*.}{global,local}.php',
-            'config/instance/navigation/*.php'
+            'config/instance/navigation/*.php',
         ],
         // Whether or not to enable a configuration cache.
         // If enabled, the merged configuration will be cached and used in

@@ -14,17 +14,17 @@ return [
             'license.update' => 'Authorization\Assertion\InstanceAssertion',
             'license.purge'  => 'Authorization\Assertion\InstanceAssertion',
             'license.get'    => 'Authorization\Assertion\InstanceAssertion',
-        ]
+        ],
     ],
     'service_manager' => [
-        'factories' => []
+        'factories' => [],
     ],
     'class_resolver'  => [
-        __NAMESPACE__ . '\Entity\LicenseInterface' => __NAMESPACE__ . '\Entity\License'
+        __NAMESPACE__ . '\Entity\LicenseInterface' => __NAMESPACE__ . '\Entity\License',
     ],
     'di'              => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\LicenseController'
+            __NAMESPACE__ . '\Controller\LicenseController',
         ],
         'definition'          => [
             'class' => [
@@ -32,16 +32,16 @@ return [
                 __NAMESPACE__ . '\Controller\LicenseController'   => [],
                 __NAMESPACE__ . '\Listener\EntityManagerListener' => [
                     'setLicenseManager' => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
-            ]
+            ],
         ],
         'instance'            => [
             'preferences' => [
-                __NAMESPACE__ . '\Manager\LicenseManagerInterface' => __NAMESPACE__ . '\Manager\LicenseManager'
-            ]
-        ]
+                __NAMESPACE__ . '\Manager\LicenseManagerInterface' => __NAMESPACE__ . '\Manager\LicenseManager',
+            ],
+        ],
     ],
     'doctrine'        => [
         'driver'          => [
@@ -49,22 +49,22 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
         ],
         'entity_resolver' => [
             'orm_default' => [
                 'resolvers' => [
-                    __NAMESPACE__ . '\Entity\LicenseInterface' => __NAMESPACE__ . '\Entity\License'
-                ]
-            ]
-        ]
+                    __NAMESPACE__ . '\Entity\LicenseInterface' => __NAMESPACE__ . '\Entity\License',
+                ],
+            ],
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -73,8 +73,8 @@ return [
                 'options'      => [
                     'route'    => '/license',
                     'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\LicenseController'
-                    ]
+                        'controller' => __NAMESPACE__ . '\Controller\LicenseController',
+                    ],
                 ],
                 'child_routes' => [
                     'manage' => [
@@ -82,48 +82,48 @@ return [
                         'options' => [
                             'route'    => '/manage',
                             'defaults' => [
-                                'action' => 'manage'
-                            ]
-                        ]
+                                'action' => 'manage',
+                            ],
+                        ],
                     ],
                     'add'    => [
                         'type'    => 'literal',
                         'options' => [
                             'route'    => '/add',
                             'defaults' => [
-                                'action' => 'add'
-                            ]
-                        ]
+                                'action' => 'add',
+                            ],
+                        ],
                     ],
                     'detail' => [
                         'type'    => 'segment',
                         'options' => [
                             'route'    => '/detail/:id',
                             'defaults' => [
-                                'action' => 'detail'
-                            ]
-                        ]
+                                'action' => 'detail',
+                            ],
+                        ],
                     ],
                     'update' => [
                         'type'    => 'segment',
                         'options' => [
                             'route'    => '/update/:id',
                             'defaults' => [
-                                'action' => 'update'
-                            ]
-                        ]
+                                'action' => 'update',
+                            ],
+                        ],
                     ],
                     'remove' => [
                         'type'    => 'segment',
                         'options' => [
                             'route'    => '/remove/:id',
                             'defaults' => [
-                                'action' => 'remove'
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    ]
+                                'action' => 'remove',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

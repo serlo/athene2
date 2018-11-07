@@ -12,7 +12,6 @@ use Zend\EventManager\Event;
 
 class UuidManagerListener extends AbstractListener
 {
-
     public function onRestore(Event $e)
     {
         $object   = $e->getParam('object');
@@ -38,7 +37,7 @@ class UuidManagerListener extends AbstractListener
             'trash',
             [
                 $this,
-                'onTrash'
+                'onTrash',
             ]
         );
         $this->listeners[] = $events->attach(
@@ -46,7 +45,7 @@ class UuidManagerListener extends AbstractListener
             'restore',
             [
                 $this,
-                'onRestore'
+                'onRestore',
             ]
         );
     }

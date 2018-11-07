@@ -47,7 +47,7 @@ class ApiController extends AbstractController
      * @param NormalizerInterface    $normalizer
      * @param RenderServiceInterface $renderService
      */
-    function __construct(
+    public function __construct(
         EntityManagerInterface $entityManager,
         NormalizerInterface $normalizer,
         RenderServiceInterface $renderService
@@ -138,7 +138,7 @@ class ApiController extends AbstractController
             return false;
         }
 
-        $authors = $entity->getRevisions()->map(function($revision) {
+        $authors = $entity->getRevisions()->map(function ($revision) {
             return $revision->getAuthor()->getId();
         });
 
@@ -147,7 +147,7 @@ class ApiController extends AbstractController
             'type'    => $entity->getType()->getName(),
             'authorsCount' => count(array_unique($authors->toArray())),
             'revisionsCount' => $entity->getRevisions()->count(),
-            'content' => []
+            'content' => [],
         ];
 
         foreach ($entity->getCurrentRevision()->getFields() as $field) {
@@ -181,7 +181,7 @@ class ApiController extends AbstractController
                 // nothing to do
             }
 
-            $authors = $entity->getRevisions()->map(function($revision) {
+            $authors = $entity->getRevisions()->map(function ($revision) {
                 return $revision->getAuthor()->getId();
             });
 

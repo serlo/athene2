@@ -11,38 +11,38 @@ return [
     'service_manager' => [
         'factories' => [
             __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
-            __NAMESPACE__ . '\RepositoryManager'     => __NAMESPACE__ . '\Factory\RepositoryManagerFactory'
-        ]
+            __NAMESPACE__ . '\RepositoryManager'     => __NAMESPACE__ . '\Factory\RepositoryManagerFactory',
+        ],
     ],
     'class_resolver'  => [
-        'Versioning\Service\RepositoryServiceInterface' => 'Versioning\Service\RepositoryService'
+        'Versioning\Service\RepositoryServiceInterface' => 'Versioning\Service\RepositoryService',
     ],
     'di'              => [
         'definition' => [
             'class' => [
                 'Versioning\Service\RepositoryService' => [
                     'setUuidManager'          => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setObjectManager'        => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setAuthorizationService' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setModuleOptions'        => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'   => [
             'preferences'                          => [
-                'Versioning\RepositoryManagerInterface' => 'Versioning\RepositoryManager'
+                'Versioning\RepositoryManagerInterface' => 'Versioning\RepositoryManager',
             ],
             'Versioning\Service\RepositoryService' => [
-                'shared' => false
-            ]
-        ]
-    ]
+                'shared' => false,
+            ],
+        ],
+    ],
 ];

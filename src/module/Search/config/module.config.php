@@ -12,13 +12,13 @@ namespace Search;
 return [
     'di'              => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\SearchController'
+            __NAMESPACE__ . '\Controller\SearchController',
         ],
         'definition'          => [
             'class' => [
-                __NAMESPACE__ . '\Controller\SearchController' => []
-            ]
-        ]
+                __NAMESPACE__ . '\Controller\SearchController' => [],
+            ],
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -28,11 +28,11 @@ return [
                     'route'    => '/search',
                     'defaults' => [
                         'controller' => __NAMESPACE__ . '\Controller\SearchController',
-                        'action'     => 'search'
-                    ]
+                        'action'     => 'search',
+                    ],
                 ],
-                'may_terminate' => true
+                'may_terminate' => true,
             ],
-        ]
-    ]
+        ],
+    ],
 ];

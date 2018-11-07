@@ -17,7 +17,8 @@ use Zend\View\Helper\AbstractHelper;
 
 class MultipleChoiceHelper extends AbstractHelper
 {
-    public function __invoke() {
+    public function __invoke()
+    {
         return $this;
     }
 
@@ -25,18 +26,19 @@ class MultipleChoiceHelper extends AbstractHelper
      * @param EntityInterface $entity
      * @return array
      */
-    public function fetchMultipleChoice(EntityInterface $entity) {
+    public function fetchMultipleChoice(EntityInterface $entity)
+    {
         $answers = [];
         foreach ($entity->getValidChildren('link', 'multiple-choice-right-answer') as $add) {
             $answers[] = [
                 'right' => true,
-                'entity' => $add
+                'entity' => $add,
             ];
         }
         foreach ($entity->getValidChildren('link', 'multiple-choice-wrong-answer') as $add) {
             $answers[] = [
                 'right' => false,
-                'entity' => $add
+                'entity' => $add,
             ];
         }
         shuffle($answers);

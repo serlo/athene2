@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	    Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -20,7 +20,8 @@ abstract class Model extends \PHPUnit_Framework_TestCase
      */
     abstract protected function getData();
 
-    private $object, $data;
+    private $object;
+    private $data;
 
     /**
      *
@@ -33,7 +34,7 @@ abstract class Model extends \PHPUnit_Framework_TestCase
 
     /**
      *
-     * @param field_type $reference            
+     * @param field_type $reference
      * @return $this
      */
     protected function setObject($object)
@@ -44,9 +45,10 @@ abstract class Model extends \PHPUnit_Framework_TestCase
 
     protected function inject()
     {
-        if (! is_array($this->data))
+        if (! is_array($this->data)) {
             $this->data = $this->getData();
-        
+        }
+
         foreach ($this->data as $key => $value) {
             $method = 'set' . ucfirst($key);
             if (method_exists($this->getObject(), $method)) {

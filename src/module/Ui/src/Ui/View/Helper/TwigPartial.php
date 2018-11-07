@@ -24,7 +24,7 @@ class TwigPartial extends Partial
     /**
      * @param TwigRenderer $twigRenderer
      */
-    function __construct(TwigRenderer $twigRenderer)
+    public function __construct(TwigRenderer $twigRenderer)
     {
         $this->twigRenderer = $twigRenderer;
     }

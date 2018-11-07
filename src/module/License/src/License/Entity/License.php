@@ -112,8 +112,6 @@ class License implements LicenseInterface
     public function setTitle($title)
     {
         $this->title = $title;
-
-
     }
 
     /**
@@ -131,8 +129,6 @@ class License implements LicenseInterface
     public function setUrl($url)
     {
         $this->url = $url;
-
-
     }
 
     /**

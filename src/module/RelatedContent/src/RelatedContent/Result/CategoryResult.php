@@ -14,7 +14,6 @@ use RelatedContent\Exception;
 
 class CategoryResult extends AbstractResult
 {
-
     public function getType()
     {
         return 'category';

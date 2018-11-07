@@ -9,7 +9,6 @@
 
 namespace Ads\Factory;
 
-
 use Ads\View\Helper\Horizon;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

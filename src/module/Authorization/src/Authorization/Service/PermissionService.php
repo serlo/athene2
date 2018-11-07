@@ -98,7 +98,7 @@ class PermissionService implements PermissionServiceInterface
         $parametrized = $repository->findBy(
             [
                 'permission'  => $permission->getId(),
-                $parameterKey => $parameterValue
+                $parameterKey => $parameterValue,
             ]
         );
 

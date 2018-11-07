@@ -196,5 +196,4 @@ class User extends Uuid implements UserInterface
     {
         return $this->description;
     }
-
 }

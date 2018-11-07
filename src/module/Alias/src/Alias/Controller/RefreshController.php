@@ -55,8 +55,7 @@ class RefreshController extends AbstractConsoleController
         TaxonomyManagerInterface $taxonomyManager,
         EntityManagerInterface $entityManager,
         NormalizerInterface $normalizer
-    )
-    {
+    ) {
         $this->aliasManager = $aliasManager;
         $this->taxonomyManager = $taxonomyManager;
         $this->entityManager = $entityManager;
@@ -101,7 +100,8 @@ class RefreshController extends AbstractConsoleController
         }
     }
 
-    protected function refreshEntities(AdapterInterface $console, $percentile) {
+    protected function refreshEntities(AdapterInterface $console, $percentile)
+    {
         $entities = $this->entityManager->findAll(true);
         $filter = new HasCurrentRevisionCollectionFilter();
         $entities = $filter->filter($entities);
@@ -119,6 +119,5 @@ class RefreshController extends AbstractConsoleController
             $alias = $this->aliasManager->autoAlias('entity', $url, $entity, $instance);
             $console->writeLine('Updated entity ' . $entity->getId() . ': ' . $alias->getAlias());
         }
-
     }
 }

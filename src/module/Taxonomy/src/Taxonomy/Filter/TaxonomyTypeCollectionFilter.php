@@ -14,13 +14,13 @@ use Zend\Filter\FilterInterface;
 
 class TaxonomyTypeCollectionFilter implements FilterInterface
 {
-
     private $forbiddenTypes = [];
 
     /**
      * @param $forbiddenTypes
      */
-    function __construct($forbiddenTypes) {
+    public function __construct($forbiddenTypes)
+    {
         $this->forbiddenTypes = $forbiddenTypes;
     }
 

@@ -84,7 +84,7 @@ class DiscussionController extends AbstractController
             $data = [
                 'instance' => $this->getInstanceManager()->getInstanceFromRequest(),
                 'parent'   => $this->params('discussion'),
-                'author'   => $this->getUserManager()->getUserFromAuthenticator()
+                'author'   => $this->getUserManager()->getUserFromAuthenticator(),
             ];
             $form->setData(array_merge($this->params()->fromPost(), $data));
             if ($form->isValid()) {
@@ -112,7 +112,7 @@ class DiscussionController extends AbstractController
 
         $view = new ViewModel([
             'discussion' => $discussion,
-            'user'       => $this->getUserManager()->getUserFromAuthenticator()
+            'user'       => $this->getUserManager()->getUserFromAuthenticator(),
         ]);
         $view->setTemplate('discussion/discussion/index');
 
@@ -138,7 +138,7 @@ class DiscussionController extends AbstractController
             $data = [
                 'instance' => $instance,
                 'author'   => $author,
-                'object'   => $this->params('on')
+                'object'   => $this->params('on'),
             ];
             $form->setData(array_merge($this->params()->fromPost(), $data));
             if ($form->isValid()) {

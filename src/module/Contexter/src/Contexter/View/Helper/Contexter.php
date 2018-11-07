@@ -39,7 +39,7 @@ class Contexter extends AbstractHelper
                     'router'  => $this->getRouter(),
                     'matches' => $matches,
                     'type'    => $type,
-                    'url'     => $url
+                    'url'     => $url,
                 ]
             );
         }

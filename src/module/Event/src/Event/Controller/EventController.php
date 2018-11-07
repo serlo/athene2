@@ -32,7 +32,7 @@ class EventController extends AbstractActionController
         $id   = $this->params('id');
         $events = $this->eventManager->findEventsByObject($id);
 
-        if(empty($events)){
+        if (empty($events)) {
             $this->getResponse()->setStatusCode(404);
             return false;
         }

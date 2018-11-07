@@ -19,7 +19,6 @@ use ZfcRbac\Guard\ControllerGuard;
  */
 class HydratableControllerGuard extends ControllerGuard
 {
-
     use\Zend\ServiceManager\ServiceLocatorAwareTrait;
 
     /**
@@ -30,7 +29,6 @@ class HydratableControllerGuard extends ControllerGuard
         $this->rules = [];
 
         foreach ($rules as $rule) {
-
             $controller = strtolower($rule['controller']);
             $actions    = isset($rule['actions']) ? (array)$rule['actions'] : [];
 
