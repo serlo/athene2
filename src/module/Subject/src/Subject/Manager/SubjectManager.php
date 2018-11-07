@@ -133,23 +133,21 @@ class SubjectManager implements SubjectManagerInterface
     }
 
     protected function isInSubject(EntityInterface $entity, TaxonomyTermInterface $term) {
-        var_dump($entity->getId());
-        var_dump($entity->getTaxonomyTerms()->isEmpty());
-            if (!$entity->getTaxonomyTerms()->isEmpty()) {
-                foreach ($entity->getTaxonomyTerms() as $tempTerm) {
-                    if ($tempTerm->knowsAncestor($term)) {
-                        return true;
-                    }
-                }
-            } else {
-                foreach ($entity->getParents('link') as $parent) {
-                    if ($this->isInSubject($parent, $term)) {
-                        return true;
-                    }
+        if (!$entity->getTaxonomyTerms()->isEmpty()) {
+            foreach ($entity->getTaxonomyTerms() as $tempTerm) {
+                if ($tempTerm->knowsAncestor($term)) {
+                    return true;
                 }
             }
+        } else {
+            foreach ($entity->getParents('link') as $parent) {
+                if ($this->isInSubject($parent, $term)) {
+                    return true;
+                }
+            }
+        }
 
-            return false;
+        return false;
     }
 
     protected function getEntities(TaxonomyTermInterface $term)
