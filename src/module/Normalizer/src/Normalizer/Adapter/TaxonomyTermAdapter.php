@@ -112,6 +112,25 @@ class TaxonomyTermAdapter extends AbstractAdapter
         return $this->getObject()->getName();
     }
 
+    protected function getHeadTitle()
+    {
+        $maxStringLen = 65;
+
+        $type = $this->getType();
+        $typeName = $this->getTranslator()->translate($type);
+
+        $title = $this->getTitle();
+
+        //add "(Lehrplan)" etc
+        if ($type !== 'topic-folder') {
+            if( strlen($title) < ($maxStringLen-strlen($typeName)) ){
+                $title .=  ' (' . $typeName . ')';
+            }
+        }
+
+        return $title;
+    }
+
     protected function getType()
     {
         return $this->getObject()->getTaxonomy()->getName();

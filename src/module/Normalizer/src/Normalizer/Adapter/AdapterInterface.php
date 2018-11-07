@@ -9,6 +9,7 @@
 namespace Normalizer\Adapter;
 
 use Normalizer\Entity\NormalizedInterface;
+use Zend\I18n\Translator\TranslatorInterface;
 
 interface AdapterInterface
 {
@@ -17,6 +18,12 @@ interface AdapterInterface
      * @return NormalizedInterface
      */
     public function normalize($object);
+
+    /**
+     * @param TranslatorInterface $translator
+     * @return void
+     */
+    public function setTranslator($translator);
 
     /**
      * @param object $object

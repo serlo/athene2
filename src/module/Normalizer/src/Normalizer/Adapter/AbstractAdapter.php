@@ -11,10 +11,17 @@ namespace Normalizer\Adapter;
 use Normalizer\Entity\Normalized;
 use DateTime;
 use Normalizer\Exception\RuntimeException;
+use Zend\I18n\Translator\TranslatorInterface;
+use Zend\Mvc\I18n\Translator;
 
 abstract class AbstractAdapter implements AdapterInterface
 {
     protected $object;
+
+    /**
+     * @var TranslatorInterface
+     */
+    protected $translator;
 
     public function getObject()
     {
@@ -24,6 +31,16 @@ abstract class AbstractAdapter implements AdapterInterface
     public function setObject($object)
     {
         $this->object = $object;
+    }
+
+    public function getTranslator()
+    {
+        return $this->translator;
+    }
+
+    public function setTranslator($translator)
+    {
+        $this->translator = $translator;
     }
 
     public function normalize($object)
@@ -46,6 +63,7 @@ abstract class AbstractAdapter implements AdapterInterface
             'routeParams' => $this->getRouteParams(),
             'id'          => $this->getId(),
             'metadata'    => [
+                'title'        => $this->getHeadTitle(),
                 'creationDate' => $this->getCreationDate() ? $this->getCreationDate() : new DateTime(),
                 'description'  => $this->getDescription(),
                 'keywords'     => $this->getKeywords(),
@@ -122,4 +140,11 @@ abstract class AbstractAdapter implements AdapterInterface
      * @return boolean
      */
     abstract protected function isTrashed();
+
+    /**
+     * @return string
+     */
+    protected function getHeadTitle() {
+        return $this->getTitle();
+    }
 }

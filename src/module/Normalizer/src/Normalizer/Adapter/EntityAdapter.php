@@ -146,4 +146,33 @@ class EntityAdapter extends AbstractAdapter
     {
         return $this->getObject()->isTrashed();
     }
+
+    protected function getHeadTitle()
+    {
+        $maxStringLen = 65;
+
+        $type = $this->getType();
+        $typeName = $this->getTranslator()->translate($type);
+
+        $titleFallback = $this->getTitle();
+        $title = $this->getObject()->getCurrentRevision()->get('meta_title') ?: $titleFallback;
+
+        if ($type === 'course-page') {
+            $parent = $this->getObject()->getParents('link')->first();
+            $normalizedParent = $this->normalize($parent);
+            $parentTitleFallback = $normalizedParent->getTitle();
+
+            $parentTitle = $parent->getCurrentRevision()->get('title') ?: $parentTitleFallback;
+            $title = $parentTitle . " | " .$title;
+        }
+
+        //add "(Kurs)" etc
+        if ($type !== 'article') {
+            if( strlen($title) < ($maxStringLen-strlen($typeName)) ){
+                $title .=  ' (' . $typeName . ')';
+            }
+        }
+
+        return $title;
+    }
 }
