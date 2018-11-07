@@ -25,7 +25,8 @@ class EntityHelper extends AbstractHelper
         return $this;
     }
 
-    public function findSubject(EntityInterface $entity) {
+    public function findSubject(EntityInterface $entity)
+    {
         $subject = $this->findTaxonomyTerm($entity, 'subject');
         return $subject ? $subject->getName() : '';
     }
@@ -74,7 +75,8 @@ class EntityHelper extends AbstractHelper
         );
     }
 
-    public function isOryEditorFormat(RevisionInterface $revision) {
+    public function isOryEditorFormat(RevisionInterface $revision)
+    {
         $parsed = json_decode($revision->get('content'), true);
         return $parsed !== null && isset($parsed['cells']);
     }

@@ -20,7 +20,7 @@ class DiscussionManagerListener extends AbstractListener
             'start',
             [
                 $this,
-                'onStartSubscribe'
+                'onStartSubscribe',
             ],
             2
         );
@@ -30,7 +30,7 @@ class DiscussionManagerListener extends AbstractListener
             'comment',
             [
                 $this,
-                'onCommentSubscribe'
+                'onCommentSubscribe',
             ],
             2
         );

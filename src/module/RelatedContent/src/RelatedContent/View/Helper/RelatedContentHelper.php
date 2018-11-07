@@ -52,7 +52,7 @@ class RelatedContentHelper extends AbstractHelper
         return $this->getView()->partial(
             'related-content/view',
             [
-                'aggregated' => $aggregated
+                'aggregated' => $aggregated,
             ]
         );
     }

@@ -87,7 +87,7 @@ class ApiController extends AbstractController
             'url'          => $this->url()->fromRoute('uuid/get', ['uuid' => $term->getId()]),
             'parent'       => $term->hasParent() ? $term->getParent()->getId() : null,
             'children'     => [],
-            'items'        => []
+            'items'        => [],
         ];
 
         foreach ($term->getChildren() as $child) {
@@ -97,7 +97,7 @@ class ApiController extends AbstractController
         foreach ($term->getAssociated('entities') as $child) {
             $data['items'][] = [
                 'id'   => $child->getId(),
-                'type' => 'entity'
+                'type' => 'entity',
             ];
         }
 

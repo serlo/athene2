@@ -24,7 +24,7 @@ class ModuleOptions extends AbstractOptions
     protected $defaultPermissions = [
         'trash' => 'uuid.trash',
         'restore' => 'uuid.restore',
-        'purge' => 'uuid.purge'
+        'purge' => 'uuid.purge',
     ];
 
     /**

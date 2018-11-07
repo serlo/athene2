@@ -8,7 +8,7 @@
  */
 namespace Entity\Options;
 
-class RelatedContentOptions extends AbstractLinkOptions  implements ComponentOptionsInterface
+class RelatedContentOptions extends AbstractLinkOptions implements ComponentOptionsInterface
 {
     public function getLinkType()
     {

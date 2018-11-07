@@ -118,9 +118,9 @@ class TaxonomyManager implements TaxonomyManagerInterface
             [
                 'instance' => $instance,
                 'term'     => [
-                    'name' => 'root'
+                    'name' => 'root',
                 ],
-                'taxonomy' => $this->findTaxonomyByName('root', $instance)
+                'taxonomy' => $this->findTaxonomyByName('root', $instance),
             ]
         );
         return $this->createTerm($termForm);
@@ -153,7 +153,6 @@ class TaxonomyManager implements TaxonomyManagerInterface
 
         foreach ($entities as $entity) {
             $this->assertGranted('taxonomy.get', $entity);
-
         }
         return $entities;
     }
@@ -313,7 +312,7 @@ class TaxonomyManager implements TaxonomyManagerInterface
                     [
                         'term' => $term,
                         'from' => $changeSet['parent'][0]->getParent(),
-                        'to'   => $changeSet['parent'][1]->getParent()
+                        'to'   => $changeSet['parent'][1]->getParent(),
                     ]
                 );
             }

@@ -12,7 +12,6 @@ use Zend\Stdlib\AbstractOptions;
 
 class ManagerOptions extends AbstractOptions
 {
-
     protected $aliases = [];
 
     /**

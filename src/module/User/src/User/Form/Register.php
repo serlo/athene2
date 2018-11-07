@@ -20,7 +20,6 @@ use Zend\Mvc\I18n\Translator;
 
 class Register extends Form
 {
-
     public function __construct(EntityManager $entityManager, Translator $translator)
     {
         parent::__construct('signUp');
@@ -70,7 +69,7 @@ class Register extends Form
                 '05a5ab768a' => $translator->translate('Teacher'),
                 'bbffc7a064' => $translator->translate('Pupil'),
                 'ebff3b63f6' => $translator->translate('University student'),
-                'd251aad97e' => $translator->translate('Other')
+                'd251aad97e' => $translator->translate('Other'),
             ))
             ->setEmptyOption('')
             ->setLabel('I am here as…'));

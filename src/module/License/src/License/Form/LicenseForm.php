@@ -51,9 +51,9 @@ class LicenseForm extends Form
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
 
@@ -63,9 +63,9 @@ class LicenseForm extends Form
                 'required' => false,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
 
@@ -75,9 +75,9 @@ class LicenseForm extends Form
                 'required' => false,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
 
@@ -87,9 +87,9 @@ class LicenseForm extends Form
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'StripTags'
-                    ]
-                ]
+                        'name' => 'StripTags',
+                    ],
+                ],
             ]
         );
     }

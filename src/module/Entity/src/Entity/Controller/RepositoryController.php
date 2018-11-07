@@ -116,7 +116,7 @@ class RepositoryController extends AbstractController
             'currentRevision' => $currentRevision,
             'compareRevision' => $previousRevision,
             'revision'        => $revision,
-            'entity'          => $entity
+            'entity'          => $entity,
         ]);
 
         $view->setTemplate('entity/repository/compare-revision');
@@ -140,7 +140,7 @@ class RepositoryController extends AbstractController
         $view = new ViewModel([
             'entity'          => $entity,
             'revisions'       => $entity->getRevisions(),
-            'currentRevision' => $currentRevision
+            'currentRevision' => $currentRevision,
         ]);
 
         $view->setTemplate('entity/repository/history');

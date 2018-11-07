@@ -68,7 +68,7 @@ class AttachmentAdapter extends AbstractAdapter
     protected function getRouteParams()
     {
         return [
-            'id' => $this->getObject()->getId()
+            'id' => $this->getObject()->getId(),
         ];
     }
 

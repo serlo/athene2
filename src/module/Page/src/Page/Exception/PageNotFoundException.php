@@ -10,7 +10,7 @@ namespace Page\Exception;
 
 class PageNotFoundException extends RuntimeException
 {
-    function __construct($page)
+    public function __construct($page)
     {
         parent::__construct("Page `{$page}` not found.");
     }

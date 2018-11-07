@@ -19,8 +19,7 @@ use Zend\InputFilter\InputFilter;
 
 class DiscussionForm extends AbstractForm
 {
-
-    function __construct(HydratorPluginAwareDoctrineObject $hydrator, ObjectManager $objectManager)
+    public function __construct(HydratorPluginAwareDoctrineObject $hydrator, ObjectManager $objectManager)
     {
         parent::__construct('discussion');
         $this->add(new CsrfToken('csrf'));
@@ -37,8 +36,8 @@ class DiscussionForm extends AbstractForm
                 'name'    => 'author',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'User\Entity\User'
-                ]
+                    'target_class'   => 'User\Entity\User',
+                ],
             ]
         );
         $this->add(
@@ -47,8 +46,8 @@ class DiscussionForm extends AbstractForm
                 'name'    => 'object',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'Uuid\Entity\Uuid'
-                ]
+                    'target_class'   => 'Uuid\Entity\Uuid',
+                ],
             ]
         );
         $this->add(
@@ -57,8 +56,8 @@ class DiscussionForm extends AbstractForm
                 'name'    => 'instance',
                 'options' => [
                     'object_manager' => $objectManager,
-                    'target_class'   => 'Instance\Entity\Instance'
-                ]
+                    'target_class'   => 'Instance\Entity\Instance',
+                ],
             ]
         );
         $this->add(new Hidden('terms'));

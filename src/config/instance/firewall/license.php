@@ -14,7 +14,7 @@ return [
                 'license/add'    => ['admin'],
                 'license/remove' => ['sysadmin'],
                 'license/update' => ['admin'],
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

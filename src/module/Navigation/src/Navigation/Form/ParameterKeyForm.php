@@ -39,7 +39,7 @@ class ParameterKeyForm extends Form
         $filter->add(
             [
                 'name'     => 'name',
-                'required' => true
+                'required' => true,
             ]
         );
     }

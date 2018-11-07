@@ -24,7 +24,7 @@ class StrategyPluginManager extends AbstractPluginManager
      */
     protected $factories = [
         'Instance\Strategy\DomainStrategy' => 'Instance\Factory\DomainStrategyFactory',
-        'Instance\Strategy\CookieStrategy' => 'Instance\Factory\CookieStrategyFactory'
+        'Instance\Strategy\CookieStrategy' => 'Instance\Factory\CookieStrategyFactory',
     ];
 
     /**

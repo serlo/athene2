@@ -44,16 +44,16 @@ class ChangePasswordForm extends Form
                     [
                         'name'    => 'stringLength',
                         'options' => [
-                            'min' => 6
-                        ]
+                            'min' => 6,
+                        ],
                     ],
                     [
                         'name'    => 'identical',
                         'options' => [
-                            'token' => 'password'
-                        ]
-                    ]
-                ]
+                            'token' => 'password',
+                        ],
+                    ],
+                ],
             ]
         );
 
@@ -63,9 +63,9 @@ class ChangePasswordForm extends Form
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'Authentication\HashFilter'
-                    ]
-                ]
+                        'name' => 'Authentication\HashFilter',
+                    ],
+                ],
             ]
         );
     }

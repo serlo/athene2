@@ -17,7 +17,6 @@ use Zend\View\Model\ViewModel;
 
 class AttachmentController extends AbstractActionController
 {
-
     use AttachmentManagerAwareTrait;
 
     public function attachAction()
@@ -78,7 +77,7 @@ class AttachmentController extends AbstractActionController
                 'size'     => $file->getSize(),
                 'id'       => $file->getId(),
                 'type'     => $file->getType(),
-                'filename' => $file->getFilename()
+                'filename' => $file->getFilename(),
             ];
         }
 
@@ -86,7 +85,7 @@ class AttachmentController extends AbstractActionController
             'success' => true,
             'id'      => $attachment->getId(),
             'type'    => $attachment->getType()->getName(),
-            'files'   => $files
+            'files'   => $files,
         ]);
     }
 }

@@ -14,22 +14,21 @@ use Zend\Navigation\Page\Mvc;
 
 class Module
 {
-
     public function getAutoloaderConfig()
     {
         if (file_exists(__DIR__ . '/autoload_classmap.php')) {
             return [
                 'Zend\Loader\ClassMapAutoloader' => [
                     __DIR__ . '/autoload_classmap.php',
-                ]
+                ],
             ];
         } else {
             return [
                 'Zend\Loader\StandardAutoloader' => [
                     'namespaces' => [
-                        __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__
-                    ]
-                ]
+                        __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    ],
+                ],
             ];
         }
     }
@@ -41,14 +40,14 @@ class Module
         if (file_exists(__DIR__ . '/template_map.php')) {
             $templates = [];
             $templates['view_manager'] = [
-                'template_map' => include __DIR__ . '/template_map.php'
+                'template_map' => include __DIR__ . '/template_map.php',
             ];
 
             return ArrayUtils::merge($config, $templates);
         }
 
         $config['view_manager']['template_path_stack'] = [
-            __DIR__ . '/templates'
+            __DIR__ . '/templates',
         ];
 
         return $config;

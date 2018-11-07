@@ -28,7 +28,7 @@ class UniqueUser extends UniqueObject
 
         /*$expectedIdentifiers = $this->getExpectedIdentifiers($context);
         $foundIdentifiers    = $this->getFoundIdentifiers($match);
-    
+
         if (count(array_diff_assoc($expectedIdentifiers, $foundIdentifiers)) == 0) {
             return true;
         }*/

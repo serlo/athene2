@@ -16,7 +16,6 @@ class RouteStrategy extends Route
 {
     public function shouldCache(MvcEvent $event)
     {
-
         $app            = $event->getApplication();
         $serviceManager = $app->getServiceManager();
         /* @var $userManager UserManager */

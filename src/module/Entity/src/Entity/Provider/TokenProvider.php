@@ -68,7 +68,8 @@ class TokenProvider extends AbstractProvider implements ProviderInterface
         ];
     }
 
-    private function createPathFromTerm(TaxonomyTermInterface $term) {
+    private function createPathFromTerm(TaxonomyTermInterface $term)
+    {
         $path = [];
         while ($term->hasParent()) {
             $path[] = $term->getName();

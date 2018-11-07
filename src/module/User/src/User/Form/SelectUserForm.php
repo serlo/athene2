@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -17,7 +17,6 @@ use Zend\InputFilter\InputFilter;
 
 class SelectUserForm extends Form
 {
-
     public function __construct()
     {
         parent::__construct('select-user');
@@ -27,15 +26,15 @@ class SelectUserForm extends Form
         $this->setAttribute('class', 'clearfix');
         $filter = new InputFilter();
         $this->setInputFilter($filter);
-        
+
         $this->add((new Email('email'))->setLabel('Email:'));
-        
+
         $this->add((new Submit('submit'))->setValue('Restore')
             ->setAttribute('class', 'btn btn-success pull-right'));
-        
+
         $filter->add([
             'name' => 'email',
-            'required' => true
+            'required' => true,
         ]);
     }
 }

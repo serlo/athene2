@@ -28,15 +28,15 @@ class NotificationStorageFactory implements FactoryInterface
                 'name' => 'apc',
                 'options' => [
                     'namespace' => __NAMESPACE__,
-                    'ttl' => 60 * 5
-                ]
+                    'ttl' => 60 * 5,
+                ],
             ],
             'plugins' => [
                 'exception_handler' => [
-                    'throw_exceptions' => false
+                    'throw_exceptions' => false,
                 ],
-                'serializer'
-            ]
+                'serializer',
+            ],
         ];
         if (array_key_exists('notification_cache', $serviceLocator->get('Config'))) {
             $config =  $serviceLocator->get('Config')['notification_cache'];

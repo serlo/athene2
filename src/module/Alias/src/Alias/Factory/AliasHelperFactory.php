@@ -9,7 +9,6 @@
 
 namespace Alias\Factory;
 
-
 use Alias\View\Helper\AliasHelper;
 use Instance\Factory\InstanceManagerFactoryTrait;
 use Zend\ServiceManager\FactoryInterface;

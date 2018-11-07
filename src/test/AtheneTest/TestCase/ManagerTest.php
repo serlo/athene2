@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	    Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -15,23 +15,24 @@ use ClassResolver\ClassResolver;
 
 abstract class ManagerTest extends ObjectManagerTestCase
 {
-
     protected $manager;
 
-    protected $classResolver, $objectManager, $serviceLocator;
+    protected $classResolver;
+    protected $objectManager;
+    protected $serviceLocator;
 
-    public final function getManager()
+    final public function getManager()
     {
         return $this->manager;
     }
 
-    public final function setManager($manager)
+    final public function setManager($manager)
     {
         $this->manager = $manager;
         return $this;
     }
 
-    protected final function mockEntity($className, $id)
+    final protected function mockEntity($className, $id)
     {
         $entity = $this->getMock($className);
         $entity->expects($this->any())
@@ -40,35 +41,35 @@ abstract class ManagerTest extends ObjectManagerTestCase
         return $entity;
     }
 
-    protected final function prepareClassResolver(array $config)
+    final protected function prepareClassResolver(array $config)
     {
         if ($this->classResolver) {
             return $this->classResolver;
         }
-        
+
         $this->classResolver = new ClassResolver($config);
         $serviceLocator = $this->prepareServiceLocator(false);
-        
+
         $this->getManager()->setClassResolver($this->classResolver);
         $this->classResolver->setServiceLocator($serviceLocator);
-        
+
         return $this->classResolver;
     }
 
-    protected final function prepareServiceLocator($inject = true)
+    final protected function prepareServiceLocator($inject = true)
     {
         if (! $this->serviceLocator) {
             $this->serviceLocator = $this->getMock('Zend\ServiceManager\ServiceManager');
         }
-        
+
         if ($inject) {
             $this->getManager()->setServiceLocator($this->serviceLocator);
         }
-        
+
         return $this->serviceLocator;
     }
 
-    protected final function prepareObjectManager($inject = true)
+    final protected function prepareObjectManager($inject = true)
     {
         if (! $this->objectManager) {
             $this->objectManager = $this->mockEntityManager();
@@ -79,42 +80,42 @@ abstract class ManagerTest extends ObjectManagerTestCase
         return $this->objectManager;
     }
 
-    protected final function prepareFind($repositoryName, $key, $return)
+    final protected function prepareFind($repositoryName, $key, $return)
     {
         $objectManager = $this->prepareObjectManager();
-        
+
         $objectManager->expects($this->once())
             ->method('find')
             ->with($repositoryName, $key)
             ->will($this->returnValue($return));
     }
 
-    protected final function prepareFindBy($repositoryName, array $criteria, $return)
+    final protected function prepareFindBy($repositoryName, array $criteria, $return)
     {
         $objectManager = $this->prepareObjectManager();
         $repository = $this->mockEntityRepository();
-        
+
         $objectManager->expects($this->once())
             ->method('getRepository')
             ->with($repositoryName)
             ->will($this->returnValue($repository));
-        
+
         $repository->expects($this->once())
             ->method('findBy')
             ->with($criteria)
             ->will($this->returnValue($return));
     }
 
-    protected final function prepareFindOneBy($repositoryName, array $criteria, $return)
+    final protected function prepareFindOneBy($repositoryName, array $criteria, $return)
     {
         $objectManager = $this->prepareObjectManager();
         $repository = $this->mockEntityRepository();
-        
+
         $objectManager->expects($this->once())
             ->method('getRepository')
             ->with($repositoryName)
             ->will($this->returnValue($repository));
-        
+
         $repository->expects($this->once())
             ->method('findOneBy')
             ->with($criteria)

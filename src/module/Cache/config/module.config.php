@@ -16,9 +16,9 @@ return [
         'id_generators' => array(
             'plugin_manager' => array(
                 'invokables' => array(
-                    'AjaxGenerator' => 'Cache\IdGenerator\AjaxGenerator'
+                    'AjaxGenerator' => 'Cache\IdGenerator\AjaxGenerator',
                 ),
             ),
         ),
-    ]
+    ],
 ];

@@ -29,8 +29,8 @@ class RegisterFilter extends InputFilter
                         'name'    => 'EmailAddress',
                         'options' => [
                             'message' =>
-                                'This does not appear to be a valid email address. Please use a different one.'
-                        ]
+                                'This does not appear to be a valid email address. Please use a different one.',
+                        ],
                     ],
                     [
                         'name'    => 'User\Validator\UniqueUser',
@@ -40,11 +40,11 @@ class RegisterFilter extends InputFilter
                             'object_manager'    => $objectManager,
                             'messages'          => [
                                 UniqueObject::ERROR_OBJECT_NOT_UNIQUE =>
-                                    t('This email address is already in use. Please use a different one.')
-                            ]
-                        ]
-                    ]
-                ]
+                                    t('This email address is already in use. Please use a different one.'),
+                            ],
+                        ],
+                    ],
+                ],
             ]
         );
 
@@ -61,9 +61,9 @@ class RegisterFilter extends InputFilter
                             'object_manager'    => $objectManager,
                             'messages'          => [
                                 UniqueObject::ERROR_OBJECT_NOT_UNIQUE =>
-                                    t('This username is already taken. Please use a different one.')
-                            ]
-                        ]
+                                    t('This username is already taken. Please use a different one.'),
+                            ],
+                        ],
                     ],
                     [
                         'name'    => 'Regex',
@@ -75,11 +75,11 @@ class RegisterFilter extends InputFilter
                                         'Your username may only contain'
                                         . ' letters, digits, underscores (_) and hyphens (-).'
                                         . ' Please use a different one.'
-                                    )
-                            ]
-                        ]
-                    ]
-                ]
+                                    ),
+                            ],
+                        ],
+                    ],
+                ],
             ]
         );
 
@@ -92,8 +92,8 @@ class RegisterFilter extends InputFilter
                         'name'    => 'StringLength',
                         'options' => [
                             'min'     => 6,
-                            'message' => t('Your password needs to be at least 6 characters long.')
-                        ]
+                            'message' => t('Your password needs to be at least 6 characters long.'),
+                        ],
                     ],
                     [
                         'name'    => 'Identical',
@@ -102,10 +102,10 @@ class RegisterFilter extends InputFilter
                             'message' => t(
                                 'The password entered does not match the confirmation password. '
                                 . 'Ensure the passwords entered are identical.'
-                            )
-                        ]
-                    ]
-                ]
+                            ),
+                        ],
+                    ],
+                ],
             ]
         );
 
@@ -115,16 +115,16 @@ class RegisterFilter extends InputFilter
                 'required' => true,
                 'filters'  => [
                     [
-                        'name' => 'Authentication\HashFilter'
-                    ]
-                ]
+                        'name' => 'Authentication\HashFilter',
+                    ],
+                ],
             ]
         );
 
         $this->add(
             [
                 'name' => 'interests',
-                'required' => false
+                'required' => false,
             ]
         );
     }

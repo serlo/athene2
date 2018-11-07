@@ -38,5 +38,4 @@ class UserManagerFactory implements FactoryInterface
 
         return $instance;
     }
-
 }

@@ -79,7 +79,7 @@ class DomainStrategy extends AbstractStrategy
         $url = $this->router->assemble(
             $this->routeMatch->getParams(),
             [
-                'name' => $this->routeMatch->getMatchedRouteName()
+                'name' => $this->routeMatch->getMatchedRouteName(),
             ]
         );
 

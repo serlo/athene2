@@ -13,18 +13,18 @@ namespace Type;
 return [
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\TypeManager' => __NAMESPACE__ . '\Factory\TypeManagerFactory'
-        ]
+            __NAMESPACE__ . '\TypeManager' => __NAMESPACE__ . '\Factory\TypeManagerFactory',
+        ],
     ],
     'class_resolver'  => [
-        __NAMESPACE__ . '\Entity\TypeInterface' => __NAMESPACE__ . '\Entity\Type'
+        __NAMESPACE__ . '\Entity\TypeInterface' => __NAMESPACE__ . '\Entity\Type',
     ],
     'di'              => [
         'instance' => [
             'preferences' => [
-                __NAMESPACE__ . '\TypeManagerInterface' => __NAMESPACE__ . '\TypeManager'
-            ]
-        ]
+                __NAMESPACE__ . '\TypeManagerInterface' => __NAMESPACE__ . '\TypeManager',
+            ],
+        ],
     ],
     'doctrine'        => [
         'driver' => [
@@ -32,14 +32,14 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
-    ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+    ],
 ];

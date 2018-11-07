@@ -9,7 +9,6 @@
 
 namespace Ui\Factory;
 
-
 use Ui\Options\PageHeaderHelperOptions;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

@@ -44,8 +44,8 @@ class RepositoryManagerListener extends AbstractListener
             [
                 [
                     'name'  => 'repository',
-                    'value' => $repository
-                ]
+                    'value' => $repository,
+                ],
             ]
         );
     }
@@ -64,12 +64,12 @@ class RepositoryManagerListener extends AbstractListener
             [
                 [
                     'name'  => 'repository',
-                    'value' => $repository
+                    'value' => $repository,
                 ],
                 [
                     'name'  => 'reason',
-                    'value' => $reason
-                ]
+                    'value' => $reason,
+                ],
             ]
         );
     }
@@ -88,12 +88,12 @@ class RepositoryManagerListener extends AbstractListener
             [
                 [
                     'name'  => 'repository',
-                    'value' => $repository
+                    'value' => $repository,
                 ],
                 [
                     'name'  => 'reason',
-                    'value' => $reason
-                ]
+                    'value' => $reason,
+                ],
             ]
         );
     }

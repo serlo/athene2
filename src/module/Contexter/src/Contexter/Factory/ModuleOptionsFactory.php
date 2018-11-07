@@ -9,7 +9,6 @@
 
 namespace Contexter\Factory;
 
-
 use Contexter\Options\ModuleOptions;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

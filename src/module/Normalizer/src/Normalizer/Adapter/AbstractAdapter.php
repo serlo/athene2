@@ -14,7 +14,6 @@ use Normalizer\Exception\RuntimeException;
 
 abstract class AbstractAdapter implements AdapterInterface
 {
-
     protected $object;
 
     public function getObject()
@@ -51,8 +50,8 @@ abstract class AbstractAdapter implements AdapterInterface
                 'description'  => $this->getDescription(),
                 'keywords'     => $this->getKeywords(),
                 'lastModified' => $this->getLastModified() ? $this->getLastModified() : new DateTime(),
-                'robots'       => $this->isTrashed() ? 'noindex' : 'all'
-            ]
+                'robots'       => $this->isTrashed() ? 'noindex' : 'all',
+            ],
         ]);
 
         return $normalized;
@@ -79,7 +78,8 @@ abstract class AbstractAdapter implements AdapterInterface
     /**
      * @return DateTime
      */
-    protected function getLastModified() {
+    protected function getLastModified()
+    {
         return new DateTime();
     }
 

@@ -10,7 +10,6 @@
 
 namespace Page\Factory;
 
-
 use License\Factory\LicenseManagerFactoryTrait;
 use Page\Form\RevisionForm;
 use Zend\ServiceManager\FactoryInterface;

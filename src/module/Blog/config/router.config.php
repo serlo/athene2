@@ -18,8 +18,8 @@ return [
                     'route'    => '/blog',
                     'defaults' => [
                         'controller' => __NAMESPACE__ . '\Controller\BlogController',
-                        'action'     => 'index'
-                    ]
+                        'action'     => 'index',
+                    ],
                 ],
                 'may_terminate' => true,
                 'child_routes'  => [
@@ -28,23 +28,23 @@ return [
                         'options' => [
                             'route'    => '/view-all/:id',
                             'defaults' => [
-                                'action' => 'viewAll'
-                            ]
-                        ]
+                                'action' => 'viewAll',
+                            ],
+                        ],
                     ],
                     'view'     => [
                         'type'    => 'segment',
                         'options' => [
                             'route'    => '/view/:id',
                             'defaults' => [
-                                'action' => 'view'
-                            ]
-                        ]
+                                'action' => 'view',
+                            ],
+                        ],
                     ],
                     'post'     => [
                         'type'    => 'literal',
                         'options'      => [
-                            'route' => '/post'
+                            'route' => '/post',
                         ],
                         'child_routes' => [
                             'create' => [
@@ -52,41 +52,41 @@ return [
                                 'options' => [
                                     'route'    => '/create/:id',
                                     'defaults' => [
-                                        'action' => 'create'
-                                    ]
-                                ]
+                                        'action' => 'create',
+                                    ],
+                                ],
                             ],
                             'view'   => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/view/:post',
                                     'defaults' => [
-                                        'action' => 'viewPost'
-                                    ]
-                                ]
+                                        'action' => 'viewPost',
+                                    ],
+                                ],
                             ],
                             'update' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/update/:post',
                                     'defaults' => [
-                                        'action' => 'update'
-                                    ]
-                                ]
+                                        'action' => 'update',
+                                    ],
+                                ],
                             ],
                             'trash'  => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/trash/:post',
                                     'defaults' => [
-                                        'action' => 'trash'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    ]
+                                        'action' => 'trash',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

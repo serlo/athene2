@@ -37,7 +37,7 @@ class NotIdentical extends AbstractValidator
      * @var array
      */
     protected $messageVariables = [
-        'token' => 'tokenString'
+        'token' => 'tokenString',
     ];
 
     /**

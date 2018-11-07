@@ -54,7 +54,7 @@ class PostAdapter extends AbstractAdapter
     protected function getRouteParams()
     {
         return [
-            'post' => $this->getObject()->getId()
+            'post' => $this->getObject()->getId(),
         ];
     }
 

@@ -135,7 +135,7 @@ class Json extends Menu
             'elements'      => 0,
             'icon'          => null,
             'needsFetching' => false,
-            'children'      => []
+            'children'      => [],
         ];
 
         /* @var $page AbstractPage */

@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -17,8 +17,7 @@ use Zend\InputFilter\InputFilter;
 
 class InternalForm extends Form
 {
-
-    function __construct()
+    public function __construct()
     {
         parent::__construct('internal');
         $this->add(new CsrfToken('csrf'));
@@ -27,31 +26,31 @@ class InternalForm extends Form
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter('external');
         $this->setInputFilter($inputFilter);
-        
+
         $this->add((new Text('title'))->setLabel('Title:'));
         $this->add((new Text('reference'))->setLabel('Reference:'));
-        
+
         $this->add((new Submit('submit'))->setValue('Add')
             ->setAttribute('class', 'btn btn-success pull-right'));
-        
+
         $inputFilter->add([
             'name' => 'title',
             'required' => true,
             'filters' => [
                 [
-                    'name' => 'StripTags'
-                ]
-            ]
+                    'name' => 'StripTags',
+                ],
+            ],
         ]);
-        
+
         $inputFilter->add([
             'name' => 'reference',
             'required' => true,
             'filters' => [
                 [
-                    'name' => 'Digits'
-                ]
-            ]
+                    'name' => 'Digits',
+                ],
+            ],
         ]);
     }
 }

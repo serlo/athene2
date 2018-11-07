@@ -62,7 +62,8 @@ class EventManager implements EventManagerInterface
         $this->setAuthorizationService($authorizationService);
     }
 
-    public function findEventsByNamesAndActor(UserInterface $user, array $names){
+    public function findEventsByNamesAndActor(UserInterface $user, array $names)
+    {
         $events = [];
         foreach ($names as $name) {
             $event = $this->findTypeByName($name);

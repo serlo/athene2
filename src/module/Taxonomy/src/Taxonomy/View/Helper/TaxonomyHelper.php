@@ -80,7 +80,8 @@ class TaxonomyHelper extends AbstractHelper
      * @param string $type
      * @return string
      */
-    public function getAncestorName(TaxonomyTermInterface $term, $type) {
+    public function getAncestorName(TaxonomyTermInterface $term, $type)
+    {
         try {
             return $term->findAncestorByTypeName($type)->getName();
         } catch (Exception\TermNotFoundException $e) {
@@ -131,11 +132,12 @@ class TaxonomyHelper extends AbstractHelper
      * @param TaxonomyTermInterface $term
      * @return TaxonomyTermInterface[]
      */
-    public function flattenAncestors(TaxonomyTermInterface $term){
+    public function flattenAncestors(TaxonomyTermInterface $term)
+    {
         $ancestors = [];
         $current = $term;
         $i=0;
-        while($current->hasParent() && $current->getParent()->hasParent()){
+        while ($current->hasParent() && $current->getParent()->hasParent()) {
             $current = $current->getParent();
             $ancestors[$i] = $current;
             $i++;

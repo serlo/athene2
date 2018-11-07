@@ -33,7 +33,7 @@ class ActivateForm extends Form
 
         $filter->add([
             'name'     => 'email',
-            'required' => true
+            'required' => true,
         ]);
     }
 }

@@ -8,7 +8,6 @@
 
 namespace Entity\Factory;
 
-
 class AppletFormFactory extends AbstractFormFactory
 {
     protected function getClassName()

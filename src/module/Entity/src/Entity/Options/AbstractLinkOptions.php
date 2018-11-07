@@ -34,7 +34,7 @@ abstract class AbstractLinkOptions extends AbstractOptions implements ComponentO
      */
     protected $permissions = [
         'create' => 'entity.link.create',
-        'purge'  => 'entity.link.purge'
+        'purge'  => 'entity.link.purge',
     ];
 
     /**

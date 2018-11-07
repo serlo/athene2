@@ -14,21 +14,21 @@ return [
             'blogPost' => [
                 'tokenize' => 'blog/{blog}/{title}',
                 'provider' => 'Blog\Provider\TokenizerProvider',
-                'fallback' => 'blog/{blog}/{title}-{id}'
-            ]
-        ]
+                'fallback' => 'blog/{blog}/{title}-{id}',
+            ],
+        ],
     ],
     'taxonomy'      => [
         'types' => [
             'blog' => [
                 'allowed_associations' => [
-                    'Blog\Entity\PostInterface'
+                    'Blog\Entity\PostInterface',
                 ],
                 'allowed_parents'      => [
-                    'root'
+                    'root',
                 ],
-                'rootable'             => false
-            ]
-        ]
-    ]
+                'rootable'             => false,
+            ],
+        ],
+    ],
 ];

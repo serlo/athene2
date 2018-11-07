@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -14,7 +14,6 @@ use Zend\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions
 {
-
     protected $types = [];
 
     /**
@@ -28,7 +27,7 @@ class ModuleOptions extends AbstractOptions
 
     /**
      *
-     * @param string $type            
+     * @param string $type
      * @throws Exception\RuntimeException
      * @return TaxonomyOptions
      */
@@ -37,20 +36,20 @@ class ModuleOptions extends AbstractOptions
         if (! array_key_exists($type, $this->types)) {
             throw new Exception\RuntimeException(sprintf('No configuration for type "%s" found.', $type));
         }
-        
+
         if (! is_object($this->types[$type])) {
             $options = array_merge([
-                'allowed_children' => $this->aggregateAllowedChildren($type)
+                'allowed_children' => $this->aggregateAllowedChildren($type),
             ], $this->types[$type]);
             $this->types[$type] = new TaxonomyOptions($options);
         }
-        
+
         return $this->types[$type];
     }
 
     /**
      *
-     * @param array $types            
+     * @param array $types
      * @return self
      */
     public function setTypes(array $types)
@@ -61,7 +60,7 @@ class ModuleOptions extends AbstractOptions
 
     /**
      *
-     * @param string $needle            
+     * @param string $needle
      * @return array
      */
     protected function aggregateAllowedChildren($needle)

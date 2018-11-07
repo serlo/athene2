@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Athene2 - Advanced Learning Resources Manager
  *
  * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
@@ -17,7 +17,6 @@ use Zend\InputFilter\InputFilter;
 
 class LostPassword extends Form
 {
-
     public function __construct()
     {
         parent::__construct('lost-password');
@@ -27,13 +26,13 @@ class LostPassword extends Form
         $this->setAttribute('class', 'clearfix');
         $inputFilter = new InputFilter();
         $this->setInputFilter($inputFilter);
-        
+
         $this->add((new Password('password'))->setLabel('New password:'));
         $this->add((new Password('passwordConfirm'))->setLabel('Repeat new password:'));
-        
+
         $this->add((new Submit('submit'))->setValue('Update')
             ->setAttribute('class', 'btn btn-success pull-right'));
-        
+
         $inputFilter->add([
             'name' => 'passwordConfirm',
             'required' => true,
@@ -41,26 +40,26 @@ class LostPassword extends Form
                 [
                     'name' => 'stringLength',
                     'options' => [
-                        'min' => 6
-                    ]
+                        'min' => 6,
+                    ],
                 ],
                 [
                     'name' => 'identical',
                     'options' => [
-                        'token' => 'password'
-                    ]
-                ]
-            ]
+                        'token' => 'password',
+                    ],
+                ],
+            ],
         ]);
-        
+
         $inputFilter->add([
             'name' => 'password',
             'required' => true,
             'filters' => [
                 [
-                    'name' => 'Authentication\HashFilter'
-                ]
-            ]
+                    'name' => 'Authentication\HashFilter',
+                ],
+            ],
         ]);
     }
 }

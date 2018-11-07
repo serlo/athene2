@@ -23,15 +23,15 @@ class AdFilter extends InputFilter
                         'name' => 'StripTags',
                         'options' => [
                             'allowTags' => 'a',
-                            'allowAttribs' => 'href'
-                        ]
-                    ]
+                            'allowAttribs' => 'href',
+                        ],
+                    ],
                 ],
                 'validators' => [
                     [
-                        'name' => 'NotEmpty'
-                    ]
-                ]
+                        'name' => 'NotEmpty',
+                    ],
+                ],
             ]
         );
 
@@ -44,15 +44,15 @@ class AdFilter extends InputFilter
                         'name' => 'StripTags',
                         'options' => [
                             'allowTags' => ['br','a'],
-                            'allowAttribs' => ['href']
-                        ]
-                    ]
+                            'allowAttribs' => ['href'],
+                        ],
+                    ],
                 ],
                 'validators' => [
                     [
-                        'name' => 'NotEmpty'
-                    ]
-                ]
+                        'name' => 'NotEmpty',
+                    ],
+                ],
             ]
         );
     }

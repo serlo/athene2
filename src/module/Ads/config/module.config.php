@@ -18,8 +18,8 @@ return [
                     'route'    => '/horizon',
                     'defaults' => [
                         'controller' => 'Ads\Controller\AdsController',
-                        'action'     => 'index'
-                    ]
+                        'action'     => 'index',
+                    ],
                 ],
                 'child_routes'  => [
                     'about' => [
@@ -29,8 +29,8 @@ return [
                             'route'    => '/about',
                             'defaults' => [
                                 'controller' => 'Ads\Controller\AdsController',
-                                'action'     => 'adPage'
-                            ]
+                                'action'     => 'adPage',
+                            ],
                         ],
                         'child_routes'  => [
                             'editabout' => [
@@ -40,9 +40,9 @@ return [
                                     'route'    => '/editabout',
                                     'defaults' => [
                                         'controller' => 'Ads\Controller\AdsController',
-                                        'action'     => 'editAdPage'
-                                    ]
-                                ]
+                                        'action'     => 'editAdPage',
+                                    ],
+                                ],
                             ],
                             'setabout'  => [
                                 'type'    => 'literal',
@@ -51,11 +51,11 @@ return [
                                     'route'    => '/setabout',
                                     'defaults' => [
                                         'controller' => 'Ads\Controller\AdsController',
-                                        'action'     => 'setAbout'
-                                    ]
-                                ]
-                            ]
-                        ]
+                                        'action'     => 'setAbout',
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
                     'add'   => [
                         'type'    => 'literal',
@@ -63,9 +63,9 @@ return [
                             'route'    => '/add',
                             'defaults' => [
                                 'controller' => 'Ads\Controller\AdsController',
-                                'action'     => 'add'
-                            ]
-                        ]
+                                'action'     => 'add',
+                            ],
+                        ],
                     ],
                     'ad'    => [
                         'type'         => 'segment',
@@ -73,8 +73,8 @@ return [
                             'route'    => '/:id',
                             'defaults' => [
                                 'controller' => 'Ads\Controller\AdsController',
-                                'action'     => 'add'
-                            ]
+                                'action'     => 'add',
+                            ],
                         ],
                         'child_routes' => [
                             'delete' => [
@@ -83,9 +83,9 @@ return [
                                     'route'    => '/delete',
                                     'defaults' => [
                                         'controller' => 'Ads\Controller\AdsController',
-                                        'action'     => 'delete'
-                                    ]
-                                ]
+                                        'action'     => 'delete',
+                                    ],
+                                ],
                             ],
                             'out'    => [
                                 'type'    => 'literal',
@@ -94,9 +94,9 @@ return [
                                     'route'    => '/out',
                                     'defaults' => [
                                         'controller' => 'Ads\Controller\AdsController',
-                                        'action'     => 'out'
-                                    ]
-                                ]
+                                        'action'     => 'out',
+                                    ],
+                                ],
                             ],
                             'edit'   => [
                                 'type'    => 'literal',
@@ -104,69 +104,69 @@ return [
                                     'route'    => '/edit',
                                     'defaults' => [
                                         'controller' => 'Ads\Controller\AdsController',
-                                        'action'     => 'edit'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
+                                        'action'     => 'edit',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
     'zfc_rbac'        => [
         'assertion_map' => [
             'ad.create' => 'Authorization\Assertion\RequestInstanceAssertion',
             'ad.update' => 'Authorization\Assertion\InstanceAssertion',
             'ad.get'    => 'Authorization\Assertion\InstanceAssertion',
-            'ad.remove' => 'Authorization\Assertion\InstanceAssertion'
-        ]
+            'ad.remove' => 'Authorization\Assertion\InstanceAssertion',
+        ],
     ],
     'view_helpers'    => [
         'factories' => [
             'horizon' => __NAMESPACE__ . '\Factory\HorizonHelperFactory',
-            'banner'  => __NAMESPACE__ . '\Factory\BannerHelperFactory'
-        ]
+            'banner'  => __NAMESPACE__ . '\Factory\BannerHelperFactory',
+        ],
     ],
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\Manager\AdsManager' => __NAMESPACE__ . '\Factory\AdsManagerFactory'
-        ]
+            __NAMESPACE__ . '\Manager\AdsManager' => __NAMESPACE__ . '\Factory\AdsManagerFactory',
+        ],
     ],
     'class_resolver'  => [
         'Ads\Entity\AdInterface'     => 'Ads\Entity\Ad',
-        'Ads\Entity\AdPageInterface' => 'Ads\Entity\AdPage'
+        'Ads\Entity\AdPageInterface' => 'Ads\Entity\AdPage',
     ],
     'di'              => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\AdsController'
+            __NAMESPACE__ . '\Controller\AdsController',
         ],
         'definition'          => [
             'class' => [
                 'Ads\Controller\AdsController' => [
                     'setObjectManager'     => [
-                        'required' => 'true'
+                        'required' => 'true',
                     ],
                     'setInstanceManager'   => [
-                        'required' => 'true'
+                        'required' => 'true',
                     ],
                     'setUserManager'       => [
-                        'required' => 'true'
+                        'required' => 'true',
                     ],
                     'setAdsManager'        => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setAttachmentManager' => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'            => [
             'preferences' => [
-                __NAMESPACE__ . '\Manager\AdsManagerInterface' => __NAMESPACE__ . '\Manager\AdsManager'
-            ]
-        ]
+                __NAMESPACE__ . '\Manager\AdsManagerInterface' => __NAMESPACE__ . '\Manager\AdsManager',
+            ],
+        ],
     ],
     'doctrine'        => [
         'driver' => [
@@ -174,14 +174,14 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
-    ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+    ],
 ];

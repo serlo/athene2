@@ -12,7 +12,8 @@ namespace Common\Guard;
 /**
  * Provide a guard method against string data
  */
-trait StringGuardTrait {
+trait StringGuardTrait
+{
 
     /**
      * Verify that the data is a string

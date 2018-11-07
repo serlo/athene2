@@ -14,7 +14,6 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
 
 class LicenseHydrator implements HydratorInterface
 {
-
     public function extract($object)
     {
         /* @var $object Entity\LicenseInterface */
@@ -31,7 +30,7 @@ class LicenseHydrator implements HydratorInterface
             'content'   => $object->getContent(),
             'iconHref'  => $object->getIconHref(),
             'agreement' => $object->getAgreement(),
-            'default'   => $object->isDefault()
+            'default'   => $object->isDefault(),
         ];
     }
 

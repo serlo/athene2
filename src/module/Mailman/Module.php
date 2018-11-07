@@ -19,7 +19,7 @@ class Module
     public static $listeners = [
         'Mailman\Listener\UserControllerListener',
         'Mailman\Listener\AuthenticationControllerListener',
-        'Mailman\Listener\NotificationWorkerListener'
+        'Mailman\Listener\NotificationWorkerListener',
     ];
 
     public function getAutoloaderConfig()
@@ -28,17 +28,16 @@ class Module
 
         $autoloader['Zend\Loader\StandardAutoloader'] = [
             'namespaces' => [
-                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__
-            ]
+                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+            ],
         ];
 
         if (file_exists(__DIR__ . '/autoload_classmap.php')) {
             return [
                 'Zend\Loader\ClassMapAutoloader' => [
                     __DIR__ . '/autoload_classmap.php',
-                ]
+                ],
             ];
-
         }
 
         return $autoloader;
@@ -85,7 +84,8 @@ class Module
      * @param ServerUrl     $serverUrlHelper
      * @param ModuleOptions $moduleOptions
      */
-    protected function injectServerUrl(ServerUrl $serverUrlHelper, ModuleOptions $moduleOptions){
+    protected function injectServerUrl(ServerUrl $serverUrlHelper, ModuleOptions $moduleOptions)
+    {
         $options = parse_url($moduleOptions->getLocation());
         $serverUrlHelper->setScheme($options['scheme']);
         $serverUrlHelper->setHost($options['host']);

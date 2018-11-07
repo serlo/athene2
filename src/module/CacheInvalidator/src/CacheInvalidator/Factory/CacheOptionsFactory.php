@@ -14,7 +14,6 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class CacheOptionsFactory implements FactoryInterface
 {
-
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config  = $serviceLocator->get('config');

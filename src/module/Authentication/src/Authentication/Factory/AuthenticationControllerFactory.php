@@ -17,7 +17,6 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class AuthenticationControllerFactory implements FactoryInterface
 {
-
     use AuthenticationServiceFactoryTrait, UserManagerFactoryTrait;
 
     /**

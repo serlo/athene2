@@ -20,7 +20,7 @@ class SubjectControllerAdapter extends AbstractAdapter
     {
         $params     = $this->getRouteParams();
         return [
-            'subject' => $this->getAdaptee()->getSubject($params['subject'])->getName()
+            'subject' => $this->getAdaptee()->getSubject($params['subject'])->getName(),
         ];
     }
 

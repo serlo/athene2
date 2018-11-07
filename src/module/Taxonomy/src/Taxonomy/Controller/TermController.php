@@ -55,7 +55,7 @@ class TermController extends AbstractController
                 $data,
                 [
                     'taxonomy' => $this->params('taxonomy'),
-                    'parent'   => $this->params('parent', null)
+                    'parent'   => $this->params('parent', null),
 
                 ]
             );
@@ -88,7 +88,7 @@ class TermController extends AbstractController
                 $data,
                 [
                     'taxonomy' => $this->params('taxonomy'),
-                    'parent'   => $this->params('parent', null)
+                    'parent'   => $this->params('parent', null),
                 ]
             );
             $form->setData($data);
@@ -107,7 +107,7 @@ class TermController extends AbstractController
         }
 
         $view = new ViewModel([
-            'form' => $form
+            'form' => $form,
         ]);
         $view->setTemplate('taxonomy/term/batch-move');
         return $view;
@@ -126,7 +126,7 @@ class TermController extends AbstractController
                 $data,
                 [
                     'taxonomy' => $this->params('taxonomy'),
-                    'parent'   => $this->params('parent', null)
+                    'parent'   => $this->params('parent', null),
                 ]
             );
             $form->setData($data);
@@ -144,7 +144,7 @@ class TermController extends AbstractController
         }
 
         $view = new ViewModel([
-            'form' => $form
+            'form' => $form,
         ]);
         $view->setTemplate('taxonomy/term/batch-copy');
         return $view;
@@ -201,7 +201,7 @@ class TermController extends AbstractController
         $view         = new ViewModel([
             'term'         => $term,
             'associations' => $associations,
-            'association'  => $association
+            'association'  => $association,
         ]);
         $view->setTemplate('taxonomy/term/order-associated');
         return $view;

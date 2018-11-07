@@ -56,7 +56,7 @@ class Router implements RouterInterface
         $className = $this->getClassResolver()->resolveClassName('Contexter\Entity\RouteInterface');
 
         $criteria = [
-            'name' => $this->getRouteMatch()->getMatchedRouteName()
+            'name' => $this->getRouteMatch()->getMatchedRouteName(),
         ];
 
         if ($type) {
@@ -197,7 +197,7 @@ class Router implements RouterInterface
     protected function getDefaultConfig()
     {
         return [
-            'adapters' => []
+            'adapters' => [],
         ];
     }
 }

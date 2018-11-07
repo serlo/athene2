@@ -18,13 +18,12 @@ use Zend\EventManager\SharedEventManagerInterface;
 
 class IsolationBypassedListener extends AbstractSharedListenerAggregate
 {
-
     protected $instanceManager;
 
     /**
      * @param InstanceManagerInterface $instanceManager
      */
-    function __construct(InstanceManagerInterface $instanceManager)
+    public function __construct(InstanceManagerInterface $instanceManager)
     {
         $this->instanceManager = $instanceManager;
     }
@@ -39,7 +38,7 @@ class IsolationBypassedListener extends AbstractSharedListenerAggregate
             'isolationBypassed',
             [
                 $this,
-                'onBypass'
+                'onBypass',
             ],
             -1000
         );
@@ -57,7 +56,6 @@ class IsolationBypassedListener extends AbstractSharedListenerAggregate
                 'Expected instance of InstanceProviderInterface but got %s.',
                 is_object($target) ? get_class($target) : gettype($target)
             ));
-
         }
 
         $this->instanceManager->switchInstance($target->getInstance());

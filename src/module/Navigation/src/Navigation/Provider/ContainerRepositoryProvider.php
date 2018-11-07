@@ -92,7 +92,6 @@ class ContainerRepositoryProvider implements ContainerProviderInterface
             if ($hasUri || $hasMvc || $hasProvider) {
                 $config['pages'][] = $addPage;
             }
-
         }
 
         return $config;

@@ -30,7 +30,6 @@ class GetController extends AbstractController
         if ($term->hasParent()) {
             $siblings = $term->getParent()->findChildrenByTrashed(false)->filter(function ($item) use (&$term) {
                 return $item->getTaxonomy()->getName() === $term->getTaxonomy()->getName() && $item->getId() != $term->getId();
-
             });
         }
 

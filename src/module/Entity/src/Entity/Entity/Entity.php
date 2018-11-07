@@ -140,7 +140,7 @@ class Entity extends Uuid implements EntityInterface
                 $collection->add($link->getChild());
             }
         }
-        
+
         return $collection;
     }
 
@@ -223,7 +223,7 @@ class Entity extends Uuid implements EntityInterface
             return null;
         }
 
-        if($index-1 >= 0){
+        if ($index-1 >= 0) {
             return $children->get($index-1);
         }
 

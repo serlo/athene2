@@ -9,7 +9,6 @@
 
 namespace Ads\Factory;
 
-
 use Ads\Manager\AdsManager;
 use ClassResolver\ClassResolverFactoryTrait;
 use Common\Factory\AuthorizationServiceFactoryTrait;
@@ -34,7 +33,7 @@ class AdsManagerFactory implements FactoryInterface
         $classResolver        = $this->getClassResolver($serviceLocator);
         $attachmentManager    = $serviceLocator->get('Attachment\Manager\AttachmentManager');
         $pageManager = $serviceLocator->get('Page\Manager\PageManager');
-        $adsManager           = new AdsManager($authorizationService, $attachmentManager, $classResolver, $entityManager,$pageManager);
+        $adsManager           = new AdsManager($authorizationService, $attachmentManager, $classResolver, $entityManager, $pageManager);
 
         return $adsManager;
     }

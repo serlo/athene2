@@ -10,7 +10,6 @@ namespace Entity\Result;
 
 class Result implements ResultInterface
 {
-
     protected $result;
 
     /**

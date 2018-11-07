@@ -13,7 +13,6 @@ use Zend\Mvc\MvcEvent;
 
 class FirewallHydrator
 {
-
     use\Page\Manager\PageManagerAwareTrait;
     use\Zend\ServiceManager\ServiceLocatorAwareTrait;
 

@@ -39,7 +39,7 @@ class ContainerForm extends Form
         $this->add(
             (new Select('type'))->setLabel('Type:')->setOptions(
                 [
-                    'value_options' => $types
+                    'value_options' => $types,
                 ]
             )
         );
@@ -49,8 +49,8 @@ class ContainerForm extends Form
                 'name'    => 'instance',
                 'options' => [
                     'object_manager' => $entityManager,
-                    'target_class'   => 'Navigation\Entity\Container'
-                ]
+                    'target_class'   => 'Navigation\Entity\Container',
+                ],
             ]
         );
 
@@ -61,14 +61,14 @@ class ContainerForm extends Form
         $filter->add(
             [
                 'name'     => 'type',
-                'required' => true
+                'required' => true,
             ]
         );
 
         $filter->add(
             [
                 'name'     => 'instance',
-                'required' => true
+                'required' => true,
             ]
         );
     }

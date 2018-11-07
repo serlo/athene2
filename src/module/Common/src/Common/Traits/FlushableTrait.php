@@ -11,7 +11,6 @@ namespace Common\Traits;
 
 trait FlushableTrait
 {
-
     public function flush()
     {
         $this->getObjectManager()->flush();

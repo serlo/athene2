@@ -8,7 +8,6 @@
 
 namespace Markdown\Factory;
 
-
 use Markdown\View\Helper\MarkdownHelper;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

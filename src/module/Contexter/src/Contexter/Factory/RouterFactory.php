@@ -15,7 +15,6 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class RouterFactory implements FactoryInterface
 {
-
     public function createService(ServiceLocatorInterface $serviceManager)
     {
         $config     = $serviceManager->get('config');

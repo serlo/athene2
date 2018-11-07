@@ -13,14 +13,14 @@ namespace Normalizer;
 return [
     'view_helpers'    => [
         'factories' => [
-            'normalize' => __NAMESPACE__ . '\Factory\NormalizeHelperFactory'
-        ]
+            'normalize' => __NAMESPACE__ . '\Factory\NormalizeHelperFactory',
+        ],
     ],
     'service_manager' => [
         'factories' => [
             __NAMESPACE__ . '\Normalizer'      => __NAMESPACE__ . '\Factory\NormalizerFactory',
-            __NAMESPACE__ . '\Storage\Storage' => __NAMESPACE__ . '\Factory\NormalizerStorageFactory'
-        ]
+            __NAMESPACE__ . '\Storage\Storage' => __NAMESPACE__ . '\Factory\NormalizerStorageFactory',
+        ],
     ],
     'normalizer'      => [
         'strategies' => [
@@ -33,30 +33,30 @@ return [
             __NAMESPACE__ . '\Strategy\PostStrategy'           => [],
             __NAMESPACE__ . '\Strategy\TaxonomyTermStrategy'   => [],
             __NAMESPACE__ . '\Strategy\UserStrategy'           => [],
-        ]
+        ],
     ],
     'di'              => [
         'allowed_controllers' => [
             __NAMESPACE__ . '\Controller\SignpostController',
-            __NAMESPACE__ . '\Controller\SitemapController'
+            __NAMESPACE__ . '\Controller\SitemapController',
         ],
         'definition'          => [
             'class' => [
                 __NAMESPACE__ . '\Controller\SignpostController' => [
                     'setNormalizer'  => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setUuidManager' => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'            => [
             'preferences' => [
-                __NAMESPACE__ . '\NormalizerInterface' => __NAMESPACE__ . '\Normalizer'
-            ]
-        ]
+                __NAMESPACE__ . '\NormalizerInterface' => __NAMESPACE__ . '\Normalizer',
+            ],
+        ],
     ],
     'console'         => [
         'router' => [
@@ -66,11 +66,11 @@ return [
                         'route'    => 'sitemap',
                         'defaults' => [
                             'controller' => __NAMESPACE__ . '\Controller\SitemapController',
-                            'action'     => 'index'
-                        ]
-                    ]
+                            'action'     => 'index',
+                        ],
+                    ],
                 ],
-            ]
+            ],
         ],
     ],
     'router'          => [
@@ -81,14 +81,14 @@ return [
                     'route'    => '/meta/:id',
                     'defaults' => [
                         'controller' => __NAMESPACE__ . '\Controller\SignpostController',
-                        'action'     => 'meta'
-                    ]
-                ]
+                        'action'     => 'meta',
+                    ],
+                ],
             ],
             'normalizer' => [
                 'type'         => 'segment',
                 'options'      => [
-                    'route' => ''
+                    'route' => '',
                 ],
                 'child_routes' => [
                     'signpost' => [
@@ -97,11 +97,11 @@ return [
                             'route'    => '/ref/:object',
                             'defaults' => [
                                 'controller' => __NAMESPACE__ . '\Controller\SignpostController',
-                                'action'     => 'ref'
-                            ]
-                        ]
-                    ]
-                ]
+                                'action'     => 'ref',
+                            ],
+                        ],
+                    ],
+                ],
             ],
             'sitemap'    => [
                 'type'    => 'literal',
@@ -117,20 +117,20 @@ return [
                         'options'  => [
                             'route'    => '/uuid.xml',
                             'defaults'    => [
-                                'action'     => 'uuid'
+                                'action'     => 'uuid',
                             ],
-                        ]
+                        ],
                     ],
                     'navigation' => [
                         'type'    => 'literal',
                         'options'  => [
                             'route'    => '/nav.xml',
                             'defaults'    => [
-                                'action'     => 'index'
+                                'action'     => 'index',
                             ],
-                        ]
-                    ]
-                ]
+                        ],
+                    ],
+                ],
             ],
             'uuid'       => [
                 'child_routes' => [
@@ -141,15 +141,15 @@ return [
                             'route'       => '/:uuid',
                             'defaults'    => [
                                 'controller' => __NAMESPACE__ . '\Controller\SignpostController',
-                                'action'     => 'index'
+                                'action'     => 'index',
                             ],
                             'constraints' => [
-                                'uuid' => '[0-9]+'
+                                'uuid' => '[0-9]+',
                             ],
-                        ]
+                        ],
                     ],
-                ]
-            ]
-        ]
-    ]
+                ],
+            ],
+        ],
+    ],
 ];

@@ -13,7 +13,7 @@ return [
     'zfc_rbac'        => [
         'assertion_map' => [
             'event.log.get' => 'Authorization\Assertion\InstanceAssertion',
-        ]
+        ],
     ],
     'event_manager'   => [],
     'class_resolver'  => [
@@ -21,22 +21,22 @@ return [
         'Event\Entity\EventInterface'              => 'Event\Entity\Event',
         'Event\Entity\EventParameterInterface'     => 'Event\Entity\EventParameter',
         'Event\Entity\EventParameterNameInterface' => 'Event\Entity\EventParameterName',
-        'Event\Service\EventServiceInterface'      => 'Event\Service\EventService'
+        'Event\Service\EventServiceInterface'      => 'Event\Service\EventService',
     ],
     'view_helpers'    => [
         'factories' => [
-            'eventLog' => __NAMESPACE__ . '\Factory\EventLogHelperFactory'
-        ]
+            'eventLog' => __NAMESPACE__ . '\Factory\EventLogHelperFactory',
+        ],
     ],
     'zfctwig'         => [
         'helper_manager' => [
             'factories' => [
-                'eventLog' => __NAMESPACE__ . '\Factory\EventLogHelperFactory'
-            ]
-        ]
+                'eventLog' => __NAMESPACE__ . '\Factory\EventLogHelperFactory',
+            ],
+        ],
     ],
     'controllers'     => [
-        'invokables' => [__NAMESPACE__ . '\Controller\EventController']
+        'invokables' => [__NAMESPACE__ . '\Controller\EventController'],
     ],
     'service_manager' => [
         'factories' => [
@@ -47,41 +47,41 @@ return [
             'Event\Listener\LinkServiceListener'       => __NAMESPACE__ . '\Factory\LinkServiceListenerFactory',
             'Event\Listener\EntityManagerListener'     => __NAMESPACE__ . '\Factory\EntityManagerListenerFactory',
             'Event\Listener\LicenseManagerListener'    => __NAMESPACE__ . '\Factory\LicenseManagerListenerFactory',
-            'Event\EventManager'                       => __NAMESPACE__ . '\Factory\EventManagerFactory'
-        ]
+            'Event\EventManager'                       => __NAMESPACE__ . '\Factory\EventManagerFactory',
+        ],
     ],
     'di'              => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\EventController'
+            __NAMESPACE__ . '\Controller\EventController',
         ],
         'definition'          => [
             'class' => [
                 __NAMESPACE__ . '\EventManager' => [
                     'setClassResolver'  => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setObjectManager'  => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setServiceLocator' => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\Controller\EventController' => [
                     'setUserManager' => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'            => [
             'preferences'                           => [
-                __NAMESPACE__ . '\EventManagerInterface' => __NAMESPACE__ . '\EventManager'
+                __NAMESPACE__ . '\EventManagerInterface' => __NAMESPACE__ . '\EventManager',
             ],
             __NAMESPACE__ . '\Service\EventService' => [
-                'shared' => false
-            ]
-        ]
+                'shared' => false,
+            ],
+        ],
     ],
     'doctrine'        => [
         'driver' => [
@@ -89,15 +89,15 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -106,8 +106,8 @@ return [
                 'options'      => [
                     'route'    => '/event',
                     'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\EventController'
-                    ]
+                        'controller' => __NAMESPACE__ . '\Controller\EventController',
+                    ],
                 ],
                 'child_routes' => [
                     'history' => [
@@ -129,9 +129,9 @@ return [
                                         'options' => [
                                             'route' => '/me',
                                             'defaults' => [
-                                                'action' => 'me'
-                                            ]
-                                        ]
+                                                'action' => 'me',
+                                            ],
+                                        ],
                                     ],
                                     'id' => [
                                         'type' => 'segment',
@@ -139,37 +139,37 @@ return [
                                         'options' => [
                                             'route' => '/:id',
                                             'constraints' => [
-                                                'id' => '[0-9]+'
+                                                'id' => '[0-9]+',
                                             ],
                                             'defaults' => [
-                                                'action' => 'user'
-                                            ]
-                                        ]
-                                    ]
-                                ]
+                                                'action' => 'user',
+                                            ],
+                                        ],
+                                    ],
+                                ],
                             ],
                             'object' => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '/:id',
                                     'defaults' => [
-                                        'action' => 'history'
-                                    ]
-                                ]
+                                        'action' => 'history',
+                                    ],
+                                ],
                             ],
                             'all'     => [
                                 'type'    => 'segment',
                                 'options' => [
                                     'route'    => '',
                                     'defaults' => [
-                                        'action' => 'all'
-                                    ]
-                                ]
-                            ]
-                        ]
+                                        'action' => 'all',
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
-                ]
-            ]
-        ]
-    ]
+                ],
+            ],
+        ],
+    ],
 ];

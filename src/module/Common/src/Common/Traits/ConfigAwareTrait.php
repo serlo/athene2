@@ -12,7 +12,6 @@ use Zend\Stdlib\ArrayUtils;
 
 trait ConfigAwareTrait
 {
-
     abstract protected function getDefaultConfig();
 
     protected $config = [];
@@ -36,7 +35,7 @@ trait ConfigAwareTrait
         $array = [
             $this->getDefaultConfig(),
             $config,
-            $this->config
+            $this->config,
         ];
 
         return $this;

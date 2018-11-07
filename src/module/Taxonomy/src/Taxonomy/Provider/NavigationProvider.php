@@ -34,14 +34,14 @@ class NavigationProvider implements PageProviderInterface
         'route'      => 'default',
         'parent'     => [
             'type' => '',
-            'slug' => ''
+            'slug' => '',
         ],
         'instance'   => 'de',
         'max_depth'  => 1,
         'types'      => [],
         'params'     => [],
         'hidden'     => [],
-        'identifier' => 'term'
+        'identifier' => 'term',
     ];
     /**
      * @var array
@@ -78,7 +78,6 @@ class NavigationProvider implements PageProviderInterface
         $this->objectManager   = $objectManager;
         $this->storage         = $storage;
         $this->filter = new NotTrashedCollectionFilter();
-
     }
 
     /**

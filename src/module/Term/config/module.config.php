@@ -14,32 +14,32 @@ namespace Term;
  */
 return [
     'class_resolver' => [
-        'Term\Entity\TermEntityInterface' => 'Term\Entity\TermEntity'
+        'Term\Entity\TermEntityInterface' => 'Term\Entity\TermEntity',
     ],
     'di'             => [
         'definition' => [
             'class' => [
                 'Term\Manager\TermManager' => [
                     'setObjectManager'   => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setServiceLocator'  => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setInstanceManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setClassResolver'   => [
-                        'required' => true
-                    ]
-                ]
-            ]
+                        'required' => true,
+                    ],
+                ],
+            ],
         ],
         'instance'   => [
             'preferences' => [
-                'Term\Manager\TermManagerInterface' => 'Term\Manager\TermManager'
-            ]
-        ]
+                'Term\Manager\TermManagerInterface' => 'Term\Manager\TermManager',
+            ],
+        ],
     ],
     'doctrine'       => [
         'driver' => [
@@ -47,14 +47,14 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
-    ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+    ],
 ];

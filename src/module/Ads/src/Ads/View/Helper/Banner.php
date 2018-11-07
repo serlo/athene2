@@ -26,7 +26,8 @@ class Banner extends AbstractHelper
 
     public function __construct(
 
-        Request $request) {
+        Request $request
+    ) {
         $this->request = $request;
     }
 
@@ -35,11 +36,11 @@ class Banner extends AbstractHelper
         $instance = $this->getInstanceManager()->getInstanceFromRequest();
         $this->ads = $this->getAdsManager()->findShuffledAds($instance, 1, true);
 
-        if(!$this->request->isXmlHttpRequest()) {
+        if (!$this->request->isXmlHttpRequest()) {
             return $this->getView()->partial(
                 'ads/helper/banner-helper',
                 [
-                    'ads' => $this->ads
+                    'ads' => $this->ads,
                 ]
             );
         } else {

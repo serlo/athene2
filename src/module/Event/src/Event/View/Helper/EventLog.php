@@ -61,7 +61,8 @@ class EventLog extends AbstractHelper
         return $this->getView()->partial($this->eventTemplate, ['event' => $event]);
     }
 
-    public function countEventsFoundByActorAndNames(UserInterface $user, array $names) {
+    public function countEventsFoundByActorAndNames(UserInterface $user, array $names)
+    {
         return $this->getEventManager()->findEventsByNamesAndActor($user, $names)->count();
     }
 

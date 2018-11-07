@@ -14,7 +14,8 @@ use User\Form\Register;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class RegisterFormFactory implements FactoryInterface {
+class RegisterFormFactory implements FactoryInterface
+{
     use EntityManagerFactoryTrait;
 
     /**

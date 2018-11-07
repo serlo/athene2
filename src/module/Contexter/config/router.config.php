@@ -16,8 +16,8 @@ return [
                 'options'      => [
                     'route'    => '/context',
                     'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\ContextController'
-                    ]
+                        'controller' => __NAMESPACE__ . '\Controller\ContextController',
+                    ],
                 ],
                 'child_routes' => [
                     'select-uri' => [
@@ -25,14 +25,14 @@ return [
                         'options' => [
                             'route'    => '/select-uri',
                             'defaults' => [
-                                'action' => 'selectUri'
-                            ]
-                        ]
+                                'action' => 'selectUri',
+                            ],
+                        ],
                     ],
                     'route'      => [
                         'type'    => 'literal',
                         'options'      => [
-                            'route' => '/route'
+                            'route' => '/route',
                         ],
                         'child_routes' => [
                             'remove' => [
@@ -40,41 +40,41 @@ return [
                                 'options' => [
                                     'route'    => '/remove/:id',
                                     'defaults' => [
-                                        'action' => 'removeRoute'
-                                    ]
-                                ]
-                            ]
-                        ]
+                                        'action' => 'removeRoute',
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
                     'remove'     => [
                         'type'    => 'segment',
                         'options' => [
                             'route'    => '/remove/:id',
                             'defaults' => [
-                                'action' => 'remove'
-                            ]
-                        ]
+                                'action' => 'remove',
+                            ],
+                        ],
                     ],
                     'add'        => [
                         'type'    => 'literal',
                         'options' => [
                             'route'    => '/add',
                             'defaults' => [
-                                'action' => 'add'
-                            ]
-                        ]
+                                'action' => 'add',
+                            ],
+                        ],
                     ],
                     'manage'     => [
                         'type'    => 'literal',
                         'options' => [
                             'route'    => '/manage',
                             'defaults' => [
-                                'action' => 'manage'
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    ]
+                                'action' => 'manage',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

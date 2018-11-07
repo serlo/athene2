@@ -15,9 +15,9 @@ return [
                     'route'    => '/',
                     'defaults' => [
                         'controller' => 'Application\Controller\IndexController',
-                        'action'     => 'index'
-                    ]
-                ]
+                        'action'     => 'index',
+                    ],
+                ],
             ],
             'application' => [
                 'type'          => 'Literal',
@@ -26,8 +26,8 @@ return [
                     'defaults' => [
                         '__NAMESPACE__' => 'Application\Controller',
                         'controller'    => 'Index',
-                        'action'        => 'index'
-                    ]
+                        'action'        => 'index',
+                    ],
                 ],
                 'may_terminate' => true,
                 'child_routes'  => [
@@ -37,19 +37,19 @@ return [
                             'route'       => '/[:controller[/:action]]',
                             'constraints' => [
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*'
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ],
-                            'defaults'    => []
-                        ]
-                    ]
-                ]
-            ]
-        ]
+                            'defaults'    => [],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
     'service_manager' => [
         'factories' => [
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
-        ]
+        ],
     ],
     'di'              => [
         'allowed_controllers' => [
@@ -59,10 +59,10 @@ return [
             'class' => [
                 'Application\Controller\IndexController' => [
                     'setInstanceManager'   => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
-            ]
+            ],
         ],
-    ]
+    ],
 ];

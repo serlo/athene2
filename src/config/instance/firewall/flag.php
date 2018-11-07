@@ -13,7 +13,7 @@ return [
             'ZfcRbac\Guard\RouteGuard' => [
                 'flag/add'    => ['login'],
                 'flag/remove' => ['helper'],
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

@@ -15,7 +15,6 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
 
 class AdHydrator implements HydratorInterface
 {
-
     protected $keys = [
         'author',
         'title',
@@ -24,7 +23,7 @@ class AdHydrator implements HydratorInterface
         'instance',
         'frequency',
         'url',
-        'banner'
+        'banner',
     ];
 
     public function extract($object)

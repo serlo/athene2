@@ -15,7 +15,6 @@ use Zend\Form\Form;
 
 class AdPageForm extends Form
 {
-
     public function __construct()
     {
         parent::__construct('set About Ad Page');
@@ -24,7 +23,7 @@ class AdPageForm extends Form
         $this->setAttribute('class', 'clearfix');
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'form-horizontal');
-        
+
         $this->add((new Text('id'))->setLabel('Page ID:'))
             ->setAttribute('required', 'required');
         $this->add((new Submit('submit'))->setValue('Save')

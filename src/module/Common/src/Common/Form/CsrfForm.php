@@ -14,7 +14,7 @@ use Zend\Form\Form;
 
 class CsrfForm extends Form
 {
-    function __construct($name)
+    public function __construct($name)
     {
         parent::__construct($name);
         $this->setAttribute('method', 'post');

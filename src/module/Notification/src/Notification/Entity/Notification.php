@@ -13,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Notification\Exception;
 use User\Entity\UserInterface;
 
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="notification")

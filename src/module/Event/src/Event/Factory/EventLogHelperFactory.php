@@ -9,7 +9,6 @@
 
 namespace Event\Factory;
 
-
 use Event\View\Helper\EventLog;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

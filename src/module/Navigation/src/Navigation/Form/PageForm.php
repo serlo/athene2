@@ -36,8 +36,8 @@ class PageForm extends Form
                 'name'    => 'container',
                 'options' => [
                     'object_manager' => $entityManager,
-                    'target_class'   => 'Navigation\Entity\Container'
-                ]
+                    'target_class'   => 'Navigation\Entity\Container',
+                ],
             ]
         );
 
