@@ -1,13 +1,14 @@
 matrix:
   include:
-    - language: php
-      python: 7.0
-      cache:
-        directories: src/vendor
-      before_script:
-        - composer install --dev --prefer-dist
-      script:
-        - sh bin/build.sh
+    # FIXME: skipped for now since we use a different php version on the live server
+    # - language: php
+    #   php: 7.0
+    #   cache:
+    #     directories: src/vendor
+    #   before_script:
+    #     - composer install --dev --prefer-dist
+    #   script:
+    #     - sh bin/build.sh
     - language: node_js
       node_js: 10
       cache: yarn
