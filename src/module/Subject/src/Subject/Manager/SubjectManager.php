@@ -103,13 +103,14 @@ class SubjectManager implements SubjectManagerInterface
         $recentTimestampsPerEntity = new ArrayCollection();
 
         // find all entities where $term matches (also in parents)
-        foreach($revisions as $revision) {
+        foreach ($revisions as $revision) {
             if ($this->isInSubject($revision->getRepository(), $term)) {
                 $normalized = $this->normalizer->normalize($revision);
                 $filteredRevisions->add($revision);
                 $entityId = $revision->getRepository()->getId();
-                $recentTimestampsPerEntity->set($entityId,
-                    max($normalized->getMetadata()->getCreationDate()->getTimestamp(),$recentTimestampsPerEntity->get($entityId))
+                $recentTimestampsPerEntity->set(
+                    $entityId,
+                    max($normalized->getMetadata()->getCreationDate()->getTimestamp(), $recentTimestampsPerEntity->get($entityId))
                 );
             }
         }
@@ -122,7 +123,7 @@ class SubjectManager implements SubjectManagerInterface
              */
             $entityA = $revisionA->getRepository();
             $entityB = $revisionB->getRepository();
-            if ($entityA !== $entityB){
+            if ($entityA !== $entityB) {
                 return $recentTimestampsPerEntity->get($entityB->getId()) - $recentTimestampsPerEntity->get($entityA->getId());
             } else {
                 return $revisionB->getId() - $revisionA->getId();
@@ -132,7 +133,8 @@ class SubjectManager implements SubjectManagerInterface
         return $collection;
     }
 
-    protected function isInSubject(EntityInterface $entity, TaxonomyTermInterface $term) {
+    protected function isInSubject(EntityInterface $entity, TaxonomyTermInterface $term)
+    {
         if (!$entity->getTaxonomyTerms()->isEmpty()) {
             foreach ($entity->getTaxonomyTerms() as $tempTerm) {
                 if ($tempTerm->knowsAncestor($term)) {

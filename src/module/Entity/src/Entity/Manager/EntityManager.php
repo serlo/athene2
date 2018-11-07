@@ -44,7 +44,7 @@ class EntityManager implements EntityManagerInterface
         $entity->setType($type);
         $this->getEventManager()->trigger('create', $this, [
             'entity' => $entity,
-            'data' => $data
+            'data' => $data,
         ]);
         $this->getObjectManager()->persist($entity);
 
@@ -72,7 +72,7 @@ class EntityManager implements EntityManagerInterface
         $results = $this->getObjectManager()
             ->getRepository($className)
             ->findBy([
-            'type' => $type->getId()
+            'type' => $type->getId(),
         ]);
         $this->objectManager->setBypassIsolation($old);
         return new ArrayCollection($results);
@@ -110,7 +110,7 @@ class EntityManager implements EntityManagerInterface
             $unrevisedRevisionIds[] = $unrevisedRevisionIdArray["id"];
         }
         $results = $this->getObjectManager()->getRepository($entityClassName)->findBy([
-            'id' => $unrevisedRevisionIds
+            'id' => $unrevisedRevisionIds,
         ]);
         return new ArrayCollection($results);
     }

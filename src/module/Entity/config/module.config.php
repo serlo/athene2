@@ -32,7 +32,7 @@ return [
     'class_resolver' => [
         'Entity\Entity\EntityInterface' => 'Entity\Entity\Entity',
         'Entity\Entity\TypeInterface' => 'Entity\Entity\Type',
-        'Entity\Entity\RevisionInterface' => 'Entity\Entity\Revision'
+        'Entity\Entity\RevisionInterface' => 'Entity\Entity\Revision',
     ],
     'di' => [
         'allowed_controllers' => [
