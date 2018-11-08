@@ -12,17 +12,24 @@
     "start": "docker-compose up",
     "format": "npm-run-all format:*",
     "lint": "npm-run-all lint:*",
+    "license": "ts-node scripts/license-headers",
     "format:php-cs-fixer": "yarn _php-cs-fixer",
     "format:prettier": "yarn _prettier --write",
     "lint:php-cs-fixer": "yarn _php-cs-fixer --dry-run",
     "lint:prettier": "yarn _prettier --list-different",
     "_php-cs-fixer": "php php-cs-fixer.phar fix --config=php-cs-fixer.config.php",
-    "_prettier": "prettier \"*.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
+    "_prettier": "prettier \"{scripts/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {},
   "devDependencies": {
+    "@splish-me/copyright-headers": "^0.0.1",
+    "@types/glob": "^7.0.0",
+    "@types/node": "^10.0.0",
+    "glob": "^7.0.0",
     "npm-run-all": "^4.0.0",
-    "prettier": "^1.0.0"
+    "prettier": "^1.0.0",
+    "ts-node": "^7.0.0",
+    "typescript": "^3.0.0"
   },
   "private": true
 }
