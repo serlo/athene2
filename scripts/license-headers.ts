@@ -1,4 +1,4 @@
-import { updateLicenseHeader } from '@splish-me/copyright-headers'
+import { updateCopyrightHeader } from '@splish-me/copyright-headers'
 import * as glob from 'glob'
 import * as path from 'path'
 import * as util from 'util'
@@ -37,8 +37,7 @@ g('**/*@(.php|.php.dist|.twig|.phtml)', {
   return files.map(file => {
     const filePath = path.join(root, file)
 
-    return updateLicenseHeader({
-      filePath,
+    return updateCopyrightHeader(filePath, {
       lines,
       shouldUpdate: content => {
         return (
