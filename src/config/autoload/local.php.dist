@@ -70,12 +70,12 @@ return [
         'database' => $dbParams['database']
     ),
     'smtp_options' => [
-    	'name' => 'localhost.localdomain',
-		'host' => '127.0.0.1',
-		'connection_class' => 'login',
+        'name' => 'localhost.localdomain',
+        'host' => '127.0.0.1',
+        'connection_class' => 'login',
         'connection_config' => [
-			'username' => 'user',
-			'password' => 'pass'
+            'username' => 'user',
+            'password' => 'pass'
         ]
     ]
 ];
