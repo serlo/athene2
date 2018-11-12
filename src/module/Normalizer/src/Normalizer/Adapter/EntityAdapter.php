@@ -182,7 +182,7 @@ class EntityAdapter extends AbstractAdapter
 
         //add "(Kurs)" etc
         if ($type !== 'article') {
-            if( strlen($title) < ($maxStringLen-strlen($typeName)) ){
+            if (strlen($title) < ($maxStringLen-strlen($typeName))) {
                 $title .=  ' (' . $typeName . ')';
             }
         }

@@ -117,11 +117,11 @@ class Normalize extends AbstractHelper
         $headTitle  = $this->getView()->plugin('headTitle');
 
         $title='';
-        if($object == null) {
+        if ($object == null) {
             /** @var Brand $brand */
             $brand  = $this->getView()->brand();
             $title = $brand->getBrand(true) . " – " . $brand->getSlogan();
-        } else if(is_string($object)){
+        } elseif (is_string($object)) {
             $title = $this->appendBrand($object);
         } else {
             $normalized = $this->normalize($object);
@@ -131,19 +131,20 @@ class Normalize extends AbstractHelper
         return $this;
     }
 
-    private function appendBrand($title) {
+    private function appendBrand($title)
+    {
         /** @var Brand $brand */
         $brand  = $this->getView()->brand();
         $maxStringLen = 65;
 
         //add "– lernen mit Serlo"
         $titlePostfix = ' – ' . $brand->getHeadTitle(true);
-        if( strlen($title) < ($maxStringLen-strlen($titlePostfix)) ){
+        if (strlen($title) < ($maxStringLen-strlen($titlePostfix))) {
             return $title . $titlePostfix;
         }
 
         $titlePostfixFallback = ' – ' . $brand->getBrand(true);
-        if( strlen($title) < ($maxStringLen-strlen($titlePostfixFallback))) {
+        if (strlen($title) < ($maxStringLen-strlen($titlePostfixFallback))) {
             return $title . $titlePostfixFallback;
         }
 

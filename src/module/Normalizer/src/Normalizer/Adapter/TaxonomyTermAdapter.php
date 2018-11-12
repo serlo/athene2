@@ -137,7 +137,7 @@ class TaxonomyTermAdapter extends AbstractAdapter
 
         //add "(Lehrplan)" etc
         if ($type !== 'topic-folder') {
-            if( strlen($title) < ($maxStringLen-strlen($typeName)) ){
+            if (strlen($title) < ($maxStringLen-strlen($typeName))) {
                 $title .=  ' (' . $typeName . ')';
             }
         }

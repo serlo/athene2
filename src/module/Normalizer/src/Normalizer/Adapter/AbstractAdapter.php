@@ -158,7 +158,8 @@ abstract class AbstractAdapter implements AdapterInterface
     /**
      * @return string
      */
-    protected function getHeadTitle() {
+    protected function getHeadTitle()
+    {
         return $this->getTitle();
     }
 }
