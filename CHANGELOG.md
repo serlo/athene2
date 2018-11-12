@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. The format 
 - Add yarn script `start` that executes `docker-compose up`
 - Add yarn script `format:prettier` that executes prettier (formats Markdown, YAML, JSON, etc.)
 - Add yarn script `format:php` that executes php-cs-fixer (formats PHP according to PSR-2 with some additional rules)
+- Add yarn script `license` that handles license headers in our source code files
 
 ### Changed
 
