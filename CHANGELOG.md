@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 
+- Improved title in entities (e.g. automated " - lernen mit Serlo" suffix) ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Add `package.json` so that we can use `yarn` as task runner
 - Add yarn script `start` that executes `docker-compose up`
 - Add yarn script `format:prettier` that executes prettier (formats Markdown, YAML, JSON, etc.)
@@ -16,6 +17,8 @@ All notable changes to this project will be documented in this file. The format 
 
 - Make list of unrevised revisions (e.g. https://de.serlo.org/mathe/entity/unrevised) faster ([#790](https://github.com/serlo-org/athene2/pull/790), [#780](https://github.com/serlo-org/athene2/pull/780))
 - Show all unrevised revisions of an entity (and not only the newest one) ([#790](https://github.com/serlo-org/athene2/pull/790))
+- Show a subject-specific Open Graph meta image (e.g. for Facebook previews) ([#678](https://github.com/serlo-org/athene2/pull/678))
+- Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
 
 ## [Build 2] - 2017-10-30
 
