@@ -176,7 +176,9 @@ class EntityAdapter extends AbstractAdapter
 
         if ($type === 'course-page') {
             $parent = $this->getObject()->getParents('link')->first();
-            $normalizedParent = $this->normalize($parent);
+            $parentAdapter = new EntityAdapter();
+            $parentAdapter->setTranslator($this->translator);
+            $normalizedParent = $parentAdapter->normalize($parent);
             $parentTitle = $normalizedParent->getMetadata()->getTitle();
             $title = $parentTitle . " | " .$title;
         }

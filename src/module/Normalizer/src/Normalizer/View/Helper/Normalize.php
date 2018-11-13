@@ -38,8 +38,6 @@ class Normalize extends AbstractHelper
     use InstanceManagerAwareTrait;
     use NormalizerAwareTrait;
 
-    private static $maxStringLen = 65;
-
     public function __invoke($object = null)
     {
         if ($object === null) {
@@ -106,10 +104,6 @@ class Normalize extends AbstractHelper
         $meta->setProperty('fb:profile_id', '155020041197918');
     }
 
-    private function getDescription($object)
-    {
-        return $this->toPreview($object);
-    }
 
     private function getMetaDescription($object)
     {
