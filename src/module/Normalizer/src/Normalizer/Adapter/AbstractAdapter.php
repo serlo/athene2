@@ -25,17 +25,12 @@ namespace Normalizer\Adapter;
 use Normalizer\Entity\Normalized;
 use DateTime;
 use Normalizer\Exception\RuntimeException;
-use Zend\I18n\Translator\TranslatorInterface;
-use Zend\Mvc\I18n\Translator;
+use Zend\I18n\Translator\TranslatorAwareTrait;
 
 abstract class AbstractAdapter implements AdapterInterface
 {
+    use TranslatorAwareTrait;
     protected $object;
-
-    /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
 
     public function getObject()
     {
@@ -45,16 +40,6 @@ abstract class AbstractAdapter implements AdapterInterface
     public function setObject($object)
     {
         $this->object = $object;
-    }
-
-    public function getTranslator()
-    {
-        return $this->translator;
-    }
-
-    public function setTranslator($translator)
-    {
-        $this->translator = $translator;
     }
 
     public function normalize($object)
@@ -77,12 +62,13 @@ abstract class AbstractAdapter implements AdapterInterface
             'routeParams' => $this->getRouteParams(),
             'id'          => $this->getId(),
             'metadata'    => [
-                'title'        => $this->getHeadTitle(),
-                'creationDate' => $this->getCreationDate() ? $this->getCreationDate() : new DateTime(),
-                'description'  => $this->getDescription(),
-                'keywords'     => $this->getKeywords(),
-                'lastModified' => $this->getLastModified() ? $this->getLastModified() : new DateTime(),
-                'robots'       => $this->isTrashed() ? 'noindex' : 'all',
+                'title'            => $this->getHeadTitle(),
+                'creationDate'     => $this->getCreationDate() ? $this->getCreationDate() : new DateTime(),
+                'description'      => $this->getDescription(),
+                'metaDescription'  => $this->getMetaDescription(),
+                'keywords'         => $this->getKeywords(),
+                'lastModified'     => $this->getLastModified() ? $this->getLastModified() : new DateTime(),
+                'robots'           => $this->isTrashed() ? 'noindex' : 'all',
             ],
         ]);
 
@@ -105,6 +91,14 @@ abstract class AbstractAdapter implements AdapterInterface
     protected function getDescription()
     {
         return $this->getContent();
+    }
+
+    /**
+     * @return string
+     */
+    protected function getMetaDescription()
+    {
+        return $this->getDescription();
     }
 
     /**

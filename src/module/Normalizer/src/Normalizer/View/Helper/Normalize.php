@@ -24,7 +24,9 @@ namespace Normalizer\View\Helper;
 
 use Common\Filter\PreviewFilter;
 use Instance\Manager\InstanceManagerAwareTrait;
+use Markdown\Service\OryRenderService;
 use Markdown\View\Helper\MarkdownHelper;
+use Markdown\View\Helper\OryFormatHelper;
 use Normalizer\NormalizerAwareTrait;
 use Ui\View\Helper\Brand;
 use Zend\View\Helper\AbstractHelper;
@@ -58,7 +60,7 @@ class Normalize extends AbstractHelper
         $robots = $metadata->getRobots();
 
         $meta->appendName('content_type', $type);
-        $meta->appendName('description', $this->getDescription($object));
+        $meta->appendName('description', $this->getMetaDescription($object));
         $meta->appendName('keywords', implode(', ', $keywords));
         $meta->appendName('robots', $robots);
 
@@ -92,7 +94,7 @@ class Normalize extends AbstractHelper
         $meta->setProperty('og:title', $this->normalize($object)->getTitle());
         $meta->setProperty('og:type', 'website');
         $meta->setProperty('og:image', $this->getMetaImage($object));
-        $meta->setProperty('og:description', $this->getDescription($object));
+        $meta->setProperty('og:description', $this->getMetaDescription($object));
         $meta->setProperty('og:site_name', $this->getView()->brand()->getBrand(true));
     }
 
@@ -109,9 +111,14 @@ class Normalize extends AbstractHelper
         return $this->toPreview($object);
     }
 
+    private function getMetaDescription($object)
+    {
+        $metadata = $this->normalize($object)->getMetadata();
+        return $this->renderPreview($metadata->getMetaDescription());
+    }
+
     private function getMetaImage($object)
     {
-        var_dump($object);
         $fileName = 'serlo.jpg';
 
         $subject = trim(strtolower(strip_tags(
@@ -158,8 +165,6 @@ class Normalize extends AbstractHelper
     {
         /* @var $headTitle HeadTitle */
         $headTitle  = $this->getView()->plugin('headTitle');
-
-        $title='';
         if ($object == null) {
             /** @var Brand $brand */
             $brand  = $this->getView()->brand();
@@ -228,12 +233,20 @@ class Normalize extends AbstractHelper
 
     public function toPreview($object)
     {
-        /* @var $markdown MarkdownHelper */
-        $markdown   = $this->getView()->plugin('markdown');
         $normalized = $this->normalize($object);
+        $content    = $normalized->getMetadata()->getDescription();
+        return $this->renderPreview($content);
+    }
+
+    private function renderPreview($string)
+    {
+        $isOryEditorFormat = $this->getView()->plugin('isOryEditorFormat');
+        /** @var MarkdownHelper $renderer */
+        $renderer = $isOryEditorFormat($string)
+            ? $this->getView()->plugin('oryRenderer')
+            : $this->getView()->plugin('markdown');
+        $content =  $renderer->toHtml($string);
         $filter     = new PreviewFilter(152);
-        $content    = $normalized->getContent();
-        $content    = $markdown->toHtml($content);
         $preview    = $filter->filter($content);
         return $preview;
     }

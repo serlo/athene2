@@ -169,14 +169,15 @@ class EntityAdapter extends AbstractAdapter
         $typeName = $this->getTranslator()->translate($type);
 
         $titleFallback = $this->getTitle();
-        $title = $this->getObject()->getCurrentRevision()->get('meta_title') ?: $titleFallback;
+        $title = $this->getField('meta_title');
+        if ($title === $this->getId()) {
+            $title = $titleFallback;
+        }
 
         if ($type === 'course-page') {
             $parent = $this->getObject()->getParents('link')->first();
             $normalizedParent = $this->normalize($parent);
-            $parentTitleFallback = $normalizedParent->getTitle();
-
-            $parentTitle = $parent->getCurrentRevision()->get('title') ?: $parentTitleFallback;
+            $parentTitle = $normalizedParent->getMetadata()->getTitle();
             $title = $parentTitle . " | " .$title;
         }
 
@@ -188,5 +189,14 @@ class EntityAdapter extends AbstractAdapter
         }
 
         return $title;
+    }
+
+    protected function getMetaDescription()
+    {
+        $description = $this->getField('meta_description');
+        if ($description === $this->getId()) {
+            $description = $this->getDescription();
+        }
+        return $description;
     }
 }

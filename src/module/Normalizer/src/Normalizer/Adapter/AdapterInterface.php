@@ -23,21 +23,15 @@
 namespace Normalizer\Adapter;
 
 use Normalizer\Entity\NormalizedInterface;
-use Zend\I18n\Translator\TranslatorInterface;
+use Zend\I18n\Translator\TranslatorAwareInterface;
 
-interface AdapterInterface
+interface AdapterInterface extends TranslatorAwareInterface
 {
     /**
      * @param object $object
      * @return NormalizedInterface
      */
     public function normalize($object);
-
-    /**
-     * @param TranslatorInterface $translator
-     * @return void
-     */
-    public function setTranslator($translator);
 
     /**
      * @param object $object
