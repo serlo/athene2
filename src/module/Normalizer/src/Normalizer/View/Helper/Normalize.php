@@ -23,6 +23,7 @@
 namespace Normalizer\View\Helper;
 
 use Common\Filter\PreviewFilter;
+use Instance\Manager\InstanceManagerAwareTrait;
 use Markdown\View\Helper\MarkdownHelper;
 use Normalizer\NormalizerAwareTrait;
 use Ui\View\Helper\Brand;
@@ -32,6 +33,7 @@ use Zend\View\Helper\HeadTitle;
 
 class Normalize extends AbstractHelper
 {
+    use InstanceManagerAwareTrait;
     use NormalizerAwareTrait;
 
     private static $maxStringLen = 65;
@@ -46,38 +48,71 @@ class Normalize extends AbstractHelper
 
     public function headMeta($object)
     {
-        /* @var $meta HeadMeta */
-        $meta       = $this->getView()->plugin('headMeta');
+        $meta = $this->getView()->plugin('headMeta');
         $normalized = $this->normalize($object);
-        $title      = $normalized->getTitle();
-        $type       = $normalized->getType();
-        $metadata   = $normalized->getMetadata();
-        $keywords   = $metadata->getKeywords();
-        $robots     = $metadata->getRobots();
-        $preview    = $this->toPreview($object);
-        $image      = $this->getMetaImage($object);
-        $site_name  = $this->getView()->brand()->getBrand(true);
+
+        $type = $normalized->getType();
+        $metadata = $normalized->getMetadata();
+
+        $keywords = $metadata->getKeywords();
+        $robots = $metadata->getRobots();
 
         $meta->appendName('content_type', $type);
-        $meta->appendName('description', $preview);
+        $meta->appendName('description', $this->getDescription($object));
         $meta->appendName('keywords', implode(', ', $keywords));
         $meta->appendName('robots', $robots);
-        $meta->setProperty('og:title', $title);
-        $meta->setProperty('og:type', 'website');
-        $meta->setProperty('og:image', $image);
-        $meta->setProperty('og:description', $preview);
-        $meta->setProperty('og:site_name', $site_name);
-        $meta->setProperty('fb:pages', '155020041197918');
-        $meta->setProperty('fb:profile_id', '155020041197918');
-        $this->getView()->headLink(['rel' => 'search', 'href' => '/opensearch.xml', 'title' => 'Serlo (de)','type' => 'application/opensearchdescription+xml']);
+
+        $this->appendOpenSearchMeta($object);
+        $this->appendOpenGraphMeta($object);
+        $this->appendFacebookMeta($object);
 
         return $this;
     }
 
-
-    public function getMetaImage($object)
+    private function appendOpenSearchMeta($object)
     {
-        $fileName = 'meta_serlo.jpg';
+        $lang = $this->getSubdomain();
+
+        if ($lang === 'de' || $lang === 'en') {
+            $this->getView()->headLink(
+                [
+                    'rel' => 'search',
+                    'href' => '/opensearch.' . $lang . '.xml',
+                    'title' => 'Serlo (' . $lang . ')',
+                    'type' => 'application/opensearchdescription+xml',
+                ]
+            );
+        }
+    }
+
+    private function appendOpenGraphMeta($object)
+    {
+        $meta = $this->getMeta();
+
+        $meta->setProperty('og:title', $this->normalize($object)->getTitle());
+        $meta->setProperty('og:type', 'website');
+        $meta->setProperty('og:image', $this->getMetaImage($object));
+        $meta->setProperty('og:description', $this->getDescription($object));
+        $meta->setProperty('og:site_name', $this->getView()->brand()->getBrand(true));
+    }
+
+    private function appendFacebookMeta($object)
+    {
+        $meta = $this->getMeta();
+
+        $meta->setProperty('fb:pages', '155020041197918');
+        $meta->setProperty('fb:profile_id', '155020041197918');
+    }
+
+    private function getDescription($object)
+    {
+        return $this->toPreview($object);
+    }
+
+    private function getMetaImage($object)
+    {
+        var_dump($object);
+        $fileName = 'serlo.jpg';
 
         $subject = trim(strtolower(strip_tags(
             $this->getView()->navigation('default_navigation')
@@ -91,24 +126,32 @@ class Normalize extends AbstractHelper
 
         switch ($subject) {
             case 'mathematik':
-            case 'math':
-                $fileName = 'meta_serlo_mathe.png';
+                $fileName = 'de/mathematik.jpg';
                 break;
 
             case 'angewandte nachhaltigkeit':
-            case 'applied sustainability':
-                $fileName = 'meta_serlo_nachhaltigkeit.png';
+                $fileName = 'de/angewandte-nachhaltigkeit.jpg';
                 break;
 
             case 'biologie':
-            case 'biology':
-                $fileName = 'meta_serlo_bio.png';
-                break;
-
-            default:
+                $fileName = 'de/biologie.jpg';
                 break;
         }
-        return 'https://de.serlo.org/assets/images/'.$fileName;
+
+        return 'https://assets.serlo.org/meta/' . $fileName;
+    }
+
+    private function getSubdomain()
+    {
+        return $this->getInstanceManager()->getInstanceFromRequest()->getSubdomain();
+    }
+
+    /**
+     * @return HeadMeta
+     */
+    private function getMeta()
+    {
+        return $this->getView()->plugin('headMeta');
     }
 
     public function headTitle($object = null)
