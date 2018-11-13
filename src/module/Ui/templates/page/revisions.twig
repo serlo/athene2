@@ -27,7 +27,7 @@
                 <table class="table">
                     <tr>
                         <td>{% trans %} Title:  {% endtrans %}</td>
-                        <td>{{ revision.getTitle() }}</td>
+                        <td>{{ revision.getTitle() | escape }}</td>
                     </tr>
                     <tr>
                         <td>{% trans %} Author:  {% endtrans %}</td>

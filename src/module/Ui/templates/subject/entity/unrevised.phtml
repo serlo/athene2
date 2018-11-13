@@ -23,32 +23,32 @@
 ?>
 <?php echo $this->pageHeader('Unrevised learning resources')->setSubtitle($this->subject->getName())->append($this->contexter()->renderButton('right'))->render(); ?>
 <table class="table table-striped">
-	<thead>
-		<tr>
-			<th><?php echo $this->translate('Title'); ?></th>
+    <thead>
+        <tr>
+            <th><?php echo $this->translate('Title'); ?></th>
             <th><?php echo $this->translate('Revision'); ?></th>
-			<th><?php echo $this->translate('Type'); ?></th>
+            <th><?php echo $this->translate('Type'); ?></th>
             <th><?php echo $this->translate('Timestamp'); ?></th>
-		</tr>
-	</thead>
-	<tbody>
+        </tr>
+    </thead>
+    <tbody>
         <?php $previousEntityId = -1; ?>
         <?php /** @var \Entity\Entity\RevisionInterface $revision */ ?>
-        <?php foreach($this->revisions as $revision): ?>
+        <?php foreach ($this->revisions as $revision): ?>
         <?php $normalized = $this->normalize($revision); ?>
         <?php /** @var \Normalizer\Entity\NormalizedInterface $entity */ ?>
         <?php $entity = $this->normalize($revision->getRepository()); ?>
         <tr>
             <td style="width:30%">
                 <?php if ($entity->getId() !== $previousEntityId): ?>
-                    <?php echo $entity->getTitle(); ?>
+                    <?php echo htmlspecialchars($entity->getTitle()); ?>
                 <?php endif; ?>
             </td>
-			<td><a href="<?php echo $this->url($normalized->getRouteName(), $normalized->getRouteParams()); ?>"><?php echo $normalized->getId(); ?></a></td>
+            <td><a href="<?php echo $this->url($normalized->getRouteName(), $normalized->getRouteParams()); ?>"><?php echo $normalized->getId(); ?></a></td>
             <td><?php echo $this->translate($normalized->getType()); ?></td>
             <td><?php echo $this->timeago()->render($normalized->getMetadata()->getCreationDate()); ?></td>
-		</tr>
+        </tr>
         <?php $previousEntityId = $entity->getId(); ?>
         <?php endforeach; ?>
-	</tbody>
+    </tbody>
 </table>

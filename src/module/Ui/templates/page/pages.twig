@@ -25,7 +25,7 @@
         <div class="list-group-item">
             <a href="{{ url('page/view', {'page': page.getId()}) }}">
                 {% if(page.hasCurrentRevision()) %}
-                    {{ page.getCurrentRevision().getTitle() }}
+                    {{ page.getCurrentRevision().getTitle() | escape }}
                 {% else %}
                     {% trans %}
                     No revision checked out yet.

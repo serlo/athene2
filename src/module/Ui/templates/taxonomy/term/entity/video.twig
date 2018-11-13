@@ -28,7 +28,7 @@
 {% elseif entity.hasHead() and entity.isUnrevised() %}
     <p>
         <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
-            {{ entity.getHead().get('title') }}
+            {{ entity.getHead().get('title') | escape }}
         </a>
     </p>
 {% endif %}

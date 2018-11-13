@@ -22,13 +22,13 @@
 {% if entity.hasCurrentRevision() %}
     <p>
         <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
-            {{ entity.getCurrentRevision().get('title') }}
+            {{ entity.getCurrentRevision().get('title') | escape }}
         </a>
     </p>
 {% elseif entity.hasHead() and entity.isUnrevised() %}
     <p>
         <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
-            {{ entity.getHead().get('title') }}
+            {{ entity.getHead().get('title') | escape }}
         </a>
     </p>
 {% endif %}

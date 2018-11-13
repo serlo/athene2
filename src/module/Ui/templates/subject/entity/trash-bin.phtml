@@ -31,9 +31,9 @@
 		</tr>
 	</thead>
 	<tbody>
-        <?php foreach($this->entities as $entity): ?>
+        <?php foreach ($this->entities as $entity): ?>
             <tr>
-                <td><a href="<?php echo $this->url($entity->getRouteName(), $entity->getRouteParams()); ?>"><?php echo $entity->getTitle(); ?></a></td>
+                <td><a href="<?php echo $this->url($entity->getRouteName(), $entity->getRouteParams()); ?>"><?php echo htmlspecialchars($entity->getTitle()); ?></a></td>
                 <td><?php echo $entity->getType(); ?></td>
                 <td>
                     <div class="btn-group">

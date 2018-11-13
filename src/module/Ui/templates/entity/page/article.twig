@@ -39,7 +39,7 @@
     {% do headTitle(metaTitleFallback) %}
 {% endif %}
 
-{% set title = entity.getCurrentRevision().get('title') %}
+{% set title = entity.getCurrentRevision().get('title') | escape %}
 {% include 'entity/page/partials/placeholders' %}
 <div itemscope itemtype="http://schema.org/Article">
     <div class="page-header">

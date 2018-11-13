@@ -19,7 +19,7 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% set title = entity.getCurrentRevision().get('title') %}
+{% set title = entity.getCurrentRevision().get('title') | escape %}
 {% set parent = entity.getParents('link').first() %}
 {% set title = normalize().toTitle(entity) %}
 {% do headTitle(title ~ ' - ' ~ entity().findSubject(parent) ~ ' ' ~ (entity.getType().getName() | trans)) %}

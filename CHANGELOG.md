@@ -17,6 +17,10 @@ All notable changes to this project will be documented in this file. The format 
 - Make list of unrevised revisions (e.g. https://de.serlo.org/mathe/entity/unrevised) faster ([#790](https://github.com/serlo-org/athene2/pull/790), [#780](https://github.com/serlo-org/athene2/pull/780))
 - Show all unrevised revisions of an entity (and not only the newest one) ([#790](https://github.com/serlo-org/athene2/pull/790))
 
+### Fixed
+
+- Don't double escape special characters (e.g. `<`, `*`) in entities' title ([#795](https://github.com/serlo-org/athene2/pull/795))
+
 ## [Build 2] - 2017-10-30
 
 This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-org/athene2-assets/blob/master/CHANGELOG.md))

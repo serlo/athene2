@@ -22,7 +22,7 @@
 {% set title = false %}
 {% if entity.getHead() %}
     {% set head = entity.getHead() %}
-    {% set title = head.get('title') %}
+    {% set title = head.get('title') | escape %}
     {% set convert = false %}
 {% else %}
     {% set convert = true %}
