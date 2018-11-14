@@ -54,7 +54,6 @@ class AdPage implements AdPageInterface
     protected $page_repository_id;
 
     /**
-     *
      * @return InstanceInterface
      */
     public function getInstance()
@@ -63,7 +62,6 @@ class AdPage implements AdPageInterface
     }
 
     /**
-     *
      * @param InstanceInterface $instance
      */
     public function setInstance(InstanceInterface $instance)

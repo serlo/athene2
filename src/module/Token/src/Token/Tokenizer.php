@@ -30,13 +30,11 @@ class Tokenizer implements TokenizerInterface
     use\Zend\ServiceManager\ServiceLocatorAwareTrait;
 
     /**
-     *
      * @var Provider\ProviderInterface
      */
     protected $provider;
 
     /**
-     *
      * @return Provider\ProviderInterface $provider
      */
     public function getProvider()
@@ -45,7 +43,6 @@ class Tokenizer implements TokenizerInterface
     }
 
     /**
-     *
      * @param ProviderInterface $provider
      * @return self
      */

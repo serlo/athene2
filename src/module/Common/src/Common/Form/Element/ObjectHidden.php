@@ -31,13 +31,11 @@ class ObjectHidden extends HiddenElement
 {
 
     /**
-     *
      * @var Proxy
      */
     protected $proxy;
 
     /**
-     *
      * {@inheritdoc}
      */
     public function getValueOptions()
@@ -51,7 +49,6 @@ class ObjectHidden extends HiddenElement
     }
 
     /**
-     *
      * @param array|\Traversable $options
      * @return Element|ElementInterface
      */
@@ -63,7 +60,6 @@ class ObjectHidden extends HiddenElement
     }
 
     /**
-     *
      * {@inheritdoc}
      */
     public function setValue($value)
@@ -72,7 +68,6 @@ class ObjectHidden extends HiddenElement
     }
 
     /**
-     *
      * @return Proxy
      */
     public function getProxy()

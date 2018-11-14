@@ -28,7 +28,6 @@ abstract class Model extends TestCase
 {
 
     /**
-     *
      * @return array
      */
     abstract protected function getData();
@@ -37,7 +36,6 @@ abstract class Model extends TestCase
     private $data;
 
     /**
-     *
      * @return mixed $reference
      */
     protected function getObject()
@@ -46,7 +44,6 @@ abstract class Model extends TestCase
     }
 
     /**
-     *
      * @param mixed $reference
      * @return $this
      */
