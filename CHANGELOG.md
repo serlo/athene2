@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file. The format 
 - Show all unrevised revisions of an entity (and not only the newest one) ([#790](https://github.com/serlo-org/athene2/pull/790))
 - Show a subject-specific Open Graph meta image (e.g. for Facebook previews) ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
+- Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
 
 ## [Build 2] - 2017-10-30
 

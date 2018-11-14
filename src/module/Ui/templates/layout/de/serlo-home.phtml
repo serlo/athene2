@@ -44,12 +44,12 @@ echo $this->doctype();
                     <a href="https://de.serlo.org"><?php echo $this->brand()->getLogo(); ?>
                     <?php echo $this->brand()->getBrand(); ?></a>
                     <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
-                            ->menu()
-                            ->setPartial('layout/navigation/partial/active-subject')
-                            ->setOnlyActiveBranch(true)
-                            ->setMinDepth(0)
-                            ->setMaxDepth(0)
-                            ->render();
+            ->menu()
+            ->setPartial('layout/navigation/partial/active-subject')
+            ->setOnlyActiveBranch(true)
+            ->setMinDepth(0)
+            ->setMaxDepth(0)
+            ->render();
                         ?></span>
                 </div>
 
@@ -141,7 +141,7 @@ echo $this->doctype();
                             </a>
                         </div>
                         <div class="home-column col-sm-6 col-lg-3 container">
-                            <a class="home-emph-link" href="/nachhaltigkeit">
+                            <a class="home-emph-link" href="/17744">
                                 <div class="row home-subject-column">
                                     <div class="col-xs-12 home-subject-symbol">
                                         <?php echo $this->partial('layout/de/home-sustain-symbol');?>
