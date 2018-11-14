@@ -19,11 +19,10 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% set title = entity.getCurrentRevision().get('title') %}
 {% set parent = entity.getParents('link').first() %}
 {% set title = normalize().toTitle(entity) %}
-{% do headTitle(title ~ ' - ' ~ entity().findSubject(parent) ~ ' ' ~ (entity.getType().getName() | trans)) %}
 {% do normalize().headMeta(entity) %}
+{% do normalize().headTitle(entity) %}
 
 {% set controls = include('entity/view/partials/actions/course/course-controls-wrapper', {'entity': entity, 'parent': parent}) %}
 {% do placeholder('controls').set(controls) %}

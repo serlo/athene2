@@ -49,6 +49,11 @@ class Metadata extends AbstractOptions implements MetadataInterface
     protected $description;
 
     /**
+     * @var string
+     */
+    protected $metaDescription;
+
+    /**
      * @var DateTime
      */
     protected $creationDate;
@@ -151,6 +156,22 @@ class Metadata extends AbstractOptions implements MetadataInterface
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
+
+    /**
+     * @param string $metaDescription
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
     }
 
     /**

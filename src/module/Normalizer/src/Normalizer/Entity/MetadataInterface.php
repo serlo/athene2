@@ -43,6 +43,11 @@ interface MetadataInterface
     public function getDescription();
 
     /**
+     * @return string
+     */
+    public function getMetaDescription();
+
+    /**
      * @return DateTime
      */
     public function getCreationDate();

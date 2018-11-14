@@ -19,7 +19,6 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% do headTitle(term.getName()) %}
 {% set title = '' %}
 {% for taxonomyTerm in taxonomy().flattenAncestors(term) %}
     {% if loop.first %}
@@ -28,4 +27,4 @@
         {% set title = taxonomyTerm.getName() ~ ' > ' ~ title %}
     {% endif %}
 {% endfor %}
-{% do headTitle(title) %}
+{% do normalize().headTitle(title) %}

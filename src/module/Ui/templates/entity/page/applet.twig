@@ -19,25 +19,8 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% set metaDescriptionFallback = normalize().toPreview(entity) %}
-{% set metaTitleFallback = normalize().toTitle(entity) ~ ' - ' ~ entity().findSubject(entity) ~ ' ' ~ (entity.getType().getName() | trans) %}
-{% set metaDescription = entity.getCurrentRevision().get('meta_description') %}
-{% set metaTitle = entity.getCurrentRevision().get('meta_title') %}
-
+{% do normalize().headTitle(entity) %}
 {% do normalize().headMeta(entity) %}
-
-{% if metaDescription %}
-    {% do headMeta().setName('description', metaDescription) %}
-{% else %}
-    {% do headMeta().setName('description', metaDescriptionFallback) %}
-{% endif %}
-
-{% if metaTitle %}
-    {% do headTitle(metaTitle) %}
-    {% do headMeta().setProperty('og:title', metaTitle) %}
-{% else %}
-    {% do headTitle(metaTitleFallback) %}
-{% endif %}
 
 {% set title = entity.getCurrentRevision().get('title') %}
 {% include 'entity/page/partials/placeholders' %}

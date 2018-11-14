@@ -37,6 +37,9 @@ class NormalizerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $storage = $serviceLocator->get('Normalizer\Storage\Storage');
-        return new Normalizer($storage);
+        $translator = $serviceLocator->get('MvcTranslator');
+        $normalizer = new Normalizer($storage);
+        $normalizer->setTranslator($translator);
+        return $normalizer;
     }
 }

@@ -24,10 +24,12 @@ namespace Normalizer;
 
 use Normalizer\Adapter\AdapterPluginManager;
 use Zend\Cache\Storage\StorageInterface;
+use Zend\I18n\Translator\TranslatorAwareTrait;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 
 class Normalizer implements NormalizerInterface
 {
+    use TranslatorAwareTrait;
 
     /**
      * @var Adapter\AdapterPluginManager
@@ -38,6 +40,7 @@ class Normalizer implements NormalizerInterface
      * @var StorageInterface
      */
     protected $storage;
+
 
     /**
      * @var array
@@ -79,6 +82,7 @@ class Normalizer implements NormalizerInterface
             if ($object instanceof $class) {
                 /* @var $adapterClass Adapter\AdapterInterface */
                 $adapter    = $this->pluginManager->get($adapterClass);
+                $adapter->setTranslator($this->translator);
                 $normalized = $adapter->normalize($object);
                 // $this->storage->setItem($key, $normalized);
                 return $normalized;
