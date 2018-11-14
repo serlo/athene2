@@ -51,7 +51,7 @@ class GroupedTextExerciseForm extends Form
 
         $inputFilter = new InputFilter('grouped-text-exercise');
         $inputFilter->add(['name' => 'content', 'required' => true]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }
 }
