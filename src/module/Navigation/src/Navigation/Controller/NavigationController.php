@@ -32,7 +32,6 @@ use Navigation\Manager\NavigationManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-
 class NavigationController extends AbstractActionController
 {
     /**
