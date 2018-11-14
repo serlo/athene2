@@ -34,7 +34,7 @@ class AliasController extends AbstractActionController
     use Alias\AliasManagerAwareTrait, \Instance\Manager\InstanceManagerAwareTrait;
 
     /**
-     * @var unknown
+     * @var mixed
      */
     protected $router;
 

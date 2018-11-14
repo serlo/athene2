@@ -26,7 +26,6 @@ use DateTime;
 use Instance\Entity\InstanceAwareInterface;
 use Taxonomy\Entity\TaxonomyTermAwareInterface;
 use Taxonomy\Entity\TaxonomyTermInterface;
-use Taxonomy\Model\TaxonomyTermModelInterface;
 use User\Entity\UserInterface;
 use Uuid\Entity\UuidInterface;
 
@@ -91,7 +90,7 @@ interface PostInterface extends UuidInterface, TaxonomyTermAwareInterface, Insta
     /**
      * Gets the category.
      *
-     * @return TaxonomyTermModelInterface
+     * @return TaxonomyTermInterface
      */
     public function getBlog();
 

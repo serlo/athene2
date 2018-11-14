@@ -23,6 +23,7 @@
 namespace Token;
 
 use Token\Provider;
+use Token\Provider\ProviderInterface;
 
 class Tokenizer implements TokenizerInterface
 {
@@ -48,7 +49,7 @@ class Tokenizer implements TokenizerInterface
      * @param ProviderInterface $provider
      * @return self
      */
-    protected function setProvider(Provider\ProviderInterface $provider)
+    protected function setProvider(ProviderInterface $provider)
     {
         $this->provider = $provider;
         return $this;

@@ -29,6 +29,8 @@ use Navigation\Entity\PageInterface;
 use Navigation\Entity\ParameterInterface;
 use Navigation\Entity\ParameterKeyInterface;
 use Navigation\Exception\ContainerNotFoundException;
+use Navigation\Exception\PageNotFoundException;
+use Navigation\Exception\ParameterNotFoundException;
 use Type\Entity\TypeInterface;
 use Zend\Form\FormInterface;
 

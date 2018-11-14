@@ -60,7 +60,7 @@ interface MetadataInterface
     public function setKey(MetadataKeyInterface $key);
 
     /**
-     * @param unknown $value
+     * @param string $value
      * @return self
      */
     public function setValue($value);

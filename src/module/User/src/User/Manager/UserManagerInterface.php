@@ -68,7 +68,7 @@ interface UserManagerInterface extends Flushable
     public function generateUserToken($id);
 
     /**
-     * @param numeric $id
+     * @param int $id
      * @return UserInterface
      */
     public function getUser($id);

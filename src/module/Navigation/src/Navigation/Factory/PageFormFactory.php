@@ -35,7 +35,7 @@ class PageFormFactory implements FactoryInterface
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return ContainerForm
+     * @return PageForm
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

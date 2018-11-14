@@ -34,6 +34,7 @@ namespace Common\Validator;
 use Traversable;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Validator\AbstractValidator;
+use RuntimeException;
 
 class NotIdentical extends AbstractValidator
 {
@@ -114,7 +115,7 @@ class NotIdentical extends AbstractValidator
      * Set token against which to compare
      *
      * @param  mixed $token
-     * @return Identical
+     * @return NotIdentical
      */
     public function setToken($token)
     {
@@ -138,7 +139,7 @@ class NotIdentical extends AbstractValidator
      * Sets the strict parameter
      *
      * @param  bool $strict
-     * @return Identical
+     * @return NotIdentical
      */
     public function setStrict($strict)
     {
@@ -161,7 +162,7 @@ class NotIdentical extends AbstractValidator
      * Sets the literal parameter
      *
      * @param  bool $literal
-     * @return Identical
+     * @return NotIdentical
      */
     public function setLiteral($literal)
     {
@@ -177,7 +178,7 @@ class NotIdentical extends AbstractValidator
      * @param  mixed $value
      * @param  array $context
      * @return bool
-     * @throws Exception\RuntimeException if the token doesn't exist in the context array
+     * @throws RuntimeException if the token doesn't exist in the context array
      */
     public function isValid($value, array $context = null)
     {

@@ -1,4 +1,4 @@
-
+<testsuites>
 		<testsuite name="Athene2 User Test Suite">
 			<directory>../../module/User/test</directory>
 		</testsuite>
@@ -41,3 +41,4 @@
 		<testsuite name="Athene2 Page Test Suite">
 			<directory>../../module/Page/test</directory>
 		</testsuite>
+</testsuites>

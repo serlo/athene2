@@ -24,29 +24,36 @@ namespace Common\Form\Element;
 
 use DoctrineModule\Form\Element\Proxy;
 use Zend\Form\Element\Hidden as HiddenElement;
+use Zend\Form\Element;
+use Zend\Form\ElementInterface;
 
 class ObjectHidden extends HiddenElement
 {
+
     /**
+     *
      * @var Proxy
      */
     protected $proxy;
 
     /**
-     * {@inheritDoc}
+     *
+     * {@inheritdoc}
      */
     public function getValueOptions()
     {
         if (empty($this->valueOptions)) {
-            $this->setValueOptions($this->getProxy()->getValueOptions());
+            $this->setValueOptions($this->getProxy()
+                ->getValueOptions());
         }
 
         return $this->valueOptions;
     }
 
     /**
-     * @param  array|\Traversable $options
-     * @return ObjectSelect
+     *
+     * @param array|\Traversable $options
+     * @return Element|ElementInterface
      */
     public function setOptions($options)
     {
@@ -56,7 +63,8 @@ class ObjectHidden extends HiddenElement
     }
 
     /**
-     * {@inheritDoc}
+     *
+     * {@inheritdoc}
      */
     public function setValue($value)
     {
@@ -64,6 +72,7 @@ class ObjectHidden extends HiddenElement
     }
 
     /**
+     *
      * @return Proxy
      */
     public function getProxy()

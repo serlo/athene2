@@ -22,7 +22,6 @@
  */
 namespace Ads\Entity;
 
-use Attachment\Entity\AttachmentInterface;
 use Attachment\Entity\ContainerInterface;
 use Attachment\Entity\FileInterface;
 use Instance\Entity\InstanceAwareInterface;

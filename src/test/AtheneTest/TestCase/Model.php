@@ -22,7 +22,9 @@
  */
 namespace AtheneTest\TestCase;
 
-abstract class Model extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+abstract class Model extends TestCase
 {
 
     /**
@@ -36,7 +38,7 @@ abstract class Model extends \PHPUnit_Framework_TestCase
 
     /**
      *
-     * @return field_type $reference
+     * @return mixed $reference
      */
     protected function getObject()
     {
@@ -45,7 +47,7 @@ abstract class Model extends \PHPUnit_Framework_TestCase
 
     /**
      *
-     * @param field_type $reference
+     * @param mixed $reference
      * @return $this
      */
     protected function setObject($object)

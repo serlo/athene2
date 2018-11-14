@@ -30,12 +30,12 @@ interface TypeInterface
     public function getId();
 
     /**
-     * @return RelatedContentInterface
+     * @return HolderInterface
      */
     public function getHolder();
 
     /**
-     * @return RelationInterface
+     * @return ContainerInterface
      */
     public function getContainer();
 

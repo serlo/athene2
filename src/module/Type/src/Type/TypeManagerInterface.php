@@ -30,7 +30,7 @@ interface TypeManagerInterface
     /**
      * Gets a type
      *
-     * @param id $id
+     * @param mixed $id
      * @return Entity\TypeInterface
      */
     public function getType($id);
