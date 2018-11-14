@@ -79,7 +79,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
         $this->lastModified = $this->lastModified ? $this->lastModified : new DateTime();
     }
 
-    
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getAuthor()
@@ -114,7 +114,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
         $this->context = $context;
     }
 
-   
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getCreationDate()
@@ -132,7 +132,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
         $this->creationDate = $timestamp;
     }
 
-    
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getDescription()
@@ -150,7 +150,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
         $this->description = $description;
     }
 
-    
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getKeywords()
@@ -168,7 +168,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
         $this->keywords = $keywords;
     }
 
-    
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getLanguageCode()
@@ -185,7 +185,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
     {
         $this->languageCode = $languageCode;
     }
-   
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getLastModified()
@@ -221,7 +221,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
         $this->license = $license;
     }
 
-    
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getTitle()
@@ -239,7 +239,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
         $this->title = $title;
     }
 
-    
+
     /**
      * {@inheritDoc}
      * @see \Normalizer\Entity\MetadataInterface::getRobots()
