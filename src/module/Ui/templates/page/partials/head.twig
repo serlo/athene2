@@ -28,6 +28,6 @@
     {% set controls = include('page/partials/controls') %}
     {% do placeholder('controls').set(controls) %}
     {% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
-    <h1 itemprop="name">{{ title }}</h1>
+    <h1 itemprop="name">{{ title | escape }}</h1>
 </div>
 

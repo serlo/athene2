@@ -20,11 +20,11 @@
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% if entity.hasCurrentRevision() %}
-        <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
-            {{ entity.getCurrentRevision().get('title') }}
-        </a>
+    <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
+        {{ entity.getCurrentRevision().get('title') | escape }}
+    </a>
 {% elseif entity.hasHead() and entity.isUnrevised() %}
-        <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
-            {{ entity.getHead().get('title') }}
-        </a>
+    <a href="{{ url('entity/page', {'entity': entity.getId()}) }}">
+        {{ entity.getHead().get('title') | escape }}
+    </a>
 {% endif %}

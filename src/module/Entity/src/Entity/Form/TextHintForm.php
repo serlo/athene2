@@ -51,7 +51,7 @@ class TextHintForm extends Form
 
         $inputFilter = new InputFilter('text-hint');
         $inputFilter->add(['name' => 'content', 'required' => true]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false]);
         $this->setInputFilter($inputFilter);
     }
 }

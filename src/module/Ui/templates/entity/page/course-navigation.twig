@@ -34,7 +34,7 @@
         <div class="sidebar-content-group">
             <ul class="nav nav-aside nav-course">
                 <li class="nav-aside-header nav-course-item primary">
-                    <span class="h4 list-head">{{ entity.getCurrentRevision().get('title') }}</span>
+                    <span class="h4 list-head">{{ entity.getCurrentRevision().get('title') | escape }}</span>
                 </li>
                 {% if elementsBefore is defined and activeIndex > elementsBefore %}
                     <li class="nav-course-item">
@@ -60,7 +60,7 @@
                                 <div class="nav-bar">
                                     <div class="pipe"></div>
                                     <span class="fa {{ icon == 'play' or icon == 'question' ? 'fa-'~icon :'' }}"></span>
-                                    <span class="list-item">{{ revision.get('title') }}</span>
+                                    <span class="list-item">{{ revision.get('title') | escape }}</span>
                                 </div>
                                 {% if page!=activePage %}
                             </a>

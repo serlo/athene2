@@ -113,7 +113,7 @@ class PageHeader extends AbstractHelper
     {
         if ($setHeadTitle) {
             $filter = new StripTags();
-            $this->getView()->headTitle($filter->filter($this->text));
+            $this->getView()->headTitle(html_entity_decode($filter->filter($this->text)));
             if (!empty($this->subtext)) {
                 $this->getView()->headTitle($filter->filter($this->subtext));
             }

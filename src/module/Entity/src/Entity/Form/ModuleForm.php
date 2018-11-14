@@ -55,9 +55,9 @@ class ModuleForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('course');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'title', 'required' => true]);
         $inputFilter->add(['name' => 'reasoning', 'required' => false]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false]);
         $this->setInputFilter($inputFilter);
     }
 }

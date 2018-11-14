@@ -207,7 +207,7 @@ class Normalize extends AbstractHelper
     public function toAnchor($object, $forceCanonical = false)
     {
         $normalized = $this->normalize($object);
-        return '<a href="' . $this->toUrl($object, $forceCanonical) . '">' . $normalized->getTitle() . '</a>';
+        return '<a href="' . $this->toUrl($object, $forceCanonical) . '">' . htmlspecialchars($normalized->getTitle()) . '</a>';
     }
 
     public function toAuthor($object)
@@ -247,7 +247,7 @@ class Normalize extends AbstractHelper
 
     public function toTitle($object)
     {
-        return $this->normalize($object)->getTitle();
+        return htmlspecialchars($this->normalize($object)->getTitle());
     }
 
     public function toType($object)

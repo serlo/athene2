@@ -23,7 +23,7 @@
 {% set title = normalize().toTitle(entity) %}
 {% do headTitle(title ~ ' - ' ~ entity().findSubject(entity) ~ ' ' ~ (entity.getType().getName() | trans)) %}
 {% set revision = entity.getCurrentRevision() %}
-{% set title = revision.get('title') %}
+{% set title = revision.get('title') | escape %}
 {% set pages = entity.getValidChildren('link', 'course-page')%}
 {% set description = markdown().toHtml(revision.get('description'))  %}
 
@@ -44,7 +44,7 @@
 
             <div class="toc">
                 <a href="{{ normalize().toUrl(page) }}">
-                   <span>{{ pagerevision.get('title') }}</span>
+                   <span>{{ pagerevision.get('title') | escape }}</span>
                 </a>
             </div>
         {% endfor %}

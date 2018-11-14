@@ -21,6 +21,10 @@ All notable changes to this project will be documented in this file. The format 
 - Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
 
+### Fixed
+
+- Don't double escape special characters (e.g. `<`, `*`) in entities' title ([#795](https://github.com/serlo-org/athene2/pull/795))
+
 ## [Build 2] - 2017-10-30
 
 This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-org/athene2-assets/blob/master/CHANGELOG.md))
