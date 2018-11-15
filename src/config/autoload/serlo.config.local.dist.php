@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Athene2.
  *
@@ -21,36 +22,36 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 return [
-    'brand'    => [
+    'brand' => [
         'instances' => [
             'deutsch' => [
-                'name'        => '<div class="serlo-brand">Serlo</div>',
-                'slogan'      => 'Die freie Lernplattform',
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'Die freie Lernplattform',
                 'description' => 'Serlo ist eine kostenlose Plattform mit freien Lernmaterialien, die alle mitgestalten können.',
-                'logo'        => '<span class="serlo-logo">V</span>',
-                'head_title'  => 'lernen mit Serlo!'
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'lernen mit Serlo!',
             ],
             'english' => [
-                'name'        => '<div class="serlo-brand">Serlo</div>',
-                'slogan'      => 'The Open Learning Platform',
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'The Open Learning Platform',
                 'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
-                'logo'        => '<span class="serlo-logo">V</span>',
-                'head_title'  => 'lernen mit Serlo!'
-            ]
-        ]
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'lernen mit Serlo!',
+            ],
+        ],
     ],
-    'mailman'  => [
-        'sender'   => 'notifications@mail.serlo.org',
-        'location' => 'https://www.serlo.org'
+    'mailman' => [
+        'sender' => 'notifications@mail.serlo.org',
+        'location' => 'https://www.serlo.org',
     ],
     'recaptcha_options' => [
-        'api_key' => 'SECRET'
+        'api_key' => 'SECRET',
     ],
     'newsletter_options' => [
-        'api_key' => 'SECRET'
+        'api_key' => 'SECRET',
     ],
     'instance' => [
-        'strategy' => 'Instance\Strategy\DomainStrategy'
+        'strategy' => 'Instance\Strategy\DomainStrategy',
     ],
     'tracking' => [
         'instances' => [
@@ -109,7 +110,7 @@ setTimeout("timeElapsed()",3e4);
 window.addEventListener?window.addEventListener("scroll",testScroll,false):window.attachEvent("onScroll",testScroll);
 </script>
 EOL
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Athene2.
  *
@@ -22,28 +23,36 @@
  */
 
 return [
+    'doctrine' => array(
+        'configuration' => array(
+            'orm_default' => array(
+                'metadata_cache' => 'apccache',
+                'query_cache' => 'apccache',
+                'result_cache' => 'apccache',
+                'hydration_cache' => 'apccache',
+            ),
+        ),
+    ),
+    'view_manager' => [
+        'display_exceptions' => false,
+    ],
     'zfctwig' => [
         'environment_options' => [
-            'debug' => true,
-            'strict_variables' => true,
-            'autoescape' => false
+            'debug' => false,
+            'strict_variables' => false,
+            'autoescape' => false,
         ],
     ],
-    'view_manager'          => [
-        'strategies'               => [
-            'Ui\Strategy\PhpRendererStrategy'
-        ]
+    'log' => [
+        'exceptions' => true,
     ],
-    'strokercache' => [
+    'strokercache' => array(
         'storage_adapter' => [
-            'name' => 'Zend\Cache\Storage\Adapter\Apc',
+            'name' => 'Zend\Cache\Storage\Adapter\Filesystem',
             'options' => [
-               'ttl' => 1
-            ]
-        ]
-    ],
-    // 'assets_host'     => 'http://localhost:8081/',
-    // 'editor_renderer' => [
-    //   'url' => 'http://host.docker.internal:3000/',
-    // ],
+                'cache_dir' => __DIR__ . '/../../data',
+                'ttl' => 60 * 60 * 24 * 2,
+            ],
+        ],
+    ),
 ];

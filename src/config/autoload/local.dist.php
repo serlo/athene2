@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Athene2.
  *
@@ -21,74 +22,74 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 $dbParams = array(
-        'host' => 'mysqld',
-        'port' => '3306',
-        'user' => 'root',
-        'password' => 'secret',
-        'database' => 'serlo'
+    'host' => 'mysqld',
+    'port' => '3306',
+    'user' => 'root',
+    'password' => 'secret',
+    'database' => 'serlo',
 );
 
 return [
     'recaptcha_options' => [
-        'api_key' => '6LfwJFwUAAAAAKHhl-kjPbA6mCPjt_CrkCbn3okr'
+        'api_key' => '6LfwJFwUAAAAAKHhl-kjPbA6mCPjt_CrkCbn3okr',
     ],
     'markdown' => [
-        'host' => 'markdown'
+        'host' => 'markdown',
     ],
-    'doctrine'     => [
+    'doctrine' => [
         'connection' => [
             'orm_default' => [
                 'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
-                'params'      => [
-                    'host'     => $dbParams['host'],
-                    'port'     => $dbParams['port'],
-                    'user'     => $dbParams['user'],
+                'params' => [
+                    'host' => $dbParams['host'],
+                    'port' => $dbParams['port'],
+                    'user' => $dbParams['user'],
                     'password' => $dbParams['password'],
-                    'dbname'   => $dbParams['database'],
+                    'dbname' => $dbParams['database'],
                     // Yes..this is currently the only way i know of fixing database encoding issues
-                    'charset' => 'latin1'
-                ]
-            ]
-        ]
+                    'charset' => 'latin1',
+                ],
+            ],
+        ],
     ],
-    'brand'    => [
+    'brand' => [
         'instances' => [
             'deutsch' => [
-                'name'        => '<div class="serlo-brand">Serlo</div>',
-                'slogan'      => 'Freie Bildung.',
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'Freie Bildung.',
                 'description' => 'Serlo ist eine kostenlose Plattform mit freien Lernmaterialien, die alle mitgestalten können.',
-                'logo'        => '<span class="serlo-logo">V</span>',
-                'head_title'  => 'lernen mit Serlo!'
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'lernen mit Serlo!',
             ],
             'english' => [
-                'name'        => '<div class="serlo-brand">Serlo</div>',
-                'slogan'      => 'Open Education.',
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'Open Education.',
                 'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
-                'logo'        => '<span class="serlo-logo">V</span>',
-                'head_title'  => 'lernen mit Serlo!'
-            ]
-        ]
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'lernen mit Serlo!',
+            ],
+        ],
     ],
-    'solarium'     => [
+    'solarium' => [
         'endpoint' => [
             'default' => [
-                'host'    => 'localhost',
-                'port'    => 8080,
-                'path'    => '/solr',
-                'core'    => '',
-                'timeout' => 5
-            ]
-        ]
+                'host' => 'localhost',
+                'port' => 8080,
+                'path' => '/solr',
+                'core' => '',
+                'timeout' => 5,
+            ],
+        ],
     ],
-    'instance'     => [
-        'strategy' => 'Instance\Strategy\DomainStrategy'
+    'instance' => [
+        'strategy' => 'Instance\Strategy\DomainStrategy',
     ],
-    'dbParams'     => array(
-        'host'     => $dbParams['host'],
-        'port'     => $dbParams['port'],
+    'dbParams' => array(
+        'host' => $dbParams['host'],
+        'port' => $dbParams['port'],
         'username' => $dbParams['user'],
         'password' => $dbParams['password'],
-        'database' => $dbParams['database']
+        'database' => $dbParams['database'],
     ),
     'smtp_options' => [
         'name' => 'localhost.localdomain',
@@ -96,7 +97,7 @@ return [
         'connection_class' => 'login',
         'connection_config' => [
             'username' => 'user',
-            'password' => 'pass'
-        ]
-    ]
+            'password' => 'pass',
+        ],
+    ],
 ];
