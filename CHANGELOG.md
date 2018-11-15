@@ -21,6 +21,14 @@ All notable changes to this project will be documented in this file. The format 
 - Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
 
+### Removed
+
+- Disable special characters (e.g. `<`, `*`) in entities' fields (e.g. title, reasoning) again until we resolve the issue this caused ([#797](https://github.com/serlo-org/athene2/pull/797))
+
+## Fixed
+
+- Fix issues in PHPDoc comments causing false-positives in some IDEs ([#798](https://github.com/serlo-org/athene2/pull/798))
+
 ## [Build 2] - 2017-10-30
 
 This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-org/athene2-assets/blob/master/CHANGELOG.md))
