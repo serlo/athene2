@@ -27,6 +27,7 @@ use Zend\Stdlib\AbstractOptions;
 
 class Metadata extends AbstractOptions implements MetadataInterface
 {
+
     /**
      * @var string
      */
@@ -41,6 +42,7 @@ class Metadata extends AbstractOptions implements MetadataInterface
      * @var string
      */
     protected $context;
+
     /**
      * @var string
      */
@@ -55,14 +57,17 @@ class Metadata extends AbstractOptions implements MetadataInterface
      * @var DateTime
      */
     protected $creationDate;
+
     /**
      * @var string
      */
     protected $title;
+
     /**
      * @var string
      */
     protected $languageCode;
+
     /**
      * @var string
      */
@@ -86,7 +91,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getAuthor()
      */
     public function getAuthor()
     {
@@ -102,7 +108,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getContext()
      */
     public function getContext()
     {
@@ -118,7 +125,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return DateTime
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getCreationDate()
      */
     public function getCreationDate()
     {
@@ -134,7 +142,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getDescription()
      */
     public function getDescription()
     {
@@ -166,7 +175,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return array|\string[]
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getKeywords()
      */
     public function getKeywords()
     {
@@ -182,7 +192,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getLanguageCode()
      */
     public function getLanguageCode()
     {
@@ -198,7 +209,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return \DateTime
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getLastModified()
      */
     public function getLastModified()
     {
@@ -214,7 +226,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getLicense()
      */
     public function getLicense()
     {
@@ -230,7 +243,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getTitle()
      */
     public function getTitle()
     {
@@ -246,7 +260,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getRobots()
      */
     public function getRobots()
     {

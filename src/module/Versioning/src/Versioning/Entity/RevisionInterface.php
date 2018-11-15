@@ -23,6 +23,7 @@
 namespace Versioning\Entity;
 
 use User\Entity\UserInterface;
+use DateTime;
 
 interface RevisionInterface
 {

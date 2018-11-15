@@ -27,7 +27,7 @@ class Result implements ResultInterface
     protected $result;
 
     /**
-     * @return field_type $result
+     * @return mixed $result
      */
     public function getResult()
     {
@@ -35,7 +35,7 @@ class Result implements ResultInterface
     }
 
     /**
-     * @param field_type $result
+     * @param mixed $result
      * @return self
      */
     public function setResult($result)

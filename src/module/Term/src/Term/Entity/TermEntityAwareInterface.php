@@ -32,7 +32,7 @@ interface TermEntityAwareInterface
     public function setTerm(TermEntityInterface $term);
 
     /**
-     * @return TermTermEntityInterfaceModelInterface
+     * @return TermEntityInterface
      */
     public function getTerm();
 }

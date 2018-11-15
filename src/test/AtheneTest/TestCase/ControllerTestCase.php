@@ -26,7 +26,6 @@ abstract class ControllerTestCase extends ObjectManagerTestCase
 {
 
     /**
-     *
      * @var \Zend\Mvc\Controller\AbstractActionController
      */
     protected $controller;

@@ -30,6 +30,7 @@ use Instance\Entity\InstanceInterface;
 use Instance\Entity\InstanceProviderInterface;
 use Instance\Manager\InstanceManagerInterface;
 use Rbac\Traversal\Strategy\TraversalStrategyInterface;
+use Rbac\Role\RoleInterface;
 
 class InstanceAssertion implements AssertionInterface
 {

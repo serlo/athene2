@@ -29,21 +29,18 @@ interface RelatedContentManagerInterface
 {
 
     /**
-     *
      * @param int $id
      * @return Collection
      */
     public function aggregateRelatedContent($id);
 
     /**
-     *
      * @param int $id
      * @return Entity\ContainerInterface
      */
     public function getContainer($id);
 
     /**
-     *
      * @param int $container
      * @param string $title
      * @param string $url
@@ -52,7 +49,6 @@ interface RelatedContentManagerInterface
     public function addExternal($container, $title, $url);
 
     /**
-     *
      * @param int $container
      * @param string $title
      * @return Entity\CategoryInterface
@@ -60,7 +56,6 @@ interface RelatedContentManagerInterface
     public function addCategory($container, $title);
 
     /**
-     *
      * @param int $container
      * @param string $title
      * @param int $related
@@ -69,14 +64,12 @@ interface RelatedContentManagerInterface
     public function addInternal($container, $title, $related);
 
     /**
-     *
      * @param int $id
      * @return self
      */
     public function removeRelatedContent($id);
 
     /**
-     *
      * @param int $holder
      * @param int $position
      * @return self

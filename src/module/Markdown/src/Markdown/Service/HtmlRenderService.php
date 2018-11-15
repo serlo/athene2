@@ -37,7 +37,7 @@ class HtmlRenderService implements RenderServiceInterface
     protected $loop;
 
     /**
-     * @var Donde
+     * @var DNode
      */
     protected $dnode;
 
