@@ -51,13 +51,13 @@ interface PageManagerInterface extends Flushable
     public function editPageRepository(FormInterface $form);
 
     /**
-     * @param numeric $id
+     * @param int $id
      * @return PageRepositoryInterface;
      */
     public function getPageRepository($id);
 
     /**
-     * @param numeric $id
+     * @param int $id
      * @return PageRevisionInterface;
      */
     public function getRevision($id);

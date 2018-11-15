@@ -43,7 +43,7 @@ class FlagForm extends Form
         $this->setInputFilter($inputFilter);
 
         $values = [];
-        /* @var $type \Flag\Entity\TypeInterface */
+        /* @var $type \Type\Entity\TypeInterface */
         foreach ($types as $type) {
             $values[$type->getId()] = $type->getName();
         }

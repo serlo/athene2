@@ -86,6 +86,10 @@ class PageManager implements PageManagerInterface
         $this->userManager       = $userManager;
     }
 
+    /**
+     * {@inheritDoc}
+     * @see \Page\Manager\PageManagerInterface::createPageRepository()
+     */
     public function createPageRepository(FormInterface $form)
     {
         $formClone = clone $form;
@@ -101,6 +105,10 @@ class PageManager implements PageManagerInterface
         return $entity;
     }
 
+    /**
+     * {@inheritDoc}
+     * @see \Page\Manager\PageManagerInterface::createRevision()
+     */
     public function createRevision(PageRepositoryInterface $repository, array $data, UserInterface $user)
     {
         $this->assertGranted('page.revision.create', $repository);
@@ -114,6 +122,10 @@ class PageManager implements PageManagerInterface
         return $repository;
     }
 
+    /**
+     * {@inheritDoc}
+     * @see \Page\Manager\PageManagerInterface::editPageRepository()
+     */
     public function editPageRepository(FormInterface $form)
     {
         $page = $form->getObject();
@@ -144,6 +156,10 @@ class PageManager implements PageManagerInterface
         return $this->getRoleService()->findAllRoles();
     }
 
+    /**
+     * {@inheritDoc}
+     * @see \Page\Manager\PageManagerInterface::getPageRepository()
+     */
     public function getPageRepository($id)
     {
         if (!is_numeric($id)) {
@@ -164,6 +180,10 @@ class PageManager implements PageManagerInterface
         return $pageRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     * @see \Page\Manager\PageManagerInterface::getRevision()
+     */
     public function getRevision($id)
     {
         if (!is_numeric($id)) {

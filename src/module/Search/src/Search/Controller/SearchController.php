@@ -23,8 +23,6 @@
 namespace Search\Controller;
 
 use Search\Form\SearchForm;
-use Search\SearchServiceAwareTrait;
-use Search\SearchServiceInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;

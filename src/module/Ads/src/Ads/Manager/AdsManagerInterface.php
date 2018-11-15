@@ -28,14 +28,15 @@ use Instance\Entity\InstanceInterface;
 
 interface AdsManagerInterface extends Flushable
 {
+
     /**
-     * @param numeric $id
+     * @param int $id
      * @return AdInterface
      */
     public function getAd($id);
 
     /**
-     * @param array       $data
+     * @param array $data
      * @param AdInterface $ad
      * @return AdInterface
      */
@@ -47,11 +48,10 @@ interface AdsManagerInterface extends Flushable
      */
     public function removeAd(AdInterface $ad);
 
-
     /**
      * @param InstanceInterface $instance
-     * @param numeric           $number
-     * @param boolean           $isBanner
+     * @param int $number
+     * @param boolean $isBanner
      * @return array
      */
     public function findShuffledAds(InstanceInterface $instance, $number, $isBanner = false);

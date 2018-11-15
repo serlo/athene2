@@ -29,13 +29,11 @@ class ModuleOptions extends AbstractOptions
 {
 
     /**
-     *
      * @var array
      */
     protected $instances = [];
 
     /**
-
      * @param string $name
      * @param string $instance
      * @throws Exception\RuntimeException
@@ -59,7 +57,6 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param array $instances
      * @return self
      */

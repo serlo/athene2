@@ -40,19 +40,16 @@ class SubjectManager implements SubjectManagerInterface
     use TaxonomyManagerAwareTrait;
 
     /**
-     *
      * @var StorageInterface
      */
     protected $storage;
 
     /**
-     *
      * @var Normalizer
      */
     protected $normalizer;
 
     /**
-     *
      * @var EntityManagerInterface
      */
     protected $entityManager;

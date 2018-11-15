@@ -35,7 +35,7 @@ class ParameterKeyFormFactory implements FactoryInterface
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return ContainerForm
+     * @return ParameterKeyForm
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

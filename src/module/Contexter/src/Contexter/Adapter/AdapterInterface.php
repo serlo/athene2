@@ -60,7 +60,7 @@ interface AdapterInterface
     public function setRouteMatch(RouteMatch $routeMatch);
 
     /**
-     * @param AdaptableInterface $adapter
+     * @param mixed $adapter
      * @return self
      */
     public function setAdaptee($adapter);

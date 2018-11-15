@@ -37,5 +37,7 @@ return PhpCsFixer\Config::create()
         'no_trailing_comma_in_singleline_array' => true,
         'no_whitespace_in_blank_line' => true,
         'trailing_comma_in_multiline_array' => true,
+        'phpdoc_trim' => true,
+        'phpdoc_trim_consecutive_blank_line_separation'=> true,
     ])
     ->setFinder($finder);

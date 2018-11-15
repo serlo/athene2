@@ -23,7 +23,9 @@
 namespace Contexter\Router;
 
 use Contexter\Adapter\AdapterInterface;
+use Contexter\Entity\ContextInterface;
 use Zend\Mvc\Router\RouteMatch;
+use Doctrine\Common\Collections\Collection;
 
 interface RouterInterface
 {
@@ -31,7 +33,7 @@ interface RouterInterface
     /**
      * @param string $url
      * @param string $type
-     * @return RouteMatchInterface[]
+     * @return Collection|ContextInterface[]
      */
     public function match($url = null, $type = null);
 

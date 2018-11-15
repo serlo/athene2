@@ -31,7 +31,6 @@ class SubjectOptions extends AbstractOptions
     protected $allowedEntities = [];
 
     /**
-     *
      * @return array
      */
     public function getAllowedTaxonomies()
@@ -40,7 +39,6 @@ class SubjectOptions extends AbstractOptions
     }
 
     /**
-     *
      * @return array
      */
     public function getAllowedEntities()
@@ -49,7 +47,6 @@ class SubjectOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param array $allowedTaxonomies
      * @return self
      */
@@ -60,7 +57,6 @@ class SubjectOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param array $allowedEntities
      * @return self
      */
@@ -71,7 +67,6 @@ class SubjectOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param string $taxonomy
      * @return boolean
      */
@@ -81,7 +76,6 @@ class SubjectOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param string $entity
      * @return boolean
      */

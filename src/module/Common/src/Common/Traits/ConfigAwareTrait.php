@@ -31,7 +31,7 @@ trait ConfigAwareTrait
     protected $config = [];
 
     /**
-     * @return field_type $config
+     * @return array $config
      */
     public function getConfig()
     {
@@ -39,7 +39,7 @@ trait ConfigAwareTrait
     }
 
     /**
-     * @param field_type $config
+     * @param array $config
      * @return self
      */
     public function setConfig(array $config)

@@ -23,19 +23,18 @@
 namespace Token;
 
 use Token\Provider;
+use Token\Provider\ProviderInterface;
 
 class Tokenizer implements TokenizerInterface
 {
     use\Zend\ServiceManager\ServiceLocatorAwareTrait;
 
     /**
-     *
      * @var Provider\ProviderInterface
      */
     protected $provider;
 
     /**
-     *
      * @return Provider\ProviderInterface $provider
      */
     public function getProvider()
@@ -44,11 +43,10 @@ class Tokenizer implements TokenizerInterface
     }
 
     /**
-     *
      * @param ProviderInterface $provider
      * @return self
      */
-    protected function setProvider(Provider\ProviderInterface $provider)
+    protected function setProvider(ProviderInterface $provider)
     {
         $this->provider = $provider;
         return $this;

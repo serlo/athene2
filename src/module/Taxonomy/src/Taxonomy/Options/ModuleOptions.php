@@ -30,7 +30,6 @@ class ModuleOptions extends AbstractOptions
     protected $types = [];
 
     /**
-     *
      * @return array $types
      */
     public function getTypes()
@@ -39,7 +38,6 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param string $type
      * @throws Exception\RuntimeException
      * @return TaxonomyOptions
@@ -61,7 +59,6 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param array $types
      * @return self
      */
@@ -72,7 +69,6 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
-     *
      * @param string $needle
      * @return array
      */

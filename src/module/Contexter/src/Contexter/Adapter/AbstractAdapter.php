@@ -37,7 +37,7 @@ abstract class AbstractAdapter implements AdapterInterface
     protected $routeMatch;
 
     /**
-     * @var AdaptableInterface
+     * @var mixed
      */
     protected $adapter;
 

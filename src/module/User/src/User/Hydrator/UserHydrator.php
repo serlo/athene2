@@ -53,7 +53,6 @@ class UserHydrator implements HydratorInterface
     }
 
     /**
-     *
      * @param UserInterface $object
      * @return UserInterface
      */
