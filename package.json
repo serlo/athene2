@@ -9,7 +9,8 @@
   "author": "Serlo Education e.V.",
   "repository": "github:serlo-org/athene2",
   "scripts": {
-    "start": "docker-compose up",
+    "start": "docker-compose up --build -d",
+    "stop": "docker-compose down",
     "format": "npm-run-all format:*",
     "lint": "npm-run-all lint:*",
     "license": "ts-node scripts/license-headers",
