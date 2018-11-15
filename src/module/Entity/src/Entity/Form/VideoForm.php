@@ -58,7 +58,7 @@ class VideoForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('video');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(
             [
                 'name'       => 'content',
@@ -81,8 +81,8 @@ class VideoForm extends Form
                 ],
             ]
         );
-        $inputFilter->add(['name' => 'reasoning', 'required' => false]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }
 }

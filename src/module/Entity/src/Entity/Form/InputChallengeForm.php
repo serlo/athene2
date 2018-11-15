@@ -54,7 +54,7 @@ class InputChallengeForm extends Form
         $inputFilter = new InputFilter('input-challenge');
         $inputFilter->add(['name' => 'solution', 'required' => true]);
         $inputFilter->add(['name' => 'feedback', 'required' => false]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }
 }

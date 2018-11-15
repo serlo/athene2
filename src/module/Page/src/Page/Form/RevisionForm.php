@@ -58,7 +58,7 @@ class RevisionForm extends Form
         $submit->setValue('Save')->setAttribute('class', 'btn btn-success pull-right');
         $this->add($submit);
 
-        $filter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
+        $filter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $filter->add(['name' => 'content', 'required' => true]);
 
         $this->setInputFilter($filter);

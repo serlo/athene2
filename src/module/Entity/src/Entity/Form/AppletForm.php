@@ -61,7 +61,7 @@ class AppletForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('applet');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(
             [
                 'name'       => 'url',
@@ -85,10 +85,10 @@ class AppletForm extends Form
             ]
         );
         $inputFilter->add(['name' => 'content', 'required' => false]);
-        $inputFilter->add(['name' => 'meta_title', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
-        $inputFilter->add(['name' => 'meta_description', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
-        $inputFilter->add(['name' => 'reasoning', 'required' => false]);
-        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'HtmlEntities']]]);
+        $inputFilter->add(['name' => 'meta_title', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'meta_description', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }
 }

@@ -36,6 +36,7 @@ use Entity\Options\ModuleOptions;
 use Versioning\Entity\RevisionInterface;
 use Versioning\Exception\RevisionNotFoundException;
 use Versioning\RepositoryManagerAwareTrait;
+use Zend\Filter\StripTags;
 use Zend\Form\Form;
 use Zend\Mvc\Exception;
 use Zend\View\Model\ViewModel;
@@ -101,6 +102,7 @@ class RepositoryController extends AbstractController
     {
         $entity = $this->getEntity();
         $reason = $this->params()->fromPost('reason', '');
+        $reason = (new StripTags())->filter($reason);
 
         if (!$entity || $entity->isTrashed()) {
             $this->getResponse()->setStatusCode(404);
@@ -172,6 +174,7 @@ class RepositoryController extends AbstractController
     {
         $entity = $this->getEntity();
         $reason = $this->params()->fromPost('reason', '');
+        $reason = (new StripTags())->filter($reason);
 
         if (!$entity || $entity->isTrashed()) {
             $this->getResponse()->setStatusCode(404);
