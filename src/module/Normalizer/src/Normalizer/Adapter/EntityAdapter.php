@@ -167,6 +167,9 @@ class EntityAdapter extends AbstractAdapter
 
         $type = $this->getType();
         $typeName = $this->getTranslator()->translate($type);
+        if ($type === 'course-page') {
+            $typeName = $this->getTranslator()->translate('course');
+        }
 
         $titleFallback = $this->getTitle();
         $title = $this->getField('meta_title');
@@ -179,8 +182,8 @@ class EntityAdapter extends AbstractAdapter
             $parentAdapter = new EntityAdapter();
             $parentAdapter->setTranslator($this->translator);
             $normalizedParent = $parentAdapter->normalize($parent);
-            $parentTitle = $normalizedParent->getMetadata()->getTitle();
-            $title = $parentTitle . " | " .$title;
+            $parentTitle = $normalizedParent->getTitle();
+            $title = $parentTitle . " | " . $title;
         }
 
         //add "(Kurs)" etc
