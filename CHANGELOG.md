@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. The format 
 - Add yarn script `format:php` that executes php-cs-fixer (formats PHP according to PSR-2 with some additional rules) ([#785](https://github.com/serlo-org/athene2/pull/785))
 - Add yarn script `license` that handles license headers in our source code files ([#785](https://github.com/serlo-org/athene2/pull/785))
 - Add yarn script `e2e` that opens Cypress for end-to-end testing ([#800](https://github.com/serlo-org/athene2/pull/800))
+- Enable Xdebug remote support in Dockerfile, see [Starting The Debugger](https://xdebug.org/docs/remote#starting) on how to start a Xdebug remote session ([#801](https://github.com/serlo-org/athene2/pull/801))
 
 ### Changed
 
@@ -21,14 +22,20 @@ All notable changes to this project will be documented in this file. The format 
 - Show a subject-specific Open Graph meta image (e.g. for Facebook previews) ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
+- Rename `*.php.dist` files to `*.dist.php` for better IDE support ([#801](https://github.com/serlo-org/athene2/pull/801))
+- Improve performance of Docker Volumnes on macOS ([#801](https://github.com/serlo-org/athene2/pull/801))
 
 ### Removed
 
 - Disable special characters (e.g. `<`, `*`) in entities' fields (e.g. title, reasoning) again until we resolve the issue this caused ([#797](https://github.com/serlo-org/athene2/pull/797))
 
-## Fixed
+### Fixed
 
 - Fix issues in PHPDoc comments causing false-positives in some IDEs ([#798](https://github.com/serlo-org/athene2/pull/798))
+
+### Breaking Changes
+
+- Rename `docker-compose.yml` to `docker-compose.dist.yml` since it now contains some OS-specific options and gitignore `docker-compose.yml` ([#801](https://github.com/serlo-org/athene2/pull/801))
 
 ## [Build 2] - 2017-10-30
 
