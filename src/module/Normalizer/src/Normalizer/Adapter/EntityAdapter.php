@@ -1,10 +1,24 @@
 <?php
 /**
- * Athene2 - Advanced Learning Resources Manager
+ * This file is part of Athene2.
  *
- * @author      Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
+ * Copyright (c) 2013-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace Normalizer\Adapter;
 
@@ -90,7 +104,7 @@ class EntityAdapter extends AbstractAdapter
         $terms = $entity->getTaxonomyTerms();
         if (!$terms->count()) {
             $parents = $entity->getParents('link');
-            if($parents->count()) {
+            if ($parents->count()) {
                 $terms = $parents->first()->getTaxonomyTerms();
             }
         }
@@ -128,7 +142,7 @@ class EntityAdapter extends AbstractAdapter
     protected function getRouteParams()
     {
         return [
-            'entity' => $this->getObject()->getId()
+            'entity' => $this->getObject()->getId(),
         ];
     }
 
@@ -145,5 +159,49 @@ class EntityAdapter extends AbstractAdapter
     protected function isTrashed()
     {
         return $this->getObject()->isTrashed();
+    }
+
+    protected function getHeadTitle()
+    {
+        $maxStringLen = 65;
+
+        $type = $this->getType();
+        $typeName = $this->getTranslator()->translate($type);
+        if ($type === 'course-page') {
+            $typeName = $this->getTranslator()->translate('course');
+        }
+
+        $titleFallback = $this->getTitle();
+        $title = $this->getField('meta_title');
+        if ($title === $this->getId()) {
+            $title = $titleFallback;
+        }
+
+        if ($type === 'course-page') {
+            $parent = $this->getObject()->getParents('link')->first();
+            $parentAdapter = new EntityAdapter();
+            $parentAdapter->setTranslator($this->translator);
+            $normalizedParent = $parentAdapter->normalize($parent);
+            $parentTitle = $normalizedParent->getTitle();
+            $title = $parentTitle . " | " . $title;
+        }
+
+        //add "(Kurs)" etc
+        if ($type !== 'article') {
+            if (strlen($title) < ($maxStringLen-strlen($typeName))) {
+                $title .=  ' (' . $typeName . ')';
+            }
+        }
+
+        return $title;
+    }
+
+    protected function getMetaDescription()
+    {
+        $description = $this->getField('meta_description');
+        if ($description === $this->getId()) {
+            $description = $this->getDescription();
+        }
+        return $description;
     }
 }

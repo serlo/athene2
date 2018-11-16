@@ -1,14 +1,25 @@
 <?php
 /**
- * Athene2 - Advanced Learning Resources Manager
+ * This file is part of Athene2.
  *
- * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license   LGPL-3.0
- * @license   http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
+ * Copyright (c) 2013-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
- * @copyright Copyright (c) 2013-2014 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
  */
-
 $cacher = [
     'adapter' => [
         'name' => 'Zend\Cache\Storage\Adapter\Memcached',
@@ -17,30 +28,30 @@ $cacher = [
             'servers' => [
                 [
                     'host' => 'localhost',
-                    'port' => 11211
-                ]
+                    'port' => 11211,
+                ],
             ],
-            'ttl' => 60 * 60
-        ]
+            'ttl' => 60 * 60,
+        ],
     ],
     'plugins' => [
         'exception_handler' => [
-            'throw_exceptions' => false
+            'throw_exceptions' => false,
         ],
-        'serializer'
-    ]
+        'serializer',
+    ],
 ];
 
 return [
     'doctrine' => array(
         'configuration' => array(
             'orm_default' => array(
-                'metadata_cache'  => 'doctrine_memcache',
-                'query_cache'     => 'doctrine_memcache',
-                'result_cache'    => 'doctrine_memcache',
+                'metadata_cache' => 'doctrine_memcache',
+                'query_cache' => 'doctrine_memcache',
+                'result_cache' => 'doctrine_memcache',
                 'hydration_cache' => 'doctrine_memcache',
-            )
-        )
+            ),
+        ),
     ),
     'service_manager' => [
         'factories' => [
@@ -54,17 +65,17 @@ return [
         ],
     ],
     'view_manager' => [
-        'display_exceptions' => false
+        'display_exceptions' => false,
     ],
     'zfctwig' => [
         'environment_options' => [
             'debug' => false,
             'strict_variables' => false,
-            'autoescape' => false
+            'autoescape' => false,
         ],
     ],
     'log' => [
-        'exceptions' => true
+        'exceptions' => true,
     ],
     'strokercache' => [
         'storage_adapter' => [
@@ -73,17 +84,17 @@ return [
                 'servers' => [
                     [
                         'host' => 'localhost',
-                        'port' => 11211
-                    ]
+                        'port' => 11211,
+                    ],
                 ],
-                'ttl' => 60*60*24*2
-            ]
-        ]
+                'ttl' => 60 * 60 * 24 * 2,
+            ],
+        ],
     ],
     'alias_cache' => $cacher,
     'markdown_cache' => $cacher,
     'navigation_cache' => $cacher,
     'normalizer_cache' => $cacher,
     'notification_cache' => $cacher,
-    'subject_cache' => $cacher
+    'subject_cache' => $cacher,
 ];

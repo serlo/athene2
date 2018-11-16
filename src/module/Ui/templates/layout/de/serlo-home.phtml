@@ -1,12 +1,24 @@
 <?php
 /**
+ * This file is part of Athene2.
  *
- * Athene2 - Advanced Learning Resources Manager
+ * Copyright (c) 2013-2018 Serlo Education e.V.
  *
- * @author  Jonas Keinholz (jonas.keinholz@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link        https://github.com/serlo-org/athene2 for the canonical source repository
- * @copyright Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 echo $this->doctype();
 ?>
@@ -30,12 +42,12 @@ echo $this->doctype();
                     <a href="https://de.serlo.org"><?php echo $this->brand()->getLogo(); ?>
                     <?php echo $this->brand()->getBrand(); ?></a>
                     <span class="subject-title hidden-xs"><?php echo $this->navigation('default_navigation')
-                            ->menu()
-                            ->setPartial('layout/navigation/partial/active-subject')
-                            ->setOnlyActiveBranch(true)
-                            ->setMinDepth(0)
-                            ->setMaxDepth(0)
-                            ->render();
+            ->menu()
+            ->setPartial('layout/navigation/partial/active-subject')
+            ->setOnlyActiveBranch(true)
+            ->setMinDepth(0)
+            ->setMaxDepth(0)
+            ->render();
                         ?></span>
                 </div>
 
@@ -127,7 +139,7 @@ echo $this->doctype();
                             </a>
                         </div>
                         <div class="home-column col-sm-6 col-lg-3 container">
-                            <a class="home-emph-link" href="/nachhaltigkeit">
+                            <a class="home-emph-link" href="/17744">
                                 <div class="row home-subject-column">
                                     <div class="col-xs-12 home-subject-symbol">
                                         <?php echo $this->partial('layout/de/home-sustain-symbol');?>

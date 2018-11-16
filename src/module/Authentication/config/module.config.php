@@ -1,9 +1,23 @@
 <?php
 /**
- * Athene2 - Advanced Learning Resources Manager
+ * This file is part of Athene2.
  *
- * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * Copyright (c) 2013-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace Authentication;
@@ -13,22 +27,22 @@ return [
         'factories' => [
             'Zend\Authentication\AuthenticationService'   => __NAMESPACE__ . '\Factory\AuthenticationServiceFactory',
             __NAMESPACE__ . '\Storage\UserSessionStorage' => __NAMESPACE__ . '\Factory\UserSessionStorageFactory',
-            __NAMESPACE__ . '\HashService'                => __NAMESPACE__ . '\Factory\HashServiceFactory'
+            __NAMESPACE__ . '\HashService'                => __NAMESPACE__ . '\Factory\HashServiceFactory',
 
-        ]
+        ],
     ],
     'controllers'     => [
         'factories' => [
-            __NAMESPACE__ . '\Controller\AuthenticationController' => __NAMESPACE__ . '\Factory\AuthenticationControllerFactory'
-        ]
+            __NAMESPACE__ . '\Controller\AuthenticationController' => __NAMESPACE__ . '\Factory\AuthenticationControllerFactory',
+        ],
     ],
     'di'              => [
         'instance' => [
             'preferences' => [
                 __NAMESPACE__ . '\HashServiceInterface'     => __NAMESPACE__ . '\HashService',
                 __NAMESPACE__ . '\Adapter\AdapterInterface' => __NAMESPACE__ . '\Adapter\UserAuthAdapter',
-            ]
-        ]
+            ],
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -38,7 +52,7 @@ return [
                     'route'    => '/auth',
                     'defaults' => [
                         'controller' => __NAMESPACE__ . '\Controller\AuthenticationController',
-                    ]
+                    ],
                 ],
                 'child_routes' => [
                     'login'    => [
@@ -47,9 +61,9 @@ return [
                         'options'       => [
                             'route'    => '/login',
                             'defaults' => [
-                                'action' => 'login'
-                            ]
-                        ]
+                                'action' => 'login',
+                            ],
+                        ],
                     ],
                     'logout'   => [
                         'type'    => 'literal',
@@ -57,9 +71,9 @@ return [
                         'options'       => [
                             'route'    => '/logout',
                             'defaults' => [
-                                'action' => 'logout'
-                            ]
-                        ]
+                                'action' => 'logout',
+                            ],
+                        ],
                     ],
                     'activate' => [
                         'type'          => 'segment',
@@ -67,14 +81,14 @@ return [
                         'options'       => [
                             'route'    => '/activate[/:token]',
                             'defaults' => [
-                                'action' => 'activate'
-                            ]
-                        ]
+                                'action' => 'activate',
+                            ],
+                        ],
                     ],
                     'password' => [
                         'type'    => 'literal',
                         'options'      => [
-                            'route' => '/password'
+                            'route' => '/password',
                         ],
                         'child_routes' => [
                             'change'  => [
@@ -83,9 +97,9 @@ return [
                                 'options'       => [
                                     'route'    => '/change',
                                     'defaults' => [
-                                        'action' => 'changePassword'
-                                    ]
-                                ]
+                                        'action' => 'changePassword',
+                                    ],
+                                ],
                             ],
                             'restore' => [
                                 'type'          => 'segment',
@@ -93,14 +107,14 @@ return [
                                 'options'       => [
                                     'route'    => '/restore[/:token]',
                                     'defaults' => [
-                                        'action' => 'restorePassword'
-                                    ]
-                                ]
-                            ]
-                        ]
+                                        'action' => 'restorePassword',
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
-                ]
-            ]
-        ]
-    ]
+                ],
+            ],
+        ],
+    ],
 ];

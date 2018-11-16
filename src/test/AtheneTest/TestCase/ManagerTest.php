@@ -1,13 +1,24 @@
 <?php
 /**
- * 
- * Athene2 - Advanced Learning Resources Manager
+ * This file is part of Athene2.
  *
- * @author	    Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license	    LGPL-3.0
- * @license	    http://opensource.org/licenses/LGPL-3.0 The GNU Lesser General Public License, version 3.0
- * @link		https://github.com/serlo-org/athene2 for the canonical source repository
- * @copyright	Copyright (c) 2013 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
+ * Copyright (c) 2013-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace AtheneTest\TestCase;
 
@@ -15,23 +26,24 @@ use ClassResolver\ClassResolver;
 
 abstract class ManagerTest extends ObjectManagerTestCase
 {
-
     protected $manager;
 
-    protected $classResolver, $objectManager, $serviceLocator;
+    protected $classResolver;
+    protected $objectManager;
+    protected $serviceLocator;
 
-    public final function getManager()
+    final public function getManager()
     {
         return $this->manager;
     }
 
-    public final function setManager($manager)
+    final public function setManager($manager)
     {
         $this->manager = $manager;
         return $this;
     }
 
-    protected final function mockEntity($className, $id)
+    final protected function mockEntity($className, $id)
     {
         $entity = $this->getMock($className);
         $entity->expects($this->any())
@@ -40,35 +52,35 @@ abstract class ManagerTest extends ObjectManagerTestCase
         return $entity;
     }
 
-    protected final function prepareClassResolver(array $config)
+    final protected function prepareClassResolver(array $config)
     {
         if ($this->classResolver) {
             return $this->classResolver;
         }
-        
+
         $this->classResolver = new ClassResolver($config);
         $serviceLocator = $this->prepareServiceLocator(false);
-        
+
         $this->getManager()->setClassResolver($this->classResolver);
         $this->classResolver->setServiceLocator($serviceLocator);
-        
+
         return $this->classResolver;
     }
 
-    protected final function prepareServiceLocator($inject = true)
+    final protected function prepareServiceLocator($inject = true)
     {
         if (! $this->serviceLocator) {
             $this->serviceLocator = $this->getMock('Zend\ServiceManager\ServiceManager');
         }
-        
+
         if ($inject) {
             $this->getManager()->setServiceLocator($this->serviceLocator);
         }
-        
+
         return $this->serviceLocator;
     }
 
-    protected final function prepareObjectManager($inject = true)
+    final protected function prepareObjectManager($inject = true)
     {
         if (! $this->objectManager) {
             $this->objectManager = $this->mockEntityManager();
@@ -79,42 +91,42 @@ abstract class ManagerTest extends ObjectManagerTestCase
         return $this->objectManager;
     }
 
-    protected final function prepareFind($repositoryName, $key, $return)
+    final protected function prepareFind($repositoryName, $key, $return)
     {
         $objectManager = $this->prepareObjectManager();
-        
+
         $objectManager->expects($this->once())
             ->method('find')
             ->with($repositoryName, $key)
             ->will($this->returnValue($return));
     }
 
-    protected final function prepareFindBy($repositoryName, array $criteria, $return)
+    final protected function prepareFindBy($repositoryName, array $criteria, $return)
     {
         $objectManager = $this->prepareObjectManager();
         $repository = $this->mockEntityRepository();
-        
+
         $objectManager->expects($this->once())
             ->method('getRepository')
             ->with($repositoryName)
             ->will($this->returnValue($repository));
-        
+
         $repository->expects($this->once())
             ->method('findBy')
             ->with($criteria)
             ->will($this->returnValue($return));
     }
 
-    protected final function prepareFindOneBy($repositoryName, array $criteria, $return)
+    final protected function prepareFindOneBy($repositoryName, array $criteria, $return)
     {
         $objectManager = $this->prepareObjectManager();
         $repository = $this->mockEntityRepository();
-        
+
         $objectManager->expects($this->once())
             ->method('getRepository')
             ->with($repositoryName)
             ->will($this->returnValue($repository));
-        
+
         $repository->expects($this->once())
             ->method('findOneBy')
             ->with($criteria)

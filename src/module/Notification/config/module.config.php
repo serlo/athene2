@@ -1,9 +1,23 @@
 <?php
 /**
- * Athene2 - Advanced Learning Resources Manager
+ * This file is part of Athene2.
  *
- * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * Copyright (c) 2013-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace Notification;
@@ -12,15 +26,15 @@ return [
     'view_helpers'    => [
         'factories' => [
             'notifications' => __NAMESPACE__ . '\Factory\NotificationHelperFactory',
-            'subscribe'     => __NAMESPACE__ . '\Factory\SubscribeFactory'
-        ]
+            'subscribe'     => __NAMESPACE__ . '\Factory\SubscribeFactory',
+        ],
     ],
     'zfctwig'         => [
         'helper_manager' => [
             'factories' => [
-                'subscribe' => __NAMESPACE__ . '\Factory\SubscribeFactory'
-            ]
-        ]
+                'subscribe' => __NAMESPACE__ . '\Factory\SubscribeFactory',
+            ],
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -30,7 +44,7 @@ return [
                     'route'    => '/notification',
                     'defaults' => [
                         'controller' => 'Notification\Controller\NotificationController',
-                    ]
+                    ],
                 ],
                 'may_terminate' => false,
                 'child_routes'  => [
@@ -39,11 +53,11 @@ return [
                         'options' => [
                             'route'    => '/read',
                             'defaults' => [
-                                'action' => 'read'
-                            ]
-                        ]
+                                'action' => 'read',
+                            ],
+                        ],
                     ],
-                ]
+                ],
             ],
             'subscription'  => [
                 'type'          => 'segment',
@@ -51,7 +65,7 @@ return [
                     'route'    => '',
                     'defaults' => [
                         'controller' => 'Notification\Controller\SubscriptionController',
-                    ]
+                    ],
                 ],
                 'may_terminate' => false,
                 'child_routes'  => [
@@ -60,28 +74,28 @@ return [
                         'options' => [
                             'route'    => '/subscribe/:object/:email',
                             'defaults' => [
-                                'action' => 'subscribe'
-                            ]
-                        ]
+                                'action' => 'subscribe',
+                            ],
+                        ],
                     ],
                     'unsubscribe' => [
                         'type'    => 'segment',
                         'options' => [
                             'route'    => '/unsubscribe/:object',
                             'defaults' => [
-                                'action' => 'unsubscribe'
-                            ]
-                        ]
+                                'action' => 'unsubscribe',
+                            ],
+                        ],
                     ],
                     'update'      => [
                         'type'    => 'segment',
                         'options' => [
                             'route'    => '/subscription/update/:object/:email',
                             'defaults' => [
-                                'action' => 'update'
-                            ]
-                        ]
-                    ]
+                                'action' => 'update',
+                            ],
+                        ],
+                    ],
                 ],
             ],
             'subscriptions' => [
@@ -90,7 +104,7 @@ return [
                     'route'    => '/subscriptions',
                     'defaults' => [
                         'controller' => 'Notification\Controller\SubscriptionController',
-                    ]
+                    ],
                 ],
                 'child_routes' => [
                     'manage' => [
@@ -98,30 +112,30 @@ return [
                         'options' => [
                             'route'    => '/manage',
                             'defaults' => [
-                                'action' => 'manage'
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
+                                'action' => 'manage',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
     'service_manager' => [
         'factories' => [
             __NAMESPACE__ . '\NotificationManager' => __NAMESPACE__ . '\Factory\NotificationManagerFactory',
-            __NAMESPACE__ . '\Storage\Storage'     => __NAMESPACE__ . '\Factory\NotificationStorageFactory'
-        ]
+            __NAMESPACE__ . '\Storage\Storage'     => __NAMESPACE__ . '\Factory\NotificationStorageFactory',
+        ],
     ],
     'class_resolver'  => [
         __NAMESPACE__ . '\Entity\NotificationEventInterface' => __NAMESPACE__ . '\Entity\NotificationEvent',
         __NAMESPACE__ . '\Entity\NotificationInterface'      => __NAMESPACE__ . '\Entity\Notification',
-        __NAMESPACE__ . '\Entity\SubscriptionInterface'      => __NAMESPACE__ . '\Entity\Subscription'
+        __NAMESPACE__ . '\Entity\SubscriptionInterface'      => __NAMESPACE__ . '\Entity\Subscription',
     ],
     'di'              => [
         'allowed_controllers' => [
             __NAMESPACE__ . '\Controller\WorkerController',
             __NAMESPACE__ . '\Controller\NotificationController',
-            __NAMESPACE__ . '\Controller\SubscriptionController'
+            __NAMESPACE__ . '\Controller\SubscriptionController',
         ],
         'definition'          => [
             'class' => [
@@ -129,51 +143,51 @@ return [
                 __NAMESPACE__ . '\Listener\DiscussionManagerListener'        => [],
                 __NAMESPACE__ . '\Listener\RepositoryManagerListener'        => [
                     'setSubscriptionManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setUserManager'         => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\SubscriptionManager'                       => [
                     'setClassResolver' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setObjectManager' => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\NotificationWorker'                        => [
                     'setUserManager'         => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setObjectManager'       => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setSubscriptionManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setNotificationManager' => [
-                        'required' => true
+                        'required' => true,
                     ],
                     'setClassResolver'       => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\Controller\WorkerController'               => [
                     'setNotificationWorker' => [
-                        'required' => true
-                    ]
+                        'required' => true,
+                    ],
                 ],
                 __NAMESPACE__ . '\Controller\NotificationController'         => [],
-            ]
+            ],
         ],
         'instance'            => [
             'preferences' => [
                 __NAMESPACE__ . '\SubscriptionManagerInterface' => __NAMESPACE__ . '\SubscriptionManager',
-                __NAMESPACE__ . '\NotificationManagerInterface' => __NAMESPACE__ . '\NotificationManager'
-            ]
-        ]
+                __NAMESPACE__ . '\NotificationManagerInterface' => __NAMESPACE__ . '\NotificationManager',
+            ],
+        ],
     ],
     'console'         => [
         'router' => [
@@ -183,11 +197,11 @@ return [
                         'route'    => 'notification worker',
                         'defaults' => [
                             'controller' => __NAMESPACE__ . '\Controller\WorkerController',
-                            'action'     => 'run'
-                        ]
-                    ]
+                            'action'     => 'run',
+                        ],
+                    ],
                 ],
-            ]
+            ],
         ],
     ],
     'doctrine'        => [
@@ -196,14 +210,14 @@ return [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => [
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
-                ]
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default'             => [
                 'drivers' => [
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ]
-            ]
-        ]
-    ]
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+    ],
 ];

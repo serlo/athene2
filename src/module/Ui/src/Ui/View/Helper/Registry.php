@@ -1,11 +1,24 @@
 <?php
 /**
- * 
- * Athene2 - Advanced Learning Resources Manager
+ * This file is part of Athene2.
  *
- * @author	Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @link		https://github.com/serlo-org/athene2 for the canonical source repository
+ * Copyright (c) 2013-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace Ui\View\Helper;
 
@@ -13,7 +26,6 @@ use Zend\View\Helper\AbstractHelper;
 
 class Registry extends AbstractHelper
 {
-
     protected $registry = [];
 
     public function __invoke()
@@ -23,7 +35,7 @@ class Registry extends AbstractHelper
 
     public function add($key, $value)
     {
-        if(!array_key_exists($key, $this->registry)){
+        if (!array_key_exists($key, $this->registry)) {
             $this->registry[$key] = [];
         }
         $this->registry[$key][] = $value;
@@ -34,12 +46,12 @@ class Registry extends AbstractHelper
     {
         if (array_key_exists($key, $this->registry)) {
             $return = '';
-            foreach($this->registry[$key] as $value){
+            foreach ($this->registry[$key] as $value) {
                 $return .= $value;
             }
             return $return;
         } else {
-            return NULL;
+            return null;
         }
     }
 }

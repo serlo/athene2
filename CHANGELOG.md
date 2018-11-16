@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Build 3] - 2018-11-16
+
+### Added
+
+- Improved title in entities (e.g. automated " - lernen mit Serlo" suffix) ([#678](https://github.com/serlo-org/athene2/pull/678))
+- Add `package.json` so that we can use `yarn` as task runner ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `start` that executes `docker-compose up` ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `format:prettier` that executes prettier (formats Markdown, YAML, JSON, etc.) ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `format:php` that executes php-cs-fixer (formats PHP according to PSR-2 with some additional rules) ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `license` that handles license headers in our source code files ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `e2e` that opens Cypress for end-to-end testing ([#800](https://github.com/serlo-org/athene2/pull/800))
+- Enable Xdebug remote support in Dockerfile, see [Starting The Debugger](https://xdebug.org/docs/remote#starting) on how to start a Xdebug remote session ([#801](https://github.com/serlo-org/athene2/pull/801))
+
+### Changed
+
+- Make list of unrevised revisions (e.g. https://de.serlo.org/mathe/entity/unrevised) faster ([#790](https://github.com/serlo-org/athene2/pull/790), [#780](https://github.com/serlo-org/athene2/pull/780))
+- Show all unrevised revisions of an entity (and not only the newest one) ([#790](https://github.com/serlo-org/athene2/pull/790))
+- Show a subject-specific Open Graph meta image (e.g. for Facebook previews) ([#678](https://github.com/serlo-org/athene2/pull/678))
+- Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
+- Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
+- Rename `*.php.dist` files to `*.dist.php` for better IDE support ([#801](https://github.com/serlo-org/athene2/pull/801))
+- Improve performance of Docker Volumnes on macOS ([#801](https://github.com/serlo-org/athene2/pull/801))
+
+### Removed
+
+- Disable special characters (e.g. `<`, `*`) in entities' fields (e.g. title, reasoning) again until we resolve the issue this caused ([#797](https://github.com/serlo-org/athene2/pull/797))
+
+### Fixed
+
+- Fix issues in PHPDoc comments causing false-positives in some IDEs ([#798](https://github.com/serlo-org/athene2/pull/798))
+
+### Breaking Changes
+
+- Rename `docker-compose.yml` to `docker-compose.dist.yml` since it now contains some OS-specific options and gitignore `docker-compose.yml` ([#801](https://github.com/serlo-org/athene2/pull/801))
+
 ## [Build 2] - 2017-10-30
 
 This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-org/athene2-assets/blob/master/CHANGELOG.md))
@@ -29,6 +64,7 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo-org/athene2/compare/2...HEAD
-[Build 2]: https://github.com/serlo-org/athene2/compare/e485b49b632799c6011e9ddf0be1efa56325a7ab...2
-[Build 1]: https://github.com/serlo-org/athene2/commit/e485b49b632799c6011e9ddf0be1efa56325a7ab
+[unreleased]: https://github.com/serlo-org/athene2/compare/3...HEAD
+[build 3]: https://github.com/serlo-org/athene2/compare/2...3
+[build 2]: https://github.com/serlo-org/athene2/compare/e485b49b632799c6011e9ddf0be1efa56325a7ab...2
+[build 1]: https://github.com/serlo-org/athene2/commit/e485b49b632799c6011e9ddf0be1efa56325a7ab

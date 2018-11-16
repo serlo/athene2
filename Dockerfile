@@ -1,13 +1,21 @@
 FROM php:7.1.3-apache
 
 RUN apt-get update -y
+RUN pecl channel-update pecl.php.net
+
 RUN apt-get install -y gettext locales libicu-dev
+
+# Install Xdebug
+RUN pecl install xdebug-2.6.1
+RUN docker-php-ext-enable xdebug
+RUN sed -i '1 a xdebug.remote_enable=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.remote_host=host.docker.internal' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.remote_port=9000' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Set the right path
 RUN sed -ie 's/\/var\/www\/html/\/var\/www\/html\/src\/public/g' /etc/apache2/sites-available/000-default.conf
 
 RUN docker-php-ext-install pdo pdo_mysql mysqli gettext intl
-RUN pecl channel-update pecl.php.net
 RUN pear config-set preferred_state beta
 RUN yes no | pecl install apcu_bc
 RUN yes DEFAULT | pecl install intl

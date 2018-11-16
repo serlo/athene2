@@ -1,11 +1,24 @@
 <?php
 /**
- * Athene2 - Advanced Learning Resources Manager
+ * This file is part of Athene2.
  *
- * @author    Aeneas Rekkas (aeneas.rekkas@serlo.org)
- * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * Copyright (c) 2013-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
- * @copyright Copyright (c) 2013-2014 Gesellschaft für freie Bildung e.V. (http://www.open-education.eu/)
  */
 namespace Normalizer\Entity;
 
@@ -14,6 +27,7 @@ use Zend\Stdlib\AbstractOptions;
 
 class Metadata extends AbstractOptions implements MetadataInterface
 {
+
     /**
      * @var string
      */
@@ -28,22 +42,32 @@ class Metadata extends AbstractOptions implements MetadataInterface
      * @var string
      */
     protected $context;
+
     /**
      * @var string
      */
     protected $description;
+
+    /**
+     * @var string
+     */
+    protected $metaDescription;
+
     /**
      * @var DateTime
      */
     protected $creationDate;
+
     /**
      * @var string
      */
     protected $title;
+
     /**
      * @var string
      */
     protected $languageCode;
+
     /**
      * @var string
      */
@@ -67,7 +91,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getAuthor()
      */
     public function getAuthor()
     {
@@ -83,7 +108,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getContext()
      */
     public function getContext()
     {
@@ -99,7 +125,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return DateTime
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getCreationDate()
      */
     public function getCreationDate()
     {
@@ -115,7 +142,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getDescription()
      */
     public function getDescription()
     {
@@ -131,7 +159,24 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return array|\string[]
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
+
+    /**
+     * @param string $metaDescription
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+    }
+
+    /**
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getKeywords()
      */
     public function getKeywords()
     {
@@ -147,7 +192,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getLanguageCode()
      */
     public function getLanguageCode()
     {
@@ -163,7 +209,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return \DateTime
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getLastModified()
      */
     public function getLastModified()
     {
@@ -179,7 +226,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getLicense()
      */
     public function getLicense()
     {
@@ -195,7 +243,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getTitle()
      */
     public function getTitle()
     {
@@ -211,7 +260,8 @@ class Metadata extends AbstractOptions implements MetadataInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     * @see \Normalizer\Entity\MetadataInterface::getRobots()
      */
     public function getRobots()
     {
