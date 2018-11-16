@@ -7,11 +7,12 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 - Improved title in entities (e.g. automated " - lernen mit Serlo" suffix) ([#678](https://github.com/serlo-org/athene2/pull/678))
-- Add `package.json` so that we can use `yarn` as task runner
-- Add yarn script `start` that executes `docker-compose up`
-- Add yarn script `format:prettier` that executes prettier (formats Markdown, YAML, JSON, etc.)
-- Add yarn script `format:php` that executes php-cs-fixer (formats PHP according to PSR-2 with some additional rules)
-- Add yarn script `license` that handles license headers in our source code files
+- Add `package.json` so that we can use `yarn` as task runner ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `start` that executes `docker-compose up` ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `format:prettier` that executes prettier (formats Markdown, YAML, JSON, etc.) ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `format:php` that executes php-cs-fixer (formats PHP according to PSR-2 with some additional rules) ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `license` that handles license headers in our source code files ([#785](https://github.com/serlo-org/athene2/pull/785))
+- Add yarn script `e2e` that opens Cypress for end-to-end testing ([#800](https://github.com/serlo-org/athene2/pull/800))
 
 ### Changed
 

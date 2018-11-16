@@ -5,6 +5,7 @@ tmp/
 !.editorconfig
 !.gitattributes
 !.gitignore
+!.gitkeep
 !.gitmodules
 !.travis.yml
 !.phpcsrc.php
