@@ -155,42 +155,47 @@ class Normalize extends AbstractHelper
         return $this->getView()->plugin('headMeta');
     }
 
-    public function headTitle($object = null)
+    public function headTitle($object)
     {
         /* @var $headTitle HeadTitle */
         $headTitle  = $this->getView()->plugin('headTitle');
-        if ($object == null) {
-            /** @var Brand $brand */
-            $brand  = $this->getView()->brand();
-            $title = $brand->getBrand(true) . " – " . $brand->getSlogan();
-        } elseif (is_string($object)) {
-            $title = $this->appendBrand($object);
+        if (is_string($object)) {
+            $headTitle($object);
         } else {
             $normalized = $this->normalize($object);
-            $title = $this->appendBrand($normalized->getMetadata()->getTitle());
+            $headTitle($normalized->getMetadata()->getTitle());
         }
-        $headTitle($title);
         return $this;
     }
 
-    private function appendBrand($title)
+    public function appendBrand()
     {
         /** @var Brand $brand */
         $brand  = $this->getView()->brand();
+        /* @var $headTitle HeadTitle */
+        $headTitle  = $this->getView()->plugin('headTitle');
+        $title = $headTitle->renderTitle();
         $maxStringLen = 65;
 
+        if (!$title) {
+            $headTitle($brand->getBrand(true));
+            $headTitle($brand->getSlogan(true));
+            return $this;
+        }
         //add "– lernen mit Serlo"
-        $titlePostfix = ' – ' . $brand->getHeadTitle(true);
+        $titlePostfix = $brand->getHeadTitle(true);
         if (strlen($title) < ($maxStringLen-strlen($titlePostfix))) {
-            return $title . $titlePostfix;
+            $headTitle($titlePostfix);
+            return $this;
         }
 
-        $titlePostfixFallback = ' – ' . $brand->getBrand(true);
+        $titlePostfixFallback = $brand->getBrand(true);
         if (strlen($title) < ($maxStringLen-strlen($titlePostfixFallback))) {
-            return $title . $titlePostfixFallback;
+            $headTitle($titlePostfixFallback);
+            return $this;
         }
 
-        return $title;
+        return $this;
     }
 
     public function possible($object)

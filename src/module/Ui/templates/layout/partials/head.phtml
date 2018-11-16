@@ -23,6 +23,7 @@
 ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php echo $this->headTitle(); ?>
+<?php $this->normalize()->appendBrand()?>
+<?php echo $this->headTitle()->setSeparator(' – '); ?>
 <?php echo $this->headMeta(); ?>
 <?php echo $this->headLink(['rel' => 'icon', 'href' => '/favicon.ico', 'type' => 'image/x-icon']); ?>
