@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2018-10-16 13:55+0200\n"
-"PO-Revision-Date: 2018-11-07 15:17+0100\n"
+"POT-Creation-Date: 2018-11-16 07:25+0100\n"
+"PO-Revision-Date: 2018-11-16 07:29+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -20,1111 +20,1116 @@ msgstr ""
 "X-Poedit-SearchPath-0: ./../module\n"
 "X-Poedit-SearchPath-1: ./../config\n"
 
-#: ../config/instance/navigation/default.php:15
-#: ../module/Ui/templates/admin/home/index.phtml:11
+#: ../config/instance/navigation/default.php:27
+#: ../module/Ui/templates/admin/home/index.phtml:24
 msgid "Backend"
 msgstr "Back-end"
 
-#: ../config/instance/navigation/default.php:21
-#: ../module/Ui/templates/navigation/container/get.twig:19
-#: ../module/Ui/templates/page/pages.twig:1
+#: ../config/instance/navigation/default.php:33
+#: ../module/Ui/templates/navigation/container/get.twig:40
+#: ../module/Ui/templates/page/pages.twig:22
 msgid "Pages"
 msgstr "Páginas"
 
-#: ../config/instance/navigation/default.php:27
-#: ../module/Ui/templates/page/create.twig:1
+#: ../config/instance/navigation/default.php:39
+#: ../module/Ui/templates/page/create.twig:22
 msgid "Create a page"
 msgstr "Crear una página"
 
-#: ../config/instance/navigation/default.php:33
-#: ../module/Ui/templates/page/update.twig:1
+#: ../config/instance/navigation/default.php:45
+#: ../module/Ui/templates/page/update.twig:22
 msgid "Update a page"
 msgstr "Actualizar una página"
 
-#: ../config/instance/navigation/default.php:41
+#: ../config/instance/navigation/default.php:53
 msgid "Taxonomy"
 msgstr "Taxonomía"
 
-#: ../config/instance/navigation/default.php:47
-#: ../module/Ui/templates/taxonomy/term/organize.twig:2
-#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:9
-#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:8
+#: ../config/instance/navigation/default.php:59
+#: ../module/Ui/templates/taxonomy/term/organize.twig:23
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:30
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:29
 msgid "Organize"
 msgstr "Organizar"
 
-#: ../config/instance/navigation/default.php:71
+#: ../config/instance/navigation/default.php:83
 msgid "Authorization"
 msgstr "Autorización"
 
-#: ../config/instance/navigation/default.php:77
-#: ../module/Ui/templates/authorization/role/show.phtml:11
+#: ../config/instance/navigation/default.php:89
+#: ../module/Ui/templates/authorization/role/show.phtml:24
 msgid "Role"
 msgstr "Rol"
 
-#: ../config/instance/navigation/default.php:83
-#: ../module/Ui/templates/authorization/role/create.phtml:2
+#: ../config/instance/navigation/default.php:95
+#: ../module/Ui/templates/authorization/role/create.phtml:23
 msgid "Create role"
 msgstr "Crear rol"
 
-#: ../config/instance/navigation/default.php:89
-#: ../module/Ui/templates/authorization/role/user/add.phtml:11
+#: ../config/instance/navigation/default.php:101
+#: ../module/Ui/templates/authorization/role/user/add.phtml:24
 msgid "Add user"
 msgstr "Agregar usuario"
 
-#: ../config/instance/navigation/default.php:95
-#: ../module/Ui/templates/authorization/role/permission/add.phtml:11
+#: ../config/instance/navigation/default.php:107
+#: ../module/Ui/templates/authorization/role/permission/add.phtml:24
 msgid "Add permission"
 msgstr "Agregar permiso"
 
-#: ../config/instance/navigation/default.php:103
+#: ../config/instance/navigation/default.php:115
 msgid "Navigation"
 msgstr "Navegador"
 
-#: ../config/instance/navigation/default.php:109
-#: ../module/Ui/templates/navigation/containers.phtml:1
-#: ../module/Ui/templates/navigation/container/get.twig:1
+#: ../config/instance/navigation/default.php:121
+#: ../module/Ui/templates/navigation/containers.phtml:24
+#: ../module/Ui/templates/navigation/container/get.twig:22
 msgid "Manage navigation"
 msgstr "Administrar navigación"
 
-#: ../config/instance/navigation/default.php:114
-#: ../module/Ui/templates/navigation/container/create.phtml:1
+#: ../config/instance/navigation/default.php:126
+#: ../module/Ui/templates/navigation/container/create.phtml:24
 msgid "Create container"
 msgstr "Crear contenedor"
 
-#: ../config/instance/navigation/default.php:124
-#: ../module/Ui/templates/navigation/parameter/create.phtml:1
+#: ../config/instance/navigation/default.php:136
+#: ../module/Ui/templates/navigation/parameter/create.phtml:24
 msgid "Create parameter"
 msgstr "Crear parámetro"
 
-#: ../config/instance/navigation/default.php:130
-#: ../module/Ui/templates/navigation/parameter/key/create.phtml:1
+#: ../config/instance/navigation/default.php:142
+#: ../module/Ui/templates/navigation/parameter/key/create.phtml:24
 msgid "Create parameter key"
 msgstr "Crear parámetro clave"
 
-#: ../config/instance/navigation/default.php:136
-#: ../module/Ui/templates/navigation/parameter/update.phtml:1
+#: ../config/instance/navigation/default.php:148
+#: ../module/Ui/templates/navigation/parameter/update.phtml:24
 msgid "Update parameter"
 msgstr "Actualizar parámetro"
 
-#: ../config/instance/navigation/default.php:144
-#: ../module/Ui/templates/authorization/role/show.phtml:19
-#: ../module/Ui/templates/user/users/users.twig:1
+#: ../config/instance/navigation/default.php:156
+#: ../module/Ui/templates/authorization/role/show.phtml:32
+#: ../module/Ui/templates/user/users/users.twig:22
 msgid "Users"
 msgstr "Usuarios"
 
-#: ../config/instance/navigation/default.php:150
+#: ../config/instance/navigation/default.php:162
 msgid "Recycle bin"
 msgstr "Papelera de reciclaje"
 
-#: ../config/instance/navigation/default.php:156
+#: ../config/instance/navigation/default.php:168
 msgid "Flags"
 msgstr "Marcas "
 
-#: ../config/instance/navigation/default.php:162
-#: ../module/Ui/templates/flag/detail.phtml:5
+#: ../config/instance/navigation/default.php:174
+#: ../module/Ui/templates/flag/detail.phtml:28
 msgid "Flag detail"
 msgstr "Detalle de la marca"
 
-#: ../config/instance/navigation/default.php:168
-#: ../module/Ui/templates/flag/add.phtml:1
-#: ../module/Ui/templates/entity/view/partials/actions/flag/create.twig:5
+#: ../config/instance/navigation/default.php:180
+#: ../module/Ui/templates/flag/add.phtml:24
+#: ../module/Ui/templates/entity/view/partials/actions/flag/create.twig:26
 msgid "Flag content"
 msgstr "Marcar contenido"
 
-#: ../config/instance/navigation/default.php:176
+#: ../config/instance/navigation/default.php:188
 msgid "Licenses"
 msgstr "Licencias"
 
-#: ../config/instance/navigation/default.php:182
-#: ../module/Ui/templates/license/add.phtml:1
+#: ../config/instance/navigation/default.php:194
+#: ../module/Ui/templates/license/add.phtml:24
 msgid "Add license"
 msgstr "Agregar licencia"
 
-#: ../config/instance/navigation/default.php:188
-#: ../module/Ui/templates/license/detail.phtml:3
-#: ../module/Ui/templates/entity/view/partials/actions/license/show.twig:6
+#: ../config/instance/navigation/default.php:200
+#: ../module/Ui/templates/license/detail.phtml:26
+#: ../module/Ui/templates/entity/view/partials/actions/license/show.twig:27
 msgid "License"
 msgstr "Licencia"
 
-#: ../config/instance/navigation/default.php:200
+#: ../config/instance/navigation/default.php:212
 msgid "Horizon"
 msgstr "Horizonte"
 
-#: ../config/instance/navigation/default.php:205
-#: ../module/Ui/templates/ads/ads.twig:6
-#: ../module/Ui/templates/ads/create.twig:1
+#: ../config/instance/navigation/default.php:217
+#: ../module/Ui/templates/ads/ads.twig:27
+#: ../module/Ui/templates/ads/create.twig:22
 msgid "Create ad"
 msgstr "Crear anuncio"
 
-#: ../config/instance/navigation/default.php:211
-#: ../module/Ui/templates/ads/update.twig:1
+#: ../config/instance/navigation/default.php:223
+#: ../module/Ui/templates/ads/update.twig:22
 msgid "Update ad"
 msgstr "Actualizar anuncio"
 
-#: ../config/instance/navigation/default.php:222
-#: ../module/Ui/templates/blog/blog/view.twig:2
+#: ../config/instance/navigation/default.php:234
+#: ../module/Ui/templates/blog/blog/view.twig:23
 msgid "Blog"
 msgstr "Blog"
 
-#: ../config/instance/navigation/default.php:237
+#: ../config/instance/navigation/default.php:249
 msgid "Me"
 msgstr "Mi"
 
-#: ../config/instance/navigation/default.php:254
+#: ../config/instance/navigation/default.php:266
 msgid "Public profile"
 msgstr "Perfil público"
 
-#: ../config/instance/navigation/default.php:259
+#: ../config/instance/navigation/default.php:271
 msgid "Edit profile"
 msgstr "Editar perfil"
 
-#: ../config/instance/navigation/default.php:265
-#: ../module/Ui/templates/authentication/change-password.twig:1
+#: ../config/instance/navigation/default.php:277
+#: ../module/Ui/templates/authentication/change-password.twig:22
 msgid "Update password"
 msgstr "Actualizar contraseña"
 
-#: ../config/instance/navigation/default.php:271
+#: ../config/instance/navigation/default.php:283
 msgid "Subscriptions"
 msgstr "Subscripciones"
 
-#: ../config/instance/navigation/default.php:277
-#: ../module/Ui/templates/event/history/all.twig:1
-#: ../module/Ui/templates/event/history/object.twig:1
-#: ../module/Ui/templates/event/history/user.twig:1
+#: ../config/instance/navigation/default.php:289
+#: ../module/Ui/templates/event/history/all.twig:22
+#: ../module/Ui/templates/event/history/object.twig:22
+#: ../module/Ui/templates/event/history/user.twig:22
 msgid "Event log"
 msgstr "Registro de eventos"
 
-#: ../module/Admin/src/Admin/Form/DebuggerForm.php:27
+#: ../module/Admin/src/Admin/Form/DebuggerForm.php:40
 msgid "Message:"
 msgstr "Mensaje:"
 
-#: ../module/Ads/src/Ads/Controller/AdsController.php:96
-#: ../module/RelatedContent/src/RelatedContent/Controller/RelatedContentController.php:151
+#: ../module/Ads/src/Ads/Controller/AdsController.php:110
+#: ../module/RelatedContent/src/RelatedContent/Controller/RelatedContentController.php:165
 msgid "The element could not be removed (validation failed)"
 msgstr "El elemento no se puede eliminar (fallo de validación)"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:34
-#: ../module/Blog/src/Blog/Form/CreatePostForm.php:68
-#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:49
-#: ../module/Contexter/src/Contexter/Form/ContextForm.php:37
-#: ../module/Entity/src/Entity/Form/AppletForm.php:33
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:30
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:30
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:31
-#: ../module/Entity/src/Entity/Form/VideoForm.php:32
-#: ../module/License/src/License/Form/LicenseForm.php:34
-#: ../module/Page/src/Page/Form/RevisionForm.php:27
-#: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:30
-#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:31
-#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:31
-#: ../module/Ui/templates/page/revisions.twig:8
+#: ../module/Ads/src/Ads/Form/AdForm.php:47
+#: ../module/Blog/src/Blog/Form/CreatePostForm.php:81
+#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:62
+#: ../module/Contexter/src/Contexter/Form/ContextForm.php:50
+#: ../module/Entity/src/Entity/Form/AppletForm.php:46
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:43
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:43
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:44
+#: ../module/Entity/src/Entity/Form/VideoForm.php:45
+#: ../module/License/src/License/Form/LicenseForm.php:48
+#: ../module/Page/src/Page/Form/RevisionForm.php:48
+#: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:43
+#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:44
+#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:43
+#: ../module/Ui/templates/page/revisions.twig:29
 msgid "Title:"
 msgstr "Título:"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:35
-#: ../module/Page/src/Page/Form/RepositoryForm.php:34
-#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:32
+#: ../module/Ads/src/Ads/Form/AdForm.php:48
+#: ../module/Page/src/Page/Form/RepositoryForm.php:54
+#: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:45
 msgid "Url:"
 msgstr "URL:"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:36
-#: ../module/Blog/src/Blog/Form/CreatePostForm.php:69
-#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:50
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:31
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:29
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:29
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:42
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:29
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:29
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:29
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:29
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:29
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:29
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:29
-#: ../module/Flag/src/Flag/Form/FlagForm.php:46
-#: ../module/License/src/License/Form/LicenseForm.php:35
-#: ../module/Page/src/Page/Form/RevisionForm.php:31
+#: ../module/Ads/src/Ads/Form/AdForm.php:49
+#: ../module/Blog/src/Blog/Form/CreatePostForm.php:82
+#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:63
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:44
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:42
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:42
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:55
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:42
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:42
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:42
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:42
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:42
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:42
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:42
+#: ../module/Flag/src/Flag/Form/FlagForm.php:59
+#: ../module/License/src/License/Form/LicenseForm.php:49
+#: ../module/Page/src/Page/Form/RevisionForm.php:52
 msgid "Content:"
 msgstr "Contenido:"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:45
+#: ../module/Ads/src/Ads/Form/AdForm.php:58
 msgid "frequency"
 msgstr "frecuencia"
 
-#: ../module/Ads/src/Ads/Form/AdForm.php:47
+#: ../module/Ads/src/Ads/Form/AdForm.php:60
 msgid "Banner"
 msgstr "Banner"
 
-#: ../module/Ads/src/Ads/Form/AdPageForm.php:28
+#: ../module/Ads/src/Ads/Form/AdPageForm.php:41
 msgid "Page ID:"
 msgstr "ID de página:"
 
-#: ../module/Attachment/src/Attachment/Form/AttachmentFieldset.php:27
+#: ../module/Attachment/src/Attachment/Form/AttachmentFieldset.php:40
 msgid "Attach file:"
 msgstr "Adjuntar archivo:"
 
-#: ../module/Attachment/src/Attachment/Form/AttachmentForm.php:31
+#: ../module/Attachment/src/Attachment/Form/AttachmentForm.php:45
 msgid "Set type:"
 msgstr "Tipo de archivo:"
 
-#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:60
+#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:73
 msgid "Your account has been activated, you may now log in."
 msgstr "Tu cuenta ha sido activada, ya puedes iniciar sesión."
 
-#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:65
+#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:78
 msgid "I couldn't find an account by that token. You can now try to re-activate your account."
 msgstr "No se ha encontrado una cuenta con ese código. Intenta reactivar tu cuenta ahora."
 
-#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:83
+#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:96
 msgid "Your have been sent an activation email. Please check your spam folder as well."
 msgstr "Se ha enviado un correo de activación. Por favor, revisa también la carpeta de spam."
 
-#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:121
+#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:134
 msgid "Your password has successfully been changed."
 msgstr "Tu contraseña se ha cambiado correctamente."
 
-#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:227
+#: ../module/Authentication/src/Authentication/Controller/AuthenticationController.php:239
 msgid "You have been sent an email with instructions on how to restore your password! Please check your spam folder as well."
 msgstr "Te hemos enviado un correo electrónico con las instrucciones sobre cómo restaurar tu contraseña! Por favor, revisa también la carpeta de spam."
 
-#: ../module/Authentication/src/Authentication/Form/ActivateForm.php:29
-#: ../module/User/src/User/Form/Register.php:41
-#: ../module/User/src/User/Form/SelectUserForm.php:31
-#: ../module/User/src/User/Form/SettingsForm.php:31
+#: ../module/Authentication/src/Authentication/Form/ActivateForm.php:43
+#: ../module/User/src/User/Form/Register.php:54
+#: ../module/User/src/User/Form/SelectUserForm.php:43
+#: ../module/User/src/User/Form/SettingsForm.php:44
 msgid "Email:"
 msgstr "Correo electrónico:"
 
-#: ../module/Authorization/src/Authorization/Controller/RoleController.php:151
+#: ../module/Authorization/src/Authorization/Controller/RoleController.php:164
 msgid "Role created."
 msgstr "Rol creado."
 
-#: ../module/Authorization/src/Authorization/Controller/RoleController.php:176
+#: ../module/Authorization/src/Authorization/Controller/RoleController.php:189
 msgid "The permission could not be removed (validation failed)"
 msgstr "Los permisos no se pueden eliminar (fallo de validación)"
 
-#: ../module/Authorization/src/Authorization/Controller/RoleController.php:209
+#: ../module/Authorization/src/Authorization/Controller/RoleController.php:222
 msgid "The user could not be removed (validation failed)"
 msgstr "El usuario no se puede eliminar (fallo de validación)"
 
-#: ../module/Authorization/src/Authorization/Form/PermissionForm.php:32
+#: ../module/Authorization/src/Authorization/Form/PermissionForm.php:45
 msgid "Permission:"
 msgstr "Permiso:"
 
-#: ../module/Authorization/src/Authorization/Form/PermissionForm.php:41
+#: ../module/Authorization/src/Authorization/Form/PermissionForm.php:54
 msgid "Instance:"
 msgstr "Instancia:"
 
-#: ../module/Authorization/src/Authorization/Form/RoleForm.php:45
-#: ../module/Term/src/Term/Form/TermFieldset.php:25
+#: ../module/Authorization/src/Authorization/Form/RoleForm.php:58
+#: ../module/Term/src/Term/Form/TermFieldset.php:37
 msgid "Name:"
 msgstr "Nombre:"
 
-#: ../module/Authorization/src/Authorization/Form/UserForm.php:27
-#: ../module/User/src/User/Form/Register.php:35
+#: ../module/Authorization/src/Authorization/Form/UserForm.php:40
+#: ../module/User/src/User/Form/Register.php:48
 msgid "Username:"
 msgstr "Usuario:"
 
-#: ../module/Blog/src/Blog/Form/CreatePostForm.php:74
-#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:55
+#: ../module/Blog/src/Blog/Form/CreatePostForm.php:87
+#: ../module/Blog/src/Blog/Form/UpdatePostForm.php:68
 msgid "Publish date:"
 msgstr "Fecha de publicación:"
 
-#: ../module/Contexter/src/Contexter/Form/ContextForm.php:36
+#: ../module/Contexter/src/Contexter/Form/ContextForm.php:49
 msgid "Select a type:"
 msgstr "Seleccione un tipo:"
 
-#: ../module/Contexter/src/Contexter/Form/ContextForm.php:38
+#: ../module/Contexter/src/Contexter/Form/ContextForm.php:51
 msgid "Object-ID:"
 msgstr "ID del objeto:"
 
-#: ../module/Contexter/src/Contexter/Form/ParameterFieldset.php:24
+#: ../module/Contexter/src/Contexter/Form/ParameterFieldset.php:38
 msgid "Which parameters should be matched?"
 msgstr "¿Qué parámetros quieres combinar?"
 
-#: ../module/Contexter/src/Contexter/Form/ParameterFieldset.php:47
+#: ../module/Contexter/src/Contexter/Form/ParameterFieldset.php:61
 msgid "<strong>"
 msgstr "<strong>"
 
-#: ../module/Contexter/src/Contexter/Form/UrlForm.php:26
+#: ../module/Contexter/src/Contexter/Form/UrlForm.php:39
 msgid "Uri:"
 msgstr "Uri:"
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:93
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:107
 msgid "Your comment has been saved."
 msgstr "Tu comentario ha sido guardado."
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:148
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:162
 msgid "Your discussion has been started."
 msgstr "Su discusión ha sido iniciada."
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:177
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:191
 msgid "You have downvoted this comment."
 msgstr "Has devaluado  este comentario."
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:179
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:193
 msgid "You can't downvote this comment."
 msgstr "No se puede devaluar este comentario."
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:183
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:197
 msgid "You have upvoted this comment."
 msgstr "Te gusta este comentario."
 
-#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:185
+#: ../module/Discussion/src/Discussion/Controller/DiscussionController.php:199
 msgid "You can't upvote this comment."
 msgstr "No se puede valorar este comentario."
 
-#: ../module/Discussion/src/Discussion/Form/CommentForm.php:70
+#: ../module/Discussion/src/Discussion/Form/CommentForm.php:83
 msgid "Your response"
 msgstr "Tu respuesta"
 
-#: ../module/Discussion/src/Discussion/Form/CommentForm.php:75
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:118
+#: ../module/Discussion/src/Discussion/Form/CommentForm.php:88
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:139
 msgid "Reply"
 msgstr "Responder"
 
-#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:70
+#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:83
 msgid "Ask a question or suggest an improvement"
 msgstr "Haz una pregunta o sugiere una mejora"
 
-#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:75
+#: ../module/Discussion/src/Discussion/Form/DiscussionForm.php:88
 msgid "Submit"
 msgstr "Enviar"
 
-#: ../module/Entity/src/Entity/Controller/LinkController.php:51
-#: ../module/Entity/src/Entity/Controller/LinkController.php:75
+#: ../module/Entity/src/Entity/Controller/LinkController.php:65
+#: ../module/Entity/src/Entity/Controller/LinkController.php:89
 msgid "Your changes have been saved."
 msgstr "Tus cambios han sido guardados."
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:34
+#: ../module/Entity/src/Entity/Form/AppletForm.php:47
 msgid "Applet Url:"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:35
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:31
-#: ../module/Entity/src/Entity/Form/VideoForm.php:33
+#: ../module/Entity/src/Entity/Form/AppletForm.php:48
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:44
+#: ../module/Entity/src/Entity/Form/VideoForm.php:46
 msgid "Description:"
 msgstr "Descripción:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:37
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:33
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:33
-#: ../module/Entity/src/Entity/Form/VideoForm.php:36
+#: ../module/Entity/src/Entity/Form/AppletForm.php:50
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:46
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:46
+#: ../module/Entity/src/Entity/Form/VideoForm.php:49
 msgid "Reasoning:"
 msgstr "Razonamiento:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:40
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:36
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:31
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:33
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:37
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:36
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:44
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:31
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:32
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:32
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:31
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:31
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:31
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:31
-#: ../module/Entity/src/Entity/Form/VideoForm.php:39
+#: ../module/Entity/src/Entity/Form/AppletForm.php:53
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:49
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:44
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:46
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:50
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:49
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:57
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:44
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:45
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:45
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:44
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:44
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:44
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:44
+#: ../module/Entity/src/Entity/Form/VideoForm.php:52
 msgid "Changes:"
 msgstr "Cambios:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:45
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:41
+#: ../module/Entity/src/Entity/Form/AppletForm.php:58
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:54
 msgid "Search Engine Title:"
 msgstr "Búsqueda por Título:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:46
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:42
+#: ../module/Entity/src/Entity/Form/AppletForm.php:59
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:55
 msgid "Search Engine Description:"
 msgstr "Búsqueda por Descripción:"
 
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:30
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:43
 msgid "Solution:"
 msgstr "Solución:"
 
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:31
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:30
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:30
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:44
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:43
 msgid "Feedback:"
 msgstr "Feedback:"
 
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:31
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:44
 msgid "Source code:"
 msgstr "Código fuente:"
 
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:33
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:46
 msgid "Select an icon"
 msgstr "Seleccione un icono"
 
-#: ../module/Entity/src/Entity/Form/VideoForm.php:34
+#: ../module/Entity/src/Entity/Form/VideoForm.php:47
 msgid "Video url:"
 msgstr "Video URL:"
 
-#: ../module/Flag/src/Flag/Controller/FlagController.php:40
+#: ../module/Flag/src/Flag/Controller/FlagController.php:54
 msgid "The content has been flagged."
 msgstr "El contenido ha sido marcado."
 
-#: ../module/Flag/src/Flag/Controller/FlagController.php:79
+#: ../module/Flag/src/Flag/Controller/FlagController.php:93
 msgid "Your action was successfull."
 msgstr "La operación se realizó con éxito."
 
-#: ../module/Flag/src/Flag/Controller/FlagController.php:81
+#: ../module/Flag/src/Flag/Controller/FlagController.php:95
 msgid "The flag could not be removed (validation failed)"
 msgstr "No se puede eliminar la marca (fallo de validación)"
 
-#: ../module/Flag/src/Flag/Form/FlagForm.php:39
-#: ../module/Navigation/src/Navigation/Form/ContainerForm.php:40
+#: ../module/Flag/src/Flag/Form/FlagForm.php:52
+#: ../module/Navigation/src/Navigation/Form/ContainerForm.php:53
 msgid "Type:"
 msgstr "Tipo:"
 
-#: ../module/License/src/License/Controller/LicenseController.php:105
+#: ../module/License/src/License/Controller/LicenseController.php:119
 msgid "The license could not be removed (validation failed)"
 msgstr "No se puede eliminar la licencia (fallo de validación)"
 
-#: ../module/License/src/License/Form/LicenseForm.php:36
+#: ../module/License/src/License/Form/LicenseForm.php:50
 msgid "License url:"
 msgstr "Licencia url:"
 
-#: ../module/License/src/License/Form/LicenseForm.php:37
+#: ../module/License/src/License/Form/LicenseForm.php:51
 msgid "Agreement:"
 msgstr "Acuerdo:"
 
-#: ../module/License/src/License/Form/LicenseForm.php:41
+#: ../module/License/src/License/Form/LicenseForm.php:55
 msgid "Icon url:"
 msgstr "Icono url:"
 
-#: ../module/License/src/License/Form/LicenseForm.php:42
+#: ../module/License/src/License/Form/LicenseForm.php:56
 msgid "This is the default license for this instance."
 msgstr "Esta es la licencia estándar para esta instancia."
 
-#: ../module/License/src/License/Form/UpdateLicenseForm.php:35
+#: ../module/License/src/License/Form/UpdateLicenseForm.php:48
 msgid "Select a license:"
 msgstr "Seleccione una licencia:"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:84
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:113
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:96
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:125
 msgid "The container was successfully created"
 msgstr "El contenido se ha creado con éxito"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:115
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:127
 msgid "The container could not be created (validation failed)"
 msgstr "El contenido no se puede crear (error de validación)"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:225
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:237
 msgid "The container was successfully removed"
 msgstr "El contenido se ha eliminado con éxito"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:227
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:239
 msgid "The container could not be removed (validation failed)"
 msgstr "El contenido no se puede eliminar (error de validación)"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:243
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:255
 msgid "The page was successfully removed"
 msgstr "La página fue eliminada con éxito"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:245
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:257
 msgid "The page could not be removed (validation failed)"
 msgstr "No se puede eliminar la página (fallo de validación)"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:261
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:273
 msgid "The parameter was successfully removed"
 msgstr "El parámetro fue eliminado con éxito"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:263
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:275
 msgid "The parameter could not be removed (validation failed)"
 msgstr "El parámetro no se pudo eliminar (fallo de validación)"
 
-#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:282
+#: ../module/Navigation/src/Navigation/Controller/NavigationController.php:294
 msgid "The page was successfully updated"
 msgstr "La página se ha actualizado correctamente"
 
-#: ../module/Navigation/src/Navigation/Form/PageForm.php:59
+#: ../module/Navigation/src/Navigation/Form/PageForm.php:72
 msgid "Position"
 msgstr "Posición"
 
-#: ../module/Navigation/src/Navigation/Form/ParameterForm.php:41
+#: ../module/Navigation/src/Navigation/Form/ParameterForm.php:54
 msgid "Key:"
 msgstr "Clave:"
 
-#: ../module/Navigation/src/Navigation/Form/ParameterForm.php:48
+#: ../module/Navigation/src/Navigation/Form/ParameterForm.php:61
 msgid "Value:"
 msgstr "Valor:"
 
-#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:81
+#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:171
+msgid "course"
+msgstr ""
+
+#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:94
 msgid "You are now receiving notifications for this content."
 msgstr "Ahora recibes notificaciones de este contenido."
 
-#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:99
+#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:112
 msgid "Your subscription has been updated successfully."
 msgstr "Su suscripción se ha actualizado con éxito."
 
-#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:101
+#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:114
 msgid "The object you are trying to subscribe to does not exist."
 msgstr "No existe el objeto que quiere suscribir."
 
-#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:104
+#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:117
 msgid "You can't update your subscription because you did not subscribe to this object."
 msgstr "No puede actualizar su suscripción porque no has suscrito este objeto."
 
-#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:129
+#: ../module/Notification/src/Notification/Controller/SubscriptionController.php:142
 msgid "You are no longer receiving notifications for this content."
 msgstr "Ya no recibirás más notificaciónes de este contenido."
 
-#: ../module/Notification/src/Notification/Form/OptInFieldset.php:24
+#: ../module/Notification/src/Notification/Form/OptInFieldset.php:37
 msgid "Add to watchlist."
 msgstr "Añadir a la lista de seguimiento."
 
-#: ../module/Notification/src/Notification/Form/OptInFieldset.php:31
+#: ../module/Notification/src/Notification/Form/OptInFieldset.php:44
 msgid "Receive notifications via email."
 msgstr "Recibir notificaciones por correo electrónico."
 
-#: ../module/Page/src/Page/Form/RepositoryForm.php:35
+#: ../module/Page/src/Page/Form/RepositoryForm.php:55
 msgid "Discussions enabled"
 msgstr "Debates permitidos"
 
-#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:32
+#: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:44
 msgid "Reference:"
 msgstr "Referencia:"
 
-#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:66
+#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:80
 msgid "The node has been added successfully!"
 msgstr "El nodo ha sido agregado con éxito!"
 
-#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:104
+#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:118
 msgid "Items moved successfully!"
 msgstr "Los elementos han sido movido con éxito!"
 
-#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:141
+#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:155
 msgid "Items copied successfully!"
 msgstr "Se han copiado los elementos con éxito!"
 
-#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:239
+#: ../module/Taxonomy/src/Taxonomy/Controller/TermController.php:253
 msgid "Your changes have been saved!"
 msgstr "Tus cambios han sido guardados!"
 
-#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:34
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:47
 msgid "Copy to:"
 msgstr "Copiar a:"
 
-#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:38
-#: ../module/Taxonomy/src/Taxonomy/Form/BatchMoveForm.php:37
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchCopyForm.php:51
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchMoveForm.php:51
 msgid "Elements"
 msgstr "Elementos"
 
-#: ../module/Taxonomy/src/Taxonomy/Form/BatchMoveForm.php:33
+#: ../module/Taxonomy/src/Taxonomy/Form/BatchMoveForm.php:47
 msgid "Move to:"
 msgstr "Mover a:"
 
-#: ../module/Taxonomy/src/Taxonomy/Form/TermForm.php:61
+#: ../module/Taxonomy/src/Taxonomy/Form/TermForm.php:74
 msgid "description:"
 msgstr "Descripción:"
 
-#: ../module/User/src/User/Controller/UserController.php:99
+#: ../module/User/src/User/Controller/UserController.php:113
 msgid "You have registered successfully and will soon receive an email with instructions on how to activate your account."
 msgstr "Usted se ha registrado satisfactoriamente y pronto recibirá un correo con las instrucciones de como activar su cuenta."
 
-#: ../module/User/src/User/Controller/UserController.php:164
+#: ../module/User/src/User/Controller/UserController.php:178
 msgid "Your profile has been saved"
 msgstr "Tu perfil ha sido guardado."
 
-#: ../module/User/src/User/Form/ChangePasswordForm.php:30
+#: ../module/User/src/User/Form/ChangePasswordForm.php:44
 msgid "Current password:"
 msgstr "Contraseña actual:"
 
-#: ../module/User/src/User/Form/ChangePasswordForm.php:31
-#: ../module/User/src/User/Form/LostPassword.php:31
+#: ../module/User/src/User/Form/ChangePasswordForm.php:45
+#: ../module/User/src/User/Form/LostPassword.php:43
 msgid "New password:"
 msgstr "Contraseña nueva:"
 
-#: ../module/User/src/User/Form/ChangePasswordForm.php:32
-#: ../module/User/src/User/Form/Register.php:51
+#: ../module/User/src/User/Form/ChangePasswordForm.php:46
+#: ../module/User/src/User/Form/Register.php:64
 msgid "Confirm password:"
 msgstr "Repetir contraseña:"
 
-#: ../module/User/src/User/Form/Login.php:34
+#: ../module/User/src/User/Form/Login.php:48
 msgid "Email address:"
 msgstr "Correo Electrónico"
 
-#: ../module/User/src/User/Form/Login.php:36
+#: ../module/User/src/User/Form/Login.php:50
 msgid "Email address or Username"
 msgstr "Dirección de correo electrónico o nombre de usuario"
 
-#: ../module/User/src/User/Form/Login.php:39
-#: ../module/User/src/User/Form/Register.php:46
+#: ../module/User/src/User/Form/Login.php:54
+#: ../module/User/src/User/Form/Register.php:59
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: ../module/User/src/User/Form/Login.php:41
+#: ../module/User/src/User/Form/Login.php:56
 msgid "Password"
 msgstr "Contraseña"
 
-#: ../module/User/src/User/Form/Login.php:44
+#: ../module/User/src/User/Form/Login.php:60
 msgid "Remember me"
 msgstr "Mantener sesión iniciada"
 
-#: ../module/User/src/User/Form/LostPassword.php:32
+#: ../module/User/src/User/Form/LostPassword.php:44
 msgid "Repeat new password:"
 msgstr "Repita nueva contraseña:"
 
-#: ../module/User/src/User/Form/Register.php:37
+#: ../module/User/src/User/Form/Register.php:50
 msgid "Enter username"
 msgstr "Introducir usuario"
 
-#: ../module/User/src/User/Form/Register.php:43
+#: ../module/User/src/User/Form/Register.php:56
 msgid "Enter email address"
 msgstr "Dirección de correo electrónico"
 
-#: ../module/User/src/User/Form/Register.php:48
+#: ../module/User/src/User/Form/Register.php:61
 msgid "Enter password"
 msgstr "Introduzca contraseña"
 
-#: ../module/User/src/User/Form/Register.php:53
+#: ../module/User/src/User/Form/Register.php:66
 msgid "Confirm password"
 msgstr "Repetir contraseña"
 
-#: ../module/User/src/User/Form/Register.php:56
+#: ../module/User/src/User/Form/Register.php:69
 msgid "First name (optional):"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:57
+#: ../module/User/src/User/Form/Register.php:70
 msgid "Enter first name"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:60
+#: ../module/User/src/User/Form/Register.php:73
 msgid "Last name (optional):"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:61
+#: ../module/User/src/User/Form/Register.php:74
 msgid "Enter last name"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:64
+#: ../module/User/src/User/Form/Register.php:77
 msgid "I agree that Serlo Education e.V. may contact me via email."
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:69
+#: ../module/User/src/User/Form/Register.php:82
 msgid "Parent"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:70
+#: ../module/User/src/User/Form/Register.php:83
 msgid "Teacher"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:71
+#: ../module/User/src/User/Form/Register.php:84
 msgid "Pupil"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:72
+#: ../module/User/src/User/Form/Register.php:85
 msgid "University student"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:73
+#: ../module/User/src/User/Form/Register.php:86
 msgid "Other"
 msgstr ""
 
-#: ../module/User/src/User/Form/Register.php:76
+#: ../module/User/src/User/Form/Register.php:89
 msgid "I am here as…"
 msgstr ""
 
-#: ../module/User/src/User/Form/RegisterFilter.php:43
+#: ../module/User/src/User/Form/RegisterFilter.php:57
 msgid "This email address is already in use. Please use a different one."
 msgstr "Este correo electrónico ya está en uso. Por favor utilice otro."
 
-#: ../module/User/src/User/Form/RegisterFilter.php:64
+#: ../module/User/src/User/Form/RegisterFilter.php:78
 msgid "This username is already taken. Please use a different one."
 msgstr "Este usuario ya está en uso. Por favor, elija otro usuario."
 
-#: ../module/User/src/User/Form/RegisterFilter.php:75
+#: ../module/User/src/User/Form/RegisterFilter.php:89
 msgid "Your username may only contain letters, digits, underscores (_) and hyphens (-). Please use a different one."
 msgstr "El nombre de usuario sóle puede contener letras, cifras, guiones bajos (_) y guiones (-). Por favor utiliza otro nombre."
 
-#: ../module/User/src/User/Form/RegisterFilter.php:95
+#: ../module/User/src/User/Form/RegisterFilter.php:109
 msgid "Your password needs to be at least 6 characters long."
 msgstr "La contraseña debe tener al menos 6 caracteres."
 
-#: ../module/User/src/User/Form/RegisterFilter.php:103
+#: ../module/User/src/User/Form/RegisterFilter.php:117
 msgid "The password entered does not match the confirmation password. Ensure the passwords entered are identical."
 msgstr "La contraseña no coincide con la contraseña de confirmación. Asegúrate que las contraseñas introducidas son idénticas."
 
-#: ../module/User/src/User/Form/SettingsForm.php:32
+#: ../module/User/src/User/Form/SettingsForm.php:45
 msgid "About me:"
 msgstr "Acerca de mi:"
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:38
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:53
 msgid "The content has been trashed."
 msgstr "El contenido ha sido borrado."
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:40
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:55
 msgid "The content could not be trashed (validation failed)"
 msgstr "No se puede eliminar el contenido (fallo de validación)"
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:50
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:65
 msgid "The content has been restored."
 msgstr "El contenido ha sido restaurado."
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:63
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:78
 msgid "The content has been removed."
 msgstr "El contenido ha sido borrado."
 
-#: ../module/Uuid/src/Uuid/Controller/UuidController.php:65
+#: ../module/Uuid/src/Uuid/Controller/UuidController.php:80
 msgid "The content could not be removed (validation failed)"
 msgstr "No se puede eliminar el contenido (fallo de validación)"
 
-#: ../module/Ui/templates/admin/home/index.phtml:14
+#: ../module/Ui/templates/admin/home/index.phtml:27
 msgid "Welcome to the backend. Explore the possiblities on the right!"
 msgstr "Bienvenidos a la base de datos. Explora las posibilidades en la derecha!"
 
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:15
-#: ../module/Ui/templates/user/users/partial/users-table.twig:4
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:28
+#: ../module/Ui/templates/user/users/partial/users-table.twig:25
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:16
-#: ../module/Ui/templates/authorization/role/roles.phtml:11
-#: ../module/Ui/templates/user/user/profile.twig:103
-#: ../module/Ui/templates/user/users/partial/users-table.twig:5
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:29
+#: ../module/Ui/templates/authorization/role/roles.phtml:24
+#: ../module/Ui/templates/user/user/profile.twig:124
+#: ../module/Ui/templates/user/users/partial/users-table.twig:26
 msgid "Roles"
 msgstr "Roles"
 
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:17
-#: ../module/Ui/templates/user/users/partial/users-table.twig:6
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:30
+#: ../module/Ui/templates/user/users/partial/users-table.twig:27
 msgid "Last login"
 msgstr "Última sesión"
 
-#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:18
-#: ../module/Ui/templates/user/users/partial/users-table.twig:7
+#: ../module/Ui/templates/authorization/role/partial/users-table.phtml:31
+#: ../module/Ui/templates/user/users/partial/users-table.twig:28
 msgid "Logins"
 msgstr "Inicio de sesión"
 
-#: ../module/Ui/templates/authorization/role/roles.phtml:28
+#: ../module/Ui/templates/authorization/role/roles.phtml:41
 msgid "role"
 msgstr "rol"
 
-#: ../module/Ui/templates/authorization/role/show.phtml:49
+#: ../module/Ui/templates/authorization/role/show.phtml:62
 msgid "Permissions"
 msgstr "Permisos"
 
-#: ../module/Ui/templates/authorization/role/show.phtml:60
+#: ../module/Ui/templates/authorization/role/show.phtml:73
 msgid "Global"
 msgstr "Global"
 
-#: ../module/Ui/templates/authorization/role/show.phtml:74
+#: ../module/Ui/templates/authorization/role/show.phtml:87
 msgid "Inherits from"
 msgstr "Hereda de"
 
-#: ../module/Ui/templates/authorization/role/user/partial.phtml:13
+#: ../module/Ui/templates/authorization/role/user/partial.phtml:26
 #, php-format
 msgid "User %s not found"
 msgstr "Usuario %s no encontrado"
 
-#: ../module/Ui/templates/authorization/role/user/remove.phtml:11
+#: ../module/Ui/templates/authorization/role/user/remove.phtml:24
 msgid "Remove user"
 msgstr "Eliminar usuario"
 
-#: ../module/Ui/templates/blog/blog/blogs.phtml:12
+#: ../module/Ui/templates/blog/blog/blogs.phtml:25
 msgid "Blogs"
 msgstr "Blogs"
 
-#: ../module/Ui/templates/blog/blog/post/update.phtml:11
+#: ../module/Ui/templates/blog/blog/post/update.phtml:24
 msgid "Update a blog post"
 msgstr "Actualizar un blog"
 
-#: ../module/Ui/templates/contexter/add/form.phtml:11
-#: ../module/Ui/templates/contexter/add/url-form.phtml:11
+#: ../module/Ui/templates/contexter/add/form.phtml:24
+#: ../module/Ui/templates/contexter/add/url-form.phtml:24
 msgid "Add context"
 msgstr "Añadir contexto"
 
-#: ../module/Ui/templates/contexter/add/url-form.phtml:11
+#: ../module/Ui/templates/contexter/add/url-form.phtml:24
 msgid "Select uri"
 msgstr "Seleccionar url"
 
-#: ../module/Ui/templates/contexter/helper/button.phtml:22
+#: ../module/Ui/templates/contexter/helper/button.phtml:35
 msgid "There is no help available for this page yet."
 msgstr "Todavia no hay ayuda disponible para esta página."
 
-#: ../module/Ui/templates/contexter/helper/button.phtml:48
-#: ../module/Ui/templates/contexter/helper/default.phtml:34
+#: ../module/Ui/templates/contexter/helper/button.phtml:61
+#: ../module/Ui/templates/contexter/helper/default.phtml:47
 msgid "Add"
 msgstr "Agregar"
 
-#: ../module/Ui/templates/contexter/manage.phtml:11
+#: ../module/Ui/templates/contexter/manage.phtml:24
 msgid "Manage context links"
 msgstr "Administrar vínculos de contexto"
 
-#: ../module/Ui/templates/contexter/manage.phtml:15
+#: ../module/Ui/templates/contexter/manage.phtml:28
 msgid "Link"
 msgstr "Enlace"
 
-#: ../module/Ui/templates/contexter/manage.phtml:16
+#: ../module/Ui/templates/contexter/manage.phtml:29
 msgid "Matching"
 msgstr "Parametros parecidos"
 
-#: ../module/Ui/templates/entity/license/update.phtml:1
-#: ../module/Ui/templates/license/update.phtml:1
+#: ../module/Ui/templates/entity/license/update.phtml:24
+#: ../module/Ui/templates/license/update.phtml:24
 msgid "Update license"
 msgstr "Actualizar licencia"
 
-#: ../module/Ui/templates/entity/link/move.phtml:2
+#: ../module/Ui/templates/entity/link/move.phtml:25
 msgid "Move resource"
 msgstr "Mover recurso"
 
-#: ../module/Ui/templates/entity/repository/update-revision.phtml:1
+#: ../module/Ui/templates/entity/repository/update-revision.phtml:24
 msgid "Update revision"
 msgstr "Actualizar revisión"
 
-#: ../module/Ui/templates/error/403.phtml:5
+#: ../module/Ui/templates/error/403.phtml:28
 msgid "You cannot pass!"
 msgstr "No puedes pasar!"
 
-#: ../module/Ui/templates/error/403.phtml:8
+#: ../module/Ui/templates/error/403.phtml:31
 msgid "I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark fire will not avail you, Flame of Udun! Go back to the shadow. <strong>You shall not pass</strong>!"
 msgstr "Soy un servidor del Fuego Secreto, que es dueño de la llama de Anor. No puedes pasar. El fuego oscuro no te servirá de nada, llama de Udûn. ¡Vuelve a la Sombra! <strong>No puedes pasar</strong>"
 
-#: ../module/Ui/templates/error/403.phtml:13
-#: ../module/Ui/templates/error/404.phtml:12
+#: ../module/Ui/templates/error/403.phtml:36
+#: ../module/Ui/templates/error/404.phtml:33
 msgid "Okay."
 msgstr "OK."
 
-#: ../module/Ui/templates/error/404.phtml:8
+#: ../module/Ui/templates/error/404.phtml:29
 msgid "That page does not exist!"
 msgstr "Esta página no existe!"
 
-#: ../module/Ui/templates/error/404.phtml:10
+#: ../module/Ui/templates/error/404.phtml:31
 msgid "It seems like we can't find the page you were looking for. Try checking the URL for errors, then hit the refresh button on your browser."
 msgstr "Parece que no podemos encontrar la página que estabas buscando. Intenta comprobar la dirección URL por errores, y después actualiza la página con el navegador."
 
-#: ../module/Ui/templates/error/404.phtml:29
+#: ../module/Ui/templates/error/404.phtml:50
 msgid "The requested controller was unable to dispatch the request."
 msgstr "El controlador requerido no pudo enviar la solicitud."
 
-#: ../module/Ui/templates/error/404.phtml:33
+#: ../module/Ui/templates/error/404.phtml:54
 msgid "The requested controller could not be mapped to an existing controller class."
 msgstr "El controlador requerido no puede asignarse a una clase de controlador existente."
 
-#: ../module/Ui/templates/error/404.phtml:37
+#: ../module/Ui/templates/error/404.phtml:58
 msgid "The requested controller was not dispatchable."
 msgstr "El controlador requerido no era gestionable."
 
-#: ../module/Ui/templates/error/404.phtml:40
+#: ../module/Ui/templates/error/404.phtml:61
 msgid "The requested URL could not be matched by routing."
 msgstr "La URL solicitada no podría ser igualada por enrutamiento."
 
-#: ../module/Ui/templates/error/404.phtml:43
+#: ../module/Ui/templates/error/404.phtml:64
 msgid "We cannot determine at this time why a 404 was generated."
 msgstr "De momento no podemos determinar por qué se generó un 404."
 
-#: ../module/Ui/templates/error/404.phtml:55
+#: ../module/Ui/templates/error/404.phtml:76
 msgid "Controller"
 msgstr "Controlador"
 
-#: ../module/Ui/templates/error/404.phtml:61
+#: ../module/Ui/templates/error/404.phtml:82
 #, php-format
 msgid "resolves to %s"
 msgstr "se resuelve en %s"
 
-#: ../module/Ui/templates/error/404.phtml:75
-#: ../module/Ui/templates/error/index.phtml:13
+#: ../module/Ui/templates/error/404.phtml:96
+#: ../module/Ui/templates/error/index.phtml:36
 msgid "Additional information"
 msgstr "Información adicional \t"
 
-#: ../module/Ui/templates/error/404.phtml:78
-#: ../module/Ui/templates/error/404.phtml:103
-#: ../module/Ui/templates/error/index.phtml:16
-#: ../module/Ui/templates/error/index.phtml:40
+#: ../module/Ui/templates/error/404.phtml:99
+#: ../module/Ui/templates/error/404.phtml:124
+#: ../module/Ui/templates/error/index.phtml:39
+#: ../module/Ui/templates/error/index.phtml:63
 msgid "File"
 msgstr "Archivo"
 
-#: ../module/Ui/templates/error/404.phtml:83
-#: ../module/Ui/templates/error/404.phtml:108
-#: ../module/Ui/templates/error/index.phtml:20
-#: ../module/Ui/templates/error/index.phtml:44
+#: ../module/Ui/templates/error/404.phtml:104
+#: ../module/Ui/templates/error/404.phtml:129
+#: ../module/Ui/templates/error/index.phtml:43
+#: ../module/Ui/templates/error/index.phtml:67
 msgid "Message"
 msgstr "Mensaje"
 
-#: ../module/Ui/templates/error/404.phtml:87
-#: ../module/Ui/templates/error/404.phtml:112
-#: ../module/Ui/templates/error/index.phtml:24
-#: ../module/Ui/templates/error/index.phtml:48
+#: ../module/Ui/templates/error/404.phtml:108
+#: ../module/Ui/templates/error/404.phtml:133
+#: ../module/Ui/templates/error/index.phtml:47
+#: ../module/Ui/templates/error/index.phtml:71
 msgid "Stack trace"
 msgstr "Traza del stack"
 
-#: ../module/Ui/templates/error/404.phtml:97
-#: ../module/Ui/templates/error/index.phtml:34
+#: ../module/Ui/templates/error/404.phtml:118
+#: ../module/Ui/templates/error/index.phtml:57
 msgid "Previous exceptions"
 msgstr "Excepciones anteriores"
 
-#: ../module/Ui/templates/error/index.phtml:1
+#: ../module/Ui/templates/error/index.phtml:24
 msgid "A fatal error occurred"
 msgstr "Se ha producido un error fatal"
 
-#: ../module/Ui/templates/error/index.phtml:3
+#: ../module/Ui/templates/error/index.phtml:26
 msgid "While we're resolving this issue, please enjoy the video."
 msgstr "Mientras que nosotros estamos resolviendo este problema, por favor, disfruta del video."
 
-#: ../module/Ui/templates/error/index.phtml:63
+#: ../module/Ui/templates/error/index.phtml:86
 msgid "No Exception available"
 msgstr "Ninguna excepción disponible"
 
-#: ../module/Ui/templates/error/index.phtml:78
+#: ../module/Ui/templates/error/index.phtml:101
 msgid "Read the following, if you're really good with computers:"
 msgstr "Lea lo siguiente, si eres muy bueno con las computadoras:"
 
-#: ../module/Ui/templates/flag/detail.phtml:8
-#: ../module/Ui/templates/flag/manage.phtml:6
-#: ../module/Ui/templates/notification/subscription/manage.twig:5
+#: ../module/Ui/templates/flag/detail.phtml:31
+#: ../module/Ui/templates/flag/manage.phtml:29
+#: ../module/Ui/templates/notification/subscription/manage.twig:26
 msgid "Object"
 msgstr "Objeto"
 
-#: ../module/Ui/templates/flag/detail.phtml:17
-#: ../module/Ui/templates/flag/manage.phtml:7
-#: ../module/Ui/templates/subject/entity/trash-bin.phtml:17
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:6
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:7
-#: ../module/Ui/templates/related-content/manage.twig:10
+#: ../module/Ui/templates/flag/detail.phtml:40
+#: ../module/Ui/templates/flag/manage.phtml:30
+#: ../module/Ui/templates/subject/entity/trash-bin.phtml:29
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:30
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:30
+#: ../module/Ui/templates/related-content/manage.twig:31
 msgid "Type"
 msgstr "Tipo"
 
-#: ../module/Ui/templates/flag/detail.phtml:26
-#: ../module/Ui/templates/flag/manage.phtml:8
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:7
-#: ../module/Ui/templates/entity/repository/history.twig:15
+#: ../module/Ui/templates/flag/detail.phtml:49
+#: ../module/Ui/templates/flag/manage.phtml:31
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:31
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:31
+#: ../module/Ui/templates/entity/repository/history.twig:36
 msgid "Timestamp"
 msgstr "Marca de tiempo"
 
-#: ../module/Ui/templates/flag/detail.phtml:35
-#: ../module/Ui/templates/flag/manage.phtml:9
+#: ../module/Ui/templates/flag/detail.phtml:58
+#: ../module/Ui/templates/flag/manage.phtml:32
 msgid "Reporter"
 msgstr "Reportero"
 
-#: ../module/Ui/templates/flag/detail.phtml:44
+#: ../module/Ui/templates/flag/detail.phtml:67
 msgid "Content"
 msgstr "Contenido"
 
-#: ../module/Ui/templates/flag/manage.phtml:1
+#: ../module/Ui/templates/flag/manage.phtml:24
 msgid "Manage flags"
 msgstr "Administrar las banderas"
 
-#: ../module/Ui/templates/flag/manage.phtml:5
-#: ../module/Ui/templates/entity/repository/history.twig:11
+#: ../module/Ui/templates/flag/manage.phtml:28
+#: ../module/Ui/templates/entity/repository/history.twig:32
 msgid "#"
 msgstr "#"
 
-#: ../module/Ui/templates/layout/de/serlo-home.phtml:27
-#: ../module/Ui/templates/layout/en/serlo-home.phtml:27
-#: ../module/Ui/templates/layout/partials/header.phtml:23
+#: ../module/Ui/templates/layout/de/serlo-home.phtml:41
+#: ../module/Ui/templates/layout/en/serlo-home.phtml:39
+#: ../module/Ui/templates/layout/partials/header.phtml:35
 msgid "Toggle navigation"
 msgstr "Activar Navegacion"
 
-#: ../module/Ui/templates/layout/partials/default-modal.phtml:10
-#: ../module/Ui/templates/layout/partials/noscript.phtml:22
-#: ../module/Ui/templates/entity/repository/modal-accept.twig:16
-#: ../module/Ui/templates/entity/repository/modal-reject.twig:16
+#: ../module/Ui/templates/layout/partials/default-modal.phtml:33
+#: ../module/Ui/templates/layout/partials/noscript.phtml:45
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:37
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:37
 msgid "Close"
 msgstr "cerrar"
 
-#: ../module/Ui/templates/layout/partials/default-modal.phtml:11
+#: ../module/Ui/templates/layout/partials/default-modal.phtml:34
 msgid "Okay"
 msgstr "Ok"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:5
+#: ../module/Ui/templates/layout/partials/footer.phtml:28
 msgid "Serlo.org is the Wikipedia for learning."
 msgstr "Serlo.org es la Wikipedia para el aprendizaje."
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:6
+#: ../module/Ui/templates/layout/partials/footer.phtml:29
 msgid "We are a community of visionaries working tirelessly to make great education freely available to everyone."
 msgstr "Somos una comunidad de visionarios que trabajan sin descanso para que todo el mundo tenga acceso gratuito a una educación excelente."
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:7
+#: ../module/Ui/templates/layout/partials/footer.phtml:30
 msgid "Learn more"
 msgstr "Aprende más"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:14
+#: ../module/Ui/templates/layout/partials/footer.phtml:37
 msgid "Join the cause"
 msgstr "Únete a la causa"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:20
+#: ../module/Ui/templates/layout/partials/footer.phtml:43
 msgid "Donate"
 msgstr "Donaciones"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:36
+#: ../module/Ui/templates/layout/partials/footer.phtml:59
 msgid "General"
 msgstr "Configuración General"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:44
+#: ../module/Ui/templates/layout/partials/footer.phtml:67
 msgid "Subjects"
 msgstr "Temas"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:52
+#: ../module/Ui/templates/layout/partials/footer.phtml:75
 msgid "Stay in touch:"
 msgstr "Mantente en contacto:"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:60
+#: ../module/Ui/templates/layout/partials/footer.phtml:83
 msgid "Legal terms"
 msgstr "Términos legales"
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:80
+#: ../module/Ui/templates/layout/partials/footer.phtml:103
 msgid "Loading"
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/noscript.phtml:9
+#: ../module/Ui/templates/layout/partials/noscript.phtml:32
 msgid "This site makes heavy use of JavaScript!"
 msgstr "Este sitio utiliza mucho el JavaScript!"
 
-#: ../module/Ui/templates/layout/partials/noscript.phtml:13
+#: ../module/Ui/templates/layout/partials/noscript.phtml:36
 msgid "Please enable JavaScript to use this site."
 msgstr "Por favor, Activa JavaScript para utilizar este sitio."
 
-#: ../module/Ui/templates/layout/partials/noscript.phtml:17
+#: ../module/Ui/templates/layout/partials/noscript.phtml:40
 msgid "Show me how to enable JavaScript"
 msgstr "Muéstrame cómo activar JavaScript"
 
-#: ../module/Ui/templates/layout/partials/search.phtml:6
-#: ../module/Ui/templates/search/form.twig:3
-#: ../module/Ui/templates/search/search.twig:3
+#: ../module/Ui/templates/layout/partials/search.phtml:29
+#: ../module/Ui/templates/search/form.twig:24
+#: ../module/Ui/templates/search/search.twig:24
 msgid "Search"
 msgstr "Buscar"
 
-#: ../module/Ui/templates/license/manage.phtml:1
+#: ../module/Ui/templates/license/manage.phtml:24
 msgid "Manage licenses"
 msgstr "Administrar licencias"
 
-#: ../module/Ui/templates/license/manage.phtml:5
-#: ../module/Ui/templates/subject/entity/trash-bin.phtml:16
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:5
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:6
-#: ../module/Ui/templates/common/share.twig:9
-#: ../module/Ui/templates/common/share.twig:13
-#: ../module/Ui/templates/common/share.twig:17
-#: ../module/Ui/templates/common/share.twig:21
-#: ../module/Ui/templates/related-content/manage.twig:7
+#: ../module/Ui/templates/license/manage.phtml:28
+#: ../module/Ui/templates/subject/entity/trash-bin.phtml:28
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:28
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:29
+#: ../module/Ui/templates/common/share.twig:30
+#: ../module/Ui/templates/common/share.twig:34
+#: ../module/Ui/templates/common/share.twig:38
+#: ../module/Ui/templates/common/share.twig:42
+#: ../module/Ui/templates/related-content/manage.twig:28
 msgid "Title"
 msgstr "Título"
 
-#: ../module/Ui/templates/license/manage.phtml:6
+#: ../module/Ui/templates/license/manage.phtml:29
 msgid "Default"
 msgstr "Default"
 
-#: ../module/Ui/templates/license/manage.phtml:7
+#: ../module/Ui/templates/license/manage.phtml:30
 msgid "Url"
 msgstr "Url"
 
-#: ../module/Ui/templates/license/manage.phtml:8
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:8
-#: ../module/Ui/templates/related-content/manage.twig:13
+#: ../module/Ui/templates/license/manage.phtml:31
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:32
+#: ../module/Ui/templates/related-content/manage.twig:34
 msgid "Actions"
 msgstr "Acciones"
 
-#: ../module/Ui/templates/license/manage.phtml:27
+#: ../module/Ui/templates/license/manage.phtml:50
 msgid "Caution, deleting a license has serious consequences. You are going to delete a great amount of content, you need to know exactly what you are doing! THIS ACTION CAN NOT BE UNDONE"
 msgstr "Precaución, eliminar una licencia tiene serias consecuencias. Vas a eliminar una gran cantidad de contenido, necesitas saber exactamente lo que estás haciendo! NO SE PUEDE DESHACER ESTA ACCIÓN"
 
-#: ../module/Ui/templates/license/manage.phtml:29
+#: ../module/Ui/templates/license/manage.phtml:52
 msgid "DANGER: You are going to delete all contents associated with this license!"
 msgstr "PELIGRO: Vas a borrar todo el contenido asociado con esta licencia!"
 
-#: ../module/Ui/templates/mailman/messages/register/body.phtml:2
+#: ../module/Ui/templates/mailman/messages/register/body.phtml:23
 #, php-format
 msgid ""
 "Hello %s,\n"
@@ -1149,7 +1154,7 @@ msgstr ""
 "\n"
 "Soporte técnico de la comunidad"
 
-#: ../module/Ui/templates/mailman/messages/restore-password/body.phtml:2
+#: ../module/Ui/templates/mailman/messages/restore-password/body.phtml:23
 #, php-format
 msgid ""
 "Hi %s,\n"
@@ -1164,12 +1169,12 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../module/Ui/templates/mailman/messages/restore-password/subject.phtml:1
+#: ../module/Ui/templates/mailman/messages/restore-password/subject.phtml:24
 #, php-format
 msgid "Restore your password on %s"
 msgstr "Restablecer la contraseña en %s"
 
-#: ../module/Ui/templates/mailman/messages/welcome/body.phtml:2
+#: ../module/Ui/templates/mailman/messages/welcome/body.phtml:23
 #, php-format
 msgid ""
 "Dear %s,\n"
@@ -1181,352 +1186,361 @@ msgid ""
 "Enjoy Serlo!"
 msgstr ""
 
-#: ../module/Ui/templates/mailman/messages/welcome/subject.phtml:3
+#: ../module/Ui/templates/mailman/messages/welcome/subject.phtml:24
 msgid "How to get started on Serlo!"
 msgstr "¡Cómo empezar en Serlo!"
 
-#: ../module/Ui/templates/navigation/containers.phtml:11
+#: ../module/Ui/templates/navigation/containers.phtml:34
 msgid "container"
 msgstr "container"
 
-#: ../module/Ui/templates/navigation/parameter/create.phtml:5
-#: ../module/Ui/templates/navigation/parameter/update.phtml:5
+#: ../module/Ui/templates/navigation/parameter/create.phtml:28
+#: ../module/Ui/templates/navigation/parameter/update.phtml:28
 msgid "Key"
 msgstr "clave"
 
-#: ../module/Ui/templates/subject/entity/trash-bin.phtml:12
+#: ../module/Ui/templates/subject/entity/trash-bin.phtml:24
 msgid "Trashed learning resources"
 msgstr "Recursos de aprendizaje borrados"
 
-#: ../module/Ui/templates/subject/entity/trash-bin.phtml:18
+#: ../module/Ui/templates/subject/entity/trash-bin.phtml:30
 msgid "Action"
 msgstr "Acción"
 
-#: ../module/Ui/templates/subject/entity/trash-bin.phtml:35
+#: ../module/Ui/templates/subject/entity/trash-bin.phtml:47
 msgid "Do you really want to purge this item? It and all references to it will be lost forever!"
 msgstr "¿Quieres eliminar este elemento? Este y todas sus referencias se perderán para siempre!"
 
-#: ../module/Ui/templates/subject/entity/unrevised.phtml:1
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:24
 msgid "Unrevised learning resources"
 msgstr "Recursos de aprendizaje sin revisión"
 
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:1
-#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:39
-#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:22
+#: ../module/Ui/templates/subject/entity/unrevised.phtml:29
+msgid "Revision"
+msgstr ""
+
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:24
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:60
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:43
 msgid "Order content"
 msgstr "Pedir contenido"
 
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:18
-#: ../module/Ui/templates/entity/link/order.twig:1
-#: ../module/Ui/templates/entity/link/order.twig:9
-#: ../module/Ui/templates/related-content/manage.twig:63
-#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:46
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:41
+#: ../module/Ui/templates/entity/link/order.twig:22
+#: ../module/Ui/templates/entity/link/order.twig:30
+#: ../module/Ui/templates/related-content/manage.twig:84
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:67
 msgid "Sort"
 msgstr "Ordenar"
 
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:19
-#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:49
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:42
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:70
 msgid "Save new order"
 msgstr "Guardar nuevo orden"
 
-#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:20
-#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:52
+#: ../module/Ui/templates/taxonomy/term/order-associated.phtml:43
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:73
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../module/Ui/templates/upload/form.phtml:2
+#: ../module/Ui/templates/upload/form.phtml:25
 msgid "Upload a file"
 msgstr "Subir un fichero"
 
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:1
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:24
 msgid "Uuid recycle bin"
 msgstr "Papelera de reciclaje Uuid"
 
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:5
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:24
+#: ../module/Ui/templates/blog/blog/view.twig:23
+#: ../module/Ui/templates/blog/blog/view.twig:37
+#: ../module/Ui/templates/discussion/discussions/index.twig:22
+#: ../module/Ui/templates/event/history/all.twig:22
+#: ../module/Ui/templates/event/history/user.twig:23
+#: ../module/Ui/templates/navigation/container/get.twig:35
+msgid "Page"
+msgstr "Página"
+
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:24
+msgid " "
+msgstr ""
+
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:28
 msgid "ID"
 msgstr "ID"
 
-#: ../module/Ui/templates/uuid/recycle-bin.phtml:28
+#: ../module/Ui/templates/uuid/recycle-bin.phtml:55
 #, php-format
 msgid "Do you really want to purge the item <strong>%s</strong>? It and all references to it will be lost forever!"
 msgstr "¿Desea borrar el elemento <strong>%s</strong>? Este y todas las referencias se perderán para siempre!"
 
-#: ../module/Ui/templates/admin/debugger.twig:1
+#: ../module/Ui/templates/admin/debugger.twig:22
 msgid "Debugger"
 msgstr "Debugger"
 
-#: ../module/Ui/templates/ads/ads.twig:1
+#: ../module/Ui/templates/ads/ads.twig:22
 msgid "Ads"
 msgstr "Anuncios"
 
-#: ../module/Ui/templates/ads/ads.twig:10
+#: ../module/Ui/templates/ads/ads.twig:31
 msgid "Edit About Horizon"
 msgstr "Editar Sobre el Horizonte"
 
-#: ../module/Ui/templates/ads/ads.twig:41
+#: ../module/Ui/templates/ads/ads.twig:62
 msgid "Frequency"
 msgstr "Frecuencia"
 
-#: ../module/Ui/templates/ads/ads.twig:50
+#: ../module/Ui/templates/ads/ads.twig:71
 msgid "Clicks"
 msgstr "Clicks"
 
-#: ../module/Ui/templates/ads/setAdPage.twig:1
+#: ../module/Ui/templates/ads/setAdPage.twig:22
 msgid "Please enter the id of the adPage"
 msgstr "Introduce el id de la adPage"
 
-#: ../module/Ui/templates/authentication/activate.twig:3
+#: ../module/Ui/templates/authentication/activate.twig:24
 msgid "Activate an account"
 msgstr "Activar una cuenta"
 
-#: ../module/Ui/templates/authentication/login.twig:6
+#: ../module/Ui/templates/authentication/login.twig:27
 msgid "You must be logged in to access this page."
 msgstr "Debes haber iniciado sesión para acceder a esta página."
 
-#: ../module/Ui/templates/authentication/login.twig:13
+#: ../module/Ui/templates/authentication/login.twig:34
 msgid "Log in"
 msgstr "Iniciar sesión"
 
-#: ../module/Ui/templates/authentication/login.twig:37
+#: ../module/Ui/templates/authentication/login.twig:58
 msgid "Are you new here? %sSign up%s!"
 msgstr "¿Eres nuevo aquí? %sRegístrate%s!"
 
-#: ../module/Ui/templates/authentication/login.twig:40
+#: ../module/Ui/templates/authentication/login.twig:61
 msgid "Did you forget your %spassword%s?"
 msgstr "¿Has olvidado tu %scontraseña%s?"
 
-#: ../module/Ui/templates/authentication/login.twig:43
+#: ../module/Ui/templates/authentication/login.twig:64
 msgid "Haven't activated your account yet? %sResend activation mail%s!"
 msgstr "¿Todavía no has activado su cuenta? %sReenviar enlace de activación%s!"
 
-#: ../module/Ui/templates/authentication/logout.twig:2
+#: ../module/Ui/templates/authentication/logout.twig:23
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: ../module/Ui/templates/authentication/reset-password/restore.twig:3
-#: ../module/Ui/templates/authentication/reset-password/select.twig:3
+#: ../module/Ui/templates/authentication/reset-password/restore.twig:24
+#: ../module/Ui/templates/authentication/reset-password/select.twig:24
 msgid "Restore password"
 msgstr "Restablecer contraseña"
 
-#: ../module/Ui/templates/blog/blog/view-all.twig:1
+#: ../module/Ui/templates/blog/blog/view-all.twig:22
 msgid "Unpublished"
 msgstr "No publicado"
 
-#: ../module/Ui/templates/blog/blog/view-partial.twig:21
+#: ../module/Ui/templates/blog/blog/view-partial.twig:42
 msgid "unpublished"
 msgstr "no publicado"
 
-#: ../module/Ui/templates/blog/blog/view.twig:2
-#: ../module/Ui/templates/blog/blog/view.twig:16
-#: ../module/Ui/templates/discussion/discussions/index.twig:1
-#: ../module/Ui/templates/event/history/all.twig:1
-#: ../module/Ui/templates/event/history/user.twig:2
-#: ../module/Ui/templates/navigation/container/get.twig:14
-msgid "Page"
-msgstr "Página"
-
-#: ../module/Ui/templates/common/share.twig:8
+#: ../module/Ui/templates/common/share.twig:29
 msgid "On this site:"
 msgstr "En este sitio:"
 
-#: ../module/Ui/templates/common/share.twig:12
+#: ../module/Ui/templates/common/share.twig:33
 msgid "Directly including in a content on this site"
 msgstr "Incluyendo directamente en un contenido en este sitio."
 
-#: ../module/Ui/templates/common/share.twig:30
+#: ../module/Ui/templates/common/share.twig:51
 msgid "Share this content"
 msgstr "Compartir este contenido"
 
-#: ../module/Ui/templates/common/share.twig:31
+#: ../module/Ui/templates/common/share.twig:52
 msgid "Share"
 msgstr "Compartir"
 
-#: ../module/Ui/templates/discussion/discussion/comment.twig:1
+#: ../module/Ui/templates/discussion/discussion/comment.twig:22
 msgid "Comment on a discussion"
 msgstr "Comentar una discusión"
 
-#: ../module/Ui/templates/discussion/discussion/select/forum.twig:6
+#: ../module/Ui/templates/discussion/discussion/select/forum.twig:27
 msgid "Please select an appropriate category for your discussion. Choosing the right category helps others to find your discussion faster and to answer you quicker. Thank you!"
 msgstr "Selecciona una categoría adecuada para tu discusión. Elegir la categoría correcta ayuda a otros a encontrar tu discusión más rápido y a responder más rápido. ¡Gracias!"
 
-#: ../module/Ui/templates/discussion/discussion/select/forum.twig:16
+#: ../module/Ui/templates/discussion/discussion/select/forum.twig:37
 msgid "Saving..."
 msgstr "Guardando..."
 
-#: ../module/Ui/templates/discussion/discussion/select/forum.twig:17
+#: ../module/Ui/templates/discussion/discussion/select/forum.twig:38
 msgid "Choose"
 msgstr "Elije"
 
-#: ../module/Ui/templates/discussion/discussion/show.twig:13
+#: ../module/Ui/templates/discussion/discussion/show.twig:34
 msgid "archived"
 msgstr "archivado"
 
-#: ../module/Ui/templates/discussion/discussion/show.twig:17
+#: ../module/Ui/templates/discussion/discussion/show.twig:38
 msgid "On"
 msgstr "Activo"
 
-#: ../module/Ui/templates/discussion/discussion/show.twig:19
-#: ../module/Ui/templates/discussion/discussion/show.twig:77
-#: ../module/Ui/templates/entity/repository/compare-revision.twig:3
+#: ../module/Ui/templates/discussion/discussion/show.twig:40
+#: ../module/Ui/templates/discussion/discussion/show.twig:98
+#: ../module/Ui/templates/entity/repository/compare-revision.twig:24
 msgid "by"
 msgstr "por"
 
-#: ../module/Ui/templates/discussion/discussion/show.twig:62
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:60
+#: ../module/Ui/templates/discussion/discussion/show.twig:83
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:81
 msgid "Do you really want to delete this discussion?"
 msgstr "¿Estás seguro de que quieres eliminar esta discusión?"
 
-#: ../module/Ui/templates/discussion/discussion/show.twig:94
-#: ../module/Ui/templates/discussion/helper/default/comment.twig:16
+#: ../module/Ui/templates/discussion/discussion/show.twig:115
+#: ../module/Ui/templates/discussion/helper/default/comment.twig:37
 msgid "Do you really want to delete this comment?"
 msgstr "¿Estás seguro de que quieres eliminar este comentario?"
 
-#: ../module/Ui/templates/discussion/discussion/show.twig:107
+#: ../module/Ui/templates/discussion/discussion/show.twig:128
 msgid "Answer discussion:"
 msgstr "Responder discusión:"
 
-#: ../module/Ui/templates/discussion/discussion/start.twig:1
-#: ../module/Ui/templates/discussion/discussions.twig:15
+#: ../module/Ui/templates/discussion/discussion/start.twig:22
+#: ../module/Ui/templates/discussion/discussions.twig:36
 msgid "Start a new discussion"
 msgstr "Iniciar una nueva discusión"
 
-#: ../module/Ui/templates/discussion/discussions.twig:5
-#: ../module/Ui/templates/discussion/discussions/index.twig:1
+#: ../module/Ui/templates/discussion/discussions.twig:26
+#: ../module/Ui/templates/discussion/discussions/index.twig:22
 msgid "Discussions"
 msgstr "Discusiones"
 
-#: ../module/Ui/templates/discussion/discussions.twig:30
+#: ../module/Ui/templates/discussion/discussions.twig:51
 msgid "There are no discussions on this topic yet."
 msgstr "Todavía no hay discusiones sobre este tema."
 
-#: ../module/Ui/templates/discussion/helper/default/comment.twig:31
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:97
+#: ../module/Ui/templates/discussion/helper/default/comment.twig:52
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:118
 msgid "%author% %time%"
 msgstr "%author% %time%"
 
-#: ../module/Ui/templates/discussion/helper/default/default.twig:7
-#: ../module/Ui/templates/user/user/profile.twig:23
+#: ../module/Ui/templates/discussion/helper/default/default.twig:28
+#: ../module/Ui/templates/user/user/profile.twig:44
 msgid "Comments"
 msgstr "Comentarios"
 
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:41
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:62
 msgid "Unarchive discussion"
 msgstr "Restaurar debate"
 
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:43
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:64
 msgid "Archive discussion"
 msgstr "Archivar discusión"
 
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:52
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:73
 msgid "Flag discussion"
 msgstr "Marcar discusión"
 
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:62
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:83
 msgid "Trash discussion"
 msgstr "Borrar discusión"
 
-#: ../module/Ui/templates/discussion/helper/default/discussion.twig:92
+#: ../module/Ui/templates/discussion/helper/default/discussion.twig:113
 msgid "On %type% %object%: %title%"
 msgstr "En %type% %object%: %title%"
 
-#: ../module/Ui/templates/discussion/partials/discuss-button.twig:3
+#: ../module/Ui/templates/discussion/partials/discuss-button.twig:24
 msgid "Discuss"
 msgstr "Discutir"
 
-#: ../module/Ui/templates/entity/link/order.twig:12
-#: ../module/Ui/templates/entity/taxonomy/update.twig:29
-#: ../module/Ui/templates/related-content/manage.twig:67
+#: ../module/Ui/templates/entity/link/order.twig:33
+#: ../module/Ui/templates/entity/taxonomy/update.twig:50
+#: ../module/Ui/templates/related-content/manage.twig:88
 msgid "Save"
 msgstr "Guardar"
 
-#: ../module/Ui/templates/entity/link/order.twig:15
-#: ../module/Ui/templates/related-content/manage.twig:70
+#: ../module/Ui/templates/entity/link/order.twig:36
+#: ../module/Ui/templates/related-content/manage.twig:91
 msgid "Abort"
 msgstr "Anular"
 
-#: ../module/Ui/templates/entity/page/aggregate/taxonomy.twig:4
+#: ../module/Ui/templates/entity/page/aggregate/taxonomy.twig:25
 msgid "Related taxonomies"
 msgstr "Taxonomías relacionadas"
 
-#: ../module/Ui/templates/entity/page/default.twig:10
-#: ../module/Ui/templates/entity/view/default.twig:10
-#: ../module/Ui/templates/entity/view/toc/default.twig:8
-#: ../module/Ui/templates/notification/notification.twig:14
+#: ../module/Ui/templates/entity/page/default.twig:31
+#: ../module/Ui/templates/entity/view/default.twig:31
+#: ../module/Ui/templates/entity/view/toc/default.twig:29
+#: ../module/Ui/templates/notification/notification.twig:35
 msgid "No view found for %name%"
 msgstr "No se ha encontrado una vista para %name%"
 
-#: ../module/Ui/templates/entity/page/math-puzzle.twig:7
+#: ../module/Ui/templates/entity/page/math-puzzle.twig:28
 msgid "Math puzzle"
 msgstr "Acertijo matemático"
 
-#: ../module/Ui/templates/entity/page/partials/alerts.twig:5
-#: ../module/Ui/templates/entity/page/pending.twig:29
-#: ../module/Ui/templates/entity/repository/partials/alerts.twig:5
-#: ../module/Ui/templates/taxonomy/term/page/partials/alerts.twig:5
+#: ../module/Ui/templates/entity/page/partials/alerts.twig:26
+#: ../module/Ui/templates/entity/page/pending.twig:50
+#: ../module/Ui/templates/entity/repository/partials/alerts.twig:26
+#: ../module/Ui/templates/taxonomy/term/page/partials/alerts.twig:26
 msgid "Warning"
 msgstr "Alerta"
 
-#: ../module/Ui/templates/entity/page/partials/alerts.twig:10
-#: ../module/Ui/templates/entity/repository/partials/alerts.twig:10
-#: ../module/Ui/templates/taxonomy/term/page/partials/alerts.twig:10
+#: ../module/Ui/templates/entity/page/partials/alerts.twig:31
+#: ../module/Ui/templates/entity/repository/partials/alerts.twig:31
+#: ../module/Ui/templates/taxonomy/term/page/partials/alerts.twig:31
 msgid "This content is marked for deletion."
 msgstr "Este contenido está marcado para borrar."
 
-#: ../module/Ui/templates/entity/page/pending.twig:16
-#: ../module/Ui/templates/entity/page/pending.twig:18
+#: ../module/Ui/templates/entity/page/pending.twig:37
+#: ../module/Ui/templates/entity/page/pending.twig:39
 msgid "Pending approval"
 msgstr "Pendiente de aprobación"
 
-#: ../module/Ui/templates/entity/page/pending.twig:20
+#: ../module/Ui/templates/entity/page/pending.twig:41
 msgid "Dead node"
 msgstr "Nodo muerto"
 
-#: ../module/Ui/templates/entity/page/pending.twig:35
+#: ../module/Ui/templates/entity/page/pending.twig:56
 msgid "This content is pending approval and may therefore not be viewed yet."
 msgstr "No se puede ver este contenido porque todavía necesita aprobación."
 
-#: ../module/Ui/templates/entity/page/pending.twig:39
+#: ../module/Ui/templates/entity/page/pending.twig:60
 msgid "This content is a dead node and has no content. Please edit or remove it."
 msgstr "Este contenido es un nodo muerto y sin contenido. Por favor, editalo o quitalo."
 
-#: ../module/Ui/templates/entity/page/text-exercise-group.twig:7
+#: ../module/Ui/templates/entity/page/text-exercise-group.twig:28
 msgid "Text exercise group"
 msgstr "Grupo de ejercicios de texto"
 
-#: ../module/Ui/templates/entity/page/text-exercise.twig:7
+#: ../module/Ui/templates/entity/page/text-exercise.twig:28
 msgid "Text exercise"
 msgstr "Ejercicio de texto"
 
-#: ../module/Ui/templates/entity/page/text-hint.twig:4
-#: ../module/Ui/templates/entity/view/text-hint.twig:12
+#: ../module/Ui/templates/entity/page/text-hint.twig:25
+#: ../module/Ui/templates/entity/view/text-hint.twig:33
 msgid "Hint"
 msgstr "Pista"
 
-#: ../module/Ui/templates/entity/page/text-solution.twig:4
+#: ../module/Ui/templates/entity/page/text-solution.twig:25
 msgid "Text solution"
 msgstr "Solución de texto"
 
-#: ../module/Ui/templates/entity/repository/compare-revision.twig:19
-#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:5
+#: ../module/Ui/templates/entity/repository/compare-revision.twig:40
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:26
 msgid "Source"
 msgstr "Origen"
 
-#: ../module/Ui/templates/entity/repository/compare-revision.twig:20
+#: ../module/Ui/templates/entity/repository/compare-revision.twig:41
 msgid "Old version"
 msgstr ""
 
-#: ../module/Ui/templates/entity/repository/compare-revision.twig:21
+#: ../module/Ui/templates/entity/repository/compare-revision.twig:42
 msgid "Preview"
 msgstr "Prevista"
 
-#: ../module/Ui/templates/entity/repository/history.twig:1
-#: ../module/Ui/templates/entity/view/partials/actions/versioning/history.twig:6
-#: ../module/Ui/templates/page/partials/actions.twig:18
-#: ../module/Ui/templates/page/partials/controls.twig:21
+#: ../module/Ui/templates/entity/repository/history.twig:22
+#: ../module/Ui/templates/entity/view/partials/actions/versioning/history.twig:27
+#: ../module/Ui/templates/page/partials/actions.twig:39
+#: ../module/Ui/templates/page/partials/controls.twig:42
 msgid "History"
 msgstr "Historial"
 
-#: ../module/Ui/templates/entity/repository/history.twig:4
+#: ../module/Ui/templates/entity/repository/history.twig:25
 msgid ""
 "There are multiple recent revisions for this object. Please be aware that they may be of very\n"
 "        different nature. Consider reviewing all of them before accepting or merging."
@@ -1534,373 +1548,377 @@ msgstr ""
 "Existen varias revisiones recientes para este objeto. Por favor tenga en cuenta que pueden ser\n"
 " de naturaleza muy distinta. Considera revisar todas revisiones antes de aceptar o fusionar."
 
-#: ../module/Ui/templates/entity/repository/history.twig:12
+#: ../module/Ui/templates/entity/repository/history.twig:33
 msgid "Current"
 msgstr "Actual"
 
-#: ../module/Ui/templates/entity/repository/history.twig:13
+#: ../module/Ui/templates/entity/repository/history.twig:34
 msgid "Changes"
 msgstr "Cambios"
 
-#: ../module/Ui/templates/entity/repository/history.twig:14
+#: ../module/Ui/templates/entity/repository/history.twig:35
 msgid "Author"
 msgstr "Autor"
 
-#: ../module/Ui/templates/entity/repository/history.twig:26
+#: ../module/Ui/templates/entity/repository/history.twig:47
 msgid "show"
 msgstr "mostrar"
 
-#: ../module/Ui/templates/entity/repository/history.twig:35
+#: ../module/Ui/templates/entity/repository/history.twig:56
 msgid "Create a new revision starting from this specific revision"
 msgstr "Crear una nueva revisión a partir de esta"
 
-#: ../module/Ui/templates/entity/repository/modal-accept.twig:6
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:27
 msgid "Accept revision"
 msgstr "Aceptar la revisión"
 
-#: ../module/Ui/templates/entity/repository/modal-accept.twig:11
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:32
 msgid "Please give feedback."
 msgstr "Por favor, danos tu feedback."
 
-#: ../module/Ui/templates/entity/repository/modal-accept.twig:17
+#: ../module/Ui/templates/entity/repository/modal-accept.twig:38
 msgid "Accept"
 msgstr "Aceptar"
 
-#: ../module/Ui/templates/entity/repository/modal-reject.twig:6
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:27
 msgid "Reject revision"
 msgstr "Rechazar la revisión"
 
-#: ../module/Ui/templates/entity/repository/modal-reject.twig:11
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:32
 msgid "Please specify why you are rejecting the submission."
 msgstr "Por favor, especifica por qué estás rechazando la presentación."
 
-#: ../module/Ui/templates/entity/repository/modal-reject.twig:17
+#: ../module/Ui/templates/entity/repository/modal-reject.twig:38
 msgid "Reject"
 msgstr "Rechazar"
 
-#: ../module/Ui/templates/entity/taxonomy/update.twig:2
+#: ../module/Ui/templates/entity/taxonomy/update.twig:23
 msgid "Assign resource"
 msgstr "Asignar recursos"
 
-#: ../module/Ui/templates/entity/view/applet.twig:17
+#: ../module/Ui/templates/entity/view/applet.twig:38
 msgid "Could not embed geogebra applet. Unknown url format."
 msgstr ""
 
-#: ../module/Ui/templates/entity/view/article.twig:1
+#: ../module/Ui/templates/entity/view/article.twig:22
 msgid "article"
 msgstr "artículo"
 
-#: ../module/Ui/templates/entity/view/course-page.twig:1
+#: ../module/Ui/templates/entity/view/course-page.twig:24
 msgid "course-page"
 msgstr "página del curso"
 
-#: ../module/Ui/templates/entity/view/grouped-text-exercise.twig:1
+#: ../module/Ui/templates/entity/view/grouped-text-exercise.twig:22
 msgid "grouped-text-exercise"
 msgstr "ejercicios agrupados de texto"
 
-#: ../module/Ui/templates/entity/view/input-expression-equal-match-challenge.twig:1
+#: ../module/Ui/templates/entity/view/input-expression-equal-match-challenge.twig:22
 msgid "input-expression-equal-match-challenge"
 msgstr "desafío-introduce-valor-expresión-matemática"
 
-#: ../module/Ui/templates/entity/view/input-number-exact-match-challenge.twig:1
+#: ../module/Ui/templates/entity/view/input-number-exact-match-challenge.twig:22
 msgid "input-number-exact-match-challenge"
 msgstr "desafío-introduce-cifra-exacta"
 
-#: ../module/Ui/templates/entity/view/input-string-normalized-match-challenge.twig:1
+#: ../module/Ui/templates/entity/view/input-string-normalized-match-challenge.twig:22
 msgid "input-string-normalized-match-challenge"
 msgstr "desafío-introduce-cadena-normalizada"
 
-#: ../module/Ui/templates/entity/view/math-puzzle.twig:1
+#: ../module/Ui/templates/entity/view/math-puzzle.twig:22
 msgid "math-puzzle"
 msgstr "acertijo matemático"
 
-#: ../module/Ui/templates/entity/view/multiple-choice-right-answer.twig:1
+#: ../module/Ui/templates/entity/view/multiple-choice-right-answer.twig:22
 msgid "multiple-choice-right-answer"
 msgstr "respuesta-correcta-elección-múltiple"
 
-#: ../module/Ui/templates/entity/view/multiple-choice-wrong-answer.twig:1
+#: ../module/Ui/templates/entity/view/multiple-choice-wrong-answer.twig:22
 msgid "multiple-choice-wrong-answer"
 msgstr "respuesta-incorrecta-elección-múltiple"
 
-#: ../module/Ui/templates/entity/view/partials/actions/big.twig:10
-#: ../module/Ui/templates/page/partials/actions.twig:12
+#: ../module/Ui/templates/entity/view/partials/actions/big.twig:31
+#: ../module/Ui/templates/page/partials/actions.twig:33
 msgid "More"
 msgstr "Más"
 
-#: ../module/Ui/templates/entity/view/partials/actions/controls.twig:5
-#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:5
-#: ../module/Ui/templates/page/partials/controls.twig:15
-#: ../module/Ui/templates/taxonomy/term/templates/partials/controls.twig:9
-#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-controls.twig:9
+#: ../module/Ui/templates/entity/view/partials/actions/controls.twig:26
+#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:26
+#: ../module/Ui/templates/page/partials/controls.twig:36
+#: ../module/Ui/templates/taxonomy/term/templates/partials/controls.twig:30
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-controls.twig:30
 msgid "Toggle Dropdown"
 msgstr "Conmutar Dropdown"
 
-#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:9
+#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:30
 msgid "This Course-Page"
 msgstr "Esta Página del Curso"
 
-#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:15
+#: ../module/Ui/templates/entity/view/partials/actions/course/course-controls-wrapper.twig:36
 msgid "Whole Course"
 msgstr "Curso Completo"
 
-#: ../module/Ui/templates/entity/view/partials/actions/event/history.twig:5
-#: ../module/Ui/templates/page/partials/actions.twig:24
-#: ../module/Ui/templates/page/partials/controls.twig:27
-#: ../module/Ui/templates/page/revisions.twig:31
-#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:16
-#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:15
+#: ../module/Ui/templates/entity/view/partials/actions/event/history.twig:26
+#: ../module/Ui/templates/page/partials/actions.twig:45
+#: ../module/Ui/templates/page/partials/controls.twig:48
+#: ../module/Ui/templates/page/revisions.twig:52
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:37
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:36
 msgid "Log"
 msgstr "Log"
 
-#: ../module/Ui/templates/entity/view/partials/actions/license/update.twig:6
+#: ../module/Ui/templates/entity/view/partials/actions/license/update.twig:27
 msgid "Change license"
 msgstr "Cambiar licencia"
 
-#: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:12
 #: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:33
+#: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:54
 msgid "Add %type%"
 msgstr "Agregar %type%"
 
-#: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:23
+#: ../module/Ui/templates/entity/view/partials/actions/link/add.twig:44
 msgid "Restore %type%"
 msgstr "Restablecer %tipo%"
 
-#: ../module/Ui/templates/entity/view/partials/actions/link/sort.twig:8
+#: ../module/Ui/templates/entity/view/partials/actions/link/sort.twig:29
 msgid "Order children"
 msgstr "ordenar subelementos"
 
-#: ../module/Ui/templates/entity/view/partials/actions/link/update.twig:10
+#: ../module/Ui/templates/entity/view/partials/actions/link/update.twig:31
 msgid "Change parent %name%"
 msgstr "Cambia superclase %name%"
 
-#: ../module/Ui/templates/entity/view/partials/actions/related-content/manage.twig:6
+#: ../module/Ui/templates/entity/view/partials/actions/related-content/manage.twig:27
 msgid "Manage related items"
 msgstr "Administrar contenido relacionado"
 
-#: ../module/Ui/templates/entity/view/partials/actions/small-essential.twig:9
+#: ../module/Ui/templates/entity/view/partials/actions/small-essential.twig:30
 msgid "Subitem"
 msgstr "Subelemento"
 
-#: ../module/Ui/templates/entity/view/partials/actions/taxonomy/update.twig:8
+#: ../module/Ui/templates/entity/view/partials/actions/taxonomy/update.twig:29
 msgid "Edit topic and curriculum assignments"
 msgstr "Editar tema y plan de estudios"
 
-#: ../module/Ui/templates/entity/view/partials/actions/trash.twig:6
+#: ../module/Ui/templates/entity/view/partials/actions/trash.twig:27
 msgid "Move to trash"
 msgstr "Mover a la papelera"
 
-#: ../module/Ui/templates/entity/view/partials/actions/versioning/convert.twig:8
-#: ../module/Ui/templates/page/partials/controls.twig:58
+#: ../module/Ui/templates/entity/view/partials/actions/trash.twig:37
+msgid "Restore"
+msgstr ""
+
+#: ../module/Ui/templates/entity/view/partials/actions/versioning/convert.twig:29
+#: ../module/Ui/templates/page/partials/controls.twig:79
 msgid "Convert"
 msgstr ""
 
-#: ../module/Ui/templates/entity/view/partials/actions/versioning/edit-essential.twig:17
-#: ../module/Ui/templates/page/pages.twig:19
-#: ../module/Ui/templates/page/partials/actions.twig:5
+#: ../module/Ui/templates/entity/view/partials/actions/versioning/edit-essential.twig:38
+#: ../module/Ui/templates/page/pages.twig:40
+#: ../module/Ui/templates/page/partials/actions.twig:26
 msgid "Edit"
 msgstr "Modificar"
 
-#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:11
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:32
 msgid "Type answer"
 msgstr "Escribe la respuesta"
 
-#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:29
-#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:39
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:63
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:123
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:153
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:50
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:60
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:84
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:144
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:174
 msgid "Show solution"
 msgstr "Mostrar solución"
 
-#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:33
-#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:40
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:64
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:124
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:154
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:54
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:61
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:85
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:145
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:175
 msgid "Hide solution"
 msgstr "Ocultar la solución"
 
-#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:41
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:70
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:130
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:62
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:91
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:151
 msgid "Check"
 msgstr "Comprobar"
 
-#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:45
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:75
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:135
+#: ../module/Ui/templates/entity/view/partials/input-challenge.twig:66
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:96
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:156
 msgid "Correct!"
 msgstr "¡Correcto!"
 
-#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:7
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:28
 msgid "The Open Learning Platform Serlo.org"
 msgstr ""
 
-#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:17
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:38
 msgid "Info"
 msgstr "Información"
 
-#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:32
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:146
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:53
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:167
 msgid "Show hint"
 msgstr "Mostrar pista"
 
-#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:33
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:147
+#: ../module/Ui/templates/entity/view/partials/math-puzzle.twig:54
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:168
 msgid "Hide hint"
 msgstr "Ocultar pista"
 
-#: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:2
-#: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:2
+#: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:23
+#: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:23
 msgid "Nope. Try again!"
 msgstr ""
 
-#: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:4
-#: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:4
+#: ../module/Ui/templates/entity/view/partials/multiple-choice-answer.twig:25
+#: ../module/Ui/templates/entity/view/partials/single-choice-answer.twig:25
 msgid "This answer has been created but no content has been added yet or it is pending approval."
 msgstr "Esta respuesta se ha creado pero todavía no se ha añadido ningún contenido o está pendiente de aprobación."
 
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:8
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:29
 msgid "Right!"
 msgstr "¡Correcto!"
 
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:96
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:117
 msgid "This solution is not correct."
 msgstr "Esta solución no es correcta."
 
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:105
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:126
 msgid "This solution is correct!"
 msgstr "¡Esta solución es correcta!"
 
-#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:114
+#: ../module/Ui/templates/entity/view/partials/text-exercise.twig:135
 msgid "Not quite. There is something missing!"
 msgstr "No del todo. ¡Hay algo que falta!"
 
-#: ../module/Ui/templates/entity/view/single-choice-right-answer.twig:1
+#: ../module/Ui/templates/entity/view/single-choice-right-answer.twig:22
 msgid "single-choice-right-answer"
 msgstr "respuesta-correcta-única-elección"
 
-#: ../module/Ui/templates/entity/view/single-choice-wrong-answer.twig:1
+#: ../module/Ui/templates/entity/view/single-choice-wrong-answer.twig:22
 msgid "single-choice-wrong-answer"
 msgstr "respuesta-incorrecta-única-elección"
 
-#: ../module/Ui/templates/entity/view/text-exercise-group.twig:1
+#: ../module/Ui/templates/entity/view/text-exercise-group.twig:22
 msgid "text-exercise-group"
 msgstr "grupo de ejercicios de texto"
 
-#: ../module/Ui/templates/entity/view/text-exercise-group.twig:15
+#: ../module/Ui/templates/entity/view/text-exercise-group.twig:36
 msgid "I want to comment this"
 msgstr "Quiero comentar esto"
 
-#: ../module/Ui/templates/entity/view/text-exercise.twig:1
+#: ../module/Ui/templates/entity/view/text-exercise.twig:22
 msgid "text-exercise"
 msgstr "ejercicio de texto"
 
-#: ../module/Ui/templates/entity/view/text-hint.twig:1
+#: ../module/Ui/templates/entity/view/text-hint.twig:22
 msgid "text-hint"
 msgstr "texto pista"
 
-#: ../module/Ui/templates/entity/view/text-hint.twig:23
+#: ../module/Ui/templates/entity/view/text-hint.twig:44
 msgid "A hint has been created but no content has been added yet or it is pending approval."
 msgstr "Se ha creado una pista pero no se ha agregado aún ningún contenido o está pendiente de aprobación."
 
-#: ../module/Ui/templates/entity/view/text-solution.twig:1
+#: ../module/Ui/templates/entity/view/text-solution.twig:22
 msgid "text-solution"
 msgstr "texto solución"
 
-#: ../module/Ui/templates/entity/view/text-solution.twig:22
+#: ../module/Ui/templates/entity/view/text-solution.twig:43
 msgid "A solution has been created but no content has been added yet or it is pending approval."
 msgstr "Se ha creado una solución pero no se ha agregado aún ningún contenido o está pendiente de aprobación."
 
-#: ../module/Ui/templates/entity/view/video.twig:1
+#: ../module/Ui/templates/entity/view/video.twig:22
 msgid "video"
 msgstr "vídeo"
 
-#: ../module/Ui/templates/entity/view/video.twig:33
+#: ../module/Ui/templates/entity/view/video.twig:58
 msgid "Could not embed video - platform unknown"
 msgstr "No se puede integrar vídeo - plataforma desconocida"
 
-#: ../module/Ui/templates/event/helper/event/default.twig:6
+#: ../module/Ui/templates/event/helper/event/default.twig:27
 msgid "No template found for event %s"
 msgstr "No se ha encontrado una plantilla para el evento %s"
 
-#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:8
-#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:10
+#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:29
+#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:31
 msgid "%user% archived %discussion%"
 msgstr "%user% archivó %discussion%"
 
-#: ../module/Ui/templates/event/helper/event/discussion/comment/create.twig:9
+#: ../module/Ui/templates/event/helper/event/discussion/comment/create.twig:30
 msgid "%user% commented %discussion%: %content%"
 msgstr "%user% comentó en %discussion%: %content%"
 
-#: ../module/Ui/templates/event/helper/event/discussion/create.twig:9
+#: ../module/Ui/templates/event/helper/event/discussion/create.twig:30
 msgid "%user% started a new discussion %discussion% on %on%"
 msgstr "%user% ha comenzado una nueva discusión %discussion% en %on%"
 
-#: ../module/Ui/templates/event/helper/event/entity/create.twig:5
+#: ../module/Ui/templates/event/helper/event/entity/create.twig:26
 msgid "%user% created a new %type%: %object%"
 msgstr "%user% creó un nuevo %type%: %object%"
 
-#: ../module/Ui/templates/event/helper/event/entity/link/create.twig:5
+#: ../module/Ui/templates/event/helper/event/entity/link/create.twig:26
 msgid "%user% linked %object% with %parent%"
 msgstr "%user% contectó %object% con %parent%"
 
-#: ../module/Ui/templates/event/helper/event/entity/revision/add.twig:5
+#: ../module/Ui/templates/event/helper/event/entity/revision/add.twig:26
 msgid "%user% created a new version of %repository%"
 msgstr "%user% ha creado una nueva versión de %repository%"
 
-#: ../module/Ui/templates/event/helper/event/entity/revision/checkout.twig:7
+#: ../module/Ui/templates/event/helper/event/entity/revision/checkout.twig:28
 msgid "%user% checked out %revision% in %repository%: \"%reason%\""
 msgstr "%user% ha comprobado %revision% en %repository%: \"%reason%\""
 
-#: ../module/Ui/templates/event/helper/event/entity/revision/checkout.twig:11
+#: ../module/Ui/templates/event/helper/event/entity/revision/checkout.twig:32
 msgid "%user% checked out %revision% in %repository%"
 msgstr "%user% ha revisado %revision% en %repository%"
 
-#: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:7
+#: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:28
 msgid "%user% rejected %revision% in %repository%: \"%reason%\""
 msgstr "%user% ha rechazado la %revision% en %repository%: \"%reason%\""
 
-#: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:11
+#: ../module/Ui/templates/event/helper/event/entity/revision/reject.twig:32
 msgid "%user% rejected %revision% in %repository%"
 msgstr "%user% rejected %revision% in %repository%"
 
-#: ../module/Ui/templates/event/helper/event/license/object/set.twig:5
+#: ../module/Ui/templates/event/helper/event/license/object/set.twig:26
 msgid "%user% changed the license of %object%"
 msgstr "%user% ha cambiado la licencia de %object%"
 
-#: ../module/Ui/templates/event/helper/event/taxonomy/term/associate.twig:5
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/associate.twig:26
 msgid "%user% associated %object% with %term%"
 msgstr "%user% ha relacionado %object% con %term%"
 
-#: ../module/Ui/templates/event/helper/event/taxonomy/term/create.twig:4
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/create.twig:25
 msgid "%user% created %term%"
 msgstr "%user% ha creado %term%"
 
-#: ../module/Ui/templates/event/helper/event/taxonomy/term/dissociate.twig:5
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/dissociate.twig:26
 msgid "%user% dissociated %object% from %term%"
 msgstr "%user% ha separado %object% de %term%"
 
-#: ../module/Ui/templates/event/helper/event/taxonomy/term/parent/change.twig:6
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/parent/change.twig:27
 msgid "%user% changed %term% parent from %old% to %new%"
 msgstr "%user% ha cambiado %term% de %old% a %new%"
 
-#: ../module/Ui/templates/event/helper/event/taxonomy/term/update.twig:4
+#: ../module/Ui/templates/event/helper/event/taxonomy/term/update.twig:25
 msgid "%user% updated %term%"
 msgstr "%user% ha actualizado %term%"
 
-#: ../module/Ui/templates/event/helper/event/uuid/restore.twig:4
-#: ../module/Ui/templates/notification/type/discussion/restore.twig:10
-#: ../module/Ui/templates/notification/type/uuid/restore.twig:6
+#: ../module/Ui/templates/event/helper/event/uuid/restore.twig:25
+#: ../module/Ui/templates/notification/type/discussion/restore.twig:31
+#: ../module/Ui/templates/notification/type/uuid/restore.twig:27
 msgid "%user% restored %object%"
 msgstr "%user% ha restaurado %object%"
 
-#: ../module/Ui/templates/event/helper/event/uuid/trash.twig:4
-#: ../module/Ui/templates/notification/type/uuid/trash.twig:6
+#: ../module/Ui/templates/event/helper/event/uuid/trash.twig:25
+#: ../module/Ui/templates/notification/type/uuid/trash.twig:27
 msgid "%user% trashed %object%"
 msgstr "%user% ha echado %object% en la papelera"
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:4
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:25
 msgid ""
 "Hello %user%,<br>\n"
 "<br>\n"
@@ -1910,407 +1928,407 @@ msgstr ""
 "<br>\n"
 " aquí tienes los cambios recientes en %brand%:<br>"
 
-#: ../module/Ui/templates/mailman/messages/notification/subject.twig:3
+#: ../module/Ui/templates/mailman/messages/notification/subject.twig:24
 msgid "You have unread notifications on %brand%"
 msgstr "Tiene nuevas notificaciones en %brand%"
 
-#: ../module/Ui/templates/navigation/container/get.twig:2
+#: ../module/Ui/templates/navigation/container/get.twig:23
 msgid "Information"
 msgstr "Información"
 
-#: ../module/Ui/templates/navigation/container/get.twig:5
+#: ../module/Ui/templates/navigation/container/get.twig:26
 msgid "Instance: "
 msgstr "Instancia: "
 
-#: ../module/Ui/templates/navigation/container/get.twig:8
+#: ../module/Ui/templates/navigation/container/get.twig:29
 msgid "Name: "
 msgstr "Nombre: "
 
-#: ../module/Ui/templates/navigation/page/partial/tree.twig:20
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:41
 msgid "Add parameter"
 msgstr "Añadir parámetro"
 
-#: ../module/Ui/templates/navigation/page/partial/tree.twig:24
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:45
 msgid "Add page"
 msgstr "Agregar página"
 
-#: ../module/Ui/templates/navigation/page/partial/tree.twig:32
-#: ../module/Ui/templates/page/partials/actions.twig:47
-#: ../module/Ui/templates/page/partials/controls.twig:50
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:53
+#: ../module/Ui/templates/page/partials/actions.twig:68
+#: ../module/Ui/templates/page/partials/controls.twig:71
 msgid "Settings"
 msgstr "Configuración"
 
-#: ../module/Ui/templates/navigation/page/partial/tree.twig:37
+#: ../module/Ui/templates/navigation/page/partial/tree.twig:58
 msgid "Remove page"
 msgstr "Borrar página"
 
-#: ../module/Ui/templates/navigation/page/update.twig:1
+#: ../module/Ui/templates/navigation/page/update.twig:22
 msgid "Page settings"
 msgstr "Ajustes de página"
 
-#: ../module/Ui/templates/notification/notification.twig:9
+#: ../module/Ui/templates/notification/notification.twig:30
 msgid "No template found for notification \"%type%\""
 msgstr "Ninguna plantilla para notificación \"%type%\""
 
-#: ../module/Ui/templates/notification/notifications.twig:21
+#: ../module/Ui/templates/notification/notifications.twig:42
 msgid "You have no notifications."
 msgstr "No tienes notificaciones."
 
-#: ../module/Ui/templates/notification/subscription/manage.twig:1
+#: ../module/Ui/templates/notification/subscription/manage.twig:22
 msgid "Manage subscriptions"
 msgstr "Administrar suscripciones"
 
-#: ../module/Ui/templates/notification/subscription/manage.twig:6
+#: ../module/Ui/templates/notification/subscription/manage.twig:27
 msgid "Emails"
 msgstr "Mensajes"
 
-#: ../module/Ui/templates/notification/subscription/manage.twig:7
+#: ../module/Ui/templates/notification/subscription/manage.twig:28
 msgid "Subscription"
 msgstr "Suscripción"
 
-#: ../module/Ui/templates/notification/subscription/manage.twig:17
+#: ../module/Ui/templates/notification/subscription/manage.twig:38
 msgid "Deactivate"
 msgstr "Desactivar"
 
-#: ../module/Ui/templates/notification/subscription/manage.twig:21
+#: ../module/Ui/templates/notification/subscription/manage.twig:42
 msgid "Activate"
 msgstr "Activar"
 
-#: ../module/Ui/templates/notification/subscription/manage.twig:24
-#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:5
-#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:17
+#: ../module/Ui/templates/notification/subscription/manage.twig:45
 #: ../module/Ui/templates/notification/subscription/opt-out/button.twig:26
-#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:4
-#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:14
-#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:21
-#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:4
-#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:14
-#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:21
+#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:38
+#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:47
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:25
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:35
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:42
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:25
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:35
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:42
 msgid "Unsubscribe"
 msgstr "Cancelar suscripción"
 
-#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:4
-#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:3
-#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:2
+#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:25
+#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:24
+#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:23
 msgid "Subscribe"
 msgstr "Subscribir"
 
-#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:10
-#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:8
-#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:5
+#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:31
+#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:29
+#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:26
 msgid "Receive notifications"
 msgstr "Recibir notificaciones"
 
-#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:15
-#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:11
-#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:8
+#: ../module/Ui/templates/notification/subscription/opt-in/button.twig:36
+#: ../module/Ui/templates/notification/subscription/opt-in/menu-item.twig:32
+#: ../module/Ui/templates/notification/subscription/opt-in/sub-menu-item.twig:29
 msgid "Receive notifications and emails"
 msgstr "Recibir notificaciones y correos electrónicos"
 
-#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:11
-#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:10
-#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:10
+#: ../module/Ui/templates/notification/subscription/opt-out/button.twig:32
+#: ../module/Ui/templates/notification/subscription/opt-out/menu-item.twig:31
+#: ../module/Ui/templates/notification/subscription/opt-out/sub-menu-item.twig:31
 msgid "Stop sending emails"
 msgstr "Deja de enviar mensajes de correo electrónico"
 
-#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:12
+#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:33
 msgid "%user% commented on %discussion%: %content%"
 msgstr "%user% ha comentado en %discussion%: %content%"
 
-#: ../module/Ui/templates/notification/type/discussion/create.twig:12
+#: ../module/Ui/templates/notification/type/discussion/create.twig:33
 msgid "%user% started %discussion% on %object%: %title%"
 msgstr "%user% ha iniciado %discussion% en %object%: %title%"
 
-#: ../module/Ui/templates/notification/type/entity/link/create.twig:8
+#: ../module/Ui/templates/notification/type/entity/link/create.twig:29
 msgid "%user% added %object% to %parent%"
 msgstr "%user% agregó %object% a %parent%"
 
-#: ../module/Ui/templates/notification/type/entity/revision/add.twig:6
-#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:6
-#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:6
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:27
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:27
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:27
 msgid "revision"
 msgstr "revisión"
 
-#: ../module/Ui/templates/notification/type/entity/revision/add.twig:9
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:30
 msgid "%user% created a %revision% in %repository%"
 msgstr "%user% creó %revision% en %repository%"
 
-#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:10
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:31
 msgid "%user% accepted a %revision% of %repository%: %reason%"
 msgstr "%user% aceptó una %revision% de %repository%: %reason%"
 
-#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:14
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:35
 msgid "%user% accepted a %revision% of %repository%"
 msgstr "%user% aceptado a %revision% of %repository%"
 
-#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:10
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:31
 msgid "%user% rejected a %revision% of %repository%: %reason%"
 msgstr "%user% rechazó %revision% de %repository%: %reason%"
 
-#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:14
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:35
 msgid "%user% rejected a %revision% of %repository%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:7
+#: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:28
 msgid "%user% associated %term% with %object%"
 msgstr "%user% relacionó %term% con %object%"
 
-#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:7
+#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:28
 msgid "%user% removed %object% from %object%"
 msgstr "%user% quitó %object% de %object%"
 
-#: ../module/Ui/templates/notification/type/taxonomy/term/parent/change.twig:9
+#: ../module/Ui/templates/notification/type/taxonomy/term/parent/change.twig:30
 msgid "%user% changed %term%'s parent from %old% to %new%"
 msgstr "%user% cambió la raíz de %term% de %old% a %new%"
 
-#: ../module/Ui/templates/notification/type/taxonomy/term/update.twig:6
+#: ../module/Ui/templates/notification/type/taxonomy/term/update.twig:27
 msgid "%user% updated %object%"
 msgstr "%user% actualizó %object%"
 
-#: ../module/Ui/templates/page/pages.twig:10
+#: ../module/Ui/templates/page/pages.twig:31
 msgid "No revision checked out yet."
 msgstr "Aún no se ha comprobado ninguna revisión."
 
-#: ../module/Ui/templates/page/pages.twig:26
-#: ../module/Ui/templates/page/partials/actions.twig:32
-#: ../module/Ui/templates/page/partials/controls.twig:35
-#: ../module/Ui/templates/page/revisions.twig:38
+#: ../module/Ui/templates/page/pages.twig:47
+#: ../module/Ui/templates/page/partials/actions.twig:53
+#: ../module/Ui/templates/page/partials/controls.twig:56
+#: ../module/Ui/templates/page/revisions.twig:59
 msgid "Trash"
 msgstr "Basura"
 
-#: ../module/Ui/templates/page/pages.twig:36
+#: ../module/Ui/templates/page/pages.twig:57
 msgid "Create a new page"
 msgstr "Crear una nueva página"
 
-#: ../module/Ui/templates/page/partials/actions.twig:40
-#: ../module/Ui/templates/page/partials/controls.twig:43
+#: ../module/Ui/templates/page/partials/actions.twig:61
+#: ../module/Ui/templates/page/partials/controls.twig:64
 msgid "Set as base revision"
 msgstr "Establecer como revisión principal"
 
-#: ../module/Ui/templates/page/revision/create-ory.twig:1
-#: ../module/Ui/templates/page/revision/create.twig:1
+#: ../module/Ui/templates/page/revision/create-ory.twig:22
+#: ../module/Ui/templates/page/revision/create.twig:22
 msgid "Create a revision"
 msgstr "Crear una revisión"
 
-#: ../module/Ui/templates/page/revisions.twig:1
+#: ../module/Ui/templates/page/revisions.twig:22
 msgid "Revisions"
 msgstr "Revisiones"
 
-#: ../module/Ui/templates/page/revisions.twig:12
+#: ../module/Ui/templates/page/revisions.twig:33
 msgid "Author:"
 msgstr "Autor:"
 
-#: ../module/Ui/templates/page/revisions.twig:16
+#: ../module/Ui/templates/page/revisions.twig:37
 msgid "Time:"
 msgstr "Hora:"
 
-#: ../module/Ui/templates/page/revisions.twig:26
+#: ../module/Ui/templates/page/revisions.twig:47
 msgid "Use for editing"
 msgstr "Usar para editar"
 
-#: ../module/Ui/templates/page/revisions.twig:45
+#: ../module/Ui/templates/page/revisions.twig:66
 msgid "Set as base"
 msgstr "Establecer como base"
 
-#: ../module/Ui/templates/page/revisions.twig:57
+#: ../module/Ui/templates/page/revisions.twig:78
 msgid "Edit page"
 msgstr "Editar página"
 
-#: ../module/Ui/templates/related-content/add-category.twig:1
+#: ../module/Ui/templates/related-content/add-category.twig:22
 msgid "Add a category"
 msgstr "Añadir una categoría"
 
-#: ../module/Ui/templates/related-content/add-external.twig:1
+#: ../module/Ui/templates/related-content/add-external.twig:22
 msgid "Add external link"
 msgstr "Añadir enlace externo"
 
-#: ../module/Ui/templates/related-content/add-internal.twig:1
+#: ../module/Ui/templates/related-content/add-internal.twig:22
 msgid "Add internal link"
 msgstr "Añadir enlace interno"
 
-#: ../module/Ui/templates/related-content/manage.twig:3
+#: ../module/Ui/templates/related-content/manage.twig:24
 msgid "Manage related links"
 msgstr "Gestionar enlaces relacionados"
 
-#: ../module/Ui/templates/related-content/manage.twig:48
+#: ../module/Ui/templates/related-content/manage.twig:69
 msgid "Category"
 msgstr "Categoría"
 
-#: ../module/Ui/templates/related-content/manage.twig:52
+#: ../module/Ui/templates/related-content/manage.twig:73
 msgid "Internal"
 msgstr "Interna"
 
-#: ../module/Ui/templates/related-content/manage.twig:56
+#: ../module/Ui/templates/related-content/manage.twig:77
 msgid "External"
 msgstr "Externa"
 
-#: ../module/Ui/templates/search/results.twig:3
+#: ../module/Ui/templates/search/results.twig:24
 msgid "Search results"
 msgstr "Resultados de la búsqueda"
 
-#: ../module/Ui/templates/subject/home/index.twig:2
+#: ../module/Ui/templates/subject/home/index.twig:23
 msgid "Start learning now!"
 msgstr "¡Empieza a aprender ahora!"
 
-#: ../module/Ui/templates/taxonomy/term/aggregate/siblings.twig:4
+#: ../module/Ui/templates/taxonomy/term/aggregate/siblings.twig:25
 msgid "Further exercises"
 msgstr "Más ejercicios"
 
-#: ../module/Ui/templates/taxonomy/term/batch-copy.twig:1
+#: ../module/Ui/templates/taxonomy/term/batch-copy.twig:22
 msgid "Copy associations"
 msgstr "Copiar relaciones"
 
-#: ../module/Ui/templates/taxonomy/term/batch-move.twig:1
+#: ../module/Ui/templates/taxonomy/term/batch-move.twig:22
 msgid "Move associations"
 msgstr "Mover relaciones"
 
-#: ../module/Ui/templates/taxonomy/term/create.twig:1
+#: ../module/Ui/templates/taxonomy/term/create.twig:22
 msgid "Create term"
 msgstr "Crear término"
 
-#: ../module/Ui/templates/taxonomy/term/entity/default.twig:7
+#: ../module/Ui/templates/taxonomy/term/entity/default.twig:28
 msgid "Template for %name% not found."
 msgstr "Template para %name% no econtrado."
 
-#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:42
+#: ../module/Ui/templates/taxonomy/term/organize/partial.twig:63
 msgid "Tools"
 msgstr "Herramientas"
 
-#: ../module/Ui/templates/taxonomy/term/templates/curriculum-topic-folder.twig:1
+#: ../module/Ui/templates/taxonomy/term/templates/curriculum-topic-folder.twig:22
 msgid "curriculum-topic-folder"
 msgstr "carpeta de temas de plan de estudios"
 
-#: ../module/Ui/templates/taxonomy/term/templates/curriculum-topic.twig:1
+#: ../module/Ui/templates/taxonomy/term/templates/curriculum-topic.twig:22
 msgid "curriculum-topic"
 msgstr "plan de estudios-tema"
 
-#: ../module/Ui/templates/taxonomy/term/templates/curriculum.twig:1
+#: ../module/Ui/templates/taxonomy/term/templates/curriculum.twig:22
 msgid "curriculum"
 msgstr "currículo"
 
-#: ../module/Ui/templates/taxonomy/term/templates/locale.twig:1
+#: ../module/Ui/templates/taxonomy/term/templates/locale.twig:22
 msgid "locale"
 msgstr "configuración regional"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:23
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:44
 msgid "Add content"
 msgstr "Añadir contenido"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:46
-#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:29
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:67
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:50
 msgid "Batch copy items"
 msgstr "Copiar elementos por lotes"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:53
-#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:36
+#: ../module/Ui/templates/taxonomy/term/templates/partials/actions.twig:74
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subject-actions.twig:57
 msgid "Batch move items"
 msgstr "Mover elementos por lotes"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:13
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:34
 msgid "Courses"
 msgstr "Cursos"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:13
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:34
 msgid "Articles"
 msgstr "Artículos"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:13
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:34
 msgid "Videos"
 msgstr "Vídeos"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:13
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:34
 msgid "Applets"
 msgstr ""
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:28
+#: ../module/Ui/templates/taxonomy/term/templates/partials/entities.twig:49
 msgid "Exercises"
 msgstr "Ejercicios"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/groups.twig:13
+#: ../module/Ui/templates/taxonomy/term/templates/partials/groups.twig:34
 msgid "Groups"
 msgstr "Grupos"
 
-#: ../module/Ui/templates/taxonomy/term/templates/partials/subfolders.twig:91
+#: ../module/Ui/templates/taxonomy/term/templates/partials/subfolders.twig:108
 msgid "Show %ecount% exercises..."
 msgstr "Mostrar %ecount% ejercicios..."
 
-#: ../module/Ui/templates/taxonomy/term/templates/subject.twig:1
+#: ../module/Ui/templates/taxonomy/term/templates/subject.twig:22
 msgid "subject"
 msgstr "asunto"
 
-#: ../module/Ui/templates/taxonomy/term/templates/topic-folder.twig:1
+#: ../module/Ui/templates/taxonomy/term/templates/topic-folder.twig:22
 msgid "topic-folder"
 msgstr "carpeta de temas"
 
-#: ../module/Ui/templates/taxonomy/term/templates/topic.twig:1
+#: ../module/Ui/templates/taxonomy/term/templates/topic.twig:22
 msgid "topic"
 msgstr "tema"
 
-#: ../module/Ui/templates/taxonomy/term/update.twig:1
+#: ../module/Ui/templates/taxonomy/term/update.twig:22
 msgid "Update term"
 msgstr "Actualizar término"
 
-#: ../module/Ui/templates/user/user/profile.twig:1
+#: ../module/Ui/templates/user/user/profile.twig:22
 msgid "Profile"
 msgstr "Perfil"
 
-#: ../module/Ui/templates/user/user/profile.twig:12
+#: ../module/Ui/templates/user/user/profile.twig:33
 msgid "Statistics"
 msgstr "Estadísticas"
 
-#: ../module/Ui/templates/user/user/profile.twig:34
+#: ../module/Ui/templates/user/user/profile.twig:55
 msgid "Edits"
 msgstr "Revisiones"
 
-#: ../module/Ui/templates/user/user/profile.twig:45
+#: ../module/Ui/templates/user/user/profile.twig:66
 msgid "Reviews"
 msgstr "Opiniones"
 
-#: ../module/Ui/templates/user/user/profile.twig:56
+#: ../module/Ui/templates/user/user/profile.twig:77
 msgid "Taxonomy associations"
 msgstr "Asociaciones de taxonomía"
 
-#: ../module/Ui/templates/user/user/profile.twig:67
+#: ../module/Ui/templates/user/user/profile.twig:88
 msgid "Taxonomy changes"
 msgstr "Cambios de la taxonomía"
 
-#: ../module/Ui/templates/user/user/profile.twig:78
+#: ../module/Ui/templates/user/user/profile.twig:99
 msgid "Total deletions"
 msgstr "Eliminaciones totales"
 
-#: ../module/Ui/templates/user/user/profile.twig:83
+#: ../module/Ui/templates/user/user/profile.twig:104
 msgid "Recent activities"
 msgstr "Actividades recientes"
 
-#: ../module/Ui/templates/user/user/profile.twig:96
+#: ../module/Ui/templates/user/user/profile.twig:117
 msgid "Last seen"
 msgstr "Visto por última vez"
 
-#: ../module/Ui/templates/user/user/register.twig:3
-#: ../module/Ui/templates/user/user/register.twig:116
+#: ../module/Ui/templates/user/user/register.twig:24
+#: ../module/Ui/templates/user/user/register.twig:137
 msgid "Sign up"
 msgstr "Crear una cuenta"
 
-#: ../module/Ui/templates/user/user/register.twig:62
+#: ../module/Ui/templates/user/user/register.twig:83
 msgid "Stay in touch!"
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:65
+#: ../module/Ui/templates/user/user/register.twig:86
 msgid "<strong>Sign up to our newsletter to receive quarterly updates about our work.</strong> Serlo Education e.V. will use the information you provided to send you the newsletter and (optionally) personalise these mailings. We will also supply insights on aspects of Serlo that may be particularly interesting to you, based on the information you provided. To enable us to keep serlo.org free of charge and free of advertising we send out a fundraiser campaign through our newsletter list annually around Christmas. Please confirm below if you would like to give us permission to contact you in this way."
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:99
+#: ../module/Ui/templates/user/user/register.twig:120
 msgid "You can revoke your consent to contact you via email at any time by clicking the unsubscribe link in any mailing or send us an email at <a href=\"mailto:de@serlo.org\">de@serlo.org</a>. Your privacy is very important to us. For the processing of our mailing activities we work with MailChimp as a service provider. MailChimp underlies a strict data processing agreement with us that ensures the protection of your data in accordance with the European General Data Protection Regulations. By subscribing to our newsletter you agree with our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and acknowledge that your data will be processed by MailChimp in accordance with their <a href=\"https://mailchimp.com/legal/privacy/\" target=\"_blank\">Privacy Policy</a> and <a href=\"https://mailchimp.com/legal/terms/\" target=\"_blank\">Terms</a>."
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:107
+#: ../module/Ui/templates/user/user/register.twig:128
 msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and <a href=\"/21654\" target=\"_blank\">Terms</a>. You may receive email notifications from us and can opt out at any time."
 msgstr ""
 
-#: ../module/Ui/templates/user/user/settings.twig:1
+#: ../module/Ui/templates/user/user/settings.twig:22
 msgid "My settings"
 msgstr "Mi configuración"
 
-#: ../module/Ui/templates/user/users/partial/users-table.twig:18
+#: ../module/Ui/templates/user/users/partial/users-table.twig:39
 msgid "Never"
 msgstr "Nunca"
