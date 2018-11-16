@@ -22,11 +22,13 @@
 /// <reference types="Cypress" />
 
 context('Home', () => {
-  beforeEach(() => {
+  it('de.serlo.localhost has the correct document title', () => {
     cy.visit('http://de.serlo.localhost:4567/')
+    cy.title().should('equal', 'Serlo – Freie Bildung.')
   })
 
-  it('has the correct document title', () => {
-    expect(cy.title()).to.equal('lernen mit Serlo!')
+  it('en.serlo.localhost has the correct document title', () => {
+    cy.visit('http://en.serlo.localhost:4567/')
+    cy.title().should('equal', 'Serlo – Open Education.')
   })
 })
