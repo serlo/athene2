@@ -20,38 +20,29 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-
 return [
-    'doctrine' => array(
-        'configuration' => array(
-            'orm_default' => array(
-                'metadata_cache'  => 'apccache',
-                'query_cache'     => 'apccache',
-                'result_cache'    => 'apccache',
-                'hydration_cache' => 'apccache',
-            )
-        )
-    ),
-    'view_manager' => [
-        'display_exceptions' => false
-    ],
     'zfctwig' => [
         'environment_options' => [
-            'debug' => false,
-            'strict_variables' => false,
-            'autoescape' => false
+            'debug' => true,
+            'strict_variables' => true,
+            'autoescape' => false,
         ],
     ],
-    'log' => [
-        'exceptions' => true
+    'view_manager' => [
+        'strategies' => [
+            'Ui\Strategy\PhpRendererStrategy',
+        ],
     ],
-    'strokercache' => array(
+    'strokercache' => [
         'storage_adapter' => [
-            'name' => 'Zend\Cache\Storage\Adapter\Filesystem',
+            'name' => 'Zend\Cache\Storage\Adapter\Apc',
             'options' => [
-                'cache_dir' => __DIR__ . '/../../data',
-                'ttl' => 60*60*24*2
-            ]
-        ]
-    ),
+                'ttl' => 1,
+            ],
+        ],
+    ],
+    // 'assets_host'     => 'http://localhost:8081/',
+    // 'editor_renderer' => [
+    //   'url' => 'http://host.docker.internal:3000/',
+    // ],
 ];

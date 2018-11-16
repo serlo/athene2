@@ -20,7 +20,6 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-
 $cacher = [
     'adapter' => [
         'name' => 'Zend\Cache\Storage\Adapter\Memcached',
@@ -29,30 +28,30 @@ $cacher = [
             'servers' => [
                 [
                     'host' => 'localhost',
-                    'port' => 11211
-                ]
+                    'port' => 11211,
+                ],
             ],
-            'ttl' => 60 * 60
-        ]
+            'ttl' => 60 * 60,
+        ],
     ],
     'plugins' => [
         'exception_handler' => [
-            'throw_exceptions' => false
+            'throw_exceptions' => false,
         ],
-        'serializer'
-    ]
+        'serializer',
+    ],
 ];
 
 return [
     'doctrine' => array(
         'configuration' => array(
             'orm_default' => array(
-                'metadata_cache'  => 'doctrine_memcache',
-                'query_cache'     => 'doctrine_memcache',
-                'result_cache'    => 'doctrine_memcache',
+                'metadata_cache' => 'doctrine_memcache',
+                'query_cache' => 'doctrine_memcache',
+                'result_cache' => 'doctrine_memcache',
                 'hydration_cache' => 'doctrine_memcache',
-            )
-        )
+            ),
+        ),
     ),
     'service_manager' => [
         'factories' => [
@@ -66,17 +65,17 @@ return [
         ],
     ],
     'view_manager' => [
-        'display_exceptions' => false
+        'display_exceptions' => false,
     ],
     'zfctwig' => [
         'environment_options' => [
             'debug' => false,
             'strict_variables' => false,
-            'autoescape' => false
+            'autoescape' => false,
         ],
     ],
     'log' => [
-        'exceptions' => true
+        'exceptions' => true,
     ],
     'strokercache' => [
         'storage_adapter' => [
@@ -85,17 +84,17 @@ return [
                 'servers' => [
                     [
                         'host' => 'localhost',
-                        'port' => 11211
-                    ]
+                        'port' => 11211,
+                    ],
                 ],
-                'ttl' => 60*60*24*2
-            ]
-        ]
+                'ttl' => 60 * 60 * 24 * 2,
+            ],
+        ],
     ],
     'alias_cache' => $cacher,
     'markdown_cache' => $cacher,
     'navigation_cache' => $cacher,
     'normalizer_cache' => $cacher,
     'notification_cache' => $cacher,
-    'subject_cache' => $cacher
+    'subject_cache' => $cacher,
 ];

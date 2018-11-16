@@ -20,9 +20,6 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-
-var_dump(__DIR__);
-
 $finder = PhpCsFixer\Finder::create()
     ->notPath('src/vendor')
     ->in(__DIR__);
@@ -38,6 +35,6 @@ return PhpCsFixer\Config::create()
         'no_whitespace_in_blank_line' => true,
         'trailing_comma_in_multiline_array' => true,
         'phpdoc_trim' => true,
-        'phpdoc_trim_consecutive_blank_line_separation'=> true,
+        'phpdoc_trim_consecutive_blank_line_separation' => true,
     ])
     ->setFinder($finder);
