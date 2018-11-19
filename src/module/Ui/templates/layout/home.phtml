@@ -20,24 +20,10 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Application\Controller;
-
-use Instance\Manager\InstanceManagerAwareTrait;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-
-class IndexController extends AbstractActionController
-{
-    use InstanceManagerAwareTrait;
-
-    public function indexAction()
-    {
-        $view = new ViewModel();
-        $instance = $this->getInstanceManager()->getInstanceFromRequest();
-
-        $this->layout('layout/home');
-        $this->layout()->setVariable('subdomain', $instance->getSubdomain());
-
-        return $view;
-    }
+$template = 'layout/' . $this->subdomain . '/serlo-home';
+if ($this->resolver($template)) {
+    echo $this->partial($template);
+} else {
+    echo $this->partial('layout/default/serlo-home.phtml');
 }
+?>

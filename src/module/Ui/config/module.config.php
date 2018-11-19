@@ -55,6 +55,7 @@ return [
             'athene2-editor' => __DIR__ . '/../templates/editor/layout.phtml',
             'layout/de/home' => __DIR__ . '/../templates/layout/de/serlo-home.phtml',
             'layout/en/home' => __DIR__ . '/../templates/layout/en/serlo-home.phtml',
+            'layout/default' => __DIR__ . '/../templates/layout/default.twig',
             'layout/1-col'   => __DIR__ . '/../templates/layout/1-col.phtml',
             'layout/layout'  => __DIR__ . '/../templates/layout/2-col.phtml',
             'layout/3-col'   => __DIR__ . '/../templates/layout/3-col.phtml',
