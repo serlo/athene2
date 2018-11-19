@@ -65,7 +65,7 @@ return [
                 'slogan' => 'Open Education.',
                 'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
                 'logo' => '<span class="serlo-logo">V</span>',
-                'head_title' => 'lernen mit Serlo!',
+                'head_title' => 'learn with Serlo!',
             ],
         ],
     ],
