@@ -69,6 +69,20 @@ return [
                 'logo' => '<span class="serlo-logo">V</span>',
                 'head_title' => 'learn with Serlo!',
             ],
+            'spanish' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'The Open Learning Platform',
+                'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'aprender con Serlo!',
+            ],
+            'hindi' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'The Open Learning Platform',
+                'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'lernen mit Serlo!',
+            ],
         ],
     ],
     'solarium' => [

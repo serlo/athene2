@@ -270,7 +270,7 @@ return [
                         'applet',
                     ],
                 ],
-                'music' => [
+                'test area' => [
                     'allowed_taxonomies' => [
                         'topic',
                         'locale',
@@ -281,9 +281,13 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
+                        'math-puzzle',
+                        'applet',
                     ],
                 ],
-                'sex education' => [
+            ],
+            'spanish' => [
+                'community' => [
                     'allowed_taxonomies' => [
                         'topic',
                         'locale',
@@ -294,6 +298,40 @@ return [
                         'video',
                         'course',
                         'text-exercise-group',
+                        'math-puzzle',
+                        'applet',
+                    ],
+                ],
+                'test area' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale',
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group',
+                        'math-puzzle',
+                        'applet',
+                    ],
+                ],
+            ],
+            'hindi' => [
+                'community' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale',
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group',
+                        'math-puzzle',
+                        'applet',
                     ],
                 ],
                 'test area' => [
