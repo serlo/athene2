@@ -270,6 +270,32 @@ return [
                         'applet',
                     ],
                 ],
+                'music' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale',
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group',
+                    ],
+                ],
+                'sex education' => [
+                    'allowed_taxonomies' => [
+                        'topic',
+                        'locale',
+                    ],
+                    'allowed_entities'   => [
+                        'article',
+                        'text-exercise',
+                        'video',
+                        'course',
+                        'text-exercise-group',
+                    ],
+                ],
                 'test area' => [
                     'allowed_taxonomies' => [
                         'topic',
