@@ -33,7 +33,7 @@ All notable changes to this project will be documented in this file. The format 
 - Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
 - Rename `*.php.dist` files to `*.dist.php` for better IDE support ([#801](https://github.com/serlo-org/athene2/pull/801))
-- Improve performance of Docker Volumnes on macOS ([#801](https://github.com/serlo-org/athene2/pull/801))
+- Improve performance of Docker Volumes on macOS ([#801](https://github.com/serlo-org/athene2/pull/801))
 
 ### Removed
 

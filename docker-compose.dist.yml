@@ -12,7 +12,7 @@ services:
       - MYSQL_ROOT_PASSWORD=secret
 
   markdown:
-    image: serlo/athene2-editor:v0.0.2
+    build: 'src/athene2-editor-server'
 
   athene2:
     build: .
