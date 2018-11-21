@@ -22,6 +22,7 @@
  */
 namespace StaticPage\Controller;
 
+use Zend\Http\Header\Cookie;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -31,7 +32,13 @@ class StaticPageController extends AbstractActionController
     {
         $view = new ViewModel();
         $view->setTemplate('static/emptyTemplate');
-        $this->layout('static/spenden');
+        /** @var Cookie $cookie */
+        $cookie = $this->getRequest()->getCookie();
+        if ($cookie && $cookie->offsetExists('twingle')) {
+            $this->layout('static/spendenTwingle');
+        } else {
+            $this->layout('static/spenden');
+        }
         return $view;
     }
 }
