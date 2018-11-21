@@ -36,12 +36,12 @@ echo $this->doctype();
         }
         @media only screen and (min-width : 1000px) {
             .main {
-                margin-right: 30rem;
+                margin-right: 35rem;
             }
 
             .side-context {
-                right: -28rem;
-                width: 26rem;
+                right: -33rem;
+                width: 31rem;
             }
             .mission {
                 margin-left:207px;
@@ -80,11 +80,12 @@ echo $this->doctype();
             padding-left: 30px;
         }
 
-        .donation-name {
-            padding: 5px 5px 5px 0;
+        .partner {
+            text-align: center;
         }
-        .donation-amount {
-            padding: 5px 0 5px 5px;
+
+        .partner img {
+            width: 80%;
         }
     </style>
 </head>
@@ -123,13 +124,22 @@ echo $this->doctype();
                                     </div>
                                 </div>
                                 <div class="r">
-                                    <div id="fundraisingbox" class="c24">
-                                        <script type="text/javascript" src="https://secure.fundraisingbox.com/app/paymentJS?hash=gtfhzy5ijix2yy35"></script><noscript>Bitte Javascript aktivieren</noscript><a target="_blank" href="http://www.fundraisingbox.com"><img border="0" style="border: 0 !important" src="https://secure.fundraisingbox.com/images/FundraisingBox-Logo-Widget.png" alt="FundraisingBox Logo" /></a>
+                                    <div class="c24">
+                                        <script type="text/javascript">
+                                            (function() {
+                                                var u="https://spenden.twingle.de/embed/serlo-education-e-v/serlo-org/tw5bcec90da9d45/widget";
+                                                var id = '_' + Math.random().toString(36).substr(2, 9);
+                                                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                                                document.write('<div id="twingle-public-embed-' + id + '"></div>');
+                                                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'/'+id; s.parentNode.insertBefore(g,s);
+                                            })();
+                                        </script>
+                                        <noscript>Bitte Javascript aktivieren</noscript>
                                     </div>
                                 </div>
                                 <div class="r">
                                     <div class="c24">
-                                        <h2>Alternative Spendenmöglichkeiten</h2>
+                                        <h2>Anonyme Spendenmöglichkeiten</h2>
                                         <h3 id="spendenkonto">Spendenkonto</h3>
                                         <p>
                                             Serlo Education e.V. <br>
@@ -138,7 +148,7 @@ echo $this->doctype();
                                         </p>
                                         <h3 id="paypal">Paypal</h3>
                                         <p>
-                                            <a href="https://www.paypal.me/serlo">https://www.paypal.me/serlo</a>
+                                            Geld via Paypal spenden an: <a href="https://www.paypal.me/serlo">https://www.paypal.me/serlo</a>
                                         </p>
                                     </div>
                                 </div>
@@ -167,11 +177,11 @@ echo $this->doctype();
                         <p><b>Wohin geht Deine Spende</b></p>
                         <p>
                             Spendengelder fließen unter anderem in
-                            <ul>
-                                <li>Serverkosten</li>
-                                <li>Betreuung ehrenamtlicher AutorInnen</li>
-                                <li>Weiterentwicklung der Plattform</li>
-                            </ul>
+                        <ul>
+                            <li>Serverkosten</li>
+                            <li>Betreuung ehrenamtlicher AutorInnen</li>
+                            <li>Weiterentwicklung der Plattform</li>
+                        </ul>
                         </p>
                         <br>
                         <p>Eine genaue Aufstellung unserer Finanzen findest du unter www.serlo.org/transparenz</p>
@@ -181,44 +191,16 @@ echo $this->doctype();
                         <p><b>Steuerliche Begünstigungen</b></p>
                         <p>Serlo Education ist ein anerkannter gemeinnütziger Verein. Deine Spende ist daher steuerlich voll abzugsfähig.</p>
                         <br>
-                        <p><b>Alternative Spendenmöglichkeiten</b></p>
+                        <p><b>Anonyme Spendenmöglichkeiten</b></p>
                         <p>Du kannst auch via <a href="#spendenkonto">Überweisung</a> oder <a href="#paypal">Paypal</a> spenden.</p>
                         <br>
                         <p><b>Unsere Partner</b></p>
-                        <p>
-                            <img style="width:100%" src="https://assets.serlo.org/5a316a509e299_77f68315ec777b49b17b93bd328533e2eac59e68.png" alt="Ludwig-Maximilians-Universität München" title="Ludwig-Maximilians-Universität München">
-                            <img style="width:100%" src="https://assets.serlo.org/5a316a7a6343f_c3311343b1b0c4efa89c9d1cc317303392d5b605.png" alt="Technische Universität München" title="Technische Universität München">
-                            <img style="width:100%" src="https://assets.serlo.org/5a1a0a276a6b9_6d34310eb0df059427d6607cd88d9433b1dd4fcc.png" alt="Wikimedia" title="Wikimedia">
-                            <img style="width:100%" src="https://assets.serlo.org/legacy/56abd09826385_37623ba809c7d6e596297e61c0175072ac8a5a6a.png" alt="EU Kommission" title="EU Kommission">
+                        <p class="partner">
+                            <img src="https://assets.serlo.org/5a316a509e299_77f68315ec777b49b17b93bd328533e2eac59e68.png" alt="Ludwig-Maximilians-Universität München" title="Ludwig-Maximilians-Universität München">
+                            <img src="https://assets.serlo.org/5a316a7a6343f_c3311343b1b0c4efa89c9d1cc317303392d5b605.png" alt="Technische Universität München" title="Technische Universität München">
+                            <img src="https://assets.serlo.org/5a1a0a276a6b9_6d34310eb0df059427d6607cd88d9433b1dd4fcc.png" alt="Wikimedia" title="Wikimedia">
+                            <img src="https://assets.serlo.org/legacy/56abd09826385_37623ba809c7d6e596297e61c0175072ac8a5a6a.png" alt="EU Kommission" title="EU Kommission">
                         </p>
-                        <br>
-                        <p><b>Unsere Top-SpenderInnen</b></p>
-                        <table>
-                            <tbody>
-                            <tr><td class="donation-name">Stephan D.</td><td class="donation-amount">9.500 €</td></tr>
-                            <tr><td class="donation-name">SAP SE</td><td class="donation-amount">7.500 €</td></tr>
-                            <tr><td class="donation-name">Moritz F.</td><td class="donation-amount">3.000 €</td></tr>
-                            <tr><td class="donation-name">Thomas C.</td><td class="donation-amount">2.500 €</td></tr>
-                            <tr><td class="donation-name">Imarum GmbH</td><td class="donation-amount">2.250 €</td></tr>
-                            <tr><td class="donation-name">Musikschule Ohrwurm</td><td class="donation-amount">2.250 €</td></tr>
-                            <tr><td class="donation-name">Bernd F.</td><td class="donation-amount">1.290 €</td></tr>
-                            <tr><td class="donation-name">Telefónica Deutschland</td><td class="donation-amount">1.000 €</td></tr>
-                            <tr><td class="donation-name">Stefan K.</td><td class="donation-amount">930 €</td></tr>
-                            <tr><td class="donation-name">Bernhard K.</td><td class="donation-amount">930 €</td></tr>
-                            <tr><td class="donation-name">Michael Denis R.</td><td class="donation-amount">930 €</td></tr>
-                            <tr><td class="donation-name">Klaus H.</td><td class="donation-amount">890 €</td></tr>
-                            <tr><td class="donation-name">Johanna Vera S.</td><td class="donation-amount">880 €</td></tr>
-                            <tr><td class="donation-name">Stefan S.</td><td class="donation-amount">870 €</td></tr>
-                            <tr><td class="donation-name">Christian E.</td><td class="donation-amount">860 €</td></tr>
-                            <tr><td class="donation-name">Helga S.</td><td class="donation-amount">850 €</td></tr>
-                            <tr><td class="donation-name">Doris P.</td><td class="donation-amount">683 €</td></tr>
-                            <tr><td class="donation-name">Jacob R.</td><td class="donation-amount">660 €</td></tr>
-                            <tr><td class="donation-name">Simon S.</td><td class="donation-amount">660 €</td></tr>
-                            <tr><td class="donation-name">Vincent S.</td><td class="donation-amount">500 €</td></tr>
-                            <tr><td class="donation-name">Axel F.</td><td class="donation-amount">500 €</td></tr>
-                            <tr><td class="donation-name">Dirk M.</td><td class="donation-amount">500 €</td></tr>
-                        </tbody>
-                        </table>
                     </div>
                 </div>
             </aside>
