@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Athene2\n"
 "POT-Creation-Date: 2018-11-16 07:25+0100\n"
-"PO-Revision-Date: 2018-11-16 07:25+0100\n"
+"PO-Revision-Date: 2018-11-21 15:56+0100\n"
 "Last-Translator: Aeneas Rekkas <aeneas.rekkas@serlo.org>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -1083,7 +1083,7 @@ msgid "Subjects"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:75
-msgid "Stay in touch:"
+msgid "Stay in touch"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:83
