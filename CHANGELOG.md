@@ -6,11 +6,23 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 
-- New donation page using twingle
+- New donation page using twingle ([#810](https://github.com/serlo-org/athene2/pull/810))
+
+### Changed
+
+- Build markdown service from `src/athene2-editor-server` and use Node v10 ([#809](https://github.com/serlo-org/athene2/pull/809))
+
+### Removed
+
+- Remove remaining Vagrant files ([#810](https://github.com/serlo-org/athene2/pull/810))
 
 ### Fixed
 
-- Handle `ggt/{id}` links correctly
+- Handle `ggt/{id}` links correctly ([#806](https://github.com/serlo-org/athene2/pull/806))
+
+### Breaking Changes
+
+- Production server needs Node v10
 
 ## [Build 3] - 2018-11-16
 
@@ -33,7 +45,7 @@ All notable changes to this project will be documented in this file. The format 
 - Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
 - Rename `*.php.dist` files to `*.dist.php` for better IDE support ([#801](https://github.com/serlo-org/athene2/pull/801))
-- Improve performance of Docker Volumnes on macOS ([#801](https://github.com/serlo-org/athene2/pull/801))
+- Improve performance of Docker Volumes on macOS ([#801](https://github.com/serlo-org/athene2/pull/801))
 
 ### Removed
 

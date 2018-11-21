@@ -13,13 +13,11 @@ sh build.sh
 
 pm2 stop server
 pm2 delete server
-cd ../src/assets/athene2-editor
-npm update
-bower update
-grunt build
-pm2 start server/server.js
+cd ../src/athene2-editor-server
+npm install
+pm2 start src/index.js
 
-cd ../../
+cd ..
 
 pm2 status
 
