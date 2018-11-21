@@ -37,7 +37,7 @@ $ cd athene2
 
 ### Bootstrapping the project
 
-On Linux or macOS, just open a terminal and run the following commands. If you are on Windows, run the following in *Bash on Windows*:
+On Linux or macOS, just open a terminal and run the following commands. If you are on Windows, run the following in _Bash on Windows_:
 
 ```sh
 # Copy some config files
@@ -169,7 +169,7 @@ Changes to the assets will automatically reload the browser.
 
 #### `yarn` fails
 
-If you got simmilar errors, ..
+If you got similar errors, ..
 
 ```sh
 $ yarn install v1.12.3
@@ -187,7 +187,7 @@ $ node -v
 $ npm -v
 ```
 
-Open *package.json* and make sure the values you got from running the two commands above match with the versions of `node` and `npm` on the document.
+Open _package.json_ and make sure the values you got from running the two commands above match with the versions of `node` and `npm` on the document.
 
 ## Further resources
 
