@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+### Added
+
+- New donation page using twingle
+
 ### Fixed
 
 - Handle `ggt/{id}` links correctly
