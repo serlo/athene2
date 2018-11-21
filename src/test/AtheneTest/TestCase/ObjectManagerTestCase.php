@@ -22,13 +22,11 @@
  */
 namespace AtheneTest\TestCase;
 
-use PHPUnit\Framework\TestCase;
-
-class ObjectManagerTestCase extends TestCase
+class ObjectManagerTestCase extends \PHPUnit_Framework_TestCase
 {
     final protected function mockEntityManager()
     {
-        return $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
+        return $this->createMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
     }
 
     final protected function mockEntityRepository()

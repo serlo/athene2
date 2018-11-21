@@ -20,15 +20,25 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace AtheneTest\TestCase;
 
-use PHPUnit\Framework\TestCase;
-
-abstract class Model extends TestCase
+/**
+ * abstract class for auto-testing getter and setter methods.
+ *
+ * usage: extend this class, override getData() and call setObject($objectToTest) in your PHPUnit setUp() method;
+ *
+ * All get- and set-methods specified via getData() will be tested automatically.
+ *
+ * @package AtheneTest\TestCase
+ */
+abstract class AbstractGetterSetterTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @return array
+     * example: for auto testing getTitle() and setTitle($title) return array("title" => "title")
+     *
+     * @return array data for get- and set-methods (key: name of get/set-method, value: value)
      */
     abstract protected function getData();
 
@@ -44,30 +54,30 @@ abstract class Model extends TestCase
     }
 
     /**
-     * @param mixed $reference
+     * @param mixed $objectToTest
      * @return $this
      */
-    protected function setObject($object)
+    protected function setObject($objectToTest)
     {
-        $this->object = $object;
+        $this->object = $objectToTest;
         return $this;
     }
 
+
     protected function inject()
     {
-        if (! is_array($this->data)) {
+        if (!is_array($this->data)) {
             $this->data = $this->getData();
         }
 
         foreach ($this->data as $key => $value) {
             $method = 'set' . ucfirst($key);
-            if (method_exists($this->getObject(), $method)) {
-                $this->assertSame($this->getObject(), $this->getObject()
-                    ->$method($value));
-            }
+            $this->assertSame($this->getObject(), $this->getObject()
+                ->$method($value));
         }
         return $this;
     }
+
 
     public function testSetter()
     {
@@ -81,12 +91,10 @@ abstract class Model extends TestCase
         $this->inject();
         foreach ($this->data as $key => $value) {
             $method = 'get' . ucfirst($key);
-            if (method_exists($object, $method)) {
-                if (is_object($object->$method())) {
-                    $this->assertSame($value, $object->$method(), $method);
-                } else {
-                    $this->assertEquals($value, $object->$method(), $method);
-                }
+            if (is_object($object->$method())) {
+                $this->assertSame($value, $object->$method(), $method);
+            } else {
+                $this->assertEquals($value, $object->$method(), $method);
             }
         }
     }

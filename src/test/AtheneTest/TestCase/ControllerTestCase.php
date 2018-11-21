@@ -32,8 +32,8 @@ abstract class ControllerTestCase extends ObjectManagerTestCase
 
     protected function prepareLanguageFromRequest($id, $code)
     {
-        $languageManagerMock = $this->getMock('Language\Manager\LanguageManager');
-        $languageServiceMock = $this->getMock('Language\Service\LanguageService');
+        $languageManagerMock = $this->createMock('Language\Manager\LanguageManager');
+        $languageServiceMock = $this->createMock('Language\Service\LanguageService');
 
         $languageManagerMock->expects($this->atLeastOnce())
             ->method('getLanguageFromRequest')
@@ -56,7 +56,7 @@ abstract class ControllerTestCase extends ObjectManagerTestCase
             return $this->controller->getPluginManager();
         }
 
-        $pluginManager = $this->getMock('Zend\Mvc\Controller\PluginManager');
+        $pluginManager = $this->createMock('Zend\Mvc\Controller\PluginManager');
         $this->controller->setPluginManager($pluginManager);
 
         return $pluginManager;

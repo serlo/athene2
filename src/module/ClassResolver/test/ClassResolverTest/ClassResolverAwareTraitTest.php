@@ -23,9 +23,8 @@
 namespace ClassResolverTest;
 
 use ClassResolverTest\Fake\ClassResolverAware;
-use PHPUnit\Framework\TestCase;
 
-class ClassResolverAwareTraitTest extends TestCase
+class ClassResolverAwareTraitTest extends \PHPUnit_Framework_TestCase
 {
     protected $trait;
 
@@ -36,7 +35,7 @@ class ClassResolverAwareTraitTest extends TestCase
 
     public function testSetGet()
     {
-        $mock = $this->getMock('ClassResolver\ClassResolver');
+        $mock = $this->createMock('ClassResolver\ClassResolver');
         $this->trait->setClassResolver($mock);
         $this->assertSame($mock, $this->trait->getClassResolver());
     }

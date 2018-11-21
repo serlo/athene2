@@ -36,6 +36,7 @@ class Bootstrap
 {
     protected static $serviceManager;
 
+
     protected static $application;
 
     public static function getApplication()

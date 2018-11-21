@@ -45,7 +45,7 @@ abstract class ManagerTest extends ObjectManagerTestCase
 
     final protected function mockEntity($className, $id)
     {
-        $entity = $this->getMock($className);
+        $entity = $this->createMock($className);
         $entity->expects($this->any())
             ->method('getId')
             ->will($this->returnValue(1));
@@ -70,7 +70,7 @@ abstract class ManagerTest extends ObjectManagerTestCase
     final protected function prepareServiceLocator($inject = true)
     {
         if (! $this->serviceLocator) {
-            $this->serviceLocator = $this->getMock('Zend\ServiceManager\ServiceManager');
+            $this->serviceLocator = $this->createMock('Zend\ServiceManager\ServiceManager');
         }
 
         if ($inject) {
