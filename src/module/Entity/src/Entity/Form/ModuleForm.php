@@ -51,6 +51,8 @@ class ModuleForm extends Form
                 'plain control'
             )
         );
+
+        $this->add(new Element\MetaDescription());
         $this->add(new AgreementFieldset($license));
         $this->add(new Controls());
 
