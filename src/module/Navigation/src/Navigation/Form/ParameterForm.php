@@ -37,7 +37,7 @@ class ParameterForm extends Form
     public function __construct(EntityManager $entityManager, NavigationManagerInterface $navigationManager)
     {
         parent::__construct('parameter');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $hydrator = new ObjectHydrator($entityManager);
         $filter   = new InputFilter();

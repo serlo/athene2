@@ -37,7 +37,7 @@ class CreatePostForm extends Form
     public function __construct(ObjectManager $objectManager, HydratorPluginAwareDoctrineObject $hydrator)
     {
         parent::__construct('post');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

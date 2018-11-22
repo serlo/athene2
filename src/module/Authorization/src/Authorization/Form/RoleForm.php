@@ -35,7 +35,7 @@ class RoleForm extends Form
     public function __construct(ObjectManager $objectManager)
     {
         parent::__construct('role');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $inputFilter = new InputFilter();
 

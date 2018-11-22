@@ -36,7 +36,7 @@ class RevisionForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('createRepository');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $filter = new InputFilter();
 

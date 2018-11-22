@@ -33,7 +33,7 @@ class LostPassword extends Form
     public function __construct()
     {
         parent::__construct('lost-password');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

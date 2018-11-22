@@ -36,7 +36,7 @@ class ContainerForm extends Form
     public function __construct(EntityManager $entityManager, NavigationManagerInterface $navigationManager)
     {
         parent::__construct('container');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $hydrator = new ObjectHydrator($entityManager);
         $filter   = new InputFilter();

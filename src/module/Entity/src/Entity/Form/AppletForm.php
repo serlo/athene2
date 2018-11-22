@@ -38,7 +38,7 @@ class AppletForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('applet');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

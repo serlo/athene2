@@ -35,7 +35,7 @@ class CommentForm extends AbstractForm
     public function __construct(ObjectManager $objectManager)
     {
         parent::__construct('comment');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
         $hydrator    = new DoctrineObject($objectManager);
         $inputFilter = new InputFilter('comment');
 
