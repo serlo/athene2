@@ -23,11 +23,11 @@
 namespace Page\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
 use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Submit;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
@@ -47,8 +47,8 @@ class RevisionForm extends Form
 
         $this->add(new Title());
 
-        $textarea = new Textarea('content');
-        $textarea->setLabel('Content:')->setAttribute('required', 'required')->setAttribute('id', 'content');
+        $textarea = new EditorState('content');
+        $textarea->setLabel('Content:');
         $this->add($textarea);
 
         $this->add(new AgreementFieldset($license));

@@ -23,10 +23,10 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
 use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Element\Url;
 use Zend\Form\Form;
@@ -44,10 +44,10 @@ class VideoForm extends Form
         $this->setAttribute('class', 'clearfix');
 
         $this->add(new Title());
-        $this->add((new Textarea('description'))->setAttribute('id', 'description')->setLabel('Description:'));
+        $this->add((new EditorState('description'))->setLabel('Description:'));
         $this->add((new Url('content'))->setAttribute('id', 'content')->setLabel('Video url:'));
         $this->add(
-            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')->setAttribute('class', 'meta')
+            (new EditorState('reasoning'))->setLabel('Reasoning:')->setAttribute('class', 'meta')
         );
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
@@ -81,7 +81,6 @@ class VideoForm extends Form
                 ],
             ]
         );
-        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }

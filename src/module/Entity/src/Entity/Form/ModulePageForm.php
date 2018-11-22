@@ -23,11 +23,11 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
 use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Select;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
@@ -53,7 +53,7 @@ class ModulePageForm extends Form
         ));
         $select->setAttribute('class', 'meta');
         $this->add($select);
-        $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
+        $this->add((new EditorState('content'))->setLabel('Content:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',

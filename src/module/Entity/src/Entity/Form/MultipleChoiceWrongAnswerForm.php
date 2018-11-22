@@ -23,6 +23,7 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Textarea;
@@ -39,8 +40,8 @@ class MultipleChoiceWrongAnswerForm extends Form
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
-        $this->add((new Textarea('feedback'))->setAttribute('id', 'feedback')->setLabel('Feedback:'));
+        $this->add((new EditorState('content'))->setLabel('Content:'));
+        $this->add((new EditorState('feedback'))->setLabel('Feedback:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
@@ -52,7 +53,6 @@ class MultipleChoiceWrongAnswerForm extends Form
 
         $inputFilter = new InputFilter('multiple-choice-answer');
         $inputFilter->add(['name' => 'content', 'required' => true]);
-        $inputFilter->add(['name' => 'feedback', 'required' => false]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }

@@ -24,10 +24,10 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
 use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Element\Url;
 use Zend\Form\Form;
@@ -46,10 +46,8 @@ class AppletForm extends Form
 
         $this->add(new Title());
         $this->add((new Url('url'))->setAttribute('id', 'url')->setLabel('Applet Url:'));
-        $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Description:'));
-        $this->add(
-            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')
-        );
+        $this->add((new EditorState('content'))->setLabel('Description:'));
+        $this->add((new EditorState('reasoning'))->setLabel('Reasoning:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
@@ -84,8 +82,7 @@ class AppletForm extends Form
                 ],
             ]
         );
-        $inputFilter->add(['name' => 'content', 'required' => false]);
-        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }
