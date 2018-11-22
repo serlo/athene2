@@ -23,6 +23,7 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Text;
@@ -40,7 +41,7 @@ class ArticleForm extends Form
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
+        $this->add(new Title());
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
         $this->add(
             (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')->setAttribute('class', 'meta')
@@ -57,7 +58,6 @@ class ArticleForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('article');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);

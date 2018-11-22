@@ -23,6 +23,7 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Text;
@@ -42,7 +43,7 @@ class VideoForm extends Form
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
+        $this->add(new Title());
         $this->add((new Textarea('description'))->setAttribute('id', 'description')->setLabel('Description:'));
         $this->add((new Url('content'))->setAttribute('id', 'content')->setLabel('Video url:'));
         $this->add(
@@ -58,7 +59,6 @@ class VideoForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('video');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(
             [
                 'name'       => 'content',

@@ -20,20 +20,19 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Entity\Form\Element;
+namespace Common\Form\Element;
 
 use Zend\Form\Element\Text;
 use Zend\InputFilter\InputFilterProviderInterface;
 
-class MetaTitle extends Text implements InputFilterProviderInterface
+class Title extends Text implements InputFilterProviderInterface
 {
     public function __construct()
     {
-        parent::__construct('meta_title');
+        parent::__construct('title');
 
-        $this->setAttribute('id', 'meta_title');
-        $this->setLabel('Search Engine Title:');
-        $this->setAttribute('class', 'meta');
+        $this->setAttribute('id', 'title');
+        $this->setLabel('Title:');
     }
 
     /**
@@ -46,7 +45,7 @@ class MetaTitle extends Text implements InputFilterProviderInterface
     {
         return [
             'name' => $this->getName(),
-            'required' => false,
+            'required' => true,
             'filters' => [
               ['name' => 'StripTags'],
             ],

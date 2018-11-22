@@ -24,6 +24,7 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Text;
@@ -43,7 +44,7 @@ class AppletForm extends Form
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
+        $this->add(new Title());
         $this->add((new Url('url'))->setAttribute('id', 'url')->setLabel('Applet Url:'));
         $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Description:'));
         $this->add(
@@ -61,7 +62,6 @@ class AppletForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('applet');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(
             [
                 'name'       => 'url',

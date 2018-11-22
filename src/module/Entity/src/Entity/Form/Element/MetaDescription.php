@@ -23,7 +23,6 @@
 namespace Entity\Form\Element;
 
 use Zend\Form\Element\Text;
-use Zend\Form\Element\Textarea;
 use Zend\InputFilter\InputFilterProviderInterface;
 
 class MetaDescription extends Text implements InputFilterProviderInterface

@@ -23,6 +23,7 @@
 namespace Page\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Submit;
@@ -44,9 +45,7 @@ class RevisionForm extends Form
         $this->setAttribute('class', 'form-horizontal');
         $this->setInputFilter($filter);
 
-        $text = new Text('title');
-        $text->setLabel('Title:')->setAttribute('required', 'required')->setAttribute('id', 'title');
-        $this->add($text);
+        $this->add(new Title());
 
         $textarea = new Textarea('content');
         $textarea->setLabel('Content:')->setAttribute('required', 'required')->setAttribute('id', 'content');
@@ -58,7 +57,6 @@ class RevisionForm extends Form
         $submit->setValue('Save')->setAttribute('class', 'btn btn-success pull-right');
         $this->add($submit);
 
-        $filter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $filter->add(['name' => 'content', 'required' => true]);
 
         $this->setInputFilter($filter);
