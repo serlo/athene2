@@ -9,7 +9,7 @@ matrix:
         - composer install --dev --prefer-dist
       script:
         - sh bin/build.sh
-        - phpunit
+        - ./src/vendor/bin/phpunit
     - language: node_js
       node_js: 10
       cache: yarn
