@@ -167,6 +167,11 @@ class EntityAdapter extends AbstractAdapter
 
         $type = $this->getType();
         $typeName = $this->getTranslator()->translate($type);
+
+        if ($type === 'applet') {
+            $typeName = $this->getTranslator()->translate('applet');
+        }
+
         if ($type === 'course-page') {
             $typeName = $this->getTranslator()->translate('course');
         }
