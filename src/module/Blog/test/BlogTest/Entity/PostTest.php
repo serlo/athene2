@@ -19,7 +19,7 @@ class PostTest extends AbstractGetterSetterTest
     protected function getData()
     {
         return array(
-            "authora" => $this->createMock("User\Entity\UserInterface"),
+            "author" => $this->createMock("User\Entity\UserInterface"),
             "blog" => $this->createMock("Taxonomy\Entity\TaxonomyTermInterface"),
             "title" => "title",
             "content" => "content",
