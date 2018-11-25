@@ -20,13 +20,32 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Newsletter;
+namespace Log\Factory;
 
-return [
-    'service_manager' => [
-        'factories' => [
-            __NAMESPACE__ . '\MailChimp'                       => __NAMESPACE__ . '\Factory\MailChimpFactory',
-            __NAMESPACE__ . '\Listener\UserControllerListener' => __NAMESPACE__ . '\Factory\UserControllerListenerFactory',
-        ],
-    ],
-];
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+class SentryFactory implements FactoryInterface
+{
+    /**
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return Raven_Client
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $config = $serviceLocator->get('Config')['sentry_options'];
+        $client = new \Raven_Client(
+            // Deactive sentry if no DSN is given
+            isset($config['dsn']) ? $config['dsn'] : null,
+            array(
+                'tags' => array(
+                    'php_version' => phpversion(),
+                ),
+            )
+        );
+
+        $client->install();
+
+        return $client;
+    }
+}
