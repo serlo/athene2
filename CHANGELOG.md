@@ -5,13 +5,15 @@ All notable changes to this project will be documented in this file. The format 
 ## [Unreleased]
 
 ### Fixed
-- add share option to exercises ([#815](https://github.com/serlo-org/athene2/pull/815))
+
+- Add share option to exercises ([#815](https://github.com/serlo-org/athene2/pull/815))
 
 ## [Build 4] - 2018-11-22
 
 ### Added
 
 - New donation page using twingle ([#810](https://github.com/serlo-org/athene2/pull/810))
+- Add meta title to courses (([#814](https://github.com/serlo-org/athene2/pull/814)))
 
 ### Changed
 
