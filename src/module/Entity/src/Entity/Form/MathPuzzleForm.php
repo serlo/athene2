@@ -23,6 +23,7 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Textarea;
@@ -34,12 +35,12 @@ class MathPuzzleForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('math-puzzle');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
+        $this->add((new EditorState('content'))->setLabel('Content:'));
         $this->add(
             (new Textarea('source'))->setAttribute('id', 'source')->setLabel('Source code:')->setAttribute(
                 'class',

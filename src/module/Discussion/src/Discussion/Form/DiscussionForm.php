@@ -36,7 +36,7 @@ class DiscussionForm extends AbstractForm
     public function __construct(HydratorPluginAwareDoctrineObject $hydrator, ObjectManager $objectManager)
     {
         parent::__construct('discussion');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
         $inputFilter = new InputFilter('discussion');
 
         $this->setInputFilter($inputFilter);

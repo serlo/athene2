@@ -33,7 +33,7 @@ class AttachmentForm extends Form implements AttachmentFieldsetProvider
     public function __construct()
     {
         parent::__construct('upload');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $filter = new InputFilter();
 

@@ -31,7 +31,7 @@ class MoveForm extends Form
     public function __construct()
     {
         parent::__construct('move');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $filter = new InputFilter();

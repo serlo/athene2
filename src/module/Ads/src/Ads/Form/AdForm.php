@@ -38,7 +38,7 @@ class AdForm extends Form implements AttachmentFieldsetProvider
     public function __construct()
     {
         parent::__construct('createAd');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('class', 'clearfix');
         $this->setAttribute('method', 'post');

@@ -23,10 +23,11 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
+use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Select;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
@@ -36,12 +37,12 @@ class ModulePageForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('course-page');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
+        $this->add(new Title());
         $select = new Select('icon');
         $select->setLabel('Select an icon');
         $select->setAttribute('id', 'icon');
@@ -52,7 +53,7 @@ class ModulePageForm extends Form
         ));
         $select->setAttribute('class', 'meta');
         $this->add($select);
-        $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Content:'));
+        $this->add((new EditorState('content'))->setLabel('Content:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
@@ -63,7 +64,6 @@ class ModulePageForm extends Form
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('course-page');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);

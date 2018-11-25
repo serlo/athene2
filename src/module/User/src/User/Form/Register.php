@@ -37,7 +37,7 @@ class Register extends Form
     public function __construct(EntityManager $entityManager, Translator $translator)
     {
         parent::__construct('signUp');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

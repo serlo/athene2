@@ -40,7 +40,7 @@ class RepositoryForm extends Form
     public function __construct(ObjectManager $objectManager, PageRepositoryInterface $pageRepository, TaxonomyManagerInterface $taxonomyManager)
     {
         parent::__construct('createPage');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $hydrator = new DoctrineObject($objectManager);
         $filter   = new InputFilter();

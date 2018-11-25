@@ -34,7 +34,7 @@ class SettingsForm extends Form
     public function __construct($entityManager, $dontValidate = false)
     {
         parent::__construct('settings');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
