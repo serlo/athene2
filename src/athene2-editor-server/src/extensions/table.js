@@ -1,3 +1,25 @@
+/**
+ * This file is part of Athene2 Assets.
+ *
+ * Copyright (c) 2017-2018 Serlo Education e.V.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link      https://github.com/serlo-org/athene2-assets for the canonical source repository
+ */
+/* global define */
 /*
  * Basic table support with re-entrant parsing, where cell content
  * can also specify markdown.
@@ -11,38 +33,48 @@
  * | Plain   | Value                                              |
  *
  */
-var table = function(converter) {
-  var tables = {},
-    style = 'text-align:left;',
-    filter
+var table = function() {
+  var tables = {}
+  var style = 'text-align:left;'
+  var filter
+  var callbackConverter
+
   tables.th = function(header) {
-    return '<th style="' + style + '">' + converter.makeHtml(header) + '</th>'
+    return (
+      '<th style="' +
+      style +
+      '">' +
+      callbackConverter.makeHtml(header) +
+      '</th>'
+    )
   }
   tables.td = function(cell) {
-    return '<td style="' + style + '">' + converter.makeHtml(cell) + '</td>'
+    return (
+      '<td style="' + style + '">' + callbackConverter.makeHtml(cell) + '</td>'
+    )
   }
   tables.ths = function() {
-    var out = '',
-      i = 0,
-      hs = [].slice.apply(arguments)
+    var out = ''
+    var i = 0
+    var hs = [].slice.apply(arguments)
+
     for (i; i < hs.length; i += 1) {
       out += tables.th(hs[i]) + '\n'
     }
     return out
   }
   tables.tds = function() {
-    var out = '',
-      i = 0,
-      ds = [].slice.apply(arguments)
+    var out = ''
+    var i = 0
+    var ds = [].slice.apply(arguments)
     for (i; i < ds.length; i += 1) {
       out += tables.td(ds[i]) + '\n'
     }
     return out
   }
   tables.thead = function() {
-    var out,
-      i = 0,
-      hs = [].slice.apply(arguments)
+    var out
+    var hs = [].slice.apply(arguments)
     out = '<thead>\n'
     out += '<tr>\n'
     out += tables.ths.apply(this, hs)
@@ -51,22 +83,22 @@ var table = function(converter) {
     return out
   }
   tables.tr = function() {
-    var out,
-      i = 0,
-      cs = [].slice.apply(arguments)
+    var out
+    var cs = [].slice.apply(arguments)
     out = '<tr>\n'
     out += tables.tds.apply(this, cs)
     out += '</tr>\n'
     return out
   }
-  filter = function(text) {
-    var i = 0,
-      lines = text.split('\n'),
-      tbl = [],
-      line,
-      hs,
-      rows,
-      out = []
+  filter = function(text, converter) {
+    var i = 0
+    var lines = text.split('\n')
+    var tbl = []
+    var line
+    var hs
+    var out = []
+    callbackConverter = converter
+
     for (i; i < lines.length; i += 1) {
       line = lines[i]
       // looks like a table heading

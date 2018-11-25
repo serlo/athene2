@@ -11,8 +11,8 @@ git submodule update --init --recursive
 sh templatemap_generator.sh
 sh build.sh
 
-pm2 stop server
-pm2 delete server
+pm2 stop index
+pm2 delete index
 cd ../src/athene2-editor-server
 npm install
 pm2 start src/index.js
