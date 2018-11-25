@@ -186,8 +186,7 @@ class EntityAdapter extends AbstractAdapter
             $parent = $this->getObject()->getParents('link')->first();
             $parentAdapter = new EntityAdapter();
             $parentAdapter->setTranslator($this->translator);
-            $parentAdapter->normalize($parent);
-            $parentTitle = $parentAdapter->getTitle();
+            $parentTitle = $parentAdapter->normalize($parent)->getTitle();
             $title = $parentTitle . " | " . $title;
         }
 
@@ -213,8 +212,7 @@ class EntityAdapter extends AbstractAdapter
             $parent = $this->getObject()->getParents('link')->first();
             $parentAdapter = new EntityAdapter();
             $parentAdapter->setTranslator($this->translator);
-            $parentAdapter->normalize($parent);
-            $description = $parentAdapter->getMetaDescription();
+            $description = $parentAdapter->normalize($parent)->getMetaData()->getMetaDescription();
         }
 
         return $description;
