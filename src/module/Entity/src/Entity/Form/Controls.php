@@ -25,9 +25,8 @@ namespace Entity\Form;
 use Notification\Form\OptInFieldset;
 use Zend\Form\Element\Submit;
 use Zend\Form\Fieldset;
-use Zend\InputFilter\InputFilterProviderInterface;
 
-class Controls extends Fieldset implements InputFilterProviderInterface
+class Controls extends Fieldset
 {
     public function __construct()
     {
@@ -38,10 +37,5 @@ class Controls extends Fieldset implements InputFilterProviderInterface
         $this->add(
             (new Submit('submit'))->setValue('Save')->setAttribute('class', 'btn btn-success pull-right')
         );
-    }
-
-    public function getInputFilterSpecification()
-    {
-        return [];
     }
 }

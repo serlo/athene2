@@ -35,7 +35,7 @@ class PageForm extends Form
     public function __construct(EntityManager $entityManager)
     {
         parent::__construct('pageForm');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $filter   = new InputFilter();
         $hydrator = new ObjectHydrator($entityManager);

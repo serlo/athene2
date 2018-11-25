@@ -20,34 +20,35 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace User\Form;
+namespace Common\Form\Element;
 
-use Common\Form\Element\CsrfToken;
-use Zend\Form\Element\Email;
-use Zend\Form\Element\Submit;
-use Zend\Form\Form;
-use Zend\InputFilter\InputFilter;
+use Zend\Form\Element\Text;
+use Zend\InputFilter\InputFilterProviderInterface;
 
-class SelectUserForm extends Form
+class Title extends Text implements InputFilterProviderInterface
 {
     public function __construct()
     {
-        parent::__construct('select-user');
-        $this->add(new CsrfToken());
+        parent::__construct('title');
 
-        $this->setAttribute('method', 'post');
-        $this->setAttribute('class', 'clearfix');
-        $filter = new InputFilter();
-        $this->setInputFilter($filter);
+        $this->setAttribute('id', 'title');
+        $this->setLabel('Title:');
+    }
 
-        $this->add((new Email('email'))->setLabel('Email:'));
-
-        $this->add((new Submit('submit'))->setValue('Restore')
-            ->setAttribute('class', 'btn btn-success pull-right'));
-
-        $filter->add([
-            'name' => 'email',
+    /**
+     * Should return an array specification compatible with
+     * {@link Zend\InputFilter\Factory::createInputFilter()}.
+     *
+     * @return array
+     */
+    public function getInputFilterSpecification()
+    {
+        return [
+            'name' => $this->getName(),
             'required' => true,
-        ]);
+            'filters' => [
+              ['name' => 'StripTags'],
+            ],
+        ];
     }
 }

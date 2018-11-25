@@ -35,7 +35,7 @@ class FlagForm extends Form
     public function __construct(Collection $types)
     {
         parent::__construct('context');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

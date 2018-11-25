@@ -28,6 +28,11 @@ use Common\Validator\CsrfValidator;
 
 class CsrfToken extends Csrf
 {
+    public function __construct()
+    {
+        parent::__construct('csrf');
+    }
+
     /**
      * {@inheritDoc}
      */

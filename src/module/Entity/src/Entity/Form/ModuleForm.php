@@ -23,9 +23,10 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
+use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
@@ -35,15 +36,15 @@ class ModuleForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('course');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
-        $this->add((new Textarea('description'))->setAttribute('id', 'description')->setLabel('Description:')->setAttribute('class', 'meta'));
+        $this->add(new Title());
+        $this->add((new EditorState('description'))->setLabel('Description:')->setAttribute('class', 'meta'));
         $this->add(
-            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')->setAttribute('class', 'meta')
+            (new EditorState('reasoning'))->setLabel('Reasoning:')
         );
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
@@ -51,12 +52,12 @@ class ModuleForm extends Form
                 'plain control'
             )
         );
+
+        $this->add(new Element\MetaDescription());
         $this->add(new AgreementFieldset($license));
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('course');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }
