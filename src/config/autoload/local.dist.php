@@ -57,28 +57,28 @@ return [
         'instances' => [
             'deutsch' => [
                 'name' => '<div class="serlo-brand">Serlo</div>',
-                'slogan' => 'Freie Bildung.',
+                'slogan' => 'Die freie Lernplattform',
                 'description' => 'Serlo ist eine kostenlose Plattform mit freien Lernmaterialien, die alle mitgestalten können.',
                 'logo' => '<span class="serlo-logo">V</span>',
                 'head_title' => 'lernen mit Serlo!',
             ],
             'english' => [
                 'name' => '<div class="serlo-brand">Serlo</div>',
-                'slogan' => 'Open Education.',
+                'slogan' => 'The Open Learning Platform',
                 'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
                 'logo' => '<span class="serlo-logo">V</span>',
                 'head_title' => 'learn with Serlo!',
             ],
             'spanish' => [
                 'name' => '<div class="serlo-brand">Serlo</div>',
-                'slogan' => 'The Open Learning Platform',
+                'slogan' => 'La Plataforma para el Aprendizaje Abierto',
                 'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
                 'logo' => '<span class="serlo-logo">V</span>',
                 'head_title' => 'aprender con Serlo!',
             ],
             'hindi' => [
                 'name' => '<div class="serlo-brand">Serlo</div>',
-                'slogan' => 'The Open Learning Platform',
+                'slogan' => 'ओपन लर्निंग प्लेटफॉर्म',
                 'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
                 'logo' => '<span class="serlo-logo">V</span>',
                 'head_title' => 'lernen mit Serlo!',
