@@ -22,32 +22,21 @@
  */
 namespace AtheneTest\TestCase;
 
-abstract class ControllerTestCase extends ObjectManagerTestCase
-{
+use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
+abstract class AbstractControllerTest extends AbstractHttpControllerTestCase
+{
     /**
      * @var \Zend\Mvc\Controller\AbstractActionController
      */
     protected $controller;
 
-    protected function prepareLanguageFromRequest($id, $code)
+    public function setUp()
     {
-        $languageManagerMock = $this->createMock('Language\Manager\LanguageManager');
-        $languageServiceMock = $this->createMock('Language\Service\LanguageService');
-
-        $languageManagerMock->expects($this->atLeastOnce())
-            ->method('getLanguageFromRequest')
-            ->will($this->returnValue($languageServiceMock));
-
-        $languageServiceMock->expects($this->any())
-            ->method('getId')
-            ->will($this->returnValue($id));
-
-        $languageServiceMock->expects($this->any())
-            ->method('getCode')
-            ->will($this->returnValue($code));
-
-        return $languageManagerMock;
+        $this->setApplicationConfig(
+            include __DIR__ . '/../../../config/application.config.php'
+        );
+        parent::setUp();
     }
 
     protected function preparePluginManager()
