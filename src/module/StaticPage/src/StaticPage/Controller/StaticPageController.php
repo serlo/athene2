@@ -32,13 +32,7 @@ class StaticPageController extends AbstractActionController
     {
         $view = new ViewModel();
         $view->setTemplate('static/emptyTemplate');
-        /** @var Cookie $cookie */
-        $cookie = $this->getRequest()->getCookie();
-        if ($cookie && $cookie->offsetExists('twingle')) {
-            $this->layout('static/spendenTwingle');
-        } else {
-            $this->layout('static/spenden');
-        }
+        $this->layout('static/spenden');
         return $view;
     }
 }
