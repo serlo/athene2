@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file. The format 
 - Add share option to exercises ([#815](https://github.com/serlo-org/athene2/pull/815))
 - Add Sentry to monitor PHP runtime errors ([#816](https://github.com/serlo-org/athene2/pull/816))
 
+### Fixed
+
+- Display fields in compare view correctly ([#820](https://github.com/serlo-org/athene2/pull/820))
+
 ## [Build 4] - 2018-11-22
 
 ### Added
