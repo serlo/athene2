@@ -30,9 +30,10 @@
 <article class="panel-group">
     <div class="clearfix">
     </div>
-    {% if compareRevision and revision is not sameas(compareRevision) %}
+{% if compareRevision and revision is not sameas(compareRevision) %}
         {% for field in revision.getFields() %}
             {% set fieldIsOry = isOryEditorFormat(field.getValue()) %}
+            {% set compareFieldIsOry = isOryEditorFormat(compareRevision.get(field.getName())) %}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <ul class="nav nav-pills pull-right">
@@ -49,14 +50,32 @@
                             {% if oldField %}
                                 {{ diff().markdown(oldField, field.getValue()) }}
                             {% else %}
-                                {{ (fieldIsOry ? oryRenderer() : markdown()).toHtml(field.getValue()) }}
+                                {% if fieldIsOry %}
+                                    <div class="editable" data-edit-type="ory">
+                                        {{ oryRenderer().toHtml(field.getValue()) }}
+                                    </div>
+                                {% else %}
+                                    {{ markdown().toHtml(field.getValue()) }}
+                                {% endif %}
                             {% endif %}
                         </div>
                         <div class="tab-pane fade" id="old{{ field.getName() }}">
-                            {{ (fieldIsOry ? oryRenderer() : markdown()).toHtml(compareRevision.get(field.getName())) }}
+                            {% if compareFieldIsOry %}
+                                <div class="editable" data-edit-type="ory">
+                                    {{ oryRenderer().toHtml(compareRevision.get(field.getName())) }}
+                                </div>
+                            {% else %}
+                                {{ markdown().toHtml(compareRevision.get(field.getName())) }}
+                            {% endif %}
                         </div>
                         <div class="tab-pane fade in active" id="preview{{ field.getName() }}">
-                            {{ (fieldIsOry ? oryRenderer() : markdown()).toHtml(field.getValue()) }}
+                            {% if fieldIsOry %}
+                                <div class="editable" data-edit-type="ory">
+                                    {{ oryRenderer().toHtml(field.getValue()) }}
+                                </div>
+                            {% else %}
+                                {{ markdown().toHtml(field.getValue()) }}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
