@@ -112,6 +112,7 @@ $ docker-compose up --build
 ```
 
 **Hint:** If you've updated your local code repository with `git pull`, it could be necessary to update all PHP dependencies again, before running `docker-compose up --build`:
+
 ```sh
 # Update PHP dependencies
 $ php composer.phar install
