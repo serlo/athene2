@@ -24,7 +24,12 @@ namespace AtheneTest\TestCase;
 
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-abstract class AbstractControllerTest extends AbstractHttpControllerTestCase
+/**
+ * TODO please implement me if needed
+ *
+ * @package AtheneTest\TestCase
+ */
+abstract class AbstractControllerTestCase extends AbstractHttpControllerTestCase
 {
     /**
      * @var \Zend\Mvc\Controller\AbstractActionController
@@ -33,9 +38,10 @@ abstract class AbstractControllerTest extends AbstractHttpControllerTestCase
 
     public function setUp()
     {
-        $this->setApplicationConfig(
-            include __DIR__ . '/../../../config/application.config.php'
-        );
+//        $this->setApplicationConfig(
+//            include __DIR__ . '/../../../config/application.config.php'
+//        );
+
         parent::setUp();
     }
 

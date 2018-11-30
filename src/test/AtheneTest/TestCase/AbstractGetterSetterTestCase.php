@@ -32,7 +32,7 @@ namespace AtheneTest\TestCase;
  *
  * @package AtheneTest\TestCase
  */
-abstract class AbstractGetterSetterTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractGetterSetterTestCase extends \PHPUnit_Framework_TestCase
 {
 
     /**

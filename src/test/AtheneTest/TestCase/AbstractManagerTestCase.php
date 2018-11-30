@@ -24,7 +24,7 @@ namespace AtheneTest\TestCase;
 
 use ClassResolver\ClassResolver;
 
-abstract class ManagerTest extends ObjectManagerTestCase
+abstract class AbstractManagerTestCase extends ObjectManagerTestCase
 {
     protected $manager;
 

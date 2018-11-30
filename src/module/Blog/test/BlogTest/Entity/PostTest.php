@@ -1,12 +1,12 @@
 <?php
 namespace BlogTest\Entity;
 
-use AtheneTest\TestCase\AbstractGetterSetterTest;
+use AtheneTest\TestCase\AbstractGetterSetterTestCase;
 use Blog\Entity\Post;
 use DateTime;
 use Exception;
 
-class PostTest extends AbstractGetterSetterTest
+class PostTest extends AbstractGetterSetterTestCase
 {
     private $post;
 
