@@ -22,7 +22,6 @@
  */
 namespace StaticPage\Controller;
 
-use Zend\Http\Header\Cookie;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
