@@ -1,5 +1,7 @@
 FROM httpd:2-alpine
 
-COPY ./httpd.dist.conf /usr/local/apache2/conf/httpd.conf
+RUN sed -i \
+        -e 's/^#\(LoadModule .*mod_rewrite.so\)/\1/' \
+        conf/httpd.conf
 
 EXPOSE 80
