@@ -1,4 +1,3 @@
-
 {##
  # This file is part of Athene2.
  #
@@ -20,12 +19,18 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% set user = normalize().toAnchor(event.getActor()) %}
-{% set discussion %}
-    <a href="{{ normalize().toUrl(event.getObject()) }}">
-        {{ normalize().toPreview(event.getObject()) }}
-    </a>
-{% endset %}
-{% trans %}
-    {{ user }} archived {{ discussion }}
-{% endtrans %}
+{% do placeholder('breadcrumbs').set('<li><span>Aktualisierungen: Datenschutzerklärung</span></li>') %}
+
+<div class="r">
+    <div class="c24">
+        <h2>Aktualisierungen: Datenschutzerklärung</h2>
+
+        <p>In diesem Archiv findest du die vorherigen Fassungen unserer Datenschutzerklärung.</p>
+
+        <ul>
+            {% for revision in revisions %}
+                <li><a href="{{ revision.getUrl() }}">{{ revision.getLabel() }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
