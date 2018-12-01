@@ -28,7 +28,6 @@
     "twig/twig": "=v1.20.0",
     "twig/extensions": "=v1.3.0",
     "google/cloud": "^0.32.1",
-    "roave/security-advisories": "dev-master",
     "drewm/mailchimp-api": "^2.5",
     "sentry/sentry": "^1.10"
   },
