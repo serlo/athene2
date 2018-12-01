@@ -106,9 +106,16 @@ $ npm run build
 # Start the docker-compose cluster.
 # ps: The database import might take some time (1-10 minutes).
 
-# If you are on Windows, run this in regular cmd.exe
+# On Linux or macOS, just run the following command in a terminal. If you are on Windows, run this in regular cmd.exe
 
 $ docker-compose up --build
+```
+
+**Hint:** If you've updated your local code repository with `git pull`, it could be necessary to update all PHP dependencies again, before running `docker-compose up --build`:
+
+```sh
+# Update PHP dependencies
+$ php composer.phar install
 ```
 
 ### Setting up hosts
@@ -126,7 +133,7 @@ restart your browser.
 On macOS:
 
 ```sh
-sudo nano /etc/hosts
+$ sudo nano /etc/hosts
 
 # add lines
 127.0.0.1    de.serlo.localhost
@@ -138,7 +145,7 @@ $ sudo killall -HUP mDNSResponder
 
 Now, open [de.serlo.localhost:4567](de.serlo.localhost:4567). Happy coding!
 
-ps: `de.serlo.localhost:4567` works for me in chrome but not in FireFox. Not sure why, but if it doesn't work try
+PS: `de.serlo.localhost:4567` works for me in Chrome but not in FireFox. Not sure why, but if it doesn't work try
 a different browser.
 
 ## Development
