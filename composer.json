@@ -20,7 +20,6 @@
     "zendframework/zendframework": "=2.4.13",
     "neilime/zf2-twb-bundle": "=2.6.1",
     "zendframework/zend-developer-tools": "=0.0.2",
-    "dnode/dnode": "=v0.2.0",
     "stroker/cache": "=0.3.2",
     "zf-commons/zfc-twig": "=1.2",
     "umpirsky/twig-gettext-extractor": "=1.1.5",
@@ -28,7 +27,6 @@
     "twig/twig": "=v1.20.0",
     "twig/extensions": "=v1.3.0",
     "google/cloud": "^0.32.1",
-    "roave/security-advisories": "dev-master",
     "drewm/mailchimp-api": "^2.5"
   },
   "config": {
