@@ -33,7 +33,7 @@ class CsrfForm extends Form
         parent::__construct($name);
         $this->setAttribute('method', 'post');
 
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->add(
             (new Submit('submit'))->setValue('')->setAttribute('class', 'btn btn-success pull-right')

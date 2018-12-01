@@ -36,7 +36,7 @@ class Login extends Form
     public function __construct(Translator $translator)
     {
         parent::__construct('login');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

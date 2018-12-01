@@ -20,34 +20,32 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace User\Form;
+namespace Log\Factory;
 
-use Common\Form\Element\CsrfToken;
-use Zend\Form\Element\Email;
-use Zend\Form\Element\Submit;
-use Zend\Form\Form;
-use Zend\InputFilter\InputFilter;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class SelectUserForm extends Form
+class SentryFactory implements FactoryInterface
 {
-    public function __construct()
+    /**
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return \Raven_Client
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        parent::__construct('select-user');
-        $this->add(new CsrfToken());
+        $config = $serviceLocator->get('Config')['sentry_options'];
+        $client = new \Raven_Client(
+            // Deactive sentry if no DSN is given
+            isset($config['dsn']) ? $config['dsn'] : null,
+            array(
+                'tags' => array(
+                    'php_version' => phpversion(),
+                ),
+            )
+        );
 
-        $this->setAttribute('method', 'post');
-        $this->setAttribute('class', 'clearfix');
-        $filter = new InputFilter();
-        $this->setInputFilter($filter);
+        $client->install();
 
-        $this->add((new Email('email'))->setLabel('Email:'));
-
-        $this->add((new Submit('submit'))->setValue('Restore')
-            ->setAttribute('class', 'btn btn-success pull-right'));
-
-        $filter->add([
-            'name' => 'email',
-            'required' => true,
-        ]);
+        return $client;
     }
 }

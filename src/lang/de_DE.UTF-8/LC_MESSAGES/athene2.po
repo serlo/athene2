@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
 "POT-Creation-Date: 2018-11-16 07:25+0100\n"
-"PO-Revision-Date: 2018-11-21 15:57+0100\n"
+"PO-Revision-Date: 2018-12-01 19:19+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -2326,11 +2326,11 @@ msgstr "<strong>In unserem Newsletter informieren wir dich einmal im Quartal kom
 
 #: ../module/Ui/templates/user/user/register.twig:120
 msgid "You can revoke your consent to contact you via email at any time by clicking the unsubscribe link in any mailing or send us an email at <a href=\"mailto:de@serlo.org\">de@serlo.org</a>. Your privacy is very important to us. For the processing of our mailing activities we work with MailChimp as a service provider. MailChimp underlies a strict data processing agreement with us that ensures the protection of your data in accordance with the European General Data Protection Regulations. By subscribing to our newsletter you agree with our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and acknowledge that your data will be processed by MailChimp in accordance with their <a href=\"https://mailchimp.com/legal/privacy/\" target=\"_blank\">Privacy Policy</a> and <a href=\"https://mailchimp.com/legal/terms/\" target=\"_blank\">Terms</a>."
-msgstr "Du kannst deine Einwilligung jederzeit zurückziehen, indem du den Abmelden-Link im Footer eines Newsletters klickst, oder per E-Mail an <a href=\"mailto:de@serlo.org\">de@serlo.org</a>. Wir nehmen den Schutz deiner Daten sehr ernst. Für die Abwicklung unserer Emailkommunikation nutzen wir den Drittanbieter MailChimp. Dieser unterliegt einem Auftragsdatenverarbeitungsabkommen mit uns, das den Schutz deiner Daten im Einklang mit der EU-Datenschutzverordnung gewährleistet. Indem du den Newsletter abonnierst, erklärst du dich mit unseren <a href=\"/22964\" target=\"_blank\">Datenschutzrichtlinien</a> einverstanden, und nimmst zur Kenntnis, dass deine Daten von MailChimp im Einklang mit deren <a href=\"https://mailchimp.com/legal/privacy/\" target=\"_blank\">Datenschutzrichtlinen</a> und <a href=\"https://mailchimp.com/legal/terms/\" target=\"_blank\">Nutzungsbedingungen</a> verarbeitet werden."
+msgstr "Du kannst deine Einwilligung jederzeit zurückziehen, indem du den Abmelden-Link im Footer eines Newsletters klickst, oder per E-Mail an <a href=\"mailto:de@serlo.org\">de@serlo.org</a>. Wir nehmen den Schutz deiner Daten sehr ernst. Für die Abwicklung unserer Emailkommunikation nutzen wir den Drittanbieter MailChimp. Dieser unterliegt einem Auftragsdatenverarbeitungsabkommen mit uns, das den Schutz deiner Daten im Einklang mit der EU-Datenschutzverordnung gewährleistet. Indem du den Newsletter abonnierst, erklärst du dich mit unserer <a href=\"/datenschutz\" target=\"_blank\">Datenschutzerklärung</a> einverstanden, und nimmst zur Kenntnis, dass deine Daten von MailChimp im Einklang mit deren <a href=\"https://mailchimp.com/legal/privacy/\" target=\"_blank\">Datenschutzrichtlinen</a> und <a href=\"https://mailchimp.com/legal/terms/\" target=\"_blank\">Nutzungsbedingungen</a> verarbeitet werden."
 
 #: ../module/Ui/templates/user/user/register.twig:128
 msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and <a href=\"/21654\" target=\"_blank\">Terms</a>. You may receive email notifications from us and can opt out at any time."
-msgstr "Indem du auf <em>Registrieren</em> klickst, erklärst du dich mit unseren <a href=\"/22964\" target=\"_blank\">Datenschutzrichtlinien</a> und <a href=\"/21654\" target=\"_blank\">Nutzungsbedingungen</a> einverstanden. Wir schicken dir eventuell Benachrichtigungen per Email, die du jederzeit abbestellen kannst."
+msgstr "Indem du auf <em>Registrieren</em> klickst, erklärst du dich mit unserer <a href=\"/datenschutz\" target=\"_blank\">Datenschutzerklärung</a> und <a href=\"/21654\" target=\"_blank\">Nutzungsbedingungen</a> einverstanden. Wir schicken dir eventuell Benachrichtigungen per Email, die du jederzeit abbestellen kannst."
 
 #: ../module/Ui/templates/user/user/settings.twig:22
 msgid "My settings"

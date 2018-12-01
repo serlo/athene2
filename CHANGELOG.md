@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Build 5] - 2018-12-01
+
+### Added
+
+- Add meta title to courses (([#814](https://github.com/serlo-org/athene2/pull/814)))
+- Add share option to exercises ([#815](https://github.com/serlo-org/athene2/pull/815))
+- Add Sentry to monitor PHP runtime errors ([#816](https://github.com/serlo-org/athene2/pull/816))
+- Add versionized privacy policies ([#821](https://github.com/serlo-org/athene2/pull/821))
+
+### Changed
+
+- Update privacy policy because of switch from Fundraisingbox to twingle ([#821](https://github.com/serlo-org/athene2/pull/821))
+
+### Fixed
+
+- Display fields in compare view correctly ([#820](https://github.com/serlo-org/athene2/pull/820))
+
 ## [Build 4] - 2018-11-22
 
 ### Added
@@ -86,7 +103,8 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo-org/athene2/compare/4...HEAD
+[unreleased]: https://github.com/serlo-org/athene2/compare/5...HEAD
+[build 5]: https://github.com/serlo-org/athene2/compare/4...5
 [build 4]: https://github.com/serlo-org/athene2/compare/3...4
 [build 3]: https://github.com/serlo-org/athene2/compare/2...3
 [build 2]: https://github.com/serlo-org/athene2/compare/e485b49b632799c6011e9ddf0be1efa56325a7ab...2

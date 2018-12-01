@@ -35,7 +35,7 @@ class TermForm extends Form
     public function __construct(TaxonomyTermHydrator $taxonomyTermHydrator)
     {
         parent::__construct('taxonomyTerm');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $filter = new InputFilter();

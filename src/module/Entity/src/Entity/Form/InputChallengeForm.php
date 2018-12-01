@@ -23,6 +23,7 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
 use Zend\Form\Element\Text;
@@ -35,13 +36,13 @@ class InputChallengeForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('input-challenge');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
         $this->add((new Text('solution'))->setAttribute('id', 'solution')->setLabel('Solution:'));
-        $this->add((new Textarea('feedback'))->setAttribute('id', 'feedback')->setLabel('Feedback:'));
+        $this->add((new EditorState('feedback'))->setLabel('Feedback:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
@@ -53,7 +54,6 @@ class InputChallengeForm extends Form
 
         $inputFilter = new InputFilter('input-challenge');
         $inputFilter->add(['name' => 'solution', 'required' => true]);
-        $inputFilter->add(['name' => 'feedback', 'required' => false]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }

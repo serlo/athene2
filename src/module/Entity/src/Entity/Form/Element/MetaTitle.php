@@ -20,25 +20,36 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace StaticPage\Controller;
+namespace Entity\Form\Element;
 
-use Zend\Http\Header\Cookie;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Zend\Form\Element\Text;
+use Zend\InputFilter\InputFilterProviderInterface;
 
-class StaticPageController extends AbstractActionController
+class MetaTitle extends Text implements InputFilterProviderInterface
 {
-    public function spendenAction()
+    public function __construct()
     {
-        $view = new ViewModel();
-        $view->setTemplate('static/emptyTemplate');
-        /** @var Cookie $cookie */
-        $cookie = $this->getRequest()->getCookie();
-        if ($cookie && $cookie->offsetExists('twingle')) {
-            $this->layout('static/spendenTwingle');
-        } else {
-            $this->layout('static/spenden');
-        }
-        return $view;
+        parent::__construct('meta_title');
+
+        $this->setAttribute('id', 'meta_title');
+        $this->setLabel('Search Engine Title:');
+        $this->setAttribute('class', 'meta');
+    }
+
+    /**
+     * Should return an array specification compatible with
+     * {@link Zend\InputFilter\Factory::createInputFilter()}.
+     *
+     * @return array
+     */
+    public function getInputFilterSpecification()
+    {
+        return [
+            'name' => $this->getName(),
+            'required' => false,
+            'filters' => [
+              ['name' => 'StripTags'],
+            ],
+        ];
     }
 }

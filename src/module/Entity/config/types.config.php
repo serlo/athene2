@@ -551,6 +551,7 @@ return [
                             'description',
                             'reasoning',
                             'changes',
+                            'meta_description',
                         ],
                     ],
                     'link' => [
