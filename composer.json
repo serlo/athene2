@@ -15,7 +15,6 @@
   "require": {
     "doctrine/doctrine-orm-module": "=0.9.0",
     "zf-commons/zfc-rbac": "=2.3",
-    "php": ">=5.5",
     "zf-commons/zfc-base": "=0.1.2",
     "zendframework/zendframework": "=2.4.13",
     "neilime/zf2-twb-bundle": "=2.6.1",
@@ -23,7 +22,6 @@
     "stroker/cache": "=0.3.2",
     "zf-commons/zfc-twig": "=1.2",
     "umpirsky/twig-gettext-extractor": "=1.1.5",
-    "ewgo/solarium-module": "=1.0.2",
     "twig/twig": "=v1.20.0",
     "twig/extensions": "=v1.3.0",
     "google/cloud": "^0.32.1",
