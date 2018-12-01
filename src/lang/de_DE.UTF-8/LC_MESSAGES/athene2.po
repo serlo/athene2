@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2018-11-16 07:25+0100\n"
-"PO-Revision-Date: 2018-12-01 19:19+0100\n"
+"POT-Creation-Date: 2018-12-01 20:59+0100\n"
+"PO-Revision-Date: 2018-12-01 21:01+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -206,14 +206,9 @@ msgstr "Das Element konnte nicht entfernt werden. (Validierung fehlgeschlagen)"
 #: ../module/Ads/src/Ads/Form/AdForm.php:47
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:81
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:62
+#: ../module/Common/src/Common/Form/Element/Title.php:35
 #: ../module/Contexter/src/Contexter/Form/ContextForm.php:50
-#: ../module/Entity/src/Entity/Form/AppletForm.php:46
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:43
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:43
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:45
 #: ../module/License/src/License/Form/LicenseForm.php:48
-#: ../module/Page/src/Page/Form/RevisionForm.php:48
 #: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:43
 #: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:44
 #: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:43
@@ -230,20 +225,20 @@ msgstr "URL:"
 #: ../module/Ads/src/Ads/Form/AdForm.php:49
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:82
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:63
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:44
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:42
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:42
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:55
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:42
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:42
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:42
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:42
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:45
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:43
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:43
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:56
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:43
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:43
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:43
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:43
 #: ../module/Flag/src/Flag/Form/FlagForm.php:59
 #: ../module/License/src/License/Form/LicenseForm.php:49
-#: ../module/Page/src/Page/Form/RevisionForm.php:52
+#: ../module/Page/src/Page/Form/RevisionForm.php:51
 msgid "Content:"
 msgstr "Inhalt:"
 
@@ -395,70 +390,68 @@ msgstr "Kommentar abschicken"
 msgid "Your changes have been saved."
 msgstr "Deine Änderungen wurden gespeichert."
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:47
+#: ../module/Entity/src/Entity/Form/AppletForm.php:48
 msgid "Applet Url:"
 msgstr "Applet URL:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:48
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:46
+#: ../module/Entity/src/Entity/Form/AppletForm.php:49
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:45
+#: ../module/Entity/src/Entity/Form/VideoForm.php:47
 msgid "Description:"
 msgstr "Beschreibung:"
 
 #: ../module/Entity/src/Entity/Form/AppletForm.php:50
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:46
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:46
-#: ../module/Entity/src/Entity/Form/VideoForm.php:49
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:47
+#: ../module/Entity/src/Entity/Form/VideoForm.php:50
 msgid "Reasoning:"
 msgstr "Didaktische Überlegungen:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:53
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:49
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:44
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:46
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:50
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:49
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:57
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:44
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:45
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:45
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:44
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:44
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:44
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:52
+#: ../module/Entity/src/Entity/Form/AppletForm.php:52
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:48
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:45
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:47
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:51
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:50
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:58
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:45
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:46
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:46
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:45
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:45
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:45
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:45
+#: ../module/Entity/src/Entity/Form/VideoForm.php:53
 msgid "Changes:"
 msgstr "Änderungen:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:58
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:54
-msgid "Search Engine Title:"
-msgstr "Suchmaschinen-Titel:"
-
-#: ../module/Entity/src/Entity/Form/AppletForm.php:59
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:55
+#: ../module/Entity/src/Entity/Form/Element/MetaDescription.php:35
 msgid "Search Engine Description:"
 msgstr "Suchmaschinen-Beschreibung:"
 
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:43
+#: ../module/Entity/src/Entity/Form/Element/MetaTitle.php:35
+msgid "Search Engine Title:"
+msgstr "Suchmaschinen-Titel:"
+
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:44
 msgid "Solution:"
 msgstr "Lösung:"
 
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:44
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:43
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:45
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:44
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:44
 msgid "Feedback:"
 msgstr "Feedback:"
 
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:44
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:45
 msgid "Source code:"
 msgstr "Quellcode:"
 
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:46
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:47
 msgid "Select an icon"
 msgstr "Wähle ein Symbol"
 
-#: ../module/Entity/src/Entity/Form/VideoForm.php:47
+#: ../module/Entity/src/Entity/Form/VideoForm.php:48
 msgid "Video url:"
 msgstr "Video-URL:"
 
@@ -552,7 +545,11 @@ msgstr "Schlüssel:"
 msgid "Value:"
 msgstr "Wert:"
 
-#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:171
+#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:172
+msgid "applet"
+msgstr "GeoGebra Applet"
+
+#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:176
 msgid "course"
 msgstr "Kurs"
 
@@ -1016,7 +1013,7 @@ msgstr "Meldungen verwalten"
 msgid "#"
 msgstr "#"
 
-#: ../module/Ui/templates/layout/de/serlo-home.phtml:41
+#: ../module/Ui/templates/layout/de/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/en/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/partials/header.phtml:35
 msgid "Toggle navigation"
@@ -1063,7 +1060,7 @@ msgstr "Fächer"
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:75
 msgid "Stay in touch"
-msgstr "Dabei bleiben:"
+msgstr "Dabei bleiben"
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:83
 msgid "Legal terms"
@@ -1611,7 +1608,7 @@ msgstr "Leider konnte das GeoGebra Applet nicht eingebunden werden, da die URL i
 msgid "article"
 msgstr "Artikel"
 
-#: ../module/Ui/templates/entity/view/course-page.twig:24
+#: ../module/Ui/templates/entity/view/course-page.twig:22
 msgid "course-page"
 msgstr "Kursseite"
 
@@ -1849,7 +1846,7 @@ msgstr "Leider konnte das Video nicht eingebunden werden, da diese Platform nich
 msgid "No template found for event %s"
 msgstr "Es wurde kein template für %s gefunden"
 
-#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:29
+#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:30
 #: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:31
 msgid "%user% archived %discussion%"
 msgstr "%user% hat %discussion% archiviert"
