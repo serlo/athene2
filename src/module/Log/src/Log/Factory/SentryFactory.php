@@ -29,7 +29,7 @@ class SentryFactory implements FactoryInterface
 {
     /**
      * @param ServiceLocatorInterface $serviceLocator
-     * @return Raven_Client
+     * @return \Raven_Client
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
