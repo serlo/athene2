@@ -26,48 +26,7 @@ namespace StaticPage\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
-
-class Revision
-{
-    /**
-     * @var string
-     */
-    private $id;
-
-    /**
-     * @var bool
-     */
-    private $current;
-
-
-    public function __construct(string $revision, bool $current)
-    {
-        $this->id = $revision;
-        $this->current = $current;
-    }
-
-    public function isArchived()
-    {
-        return !$this->current;
-    }
-
-    public function getUrl()
-    {
-        return $this->current ? '/datenschutz' : '/datenschutz/archiv/' . $this->id;
-    }
-
-    public function getDate()
-    {
-        $formatter = new \IntlDateFormatter('de_DE', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
-
-        return $formatter->format(new \DateTime($this->id));
-    }
-
-    public function getLabel()
-    {
-        return $this->current ? 'Aktuelle Version' : $this->getDate();
-    }
-}
+use StaticPage\DatenschutzRevision;
 
 class DatenschutzController extends AbstractActionController
 {
@@ -131,7 +90,7 @@ class DatenschutzController extends AbstractActionController
     }
 
     /**
-     * @return Revision[]
+     * @return DatenschutzRevision[]
      */
     private function getHydratedRevisions()
     {
@@ -142,10 +101,10 @@ class DatenschutzController extends AbstractActionController
 
     /**
      * @param string $revision
-     * @return Revision
+     * @return DatenschutzRevision
      */
     private function hydrateRevision(string $revision)
     {
-        return new Revision($revision, $revision === $this->getCurrentRevision());
+        return new DatenschutzRevision($revision, $revision === $this->getCurrentRevision());
     }
 }
