@@ -15,7 +15,7 @@
   "require": {
     "doctrine/doctrine-orm-module": "=0.9.0",
     "zf-commons/zfc-rbac": "=2.3",
-    "php": ">=5.5",
+    "php": ">=7.0",
     "zf-commons/zfc-base": "=0.1.2",
     "zendframework/zendframework": "=2.4.13",
     "neilime/zf2-twb-bundle": "=2.6.1",

@@ -28,8 +28,9 @@
         <p>In diesem Archiv findest du die vorherigen Fassungen unserer Datenschutzerklärung.</p>
 
         <ul>
-            <li><a href="/datenschutz">Aktuelle Version</a></li>
-            <li><a href="/datenschutz/archiv/20181017">17. Oktober 2018</a></li>
+            {% for revision in revisions %}
+                <li><a href="{{ revision.getUrl() }}">{{ revision.getLabel() }}</a></li>
+            {% endfor %}
         </ul>
     </div>
 </div>

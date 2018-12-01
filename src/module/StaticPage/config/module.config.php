@@ -80,6 +80,15 @@ return [
                                     ],
                                 ],
                             ],
+                            'json' => [
+                                'type'         => 'literal',
+                                'options'      => [
+                                    'route' => '/json',
+                                    'defaults' => [
+                                        'action' => 'json',
+                                    ],
+                                ],
+                            ],
                         ],
                     ],
                     'spenden' => [
@@ -95,6 +104,12 @@ return [
                     ],
                 ],
             ],
+        ],
+    ],
+    'datenschutz' => [
+        'revisions' => [
+            '20181201',
+            '20181017',
         ],
     ],
 ];
