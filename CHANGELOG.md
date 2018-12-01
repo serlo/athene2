@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 
-- Add meta title to courses (([#814](https://github.com/serlo-org/athene2/pull/814)))
+- Add meta title to courses ([#814](https://github.com/serlo-org/athene2/pull/814))
 - Add share option to exercises ([#815](https://github.com/serlo-org/athene2/pull/815))
 - Add Sentry to monitor PHP runtime errors ([#816](https://github.com/serlo-org/athene2/pull/816))
 - Add versionized privacy policies ([#821](https://github.com/serlo-org/athene2/pull/821))
@@ -59,7 +59,7 @@ All notable changes to this project will be documented in this file. The format 
 - Make list of unrevised revisions (e.g. https://de.serlo.org/mathe/entity/unrevised) faster ([#790](https://github.com/serlo-org/athene2/pull/790), [#780](https://github.com/serlo-org/athene2/pull/780))
 - Show all unrevised revisions of an entity (and not only the newest one) ([#790](https://github.com/serlo-org/athene2/pull/790))
 - Show a subject-specific Open Graph meta image (e.g. for Facebook previews) ([#678](https://github.com/serlo-org/athene2/pull/678))
-- Expose a tenant-spefiic Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
+- Expose a tenant-specific Open Search description file ([#678](https://github.com/serlo-org/athene2/pull/678))
 - Link to new "Nachhaltigkeit" starting page ([#796](https://github.com/serlo-org/athene2/pull/796))
 - Rename `*.php.dist` files to `*.dist.php` for better IDE support ([#801](https://github.com/serlo-org/athene2/pull/801))
 - Improve performance of Docker Volumes on macOS ([#801](https://github.com/serlo-org/athene2/pull/801))
