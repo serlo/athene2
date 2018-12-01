@@ -26,9 +26,9 @@ use Zend\Http\Header\Cookie;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class StaticPageController extends AbstractActionController
+class SpendenController extends AbstractActionController
 {
-    public function spendenAction()
+    public function indexAction()
     {
         $view = new ViewModel();
         $view->setTemplate('static/emptyTemplate');

@@ -1,0 +1,15 @@
+{% set title = 'Datenschutzerklärung' ~ (archived ? ' (archiviert)' : '')  %}
+{% do placeholder('breadcrumbs').set('<li><span>' ~ title ~ '</span></li>') %}
+
+{% if archived %}
+    <div class="alert alert-info" style="margin-top: 20px;">
+        Dies ist eine archivierte Version unserer Datenschutzerklärung. Die aktuelle Version findest du <a href="/datenschutz">hier</a>.
+    </div>
+{% endif %}
+
+{% set prefix = archived ? 'zuletzt geändert am' : 'wirksam ab dem' %}
+{{ pageHeader('Datenschutzerklärung').setSubtitle(prefix ~ ' ' ~ date).render() }}
+
+{% if not archived %}
+    <a href="/datenschutz/archiv">Archivierte Versionen</a>
+{% endif %}

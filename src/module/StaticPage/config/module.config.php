@@ -25,11 +25,13 @@ namespace StaticPage;
 return [
     'di' => [
         'allowed_controllers' => [
-            __NAMESPACE__ . '\Controller\StaticPageController',
+            __NAMESPACE__ . '\Controller\DatenschutzController',
+            __NAMESPACE__ . '\Controller\SpendenController',
         ],
         'definition' => [
             'class' => [
-                __NAMESPACE__ . '\Controller\StaticPageController' => [],
+                __NAMESPACE__ . '\Controller\DatenschutzController' => [],
+                __NAMESPACE__ . '\Controller\SpendenController' => [],
             ],
         ],
     ],
@@ -44,17 +46,49 @@ return [
                         'domain' => '.*?',
                         'tld' => '.*?',
                     ],
-                    'defaults' => [
-                        'controller' => __NAMESPACE__ . '\Controller\StaticPageController',
-                    ],
                 ],
                 'child_routes' => [
+                    'datenschutz' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/datenschutz',
+                            'defaults' => [
+                                'controller' => __NAMESPACE__ . '\Controller\DatenschutzController',
+                                'action' => 'index',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                        'child_routes' => [
+                            'archiv' => [
+                                'type' => 'literal',
+                                'options' => [
+                                    'route' => '/archiv',
+                                    'defaults' => [
+                                        'action' => 'archiveIndex',
+                                    ],
+                                ],
+                                'may_terminate' => true,
+                                'child_routes' => [
+                                    'view' => [
+                                        'type'    => 'segment',
+                                        'options' => [
+                                            'route'    => '/:revision',
+                                            'defaults' => [
+                                                'action' => 'archiveView',
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                     'spenden' => [
                         'type' => 'literal',
                         'options' => [
                             'route' => '/spenden',
                             'defaults' => [
-                                'action' => 'spenden',
+                                'controller' => __NAMESPACE__ . '\Controller\SpendenController',
+                                'action' => 'index',
                             ],
                         ],
                         'may_terminate' => true,

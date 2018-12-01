@@ -9,6 +9,11 @@ All notable changes to this project will be documented in this file. The format 
 - Add meta title to courses (([#814](https://github.com/serlo-org/athene2/pull/814)))
 - Add share option to exercises ([#815](https://github.com/serlo-org/athene2/pull/815))
 - Add Sentry to monitor PHP runtime errors ([#816](https://github.com/serlo-org/athene2/pull/816))
+- Add versionized privacy policies ([#821](https://github.com/serlo-org/athene2/pull/821))
+
+### Changed
+
+- Update privacy policy because of switch from Fundraisingbox to twingle ([#821](https://github.com/serlo-org/athene2/pull/821))
 
 ### Fixed
 
