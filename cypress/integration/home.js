@@ -24,11 +24,23 @@
 context('Home', () => {
   it('de.serlo.localhost has the correct document title', () => {
     cy.visit('http://de.serlo.localhost:4567/')
-    cy.title().should('equal', 'Serlo – Freie Bildung.')
+    cy.title().should('equal', 'Serlo – Die freie Lernplattform')
   })
 
   it('en.serlo.localhost has the correct document title', () => {
     cy.visit('http://en.serlo.localhost:4567/')
-    cy.title().should('equal', 'Serlo – Open Education.')
+    cy.title().should('equal', 'Serlo – The Open Learning Platform')
+  })
+
+
+  it('es.serlo.localhost has the correct document title', () => {
+    cy.visit('http://es.serlo.localhost:4567/')
+    cy.title().should('equal', 'Serlo – La Plataforma para el Aprendizaje Abierto')
+  })
+
+
+  it('hi.serlo.localhost has the correct document title', () => {
+    cy.visit('http://hi.serlo.localhost:4567/')
+    cy.title().should('equal', 'सेर्लो – ओपन लर्निंग प्लेटफॉर्म')
   })
 })
