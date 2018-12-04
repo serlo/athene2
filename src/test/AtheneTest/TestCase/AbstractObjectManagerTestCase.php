@@ -22,13 +22,23 @@
  */
 namespace AtheneTest\TestCase;
 
-class ObjectManagerTestCase extends \PHPUnit_Framework_TestCase
+abstract class AbstractObjectManagerTestCase extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Creates a mocked version of Doctrine\ORM\EntityManager
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
     final protected function mockEntityManager()
     {
-        return $this->createMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
+        return $this->createMock('Doctrine\ORM\EntityManager');
     }
 
+    /**
+     * Creates a mocked version of Doctrine\ORM\EntityRepository
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
     final protected function mockEntityRepository()
     {
         return $this->getMockBuilder('Doctrine\ORM\EntityRepository')

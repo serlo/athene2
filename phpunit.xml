@@ -6,6 +6,9 @@
 		<testsuite name="Blog">
 			<directory>./src/module/Blog/test</directory>
 		</testsuite>
+		<testsuite name="Type">
+			<directory>./src/module/Type/test</directory>
+		</testsuite>
 		<testsuite name="ClassResolver">
 			<directory>./src/module/ClassResolver/test</directory>
 		</testsuite>

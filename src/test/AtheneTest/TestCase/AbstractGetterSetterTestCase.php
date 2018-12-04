@@ -81,7 +81,7 @@ abstract class AbstractGetterSetterTestCase extends \PHPUnit_Framework_TestCase
 
     public function testSetter()
     {
-        $object = $this->getObject();
+        $this->object = $this->getObject();
         $this->inject();
     }
 

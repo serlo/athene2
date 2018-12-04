@@ -12,8 +12,9 @@ class PostTest extends AbstractGetterSetterTestCase
 
     public function setUp()
     {
-        $post  = new Post();
-        parent::setObject($post);
+        parent::setUp();
+        $this->post  = new Post();
+        parent::setObject($this->post);
     }
 
     protected function getData()
@@ -48,7 +49,6 @@ class PostTest extends AbstractGetterSetterTestCase
     public function testRemoveTaxonomyTerm()
     {
         $post = new Post();
-        $taxTerm = $this->createMock("Taxonomy\Entity\TaxonomyTermInterface");
 
         //test for unimplemented method -> exception
         $this->expectException(Exception::class);

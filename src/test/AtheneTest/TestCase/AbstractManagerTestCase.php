@@ -22,114 +22,187 @@
  */
 namespace AtheneTest\TestCase;
 
-use ClassResolver\ClassResolver;
+use ClassResolver\ClassResolverInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Zend\EventManager\EventManagerInterface;
+use Zend\ServiceManager\ServiceManager;
+use ZfcRbac\Service\AuthorizationService;
 
-abstract class AbstractManagerTestCase extends ObjectManagerTestCase
+abstract class AbstractManagerTestCase extends AbstractObjectManagerTestCase
 {
-    protected $manager;
 
+    /**
+     * @var \PHPUnit_Framework_MockObject_MockObject
+     */
     protected $classResolver;
-    protected $objectManager;
+
+    /**
+     * @var \PHPUnit_Framework_MockObject_MockObject
+     */
     protected $serviceLocator;
 
-    final public function getManager()
+    /**
+     * @var \PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $objectManager;
+
+    /**
+     * @var \PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $authorizationService;
+
+    /**
+     * @var \PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $eventManager;
+
+
+    /**
+     * Creates a mocked version of ClassResolver\ClassResolverInterface
+     */
+    final protected function mockClassResolver()
     {
-        return $this->manager;
+        return $this->createMock(ClassResolverInterface::class);
     }
 
-    final public function setManager($manager)
+    /**
+     * Creates a mocked version of Zend\ServiceManager\ServiceManager
+     */
+    final protected function mockServiceLocator()
     {
-        $this->manager = $manager;
-        return $this;
+        return $this->createMock(ServiceManager::class);
     }
 
-    final protected function mockEntity($className, $id)
+    /**
+     * Creates a mocked version of Doctrine\Common\Persistence\ObjectManager
+     */
+    final protected function mockObjectManager()
     {
-        $entity = $this->createMock($className);
-        $entity->expects($this->any())
-            ->method('getId')
-            ->will($this->returnValue(1));
-        return $entity;
+        return $this->createMock(ObjectManager::class);
     }
 
-    final protected function prepareClassResolver(array $config)
+    /**
+     * Creates a mocked version of ZfcRbac\Service\AuthorizationService
+     */
+    final protected function mockAuthorizationService()
     {
-        if ($this->classResolver) {
-            return $this->classResolver;
-        }
-
-        $this->classResolver = new ClassResolver($config);
-        $serviceLocator = $this->prepareServiceLocator(false);
-
-        $this->getManager()->setClassResolver($this->classResolver);
-        $this->classResolver->setServiceLocator($serviceLocator);
-
-        return $this->classResolver;
+        return $this->createMock(AuthorizationService::class);
     }
 
-    final protected function prepareServiceLocator($inject = true)
+    /**
+     * Creates a mocked version of Zend\EventManager\EventManagerInterface
+     */
+    final protected function mockEventManager()
     {
-        if (! $this->serviceLocator) {
-            $this->serviceLocator = $this->createMock('Zend\ServiceManager\ServiceManager');
-        }
-
-        if ($inject) {
-            $this->getManager()->setServiceLocator($this->serviceLocator);
-        }
-
-        return $this->serviceLocator;
+        return $this->createMock(EventManagerInterface::class);
     }
 
-    final protected function prepareObjectManager($inject = true)
+    /**
+     * Registers a new expectation for method 'find' on $objectManager
+     *
+     * @param \PHPUnit_Framework_MockObject_MockObject $objectManager Mocked ObjectManager
+     * @param string $repositoryName Name of the repository
+     * @param mixed $id The identity of the object to find
+     * @param mixed $expectedReturn Expected return value for method "find"
+     */
+    final protected function prepareFind(\PHPUnit_Framework_MockObject_MockObject $objectManager, $repositoryName, $id, $expectedReturn)
     {
-        if (! $this->objectManager) {
-            $this->objectManager = $this->mockEntityManager();
-        }
-        if ($inject) {
-            $this->getManager()->setObjectManager($this->objectManager);
-        }
-        return $this->objectManager;
-    }
-
-    final protected function prepareFind($repositoryName, $key, $return)
-    {
-        $objectManager = $this->prepareObjectManager();
-
         $objectManager->expects($this->once())
             ->method('find')
-            ->with($repositoryName, $key)
-            ->will($this->returnValue($return));
+            ->with($this->equalTo($repositoryName), $this->equalTo($id))
+            ->will($this->returnValue($expectedReturn));
     }
 
-    final protected function prepareFindBy($repositoryName, array $criteria, $return)
+    /**
+     * Registers a new expectation for method 'resolveClassName' on $classResolver
+     *
+     * @param \PHPUnit_Framework_MockObject_MockObject $classResolver Mocked ClassResolver
+     * @param string $classNameToResolve  Name of class to resolve
+     * @param string $expectedReturn Expected return value for method "resolveClassName"
+     */
+    final protected function prepareResolveClass(\PHPUnit_Framework_MockObject_MockObject $classResolver, $classNameToResolve, $expectedReturn)
     {
-        $objectManager = $this->prepareObjectManager();
-        $repository = $this->mockEntityRepository();
+        $classResolver->expects($this->once())
+            ->method('resolveClassName')
+            ->with($this->equalTo($classNameToResolve))
+            ->will($this->returnValue($expectedReturn));
+    }
+
+    /**
+     * Registers a new expectation for method 'resolve' on $classResolver
+     *
+     * @param \PHPUnit_Framework_MockObject_MockObject $classResolver Mocked ClassResolver
+     * @param string $classNameToResolve  Name of class to resolve
+     * @param mixed $expectedReturn Expected return value for method "resolve"
+     */
+    final protected function prepareResolve(\PHPUnit_Framework_MockObject_MockObject $classResolver, $classNameToResolve, $expectedReturn)
+    {
+        $classResolver->expects($this->once())
+            ->method('resolve')
+            ->with($this->equalTo($classNameToResolve))
+            ->will($this->returnValue($expectedReturn));
+    }
+
+    /**
+     * Registers a new expectation for method 'isGranted' on $authorizationService
+     *
+     * @param \PHPUnit_Framework_MockObject_MockObject $authorizationService The mocked AuthorizationService
+     * @param string $permission The permission to check
+     * @param mixed $context Context of the permission
+     * @param boolean $expectedReturn Granted or not
+     */
+    final protected function prepareIsGranted(\PHPUnit_Framework_MockObject_MockObject $authorizationService, $permission, $context, $expectedReturn)
+    {
+        $authorizationService->expects($this->once())
+            ->method('isGranted')
+            ->with($this->equalTo($permission), $this->equalTo($context))
+            ->will($this->returnValue($expectedReturn));
+    }
+
+
+    /**
+     * Registers a new expectation for method 'findBy' on a mocked Repository specified via $repository
+     *
+     * @param \PHPUnit_Framework_MockObject_MockObject $objectManager Mocked ObjectManager for the Repository
+     * @param string $repository Name of the Repository
+     * @param array $criteria Criteria for findBy
+     * @param mixed $expectedReturn Expected return value for findBy
+     */
+    final protected function prepareFindBy($objectManager, $repository, array $criteria, $expectedReturn)
+    {
+        $repo = $this->mockEntityRepository();
 
         $objectManager->expects($this->once())
             ->method('getRepository')
-            ->with($repositoryName)
-            ->will($this->returnValue($repository));
+            ->with($repository)
+            ->will($this->returnValue($repo));
 
-        $repository->expects($this->once())
+        $repo->expects($this->once())
             ->method('findBy')
             ->with($criteria)
-            ->will($this->returnValue($return));
+            ->will($this->returnValue($expectedReturn));
     }
 
-    final protected function prepareFindOneBy($repositoryName, array $criteria, $return)
+    /**
+     * Registers a new expectation for method 'findOneBy' on a mocked Repository specified via $repository
+     *
+     * @param \PHPUnit_Framework_MockObject_MockObject $objectManager Mocked ObjectManager for the Repository
+     * @param string $repository Name of the Repository
+     * @param array $criteria Criteria for findOneBy
+     * @param mixed $expectedReturn Expected return value for findOneBy
+     */
+    final protected function prepareFindOneBy($objectManager, $repository, array $criteria, $expectedReturn)
     {
-        $objectManager = $this->prepareObjectManager();
-        $repository = $this->mockEntityRepository();
+        $repo = $this->mockEntityRepository();
 
         $objectManager->expects($this->once())
             ->method('getRepository')
-            ->with($repositoryName)
-            ->will($this->returnValue($repository));
+            ->with($repository)
+            ->will($this->returnValue($repo));
 
-        $repository->expects($this->once())
+        $repo->expects($this->once())
             ->method('findOneBy')
             ->with($criteria)
-            ->will($this->returnValue($return));
+            ->will($this->returnValue($expectedReturn));
     }
 }
