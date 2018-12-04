@@ -32,12 +32,6 @@
 {% set interestsErrors = formElementErrors(form.get('interests')) %}
 {% set newsletterOptInErrors = formElementErrors(form.get('newsletterOptIn')) %}
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script>
-function onSubmit() {
-    document.getElementById('signUp').submit();
-}
-</script>
 {% do form.prepare() %}
 {{ form().openTag(form) }}
 {{ formHidden(form.get('csrf')) }}
@@ -129,13 +123,7 @@ function onSubmit() {
         </p>
     </div>
     <div class="form-group">
-        <button
-            class="g-recaptcha btn btn-success pull-right"
-            data-sitekey="{{ recaptcha().api_key }}"
-            data-callback="onSubmit"
-        >
-            {% trans %}Sign up{% endtrans %}
-        </button>
+        {{ formElement(form.get('recaptcha')) }}
     </div>
 </fieldset>
 {{ form().closeTag(form) }}

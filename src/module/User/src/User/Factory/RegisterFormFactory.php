@@ -24,6 +24,7 @@ namespace User\Factory;
 
 use Common\Factory\EntityManagerFactoryTrait;
 use User\Form\Register;
+use Zend\Mvc\I18n\Translator;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -40,6 +41,11 @@ class RegisterFormFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $entityManager = $this->getEntityManager($serviceLocator);
-        return new Register($entityManager);
+        /**
+         * @var $translator Translator
+         */
+        $translator = $serviceLocator->get('MvcTranslator');
+        $config = $serviceLocator->get('Config');
+        return new Register($entityManager, $translator, $config);
     }
 }
