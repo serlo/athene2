@@ -33,7 +33,7 @@ class ActivateForm extends Form
     public function __construct()
     {
         parent::__construct('activate-user');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

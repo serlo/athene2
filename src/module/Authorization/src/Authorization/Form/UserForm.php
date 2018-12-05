@@ -33,7 +33,7 @@ class UserForm extends Form
     public function __construct()
     {
         parent::__construct('add-user');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $inputFilter = new InputFilter('article');
 

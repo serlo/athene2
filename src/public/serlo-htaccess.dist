@@ -9,7 +9,7 @@ RewriteCond %{THE_REQUEST} ^[^/]*/index\.php [NC]
 RewriteCond %{THE_REQUEST} ^GET
 RewriteRule ^index\.php(.+) $1 [R=301,L]
 
-RewriteRule ^ggt/(.*) http://tube.geogebra.org/student/m$1 [R=302,L]
+RewriteRule ^ggt/(.*) https://www.geogebra.org/m/$1 [R=302,L]
 
 RewriteRule ^math/curriculum/(.*) http://de.serlo.org/mathe [R=301,L]
 RewriteRule ^math/topics/(.*) http://de.serlo.org/math/exercises/topics/$1 [R=301,L]

@@ -33,7 +33,7 @@ class SelectUserForm extends Form
     public function __construct()
     {
         parent::__construct('select-user');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');

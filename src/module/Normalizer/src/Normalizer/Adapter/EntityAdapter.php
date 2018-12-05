@@ -167,6 +167,11 @@ class EntityAdapter extends AbstractAdapter
 
         $type = $this->getType();
         $typeName = $this->getTranslator()->translate($type);
+
+        if ($type === 'applet') {
+            $typeName = $this->getTranslator()->translate('applet');
+        }
+
         if ($type === 'course-page') {
             $typeName = $this->getTranslator()->translate('course');
         }
@@ -181,8 +186,7 @@ class EntityAdapter extends AbstractAdapter
             $parent = $this->getObject()->getParents('link')->first();
             $parentAdapter = new EntityAdapter();
             $parentAdapter->setTranslator($this->translator);
-            $normalizedParent = $parentAdapter->normalize($parent);
-            $parentTitle = $normalizedParent->getTitle();
+            $parentTitle = $parentAdapter->normalize($parent)->getTitle();
             $title = $parentTitle . " | " . $title;
         }
 
@@ -199,9 +203,18 @@ class EntityAdapter extends AbstractAdapter
     protected function getMetaDescription()
     {
         $description = $this->getField('meta_description');
+
         if ($description === $this->getId()) {
             $description = $this->getDescription();
         }
+
+        if ($this->getType() === 'course-page') {
+            $parent = $this->getObject()->getParents('link')->first();
+            $parentAdapter = new EntityAdapter();
+            $parentAdapter->setTranslator($this->translator);
+            $description = $parentAdapter->normalize($parent)->getMetaData()->getMetaDescription();
+        }
+
         return $description;
     }
 }

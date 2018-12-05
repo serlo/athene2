@@ -24,9 +24,10 @@
 namespace Entity\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\EditorState;
+use Common\Form\Element\Title;
 use License\Entity\LicenseInterface;
 use License\Form\AgreementFieldset;
-use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Element\Url;
 use Zend\Form\Form;
@@ -38,30 +39,27 @@ class AppletForm extends Form
     public function __construct(LicenseInterface $license)
     {
         parent::__construct('applet');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'clearfix');
 
-        $this->add((new Text('title'))->setAttribute('id', 'title')->setLabel('Title:'));
+        $this->add(new Title());
         $this->add((new Url('url'))->setAttribute('id', 'url')->setLabel('Applet Url:'));
-        $this->add((new Textarea('content'))->setAttribute('id', 'content')->setLabel('Description:'));
-        $this->add(
-            (new Textarea('reasoning'))->setAttribute('id', 'reasoning')->setLabel('Reasoning:')
-        );
+        $this->add((new EditorState('content'))->setLabel('Description:'));
+        $this->add((new EditorState('reasoning'))->setLabel('Reasoning:'));
         $this->add(
             (new Textarea('changes'))->setAttribute('id', 'changes')->setLabel('Changes:')->setAttribute(
                 'class',
                 'plain'
             )
         );
-        $this->add((new Text('meta_title'))->setAttribute('id', 'meta_title')->setLabel('Search Engine Title:'));
-        $this->add((new Text('meta_description'))->setAttribute('id', 'meta_description')->setLabel('Search Engine Description:'));
+        $this->add(new Element\MetaTitle());
+        $this->add(new Element\MetaDescription());
         $this->add(new AgreementFieldset($license));
         $this->add(new Controls());
 
         $inputFilter = new InputFilter('applet');
-        $inputFilter->add(['name' => 'title', 'required' => true, 'filters' => [['name' => 'StripTags']]]);
         $inputFilter->add(
             [
                 'name'       => 'url',
@@ -84,10 +82,7 @@ class AppletForm extends Form
                 ],
             ]
         );
-        $inputFilter->add(['name' => 'content', 'required' => false]);
-        $inputFilter->add(['name' => 'meta_title', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'meta_description', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
-        $inputFilter->add(['name' => 'reasoning', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
+        $inputFilter->add(['name' => 'content', 'required' => true]);
         $inputFilter->add(['name' => 'changes', 'required' => false, 'filters' => [['name' => 'StripTags']]]);
         $this->setInputFilter($inputFilter);
     }

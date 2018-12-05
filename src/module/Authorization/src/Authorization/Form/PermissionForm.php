@@ -33,7 +33,7 @@ class PermissionForm extends Form
     public function __construct($permissions, $instances)
     {
         parent::__construct('add-permission');
-        $this->add(new CsrfToken('csrf'));
+        $this->add(new CsrfToken());
 
         $inputFilter = new InputFilter('article');
 

@@ -71,5 +71,8 @@ class Module
                 $serviceLocator->get('Zend\Log\Logger')->crit($exception);
             }
         );
+
+        // Init sentry
+        $serviceLocator->get('Log\Sentry');
     }
 }
