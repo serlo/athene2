@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+### Added
+
+- Add unit tests based on PHPUnit ([#824](https://github.com/serlo-org/athene2/pull/824))
+  - Add yarn script `unit` that executes `./src/vendor/bin/phpunit`
+
 ## [Build 5] - 2018-12-01
 
 ### Added
