@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  httpd:
+    build:
+      context: .
+      dockerfile: docker/httpd/Dockerfile
+    ports:
+      - 4567:80
+    links:
+      - php:php
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+#services:
+#  mysqld:
+#    image: mysql:5.7
+#    ports:
+#      - '3306:3306'
+#    volumes:
+#      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=secret
+#
+#  markdown:
+#    build: 'src/athene2-editor-server'
+#
+#  athene2:
+#    build: .
+#    links:
+#      - mysqld:mysqld
+#      - markdown:markdown
+#    ports:
+#      - '4567:80'
+#    volumes:
+#      - ./src/config:/var/www/html/src/config:delegated
+#      - ./src/lang:/var/www/html/src/lang:delegated
+#      - ./src/module:/var/www/html/src/module:delegated
+#      - ./src/public:/var/www/html/src/public:delegated
+#      - ./src/test:/var/www/html/src/test:delegated
+#      - ./src/vendor:/var/www/html/src/vendor:delegated
+#    environment:
+#      - PHP_ENV=development

@@ -19,6 +19,9 @@
     "format:prettier": "yarn _prettier --write",
     "lint:php-cs-fixer": "yarn _php-cs-fixer --dry-run",
     "lint:prettier": "yarn _prettier --list-different",
+
+    "up": "docker-compose -f kubernetes.yml up --build -d",
+    "down": "docker-compose -f kubernetes.yml down",
     "_php-cs-fixer": "php php-cs-fixer.phar fix --config=php-cs-fixer.config.php",
     "_prettier": "prettier \"{scripts/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
