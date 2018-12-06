@@ -201,6 +201,7 @@ Open _package.json_ and make sure the values you got from running the two comman
 Most of these are outdated:
 
 - [Knowledge base](https://github.com/serlo-org/athene2/wiki/Knowledge-base)
+- [Testing](https://github.com/serlo-org/athene2/wiki/Testing)
 - [Development workflow (outdated)](https://github.com/serlo-org/athene2/wiki/Development-workflow)
 - [Installation (totally outdated, do not look at this)](https://github.com/serlo-org/athene2/wiki/Installation)
 - [Athene2 Guide (somewhat outdated)](https://serlo-org.github.io/athene2-guide/)
