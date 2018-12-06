@@ -20,23 +20,29 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace ClassResolverTest;
+namespace AtheneTest\TestCase;
 
-use ClassResolverTest\Fake\ClassResolverAware;
-
-class ClassResolverAwareTraitTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractObjectManagerTestCase extends \PHPUnit_Framework_TestCase
 {
-    protected $trait;
-
-    public function setUp()
+    /**
+     * Creates a mocked version of Doctrine\ORM\EntityManager
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
+    final protected function mockEntityManager()
     {
-        $this->trait = new ClassResolverAware();
+        return $this->createMock('Doctrine\ORM\EntityManager');
     }
 
-    public function testSetGet()
+    /**
+     * Creates a mocked version of Doctrine\ORM\EntityRepository
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
+    final protected function mockEntityRepository()
     {
-        $mock = $this->createMock('ClassResolver\ClassResolver');
-        $this->trait->setClassResolver($mock);
-        $this->assertSame($mock, $this->trait->getClassResolver());
+        return $this->getMockBuilder('Doctrine\ORM\EntityRepository')
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 }

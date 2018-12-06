@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="./src/test/AtheneTest/Bootstrap.php" colors="true">
-    <testsuites>
-        <testsuite name="ClassResolver Test Suite">
-            <directory>./src/module/ClassResolver/test</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src/module</directory>
-            <exclude>
-                <directory suffix="config.php">./src/module</directory>
-                <directory suffix="Module.php">./src/module</directory>
-                <directory suffix="Test.php">./src/module</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+<phpunit bootstrap="./src/test/AtheneTest/Bootstrap.php"
+	colors="true">
+	<testsuites>
+		<testsuite name="Blog">
+			<directory>./src/module/Blog/test</directory>
+		</testsuite>
+		<testsuite name="Type">
+			<directory>./src/module/Type/test</directory>
+		</testsuite>
+		<testsuite name="ClassResolver">
+			<directory>./src/module/ClassResolver/test</directory>
+		</testsuite>
+	</testsuites>
 </phpunit>
