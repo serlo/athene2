@@ -34,7 +34,6 @@ use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
 use Taxonomy\Manager\TaxonomyManagerAwareTrait;
 use Taxonomy\Manager\TaxonomyManagerInterface;
-use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\EventManager\EventManagerAwareTrait;
 use Zend\Form\FormInterface;
 use ZfcRbac\Service\AuthorizationService;
@@ -46,6 +45,15 @@ class BlogManager implements BlogManagerInterface
     use InstanceManagerAwareTrait, AuthorizationAssertionTrait;
     use EventManagerAwareTrait;
 
+    /**
+     * @TODO AuthorizationService should be AuthorizationServiceInterface (depends on zf-commons)
+     *
+     * @param ClassResolverInterface $classResolver
+     * @param TaxonomyManagerInterface $taxonomyManager
+     * @param ObjectManager $objectManager
+     * @param InstanceManagerInterface $instanceManager
+     * @param AuthorizationService $authorizationService
+     */
     public function __construct(
         ClassResolverInterface $classResolver,
         TaxonomyManagerInterface $taxonomyManager,

@@ -24,9 +24,8 @@ namespace ClassResolverTest;
 
 use ClassResolver\ClassResolverFactory;
 use Zend\ServiceManager\ServiceManager;
-use PHPUnit\Framework\TestCase;
 
-class ClassResolverFactoryTest extends TestCase
+class ClassResolverFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testFactory()
     {

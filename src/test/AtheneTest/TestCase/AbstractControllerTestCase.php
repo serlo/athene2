@@ -22,19 +22,38 @@
  */
 namespace AtheneTest\TestCase;
 
-use PHPUnit\Framework\TestCase;
+use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class ObjectManagerTestCase extends TestCase
+/**
+ * @TODO please implement me if needed
+ *
+ * @package AtheneTest\TestCase
+ */
+abstract class AbstractControllerTestCase extends AbstractHttpControllerTestCase
 {
-    final protected function mockEntityManager()
+    /**
+     * @var \Zend\Mvc\Controller\AbstractActionController
+     */
+    protected $controller;
+
+    public function setUp()
     {
-        return $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
+//        $this->setApplicationConfig(
+//            include __DIR__ . '/../../../config/application.config.php'
+//        );
+
+        parent::setUp();
     }
 
-    final protected function mockEntityRepository()
+    protected function preparePluginManager()
     {
-        return $this->getMockBuilder('Doctrine\ORM\EntityRepository')
-            ->disableOriginalConstructor()
-            ->getMock();
+        if ($this->controller->getPluginManager() instanceof \PHPUnit_Framework_MockObject_MockObject) {
+            return $this->controller->getPluginManager();
+        }
+
+        $pluginManager = $this->createMock('Zend\Mvc\Controller\PluginManager');
+        $this->controller->setPluginManager($pluginManager);
+
+        return $pluginManager;
     }
 }
