@@ -92,8 +92,5 @@ class Register extends Form
         $recaptcha = (new ReCaptcha($config['recaptcha_options']))
             ->setValue('Sign up');
         $this->add($recaptcha);
-
-        $filter->add($recaptcha->getInputFilterSpecification());
-        $this->setInputFilter($filter);
     }
 }

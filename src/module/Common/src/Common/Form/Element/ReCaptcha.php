@@ -24,9 +24,9 @@
 namespace Common\Form\Element;
 
 use Zend\Form\Element\Submit;
-use Zend\InputFilter\InputFilterProviderInterface;
+use Zend\InputFilter\InputProviderInterface;
 
-class ReCaptcha extends Submit implements InputFilterProviderInterface
+class ReCaptcha extends Submit implements InputProviderInterface
 {
     private $secret;
 
@@ -45,10 +45,10 @@ class ReCaptcha extends Submit implements InputFilterProviderInterface
      *
      * @return array
      */
-    public function getInputFilterSpecification()
+    public function getInputSpecification()
     {
         return [
-            'name' => 'g-recaptcha-response',
+            'name' => $this->getName(),
             'required' => true,
             'validators' => [
                 [
