@@ -20,20 +20,23 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Entity\Form\Element;
 
-use Zend\Form\Element\Text;
+namespace Common\Form\Element;
+
+use Zend\Form\Element\Submit;
 use Zend\InputFilter\InputProviderInterface;
 
-class MetaDescription extends Text implements InputProviderInterface
+class ReCaptcha extends Submit implements InputProviderInterface
 {
-    public function __construct()
-    {
-        parent::__construct('meta_description');
+    private $secret;
 
-        $this->setAttribute('id', 'meta_description');
-        $this->setLabel('Search Engine Description:');
-        $this->setAttribute('class', 'meta');
+    public function __construct($recaptcha_options)
+    {
+        parent::__construct('recaptcha');
+        $this->setAttribute('class', 'g-recaptcha btn btn-success pull-right');
+        $this->setAttribute('data-sitekey', $recaptcha_options['api_key']);
+
+        $this->secret = $recaptcha_options['secret'];
     }
 
     /**
@@ -46,9 +49,14 @@ class MetaDescription extends Text implements InputProviderInterface
     {
         return [
             'name' => $this->getName(),
-            'required' => false,
-            'filters' => [
-              ['name' => 'StripTags'],
+            'required' => true,
+            'validators' => [
+                [
+                    'name' => 'Common\Validator\ReCaptchaValidator',
+                    'options' => [
+                        'secret' => $this->secret,
+                    ],
+                ],
             ],
         ];
     }

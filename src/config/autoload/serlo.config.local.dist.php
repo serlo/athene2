@@ -43,9 +43,6 @@ return [
         'sender' => 'notifications@mail.serlo.org',
         'location' => 'https://www.serlo.org',
     ],
-    'recaptcha_options' => [
-        'api_key' => 'SECRET',
-    ],
     'newsletter_options' => [
         'api_key' => 'SECRET',
     ],

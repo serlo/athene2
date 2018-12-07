@@ -23,6 +23,7 @@
 namespace User\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\ReCaptcha;
 use Doctrine\ORM\EntityManager;
 use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\Password;
@@ -34,7 +35,7 @@ use Zend\Mvc\I18n\Translator;
 
 class Register extends Form
 {
-    public function __construct(EntityManager $entityManager, Translator $translator)
+    public function __construct(EntityManager $entityManager, Translator $translator, $config)
     {
         parent::__construct('signUp');
         $this->add(new CsrfToken());
@@ -87,5 +88,9 @@ class Register extends Form
             ))
             ->setEmptyOption('')
             ->setLabel('I am here as…'));
+
+        $recaptcha = (new ReCaptcha($config['recaptcha_options']))
+            ->setValue('Sign up');
+        $this->add($recaptcha);
     }
 }

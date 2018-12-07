@@ -130,10 +130,7 @@ class UserController extends AbstractUserController
         if (!is_object($this->forms[$name])) {
             $form = $this->forms[$name];
             if ($name === 'register') {
-                $this->forms[$name] = new $form(
-                    $this->getUserManager()->getObjectManager(),
-                    $this->getServiceLocator()->get('MvcTranslator')
-                );
+                $this->forms[$name] = $this->getServiceLocator()->get($form);
             } elseif ($name === 'settings') {
                 $this->forms[$name] = new $form($this->getUserManager()->getObjectManager());
             } elseif ($name === 'login') {

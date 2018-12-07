@@ -23,9 +23,9 @@
 namespace Common\Form\Element;
 
 use Zend\Form\Element\Text;
-use Zend\InputFilter\InputFilterProviderInterface;
+use Zend\InputFilter\InputProviderInterface;
 
-class Title extends Text implements InputFilterProviderInterface
+class Title extends Text implements InputProviderInterface
 {
     public function __construct()
     {
@@ -41,7 +41,7 @@ class Title extends Text implements InputFilterProviderInterface
      *
      * @return array
      */
-    public function getInputFilterSpecification()
+    public function getInputSpecification()
     {
         return [
             'name' => $this->getName(),

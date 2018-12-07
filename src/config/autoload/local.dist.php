@@ -33,6 +33,7 @@ return [
     ],
     'recaptcha_options' => [
         'api_key' => '6LfwJFwUAAAAAKHhl-kjPbA6mCPjt_CrkCbn3okr',
+        'secret'  => '6LfwJFwUAAAAAPVsTPLe00oAb9oUTewOUe31pXSv',
     ],
     'markdown' => [
         'host' => 'markdown',
