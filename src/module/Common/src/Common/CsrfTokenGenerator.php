@@ -24,7 +24,8 @@ namespace Common;
 
 class CsrfTokenGenerator
 {
-    static function getToken() {
+    public static function getToken()
+    {
         return md5(session_id());
     }
 }
