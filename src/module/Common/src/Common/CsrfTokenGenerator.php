@@ -20,42 +20,11 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+namespace Common;
 
-
-namespace Common\Validator;
-
-use Common\CsrfTokenGenerator;
-use Zend\Validator\Csrf;
-
-class CsrfValidator extends Csrf
+class CsrfTokenGenerator
 {
-    /**
-     * {@inheritDoc}
-     */
-    protected function generateHash()
-    {
-        $this->hash = CsrfTokenGenerator::getToken();
-
-        $this->setValue($this->hash);
-        $this->initCsrfToken();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function initCsrfToken()
-    {
-        $session = $this->getSession();
-        $hash = $this->getHash();
-        $session->hash = $hash;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getValidationToken($tokenId = null)
-    {
-        $session = $this->getSession();
-        return $session->hash;
+    static function getToken() {
+        return md5(session_id());
     }
 }
