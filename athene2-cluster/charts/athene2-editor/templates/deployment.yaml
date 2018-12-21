@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: athene2-editor
+  labels:
+    run: athene2-editor
+
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: athene2-editor
+    spec:
+      containers:
+      - name: athene2-editor
+        image: gcr.io/serlo-playground/serlo/athene2-editor
+        ports:
+        - name: editor-port
+          containerPort: 7070

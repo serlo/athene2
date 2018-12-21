@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for the Athene2-Cluster
+name: athene2-cluster
+version: 0.1.0
