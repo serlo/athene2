@@ -24,7 +24,6 @@ namespace Mailman\Listener;
 
 use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
-use Zend\I18n\Translator\TranslatorAwareTrait;
 use Zend\View\Model\ViewModel;
 
 class AuthenticationControllerListener extends AbstractListener
@@ -47,19 +46,17 @@ class AuthenticationControllerListener extends AbstractListener
         /* @var $user \User\Entity\UserInterface */
         $user = $e->getParam('user');
 
-        $subject = new ViewModel();
-        $body    = new ViewModel([
-            'user' => $user,
+        $this->getMailRenderer()->setTemplateFolder('mailman/messages/welcome');
+        $data = $this->getMailRenderer()->renderMail([
+            'body' => [
+                'user' => $user,
+            ],
         ]);
-
-        $subject->setTemplate('mailman/messages/welcome/subject');
-        $body->setTemplate('mailman/messages/welcome/body');
 
         $this->getMailman()->send(
             $user->getEmail(),
             $this->getMailman()->getDefaultSender(),
-            $this->getRenderer()->render($subject),
-            $this->getRenderer()->render($body)
+            $data
         );
     }
 
@@ -68,19 +65,17 @@ class AuthenticationControllerListener extends AbstractListener
         /* @var $user \User\Entity\UserInterface */
         $user = $e->getParam('user');
 
-        $subject = new ViewModel();
-        $body    = new ViewModel([
-            'user' => $user,
+        $this->getMailRenderer()->setTemplateFolder('mailman/messages/register');
+        $data = $this->getMailRenderer()->renderMail([
+          'body' =>   [
+              'user' => $user,
+          ],
         ]);
-
-        $subject->setTemplate('mailman/messages/register/subject');
-        $body->setTemplate('mailman/messages/register/body');
 
         $this->getMailman()->send(
             $user->getEmail(),
             $this->getMailman()->getDefaultSender(),
-            $this->getRenderer()->render($subject),
-            $this->getRenderer()->render($body)
+            $data
         );
     }
 
@@ -89,19 +84,17 @@ class AuthenticationControllerListener extends AbstractListener
         /* @var $user \User\Entity\UserInterface */
         $user = $e->getParam('user');
 
-        $subject = new ViewModel();
-        $body    = new ViewModel([
-            'user' => $user,
+        $this->getMailRenderer()->setTemplateFolder('mailman/messages/restore-password');
+        $data = $this->getMailRenderer()->renderMail([
+            'body' => [
+                'user' => $user,
+            ],
         ]);
-
-        $subject->setTemplate('mailman/messages/restore-password/subject');
-        $body->setTemplate('mailman/messages/restore-password/body');
 
         $this->getMailman()->send(
             $user->getEmail(),
             $this->getMailman()->getDefaultSender(),
-            $this->getRenderer()->render($subject),
-            $this->getRenderer()->render($body)
+            $data
         );
     }
 }

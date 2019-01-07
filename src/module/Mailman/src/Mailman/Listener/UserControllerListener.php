@@ -43,20 +43,18 @@ class UserControllerListener extends AbstractListener
         /* @var $user \User\Entity\UserInterface */
         $user = $e->getParam('user');
 
-        $subject = new ViewModel();
-        $body    = new ViewModel([
-            'user' => $user,
+        $this->getMailRenderer()->setTemplateFolder('mailman/messages/register');
+        $data = $this->getMailRenderer()->renderMail([
+            'body' => [
+                'user' => $user,
+            ],
         ]);
-
-        $subject->setTemplate('mailman/messages/register/subject');
-        $body->setTemplate('mailman/messages/register/body');
 
         try {
             $this->getMailman()->send(
                 $user->getEmail(),
                 $this->getMailman()->getDefaultSender(),
-                $this->getRenderer()->render($subject),
-                $this->getRenderer()->render($body)
+                $data
             );
         } catch (\Throwable $e) {
             // catch exception

@@ -31,3 +31,9 @@ here's a heads up of what has happened on {{ brand }}:<br>
         {% include 'notification/notification' with {'notification': notification} %}
     {% endfor %}
 </ul>
+{% set unsubcribe %}
+    {% trans %}
+        You can <a href="%s">change the settings</a> for which content you want to receive notifications.
+    {% endtrans %}
+{% endset %}
+{{ unsubscribe | format(url('subscriptions/manage')) }}

@@ -22,16 +22,17 @@
  */
 namespace Mailman\Adapter;
 
+use Mailman\Entity\Mail;
+
 interface AdapterInterface
 {
     /**
      * @param string $to
      * @param string $from
-     * @param string $subject
-     * @param string $body
+     * @param Mail $mail
      * @return void
      */
-    public function addMail($to, $from, $subject, $body);
+    public function addMail($to, $from, $mail);
 
     /**
      * sends all mail in the queue
