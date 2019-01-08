@@ -20,10 +20,11 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-echo nl2br(sprintf($this->translate("Hi %s,
-it seems that you want to restore your password. If not, you can ignore this email.
-You can restore your password by clicking the link below:
+namespace Mailman\Model;
 
-%s"), $this->user->getUserName(), $this->url('authentication/password/restore', array(
-    'token' => $this->user->getToken()
-), array('force_canonical' => true))));
+interface MailInterface
+{
+    public function getSubject();
+    public function getHtmlBody();
+    public function getPlainBody();
+}

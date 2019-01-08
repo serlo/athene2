@@ -22,7 +22,7 @@
  */
 namespace Mailman;
 
-use Mailman\Entity\Mail;
+use Mailman\Model\MailInterface;
 
 interface MailmanInterface
 {
@@ -31,7 +31,7 @@ interface MailmanInterface
     /**
      * @param $to string
      * @param $from string
-     * @param $mail Mail
+     * @param $mail MailInterface
      */
     public function send($to, $from, $mail);
 

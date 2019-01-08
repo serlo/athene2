@@ -22,8 +22,7 @@
  */
 namespace Mailman\Renderer;
 
-use Mailman\Entity\Mail;
-use Zend\View\Model\JsonModel;
+use Mailman\Model\Mail;
 use Zend\View\Model\ViewModel;
 use Zend\View\Renderer\RendererInterface;
 

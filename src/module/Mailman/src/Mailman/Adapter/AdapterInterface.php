@@ -22,14 +22,14 @@
  */
 namespace Mailman\Adapter;
 
-use Mailman\Entity\Mail;
+use Mailman\Model\MailInterface;
 
 interface AdapterInterface
 {
     /**
      * @param string $to
      * @param string $from
-     * @param Mail $mail
+     * @param MailInterface $mail
      * @return void
      */
     public function addMail($to, $from, $mail);

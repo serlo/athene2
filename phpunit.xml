@@ -9,6 +9,9 @@
     <testsuite name="Common">
       <directory>./src/module/Common/test</directory>
     </testsuite>
+    <testsuite name="Mailman">
+      <directory>./src/module/Mailman/test</directory>
+    </testsuite>
     <testsuite name="Type">
       <directory>./src/module/Type/test</directory>
     </testsuite>
