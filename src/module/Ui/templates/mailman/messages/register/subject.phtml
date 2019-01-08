@@ -21,4 +21,4 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 ?>
-<?php echo $this->translate(sprintf('Please activate your %s account!', strip_tags($this->brand()->getBrand(true))));
+<?php echo sprintf($this->translate('Please activate your %s account!'), $this->brand()->getBrand(true));
