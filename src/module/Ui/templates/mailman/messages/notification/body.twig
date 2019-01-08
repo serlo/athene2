@@ -22,18 +22,44 @@
 {% set user = user.getUsername() %}
 {% set brand = brand().getBrand(true) %}
 {% trans %}
-Hello {{ user }},<br>
+    Hello {{ user }}!
+{% endtrans %}<br>
 <br>
-here's a heads up of what has happened on {{ brand }}:<br>
+{% if discussionNotifications.length %}
+    {% if discussionNotifications.length > 1 %}
+        {% trans %}
+            Users on {{ brand }} have messaged you or replied to comments by you:
+        {% endtrans %}
+    {% else %}
+        {% trans %}
+            A user on {{ brand }} has messaged you or replied to one of your comments:
+        {% endtrans %}
+    {% endif %}
+    <br>
+    <ul>
+        {% for notification in discussionNotifications %}
+            {% include 'notification/notification' with {'notification': notification} %}
+        {% endfor %}
+    </ul>
+{% endif %}
+{% if contentNotifications.length %}
+    {% if contentNotifications.lenght > 1 %}
+        {% trans %}
+            Here's a heads up of what has happened with content you edited or created:
+        {% endtrans %}
+    {% else %}
+        {% trans %}
+            This happened with a content you edited or created:
+        {% endtrans %}
+    {% endif %}
+    <br>
+    <ul>
+        {% for notification in contentNotifications %}
+            {% include 'notification/notification' with {'notification': notification} %}
+        {% endfor %}
+    </ul>
+{% endif %}
+{% set href = url('subscriptions/manage') %}
+{% trans %}
+    You can <a href="{{ href }}">change the settings</a> for which content you want to receive notifications.
 {% endtrans %}
-<ul>
-    {% for notification in notifications %}
-        {% include 'notification/notification' with {'notification': notification} %}
-    {% endfor %}
-</ul>
-{% set unsubcribe %}
-    {% trans %}
-        You can <a href="%s">change the settings</a> for which content you want to receive notifications.
-    {% endtrans %}
-{% endset %}
-{{ unsubscribe | format(url('subscriptions/manage')) }}

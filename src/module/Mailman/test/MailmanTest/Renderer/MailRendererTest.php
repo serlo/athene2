@@ -99,11 +99,13 @@ class MailRendererTest extends \PHPUnit_Framework_TestCase
     public function providerNotificationMailData() {
         $userDummy = new User();
         $userDummy->setUsername('UserDummy');
-        $notificationDummy = new Notification();
+        $contentNotificationDummy = new Notification();
+        $discussionNotificationDummy = new Notification();
         $data = [
             'body' => [
                 'user' => $userDummy,
-                'notifications' => new ArrayCollection(array($notificationDummy))
+                'contentNotifications' => new ArrayCollection(array($contentNotificationDummy)),
+                'discussionNotifications' => new ArrayCollection(array($discussionNotificationDummy))
             ]
         ];
         return array(

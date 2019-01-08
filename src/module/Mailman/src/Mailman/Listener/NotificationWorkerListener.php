@@ -26,6 +26,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use DoctrineModule\Paginator\Adapter\Collection;
 use Mailman\MailmanInterface;
 use Mailman\Renderer\MailRendererInterface;
+use Notification\Entity\Notification;
 use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
 use Zend\I18n\Translator\Translator;
@@ -79,11 +80,23 @@ class NotificationWorkerListener extends AbstractListener
             $notifications = new ArrayCollection($notifications);
         }
 
+        $discussionNotifications = new ArrayCollection();
+        $contentNotifications = new ArrayCollection();
+        foreach ($notifications as $notification) {
+            /** @var Notification $notification */
+            if (substr($notification->getEventName(), 0, strlen('discussion')) === 'discussion') {
+                $discussionNotifications->add($notification);
+            } else {
+                $contentNotifications->add($notification);
+            }
+        }
+
         $this->getMailRenderer()->setTemplateFolder('mailman/messages/notification');
         $data = $this->getMailRenderer()->renderMail([
             'body' => [
                 'user'          => $user,
-                'notifications' => $notifications,
+                'discussionNotifications' => $discussionNotifications,
+                'contentNotifications' => $contentNotifications,
             ],
         ]);
 
