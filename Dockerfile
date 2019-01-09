@@ -21,6 +21,7 @@ RUN yes no | pecl install apcu_bc
 RUN yes DEFAULT | pecl install intl
 RUN echo "extension=apcu.so" >> /usr/local/etc/php/php.ini
 RUN echo "extension=apc.so" >> /usr/local/etc/php/php.ini
+RUN echo "apc.enable_cli=On" >> /usr/local/etc/php/php.ini
 RUN echo "short_open_tag=Off" >> /usr/local/etc/php/php.ini
 
 RUN locale-gen de_DE.UTF-8

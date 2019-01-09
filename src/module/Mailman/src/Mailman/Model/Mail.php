@@ -22,7 +22,8 @@
  */
 namespace Mailman\Model;
 
-class Mail implements MailInterface {
+class Mail implements MailInterface
+{
     protected $subject;
     protected $body;
     protected $plain;
@@ -34,15 +35,18 @@ class Mail implements MailInterface {
         $this->plain = $plain;
     }
 
-    public function getSubject() {
+    public function getSubject()
+    {
         return $this->subject;
     }
 
-    public function getHtmlBody() {
+    public function getHtmlBody()
+    {
         return $this->body;
     }
 
-    public function getPlainBody() {
+    public function getPlainBody()
+    {
         return $this->plain;
     }
 }
