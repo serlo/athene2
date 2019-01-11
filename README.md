@@ -1,6 +1,8 @@
+<img src="https://assets.serlo.org/meta/logo.png" alt="Serlo logo" title="Serlo" align="right" height="60" />
+
 # Athene2
 
-[![Build status](https://img.shields.io/travis/com/serlo/athene2.svg)](https://travis-ci.com/serlo/athene2) [![Kanban board](https://img.shields.io/badge/Kanban-board-brightgreen.svg)](https://github.com/orgs/serlo/projects/1)
+[![Build status](https://img.shields.io/travis/com/serlo/athene2/development.svg)](https://travis-ci.com/serlo/athene2) [![Kanban board](https://img.shields.io/badge/Kanban-board-brightgreen.svg)](https://github.com/orgs/serlo/projects/1)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
