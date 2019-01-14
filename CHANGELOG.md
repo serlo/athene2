@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file. The format 
 
 - Add unit tests based on PHPUnit ([#824](https://github.com/serlo-org/athene2/pull/824))
   - Add yarn script `unit` that executes `./src/vendor/bin/phpunit`
+- Pass CSRF token down
+- Verify ReCAPTCHA tokens on server
+- Specify Sentry release
 
 ## [Build 5] - 2018-12-01
 
