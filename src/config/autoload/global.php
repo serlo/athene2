@@ -21,7 +21,7 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 return [
-    'version' => '5',
+    'version' => '6',
     'zfctwig'         => [
         'environment_options' => [
             'cache' => __DIR__ . '/../../data/twig',
