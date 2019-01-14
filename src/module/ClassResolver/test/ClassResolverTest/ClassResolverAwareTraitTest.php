@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2018 Serlo Education e.V.
+ * Copyright (c) 2013-2019 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,16 +16,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace ClassResolverTest;
 
 use ClassResolverTest\Fake\ClassResolverAware;
-use PHPUnit\Framework\TestCase;
 
-class ClassResolverAwareTraitTest extends TestCase
+class ClassResolverAwareTraitTest extends \PHPUnit_Framework_TestCase
 {
     protected $trait;
 
@@ -36,7 +35,7 @@ class ClassResolverAwareTraitTest extends TestCase
 
     public function testSetGet()
     {
-        $mock = $this->getMock('ClassResolver\ClassResolver');
+        $mock = $this->createMock('ClassResolver\ClassResolver');
         $this->trait->setClassResolver($mock);
         $this->assertSame($mock, $this->trait->getClassResolver());
     }

@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2018 Serlo Education e.V.
+ * Copyright (c) 2013-2019 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
@@ -34,7 +34,6 @@ use Instance\Manager\InstanceManagerAwareTrait;
 use Instance\Manager\InstanceManagerInterface;
 use Taxonomy\Manager\TaxonomyManagerAwareTrait;
 use Taxonomy\Manager\TaxonomyManagerInterface;
-use Uuid\Manager\UuidManagerAwareTrait;
 use Zend\EventManager\EventManagerAwareTrait;
 use Zend\Form\FormInterface;
 use ZfcRbac\Service\AuthorizationService;
@@ -46,6 +45,15 @@ class BlogManager implements BlogManagerInterface
     use InstanceManagerAwareTrait, AuthorizationAssertionTrait;
     use EventManagerAwareTrait;
 
+    /**
+     * @TODO AuthorizationService should be AuthorizationServiceInterface (depends on zf-commons)
+     *
+     * @param ClassResolverInterface $classResolver
+     * @param TaxonomyManagerInterface $taxonomyManager
+     * @param ObjectManager $objectManager
+     * @param InstanceManagerInterface $instanceManager
+     * @param AuthorizationService $authorizationService
+     */
     public function __construct(
         ClassResolverInterface $classResolver,
         TaxonomyManagerInterface $taxonomyManager,

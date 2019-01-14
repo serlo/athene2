@@ -1,6 +1,8 @@
+<img src="https://assets.serlo.org/meta/logo.png" alt="Serlo logo" title="Serlo" align="right" height="60" />
+
 # Athene2
 
-[![Build status](https://img.shields.io/travis/com/serlo-org/athene2.svg)](https://travis-ci.com/serlo-org/athene2) [![Kanban board](https://img.shields.io/badge/Kanban-board-brightgreen.svg)](https://github.com/orgs/serlo-org/projects/1)
+[![Build status](https://img.shields.io/travis/com/serlo/athene2/development.svg)](https://travis-ci.com/serlo/athene2) [![Kanban board](https://img.shields.io/badge/Kanban-board-brightgreen.svg)](https://github.com/orgs/serlo/projects/1)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -31,7 +33,7 @@ Now follow the upcoming instructions.
 
 ```sh
 # Clone the project:
-$ git clone https://github.com/serlo-org/athene2.git
+$ git clone https://github.com/serlo/athene2.git
 $ cd athene2
 ```
 
@@ -152,10 +154,10 @@ a different browser.
 
 Development is straight forward, make your changes to the php files and then reload the browser. Done!
 
-If you want to modify the assets (e.g. `.css`, `.js` files), you will also have to clone and set up https://github.com/serlo-org/athene2-assets. Before that, make sure you have [yarn](https://yarnpkg.com/en/docs/install) installed:
+If you want to modify the assets (e.g. `.css`, `.js` files), you will also have to clone and set up https://github.com/serlo/athene2-assets. Before that, make sure you have [yarn](https://yarnpkg.com/en/docs/install) installed:
 
 ```sh
-$ git clone https://github.com/serlo-org/athene2-assets
+$ git clone https://github.com/serlo/athene2-assets
 $ cd athene2-assets
 $ yarn
 $ yarn start
@@ -200,7 +202,8 @@ Open _package.json_ and make sure the values you got from running the two comman
 
 Most of these are outdated:
 
-- [Knowledge base](https://github.com/serlo-org/athene2/wiki/Knowledge-base)
-- [Development workflow (outdated)](https://github.com/serlo-org/athene2/wiki/Development-workflow)
-- [Installation (totally outdated, do not look at this)](https://github.com/serlo-org/athene2/wiki/Installation)
-- [Athene2 Guide (somewhat outdated)](https://serlo-org.github.io/athene2-guide/)
+- [Knowledge base](https://github.com/serlo/athene2/wiki/Knowledge-base)
+- [Testing](https://github.com/serlo/athene2/wiki/Testing)
+- [Development workflow (outdated)](https://github.com/serlo/athene2/wiki/Development-workflow)
+- [Installation (totally outdated, do not look at this)](https://github.com/serlo/athene2/wiki/Installation)
+- [Athene2 Guide (somewhat outdated)](https://serlo.github.io/athene2-guide/)

@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2018 Serlo Education e.V.
+ * Copyright (c) 2013-2019 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
@@ -24,6 +24,7 @@ namespace User\Factory;
 
 use Common\Factory\EntityManagerFactoryTrait;
 use User\Form\Register;
+use Zend\Mvc\I18n\Translator;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -40,6 +41,11 @@ class RegisterFormFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $entityManager = $this->getEntityManager($serviceLocator);
-        return new Register($entityManager);
+        /**
+         * @var $translator Translator
+         */
+        $translator = $serviceLocator->get('MvcTranslator');
+        $config = $serviceLocator->get('Config');
+        return new Register($entityManager, $translator, $config);
     }
 }

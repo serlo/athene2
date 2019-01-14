@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2018 Serlo Education e.V.
+ * Copyright (c) 2013-2019 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,13 +16,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace User\Form;
 
 use Common\Form\Element\CsrfToken;
+use Common\Form\Element\ReCaptcha;
 use Doctrine\ORM\EntityManager;
 use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\Password;
@@ -34,7 +35,7 @@ use Zend\Mvc\I18n\Translator;
 
 class Register extends Form
 {
-    public function __construct(EntityManager $entityManager, Translator $translator)
+    public function __construct(EntityManager $entityManager, Translator $translator, $config)
     {
         parent::__construct('signUp');
         $this->add(new CsrfToken());
@@ -87,5 +88,9 @@ class Register extends Form
             ))
             ->setEmptyOption('')
             ->setLabel('I am here as…'));
+
+        $recaptcha = (new ReCaptcha($config['recaptcha_options']))
+            ->setValue('Sign up');
+        $this->add($recaptcha);
     }
 }
