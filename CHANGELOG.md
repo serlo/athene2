@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [Build 6] - 2019-01-14
 
 ### Added
 
@@ -113,7 +113,8 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo-org/athene2/compare/5...HEAD
+[unreleased]: https://github.com/serlo-org/athene2/compare/6...HEAD
+[build 6]: https://github.com/serlo-org/athene2/compare/5...6
 [build 5]: https://github.com/serlo-org/athene2/compare/4...5
 [build 4]: https://github.com/serlo-org/athene2/compare/3...4
 [build 3]: https://github.com/serlo-org/athene2/compare/2...3
