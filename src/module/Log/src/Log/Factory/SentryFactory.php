@@ -33,11 +33,14 @@ class SentryFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $config = $serviceLocator->get('Config')['sentry_options'];
+        $config = $serviceLocator->get('Config');
+        $sentryConfig = $config['sentry_options'];
+
         $client = new \Raven_Client(
             // Deactive sentry if no DSN is given
-            isset($config['dsn']) ? $config['dsn'] : null,
+            isset($sentryConfig['dsn']) ? $sentryConfig['dsn'] : null,
             array(
+                'release' => 'athene2@' . $config['version'],
                 'tags' => array(
                     'php_version' => phpversion(),
                 ),
