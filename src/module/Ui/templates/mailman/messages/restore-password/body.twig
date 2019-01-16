@@ -32,4 +32,4 @@
 {% set link %}
     <a href="{{ url }}">{{ 'Restore password' | trans }}</a>
 {% endset %}
-{{ message | format(user.getUsername(), link) | nl2br }}
+{{ message | format(user.getUsername(), link) | raw | nl2br }}

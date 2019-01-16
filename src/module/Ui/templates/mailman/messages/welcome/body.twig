@@ -32,4 +32,4 @@
         Enjoy Serlo!
     {% endtrans %}
 {% endset %}
-{{ message | format(user.getUsername()) | nl2br }}
+{{ message | format(user.getUsername()) | raw | nl2br }}

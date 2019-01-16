@@ -20,20 +20,36 @@
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% set event = notification.getEvents().current() %}
-{% set user = normalize().toAnchor(event.getActor(), true) %}
 {% set reason = event.getParameter('reason') %}
-{% set repository = normalize().toAnchor(event.getParameter('repository'), true) %}
-{% set url = normalize().toUrl(event.getObject(), true) %}
-{% set revision = '<a href="' ~ url ~ '">' ~ 'revision'|trans ~ '</a>' %}
-<div class="dropdown-menu-item">
+
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set repository = normalize().toTitle(event.getParameter('repository')) %}
+    {% set revision = 'revision'|trans %}
     {% if reason %}
         {% trans %}
-        {{ user }} rejected a {{ revision }} of {{ repository }}: {{ reason }}
+            {{ user }} rejected a {{ revision }} of {{ repository }}: {{ reason }}
         {% endtrans %}
     {% else %}
         {% trans %}
-        {{ user }} rejected a {{ revision }} of {{ repository }}
+            {{ user }} rejected a {{ revision }} of {{ repository }}
         {% endtrans %}
-    {% endif %}
-    <small> - {{ timeago().render(event.getTimestamp()) }}</small>
-</div>
+    {% endif %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+{% else %}
+    {% set user = normalize().toAnchor(event.getActor(), true) %}
+    {% set repository = normalize().toAnchor(event.getParameter('repository'), true) %}
+    {% set url = normalize().toUrl(event.getObject(), true) %}
+    {% set revision = '<a href="' ~ url ~ '">' ~ 'revision'|trans ~ '</a>' %}
+    <div class="dropdown-menu-item">
+        {% if reason %}
+            {% trans %}
+            {{ user }} rejected a {{ revision }} of {{ repository }}: {{ reason }}
+            {% endtrans %}
+        {% else %}
+            {% trans %}
+            {{ user }} rejected a {{ revision }} of {{ repository }}
+            {% endtrans %}
+        {% endif %}
+        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+    </div>
+{% endif %}

@@ -20,6 +20,13 @@
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% set event = notification.getEvents().current() %}
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set object = normalize().toTitle(event.getObject()) %}
+    {% trans %}
+        {{ user }} updated {{ object }}
+    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+{% else %}
 {% set user = normalize().toAnchor(event.getActor(), true) %}
 {% set object = normalize().toAnchor(event.getObject(), true) %}
 <div class="dropdown-menu-item">
@@ -28,3 +35,4 @@
     {% endtrans %}
     <small> - {{ timeago().render(event.getTimestamp()) }}</small>
 </div>
+{% endif %}

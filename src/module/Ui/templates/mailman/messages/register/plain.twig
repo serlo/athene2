@@ -34,5 +34,4 @@
         Your community support
     {% endtrans %}
 {% endset %}
-{% set url = url('authentication/activate', {'token': user.getToken()}, {'force_canonical': true}) %}
-{{ message | format(user.getUsername(), brand, url, brand) }}
+{{ message | format(user.getUsername(), brand, activationUrl, brand) }}

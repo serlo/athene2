@@ -26,9 +26,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Mailman\Renderer\MailRenderer;
 use Notification\Entity\Notification;
 use User\Entity\User;
+use Uuid\Entity\UuidInterface;
+use Zend\Test\PHPUnit\Controller\AbstractControllerTestCase;
 use Zend\Test\Util\ModuleLoader;
 
-class MailRendererTest extends \PHPUnit_Framework_TestCase
+class MailRendererTest extends AbstractControllerTestCase
 {
     /**
      * @var MailRenderer
@@ -40,22 +42,35 @@ class MailRendererTest extends \PHPUnit_Framework_TestCase
         parent::setUp();
 
         $config = require 'config/application.config.php';
-        $moduleLoader = new ModuleLoader($config);
-        $moduleLoader->getApplication()->bootstrap();
-        $this->mailRenderer = $moduleLoader->getServiceManager()->get('Mailman\Renderer\MailRenderer');
+        $this->setApplicationConfig($config);
+        $this->getApplication()->bootstrap();
+        $this->mailRenderer = $this->getApplicationServiceLocator()->get('Mailman\Renderer\MailRenderer');
     }
 
     /**
      * @param string $folder
      * @param array $data
+     * @param array $checkVisibleData data to check if visible in mails
      * @dataProvider providerAllData
      */
-    public function testRenderForwarding($folder, $data)
+    public function testRendering($folder, $data, $checkVisibleData = [])
     {
         $this->mailRenderer->setTemplateFolder($folder);
 
-        // FIXME: Seems like the <a> tags got escaped
-        var_dump($this->mailRenderer->renderMail($data)->getHtmlBody());
+        $html = $this->mailRenderer->renderMail($data)->getHtmlBody();
+        $plain = $this->mailRenderer->renderMail($data)->getPlainBody();
+
+        //check that html didn't get escaped
+        $this->assertNotContains('&lt', $html);
+        $this->assertContains('<', $html);
+        $this->assertNotContains('&lt', $plain);
+        $this->assertNotContains('<', $plain);
+
+        //check data
+        foreach ($checkVisibleData as $dataCheck){
+            $this->assertContains($dataCheck, $html);
+            $this->assertContains($dataCheck, $plain);
+        }
     }
 
     /**
@@ -64,10 +79,10 @@ class MailRendererTest extends \PHPUnit_Framework_TestCase
      */
     public function testTemplatesExist($folder)
     {
-//        $base = 'module/Ui/templates/';
-//        $this->assertFileExists($base . $folder . '/subject.twig');
-//        $this->assertFileExists($base . $folder . '/body.twig');
-//        $this->assertFileExists($base . $folder . '/plain.twig');
+        $base = 'module/Ui/templates/';
+        $this->assertFileExists($base . $folder . '/subject.twig');
+        $this->assertFileExists($base . $folder . '/body.twig');
+        $this->assertFileExists($base . $folder . '/plain.twig');
     }
 
     public function providerUserMailData()
@@ -75,38 +90,56 @@ class MailRendererTest extends \PHPUnit_Framework_TestCase
         $userDummy = new User();
         $userDummy->setUsername('UserDummy');
 
-        $data = [
+        return array(
+            array('mailman/messages/welcome', [
                 'body' => [
                     'user' => $userDummy,
                 ],
-            ];
-
-        return array(
-            array('mailman/messages/welcome', $data),
-            // TODO:
-            // array('mailman/messages/register', $data),
-            // TODO:
-            // array('mailman/messages/restore-password', $data),
+            ], array($userDummy->getUsername())),
+            array('mailman/messages/register', [
+                'body' => [
+                    'user' => $userDummy,
+                ],
+            ], array($userDummy->getUsername())),
+            array('mailman/messages/restore-password', [
+                'body' => [
+                    'user' => $userDummy,
+                ]
+            ], array($userDummy->getUsername())),
         );
     }
 
     public function providerNotificationMailData()
     {
-        $userDummy = new User();
-        $userDummy->setUsername('UserDummy');
-        $contentNotificationDummy = new Notification();
-        $discussionNotificationDummy = new Notification();
-        $data = [
+        return array_map(function ($eventType) {
+            $userDummy = new User();
+            $userDummy->setUsername('UserDummy');
+            $notificationDummy = new Notification();
+            $isDiscussion = substr($eventType,0, strlen('discussion')) === 'discussion';
+            $data = [
                 'body' => [
                     'user' => $userDummy,
-                    'contentNotifications' => new ArrayCollection(array($contentNotificationDummy)),
-                    'discussionNotifications' => new ArrayCollection(array($discussionNotificationDummy)),
+                    'contentNotifications' => new ArrayCollection($isDiscussion ? array() : array($notificationDummy)),
+                    'discussionNotifications' => new ArrayCollection($isDiscussion ? array($notificationDummy) : array()),
                 ],
             ];
-        return array(
-            // TODO:
-            // array('mailman/messages/notification', $data)
-        );
+
+            return array('mailman/messages/notification', $data, array($userDummy->getUsername()));
+        }, array(
+//            'discussion/comment/archive',
+//            'discussion/comment/create',
+//            'discussion/create',
+//            'entity/link/create',
+//            'entity/revision/add',
+//            'entity/revision/checkout',
+//            'entity/revision/reject',
+//            'taxonomy/term/parent/change',
+//            'taxonomy/term/associate',
+//            'taxonomy/term/dissociate',
+//            'taxonomy/term/update',
+//            'uuid/restore',
+//            'uuid/trash'
+        ));
     }
 
     public function providerAllData()

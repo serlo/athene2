@@ -19,15 +19,28 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% set event = notification.getEvents().current() %}{% set user = normalize().toAnchor(event.getActor(), true) %}
-{% set object = normalize().toAnchor(event.getObject(), true) %}
-{% set parent = event.getParameter('parent') %}
-{% if parent %}
-    {% set parent = normalize().toAnchor(parent, true) %}
-    <div class="dropdown-menu-item">
+{% set event = notification.getEvents().current() %}
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set object = normalize().toTitle(event.getObject()) %}
+    {% set parent = event.getParameter('parent') %}
+    {% if parent %}
+        {% set parent = normalize().toTitle(parent) %}
         {% trans %}
-        {{ user }} added {{ object }} to {{ parent }}
-        {% endtrans %}
-        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
-    </div>
+            {{ user }} added {{ object }} to {{ parent }}
+        {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+    {% endif %}
+{% else %}
+    {% set user = normalize().toAnchor(event.getActor(), true) %}
+    {% set object = normalize().toAnchor(event.getObject(), true) %}
+    {% set parent = event.getParameter('parent') %}
+    {% if parent %}
+        {% set parent = normalize().toAnchor(parent, true) %}
+        <div class="dropdown-menu-item">
+            {% trans %}
+            {{ user }} added {{ object }} to {{ parent }}
+            {% endtrans %}
+            <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+        </div>
+    {% endif %}
 {% endif %}

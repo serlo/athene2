@@ -38,4 +38,4 @@
 {% set link %}
     <a href="{{ url }}">{{ 'Activate account' | trans }}</a>
 {% endset %}
-{{ message | format(user.getUsername(), brand, link, brand) | nl2br }}
+{{ message | format(user.getUsername(), brand, link, brand) | raw | nl2br }}
