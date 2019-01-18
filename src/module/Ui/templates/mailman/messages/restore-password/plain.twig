@@ -28,4 +28,5 @@
         %s
     {% endtrans %}
 {% endset %}
-{{ message | format(user.getUsername(), restoreUrl) }}
+{% set url = url('authentication/password/restore', {'token': user.getToken()}, {'force_canonical': true}) %}
+{{ message | format(user.getUsername(), url) }}

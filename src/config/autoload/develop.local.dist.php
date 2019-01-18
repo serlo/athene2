@@ -41,6 +41,12 @@ return [
             ],
         ],
     ],
+    'mailman'         => [
+        'adapters' => [
+            'Mailman\Adapter\MailMockAdapter',
+        ],
+    ],
+
     // 'assets_host'     => 'http://localhost:8081/',
     // 'editor_renderer' => [
     //   'url' => 'http://host.docker.internal:3000/',

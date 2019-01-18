@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2019 Serlo Education e.V.
+ * Copyright (c) 2013-2018 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,17 +16,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 namespace Mailman\Factory;
 
-use Mailman\Listener\NotificationWorkerListener;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Cache\StorageFactory;
 use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class NotificationWorkerListenerFactory implements FactoryInterface
+class MailMockStorageFactory implements FactoryInterface
 {
     /**
      * Create service
@@ -36,12 +36,22 @@ class NotificationWorkerListenerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $mailman    = $serviceLocator->get('Mailman/Mailman');
-        $translator = $serviceLocator->get('Translator');
-        $logger     = $serviceLocator->get('Zend\Log\Logger');
-        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
-        $class      = new NotificationWorkerListener($logger, $mailman, $renderer, $translator);
-
-        return $class;
+        $config = [
+            'adapter' => [
+                'name' => 'apc',
+                'options' => [
+                    'namespace' => __NAMESPACE__,
+                    'ttl' => 60 * 60,
+                ],
+            ],
+            'plugins' => [
+                'exception_handler' => [
+                    'throw_exceptions' => false,
+                ],
+                'serializer',
+            ],
+        ];
+        $cache = StorageFactory::factory($config);
+        return $cache;
     }
 }

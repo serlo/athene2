@@ -54,4 +54,9 @@ return [
             ],
         ],
     ),
+    'mailman'         => [
+        'adapters' => [
+            'Mailman\Adapter\ZendMailAdapter',
+        ],
+    ],
 ];
