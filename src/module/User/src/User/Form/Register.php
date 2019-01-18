@@ -28,7 +28,6 @@ use Doctrine\ORM\EntityManager;
 use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\Password;
 use Zend\Form\Element\Select;
-use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 use Zend\Mvc\I18n\Translator;
@@ -90,7 +89,7 @@ class Register extends Form
             ->setLabel('I am here as…'));
 
         $recaptcha = (new ReCaptcha($config['recaptcha_options']))
-            ->setValue('Sign up');
+            ->setLabel('Sign up');
         $this->add($recaptcha);
     }
 }
