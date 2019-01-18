@@ -32,7 +32,7 @@ class ReCaptcha extends Submit implements InputProviderInterface
 
     public function __construct($recaptcha_options)
     {
-        parent::__construct('recaptcha');
+        parent::__construct('g-recaptcha-response');
         $this->setAttribute('class', 'g-recaptcha btn btn-success pull-right');
         $this->setAttribute('data-sitekey', $recaptcha_options['api_key']);
 
