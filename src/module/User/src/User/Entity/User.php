@@ -211,4 +211,12 @@ class User extends Uuid implements UserInterface
     {
         return $this->description;
     }
+
+    public function toJson()
+    {
+        return [
+            'id' => $this->getId(),
+            'username' => $this->getUsername(),
+        ];
+    }
 }
