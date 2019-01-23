@@ -47,7 +47,6 @@ class Service
     /**
      * @param string $feature
      * @return bool
-     * @throws \Exception
      */
     public function isEnabled(string $feature): bool
     {
