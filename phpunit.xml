@@ -6,14 +6,17 @@
     <testsuite name="Blog">
       <directory>./src/module/Blog/test</directory>
     </testsuite>
+    <testsuite name="ClassResolver">
+      <directory>./src/module/ClassResolver/test</directory>
+    </testsuite>
     <testsuite name="Common">
       <directory>./src/module/Common/test</directory>
     </testsuite>
+    <testsuite name="FeatureFlags">
+      <directory>./src/module/FeatureFlags/test</directory>
+    </testsuite>
     <testsuite name="Type">
       <directory>./src/module/Type/test</directory>
-    </testsuite>
-    <testsuite name="ClassResolver">
-      <directory>./src/module/ClassResolver/test</directory>
     </testsuite>
   </testsuites>
 </phpunit>
