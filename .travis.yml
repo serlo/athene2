@@ -10,6 +10,7 @@ matrix:
       script:
         - sh bin/build.sh
         - ./src/vendor/bin/phpunit
+        - php php-cs-fixer.phar fix --config=php-cs-fixer.config.php --dry-run
     - language: node_js
       node_js: 10
       cache: yarn
