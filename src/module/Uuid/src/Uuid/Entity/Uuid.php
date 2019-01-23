@@ -97,4 +97,9 @@ class Uuid implements UuidInterface
     {
         return (string)$this->getId();
     }
+
+    public function toJson()
+    {
+        return $this->getId();
+    }
 }

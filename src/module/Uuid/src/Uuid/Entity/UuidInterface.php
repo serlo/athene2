@@ -22,7 +22,9 @@
  */
 namespace Uuid\Entity;
 
-interface UuidInterface
+use Common\Entity\JsonSerializableInterface;
+
+interface UuidInterface extends JsonSerializableInterface
 {
     /**
      * @return int
