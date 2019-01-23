@@ -38,7 +38,7 @@ interface EventParameterInterface extends InstanceProviderInterface
     public function getLog();
 
     /**
-     * @return string
+     * @return EventParameterNameInterface
      */
     public function getName();
 
