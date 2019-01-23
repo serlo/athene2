@@ -102,6 +102,11 @@ class Notification implements NotificationInterface
         return $events;
     }
 
+    public function getEvent()
+    {
+        return $this->getEvents()->current();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -157,5 +162,14 @@ class Notification implements NotificationInterface
     public function setTimestamp(DateTime $timestamp)
     {
         $this->date = $timestamp;
+    }
+
+    public function toJson()
+    {
+        return [
+            'id' => $this->getId(),
+            'seen' => $this->getSeen(),
+            'event' => $this->getEvent()->toJson(),
+        ];
     }
 }
