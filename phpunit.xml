@@ -12,6 +12,9 @@
     <testsuite name="Common">
       <directory>./src/module/Common/test</directory>
     </testsuite>
+    <testsuite name="Event">
+      <directory>./src/module/Event/test</directory>
+    </testsuite>
     <testsuite name="FeatureFlags">
       <directory>./src/module/FeatureFlags/test</directory>
     </testsuite>
