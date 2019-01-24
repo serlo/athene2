@@ -29,7 +29,7 @@ class Service
      */
     private $flags;
     /**
-     * @var \Raven_Client
+     * @var ServiceLoggerInterface
      */
     private $sentry;
 
@@ -38,7 +38,7 @@ class Service
      * @param array $config
      * @param ServiceLoggerInterface $sentry
      */
-    public function __construct(array $config, ServiceLoggerInterface $sentry)
+    public function __construct(array $config, $sentry)
     {
         $this->flags = $config;
         $this->sentry = $sentry;
