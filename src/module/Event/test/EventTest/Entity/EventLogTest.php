@@ -23,13 +23,12 @@
 
 namespace EventTest\Entity;
 
+use CommonTest\Entity\JsonSerializableInterfaceMock;
 use Doctrine\Common\Collections\ArrayCollection;
 use Event\Entity\EventInterface;
 use Event\Entity\EventLog;
 use Event\Entity\EventLogInterface;
 use Event\Entity\EventParameterInterface;
-use User\Entity\UserInterface;
-use Uuid\Entity\UuidInterface;
 
 class EventLogTest extends \PHPUnit_Framework_TestCase
 {
@@ -62,6 +61,11 @@ class EventLogTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['type' => 'actor'], $this->json['actor']);
     }
 
+    public function testToJsonContainsObject()
+    {
+        $this->assertEquals(['type' => 'object'], $this->json['object']);
+    }
+
     public function testToJsonContainsParams()
     {
         $this->assertEquals('bar', $this->json['params']['foo']);
@@ -90,23 +94,17 @@ class EventLogTest extends \PHPUnit_Framework_TestCase
             ->getMock();
         $eventLog->method('getId')->willReturn(1337);
         $eventLog->method('getEvent')->willReturn($this->createEventMock());
-        $eventLog->method('getActor')->willReturn($this->createActorMock());
-        $eventLog->method('getObject')->willReturn($this->createObjectMock());
+        $eventLog->method('getActor')->willReturn(
+            JsonSerializableInterfaceMock::create($this, ['type' => 'actor'])
+        );
+        $eventLog->method('getObject')->willReturn(
+            JsonSerializableInterfaceMock::create($this, ['type' => 'object'])
+        );
         $eventLog->method('getTimestamp')->willReturn(new \DateTime('2019-01-01'));
         $eventLog->method('getParameters')->willReturn(
             new ArrayCollection([$this->createParameterMock()])
         );
         return $eventLog;
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    private function createActorMock(): \PHPUnit_Framework_MockObject_MockObject
-    {
-        $actor = $this->getMockBuilder(UserInterface::class)->getMock();
-        $actor->method('toJson')->willReturn(['type' => 'actor']);
-        return $actor;
     }
 
     /**
@@ -123,21 +121,11 @@ class EventLogTest extends \PHPUnit_Framework_TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function createObjectMock(): \PHPUnit_Framework_MockObject_MockObject
-    {
-        $object = $this->getMockBuilder(UuidInterface::class)->getMock();
-        return $object;
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
     private function createParameterMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $paramName = $this->getMockBuilder(EventParameterInterface::class)->getMock();
         $paramName->method('getName')->willReturn('foo');
-        $paramValue = $this->getMockBuilder(UuidInterface::class)->getMock();
-        $paramValue->method('toJson')->willReturn('bar');
+        $paramValue = JsonSerializableInterfaceMock::create($this, 'bar');
         $param = $this->getMockBuilder(EventParameterInterface::class)->getMock();
         $param->method('getName')->willReturn($paramName);
         $param->method('getValue')->willReturn($paramValue);
