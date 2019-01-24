@@ -20,7 +20,10 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace FeatureFlags;
+namespace FeatureFlagsTest;
+
+use FeatureFlags\Service;
+use FeatureFlags\ServiceLoggerInterface;
 
 class MockSentry implements ServiceLoggerInterface
 {
@@ -32,12 +35,15 @@ class MockSentry implements ServiceLoggerInterface
     }
 }
 
-class PostTest extends \PHPUnit_Framework_TestCase
+class ServiceTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var MockSentry
      */
     private $logger;
+    /**
+     * @var Service
+     */
     private $service;
 
     public function setUp()
