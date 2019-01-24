@@ -48,6 +48,15 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes'  => [
+                    'index' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/json',
+                            'defaults' => [
+                                'action' => 'index',
+                            ],
+                        ],
+                    ],
                     'read' => [
                         'type'    => 'literal',
                         'options' => [

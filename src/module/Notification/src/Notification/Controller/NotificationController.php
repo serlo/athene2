@@ -22,6 +22,8 @@
  */
 namespace Notification\Controller;
 
+use Event\Entity\EventLogInterface;
+use Notification\Entity\NotificationInterface;
 use Notification\NotificationManagerAwareTrait;
 use Notification\NotificationManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -52,6 +54,20 @@ class NotificationController extends AbstractActionController
             $this->notificationManager->markRead($user);
             $this->notificationManager->flush();
         }
+        return new JsonModel([]);
+    }
+
+    public function indexAction()
+    {
+        $user = $this->authorizationService->getIdentity();
+        if ($user) {
+            $notifications = $this->notificationManager->findNotificationsBySubscriber($user);
+            return new JsonModel($notifications->map(function (NotificationInterface $notification) {
+                return $notification->toJson();
+            }));
+        }
+
+        $this->getResponse()->setStatusCode(403);
         return new JsonModel([]);
     }
 }
