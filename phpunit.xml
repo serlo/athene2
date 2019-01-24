@@ -24,5 +24,8 @@
     <testsuite name="Type">
       <directory>./src/module/Type/test</directory>
     </testsuite>
+    <testsuite name="Uuid">
+      <directory>./src/module/Uuid/test</directory>
+    </testsuite>
   </testsuites>
 </phpunit>
