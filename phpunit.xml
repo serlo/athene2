@@ -18,6 +18,9 @@
     <testsuite name="FeatureFlags">
       <directory>./src/module/FeatureFlags/test</directory>
     </testsuite>
+    <testsuite name="Notification">
+      <directory>./src/module/Notification/test</directory>
+    </testsuite>
     <testsuite name="Type">
       <directory>./src/module/Type/test</directory>
     </testsuite>
