@@ -23,6 +23,7 @@
 namespace Mailman\Controller;
 
 use FeatureFlags\Service;
+use Mailman\MailmanWorker;
 use Zend\Mvc\Controller\AbstractConsoleController;
 
 class WorkerController extends AbstractConsoleController
@@ -35,10 +36,30 @@ class WorkerController extends AbstractConsoleController
         $service = $this->serviceLocator->get(Service::class);
 
         if ($service->isEnabled('separate-mails-from-notifications')) {
-            // Deactivate worker
-            return 'success, implementation WIP';
+            // Enable worker
+            $this->getMailmanWorker()->run();
+            return 'success';
         }
 
         return 'success';
     }
+
+    /**
+     * @return MailmanWorker
+     */
+    public function getMailmanWorker()
+    {
+        return $this->mailmanWorker;
+    }
+
+    /**
+     * @param MailmanWorker $mailmanWorker
+     */
+    public function setMailmanWorker(MailmanWorker $mailmanWorker)
+    {
+        $this->mailmanWorker = $mailmanWorker;
+    }
+
+    /** @var MailmanWorker */
+    protected $mailmanWorker;
 }

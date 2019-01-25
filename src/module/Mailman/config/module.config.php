@@ -72,7 +72,12 @@ return [
         ],
         'definition' => [
             'class' => [
-                WorkerController::class => [],
+                MailmanWorker::class => [],
+                WorkerController::class => [
+                    'setMailmanWorker' => [
+                        'required' => true,
+                    ],
+                ],
             ],
         ],
         'instance' => [
