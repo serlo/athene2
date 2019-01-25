@@ -22,6 +22,8 @@
  */
 namespace Notification;
 
+use Notification\Listener\EventManagerListener;
+
 return [
     'view_helpers'    => [
         'factories' => [
@@ -148,6 +150,11 @@ return [
         ],
         'definition'          => [
             'class' => [
+                EventManagerListener::class => [
+                    'setNotificationManager' => [
+                        'required' => true,
+                    ],
+                ],
                 __NAMESPACE__ . '\Listener\AuthenticationControllerListener' => [],
                 __NAMESPACE__ . '\Listener\DiscussionManagerListener'        => [],
                 __NAMESPACE__ . '\Listener\RepositoryManagerListener'        => [

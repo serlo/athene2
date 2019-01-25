@@ -32,7 +32,7 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            Service::class => ServiceFactory::class
+            Service::class => ServiceFactory::class,
         ],
     ],
 ];

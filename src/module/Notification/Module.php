@@ -20,8 +20,11 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace Notification;
 
+use FeatureFlags\Service;
+use Notification\Listener\EventManagerListener;
 use Zend\Mvc\MvcEvent;
 
 class Module
@@ -66,12 +69,22 @@ class Module
 
     public function onDispatchRegisterListeners(MvcEvent $e)
     {
-        $eventManager       = $e->getApplication()->getEventManager();
+        $application = $e->getApplication();
+        $eventManager = $application->getEventManager();
+        $serviceManager = $application->getServiceManager();
+
         $sharedEventManager = $eventManager->getSharedManager();
         foreach (self::$listeners as $listener) {
-            $sharedEventManager->attachAggregate(
-                $e->getApplication()->getServiceManager()->get($listener)
-            );
+            $sharedEventManager->attachAggregate($serviceManager->get($listener));
+        }
+
+        /**
+         * @var $service \FeatureFlags\Service
+         */
+        $service = $e->getApplication()->getServiceManager()->get(Service::class);
+        if ($service->isEnabled('separate-mails-from-notifications')) {
+            // Enable EventManagerListener
+            $sharedEventManager->attachAggregate($serviceManager->get(EventManagerListener::class));
         }
     }
 }
