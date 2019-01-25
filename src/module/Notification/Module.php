@@ -70,9 +70,8 @@ class Module
     public function onDispatchRegisterListeners(MvcEvent $e)
     {
         $application = $e->getApplication();
-        $eventManager = $application->getEventManager();
         $serviceManager = $application->getServiceManager();
-
+        $eventManager = $application->getEventManager();
         $sharedEventManager = $eventManager->getSharedManager();
         foreach (self::$listeners as $listener) {
             $sharedEventManager->attachAggregate($serviceManager->get($listener));

@@ -24,6 +24,9 @@
 namespace Mailman;
 
 use Mailman\Controller\WorkerController;
+use Mailman\Factory\MailmanFactory;
+use Mailman\Factory\MailmanWorkerListenerFactory;
+use Mailman\Listener\MailmanWorkerListener;
 
 return [
     'mailman' => [
@@ -48,12 +51,13 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\Mailman' => __NAMESPACE__ . '\Factory\MailmanFactory',
+            Mailman::class => MailmanFactory::class,
             __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
             __NAMESPACE__ . '\Adapter\ZendMailAdapter' => __NAMESPACE__ . '\Factory\ZendMailAdapterFactory',
             __NAMESPACE__ . '\Listener\AuthenticationControllerListener' => __NAMESPACE__ . '\Factory\AuthenticationControllerListenerFactory',
             __NAMESPACE__ . '\Listener\UserControllerListener' => __NAMESPACE__ . '\Factory\UserControllerListenerFactory',
             __NAMESPACE__ . '\Listener\NotificationWorkerListener' => __NAMESPACE__ . '\Factory\NotificationWorkerListenerFactory',
+            MailmanWorkerListener::class => MailmanWorkerListenerFactory::class,
             'Zend\Mail\Transport\SmtpOptions' => __NAMESPACE__ . '\Factory\SmtpOptionsFactory',
         ],
     ],
@@ -72,7 +76,14 @@ return [
         ],
         'definition' => [
             'class' => [
-                MailmanWorker::class => [],
+                MailmanWorker::class => [
+                    'setClassResolver' => [
+                        'required' => true,
+                    ],
+                    'setObjectManager' => [
+                        'required' => true,
+                    ],
+                ],
                 WorkerController::class => [
                     'setMailmanWorker' => [
                         'required' => true,
@@ -82,7 +93,7 @@ return [
         ],
         'instance' => [
             'preferences' => [
-                'Mailman\MailmanInterface' => 'Mailman\Mailman',
+                MailmanInterface::class => Mailman::class,
             ],
         ],
     ],

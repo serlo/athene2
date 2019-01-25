@@ -20,30 +20,17 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Mailman\Factory;
+namespace Mailman\Listener;
 
-use Mailman\Mailman;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Mailman\MailmanWorker;
 
-abstract class AbstractListenerFactory implements FactoryInterface
+class MailmanWorkerListener extends NotificationWorkerListener
 {
     /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @return string
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    protected function getMonitoredClass()
     {
-        $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get(Mailman::class);
-        $translator = $serviceLocator->get('Translator');
-        $renderer   = $serviceLocator->get('ViewRenderer');
-        $class      = new $class($mailman, $renderer, $translator);
-
-        return $class;
+        return MailmanWorker::class;
     }
-
-    abstract protected function getClassName();
 }

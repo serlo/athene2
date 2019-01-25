@@ -20,8 +20,12 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace Mailman;
 
+use FeatureFlags\Service;
+use Mailman\Listener\MailmanWorkerListener;
+use Mailman\Listener\NotificationWorkerListener;
 use Mailman\Options\ModuleOptions;
 use Zend\Console\Request;
 use Zend\Mvc\MvcEvent;
@@ -33,7 +37,6 @@ class Module
     public static $listeners = [
         'Mailman\Listener\UserControllerListener',
         'Mailman\Listener\AuthenticationControllerListener',
-        'Mailman\Listener\NotificationWorkerListener',
     ];
 
     public function getAutoloaderConfig()
@@ -70,32 +73,39 @@ class Module
 
     public function onDispatchRegisterListeners(MvcEvent $e)
     {
-        $eventManager       = $e->getApplication()->getEventManager();
+        $application = $e->getApplication();
+        $serviceManager = $application->getServiceManager();
+        $eventManager = $application->getEventManager();
         $sharedEventManager = $eventManager->getSharedManager();
         foreach (self::$listeners as $listener) {
-            $sharedEventManager->attachAggregate(
-                $e->getApplication()->getServiceManager()->get($listener)
-            );
+            $sharedEventManager->attachAggregate($serviceManager->get($listener));
+        }
+        /**
+         * @var $service \FeatureFlags\Service
+         */
+        $service = $e->getApplication()->getServiceManager()->get(Service::class);
+        if ($service->isEnabled('separate-mails-from-notifications')) {
+            $sharedEventManager->attachAggregate($serviceManager->get(MailmanWorkerListener::class));
+        } else {
+            $sharedEventManager->attachAggregate($serviceManager->get(NotificationWorkerListener::class));
         }
 
-        $application        = $e->getApplication();
-        $serviceLocator     = $application->getServiceManager();
         if ($e->getRequest() instanceof Request) {
             /* @var $moduleOptions Options\ModuleOptions */
-            $moduleOptions = $serviceLocator->get('Mailman\Options\ModuleOptions');
-            $uri           = new Http($moduleOptions->getLocation());
-            $serviceLocator->get('HttpRouter')->setRequestUri($uri);
+            $moduleOptions = $serviceManager->get('Mailman\Options\ModuleOptions');
+            $uri = new Http($moduleOptions->getLocation());
+            $serviceManager->get('HttpRouter')->setRequestUri($uri);
 
-            $moduleOptions = $serviceLocator->get('Mailman\Options\ModuleOptions');
-            $serverUrlHelper = $serviceLocator->get('ViewHelperManager')->get('serverUrl');
+            $moduleOptions = $serviceManager->get('Mailman\Options\ModuleOptions');
+            $serverUrlHelper = $serviceManager->get('ViewHelperManager')->get('serverUrl');
             $this->injectServerUrl($serverUrlHelper, $moduleOptions);
-            $serverUrlHelper = $serviceLocator->get('ZfcTwigViewHelperManager')->get('serverUrl');
+            $serverUrlHelper = $serviceManager->get('ZfcTwigViewHelperManager')->get('serverUrl');
             $this->injectServerUrl($serverUrlHelper, $moduleOptions);
         }
     }
 
     /**
-     * @param ServerUrl     $serverUrlHelper
+     * @param ServerUrl $serverUrlHelper
      * @param ModuleOptions $moduleOptions
      */
     protected function injectServerUrl(ServerUrl $serverUrlHelper, ModuleOptions $moduleOptions)

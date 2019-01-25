@@ -20,14 +20,62 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace Mailman;
+
+use ClassResolver\ClassResolverAwareTrait;
+use Common\Traits\ObjectManagerAwareTrait;
+use Notification\Entity\NotificationInterface;
+use Zend\EventManager\EventManagerAwareTrait;
 
 class MailmanWorker
 {
+    use ClassResolverAwareTrait;
+    use EventManagerAwareTrait;
+    use ObjectManagerAwareTrait;
+
     public function run()
     {
         $timeout = 60 * 20;
         ini_set('mysql.connect_timeout', $timeout);
         ini_set('default_socket_timeout', $timeout);
+
+        $workload = [];
+
+        foreach ($this->getWorkload() as $notification) {
+            $subscriber = $notification->getUser();
+            $id = $subscriber->getId();
+            $workload[$id]['subscriber'] = $subscriber;
+            $workload[$id]['notifications'][] = $notification;
+        }
+
+        foreach ($workload as $data) {
+            $this->getEventManager()->trigger(
+                'notify',
+                $this,
+                [
+                    'notifications' => $data['notifications'],
+                    'user' => $data['subscriber'],
+                ]
+            );
+            // TODO: mark notifications as mailed, maybe see offset from NotificationWorker
+        }
+
+        $this->getObjectManager()->flush();
+    }
+
+    /**
+     * @return NotificationInterface[]
+     */
+    protected function getWorkload()
+    {
+        $query = $this->getObjectManager()->createQuery(
+            sprintf(
+                'SELECT n FROM %s n WHERE n.seen = 0',
+                $this->getClassResolver()->resolveClassName(NotificationInterface::class)
+            )
+        );
+
+        return $query->getResult();
     }
 }
