@@ -20,35 +20,61 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace Mailman;
 
+use Mailman\Controller\WorkerController;
+
 return [
-    'mailman'         => [
+    'mailman' => [
         'adapters' => [
             'Mailman\Adapter\ZendMailAdapter',
         ],
     ],
-    'service_manager' => [
-        'factories' => [
-            __NAMESPACE__ . '\Mailman'                                   => __NAMESPACE__ . '\Factory\MailmanFactory',
-            __NAMESPACE__ . '\Options\ModuleOptions'                     => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
-            __NAMESPACE__ . '\Adapter\ZendMailAdapter'                   => __NAMESPACE__ . '\Factory\ZendMailAdapterFactory',
-            __NAMESPACE__ . '\Listener\AuthenticationControllerListener' => __NAMESPACE__ . '\Factory\AuthenticationControllerListenerFactory',
-            __NAMESPACE__ . '\Listener\UserControllerListener'           => __NAMESPACE__ . '\Factory\UserControllerListenerFactory',
-            __NAMESPACE__ . '\Listener\NotificationWorkerListener'       => __NAMESPACE__ . '\Factory\NotificationWorkerListenerFactory',
-            'Zend\Mail\Transport\SmtpOptions'                            => __NAMESPACE__ . '\Factory\SmtpOptionsFactory',
+    'console' => [
+        'router' => [
+            'routes' => [
+                'mailman-worker' => [
+                    'options' => [
+                        'route' => 'mailman worker',
+                        'defaults' => [
+                            'controller' => WorkerController::class,
+                            'action' => 'run',
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
-    'smtp_options'    => [
-        'name'              => 'localhost.localdomain',
-        'host'              => 'localhost',
-        'connection_class'  => 'smtp',
+    'service_manager' => [
+        'factories' => [
+            __NAMESPACE__ . '\Mailman' => __NAMESPACE__ . '\Factory\MailmanFactory',
+            __NAMESPACE__ . '\Options\ModuleOptions' => __NAMESPACE__ . '\Factory\ModuleOptionsFactory',
+            __NAMESPACE__ . '\Adapter\ZendMailAdapter' => __NAMESPACE__ . '\Factory\ZendMailAdapterFactory',
+            __NAMESPACE__ . '\Listener\AuthenticationControllerListener' => __NAMESPACE__ . '\Factory\AuthenticationControllerListenerFactory',
+            __NAMESPACE__ . '\Listener\UserControllerListener' => __NAMESPACE__ . '\Factory\UserControllerListenerFactory',
+            __NAMESPACE__ . '\Listener\NotificationWorkerListener' => __NAMESPACE__ . '\Factory\NotificationWorkerListenerFactory',
+            'Zend\Mail\Transport\SmtpOptions' => __NAMESPACE__ . '\Factory\SmtpOptionsFactory',
+        ],
+    ],
+    'smtp_options' => [
+        'name' => 'localhost.localdomain',
+        'host' => 'localhost',
+        'connection_class' => 'smtp',
         'connection_config' => [
             'username' => 'postmaster',
             'password' => '',
         ],
     ],
-    'di'              => [
+    'di' => [
+        'allowed_controllers' => [
+            WorkerController::class,
+        ],
+        'definition' => [
+            'class' => [
+                WorkerController::class => [],
+            ],
+        ],
         'instance' => [
             'preferences' => [
                 'Mailman\MailmanInterface' => 'Mailman\Mailman',
