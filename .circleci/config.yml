@@ -1,34 +1,30 @@
 php: &php
   docker:
     - image: circleci/php:7.1
-
 js: &js
   docker:
     - image: circleci/node:10-browsers
 
-restore_composer_cache: &restore_composer_cache
+composer_restore_cache: &composer_restore_cache
   keys:
     - composer-v1-{{ checksum "composer.lock" }}
     - composer-v1-
-
-save_composer_cache: &save_composer_cache
+composer_save_cache: &composer_save_cache
   key: composer-v1-{{ checksum "composer.lock" }}
   paths:
     - ./src/vendor
-
 composer_install: &composer_install
   command: composer install --no-interaction --dev --prefer-dist
 
-restore_yarn_cache: &restore_yarn_cache
+# Yarn
+yarn_restore_cache: &yarn_restore_cache
   keys:
     - yarn-v1-{{ checksum "yarn.lock" }}
     - yarn-v1-
-
-save_yarn: &save_yarn_cache
+yarn_save_cache: &yarn_save_cache
   key: yarn-v1-{{ checksum "yarn.lock" }}
   paths:
     - ~/.cache/yarn
-
 yarn_install: &yarn_install
   command: yarn --frozen-lockfile
 
@@ -39,11 +35,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        <<: *restore_composer_cache
+          <<: *composer_restore_cache
       - run:
-        <<: *composer_install
+          <<: *composer_install
       - save_cache:
-        <<: *save_composer_cache
+          <<: *composer_save_cache
       - run:
           command: ./src/vendor/bin/phpunit
   lint:
@@ -51,11 +47,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        <<: *restore_composer_cache
+          <<: *composer_restore_cache
       - run:
-        <<: *composer_install
+          <<: *composer_install
       - save_cache:
-        <<: *save_composer_cache
+          <<: *composer_save_cache
       - run:
           command: php php-cs-fixer.phar fix --config=php-cs-fixer.config.php --dry-run
   prettier:
@@ -63,11 +59,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        <<: *restore_yarn_cache
+          <<: *yarn_restore_cache
       - run:
-        <<: *yarn_install
+          <<: *yarn_install
       - save_cache:
-        <<: *save_yarn_cache
+          <<: *yarn_save_cache
       - run:
           command: yarn lint
 
