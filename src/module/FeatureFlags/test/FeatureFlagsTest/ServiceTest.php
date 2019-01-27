@@ -22,6 +22,8 @@
  */
 namespace FeatureFlags;
 
+use PHPUnit\Framework\TestCase;
+
 class MockSentry implements ServiceLoggerInterface
 {
     public $lastMessage;
@@ -32,7 +34,7 @@ class MockSentry implements ServiceLoggerInterface
     }
 }
 
-class PostTest extends \PHPUnit_Framework_TestCase
+class PostTest extends TestCase
 {
     /**
      * @var MockSentry

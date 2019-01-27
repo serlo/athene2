@@ -16,9 +16,12 @@
     "license": "ts-node scripts/license-headers",
     "e2e": "cypress open",
     "unit": "./src/vendor/bin/phpunit",
+    "composer:install": "yarn _composer install",
+    "composer:update": "yarn _composer update",
     "format:php-cs-fixer": "yarn _php-cs-fixer",
     "format:prettier": "yarn _prettier --write",
     "lint:prettier": "yarn _prettier --list-different",
+    "_composer": "php composer.phar",
     "_php-cs-fixer": "php php-cs-fixer.phar fix --config=php-cs-fixer.config.php",
     "_prettier": "prettier \"{{.circleci,cypress,scripts}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },

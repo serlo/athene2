@@ -24,9 +24,10 @@ namespace ClassResolverTest;
 
 use ClassResolver\ClassResolver;
 use ClassResolverTest\Fake\Foo;
+use PHPUnit\Framework\TestCase;
 use Zend\ServiceManager\ServiceManager;
 
-class ClassResolverTest extends \PHPUnit_Framework_TestCase
+class ClassResolverTest extends TestCase
 {
     protected $classResolver;
     protected $serviceLocatorMock;

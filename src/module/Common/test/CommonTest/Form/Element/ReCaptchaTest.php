@@ -23,8 +23,9 @@
 namespace CommonTest\Form\Element;
 
 use Common\Form\Element\ReCaptcha;
+use PHPUnit\Framework\TestCase;
 
-class ReCaptchaTestTest extends \PHPUnit_Framework_TestCase
+class ReCaptchaTestTest extends TestCase
 {
     private $element;
 

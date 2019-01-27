@@ -23,8 +23,9 @@
 namespace ClassResolverTest;
 
 use ClassResolverTest\Fake\ClassResolverAware;
+use PHPUnit\Framework\TestCase;
 
-class ClassResolverAwareTraitTest extends \PHPUnit_Framework_TestCase
+class ClassResolverAwareTraitTest extends TestCase
 {
     protected $trait;
 
