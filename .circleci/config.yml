@@ -16,7 +16,6 @@ composer_save_cache: &composer_save_cache
 composer_install: &composer_install
   command: composer install --no-interaction --dev --prefer-dist
 
-# Yarn
 yarn_restore_cache: &yarn_restore_cache
   keys:
     - yarn-v1-{{ checksum "yarn.lock" }}
