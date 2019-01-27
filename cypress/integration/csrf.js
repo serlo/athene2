@@ -28,15 +28,21 @@ context('Csrf', () => {
   })
   it('home has the same token on window.csrf as /auth/login', () => {
     cy.visit('http://de.serlo.localhost:4567/')
-    cy.window().its('csrf').then(csrf => {
-      cy.visit('http://de.serlo.localhost:4567/auth/login')
-      cy.window().its('csrf').should('equal', csrf)
-    })
+    cy.window()
+      .its('csrf')
+      .then(csrf => {
+        cy.visit('http://de.serlo.localhost:4567/auth/login')
+        cy.window()
+          .its('csrf')
+          .should('equal', csrf)
+      })
   })
   it('window.csrf is the same token as the form field', () => {
     cy.visit('http://de.serlo.localhost:4567/auth/login')
-    cy.window().its('csrf').then(csrf => {
-      cy.get('input[name="csrf"]').should('have.value', csrf)
-    })
+    cy.window()
+      .its('csrf')
+      .then(csrf => {
+        cy.get('input[name="csrf"]').should('have.value', csrf)
+      })
   })
 })
