@@ -20,15 +20,23 @@
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% set event = notification.getEvents().current() %}
-{% set user = normalize().toAnchor(event.getActor(), true) %}
-{% set discussion %}
-    <a href="{{ normalize().toUrl(event.getObject(), true) }}">
-        {{ normalize().toPreview(event.getObject()) }}
-    </a>
-{% endset %}
-<div class="dropdown-menu-item">
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set discussion = normalize().toPreview(event.getObject()) %}
     {% trans %}
-    {{ user }} archived {{ discussion }}
-    {% endtrans %}
-    <small> - {{ timeago().render(event.getTimestamp()) }}</small>
-</div>
+        {{ user }} archived {{ discussion }}
+    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+{% else %}
+    {% set user = normalize().toAnchor(event.getActor(), true) %}
+    {% set discussion %}
+        <a href="{{ normalize().toUrl(event.getObject(), true) }}">
+            {{ normalize().toPreview(event.getObject()) }}
+        </a>
+    {% endset %}
+    <div class="dropdown-menu-item">
+        {% trans %}
+        {{ user }} archived {{ discussion }}
+        {% endtrans %}
+        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+    </div>
+{% endif %}

@@ -19,17 +19,4 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% set message %}
-    {% trans %}
-        Hi %s,
-        it seems that you want to restore your password. If not, you can ignore this email.
-        You can restore your password by clicking the link below:
-
-        %s
-    {% endtrans %}
-{% endset %}
-{% set url = url('authentication/password/restore', {'token': user.getToken()}, {'force_canonical': true}) %}
-{% set link %}
-    <a href="{{ url }}">{{ 'Restore password' | trans }}</a>
-{% endset %}
-{{ message | format(user.getUsername(), link) | raw | nl2br }}
+{% include 'mailman/messages/notification/body' with { 'plain': true } %}

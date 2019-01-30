@@ -20,17 +20,27 @@
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% set event = notification.getEvents().current() %}
-{% set user = normalize().toAnchor(event.getActor(), true) %}
-{% set discussion %}
-    <a href="{{ normalize().toUrl(event.getObject(), true) }}">
-        {{ normalize().toPreview(event.getObject()) }}
-    </a>
-{% endset %}
-{% set object = normalize().toAnchor(event.getParameter('on'), true) %}
-{% set title = normalize().toTitle(event.getObject()) %}
-<div class="dropdown-menu-item">
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set discussion = normalize().toPreview(event.getObject()) %}
+    {% set object = normalize().toTitle(event.getParameter('on')) %}
+    {% set title = normalize().toTitle(event.getObject()) %}
     {% trans %}
-    {{ user }} started {{ discussion }} on {{ object }}: {{ title }}
-    {% endtrans %}
-    <small> - {{ timeago().render(event.getTimestamp()) }}</small>
-</div>
+        {{ user }} started {{ discussion }} on {{ object }}: {{ title }}
+    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+{% else %}
+    {% set user = normalize().toAnchor(event.getActor(), true) %}
+    {% set discussion %}
+        <a href="{{ normalize().toUrl(event.getObject(), true) }}">
+            {{ normalize().toPreview(event.getObject()) }}
+        </a>
+    {% endset %}
+    {% set object = normalize().toAnchor(event.getParameter('on'), true) %}
+    {% set title = normalize().toTitle(event.getObject()) %}
+    <div class="dropdown-menu-item">
+        {% trans %}
+        {{ user }} started {{ discussion }} on {{ object }}: {{ title }}
+        {% endtrans %}
+        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+    </div>
+{% endif %}

@@ -19,14 +19,18 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
+{% set plain = plain is defined and plain %}
 {% set user = user.getUsername() %}
 {% set brand = brand().getBrand(true) %}
 {% trans %}
     Hello {{ user }}!
-{% endtrans %}<br>
+{% endtrans %}
+{% if not plain %}
 <br>
-{% if discussionNotifications.length %}
-    {% if discussionNotifications.length > 1 %}
+<br>
+{% endif %}
+{% if discussionNotifications | length %}
+    {% if discussionNotifications | length > 1 %}
         {% trans %}
             Users on {{ brand }} have messaged you or replied to comments by you:
         {% endtrans %}
@@ -35,15 +39,17 @@
             A user on {{ brand }} has messaged you or replied to one of your comments:
         {% endtrans %}
     {% endif %}
-    <br>
-    <ul>
+    {% if not plain %}
+        <br>
+        <ul>
+    {% endif %}
         {% for notification in discussionNotifications %}
-            {% include 'notification/notification' with {'notification': notification} %}
+            {% include 'notification/notification' with {'notification': notification, 'plain': plain} %}
         {% endfor %}
-    </ul>
+    {% if not plain %}</ul>{% endif %}
 {% endif %}
-{% if contentNotifications.length %}
-    {% if contentNotifications.lenght > 1 %}
+{% if contentNotifications | length %}
+    {% if contentNotifications | length > 1 %}
         {% trans %}
             Here's a heads up of what has happened with content you edited or created:
         {% endtrans %}
@@ -52,12 +58,16 @@
             This happened with a content you edited or created:
         {% endtrans %}
     {% endif %}
-    <br>
-    <ul>
+    {% if not plain %}#
+        <br>
+        <ul>
+    {% endif %}
         {% for notification in contentNotifications %}
-            {% include 'notification/notification' with {'notification': notification} %}
+            {% include 'notification/notification' with {'notification': notification, 'plain': plain} %}
         {% endfor %}
-    </ul>
+    {% if not plain %}
+        </ul>
+    {% endif %}
 {% endif %}
 {% set href = url('subscriptions/manage') %}
 {% trans %}
