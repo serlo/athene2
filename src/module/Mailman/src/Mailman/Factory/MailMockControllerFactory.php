@@ -20,32 +20,27 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-return [
-    'zfctwig' => [
-        'environment_options' => [
-            'debug' => true,
-            'strict_variables' => true,
-            'autoescape' => false,
-        ],
-    ],
-    'view_manager' => [
-        'strategies' => [
-            'Ui\Strategy\PhpRendererStrategy',
-        ],
-    ],
-    'strokercache' => [
-        'storage_adapter' => [
-            'name' => 'Zend\Cache\Storage\Adapter\Apc',
-            'options' => [
-                'ttl' => 1,
-            ],
-        ],
-    ],
-    'mailmock' => [
-        'active' => true,
-    ],
-    // 'assets_host'     => 'http://localhost:8081/',
-    // 'editor_renderer' => [
-    //   'url' => 'http://host.docker.internal:3000/',
-    // ],
-];
+namespace Mailman\Factory;
+
+use Mailman\Controller\MailMockController;
+use Zend\ServiceManager\AbstractPluginManager;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+class MailMockControllerFactory implements FactoryInterface
+{
+    /**
+     * Create service
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return mixed
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        /* @var $serviceLocator AbstractPluginManager */
+        $serviceManager = $serviceLocator->getServiceLocator();
+        /* @var $mailadapter \Mailman\Adapter\MailMockAdapter */
+        $mailadapter  = $serviceManager->get('Mailman\Adapter\ZendMailAdapter');
+        return new MailMockController($mailadapter);
+    }
+}
