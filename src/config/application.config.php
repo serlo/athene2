@@ -97,7 +97,7 @@ return [
             __DIR__ . '/../vendor',
         ],
         // An array of paths from which to glob configuration files after
-        // modules are loaded. These effectively overide configuration
+        // modules are loaded. These effectively override configuration
         // provided by modules themselves. Paths may use GLOB_BRACE notation.
         'config_glob_paths'        => [
             'config/autoload/{,*.}{global,local}.php',
