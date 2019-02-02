@@ -25,10 +25,11 @@ namespace module\Mailman\test\MailmanTest\Renderer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Mailman\Renderer\MailRenderer;
 use Notification\Entity\Notification;
+use PHPUnit\Framework\TestCase;
 use User\Entity\User;
 use Zend\View\Renderer\RendererInterface;
 
-class MailRendererTest extends \PHPUnit_Framework_TestCase
+class MailRendererTest extends TestCase
 {
     /**
      * @var MailRenderer
