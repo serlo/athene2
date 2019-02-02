@@ -19,6 +19,7 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
+{% set plain = plain is defined and plain %}
 {% set template = 'notification/type/' ~ notification.getEventName() %}
 {% set template = include(template, ignore_missing = true) %}
 {% set type = notification.getEventName() %}

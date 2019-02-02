@@ -22,6 +22,7 @@
  */
 namespace Mailman\Factory;
 
+use Mailman\Adapter\MailMockAdapter;
 use Mailman\Adapter\ZendMailAdapter;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -36,9 +37,13 @@ class ZendMailAdapterFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $options = $serviceLocator->get('Zend\Mail\Transport\SmtpOptions');
-        $adapter = new ZendMailAdapter($options);
-
-        return $adapter;
+        $config = $serviceLocator->get('Config');
+        if ($config['mailmock']['active']) {
+            $storage = $serviceLocator->get('Mailman\Storage\MailMockStorage');
+            return new MailMockAdapter($storage);
+        } else {
+            $options = $serviceLocator->get('Zend\Mail\Transport\SmtpOptions');
+            return new ZendMailAdapter($options);
+        }
     }
 }

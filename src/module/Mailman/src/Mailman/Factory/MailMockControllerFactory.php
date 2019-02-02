@@ -20,5 +20,27 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-?>
-<?php echo sprintf($this->translate('Restore your password on %s'), strip_tags($this->brand()->getBrand(true))); ?>
+namespace Mailman\Factory;
+
+use Mailman\Controller\MailMockController;
+use Zend\ServiceManager\AbstractPluginManager;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+class MailMockControllerFactory implements FactoryInterface
+{
+    /**
+     * Create service
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return mixed
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        /* @var $serviceLocator AbstractPluginManager */
+        $serviceManager = $serviceLocator->getServiceLocator();
+        /* @var $mailadapter \Mailman\Adapter\MailMockAdapter */
+        $mailadapter  = $serviceManager->get('Mailman\Adapter\ZendMailAdapter');
+        return new MailMockController($mailadapter);
+    }
+}

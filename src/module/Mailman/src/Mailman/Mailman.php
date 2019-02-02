@@ -56,12 +56,12 @@ class Mailman implements MailmanInterface
         return $this->moduleOptions->getSender();
     }
 
-    public function send($to, $from, $subject, $body)
+    public function send($to, $from, $mail)
     {
         $this->loadAdapters();
         foreach ($this->adapters as $adapter) {
             /* @var $adapter Adapter\AdapterInterface */
-            $adapter->addMail($to, $from, $subject, $body);
+            $adapter->addMail($to, $from, $mail);
         }
         $this->flush();
     }

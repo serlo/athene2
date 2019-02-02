@@ -36,9 +36,9 @@ abstract class AbstractListenerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get('Mailman/Mailman');
+        $mailman    = $serviceLocator->get('Mailman\Mailman');
         $translator = $serviceLocator->get('Translator');
-        $renderer   = $serviceLocator->get('ViewRenderer');
+        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
         $class      = new $class($mailman, $renderer, $translator);
 
         return $class;

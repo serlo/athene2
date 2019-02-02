@@ -20,24 +20,38 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Mailman\Adapter;
+namespace Mailman\Factory;
 
-use Mailman\Model\MailInterface;
+use Zend\Cache\StorageFactory;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-interface AdapterInterface
+class MailMockStorageFactory implements FactoryInterface
 {
     /**
-     * @param string $to
-     * @param string $from
-     * @param MailInterface $mail
-     * @return void
-     */
-    public function addMail($to, $from, $mail);
-
-    /**
-     * sends all mail in the queue
+     * Create service
      *
-     * @return void
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return mixed
      */
-    public function flush();
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $config = [
+            'adapter' => [
+                'name' => 'apc',
+                'options' => [
+                    'namespace' => __NAMESPACE__,
+                    'ttl' => 60 * 60,
+                ],
+            ],
+            'plugins' => [
+                'exception_handler' => [
+                    'throw_exceptions' => false,
+                ],
+                'serializer',
+            ],
+        ];
+        $cache = StorageFactory::factory($config);
+        return $cache;
+    }
 }

@@ -20,13 +20,22 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-echo nl2br(sprintf($this->translate("Hello %s,
 
-thank you for your registration on %s.
+namespace Mailman\Renderer;
 
-Please confirm your account by clicking the following link:
-%s
+use Mailman\Model\MailInterface;
 
-We are looking forward to your contribution to %s!
+interface MailRendererInterface
+{
 
-Your community support"), $this->user->getUsername(), $this->brand()->getBrand(true), $this->url('authentication/activate', ['token' => $this->user->getToken()], array('force_canonical' => true)), $this->brand()->getBrand(true)));
+    /**
+     * @param array $data
+     * @return MailInterface
+     */
+    public function renderMail($data);
+
+    /**
+     * @param string $route
+     */
+    public function setTemplateFolder($route);
+}

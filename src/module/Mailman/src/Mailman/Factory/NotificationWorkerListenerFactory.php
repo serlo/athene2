@@ -39,7 +39,7 @@ class NotificationWorkerListenerFactory implements FactoryInterface
         $mailman    = $serviceLocator->get('Mailman/Mailman');
         $translator = $serviceLocator->get('Translator');
         $logger     = $serviceLocator->get('Zend\Log\Logger');
-        $renderer   = $serviceLocator->get('ZfcTwigRenderer');
+        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
         $class      = new NotificationWorkerListener($logger, $mailman, $renderer, $translator);
 
         return $class;

@@ -63,20 +63,25 @@ class ZendMailAdapter implements AdapterInterface
         $this->transport   = new Smtp();
     }
 
-    public function addMail($to, $from, $subject, $body)
+    public function addMail($to, $from, $mail)
     {
         $message              = new Message();
         $bodyPart             = new MimeMessage();
-        $bodyMessage          = new MimePart($body);
-        $bodyMessage->type    = 'text/html';
-        $bodyMessage->charset = 'UTF-8';
-        $bodyPart->setParts([$bodyMessage]);
+        $bodyHtmlMessage          = new MimePart($mail->getHtmlBody());
+        $bodyHtmlMessage->type    = 'text/html';
+        $bodyHtmlMessage->charset = 'UTF-8';
+
+        $bodyTextMessage          = new MimePart($mail->getPlainBody());
+        $bodyTextMessage->type    = 'text/plain';
+        $bodyTextMessage->charset = 'UTF-8';
+
+        $bodyPart->setParts([$bodyHtmlMessage, $bodyTextMessage]);
         $message->setFrom($from);
         $message->addTo($to);
         $message->setEncoding("UTF-8");
-        $message->setSubject($subject);
+        $message->setSubject($mail->getSubject());
         $message->setBody($bodyPart);
-        $message->type = 'text/html';
+        $message->type = 'multipart/alternative';
         $this->queue[] = $message;
     }
 
