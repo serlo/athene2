@@ -1,15 +1,6 @@
 {
-  "name": "serlo-org/athene2",
+  "name": "serlo/athene2",
   "description": "Advanced Learning Resources Manager",
-  "authors": [
-    {
-      "name": "Aeneas Rekkas",
-      "email": "aeneas.rekkas@serlo.org"
-    }
-  ],
-  "keywords": [
-    "athene2"
-  ],
   "homepage": "https://www.serlo.org",
   "license": "Apache-2.0",
   "require": {
@@ -35,6 +26,6 @@
     "vendor-dir": "src/vendor"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5"
+    "phpunit/phpunit": "^7.0.0"
   }
 }

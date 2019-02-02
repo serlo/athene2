@@ -20,12 +20,21 @@
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% set event = notification.getEvents().current() %}
-{% set user = normalize().toAnchor(event.getActor(), true) %}
-{% set term = normalize().toAnchor(event.getObject(), true) %}
-{% set object = normalize().toAnchor(event.getParameter('object'), true) %}
-<div class="dropdown-menu-item">
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set term = normalize().toTitle(event.getObject()) %}
+    {% set object = normalize().toTitle(event.getParameter('object')) %}
     {% trans %}
-    {{ user }} associated {{ term }} with {{ object }}
-    {% endtrans %}
-    <small> - {{ timeago().render(event.getTimestamp()) }}</small>
-</div>
+        {{ user }} associated {{ term }} with {{ object }}
+    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+{% else %}
+    {% set user = normalize().toAnchor(event.getActor(), true) %}
+    {% set term = normalize().toAnchor(event.getObject(), true) %}
+    {% set object = normalize().toAnchor(event.getParameter('object'), true) %}
+    <div class="dropdown-menu-item">
+        {% trans %}
+        {{ user }} associated {{ term }} with {{ object }}
+        {% endtrans %}
+        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+    </div>
+{% endif %}

@@ -23,6 +23,8 @@
 
 namespace AtheneTest\TestCase;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * abstract class for auto-testing getter and setter methods.
  *
@@ -32,7 +34,7 @@ namespace AtheneTest\TestCase;
  *
  * @package AtheneTest\TestCase
  */
-abstract class AbstractGetterSetterTestCase extends \PHPUnit_Framework_TestCase
+abstract class AbstractGetterSetterTestCase extends TestCase
 {
 
     /**

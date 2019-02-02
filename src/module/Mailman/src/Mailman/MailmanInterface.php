@@ -22,11 +22,18 @@
  */
 namespace Mailman;
 
+use Mailman\Model\MailInterface;
+
 interface MailmanInterface
 {
     public function getDefaultSender();
 
-    public function send($to, $from, $subject, $body);
+    /**
+     * @param $to string
+     * @param $from string
+     * @param $mail MailInterface
+     */
+    public function send($to, $from, $mail);
 
     public function flush();
 }

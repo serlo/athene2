@@ -22,11 +22,11 @@
  */
 namespace Mailman\Factory;
 
-use Mailman\Mailman;
+use Zend\Cache\StorageFactory;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-abstract class AbstractListenerFactory implements FactoryInterface
+class MailMockStorageFactory implements FactoryInterface
 {
     /**
      * Create service
@@ -36,14 +36,22 @@ abstract class AbstractListenerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get(Mailman::class);
-        $translator = $serviceLocator->get('Translator');
-        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
-        $class      = new $class($mailman, $renderer, $translator);
-
-        return $class;
+        $config = [
+            'adapter' => [
+                'name' => 'apc',
+                'options' => [
+                    'namespace' => __NAMESPACE__,
+                    'ttl' => 60 * 60,
+                ],
+            ],
+            'plugins' => [
+                'exception_handler' => [
+                    'throw_exceptions' => false,
+                ],
+                'serializer',
+            ],
+        ];
+        $cache = StorageFactory::factory($config);
+        return $cache;
     }
-
-    abstract protected function getClassName();
 }

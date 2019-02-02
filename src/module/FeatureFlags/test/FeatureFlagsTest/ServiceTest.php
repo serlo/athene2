@@ -23,6 +23,7 @@
 namespace FeatureFlagsTest;
 
 use FeatureFlags\Service;
+use PHPUnit\Framework\TestCase;
 use FeatureFlags\ServiceLoggerInterface;
 
 class MockSentry implements ServiceLoggerInterface
@@ -35,7 +36,7 @@ class MockSentry implements ServiceLoggerInterface
     }
 }
 
-class ServiceTest extends \PHPUnit_Framework_TestCase
+class ServiceTest extends TestCase
 {
     /**
      * @var MockSentry

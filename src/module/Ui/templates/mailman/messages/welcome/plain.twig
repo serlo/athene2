@@ -19,24 +19,17 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% set event = notification.getEvents().current() %}
-{% if plain %}
-    {% set user = normalize().toTitle(event.getActor()) %}
-    {% set discussion = normalize().toPreview(event.getObject()) %}
+{% set message %}
     {% trans %}
-        {{ user }} archived {{ discussion }}
-    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
-{% else %}
-    {% set user = normalize().toAnchor(event.getActor(), true) %}
-    {% set discussion %}
-        <a href="{{ normalize().toUrl(event.getObject(), true) }}">
-            {{ normalize().toPreview(event.getObject()) }}
-        </a>
-    {% endset %}
-    <div class="dropdown-menu-item">
-        {% trans %}
-        {{ user }} archived {{ discussion }}
-        {% endtrans %}
-        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
-    </div>
-{% endif %}
+        Dear %s,
+
+        We’re thrilled you’ve decided to write a comment or contribute to serlo.org!
+
+        To find out how to get started on editing and creating content, please visit the community homepage: https://de.serlo.org/community.
+
+        If you have any questions, problems or feedback for us, feel free to get in touch via de@serlo.org.
+
+        Enjoy Serlo!
+    {% endtrans %}
+{% endset %}
+{{ message | format(user.getUsername()) }}

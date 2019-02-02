@@ -20,6 +20,13 @@
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% set event = notification.getEvents().current() %}
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set object = normalize().toPreview(event.getObject()) %}
+    {% trans %}
+        {{ user }} restored {{ object }}
+    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+{% else %}
 {% set user = normalize().toAnchor(event.getActor(), true) %}
 {% set object %}
     <a href="{{ normalize().toUrl(event.getObject(), true) }}">
@@ -32,3 +39,4 @@
     {% endtrans %}
     <small> - {{ timeago().render(event.getTimestamp()) }}</small>
 </div>
+{% endif %}

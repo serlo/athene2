@@ -20,5 +20,11 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+namespace Mailman\Model;
 
-echo $this->translate("How to get started on Serlo!");
+interface MailInterface
+{
+    public function getSubject();
+    public function getHtmlBody();
+    public function getPlainBody();
+}

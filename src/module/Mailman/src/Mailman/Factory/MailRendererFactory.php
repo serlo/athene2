@@ -20,10 +20,24 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-echo nl2br(sprintf($this->translate("Dear %s,
 
-We’re thrilled you’ve decided to write a comment or contribute to serlo.org.
-To find out how to get started on editing and creating content, please visit the community homepage: https://de.serlo.org/community.
-If you have any questions, problems or feedback for us, feel free to get in touch via de@serlo.org.
+namespace Mailman\Factory;
 
-Enjoy Serlo!"), $this->user->getUsername()));
+use Mailman\Renderer\MailRenderer;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+class MailRendererFactory implements FactoryInterface
+{
+    /**
+     * Create service
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return MailRenderer
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $renderer = $serviceLocator->get('ZfcTwigRenderer');
+        return new MailRenderer($renderer);
+    }
+}

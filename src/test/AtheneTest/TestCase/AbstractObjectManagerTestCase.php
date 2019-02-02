@@ -22,7 +22,9 @@
  */
 namespace AtheneTest\TestCase;
 
-abstract class AbstractObjectManagerTestCase extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+abstract class AbstractObjectManagerTestCase extends TestCase
 {
     /**
      * Creates a mocked version of Doctrine\ORM\EntityManager
