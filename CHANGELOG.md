@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+### Changed
+
+- Improved compliance with spam guidelines
+- Improved welcome email
+- Improved notification email
+
+### Internal
+
+- Add mock mail adapter to test emails in development environment (see changed `src/config/autoload/develop.local.dist.php`)
+
 ## [Build 6] - 2019-01-14
 
 ### Added
