@@ -40,7 +40,7 @@ class MailmanWorkerListenerFactory implements FactoryInterface
         $mailman = $serviceLocator->get(Mailman::class);
         $translator = $serviceLocator->get('Translator');
         $logger     = $serviceLocator->get('Zend\Log\Logger');
-        $renderer   = $serviceLocator->get('ZfcTwigRenderer');
+        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
         $class      = new MailmanWorkerListener($logger, $mailman, $renderer, $translator);
 
         return $class;
