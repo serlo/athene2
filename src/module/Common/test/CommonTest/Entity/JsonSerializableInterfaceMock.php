@@ -24,15 +24,16 @@
 namespace CommonTest\Entity;
 
 use Common\Entity\JsonSerializableInterface;
+use PHPUnit\Framework\TestCase;
 
 class JsonSerializableInterfaceMock
 {
     /**
-     * @param \PHPUnit_Framework_TestCase $testCase
+     * @param TestCase $testCase
      * @param $json
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    public static function create(\PHPUnit_Framework_TestCase $testCase, $json)
+    public static function create(TestCase $testCase, $json)
     {
         $mock = $testCase->getMockBuilder(JsonSerializableInterface::class)->getMock();
         $mock->method('toJson')->willReturn($json);

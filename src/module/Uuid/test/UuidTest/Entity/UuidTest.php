@@ -23,10 +23,11 @@
 
 namespace UuidTest\Entity;
 
+use PHPUnit\Framework\TestCase;
 use Uuid\Entity\Uuid;
 use Uuid\Entity\UuidInterface;
 
-class UuidTest extends \PHPUnit_Framework_TestCase
+class UuidTest extends TestCase
 {
     public function testToJsonIsId()
     {

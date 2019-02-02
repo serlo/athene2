@@ -22,10 +22,11 @@
  */
 namespace UserTest\Entity;
 
+use PHPUnit\Framework\TestCase;
 use User\Entity\User;
 use User\Entity\UserInterface;
 
-class UserTest extends \PHPUnit_Framework_TestCase
+class UserTest extends TestCase
 {
     /**
      * @var array

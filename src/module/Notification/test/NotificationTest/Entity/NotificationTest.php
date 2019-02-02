@@ -26,8 +26,9 @@ namespace NotificationTest\Entity;
 use CommonTest\Entity\JsonSerializableInterfaceMock;
 use Notification\Entity\Notification;
 use Notification\Entity\NotificationInterface;
+use PHPUnit\Framework\TestCase;
 
-class NotificationTest extends \PHPUnit_Framework_TestCase
+class NotificationTest extends TestCase
 {
     /**
      * @var array

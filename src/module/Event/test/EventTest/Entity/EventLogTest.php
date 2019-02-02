@@ -29,8 +29,9 @@ use Event\Entity\EventInterface;
 use Event\Entity\EventLog;
 use Event\Entity\EventLogInterface;
 use Event\Entity\EventParameterInterface;
+use PHPUnit\Framework\TestCase;
 
-class EventLogTest extends \PHPUnit_Framework_TestCase
+class EventLogTest extends TestCase
 {
     /**
      * @var array
