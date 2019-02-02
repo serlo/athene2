@@ -20,7 +20,6 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 /// <reference types="Cypress" />
-
 context('Notification Mails', () => {
   const baseUrl = 'http://de.serlo.localhost:4567'
   beforeEach(() => {
@@ -28,47 +27,34 @@ context('Notification Mails', () => {
   })
   it('Reset password mail renders correctly', () => {
     const username = 'admin'
-    const mailAddress = 'admin@localhost'
+    const email = 'admin@localhost'
     cy.visit(baseUrl + '/auth/password/restore')
-    cy.window()
-      .its('csrf')
-      .then(csrf => {
-        cy.request('POST', baseUrl + '/auth/password/restore', {
-          email: mailAddress,
-          csrf: csrf
-        }).then(response => {
-          expect(response.body).to.not.include('Error')
-          cy.request('http://de.serlo.localhost:4567/mails/list').then(
-            response => {
-              const { headers, body } = response
-              expect(headers['content-type']).to.include('application/json')
-              expect(body.flushed).to.have.length(1)
-              const { to, mail } = body.flushed[0]
-
-              expect(to).to.equal(mailAddress)
-
-              expect(mail.body)
-                .to.include('<')
-                .and.not.include('&lt')
-              expect(mail.plain)
-                .to.not.include('<')
-                .and.to.not.include('&lt')
-
-              expect(mail.body)
-                .to.include(username)
-                .and.to.match(
-                  /<a href="http:\/\/de\.serlo\.(.*?)\/auth\/password\/restore\/(\w*?)">/
-                )
-
-              expect(mail.plain)
-                .to.include(username)
-                .and.to.match(
-                  /http:\/\/de\.serlo\.(.*?)\/auth\/password\/restore\/(\w*?)/
-                )
-            }
-          )
-        })
-      })
+    // TODO: "mocking" the post doesn't work somehow
+    cy.get('input[name=email]').type(email)
+    // TODO: submitting the form directly doesn't work somehow
+    cy.get('button[name=submit]').click()
+    cy.request(baseUrl + '/mails/list').then(response => {
+      const { body } = response
+      expect(body.flushed).to.have.length(1)
+      const { to, mail } = body.flushed[0]
+      expect(to).to.equal(email)
+      expect(mail.body)
+        .to.include('<')
+        .and.not.include('&lt')
+      expect(mail.plain)
+        .to.not.include('<')
+        .and.to.not.include('&lt')
+      expect(mail.body)
+        .to.include(username)
+        .and.to.match(
+          /<a href="http:\/\/de\.serlo\.(.*?)\/auth\/password\/restore\/(\w*?)">/
+        )
+      expect(mail.plain)
+        .to.include(username)
+        .and.to.match(
+          /http:\/\/de\.serlo\.(.*?)\/auth\/password\/restore\/(\w*?)/
+        )
+    })
   })
 })
 
