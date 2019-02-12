@@ -39,3 +39,23 @@ services:
   #     - mysqld:db
   #   ports:
   #     - '8080:80'
+
+
+  hydra:
+    image: oryd/hydra:v1.0.0-rc.6_oryOS.10
+    ports:
+    - "4444:4444"
+    - "4445:4445"
+    command:
+      serve all --dangerous-force-http
+    environment:
+    - LOG_LEVEL=debug
+    - OAUTH2_SHARE_ERROR_DEBUG=1
+    - OAUTH2_ISSUER_URL=http://localhost:4444
+    - OAUTH2_LOGIN_URL=http://localhost:4567/auth/hydra/login
+    - OAUTH2_CONSENT_URL=http://localhost:4567/auth/hydra/consent
+    - DATABASE_URL=memory
+    - SYSTEM_SECRET=youReallyNeedToChangeThis
+    - OIDC_SUBJECT_TYPE_PAIRWISE_SALT=youReallyNeedToChangeThis
+    - OIDC_SUBJECT_TYPES_SUPPORTED=public,pairwise
+    restart: unless-stopped

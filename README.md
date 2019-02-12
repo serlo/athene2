@@ -207,3 +207,19 @@ Most of these are outdated:
 - [Development workflow (outdated)](https://github.com/serlo/athene2/wiki/Development-workflow)
 - [Installation (totally outdated, do not look at this)](https://github.com/serlo/athene2/wiki/Installation)
 - [Athene2 Guide (somewhat outdated)](https://serlo.github.io/athene2-guide/)
+
+## Phabricator + Ory Hydra + Athene2
+
+To initiate (**in development**) the OAuth2 Client for Phabricator, run:
+
+```
+docker-compose run hydra \
+  clients create --skip-tls-verify \
+    --endpoint http://hydra:4445 \
+    --id phabricator \
+    --secret CHANGEMENOWOMG \
+    --grant-types authorization_code \
+    --response-types code \
+    --scope openid \
+    --callbacks <CHANGE-ME-TO-PHAB-URL>,<CHANGE-ME-TO-PHAB-URL-2>
+```
