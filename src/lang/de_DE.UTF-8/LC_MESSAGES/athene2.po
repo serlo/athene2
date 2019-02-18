@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2018-12-01 20:59+0100\n"
-"PO-Revision-Date: 2018-12-01 21:01+0100\n"
+"POT-Creation-Date: 2018-12-07 11:48+0100\n"
+"PO-Revision-Date: 2018-12-07 12:15+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1014,10 +1014,73 @@ msgid "#"
 msgstr "#"
 
 #: ../module/Ui/templates/layout/de/serlo-home.phtml:39
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/en/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/partials/header.phtml:35
 msgid "Toggle navigation"
 msgstr "Navigation ein-/ausblenden"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:109
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:28
+msgid "The Open Learning Platform"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:116
+msgid ""
+"We are a grassroots non-profit organization supporting personalized learning and working\n"
+"                                towards equal educational opportunities. This learning platform offers thousands of\n"
+"                                instructional articles, learning videos and practice exercises for millions of students\n"
+"                                worldwide - completely free of charge. Now it’s time to join us in your language."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:123
+msgid "/serlo"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:124
+#: ../module/Ui/templates/layout/partials/footer.phtml:30
+msgid "Learn more"
+msgstr "Mehr erfahren"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:131
+msgid "/assets/images/en/about_serlo_en.svg"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:136
+msgid "Serlo is the Wikipedia for Learning"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:140
+msgid ""
+"Just like Wikipedia, this platform is created by an engaged community of authors. Serlo Education \n"
+"                                is run and owned by decentralized teams of volunteers and professionals all over the world."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:152
+msgid "Become a Part of Our Movement for Open Education"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:158
+msgid ""
+"We are looking for teachers and enthusiastic educators who are passionate about their subject.\n"
+"                             Become an author on serlo.org! You can create new learning material and help us improve existing content."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:162
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:181
+msgid "Visit the landing page for authors"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:168
+msgid ""
+"We offer a diverse range of jobs and volunteering opportunities in the fields of software development,\n"
+"                                 design, translation, communications, project management and more."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:173
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:186
+msgid "Get involved!"
+msgstr ""
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:33
 #: ../module/Ui/templates/layout/partials/noscript.phtml:45
@@ -1037,10 +1100,6 @@ msgstr "Serlo.org ist die Wikipedia fürs Lernen."
 #: ../module/Ui/templates/layout/partials/footer.phtml:29
 msgid "We are a community of visionaries working tirelessly to make great education freely available to everyone."
 msgstr "Wir sind eine engagierte Gemeinschaft, die daran arbeitet, hochwertige Bildung weltweit frei verfügbar zu machen."
-
-#: ../module/Ui/templates/layout/partials/footer.phtml:30
-msgid "Learn more"
-msgstr "Mehr erfahren"
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:37
 msgid "Join the cause"
@@ -1753,10 +1812,6 @@ msgstr "Stimmt's?"
 #: ../module/Ui/templates/entity/view/partials/text-exercise.twig:156
 msgid "Correct!"
 msgstr "Stimmt!"
-
-#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:28
-msgid "The Open Learning Platform Serlo.org"
-msgstr "Die freie Lernplattform Serlo.org"
 
 #: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:38
 msgid "Info"
