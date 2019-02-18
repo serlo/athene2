@@ -54,24 +54,6 @@ return [
             ],
         ],
     ],
-    'brand' => [
-        'instances' => [
-            'deutsch' => [
-                'name' => '<div class="serlo-brand">Serlo</div>',
-                'slogan' => 'Freie Bildung.',
-                'description' => 'Serlo ist eine kostenlose Plattform mit freien Lernmaterialien, die alle mitgestalten können.',
-                'logo' => '<span class="serlo-logo">V</span>',
-                'head_title' => 'lernen mit Serlo!',
-            ],
-            'english' => [
-                'name' => '<div class="serlo-brand">Serlo</div>',
-                'slogan' => 'Open Education.',
-                'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
-                'logo' => '<span class="serlo-logo">V</span>',
-                'head_title' => 'learn with Serlo!',
-            ],
-        ],
-    ],
     'solarium' => [
         'endpoint' => [
             'default' => [

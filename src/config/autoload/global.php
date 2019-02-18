@@ -22,6 +22,38 @@
  */
 return [
     'version' => '6',
+    'brand' => [
+        'instances' => [
+            'deutsch' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'Die freie Lernplattform',
+                'description' => 'Serlo ist eine kostenlose Plattform mit freien Lernmaterialien, die alle mitgestalten können.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'lernen mit Serlo!',
+            ],
+            'english' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'The Open Learning Platform',
+                'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'learn with Serlo!',
+            ],
+            'spanish' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'La Plataforma para el Aprendizaje Abierto',
+                'description' => 'Serlo es una plataforma abierta gratuita que ofrece recursos educativos, a los que todos pueden contribuir',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'aprende con Serlo!',
+            ],
+            'hindi' => [
+                'name' => '<div class="serlo-brand">सेर्लो</div>',
+                'slogan' => 'ओपन लर्निंग प्लेटफॉर्म',
+                'description' => 'सेर्लो खुले शैक्षिक संसाधनों के साथ एक नि: शुल्क सेवा है, जो कोई भी योगदान दे सकता है.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'सेर्लो के साथ सीखो!',
+            ],
+        ],
+    ],
     'zfctwig'         => [
         'environment_options' => [
             'cache' => __DIR__ . '/../../data/twig',

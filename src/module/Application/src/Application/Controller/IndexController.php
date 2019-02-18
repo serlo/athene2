@@ -35,7 +35,8 @@ class IndexController extends AbstractActionController
         $view = new ViewModel();
         $instance = $this->getInstanceManager()->getInstanceFromRequest();
 
-        $this->layout('layout/' . $instance->getSubdomain() . '/home');
+        $this->layout('layout/home');
+        $this->layout()->setVariable('subdomain', $instance->getSubdomain());
 
         return $view;
     }
