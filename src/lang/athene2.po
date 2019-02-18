@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Athene2\n"
-"POT-Creation-Date: 2018-12-07 11:48+0100\n"
-"PO-Revision-Date: 2018-12-07 11:48+0100\n"
+"POT-Creation-Date: 2019-02-18 18:17+0100\n"
+"PO-Revision-Date: 2019-02-18 18:17+0100\n"
 "Last-Translator: Aeneas Rekkas <aeneas.rekkas@serlo.org>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -395,6 +395,15 @@ msgstr ""
 msgid "Your changes have been saved."
 msgstr ""
 
+#: ../module/Entity/src/Entity/Controller/RepositoryController.php:81
+msgid "Your revision has been saved and is available"
+msgstr ""
+
+#: ../module/Entity/src/Entity/Controller/RepositoryController.php:84
+msgid ""
+"Your revision has been saved, it will be available once it gets approved"
+msgstr ""
+
 #: ../module/Entity/src/Entity/Form/AppletForm.php:48
 msgid "Applet Url:"
 msgstr ""
@@ -635,7 +644,7 @@ msgid ""
 "instructions on how to activate your account."
 msgstr ""
 
-#: ../module/User/src/User/Controller/UserController.php:178
+#: ../module/User/src/User/Controller/UserController.php:175
 msgid "Your profile has been saved"
 msgstr ""
 
@@ -736,6 +745,11 @@ msgstr ""
 
 #: ../module/User/src/User/Form/Register.php:89
 msgid "I am here as…"
+msgstr ""
+
+#: ../module/User/src/User/Form/Register.php:92
+#: ../module/Ui/templates/user/user/register.twig:24
+msgid "Sign up"
 msgstr ""
 
 #: ../module/User/src/User/Form/RegisterFilter.php:57
@@ -1220,56 +1234,6 @@ msgid ""
 "DANGER: You are going to delete all contents associated with this license!"
 msgstr ""
 
-#: ../module/Ui/templates/mailman/messages/register/body.phtml:23
-#, php-format
-msgid ""
-"Hello %s,\n"
-"\n"
-"thank you for your registration on %s.\n"
-"\n"
-"Please confirm your account by clicking the following link:\n"
-"%s\n"
-"\n"
-"We are looking forward to your contribution to %s!\n"
-"\n"
-"Your community support"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/restore-password/body.phtml:23
-#, php-format
-msgid ""
-"Hi %s,\n"
-"it seems that you want to restore your password. If not, you can ignore this "
-"email.\n"
-"You can restore your password by clicking the link below:\n"
-"\n"
-"%s"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/restore-password/subject.phtml:24
-#, php-format
-msgid "Restore your password on %s"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/welcome/body.phtml:23
-#, php-format
-msgid ""
-"Dear %s,\n"
-"\n"
-"We’re thrilled you’ve decided to write a comment or contribute to serlo."
-"org.\n"
-"To find out how to get started on editing and creating content, please visit "
-"the community homepage: https://de.serlo.org/community.\n"
-"If you have any questions, problems or feedback for us, feel free to get in "
-"touch via de@serlo.org.\n"
-"\n"
-"Enjoy Serlo!"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/welcome/subject.phtml:24
-msgid "How to get started on Serlo!"
-msgstr ""
-
 #: ../module/Ui/templates/navigation/containers.phtml:34
 msgid "container"
 msgstr ""
@@ -1412,6 +1376,7 @@ msgstr ""
 
 #: ../module/Ui/templates/authentication/reset-password/restore.twig:24
 #: ../module/Ui/templates/authentication/reset-password/select.twig:24
+#: ../module/Ui/templates/mailman/messages/restore-password/body.twig:33
 msgid "Restore password"
 msgstr ""
 
@@ -1552,7 +1517,7 @@ msgstr ""
 #: ../module/Ui/templates/entity/page/default.twig:31
 #: ../module/Ui/templates/entity/view/default.twig:31
 #: ../module/Ui/templates/entity/view/toc/default.twig:29
-#: ../module/Ui/templates/notification/notification.twig:35
+#: ../module/Ui/templates/notification/notification.twig:36
 msgid "No view found for %name%"
 msgstr ""
 
@@ -1933,7 +1898,8 @@ msgid "No template found for event %s"
 msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:30
-#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:31
+#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:27
+#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:38
 msgid "%user% archived %discussion%"
 msgstr ""
 
@@ -1986,6 +1952,8 @@ msgid "%user% created %term%"
 msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/taxonomy/term/dissociate.twig:26
+#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:28
+#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:36
 msgid "%user% dissociated %object% from %term%"
 msgstr ""
 
@@ -1998,25 +1966,123 @@ msgid "%user% updated %term%"
 msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/uuid/restore.twig:25
-#: ../module/Ui/templates/notification/type/discussion/restore.twig:31
-#: ../module/Ui/templates/notification/type/uuid/restore.twig:27
+#: ../module/Ui/templates/notification/type/discussion/restore.twig:27
+#: ../module/Ui/templates/notification/type/discussion/restore.twig:38
+#: ../module/Ui/templates/notification/type/uuid/restore.twig:28
+#: ../module/Ui/templates/notification/type/uuid/restore.twig:35
 msgid "%user% restored %object%"
 msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/uuid/trash.twig:25
 #: ../module/Ui/templates/notification/type/uuid/trash.twig:27
+#: ../module/Ui/templates/notification/type/uuid/trash.twig:34
 msgid "%user% trashed %object%"
 msgstr ""
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:25
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:26
+msgid "Hello %user%!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:35
+msgid "Users on %brand% have messaged you or replied to comments by you:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:39
+msgid "A user on %brand% has messaged you or replied to one of your comments:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:54
 msgid ""
-"Hello %user%,<br>\n"
-"<br>\n"
-"here's a heads up of what has happened on %brand%:<br>"
+"Here's a heads up of what has happened with content you edited or created:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:58
+msgid "This happened with a content you edited or created:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:74
+msgid ""
+"You can <a href=\"%href%\">change the settings</a> for which content you "
+"want to receive notifications."
 msgstr ""
 
 #: ../module/Ui/templates/mailman/messages/notification/subject.twig:24
 msgid "You have unread notifications on %brand%"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/register/body.twig:25
+#: ../module/Ui/templates/mailman/messages/register/plain.twig:25
+msgid ""
+"Hello %s,\n"
+"\n"
+"        thank you for your registration on %s.\n"
+"\n"
+"        Please confirm your account by clicking the following link:\n"
+"        %s\n"
+"\n"
+"        We are looking forward to your contribution to %s!\n"
+"\n"
+"        Your community support"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/register/body.twig:39
+msgid "Activate account"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/register/subject.twig:23
+msgid "Please activate your %s account!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/restore-password/body.twig:24
+#: ../module/Ui/templates/mailman/messages/restore-password/plain.twig:24
+msgid ""
+"Hi %s,\n"
+"        it seems that you want to restore your password. If not, you can "
+"ignore this email.\n"
+"        You can restore your password by clicking the link below:\n"
+"\n"
+"        %s"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/restore-password/subject.twig:23
+msgid "Restore your password on %s"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/welcome/body.twig:24
+msgid ""
+"Dear %s,\n"
+"\n"
+"        We’re thrilled you’ve decided to write a comment or contribute to "
+"serlo.org!\n"
+"\n"
+"        To find out how to get started on editing and creating content, "
+"please visit the <a href=\"https://de.serlo.org/community\">community "
+"homepage</a>.\n"
+"\n"
+"        If you have any questions, problems or feedback for us, feel free to "
+"get in touch via <a href=\"mailto:de@serlo.org\">de@serlo.org</a>.\n"
+"\n"
+"        Enjoy Serlo!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/welcome/plain.twig:24
+msgid ""
+"Dear %s,\n"
+"\n"
+"        We’re thrilled you’ve decided to write a comment or contribute to "
+"serlo.org!\n"
+"\n"
+"        To find out how to get started on editing and creating content, "
+"please visit the community homepage: https://de.serlo.org/community.\n"
+"\n"
+"        If you have any questions, problems or feedback for us, feel free to "
+"get in touch via de@serlo.org.\n"
+"\n"
+"        Enjoy Serlo!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/welcome/subject.twig:23
+msgid "How to get started on Serlo!"
 msgstr ""
 
 #: ../module/Ui/templates/navigation/container/get.twig:23
@@ -2053,7 +2119,7 @@ msgstr ""
 msgid "Page settings"
 msgstr ""
 
-#: ../module/Ui/templates/notification/notification.twig:30
+#: ../module/Ui/templates/notification/notification.twig:31
 msgid "No template found for notification \"%type%\""
 msgstr ""
 
@@ -2118,57 +2184,67 @@ msgstr ""
 msgid "Stop sending emails"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:33
+#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:29
+#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:42
 msgid "%user% commented on %discussion%: %content%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/discussion/create.twig:33
+#: ../module/Ui/templates/notification/type/discussion/create.twig:29
+#: ../module/Ui/templates/notification/type/discussion/create.twig:42
 msgid "%user% started %discussion% on %object%: %title%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/entity/link/create.twig:29
+#: ../module/Ui/templates/notification/type/entity/link/create.twig:30
+#: ../module/Ui/templates/notification/type/entity/link/create.twig:41
 msgid "%user% added %object% to %parent%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/entity/revision/add.twig:27
-#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:27
-#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:27
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:26
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:34
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:28
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:42
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:28
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:42
 msgid "revision"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/entity/revision/add.twig:30
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:28
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:37
 msgid "%user% created a %revision% in %repository%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:31
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:46
 msgid "%user% accepted a %revision% of %repository%: %reason%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:35
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:50
 msgid "%user% accepted a %revision% of %repository%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:31
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:46
 msgid "%user% rejected a %revision% of %repository%: %reason%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:35
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:50
 msgid "%user% rejected a %revision% of %repository%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:28
+#: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:36
 msgid "%user% associated %term% with %object%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:28
-msgid "%user% removed %object% from %object%"
-msgstr ""
-
 #: ../module/Ui/templates/notification/type/taxonomy/term/parent/change.twig:30
+#: ../module/Ui/templates/notification/type/taxonomy/term/parent/change.twig:41
 msgid "%user% changed %term%'s parent from %old% to %new%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/taxonomy/term/update.twig:27
+#: ../module/Ui/templates/notification/type/taxonomy/term/update.twig:34
 msgid "%user% updated %object%"
 msgstr ""
 
@@ -2391,16 +2467,11 @@ msgstr ""
 msgid "Last seen"
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:24
-#: ../module/Ui/templates/user/user/register.twig:137
-msgid "Sign up"
-msgstr ""
-
-#: ../module/Ui/templates/user/user/register.twig:83
+#: ../module/Ui/templates/user/user/register.twig:77
 msgid "Stay in touch!"
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:86
+#: ../module/Ui/templates/user/user/register.twig:80
 msgid ""
 "<strong>Sign up to our newsletter to receive quarterly updates about our "
 "work.</strong> Serlo Education e.V. will use the information you provided to "
@@ -2413,7 +2484,7 @@ msgid ""
 "in this way."
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:120
+#: ../module/Ui/templates/user/user/register.twig:114
 msgid ""
 "You can revoke your consent to contact you via email at any time by clicking "
 "the unsubscribe link in any mailing or send us an email at <a href=\"mailto:"
@@ -2429,7 +2500,7 @@ msgid ""
 "target=\"_blank\">Terms</a>."
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:128
+#: ../module/Ui/templates/user/user/register.twig:122
 msgid ""
 "By clicking <em>Sign up</em>, you agree to our <a href=\"/22964\" target="
 "\"_blank\">Privacy Policy</a> and <a href=\"/21654\" target=\"_blank"
