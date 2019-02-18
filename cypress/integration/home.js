@@ -32,12 +32,13 @@ context('Home', () => {
     cy.title().should('equal', 'Serlo – The Open Learning Platform')
   })
 
-
   it('es.serlo.localhost has the correct document title', () => {
     cy.visit('http://es.serlo.localhost:4567/')
-    cy.title().should('equal', 'Serlo – La Plataforma para el Aprendizaje Abierto')
+    cy.title().should(
+      'equal',
+      'Serlo – La Plataforma para el Aprendizaje Abierto'
+    )
   })
-
 
   it('hi.serlo.localhost has the correct document title', () => {
     cy.visit('http://hi.serlo.localhost:4567/')
