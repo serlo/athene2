@@ -39,6 +39,7 @@ use Versioning\RepositoryManagerAwareTrait;
 use Zend\Filter\StripTags;
 use Zend\Form\Form;
 use Zend\Mvc\Exception;
+use Zend\Mvc\I18n\Translator;
 use Zend\View\Model\ViewModel;
 use Zend\View\Model\JsonModel;
 
@@ -73,12 +74,14 @@ class RepositoryController extends AbstractController
             if ($form->isValid()) {
                 $data = $form->getData();
                 $revision = $this->getRepositoryManager()->commitRevision($entity, $data);
+                /** @var Translator $translator */
+                $translator = $this->serviceLocator->get('MvcTranslator');
                 if ($mayCheckout) {
                     $this->getRepositoryManager()->checkoutRevision($entity, $revision);
-                    $successMessage = 'Your revision has been saved and is available';
+                    $successMessage = $translator->translate('Your revision has been saved and is available');
                     $route = 'entity/page';
                 } else {
-                    $successMessage = 'Your revision has been saved, it will be available once it get\'s approved';
+                    $successMessage = $translator->translate('Your revision has been saved, it will be available once it gets approved');
                     $route = 'entity/repository/history';
                 }
                 $this->getEntityManager()->flush();
