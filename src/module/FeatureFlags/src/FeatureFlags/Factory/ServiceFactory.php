@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2018 Serlo Education e.V.
+ * Copyright (c) 2013-2019 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,17 +16,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-echo nl2br(sprintf($this->translate("Hello %s,
+namespace FeatureFlags\Factory;
 
-thank you for your registration on %s.
+use FeatureFlags\Service;
+use FeatureFlags\ServiceLoggerInterface;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-Please confirm your account by clicking the following link:
-%s
+class ServiceFactory implements FactoryInterface
+{
+    /**
+     * {@inheritDoc}
+     * @return Service
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $config = $serviceLocator->get('Config')['feature_flags'];
+        /**
+         * @var $sentry ServiceLoggerInterface
+         */
+        $sentry = $serviceLocator->get('Log\Sentry');
 
-We are looking forward to your contribution to %s!
-
-Your community support"), $this->user->getUsername(), $this->brand()->getBrand(true), $this->url('authentication/activate', ['token' => $this->user->getToken()], array('force_canonical' => true)), $this->brand()->getBrand(true)));
+        return new Service($config, $sentry);
+    }
+}

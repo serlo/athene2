@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2018 Serlo Education e.V.
+ * Copyright (c) 2013-2019 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
@@ -63,20 +63,25 @@ class ZendMailAdapter implements AdapterInterface
         $this->transport   = new Smtp();
     }
 
-    public function addMail($to, $from, $subject, $body)
+    public function addMail($to, $from, $mail)
     {
         $message              = new Message();
         $bodyPart             = new MimeMessage();
-        $bodyMessage          = new MimePart($body);
-        $bodyMessage->type    = 'text/html';
-        $bodyMessage->charset = 'UTF-8';
-        $bodyPart->setParts([$bodyMessage]);
+        $bodyHtmlMessage          = new MimePart($mail->getHtmlBody());
+        $bodyHtmlMessage->type    = 'text/html';
+        $bodyHtmlMessage->charset = 'UTF-8';
+
+        $bodyTextMessage          = new MimePart($mail->getPlainBody());
+        $bodyTextMessage->type    = 'text/plain';
+        $bodyTextMessage->charset = 'UTF-8';
+
+        $bodyPart->setParts([$bodyHtmlMessage, $bodyTextMessage]);
         $message->setFrom($from);
         $message->addTo($to);
         $message->setEncoding("UTF-8");
-        $message->setSubject($subject);
+        $message->setSubject($mail->getSubject());
         $message->setBody($bodyPart);
-        $message->type = 'text/html';
+        $message->type = 'multipart/alternative';
         $this->queue[] = $message;
     }
 

@@ -1,7 +1,7 @@
 {##
  # This file is part of Athene2.
  #
- # Copyright (c) 2013-2018 Serlo Education e.V.
+ # Copyright (c) 2013-2019 Serlo Education e.V.
  #
  # Licensed under the Apache License, Version 2.0 (the "License")
  # you may not use this file except in compliance with the License
@@ -15,20 +15,32 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
  #
- # @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ # @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
 {% set event = notification.getEvents().current() %}
-{% set user = normalize().toAnchor(event.getActor(), true) %}
-{% set term = normalize().toAnchor(event.getObject(), true) %}
-{% if event.getParameter('old') and event.getParameter('new') %}
-    {% set old = normalize().toAnchor(event.getParameter('old'), true) %}
-    {% set new = normalize().toAnchor(event.getParameter('new'), true) %}
-    <div class="dropdown-menu-item">
+{% if plain %}
+    {% set user = normalize().toTitle(event.getActor()) %}
+    {% set term = normalize().toTitle(event.getObject()) %}
+    {% if event.getParameter('old') and event.getParameter('new') %}
+        {% set old = normalize().toTitle(event.getParameter('old')) %}
+        {% set new = normalize().toTitle(event.getParameter('new')) %}
         {% trans %}
-        {{ user }} changed {{ term }}'s parent from {{ old }} to {{ new }}
-        {% endtrans %}
-        <small> - {{ timeago().render(event.getTimestamp()) }}</small>
-    </div>
+            {{ user }} changed {{ term }}'s parent from {{ old }} to {{ new }}
+        {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+    {% endif %}
+{% else %}
+    {% set user = normalize().toAnchor(event.getActor(), true) %}
+    {% set term = normalize().toAnchor(event.getObject(), true) %}
+    {% if event.getParameter('old') and event.getParameter('new') %}
+        {% set old = normalize().toAnchor(event.getParameter('old'), true) %}
+        {% set new = normalize().toAnchor(event.getParameter('new'), true) %}
+        <div class="dropdown-menu-item">
+            {% trans %}
+            {{ user }} changed {{ term }}'s parent from {{ old }} to {{ new }}
+            {% endtrans %}
+            <small> - {{ timeago().render(event.getTimestamp()) }}</small>
+        </div>
+    {% endif %}
 {% endif %}

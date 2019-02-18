@@ -2,7 +2,7 @@
 /**
  * This file is part of Athene2.
  *
- * Copyright (c) 2013-2018 Serlo Education e.V.
+ * Copyright (c) 2013-2019 Serlo Education e.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License
@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ * @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
@@ -43,20 +43,18 @@ class UserControllerListener extends AbstractListener
         /* @var $user \User\Entity\UserInterface */
         $user = $e->getParam('user');
 
-        $subject = new ViewModel();
-        $body    = new ViewModel([
-            'user' => $user,
+        $this->getMailRenderer()->setTemplateFolder('mailman/messages/register');
+        $data = $this->getMailRenderer()->renderMail([
+            'body' => [
+                'user' => $user,
+            ],
         ]);
-
-        $subject->setTemplate('mailman/messages/register/subject');
-        $body->setTemplate('mailman/messages/register/body');
 
         try {
             $this->getMailman()->send(
                 $user->getEmail(),
                 $this->getMailman()->getDefaultSender(),
-                $this->getRenderer()->render($subject),
-                $this->getRenderer()->render($body)
+                $data
             );
         } catch (\Throwable $e) {
             // catch exception

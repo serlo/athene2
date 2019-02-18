@@ -2,6 +2,7 @@
 deployment.properties
 docs/
 tmp/
+!.circleci/
 !.editorconfig
 !.gitattributes
 !.gitignore
@@ -9,7 +10,6 @@ tmp/
 !.gitmodules
 !.travis.yml
 !.phpcsrc.php
-!.prettierrc.json
 /tmp
 
 # Logs

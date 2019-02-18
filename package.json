@@ -9,6 +9,7 @@
   "author": "Serlo Education e.V.",
   "repository": "github:serlo-org/athene2",
   "scripts": {
+    "c": "php composer.phar",
     "start": "docker-compose up --build -d",
     "stop": "docker-compose down",
     "format": "npm-run-all format:*",
@@ -18,10 +19,9 @@
     "unit": "./src/vendor/bin/phpunit",
     "format:php-cs-fixer": "yarn _php-cs-fixer",
     "format:prettier": "yarn _prettier --write",
-    "lint:php-cs-fixer": "yarn _php-cs-fixer --dry-run",
     "lint:prettier": "yarn _prettier --list-different",
     "_php-cs-fixer": "php php-cs-fixer.phar fix --config=php-cs-fixer.config.php",
-    "_prettier": "prettier \"{scripts/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
+    "_prettier": "prettier \"{{.circleci,cypress,scripts}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {},
   "devDependencies": {

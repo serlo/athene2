@@ -1,7 +1,7 @@
 {##
  # This file is part of Athene2.
  #
- # Copyright (c) 2013-2018 Serlo Education e.V.
+ # Copyright (c) 2013-2019 Serlo Education e.V.
  #
  # Licensed under the Apache License, Version 2.0 (the "License")
  # you may not use this file except in compliance with the License
@@ -15,19 +15,61 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
  #
- # @copyright Copyright (c) 2013-2018 Serlo Education e.V.
+ # @copyright Copyright (c) 2013-2019 Serlo Education e.V.
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
+{% set plain = plain is defined and plain %}
 {% set user = user.getUsername() %}
 {% set brand = brand().getBrand(true) %}
 {% trans %}
-Hello {{ user }},<br>
-<br>
-here's a heads up of what has happened on {{ brand }}:<br>
+    Hello {{ user }}!
 {% endtrans %}
-<ul>
-    {% for notification in notifications %}
-        {% include 'notification/notification' with {'notification': notification} %}
-    {% endfor %}
-</ul>
+{% if not plain %}
+<br>
+<br>
+{% endif %}
+{% if discussionNotifications | length %}
+    {% if discussionNotifications | length > 1 %}
+        {% trans %}
+            Users on {{ brand }} have messaged you or replied to comments by you:
+        {% endtrans %}
+    {% else %}
+        {% trans %}
+            A user on {{ brand }} has messaged you or replied to one of your comments:
+        {% endtrans %}
+    {% endif %}
+    {% if not plain %}
+        <br>
+        <ul>
+    {% endif %}
+        {% for notification in discussionNotifications %}
+            {% include 'notification/notification' with {'notification': notification, 'plain': plain} %}
+        {% endfor %}
+    {% if not plain %}</ul>{% endif %}
+{% endif %}
+{% if contentNotifications | length %}
+    {% if contentNotifications | length > 1 %}
+        {% trans %}
+            Here's a heads up of what has happened with content you edited or created:
+        {% endtrans %}
+    {% else %}
+        {% trans %}
+            This happened with a content you edited or created:
+        {% endtrans %}
+    {% endif %}
+    {% if not plain %}#
+        <br>
+        <ul>
+    {% endif %}
+        {% for notification in contentNotifications %}
+            {% include 'notification/notification' with {'notification': notification, 'plain': plain} %}
+        {% endfor %}
+    {% if not plain %}
+        </ul>
+    {% endif %}
+{% endif %}
+{% set href = url('subscriptions/manage') %}
+{% trans %}
+    You can <a href="{{ href }}">change the settings</a> for which content you want to receive notifications.
+{% endtrans %}

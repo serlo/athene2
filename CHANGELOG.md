@@ -4,10 +4,25 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+### Changed
+
+- Improved compliance with spam guidelines
+- Improved welcome email
+- Improved notification email
+
+### Internal
+
+- Add mock mail adapter to test emails in development environment (see changed `src/config/autoload/develop.local.dist.php`)
+
+## [Build 6] - 2019-01-14
+
 ### Added
 
 - Add unit tests based on PHPUnit ([#824](https://github.com/serlo-org/athene2/pull/824))
   - Add yarn script `unit` that executes `./src/vendor/bin/phpunit`
+- Pass CSRF token down
+- Verify ReCAPTCHA tokens on server
+- Specify Sentry release
 
 ## [Build 5] - 2018-12-01
 
@@ -110,7 +125,8 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo-
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo-org/athene2/compare/5...HEAD
+[unreleased]: https://github.com/serlo-org/athene2/compare/6...HEAD
+[build 6]: https://github.com/serlo-org/athene2/compare/5...6
 [build 5]: https://github.com/serlo-org/athene2/compare/4...5
 [build 4]: https://github.com/serlo-org/athene2/compare/3...4
 [build 3]: https://github.com/serlo-org/athene2/compare/2...3
