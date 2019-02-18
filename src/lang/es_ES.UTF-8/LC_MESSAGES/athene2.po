@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2018-11-16 07:25+0100\n"
-"PO-Revision-Date: 2018-11-21 15:57+0100\n"
+"POT-Creation-Date: 2018-12-07 11:48+0100\n"
+"PO-Revision-Date: 2018-12-07 12:14+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -206,14 +206,9 @@ msgstr "El elemento no se puede eliminar (fallo de validación)"
 #: ../module/Ads/src/Ads/Form/AdForm.php:47
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:81
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:62
+#: ../module/Common/src/Common/Form/Element/Title.php:35
 #: ../module/Contexter/src/Contexter/Form/ContextForm.php:50
-#: ../module/Entity/src/Entity/Form/AppletForm.php:46
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:43
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:43
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:45
 #: ../module/License/src/License/Form/LicenseForm.php:48
-#: ../module/Page/src/Page/Form/RevisionForm.php:48
 #: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:43
 #: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:44
 #: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:43
@@ -230,20 +225,20 @@ msgstr "URL:"
 #: ../module/Ads/src/Ads/Form/AdForm.php:49
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:82
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:63
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:44
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:42
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:42
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:55
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:42
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:42
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:42
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:42
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:45
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:43
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:43
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:56
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:43
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:43
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:43
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:43
 #: ../module/Flag/src/Flag/Form/FlagForm.php:59
 #: ../module/License/src/License/Form/LicenseForm.php:49
-#: ../module/Page/src/Page/Form/RevisionForm.php:52
+#: ../module/Page/src/Page/Form/RevisionForm.php:51
 msgid "Content:"
 msgstr "Contenido:"
 
@@ -395,70 +390,68 @@ msgstr "Enviar"
 msgid "Your changes have been saved."
 msgstr "Tus cambios han sido guardados."
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:47
+#: ../module/Entity/src/Entity/Form/AppletForm.php:48
 msgid "Applet Url:"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:48
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:46
+#: ../module/Entity/src/Entity/Form/AppletForm.php:49
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:45
+#: ../module/Entity/src/Entity/Form/VideoForm.php:47
 msgid "Description:"
 msgstr "Descripción:"
 
 #: ../module/Entity/src/Entity/Form/AppletForm.php:50
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:46
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:46
-#: ../module/Entity/src/Entity/Form/VideoForm.php:49
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:47
+#: ../module/Entity/src/Entity/Form/VideoForm.php:50
 msgid "Reasoning:"
 msgstr "Razonamiento:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:53
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:49
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:44
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:46
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:50
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:49
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:57
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:44
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:45
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:45
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:44
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:44
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:44
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:52
+#: ../module/Entity/src/Entity/Form/AppletForm.php:52
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:48
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:45
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:47
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:51
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:50
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:58
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:45
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:46
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:46
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:45
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:45
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:45
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:45
+#: ../module/Entity/src/Entity/Form/VideoForm.php:53
 msgid "Changes:"
 msgstr "Cambios:"
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:58
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:54
-msgid "Search Engine Title:"
-msgstr "Búsqueda por Título:"
-
-#: ../module/Entity/src/Entity/Form/AppletForm.php:59
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:55
+#: ../module/Entity/src/Entity/Form/Element/MetaDescription.php:35
 msgid "Search Engine Description:"
 msgstr "Búsqueda por Descripción:"
 
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:43
+#: ../module/Entity/src/Entity/Form/Element/MetaTitle.php:35
+msgid "Search Engine Title:"
+msgstr "Búsqueda por Título:"
+
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:44
 msgid "Solution:"
 msgstr "Solución:"
 
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:44
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:43
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:45
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:44
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:44
 msgid "Feedback:"
 msgstr "Feedback:"
 
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:44
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:45
 msgid "Source code:"
 msgstr "Código fuente:"
 
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:46
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:47
 msgid "Select an icon"
 msgstr "Seleccione un icono"
 
-#: ../module/Entity/src/Entity/Form/VideoForm.php:47
+#: ../module/Entity/src/Entity/Form/VideoForm.php:48
 msgid "Video url:"
 msgstr "Video URL:"
 
@@ -552,7 +545,11 @@ msgstr "Clave:"
 msgid "Value:"
 msgstr "Valor:"
 
-#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:171
+#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:172
+msgid "applet"
+msgstr ""
+
+#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:176
 msgid "course"
 msgstr ""
 
@@ -1016,11 +1013,74 @@ msgstr "Administrar las banderas"
 msgid "#"
 msgstr "#"
 
-#: ../module/Ui/templates/layout/de/serlo-home.phtml:41
+#: ../module/Ui/templates/layout/de/serlo-home.phtml:39
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/en/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/partials/header.phtml:35
 msgid "Toggle navigation"
 msgstr "Activar Navegacion"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:109
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:28
+msgid "The Open Learning Platform"
+msgstr "La Plataforma para el Aprendizaje Abierto"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:116
+msgid ""
+"We are a grassroots non-profit organization supporting personalized learning and working\n"
+"                                towards equal educational opportunities. This learning platform offers thousands of\n"
+"                                instructional articles, learning videos and practice exercises for millions of students\n"
+"                                worldwide - completely free of charge. Now it’s time to join us in your language."
+msgstr "Somos una plataforma educativa de organización comunitaria, que apoya el aprendizaje personalizado y trabaja para dar igualdad de oportunidades en educación para todos. Esta plataforma educativa ofrece cientos de artículos, videos, y ejercicios didácticos para millones de estudiantes a nivel mundial - de manera completamente gratuita. Este es el momento para que te nos unas en español."
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:123
+msgid "/serlo"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:124
+#: ../module/Ui/templates/layout/partials/footer.phtml:30
+msgid "Learn more"
+msgstr "Aprende más"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:131
+msgid "/assets/images/en/about_serlo_en.svg"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:136
+msgid "Serlo is the Wikipedia for Learning"
+msgstr "Serlo es la Wikipedia para el Aprendizaje"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:140
+msgid ""
+"Just like Wikipedia, this platform is created by an engaged community of authors. Serlo Education \n"
+"                                is run and owned by decentralized teams of volunteers and professionals all over the world."
+msgstr "Al igual que Wikipedia, esta plataforma es creada por una comunidad de autores comprometidos con la educación. “Serlo Education” es propiedad de varios equipos descentralizados de voluntarios y profesionales, y manejado por ellos mismos alrededor del mundo."
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:152
+msgid "Become a Part of Our Movement for Open Education"
+msgstr "Conviértete en Parte de Nuestro Movimiento para la Educación Abierta"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:158
+msgid ""
+"We are looking for teachers and enthusiastic educators who are passionate about their subject.\n"
+"                             Become an author on serlo.org! You can create new learning material and help us improve existing content."
+msgstr "Estamos buscando profesores y educadores entusiastas a quienes les apasionen las materias que enseñan. Conviértete en un autor en serlo.org! Tu puedes crear nuevo material de aprendizaje y ayudarnos a mejorar el contenido existente."
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:162
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:181
+msgid "Visit the landing page for authors"
+msgstr "Visita la página de inicio para autores"
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:168
+msgid ""
+"We offer a diverse range of jobs and volunteering opportunities in the fields of software development,\n"
+"                                 design, translation, communications, project management and more."
+msgstr "Nosotros ofrecemos una diversa gama de trabajo y oportunidades de voluntariado, dentro del campo del desarrollo de software, diseño, traducción, comunicación, administración de proyectos, y más."
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:173
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:186
+msgid "Get involved!"
+msgstr "Participa!"
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:33
 #: ../module/Ui/templates/layout/partials/noscript.phtml:45
@@ -1040,10 +1100,6 @@ msgstr "Serlo.org es la Wikipedia para el aprendizaje."
 #: ../module/Ui/templates/layout/partials/footer.phtml:29
 msgid "We are a community of visionaries working tirelessly to make great education freely available to everyone."
 msgstr "Somos una comunidad de visionarios que trabajan sin descanso para que todo el mundo tenga acceso gratuito a una educación excelente."
-
-#: ../module/Ui/templates/layout/partials/footer.phtml:30
-msgid "Learn more"
-msgstr "Aprende más"
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:37
 msgid "Join the cause"
@@ -1604,7 +1660,7 @@ msgstr ""
 msgid "article"
 msgstr "artículo"
 
-#: ../module/Ui/templates/entity/view/course-page.twig:24
+#: ../module/Ui/templates/entity/view/course-page.twig:22
 msgid "course-page"
 msgstr "página del curso"
 
@@ -1750,10 +1806,6 @@ msgstr "Comprobar"
 msgid "Correct!"
 msgstr "¡Correcto!"
 
-#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:28
-msgid "The Open Learning Platform Serlo.org"
-msgstr ""
-
 #: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:38
 msgid "Info"
 msgstr "Información"
@@ -1842,7 +1894,7 @@ msgstr "No se puede integrar vídeo - plataforma desconocida"
 msgid "No template found for event %s"
 msgstr "No se ha encontrado una plantilla para el evento %s"
 
-#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:29
+#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:30
 #: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:31
 msgid "%user% archived %discussion%"
 msgstr "%user% archivó %discussion%"
