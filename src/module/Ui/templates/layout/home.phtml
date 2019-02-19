@@ -24,6 +24,6 @@ $template = 'layout/' . $this->subdomain . '/serlo-home';
 if ($this->resolver($template)) {
     echo $this->partial($template);
 } else {
-    echo $this->partial('layout/default/serlo-home.phtml');
+    echo $this->partial('layout/default/serlo-home');
 }
 ?>
