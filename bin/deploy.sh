@@ -22,7 +22,7 @@ cd ..
 pm2 status
 
 cd ..
-php composer.phar update -o
+php composer.phar update -o --no-dev
 
 rm src/data/twig src/data/zfc* src/data/*.php src/data/*.cache -Rf
 rm src/data/*.php -Rf
