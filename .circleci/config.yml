@@ -1,6 +1,6 @@
 php: &php
   docker:
-    - image: circleci/php:7.1
+    - image: circleci/php:7.0.33
 js: &js
   docker:
     - image: circleci/node:10-browsers
