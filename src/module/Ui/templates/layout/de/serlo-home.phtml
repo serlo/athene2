@@ -36,7 +36,7 @@ echo $this->doctype();
             <nav id="header-nav">
                 <div id="mobile-nav-toggle">
                     <button>
-                        <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                        <span class="sr-only"><?php echo $this->translate('Toggle navigation'); ?></span>
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
                     <a href="https://de.serlo.org"><?php echo $this->brand()->getLogo(); ?>
@@ -189,19 +189,19 @@ echo $this->doctype();
 
                         <div class="partners">
                           <a href="/21456">
-                              <img src="/assets/images/de/home_logo_tum.svg" alt="Technische Universität München"/>
+                              <img src="<?php echo $this->assets()->getAsset('de/home/logo-tum.svg'); ?>" alt="Technische Universität München"/>
                           </a>
                           <a href="/21456">
-                              <img src="/assets/images/de/home_logo_eu.svg" alt="Europäische Kommission"/>
+                              <img src="<?php echo $this->assets()->getAsset('de/home/logo-eu.svg'); ?>" alt="Europäische Kommission"/>
                           </a>
                           <a href="/21456">
-                              <img src="/assets/images/de/home_logo_lmu.svg" alt="Ludwig-Maximilians-Universität München"/>
+                              <img src="<?php echo $this->assets()->getAsset('de/home/logo-lmu.svg'); ?>" alt="Ludwig-Maximilians-Universität München"/>
                           </a>
                           <a href="/21456">
-                              <img src="/assets/images/de/home_logo_sauer.svg" alt="Hans Sauer Stiftung"/>
+                              <img src="<?php echo $this->assets()->getAsset('de/home/logo-sauer.svg'); ?>" alt="Hans Sauer Stiftung"/>
                           </a>
                           <a href="/21456">
-                              <img src="/assets/images/de/home_logo_wiki.svg" alt="Wikimedia Deutschland"/>
+                              <img src="<?php echo $this->assets()->getAsset('de/home/logo-wikimedia.svg'); ?>" alt="Wikimedia Deutschland"/>
                           </a>
                         </div>
                     </div>
@@ -225,7 +225,7 @@ echo $this->doctype();
                           <h2>Serlo.org ist die Wikipedia fürs Lernen<h2>
                         </div>
                         <div class="extra-icon col-xs-12 col-lg-2">
-                            <img src="assets/images/home_participate.svg" alt="together">
+                            <img src="<?php echo $this->assets()->getAsset('home/participate.svg'); ?>" alt="together">
                         </div>
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 col-lg-3 home-calls-column calls-column-1">
                             <p>Wir suchen LehrerInnen mit Begeisterung für ihr Fach.
@@ -263,7 +263,7 @@ echo $this->doctype();
                 </div>
 
                 <div class="home-row home-principle-row home-column col-md-12 col-lg-6 col-lg-offset-3">
-                    <img src="/assets/images/de/about_serlo.svg">
+                    <object data="<?php echo $this->assets()->getAsset('de/home/about-serlo.svg'); ?>"></object>
                 </div>
                 <div class="home-launch-img-row home-row"></div>
                 <div class="home-calls-wrapper">

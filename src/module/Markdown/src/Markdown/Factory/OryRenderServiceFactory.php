@@ -38,7 +38,7 @@ class OryRenderServiceFactory implements FactoryInterface
     {
         $storage = $serviceLocator->get('Markdown\Storage\MarkdownStorage');
         $config  = $serviceLocator->get('config');
-        $url     = $config['editor_renderer']['url'];
+        $url     = $config['assets']['editor_renderer'];
 
         $service = new OryRenderService($url, $storage);
 

@@ -111,8 +111,9 @@ return [
             'previous_uri_query_key'         => 'redir',
         ],
     ],
-    'assets_host'     => 'https://packages.serlo.org/athene2-assets@a/',
-    'editor_renderer' => [
-        'url' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
+    'assets' => [
+        'bundle_host' => 'https://packages.serlo.org/athene2-assets@a/',
+        'assets_host' => 'https://assets.serlo.org/athene2-assets/',
+        'editor_renderer' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
     ],
 ];
