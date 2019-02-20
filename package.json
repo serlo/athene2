@@ -17,7 +17,7 @@
     "lint": "npm-run-all lint:*",
     "license": "ts-node scripts/license-headers",
     "e2e": "cypress open",
-    "unit": "./src/vendor/bin/phpunit",
+    "unit": "docker-compose exec athene2 src/vendor/bin/phpunit",
     "format:php-cs-fixer": "yarn _php-cs-fixer",
     "format:prettier": "yarn _prettier --write",
     "lint:prettier": "yarn _prettier --list-different",

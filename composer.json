@@ -28,5 +28,6 @@
     "vendor-dir": "src/vendor"
   },
   "require-dev": {
+    "phpunit/phpunit": "^5.0.0"
   }
 }
