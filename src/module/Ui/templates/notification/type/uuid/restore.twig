@@ -26,7 +26,7 @@
     {% set object = normalize().toTitle(event.getObject()) %}
     {% trans %}
         {{ user }} restored {{ object }}
-    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp(), true) }}
 {% else %}
     {% set user = normalize().toAnchor(event.getActor(), true) %}
     {% set object = normalize().toAnchor(event.getObject(), true) %}

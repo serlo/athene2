@@ -28,7 +28,7 @@
         {% set new = normalize().toTitle(event.getParameter('new')) %}
         {% trans %}
             {{ user }} changed {{ term }}'s parent from {{ old }} to {{ new }}
-        {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+        {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp(), true) }}
     {% endif %}
 {% else %}
     {% set user = normalize().toAnchor(event.getActor(), true) %}

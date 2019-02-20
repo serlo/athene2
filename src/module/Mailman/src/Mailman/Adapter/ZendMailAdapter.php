@@ -23,6 +23,8 @@
 namespace Mailman\Adapter;
 
 use Mailman\Exception;
+use StrokerCache\Strategy\Controller;
+use Zend\Mail\Header\ContentType;
 use Zend\Mail\Message;
 use Zend\Mail\Transport\Smtp;
 use Zend\Mail\Transport\SmtpOptions;
@@ -81,7 +83,8 @@ class ZendMailAdapter implements AdapterInterface
         $message->setEncoding("UTF-8");
         $message->setSubject($mail->getSubject());
         $message->setBody($bodyPart);
-        $message->type = 'multipart/alternative';
+
+        $message->getHeaders()->get('content-type')->setType('multipart/alternative');
         $this->queue[] = $message;
     }
 
