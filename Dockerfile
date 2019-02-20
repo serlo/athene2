@@ -1,4 +1,4 @@
-FROM php:7.1.3-apache
+FROM php:7.0.33-apache
 
 RUN apt-get update -y
 RUN pecl channel-update pecl.php.net
@@ -18,7 +18,7 @@ RUN sed -ie 's/\/var\/www\/html/\/var\/www\/html\/src\/public/g' /etc/apache2/si
 RUN docker-php-ext-install pdo pdo_mysql mysqli gettext intl
 RUN pear config-set preferred_state beta
 RUN yes no | pecl install apcu_bc
-RUN yes DEFAULT | pecl install intl
+#RUN yes DEFAULT | pecl install intl
 RUN echo "extension=apcu.so" >> /usr/local/etc/php/php.ini
 RUN echo "extension=apc.so" >> /usr/local/etc/php/php.ini
 RUN echo "short_open_tag=Off" >> /usr/local/etc/php/php.ini
