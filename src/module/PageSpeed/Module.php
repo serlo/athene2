@@ -142,7 +142,7 @@ class Module
 
         if ($request instanceof ConsoleRequest) {
             if (!($request->getParam('controller') == 'PageSpeed\Controller\PageSpeedController' && $request->getParam(
-                    'action'
+                'action'
                 ) == 'build')
             ) {
                 return;

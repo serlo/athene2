@@ -10,7 +10,8 @@
   "repository": "github:serlo-org/athene2",
   "scripts": {
     "c": "docker-compose run --rm composer composer",
-    "prestart": "yarn c install",
+    "c-dev": "docker-compose run --rm composer-dev-tools composer",
+    "postinstall": "yarn c install && yarn c-dev install",
     "start": "docker-compose up --build -d",
     "stop": "docker-compose down",
     "format": "npm-run-all format:*",
@@ -21,7 +22,7 @@
     "format:php-cs-fixer": "yarn _php-cs-fixer",
     "format:prettier": "yarn _prettier --write",
     "lint:prettier": "yarn _prettier --list-different",
-    "_php-cs-fixer": "docker-compose exec athene2 php php-cs-fixer.phar fix --config=php-cs-fixer.config.php",
+    "_php-cs-fixer": "docker-compose exec athene2 dev-tools/vendor/bin/php-cs-fixer fix --config=php-cs-fixer.config.php",
     "_prettier": "prettier \"{{.circleci,cypress,scripts}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {},

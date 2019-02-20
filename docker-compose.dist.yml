@@ -22,6 +22,14 @@ services:
       - ./composer.lock:/app/composer.lock
       - ./src/vendor:/app/src/vendor
 
+  composer-dev-tools:
+    image: composer:1.8
+    volumes:
+      # For macOS, add `:cached` to every volume for improved performance, see also https://docs.docker.com/docker-for-mac/osxfs-caching/#semantics
+      - ./dev-tools/composer.json:/app/composer.json
+      - ./dev-tools/composer.lock:/app/composer.lock
+      - ./dev-tools/vendor:/app/vendor
+
   athene2:
     build: .
     links:
@@ -31,8 +39,8 @@ services:
       - '4567:80'
     volumes:
       # For macOS, add `:delegated` to every volume for improved performance, see also https://docs.docker.com/docker-for-mac/osxfs-caching/#semantics
+      - ./dev-tools/vendor:/var/www/html/dev-tools/vendor
       - ./php-cs-fixer.config.php:/var/www/html/php-cs-fixer.config.php
-      - ./php-cs-fixer.phar:/var/www/html/php-cs-fixer.phar
       - ./phpunit.xml:/var/www/html/phpunit.xml
       - ./src/config:/var/www/html/src/config
       - ./src/lang:/var/www/html/src/lang

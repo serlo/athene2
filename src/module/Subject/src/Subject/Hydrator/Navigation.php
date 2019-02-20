@@ -50,7 +50,7 @@ class Navigation implements ContainerProviderInterface
             $config = ArrayUtils::merge(
                 $config,
                 include $this->path . $instance->getName() . '/' . strtolower(
-                        $subject->getName()
+                    $subject->getName()
                     ) . '/navigation.config.php'
             );
         }
