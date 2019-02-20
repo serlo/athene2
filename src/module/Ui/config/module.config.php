@@ -22,6 +22,8 @@
  */
 namespace Ui;
 
+use Ui\Factory\AssetsHelperFactory;
+
 return [
     'navigation'         => [
         'hydratables' => [
@@ -75,7 +77,7 @@ return [
     'view_helpers'       => [
         'factories'  => [
             'recaptcha'   => __NAMESPACE__ . '\Factory\RecaptchaHelperFactory',
-            'assetsHost'  => __NAMESPACE__ . '\Factory\AssetsHostHelperFactory',
+            'assets'      => AssetsHelperFactory::class,
             'pageHeader'  => __NAMESPACE__ . '\Factory\PageHeaderFactory',
             'brand'       => __NAMESPACE__ . '\Factory\BrandHelperFactory',
             'twigPartial' => __NAMESPACE__ . '\Factory\TwigPartialFactory',

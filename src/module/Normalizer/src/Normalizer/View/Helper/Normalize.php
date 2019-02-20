@@ -139,7 +139,7 @@ class Normalize extends AbstractHelper
                 break;
         }
 
-        return 'https://assets.serlo.org/' . $fileName;
+        return $this->getView()->assets()->getAsset($fileName);
     }
 
     private function getSubdomain()

@@ -36,7 +36,7 @@ echo $this->doctype();
                 <div id="mobile-nav-toggle">
 
                     <button>
-                        <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                        <span class="sr-only"><?php echo $this->translate('Toggle navigation'); ?></span>
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
 
@@ -128,7 +128,7 @@ echo $this->doctype();
                 </div>
 
                 <div class="home-row home-principle-row home-column col-md-12 col-lg-6 col-lg-offset-3">
-                    <img src="<?php echo $this->translate('https://assets.serlo.org/athene2/en/home/about-serlo.svg'); ?>" alt="<?php echo $this->translate('About Serlo'); ?>">
+                    <object data="<?php echo $this->assets()->getAsset($this->translate('en/home/about-serlo.svg')); ?>"></object>
                 </div>
                 <div class="home-calls-wrapper clearfix">
                     <div class="home-row home-column">
@@ -152,7 +152,7 @@ echo $this->doctype();
                             <h2><?php echo $this->translate('Become a Part of Our Movement for Open Education'); ?><h2>
                         </div>
                         <div class="extra-icon col-xs-12 col-lg-2">
-                            <img src="https://assets.serlo.org/athene2/home/participate.svg" alt="together">
+                            <img src="<?php echo $this->assets()->getAsset('home/participate.svg'); ?>" alt="together">
                         </div>
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 col-lg-3 home-calls-column calls-column-1">
                             <p><?php echo $this->translate('We are looking for teachers and enthusiastic educators who are passionate about their subject.

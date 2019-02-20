@@ -44,8 +44,9 @@ return [
     'mailmock' => [
         'active' => true,
     ],
-    // 'assets_host'     => 'http://localhost:8081/',
-    // 'editor_renderer' => [
-    //   'url' => 'http://host.docker.internal:3000/',
+    // 'assets' => [
+    //     'bundle_host' => 'http://localhost:8081/',
+    //     'assets_host' => 'http://localhost:8082/',
+    //     'editor_renderer' => 'http://host.docker.internal:3000/',
     // ],
 ];
