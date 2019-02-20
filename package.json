@@ -11,7 +11,7 @@
   "scripts": {
     "c": "docker-compose run --rm composer composer",
     "c-dev": "docker-compose run --rm composer-dev-tools composer",
-    "postinstall": "yarn c install && yarn c-dev install",
+    "prestart": "yarn c install && yarn c-dev install",
     "start": "docker-compose up --build -d",
     "stop": "docker-compose down",
     "format": "npm-run-all format:*",
