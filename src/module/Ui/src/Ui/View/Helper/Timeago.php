@@ -37,8 +37,12 @@ class Timeago extends AbstractHelper
         return $datetime->format('Y-m-d H:i:s');
     }
 
-    public function render(Datetime $datetime)
+    public function render(Datetime $datetime, $plain = false)
     {
-        return '<abbr class="timeago" title="'.$this->format($datetime).'">'.$this->format($datetime).'</abbr>';
+        if ($plain) {
+            return $this->format($datetime);
+        }
+
+        return '<abbr class="timeago" title="' . $this->format($datetime) . '">' . $this->format($datetime) . '</abbr>';
     }
 }

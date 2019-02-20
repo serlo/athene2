@@ -34,7 +34,7 @@
         {% trans %}
             {{ user }} rejected a {{ revision }} of {{ repository }}
         {% endtrans %}
-    {% endif %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+    {% endif %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp(), true) }}
 {% else %}
     {% set user = normalize().toAnchor(event.getActor(), true) %}
     {% set repository = normalize().toAnchor(event.getParameter('repository'), true) %}

@@ -27,7 +27,7 @@
     {% set content = normalize().toPreview(event.getObject()) %}
     {% trans %}
         {{ user }} commented on {{ discussion }}: {{ content }}
-    {% endtrans %} ({{ normalize().toUrl(event.getParameter('discussion'), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+    {% endtrans %} ({{ normalize().toUrl(event.getParameter('discussion'), true) }}) - {{ timeago().render(event.getTimestamp(), true) }}
 {% else %}
     {% set user = normalize().toAnchor(event.getActor(), true) %}
     {% set comment = normalize().toAnchor(event.getObject(), true) %}

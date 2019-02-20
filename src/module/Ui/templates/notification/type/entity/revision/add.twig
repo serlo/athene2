@@ -26,7 +26,7 @@
     {% set revision = 'revision'|trans %}
     {% trans %}
         {{ user }} created a {{ revision }} in {{ repository }}
-    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+    {% endtrans %} ({{ normalize().toUrl(event.getObject(), true) }}) - {{ timeago().render(event.getTimestamp(), true) }}
 {% else %}
     {% set user = normalize().toAnchor(event.getActor(), true) %}
     {% set repository = normalize().toAnchor(event.getParameter('repository'), true) %}

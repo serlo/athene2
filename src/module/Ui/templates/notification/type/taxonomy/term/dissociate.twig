@@ -26,7 +26,7 @@
     {% set object = normalize().toTitle(event.getParameter('object')) %}
     {% trans %}
         {{ user }} dissociated {{ object }} from {{ term }}
-    {% endtrans %} ({{ normalize().toUrl(event.getParameter('object'), true) }}) - {{ timeago().render(event.getTimestamp()) }}
+    {% endtrans %} ({{ normalize().toUrl(event.getParameter('object'), true) }}) - {{ timeago().render(event.getTimestamp(), true) }}
 {% else %}
     {% set user = normalize().toAnchor(event.getActor(), true) %}
     {% set term = normalize().toAnchor(event.getObject(), true) %}
