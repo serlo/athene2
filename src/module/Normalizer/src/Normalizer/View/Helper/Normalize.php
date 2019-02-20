@@ -113,7 +113,7 @@ class Normalize extends AbstractHelper
 
     private function getMetaImage($object)
     {
-        $fileName = 'serlo.jpg';
+        $fileName = 'meta/serlo.jpg';
 
         $subject = trim(strtolower(strip_tags(
             $this->getView()->navigation('default_navigation')
@@ -127,19 +127,19 @@ class Normalize extends AbstractHelper
 
         switch ($subject) {
             case 'mathematik':
-                $fileName = 'de/mathematik.jpg';
+                $fileName = 'de/meta/mathematik.jpg';
                 break;
 
             case 'angewandte nachhaltigkeit':
-                $fileName = 'de/angewandte-nachhaltigkeit.jpg';
+                $fileName = 'de/meta/angewandte-nachhaltigkeit.jpg';
                 break;
 
             case 'biologie':
-                $fileName = 'de/biologie.jpg';
+                $fileName = 'de/meta/biologie.jpg';
                 break;
         }
 
-        return 'https://assets.serlo.org/meta/' . $fileName;
+        return 'https://assets.serlo.org/' . $fileName;
     }
 
     private function getSubdomain()

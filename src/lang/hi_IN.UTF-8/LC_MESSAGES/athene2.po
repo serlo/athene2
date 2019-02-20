@@ -1045,6 +1045,7 @@ msgid "Learn more"
 msgstr "और जानो"
 
 #: ../module/Ui/templates/layout/default/serlo-home.phtml:131
+# FIXME:
 msgid "/assets/images/en/about_serlo_en.svg"
 msgstr ""
 

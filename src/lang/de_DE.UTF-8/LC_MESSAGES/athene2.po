@@ -1060,6 +1060,7 @@ msgid "Learn more"
 msgstr "Mehr erfahren"
 
 #: ../module/Ui/templates/layout/default/serlo-home.phtml:131
+# FIXME:
 msgid "/assets/images/en/about_serlo_en.svg"
 msgstr "/assets/images/de/about_serlo.svg"
 

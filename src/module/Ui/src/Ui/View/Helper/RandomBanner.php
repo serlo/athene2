@@ -26,6 +26,7 @@ use Zend\Form\View\Helper\AbstractHelper;
 
 class RandomBanner extends AbstractHelper
 {
+    // FIXME: Is this still in use? If not, please delete (including files in src/public. If it is, move images to athene2-assets/packages/assets
     protected $hands= [
         '/assets/images/de/hand-1.png',
         '/assets/images/de/hand-2.png',
