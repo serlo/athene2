@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2018-11-16 07:25+0100\n"
-"PO-Revision-Date: 2018-12-07 12:16+0100\n"
+"POT-Creation-Date: 2019-02-20 21:42+0100\n"
+"PO-Revision-Date: 2019-02-20 22:20+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -206,14 +206,9 @@ msgstr ""
 #: ../module/Ads/src/Ads/Form/AdForm.php:47
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:81
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:62
+#: ../module/Common/src/Common/Form/Element/Title.php:35
 #: ../module/Contexter/src/Contexter/Form/ContextForm.php:50
-#: ../module/Entity/src/Entity/Form/AppletForm.php:46
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:43
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:43
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:45
 #: ../module/License/src/License/Form/LicenseForm.php:48
-#: ../module/Page/src/Page/Form/RevisionForm.php:48
 #: ../module/RelatedContent/src/RelatedContent/Form/CategoryForm.php:43
 #: ../module/RelatedContent/src/RelatedContent/Form/ExternalForm.php:44
 #: ../module/RelatedContent/src/RelatedContent/Form/InternalForm.php:43
@@ -230,20 +225,20 @@ msgstr ""
 #: ../module/Ads/src/Ads/Form/AdForm.php:49
 #: ../module/Blog/src/Blog/Form/CreatePostForm.php:82
 #: ../module/Blog/src/Blog/Form/UpdatePostForm.php:63
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:44
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:42
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:42
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:55
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:42
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:42
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:42
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:42
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:42
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:45
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:43
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:43
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:56
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:43
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:43
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:43
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:43
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:43
 #: ../module/Flag/src/Flag/Form/FlagForm.php:59
 #: ../module/License/src/License/Form/LicenseForm.php:49
-#: ../module/Page/src/Page/Form/RevisionForm.php:52
+#: ../module/Page/src/Page/Form/RevisionForm.php:51
 msgid "Content:"
 msgstr ""
 
@@ -395,70 +390,76 @@ msgstr ""
 msgid "Your changes have been saved."
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:47
-msgid "Applet Url:"
+#: ../module/Entity/src/Entity/Controller/RepositoryController.php:81
+msgid "Your revision has been saved and is available"
+msgstr ""
+
+#: ../module/Entity/src/Entity/Controller/RepositoryController.php:84
+msgid "Your revision has been saved, it will be available once it gets approved"
 msgstr ""
 
 #: ../module/Entity/src/Entity/Form/AppletForm.php:48
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:46
+msgid "Applet Url:"
+msgstr ""
+
+#: ../module/Entity/src/Entity/Form/AppletForm.php:49
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:45
+#: ../module/Entity/src/Entity/Form/VideoForm.php:47
 msgid "Description:"
 msgstr ""
 
 #: ../module/Entity/src/Entity/Form/AppletForm.php:50
 #: ../module/Entity/src/Entity/Form/ArticleForm.php:46
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:46
-#: ../module/Entity/src/Entity/Form/VideoForm.php:49
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:47
+#: ../module/Entity/src/Entity/Form/VideoForm.php:50
 msgid "Reasoning:"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:53
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:49
-#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:44
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:46
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:50
-#: ../module/Entity/src/Entity/Form/ModuleForm.php:49
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:57
-#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:44
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:45
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:45
-#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:44
-#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:44
-#: ../module/Entity/src/Entity/Form/TextHintForm.php:44
-#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:44
-#: ../module/Entity/src/Entity/Form/VideoForm.php:52
+#: ../module/Entity/src/Entity/Form/AppletForm.php:52
+#: ../module/Entity/src/Entity/Form/ArticleForm.php:48
+#: ../module/Entity/src/Entity/Form/GroupedTextExerciseForm.php:45
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:47
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:51
+#: ../module/Entity/src/Entity/Form/ModuleForm.php:50
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:58
+#: ../module/Entity/src/Entity/Form/MultipleChoiceRightAnswerForm.php:45
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:46
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:46
+#: ../module/Entity/src/Entity/Form/TextExerciseForm.php:45
+#: ../module/Entity/src/Entity/Form/TextExerciseGroupForm.php:45
+#: ../module/Entity/src/Entity/Form/TextHintForm.php:45
+#: ../module/Entity/src/Entity/Form/TextSolutionForm.php:45
+#: ../module/Entity/src/Entity/Form/VideoForm.php:53
 msgid "Changes:"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/AppletForm.php:58
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:54
-msgid "Search Engine Title:"
-msgstr ""
-
-#: ../module/Entity/src/Entity/Form/AppletForm.php:59
-#: ../module/Entity/src/Entity/Form/ArticleForm.php:55
+#: ../module/Entity/src/Entity/Form/Element/MetaDescription.php:35
 msgid "Search Engine Description:"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:43
-msgid "Solution:"
+#: ../module/Entity/src/Entity/Form/Element/MetaTitle.php:35
+msgid "Search Engine Title:"
 msgstr ""
 
 #: ../module/Entity/src/Entity/Form/InputChallengeForm.php:44
-#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:43
-#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:43
+msgid "Solution:"
+msgstr ""
+
+#: ../module/Entity/src/Entity/Form/InputChallengeForm.php:45
+#: ../module/Entity/src/Entity/Form/MultipleChoiceWrongAnswerForm.php:44
+#: ../module/Entity/src/Entity/Form/SingleChoiceAnswerForm.php:44
 msgid "Feedback:"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:44
+#: ../module/Entity/src/Entity/Form/MathPuzzleForm.php:45
 msgid "Source code:"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/ModulePageForm.php:46
+#: ../module/Entity/src/Entity/Form/ModulePageForm.php:47
 msgid "Select an icon"
 msgstr ""
 
-#: ../module/Entity/src/Entity/Form/VideoForm.php:47
+#: ../module/Entity/src/Entity/Form/VideoForm.php:48
 msgid "Video url:"
 msgstr ""
 
@@ -552,7 +553,11 @@ msgstr ""
 msgid "Value:"
 msgstr ""
 
-#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:171
+#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:172
+msgid "applet"
+msgstr ""
+
+#: ../module/Normalizer/src/Normalizer/Adapter/EntityAdapter.php:176
 msgid "course"
 msgstr ""
 
@@ -629,7 +634,7 @@ msgstr ""
 msgid "You have registered successfully and will soon receive an email with instructions on how to activate your account."
 msgstr ""
 
-#: ../module/User/src/User/Controller/UserController.php:178
+#: ../module/User/src/User/Controller/UserController.php:175
 msgid "Your profile has been saved"
 msgstr ""
 
@@ -730,6 +735,11 @@ msgstr ""
 
 #: ../module/User/src/User/Form/Register.php:89
 msgid "I am here as…"
+msgstr ""
+
+#: ../module/User/src/User/Form/Register.php:92
+#: ../module/Ui/templates/user/user/register.twig:24
+msgid "Sign up"
 msgstr ""
 
 #: ../module/User/src/User/Form/RegisterFilter.php:57
@@ -1016,10 +1026,73 @@ msgstr ""
 msgid "#"
 msgstr ""
 
-#: ../module/Ui/templates/layout/de/serlo-home.phtml:41
+#: ../module/Ui/templates/layout/de/serlo-home.phtml:39
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/en/serlo-home.phtml:39
 #: ../module/Ui/templates/layout/partials/header.phtml:35
 msgid "Toggle navigation"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:109
+#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:28
+msgid "The Open Learning Platform"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:116
+msgid ""
+"We are a grassroots non-profit organization supporting personalized learning and working\n"
+"                                towards equal educational opportunities. This learning platform offers thousands of\n"
+"                                instructional articles, learning videos and practice exercises for millions of students\n"
+"                                worldwide - completely free of charge. Now it’s time to join us in your language."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:123
+msgid "/serlo"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:124
+#: ../module/Ui/templates/layout/partials/footer.phtml:30
+msgid "Learn more"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:131
+msgid "en/home/about-serlo.svg"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:136
+msgid "Serlo is the Wikipedia for Learning"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:140
+msgid ""
+"Just like Wikipedia, this platform is created by an engaged community of authors. Serlo Education \n"
+"                                is run and owned by decentralized teams of volunteers and professionals all over the world."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:152
+msgid "Become a Part of Our Movement for Open Education"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:158
+msgid ""
+"We are looking for teachers and enthusiastic educators who are passionate about their subject.\n"
+"                             Become an author on serlo.org! You can create new learning material and help us improve existing content."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:162
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:181
+msgid "Visit the landing page for authors"
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:168
+msgid ""
+"We offer a diverse range of jobs and volunteering opportunities in the fields of software development,\n"
+"                                 design, translation, communications, project management and more."
+msgstr ""
+
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:173
+#: ../module/Ui/templates/layout/default/serlo-home.phtml:186
+msgid "Get involved!"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/default-modal.phtml:33
@@ -1041,10 +1114,6 @@ msgstr ""
 msgid "We are a community of visionaries working tirelessly to make great education freely available to everyone."
 msgstr ""
 
-#: ../module/Ui/templates/layout/partials/footer.phtml:30
-msgid "Learn more"
-msgstr ""
-
 #: ../module/Ui/templates/layout/partials/footer.phtml:37
 msgid "Join the cause"
 msgstr ""
@@ -1062,7 +1131,7 @@ msgid "Subjects"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:75
-msgid "Stay in touch:"
+msgid "Stay in touch"
 msgstr ""
 
 #: ../module/Ui/templates/layout/partials/footer.phtml:83
@@ -1127,52 +1196,6 @@ msgstr ""
 
 #: ../module/Ui/templates/license/manage.phtml:52
 msgid "DANGER: You are going to delete all contents associated with this license!"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/register/body.phtml:23
-#, php-format
-msgid ""
-"Hello %s,\n"
-"\n"
-"thank you for your registration on %s.\n"
-"\n"
-"Please confirm your account by clicking the following link:\n"
-"%s\n"
-"\n"
-"We are looking forward to your contribution to %s!\n"
-"\n"
-"Your community support"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/restore-password/body.phtml:23
-#, php-format
-msgid ""
-"Hi %s,\n"
-"it seems that you want to restore your password. If not, you can ignore this email.\n"
-"You can restore your password by clicking the link below:\n"
-"\n"
-"%s"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/restore-password/subject.phtml:24
-#, php-format
-msgid "Restore your password on %s"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/welcome/body.phtml:23
-#, php-format
-msgid ""
-"Dear %s,\n"
-"\n"
-"We’re thrilled you’ve decided to write a comment or contribute to serlo.org.\n"
-"To find out how to get started on editing and creating content, please visit the community homepage: https://de.serlo.org/community.\n"
-"If you have any questions, problems or feedback for us, feel free to get in touch via de@serlo.org.\n"
-"\n"
-"Enjoy Serlo!"
-msgstr ""
-
-#: ../module/Ui/templates/mailman/messages/welcome/subject.phtml:24
-msgid "How to get started on Serlo!"
 msgstr ""
 
 #: ../module/Ui/templates/navigation/containers.phtml:34
@@ -1313,6 +1336,7 @@ msgstr ""
 
 #: ../module/Ui/templates/authentication/reset-password/restore.twig:24
 #: ../module/Ui/templates/authentication/reset-password/select.twig:24
+#: ../module/Ui/templates/mailman/messages/restore-password/body.twig:33
 msgid "Restore password"
 msgstr ""
 
@@ -1450,7 +1474,7 @@ msgstr ""
 #: ../module/Ui/templates/entity/page/default.twig:31
 #: ../module/Ui/templates/entity/view/default.twig:31
 #: ../module/Ui/templates/entity/view/toc/default.twig:29
-#: ../module/Ui/templates/notification/notification.twig:35
+#: ../module/Ui/templates/notification/notification.twig:36
 msgid "No view found for %name%"
 msgstr ""
 
@@ -1587,7 +1611,7 @@ msgstr ""
 msgid "article"
 msgstr "explanation"
 
-#: ../module/Ui/templates/entity/view/course-page.twig:24
+#: ../module/Ui/templates/entity/view/course-page.twig:22
 msgid "course-page"
 msgstr ""
 
@@ -1733,10 +1757,6 @@ msgstr ""
 msgid "Correct!"
 msgstr ""
 
-#: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:28
-msgid "The Open Learning Platform Serlo.org"
-msgstr ""
-
 #: ../module/Ui/templates/entity/view/partials/license/minimalistic.twig:38
 msgid "Info"
 msgstr ""
@@ -1825,8 +1845,9 @@ msgstr ""
 msgid "No template found for event %s"
 msgstr ""
 
-#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:29
-#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:31
+#: ../module/Ui/templates/event/helper/event/discussion/comment/archive.twig:30
+#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:27
+#: ../module/Ui/templates/notification/type/discussion/comment/archive.twig:38
 msgid "%user% archived %discussion%"
 msgstr ""
 
@@ -1879,6 +1900,8 @@ msgid "%user% created %term%"
 msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/taxonomy/term/dissociate.twig:26
+#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:28
+#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:36
 msgid "%user% dissociated %object% from %term%"
 msgstr ""
 
@@ -1891,25 +1914,117 @@ msgid "%user% updated %term%"
 msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/uuid/restore.twig:25
-#: ../module/Ui/templates/notification/type/discussion/restore.twig:31
-#: ../module/Ui/templates/notification/type/uuid/restore.twig:27
+#: ../module/Ui/templates/notification/type/discussion/restore.twig:27
+#: ../module/Ui/templates/notification/type/discussion/restore.twig:38
+#: ../module/Ui/templates/notification/type/uuid/restore.twig:28
+#: ../module/Ui/templates/notification/type/uuid/restore.twig:35
 msgid "%user% restored %object%"
 msgstr ""
 
 #: ../module/Ui/templates/event/helper/event/uuid/trash.twig:25
 #: ../module/Ui/templates/notification/type/uuid/trash.twig:27
+#: ../module/Ui/templates/notification/type/uuid/trash.twig:34
 msgid "%user% trashed %object%"
 msgstr ""
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:25
-msgid ""
-"Hello %user%,<br>\n"
-"<br>\n"
-"here's a heads up of what has happened on %brand%:<br>"
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:24
+#: ../module/Ui/templates/mailman/messages/notification/plain.twig:24
+msgid "Hello %user%!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:32
+msgid "You can <a href=\"%href%\">change the settings</a> for which content you want to receive notifications."
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/partials/content.twig:4
+msgid "Here's a heads up of what has happened with content you edited or created:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/partials/content.twig:8
+msgid "This happened with a content you edited or created:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/partials/discussions.twig:5
+msgid "Users on %brand% have messaged you or replied to comments by you:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/partials/discussions.twig:9
+msgid "A user on %brand% has messaged you or replied to one of your comments:"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/notification/plain.twig:32
+msgid "You can change the settings for which content you want to receive notifications here: %href%"
 msgstr ""
 
 #: ../module/Ui/templates/mailman/messages/notification/subject.twig:24
 msgid "You have unread notifications on %brand%"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/register/body.twig:25
+#: ../module/Ui/templates/mailman/messages/register/plain.twig:25
+msgid ""
+"Hello %s,\n"
+"\n"
+"        thank you for your registration on %s.\n"
+"\n"
+"        Please confirm your account by clicking the following link:\n"
+"        %s\n"
+"\n"
+"        We are looking forward to your contribution to %s!\n"
+"\n"
+"        Your community support"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/register/body.twig:39
+msgid "Activate account"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/register/subject.twig:23
+msgid "Please activate your %s account!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/restore-password/body.twig:24
+#: ../module/Ui/templates/mailman/messages/restore-password/plain.twig:24
+msgid ""
+"Hi %s,\n"
+"        it seems that you want to restore your password. If not, you can ignore this email.\n"
+"        You can restore your password by clicking the link below:\n"
+"\n"
+"        %s"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/restore-password/subject.twig:23
+msgid "Restore your password on %s"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/welcome/body.twig:24
+msgid ""
+"Dear %s,\n"
+"\n"
+"        We’re thrilled you’ve decided to write a comment or contribute to serlo.org!\n"
+"\n"
+"        To find out how to get started on editing and creating content, please visit the <a href=\"https://de.serlo.org/community\">community homepage</a>.\n"
+"\n"
+"        If you have any questions, problems or feedback for us, feel free to get in touch via <a href=\"mailto:de@serlo.org\">de@serlo.org</a>.\n"
+"\n"
+"        Enjoy Serlo!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/welcome/plain.twig:24
+msgid ""
+"Dear %s,\n"
+"\n"
+"        We’re thrilled you’ve decided to write a comment or contribute to serlo.org!\n"
+"\n"
+"        To find out how to get started on editing and creating content, please visit the community homepage: https://de.serlo.org/community.\n"
+"\n"
+"        If you have any questions, problems or feedback for us, feel free to get in touch via de@serlo.org.\n"
+"\n"
+"        Enjoy Serlo!"
+msgstr ""
+
+#: ../module/Ui/templates/mailman/messages/welcome/subject.twig:23
+msgid "How to get started on Serlo!"
 msgstr ""
 
 #: ../module/Ui/templates/navigation/container/get.twig:23
@@ -1946,7 +2061,7 @@ msgstr ""
 msgid "Page settings"
 msgstr ""
 
-#: ../module/Ui/templates/notification/notification.twig:30
+#: ../module/Ui/templates/notification/notification.twig:31
 msgid "No template found for notification \"%type%\""
 msgstr ""
 
@@ -2011,57 +2126,67 @@ msgstr ""
 msgid "Stop sending emails"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:33
+#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:29
+#: ../module/Ui/templates/notification/type/discussion/comment/create.twig:42
 msgid "%user% commented on %discussion%: %content%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/discussion/create.twig:33
+#: ../module/Ui/templates/notification/type/discussion/create.twig:29
+#: ../module/Ui/templates/notification/type/discussion/create.twig:42
 msgid "%user% started %discussion% on %object%: %title%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/entity/link/create.twig:29
+#: ../module/Ui/templates/notification/type/entity/link/create.twig:30
+#: ../module/Ui/templates/notification/type/entity/link/create.twig:41
 msgid "%user% added %object% to %parent%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/entity/revision/add.twig:27
-#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:27
-#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:27
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:26
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:34
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:28
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:42
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:28
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:42
 msgid "revision"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/entity/revision/add.twig:30
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:28
+#: ../module/Ui/templates/notification/type/entity/revision/add.twig:37
 msgid "%user% created a %revision% in %repository%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:31
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:46
 msgid "%user% accepted a %revision% of %repository%: %reason%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:35
+#: ../module/Ui/templates/notification/type/entity/revision/checkout.twig:50
 msgid "%user% accepted a %revision% of %repository%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:31
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:46
 msgid "%user% rejected a %revision% of %repository%: %reason%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/entity/revision/reject.twig:35
+#: ../module/Ui/templates/notification/type/entity/revision/reject.twig:50
 msgid "%user% rejected a %revision% of %repository%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:28
+#: ../module/Ui/templates/notification/type/taxonomy/term/associate.twig:36
 msgid "%user% associated %term% with %object%"
 msgstr ""
 
-#: ../module/Ui/templates/notification/type/taxonomy/term/dissociate.twig:28
-msgid "%user% removed %object% from %object%"
-msgstr ""
-
 #: ../module/Ui/templates/notification/type/taxonomy/term/parent/change.twig:30
+#: ../module/Ui/templates/notification/type/taxonomy/term/parent/change.twig:41
 msgid "%user% changed %term%'s parent from %old% to %new%"
 msgstr ""
 
 #: ../module/Ui/templates/notification/type/taxonomy/term/update.twig:27
+#: ../module/Ui/templates/notification/type/taxonomy/term/update.twig:34
 msgid "%user% updated %object%"
 msgstr ""
 
@@ -2284,24 +2409,19 @@ msgstr ""
 msgid "Last seen"
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:24
-#: ../module/Ui/templates/user/user/register.twig:137
-msgid "Sign up"
-msgstr ""
-
-#: ../module/Ui/templates/user/user/register.twig:83
+#: ../module/Ui/templates/user/user/register.twig:77
 msgid "Stay in touch!"
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:86
+#: ../module/Ui/templates/user/user/register.twig:80
 msgid "<strong>Sign up to our newsletter to receive quarterly updates about our work.</strong> Serlo Education e.V. will use the information you provided to send you the newsletter and (optionally) personalise these mailings. We will also supply insights on aspects of Serlo that may be particularly interesting to you, based on the information you provided. To enable us to keep serlo.org free of charge and free of advertising we send out a fundraiser campaign through our newsletter list annually around Christmas. Please confirm below if you would like to give us permission to contact you in this way."
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:120
+#: ../module/Ui/templates/user/user/register.twig:114
 msgid "You can revoke your consent to contact you via email at any time by clicking the unsubscribe link in any mailing or send us an email at <a href=\"mailto:de@serlo.org\">de@serlo.org</a>. Your privacy is very important to us. For the processing of our mailing activities we work with MailChimp as a service provider. MailChimp underlies a strict data processing agreement with us that ensures the protection of your data in accordance with the European General Data Protection Regulations. By subscribing to our newsletter you agree with our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and acknowledge that your data will be processed by MailChimp in accordance with their <a href=\"https://mailchimp.com/legal/privacy/\" target=\"_blank\">Privacy Policy</a> and <a href=\"https://mailchimp.com/legal/terms/\" target=\"_blank\">Terms</a>."
 msgstr ""
 
-#: ../module/Ui/templates/user/user/register.twig:128
+#: ../module/Ui/templates/user/user/register.twig:122
 msgid "By clicking <em>Sign up</em>, you agree to our <a href=\"/22964\" target=\"_blank\">Privacy Policy</a> and <a href=\"/21654\" target=\"_blank\">Terms</a>. You may receive email notifications from us and can opt out at any time."
 msgstr ""
 

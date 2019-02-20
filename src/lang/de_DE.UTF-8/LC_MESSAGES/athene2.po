@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: serlo\n"
-"POT-Creation-Date: 2019-02-18 18:17+0100\n"
-"PO-Revision-Date: 2019-02-18 18:38+0100\n"
+"POT-Creation-Date: 2019-02-20 21:42+0100\n"
+"PO-Revision-Date: 2019-02-20 22:20+0100\n"
 "Last-Translator: Serlo <de@serlo.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1060,9 +1060,8 @@ msgid "Learn more"
 msgstr "Mehr erfahren"
 
 #: ../module/Ui/templates/layout/default/serlo-home.phtml:131
-# FIXME:
-msgid "/assets/images/en/about_serlo_en.svg"
-msgstr "/assets/images/de/about_serlo.svg"
+msgid "en/home/about-serlo.svg"
+msgstr "de/home/about-serlo.svg"
 
 #: ../module/Ui/templates/layout/default/serlo-home.phtml:136
 msgid "Serlo is the Wikipedia for Learning"
@@ -1938,29 +1937,34 @@ msgstr "%user% hat %object% wiederhergestellt"
 msgid "%user% trashed %object%"
 msgstr "%user% hat %object% in den Papierkorb verschoben"
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:26
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:24
+#: ../module/Ui/templates/mailman/messages/notification/plain.twig:24
 msgid "Hello %user%!"
 msgstr "Hallo %user%!"
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:35
-msgid "Users on %brand% have messaged you or replied to comments by you:"
-msgstr "User auf %brand% haben dir geschrieben oder auf Kommentare von dir reagiert:"
+#: ../module/Ui/templates/mailman/messages/notification/body.twig:32
+msgid "You can <a href=\"%href%\">change the settings</a> for which content you want to receive notifications."
+msgstr "Zu welchen Inhalten du Benachrichtigungen erhältst, kannst du in deinen <a href=\"%href%\">Einstellungen ändern</a>."
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:39
-msgid "A user on %brand% has messaged you or replied to one of your comments:"
-msgstr "Ein User auf %brand% hat dir geschrieben oder auf einen Kommentar von dir reagiert:"
-
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:54
+#: ../module/Ui/templates/mailman/messages/notification/partials/content.twig:4
 msgid "Here's a heads up of what has happened with content you edited or created:"
 msgstr "Hier ist eine Übersicht, was mit Inhalten passiert ist, die du erstellt oder bearbeitet hast:"
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:58
+#: ../module/Ui/templates/mailman/messages/notification/partials/content.twig:8
 msgid "This happened with a content you edited or created:"
 msgstr "Das ist mit einem Inhalt passiert, den du erstellt oder bearbeitet hast:"
 
-#: ../module/Ui/templates/mailman/messages/notification/body.twig:74
-msgid "You can <a href=\"%href%\">change the settings</a> for which content you want to receive notifications."
-msgstr "Du kannst die <a href=\"%href%\">Einstellungen ändern</a>, für welche Inhalte du Benachrichtigungen erhalten möchtest."
+#: ../module/Ui/templates/mailman/messages/notification/partials/discussions.twig:5
+msgid "Users on %brand% have messaged you or replied to comments by you:"
+msgstr "User auf %brand% haben dir geschrieben oder auf Kommentare von dir reagiert:"
+
+#: ../module/Ui/templates/mailman/messages/notification/partials/discussions.twig:9
+msgid "A user on %brand% has messaged you or replied to one of your comments:"
+msgstr "Ein User auf %brand% hat dir geschrieben oder auf einen Kommentar von dir reagiert:"
+
+#: ../module/Ui/templates/mailman/messages/notification/plain.twig:32
+msgid "You can change the settings for which content you want to receive notifications here: %href%"
+msgstr "Zu welchen Inhalten du Benachrichtigungen erhältst, kannst du in deinen Einstellungen ändern: %href%"
 
 #: ../module/Ui/templates/mailman/messages/notification/subject.twig:24
 msgid "You have unread notifications on %brand%"
