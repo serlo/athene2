@@ -14,6 +14,14 @@ services:
   markdown:
     build: 'src/athene2-editor-server'
 
+  composer:
+    image: composer:1.8
+    volumes:
+      # For macOS, add `:cached` to every volume for improved performance, see also https://docs.docker.com/docker-for-mac/osxfs-caching/#semantics
+      - ./composer.json:/app/composer.json
+      - ./composer.lock:/app/composer.lock
+      - ./src/vendor:/app/src/vendor
+
   athene2:
     build: .
     links:
