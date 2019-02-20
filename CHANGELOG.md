@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. The format 
 
 - Downgrade PHP version in dev environment to PHP 7.0.33 to match version on production servers
 - Execute PHP stuff (e.g. Composer, PHPUnit) in a Docker Container with PHP 7.0.33
+- Automatically deploy assets (mind the changes in `develop.local.dist.php`)
 
 ## [Build 7] - 2019-02-18
 
