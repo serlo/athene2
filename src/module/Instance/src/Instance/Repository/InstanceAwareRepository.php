@@ -126,7 +126,7 @@ class InstanceAwareRepository extends EntityRepository
     /**
      * {@inheritDoc}
      */
-    public function findOneBy(array $criteria,  array $orderBy = null)
+    public function findOneBy(array $criteria, array $orderBy = null)
     {
         return parent::findOneBy($this->addInstanceFilter($criteria));
     }

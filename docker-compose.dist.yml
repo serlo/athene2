@@ -31,6 +31,8 @@ services:
       - '4567:80'
     volumes:
       # For macOS, add `:delegated` to every volume for improved performance, see also https://docs.docker.com/docker-for-mac/osxfs-caching/#semantics
+      - ./php-cs-fixer.config.php:/var/www/html/php-cs-fixer.config.php
+      - ./php-cs-fixer.phar:/var/www/html/php-cs-fixer.phar
       - ./phpunit.xml:/var/www/html/phpunit.xml
       - ./src/config:/var/www/html/src/config
       - ./src/lang:/var/www/html/src/lang
