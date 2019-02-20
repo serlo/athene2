@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+### Internal
+
+- Downgrade PHP version in dev environment to PHP 7.0.33 to match version on production servers
+- Execute PHP stuff (e.g. Composer, PHPUnit) in a Docker Container with PHP 7.0.33
+
 ## [Build 7] - 2019-02-18
 
 ### Added
