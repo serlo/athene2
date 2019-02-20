@@ -43,6 +43,12 @@ $ cp src/config/autoload/develop.local.dist.php src/config/autoload/develop.loca
 $ cp src/public/htaccess.dist src/public/.htaccess
 ```
 
+### Starting docker-compose
+
+```sh
+$ yarn start
+```
+
 ### Setting up hosts
 
 On Windows, please add
@@ -72,12 +78,6 @@ Now, open [de.serlo.localhost:4567](de.serlo.localhost:4567). Happy coding!
 
 PS: `de.serlo.localhost:4567` works for me in Chrome but not in FireFox. Not sure why, but if it doesn't work try
 a different browser.
-
-### Starting docker-compose
-
-```sh
-$ yarn start
-```
 
 ## Development
 
