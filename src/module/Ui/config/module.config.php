@@ -91,7 +91,6 @@ return [
             'prerelease'   => 'Ui\View\Helper\PreRelease',
             'diff'         => 'Ui\View\Helper\DiffHelper',
             'preview'      => 'Ui\View\Helper\PreviewHelper',
-            'randomBanner' => 'Ui\View\Helper\RandomBanner',
         ],
     ],
     'service_manager'    => [
