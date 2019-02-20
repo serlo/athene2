@@ -96,8 +96,8 @@ class SubjectHelper extends AbstractHelper
     protected function processSlugs(TaxonomyTermInterface $term, $parent)
     {
         return ($term->getTaxonomy()->getName() != $parent) ? $this->processSlugs(
-                $term->getParent(),
-                $parent
+            $term->getParent(),
+            $parent
             ) . $term->getName() . '/' : '';
     }
 }

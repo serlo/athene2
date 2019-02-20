@@ -39,7 +39,6 @@ class Banner extends AbstractHelper
     protected $request;
 
     public function __construct(
-
         Request $request
     ) {
         $this->request = $request;

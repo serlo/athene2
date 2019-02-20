@@ -6,7 +6,6 @@
   "require": {
     "doctrine/doctrine-orm-module": "=0.9.0",
     "zf-commons/zfc-rbac": "=2.3",
-    "php": ">=7.0",
     "zf-commons/zfc-base": "=0.1.2",
     "zendframework/zendframework": "=2.4.13",
     "neilime/zf2-twb-bundle": "=2.6.1",
@@ -23,9 +22,12 @@
     "sentry/sentry": "^1.10"
   },
   "config": {
+    "platform": {
+      "php": "7.0.33"
+    },
     "vendor-dir": "src/vendor"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7.0.0"
+    "phpunit/phpunit": "^5.0.0"
   }
 }
