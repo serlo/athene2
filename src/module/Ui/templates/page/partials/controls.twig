@@ -22,7 +22,9 @@
 <div class="btn-group btn-group-community">
     {% if isGranted('page.revision.create', page) %}
         {% if convert or revision.isOryEditorFormat() %}
-        <a rel="nofollow" data-id="{{ page.getId() }}"
+        <a rel="nofollow"
+           data-id="{{ page.getId() }}"
+           data-type="page"
            class="btn btn-success ory-edit-button"
            href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}">
         {% else %}
