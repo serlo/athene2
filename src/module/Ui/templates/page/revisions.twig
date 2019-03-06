@@ -43,7 +43,9 @@
             <div class="btn-group">
                 <!-- edit button -->
                 {% if isGranted('page.revision.create', page) %}
-                    <a href="{{ url('page/revision/create', {'page': page.getId(), 'revision': revision.getId()}) }}" class="btn btn-xs btn-default">
+                    <a href="{{ url(
+                        revision.isOryEditorFormat() ? 'page/revision/create' : 'page/revision/create-old',
+                        {'page': page.getId(), 'revision': revision.getId()}) }}" class="btn btn-xs btn-default">
                         <span class="fa fa-pencil"></span> {% trans %} Use for editing {% endtrans %}
                     </a>
                 {% endif %}
