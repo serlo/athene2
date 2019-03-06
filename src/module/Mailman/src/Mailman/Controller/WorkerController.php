@@ -20,41 +20,46 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace FeatureFlags;
+namespace Mailman\Controller;
 
-class Service
+use FeatureFlags\Service;
+use Mailman\MailmanWorker;
+use Zend\Mvc\Controller\AbstractConsoleController;
+
+class WorkerController extends AbstractConsoleController
 {
-    /**
-     * @var array
-     */
-    private $flags;
-    /**
-     * @var ServiceLoggerInterface
-     */
-    private $sentry;
-
-    /**
-     * Service constructor.
-     * @param array $config
-     * @param ServiceLoggerInterface $sentry
-     */
-    public function __construct(array $config, $sentry)
+    public function runAction()
     {
-        $this->flags = $config;
-        $this->sentry = $sentry;
-    }
+        /**
+         * @var $service \FeatureFlags\Service
+         */
+        $service = $this->serviceLocator->get(Service::class);
 
-    /**
-     * @param string $feature
-     * @return bool
-     */
-    public function isEnabled(string $feature): bool
-    {
-        if (!array_key_exists($feature, $this->flags)) {
-            $this->sentry->captureMessage('No configuration found for feature flag "%s"', [$feature]);
-            return false;
+        if ($service->isEnabled('separate-mails-from-notifications')) {
+            // Enable worker
+            $this->getMailmanWorker()->run();
+            return 'success';
         }
 
-        return $this->flags[$feature];
+        return 'success';
     }
+
+    /**
+     * @return MailmanWorker
+     */
+    public function getMailmanWorker()
+    {
+        return $this->mailmanWorker;
+    }
+
+    /**
+     * @param MailmanWorker $mailmanWorker
+     */
+    public function setMailmanWorker(MailmanWorker $mailmanWorker)
+    {
+        $this->mailmanWorker = $mailmanWorker;
+    }
+
+    /** @var MailmanWorker */
+    protected $mailmanWorker;
 }

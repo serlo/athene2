@@ -22,11 +22,12 @@
  */
 namespace Mailman\Factory;
 
+use Mailman\Listener\MailmanWorkerListener;
 use Mailman\Mailman;
-use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\FactoryInterface;
 
-abstract class AbstractListenerFactory implements FactoryInterface
+class MailmanWorkerListenerFactory implements FactoryInterface
 {
     /**
      * Create service
@@ -36,14 +37,12 @@ abstract class AbstractListenerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get(Mailman::class);
+        $mailman = $serviceLocator->get(Mailman::class);
         $translator = $serviceLocator->get('Translator');
+        $logger     = $serviceLocator->get('Zend\Log\Logger');
         $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
-        $class      = new $class($mailman, $renderer, $translator);
+        $class      = new MailmanWorkerListener($logger, $mailman, $renderer, $translator);
 
         return $class;
     }
-
-    abstract protected function getClassName();
 }

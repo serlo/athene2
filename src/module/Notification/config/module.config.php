@@ -22,6 +22,8 @@
  */
 namespace Notification;
 
+use Notification\Listener\EventManagerListener;
+
 return [
     'view_helpers'    => [
         'factories' => [
@@ -48,6 +50,15 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes'  => [
+                    'index' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/json',
+                            'defaults' => [
+                                'action' => 'index',
+                            ],
+                        ],
+                    ],
                     'read' => [
                         'type'    => 'literal',
                         'options' => [
@@ -139,6 +150,11 @@ return [
         ],
         'definition'          => [
             'class' => [
+                EventManagerListener::class => [
+                    'setNotificationManager' => [
+                        'required' => true,
+                    ],
+                ],
                 __NAMESPACE__ . '\Listener\AuthenticationControllerListener' => [],
                 __NAMESPACE__ . '\Listener\DiscussionManagerListener'        => [],
                 __NAMESPACE__ . '\Listener\RepositoryManagerListener'        => [

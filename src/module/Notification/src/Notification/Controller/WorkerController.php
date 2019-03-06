@@ -22,6 +22,7 @@
  */
 namespace Notification\Controller;
 
+use FeatureFlags\Service;
 use Notification\NotificationWorker;
 use Zend\Mvc\Controller\AbstractConsoleController;
 
@@ -52,6 +53,16 @@ class WorkerController extends AbstractConsoleController
 
     public function runAction()
     {
+        /**
+         * @var $service \FeatureFlags\Service
+         */
+        $service = $this->serviceLocator->get(Service::class);
+
+        if ($service->isEnabled('separate-mails-from-notifications')) {
+            // Deactivate worker
+            return 'success';
+        }
+
         $this->getNotificationWorker()->run();
         $this->getNotificationWorker()->getObjectManager()->flush();
         return 'success';

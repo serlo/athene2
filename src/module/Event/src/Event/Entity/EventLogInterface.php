@@ -22,12 +22,13 @@
  */
 namespace Event\Entity;
 
+use Common\Entity\JsonSerializableInterface;
 use Datetime;
 use Instance\Entity\InstanceAwareInterface;
 use User\Entity\UserInterface;
 use Uuid\Entity\UuidInterface;
 
-interface EventLogInterface extends InstanceAwareInterface
+interface EventLogInterface extends InstanceAwareInterface, JsonSerializableInterface
 {
 
     /**

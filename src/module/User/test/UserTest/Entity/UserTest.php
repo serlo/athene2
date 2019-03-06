@@ -20,30 +20,45 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Mailman\Factory;
+namespace UserTest\Entity;
 
-use Mailman\Mailman;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use PHPUnit\Framework\TestCase;
+use User\Entity\User;
+use User\Entity\UserInterface;
 
-abstract class AbstractListenerFactory implements FactoryInterface
+class UserTest extends TestCase
 {
     /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @var array
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
-    {
-        $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get(Mailman::class);
-        $translator = $serviceLocator->get('Translator');
-        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
-        $class      = new $class($mailman, $renderer, $translator);
+    private $json;
 
-        return $class;
+    public function setUp()
+    {
+        /**
+         * @var $user UserInterface
+         */
+        $user = $this->createUserMock();
+        $this->json = $user->toJson();
     }
 
-    abstract protected function getClassName();
+    public function testToJsonContainsId()
+    {
+        $this->assertEquals(1337, $this->json['id']);
+    }
+
+    public function testToJsonContainsUsername()
+    {
+        $this->assertEquals('foobar', $this->json['username']);
+    }
+
+    private function createUserMock()
+    {
+        $user = $this->getMockBuilder(User::class)
+            ->setMethods(['getId', 'getUsername'])
+            ->getMock();
+        $user->method('getId')->willReturn(1337);
+        $user->method('getUsername')->willReturn('foobar');
+        return $user;
+    }
 }

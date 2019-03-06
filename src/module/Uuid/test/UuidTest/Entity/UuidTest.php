@@ -20,30 +20,33 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Mailman\Factory;
 
-use Mailman\Mailman;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+namespace UuidTest\Entity;
 
-abstract class AbstractListenerFactory implements FactoryInterface
+use PHPUnit\Framework\TestCase;
+use Uuid\Entity\Uuid;
+use Uuid\Entity\UuidInterface;
+
+class UuidTest extends TestCase
 {
-    /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
-     */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function testToJsonIsId()
     {
-        $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get(Mailman::class);
-        $translator = $serviceLocator->get('Translator');
-        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
-        $class      = new $class($mailman, $renderer, $translator);
-
-        return $class;
+        /**
+         * @var $uuid UuidInterface
+         */
+        $uuid = $this->createUuidMock();
+        $this->assertEquals(1337, $uuid->toJson());
     }
 
-    abstract protected function getClassName();
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
+    private function createUuidMock()
+    {
+        $uuid = $this->getMockBuilder(Uuid::class)
+            ->setMethods(['getId'])
+            ->getMock();
+        $uuid->method('getId')->willReturn(1337);
+        return $uuid;
+    }
 }

@@ -145,4 +145,26 @@ class EventLog implements EventLogInterface
     {
         $this->parameters->add($parameter);
     }
+
+    public function toJson()
+    {
+        $params = [];
+
+        /**
+         * @var $param EventParameterInterface
+         */
+        foreach ($this->getParameters()->getIterator() as $param) {
+            $name = $param->getName();
+            $params[$name->getName()] = $param->getValue()->toJson();
+        }
+
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'actor' => $this->getActor()->toJson(),
+            'object' => $this->getObject()->toJson(),
+            'params' => $params,
+            'timestamp' => $this->getTimestamp()->getTimestamp(),
+        ];
+    }
 }

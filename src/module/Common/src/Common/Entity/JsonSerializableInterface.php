@@ -20,30 +20,21 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Mailman\Factory;
+namespace Common\Entity;
 
-use Mailman\Mailman;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Json\Json;
 
-abstract class AbstractListenerFactory implements FactoryInterface
+/**
+ * Represents an entity that can be serialized into JSON format
+ * @package Common\Entity
+ */
+interface JsonSerializableInterface
 {
     /**
-     * Create service
+     * Intermediate representation for use in Json::encode
      *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @see Json::encode
      * @return mixed
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
-    {
-        $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get(Mailman::class);
-        $translator = $serviceLocator->get('Translator');
-        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
-        $class      = new $class($mailman, $renderer, $translator);
-
-        return $class;
-    }
-
-    abstract protected function getClassName();
+    public function toJson();
 }

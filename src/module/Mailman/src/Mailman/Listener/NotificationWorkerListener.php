@@ -31,8 +31,6 @@ use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
 use Zend\I18n\Translator\Translator;
 use Zend\Log\LoggerInterface;
-use Zend\View\Model\JsonModel;
-use Zend\View\Model\ViewModel;
 
 class NotificationWorkerListener extends AbstractListener
 {

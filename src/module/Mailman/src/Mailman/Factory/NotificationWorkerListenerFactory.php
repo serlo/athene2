@@ -23,6 +23,7 @@
 namespace Mailman\Factory;
 
 use Mailman\Listener\NotificationWorkerListener;
+use Mailman\Mailman;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
 
@@ -36,7 +37,7 @@ class NotificationWorkerListenerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $mailman    = $serviceLocator->get('Mailman/Mailman');
+        $mailman    = $serviceLocator->get(Mailman::class);
         $translator = $serviceLocator->get('Translator');
         $logger     = $serviceLocator->get('Zend\Log\Logger');
         $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');

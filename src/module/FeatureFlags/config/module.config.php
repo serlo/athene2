@@ -20,8 +20,19 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace FeatureFlags;
 
+use FeatureFlags\Factory\ServiceFactory;
+
 return [
-    'feature_flags' => [],
+    'feature_flags' => [
+        // see https://github.com/serlo/athene2/issues/496
+        'separate-mails-from-notifications' => false,
+    ],
+    'service_manager' => [
+        'factories' => [
+            Service::class => ServiceFactory::class,
+        ],
+    ],
 ];

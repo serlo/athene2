@@ -22,14 +22,14 @@
  */
 namespace Notification\Entity;
 
+use Common\Entity\JsonSerializableInterface;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Event\Entity\EventLogInterface;
 use User\Entity;
 
-interface NotificationInterface
+interface NotificationInterface extends JsonSerializableInterface
 {
-
     /**
      * @param bool $seen
      * @return self
@@ -58,9 +58,16 @@ interface NotificationInterface
     public function setUser(Entity\UserInterface $user);
 
     /**
+     * @deprecated use getEvent() instead
+     * @see NotificationInterface::getEvent()
      * @return EventLogInterface[]|Collection
      */
     public function getEvents();
+
+    /**
+     * @return EventLogInterface
+     */
+    public function getEvent();
 
     /**
      * @param NotificationEventInterface $event

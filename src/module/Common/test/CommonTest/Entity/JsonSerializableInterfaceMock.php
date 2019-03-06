@@ -20,30 +20,23 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Mailman\Factory;
 
-use Mailman\Mailman;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+namespace CommonTest\Entity;
 
-abstract class AbstractListenerFactory implements FactoryInterface
+use Common\Entity\JsonSerializableInterface;
+use PHPUnit\Framework\TestCase;
+
+class JsonSerializableInterfaceMock
 {
     /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @param TestCase $testCase
+     * @param $json
+     * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public static function create(TestCase $testCase, $json)
     {
-        $class      = $this->getClassName();
-        $mailman    = $serviceLocator->get(Mailman::class);
-        $translator = $serviceLocator->get('Translator');
-        $renderer   = $serviceLocator->get('Mailman\Renderer\MailRenderer');
-        $class      = new $class($mailman, $renderer, $translator);
-
-        return $class;
+        $mock = $testCase->getMockBuilder(JsonSerializableInterface::class)->getMock();
+        $mock->method('toJson')->willReturn($json);
+        return $mock;
     }
-
-    abstract protected function getClassName();
 }
