@@ -27,6 +27,8 @@ use Notification\NotificationManagerAwareTrait;
 use Notification\NotificationManagerInterface;
 use User\Manager\UserManagerAwareTrait;
 use User\Manager\UserManagerInterface;
+use Uuid\Manager\UuidManagerAwareTrait;
+use Uuid\Manager\UuidManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\JsonModel;
 use ZfcRbac\Service\AuthorizationService;
@@ -35,6 +37,7 @@ class NotificationController extends AbstractActionController
 {
     use NotificationManagerAwareTrait;
     use UserManagerAwareTrait;
+    use UuidManagerAwareTrait;
 
     /**
      * @var \ZfcRbac\Service\AuthorizationService
@@ -44,11 +47,13 @@ class NotificationController extends AbstractActionController
     public function __construct(
         NotificationManagerInterface $notificationManager,
         AuthorizationService $authorizationService,
-        UserManagerInterface $userManager
+        UserManagerInterface $userManager,
+        UuidManagerInterface $uuidManager
     ) {
         $this->notificationManager  = $notificationManager;
         $this->authorizationService = $authorizationService;
         $this->userManager = $userManager;
+        $this->uuidManager = $uuidManager;
     }
 
     public function readAction()
@@ -77,23 +82,37 @@ class NotificationController extends AbstractActionController
 
     public function createAction()
     {
-        $actorId  = $this->params()->fromQuery('actor');
-        $actor = $this->userManager->getUser($actorId);
+        $payload = json_decode($this->getRequest()->getContent(), true);
 
-        $name = $this->params()->fromQuery('name');
+        $event = $payload['event'];
+        $entity = $payload['entity'];
+        $comment = $payload['comment'];
+        $thread = $payload['comments'];
 
-        $parameters = json_decode($this->params()->fromQuery('params'));
-//        $this->getEventManager()->trigger('start',
-//            $this,
-//            [
-//                'author'     => $actor,
-//                'on'         => $parameters['on'],
-//                'discussion' => $comment,
-//                'instance'   => $comment->getInstance(),
-//                'data'       => ,
-//            ]);
-//        $eventLog = $this->getEventManager()->logEvent($name, null, null, $parameters, $actor);
-//        return new JsonModel($eventLog);
-        var_dump($parameters);
+        $authorId  = $comment['user_id'];
+        $author = $this->userManager->getUser($authorId);
+
+        $users = [];
+        foreach ($thread as $threadComment ) {
+            if ($threadComment['user_id'] !== $authorId) {
+                $users[] = $this->userManager->getUser($threadComment['user_id']);
+            }
+        }
+        $object = $this->uuidManager->getUuid($entity['external_id'], true);
+        $this->getEventManager()->trigger(
+            'phabricator',
+            [
+                'type'      => $event,
+                'author'    => $author,
+                'on'        => $object,
+                'data'      => $comment['body'],
+                'users'     => $users,
+                'timestamp' => $comment['updated_at']
+            ]
+        );
+        return new JsonModel(['event' => $event, 'author' => $author->getUsername(), 'entity' => $object->getId(), 'comment' => $comment]);
+    }
+
+    private function handleCommentCreate($entityJSON, $commentJSON, $commentsJSON) {
     }
 }
