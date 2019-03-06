@@ -26,6 +26,7 @@ use Doctrine\Common\Collections\Collection;
 use Event\Entity\EventInterface;
 use Event\Entity\EventLogInterface;
 use Instance\Entity\InstanceInterface;
+use User\Entity\User;
 use User\Entity\UserInterface;
 use Uuid\Entity\UuidInterface;
 use Zend\Paginator\Paginator;
@@ -86,12 +87,14 @@ interface EventManagerInterface
      * @param InstanceInterface $instance
      * @param UuidInterface     $uuid
      * @param array             $parameters
+     * @param UserInterface     $actor
      * @return EventLogInterface
      */
     public function logEvent(
         $eventName,
         InstanceInterface $instance,
         UuidInterface $uuid,
-        array $parameters = []
+        array $parameters = [],
+        UserInterface $actor = null
     );
 }

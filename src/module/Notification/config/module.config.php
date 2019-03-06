@@ -68,6 +68,15 @@ return [
                             ],
                         ],
                     ],
+                    'create' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/create',
+                            'defaults' => [
+                                'action' => 'create'
+                            ]
+                        ]
+                    ]
                 ],
             ],
             'subscription'  => [

@@ -22,10 +22,11 @@
  */
 namespace Notification\Controller;
 
-use Event\Entity\EventLogInterface;
 use Notification\Entity\NotificationInterface;
 use Notification\NotificationManagerAwareTrait;
 use Notification\NotificationManagerInterface;
+use User\Manager\UserManagerAwareTrait;
+use User\Manager\UserManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\JsonModel;
 use ZfcRbac\Service\AuthorizationService;
@@ -33,6 +34,7 @@ use ZfcRbac\Service\AuthorizationService;
 class NotificationController extends AbstractActionController
 {
     use NotificationManagerAwareTrait;
+    use UserManagerAwareTrait;
 
     /**
      * @var \ZfcRbac\Service\AuthorizationService
@@ -41,10 +43,12 @@ class NotificationController extends AbstractActionController
 
     public function __construct(
         NotificationManagerInterface $notificationManager,
-        AuthorizationService $authorizationService
+        AuthorizationService $authorizationService,
+        UserManagerInterface $userManager
     ) {
         $this->notificationManager  = $notificationManager;
         $this->authorizationService = $authorizationService;
+        $this->userManager = $userManager;
     }
 
     public function readAction()
@@ -69,5 +73,27 @@ class NotificationController extends AbstractActionController
 
         $this->getResponse()->setStatusCode(403);
         return new JsonModel([]);
+    }
+
+    public function createAction()
+    {
+        $actorId  = $this->params()->fromQuery('actor');
+        $actor = $this->userManager->getUser($actorId);
+
+        $name = $this->params()->fromQuery('name');
+
+        $parameters = json_decode($this->params()->fromQuery('params'));
+//        $this->getEventManager()->trigger('start',
+//            $this,
+//            [
+//                'author'     => $actor,
+//                'on'         => $parameters['on'],
+//                'discussion' => $comment,
+//                'instance'   => $comment->getInstance(),
+//                'data'       => ,
+//            ]);
+//        $eventLog = $this->getEventManager()->logEvent($name, null, null, $parameters, $actor);
+//        return new JsonModel($eventLog);
+        var_dump($parameters);
     }
 }

@@ -226,12 +226,14 @@ class EventManager implements EventManagerInterface, EventManagerAwareInterface
         $uri,
         InstanceInterface $instance,
         UuidInterface $uuid,
-        array $parameters = []
+        array $parameters = [],
+        UserInterface $actor = null
     ) {
-        $actor = $this->authorizationService->getIdentity();
-
-        if ($actor === null) {
-            throw new UnauthorizedException;
+        if ($actor === null){
+            $actor = $this->authorizationService->getIdentity();
+            if ($actor === null) {
+                throw new UnauthorizedException;
+            }
         }
 
         $className = $this->getClassResolver()->resolveClassName('Event\Entity\EventLogInterface');
