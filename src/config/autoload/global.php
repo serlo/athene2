@@ -96,5 +96,5 @@ return [
     ],
 
     // SMTP settings (Mailman Module)
-    'smtp_options' => $smtp_options
+    'smtp_options' => $smtp_options,
 ];

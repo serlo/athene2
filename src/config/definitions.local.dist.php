@@ -40,7 +40,7 @@ $db = [
 
 $recaptcha = [
     'key' => '6LfwJFwUAAAAAKHhl-kjPbA6mCPjt_CrkCbn3okr',
-    'secret' => '6LfwJFwUAAAAAPVsTPLe00oAb9oUTewOUe31pXSv'
+    'secret' => '6LfwJFwUAAAAAPVsTPLe00oAb9oUTewOUe31pXSv',
 ];
 
 $smtp_options = [];
