@@ -4,9 +4,6 @@ RUN apt-get install -y gettext locales libicu-dev
 RUN docker-php-ext-install pdo_mysql mysqli gettext
 RUN pecl channel-update pecl.php.net
 RUN yes no | pecl install apcu_bc
-RUN echo "extension=apcu.so" >> "$PHP_INI_DIR/php.ini"
-RUN echo "extension=apc.so" >> "$PHP_INI_DIR/php.ini"
-RUN echo "short_open_tag=Off" >> "$PHP_INI_DIR/php.ini"
 RUN sed -ie 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 RUN sed -ie 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/g' /etc/locale.gen
 RUN sed -ie 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/g' /etc/locale.gen
@@ -14,6 +11,12 @@ RUN sed -ie 's/# hi_IN UTF-8/hi_IN UTF-8/g' /etc/locale.gen
 RUN sed -ie 's/# es_ES.UTF-8 UTF-8/es_ES.UTF-8 UTF-8/g' /etc/locale.gen
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 WORKDIR /usr/local/apache2/htdocs
+COPY docker/php/php.ini-custom "$PHP_INI_DIR/php.ini-custom"
+RUN cat "$PHP_INI_DIR/php.ini-custom" >> "$PHP_INI_DIR/php.ini"
+RUN cat "$PHP_INI_DIR/php.ini-custom" >> "$PHP_INI_DIR/php.ini-development"
+RUN cat "$PHP_INI_DIR/php.ini-custom" >> "$PHP_INI_DIR/php.ini-production"
+RUN cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
 RUN mkdir -p src/data src/logs
 RUN chmod 777 -R src/data src/logs
 
@@ -25,7 +28,7 @@ RUN composer install
 
 FROM base as release
 WORKDIR /usr/local/apache2/htdocs
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 COPY --from=dependencies /app/src/vendor src/vendor
 COPY bin bin
 COPY src/config src/config

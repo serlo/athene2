@@ -1,6 +1,6 @@
 {
   "name": "@serlo-org/athene2",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "homepage": "https://github.com/serlo-org/athene2",
   "bugs": {
     "url": "https://github.com/serlo-org/athene2/issues"
@@ -9,9 +9,15 @@
   "author": "Serlo Education e.V.",
   "repository": "github:serlo-org/athene2",
   "scripts": {
-    "build": "npm-run-all build:*",
-    "build:httpd": "docker build -f docker/httpd/Dockerfile -t serlo/athene2-httpd:$npm_package_version .",
-    "build:docker": "docker build -f docker/php/Dockerfile -t serlo/athene2-php:$npm_package_version .",
+    "docker:build": "npm-run-all docker:build:*",
+    "docker:build:httpd": "docker build -f docker/httpd/Dockerfile -t serlo/athene2-httpd:$npm_package_version .",
+    "docker:build:php": "docker build -f docker/php/Dockerfile -t serlo/athene2-php:$npm_package_version .",
+    "docker:tag": "npm-run-all docker:tag:*",
+    "docker:tag:httpd": "docker tag serlo/athene2-httpd:$npm_package_version eu.gcr.io/serlo-production/serlo/athene2-httpd:$npm_package_version",
+    "docker:tag:php": "docker tag serlo/athene2-php:$npm_package_version eu.gcr.io/serlo-production/serlo/athene2-php:$npm_package_version",
+    "docker:push": "npm-run-all docker:push:*",
+    "docker:push:httpd": "docker push eu.gcr.io/serlo-production/serlo/athene2-httpd:$npm_package_version",
+    "docker:push:php": "docker push eu.gcr.io/serlo-production/serlo/athene2-php:$npm_package_version",
     "c": "docker-compose run --rm composer composer",
     "c-dev": "docker-compose run --rm composer-dev-tools composer",
     "prestart": "yarn c install && yarn c-dev install",
