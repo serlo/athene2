@@ -9,6 +9,9 @@
   "author": "Serlo Education e.V.",
   "repository": "github:serlo-org/athene2",
   "scripts": {
+    "build": "npm-run-all build:*",
+    "build:httpd": "docker build -f docker/httpd/Dockerfile -t serlo/athene2-httpd:$npm_package_version .",
+    "build:docker": "docker build -f docker/php/Dockerfile -t serlo/athene2-php:$npm_package_version .",
     "c": "docker-compose run --rm composer composer",
     "c-dev": "docker-compose run --rm composer-dev-tools composer",
     "prestart": "yarn c install && yarn c-dev install",
