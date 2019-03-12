@@ -20,8 +20,17 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
+// Version number used for Sentry Release (Log Module)
+$version = '8';
+
+require __DIR__ . '/../definitions.local.php';
+
 return [
-    'version' => '8',
+    // Athene2-Assets
+    'assets' => $assets,
+
+    // Branding, one entry per instance (Ui Module)
     'brand' => [
         'instances' => [
             'deutsch' => [
@@ -54,66 +63,38 @@ return [
             ],
         ],
     ],
-    'zfctwig'         => [
-        'environment_options' => [
-            'cache' => __DIR__ . '/../../data/twig',
-        ],
-        'extensions'          => [
-            'Twig_Extensions_Extension_I18n',
-        ],
+
+    // Instance Module
+    'instance' => [
+        'strategy' => 'Instance\Strategy\DomainStrategy',
     ],
-    'doctrine'        => [
-        'entitymanager' => [
-            'orm_default' => [
-                'connection'    => 'orm_default',
-                'configuration' => 'orm_default',
-            ],
-        ],
+
+    // Newsletter Module
+    'newsletter' => isset($newsletter_key) ? [
+        'api_key' => $newsletter_key,
+    ] : [],
+
+    // Sentry (Log Module)
+    'sentry_options' => array_merge(
+        isset($sentry_dsn) ? ['dsn' => $sentry_dsn] : [],
+        ['version' => $version]
+    ),
+
+    // ReCAPTCHA (Common Module)
+    'recaptcha_options' => [
+        'api_key' => $recaptcha['key'],
+        'secret' => $recaptcha['secret'],
     ],
-    'router'          => [
-        'router_class' => 'Zend\Mvc\Router\Http\TranslatorAwareTreeRouteStack',
+
+    // Database settings
+    'dbParams' => [
+        'host' => $db['host'],
+        'port' => $db['port'],
+        'username' => $db['username'],
+        'password' => $db['password'],
+        'database' => $db['database'],
     ],
-    'session'         => [
-        'config'     => [
-            'class'   => 'Zend\Session\Config\SessionConfig',
-            'options' => [
-                'name'                => 'athene2',
-                'cookie_lifetime'     => 2419200,
-                'remember_me_seconds' => 2419200,
-                'use_cookies'         => true,
-                'cookie_secure'       => false,
-            ],
-        ],
-        'storage'    => 'Zend\Session\Storage\SessionArrayStorage',
-        'validators' => [
-            'Zend\Session\Validator\RemoteAddr',
-            'Zend\Session\Validator\HttpUserAgent',
-        ],
-    ],
-    'di'              => [
-        'instance' => [
-            'preferences' => [
-                'Zend\ServiceManager\ServiceLocatorInterface' => 'ServiceManager',
-                'Doctrine\Common\Persistence\ObjectManager'   => 'Doctrine\ORM\EntityManager',
-            ],
-        ],
-    ],
-    'sphinx'          => [
-        'host' => '127.0.0.1',
-        'port' => 9306,
-    ],
-    'zendDiCompiler'  => [],
-    'zfc_rbac'        => [
-        'redirect_strategy' => [
-            'redirect_to_route_connected'    => 'authorization/forbidden',
-            'redirect_to_route_disconnected' => 'authentication/login',
-            'append_previous_uri'            => true,
-            'previous_uri_query_key'         => 'redir',
-        ],
-    ],
-    'assets' => [
-        'bundle_host' => 'https://packages.serlo.org/athene2-assets@a/',
-        'assets_host' => 'https://assets.serlo.org/athene2-assets/',
-        'editor_renderer' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
-    ],
+
+    // SMTP settings (Mailman Module)
+    'smtp_options' => $smtp_options
 ];

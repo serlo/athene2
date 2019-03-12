@@ -20,15 +20,24 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 return [
-    'translator' => [
-        'locale'                    => 'en_US',
-        'translation_file_patterns' => [
-            [
-                'type'     => 'gettext',
-                'base_dir' => __DIR__ . '/../../lang',
-                'pattern'  => '%s/LC_MESSAGES/athene2.mo',
+    // stroker/cache
+    'strokercache' => [
+        'storage_adapter' => [
+            'name' => 'Zend\Cache\Storage\Adapter\Apc',
+            'options' => [
+                'ttl' => 1,
             ],
+        ],
+    ],
+
+    // zf-commons/zfc-twig
+    'zfctwig' => [
+        'environment_options' => [
+            'debug' => true,
+            'strict_variables' => true,
+            'autoescape' => false,
         ],
     ],
 ];

@@ -20,6 +20,7 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace Markdown\Service;
 
 use Markdown\Exception;
@@ -27,6 +28,9 @@ use Zend\Cache\Storage\StorageInterface;
 
 class OryRenderService implements RenderServiceInterface
 {
+    /**
+     * @var string
+     */
     protected $url;
 
     /**
@@ -35,14 +39,15 @@ class OryRenderService implements RenderServiceInterface
     protected $storage;
 
     /**
-     * @param string           $url
+     * @param string $url
      * @param StorageInterface $storage
      */
     public function __construct($url, StorageInterface $storage)
     {
-        $this->url     = $url;
+        $this->url = $url;
         $this->storage = $storage;
     }
+
     /**
      * @see \Markdown\Service\RenderServiceInterface::render()
      */
@@ -55,12 +60,12 @@ class OryRenderService implements RenderServiceInterface
         }
 
         $rendered = null;
-        $data     = array('state' => $input);
+        $data = ['state' => $input];
 
-        $httpHeader = array(
+        $httpHeader = [
             'Accept: application/json',
             'Content-Type: application/json',
-        );
+        ];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);

@@ -20,6 +20,7 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace Log\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
@@ -30,6 +31,7 @@ class SentryFactory implements FactoryInterface
     /**
      * @param ServiceLocatorInterface $serviceLocator
      * @return \Raven_Client
+     * @throws \Raven_Exception
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
@@ -37,14 +39,14 @@ class SentryFactory implements FactoryInterface
         $sentryConfig = $config['sentry_options'];
 
         $client = new \Raven_Client(
-            // Deactive sentry if no DSN is given
+        // Deactivate sentry if no DSN is given
             isset($sentryConfig['dsn']) ? $sentryConfig['dsn'] : null,
-            array(
-                'release' => 'athene2@' . $config['version'],
-                'tags' => array(
+            [
+                'release' => 'athene2@' . $sentryConfig['version'],
+                'tags' => [
                     'php_version' => phpversion(),
-                ),
-            )
+                ],
+            ]
         );
 
         $client->install();

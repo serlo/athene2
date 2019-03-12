@@ -19,12 +19,10 @@ limitations under the License.
 @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
 @link      https://github.com/serlo-org/athene2 for the canonical source repository
 -->
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" 
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
   xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Serlo (de)</ShortName>
-  <Description>
-Serlo.org – Die freie Lernplattform
-  </Description>
+  <Description>Serlo.org – Die freie Lernplattform</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://de.serlo.org/favicon.ico</Image>
   <Url type="text/html" method="get" template="https://de.serlo.org/search?q={searchTerms}"/>

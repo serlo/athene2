@@ -36,11 +36,9 @@ $ cd athene2
 On Linux or macOS, just open a terminal and run the following commands:
 
 ```sh
-# Copy some config files
+# Copy files
 $ cp docker-compose.dist.yml docker-compose.yml
-$ cp src/config/autoload/local.dist.php src/config/autoload/local.php
-$ cp src/config/autoload/develop.local.dist.php src/config/autoload/develop.local.php
-$ cp src/public/htaccess.dist src/public/.htaccess
+$ cp src/config/definitions.local.dist.php src/config/definitions.local.php
 ```
 
 ### Starting docker-compose

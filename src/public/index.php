@@ -35,11 +35,6 @@ if (file_exists(ZF_CLASS_CACHE)) {
 set_time_limit(400);
 ini_set('error_reporting', E_ALL);
 
-if (isset($_ENV["PHP_ENV"]) && $_ENV["PHP_ENV"] === 'development') {
-    ini_set('display_errors', 'On');
-} else {
-    ini_set('display_errors', 'Off');
-}
 ini_set('session.gc_maxlifetime', 2419200);
 set_error_handler("exception_error_handler");
 

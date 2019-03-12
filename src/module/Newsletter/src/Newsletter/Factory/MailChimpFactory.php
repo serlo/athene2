@@ -35,7 +35,7 @@ class MailChimpFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config');
-        $apiKey = $config['newsletter_options']['api_key'];
+        $apiKey = $config['newsletter']['api_key'];
         return new MailChimp($apiKey);
     }
 }

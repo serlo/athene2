@@ -1,7 +1,7 @@
-version: '2'
+version: '3.4'
 
 services:
-  mysqld:
+  mysql:
     image: mysql:5.7
     # Uncomment if you want to expose the MySQL server to your host, e.g. for using a database management GUI application
     # ports:
@@ -11,8 +11,11 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=secret
 
-  markdown:
-    build: 'src/athene2-editor-server'
+  legacy-editor-renderer:
+    image: serlo/legacy-editor-renderer:0.0.0
+
+  editor-renderer:
+    image: serlo/editor-renderer:0.0.0
 
   composer:
     image: composer:1.8
@@ -30,26 +33,34 @@ services:
       - ./dev-tools/composer.lock:/app/composer.lock
       - ./dev-tools/vendor:/app/vendor
 
-  athene2:
-    build: .
-    links:
-      - mysqld:mysqld
-      - markdown:markdown
+  httpd:
+    build:
+      context: .
+      dockerfile: docker/httpd/Dockerfile
+      target: base
     ports:
       - '4567:80'
     volumes:
       # For macOS, add `:delegated` to every volume for improved performance, see also https://docs.docker.com/docker-for-mac/osxfs-caching/#semantics
-      - ./dev-tools/vendor:/var/www/html/dev-tools/vendor
-      - ./php-cs-fixer.config.php:/var/www/html/php-cs-fixer.config.php
-      - ./phpunit.xml:/var/www/html/phpunit.xml
-      - ./src/config:/var/www/html/src/config
-      - ./src/lang:/var/www/html/src/lang
-      - ./src/module:/var/www/html/src/module
-      - ./src/public:/var/www/html/src/public
-      - ./src/test:/var/www/html/src/test
-      - ./src/vendor:/var/www/html/src/vendor
-    environment:
-      - PHP_ENV=development
+      - ./src/public:/usr/local/apache2/htdocs/src/public:delegated
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      target: base
+    volumes:
+      # For macOS, add `:delegated` to every volume for improved performance, see also https://docs.docker.com/docker-for-mac/osxfs-caching/#semantics
+      - ./dev-tools/vendor:/usr/local/apache2/htdocs/dev-tools/vendor
+      - ./php-cs-fixer.config.php:/usr/local/apache2/htdocs/php-cs-fixer.config.php
+      - ./phpunit.xml:/usr/local/apache2/htdocs/phpunit.xml
+      - ./src/config:/usr/local/apache2/htdocs/src/config
+      - ./src/lang:/usr/local/apache2/htdocs/src/lang
+      - ./src/module:/usr/local/apache2/htdocs/src/module
+      - ./src/public:/usr/local/apache2/htdocs/src/public
+      - ./src/test:/usr/local/apache2/htdocs/src/test
+      - ./src/vendor:/usr/local/apache2/htdocs/src/vendor
+      - ./src/init_autoloader.php:/usr/local/apache2/htdocs/src/init_autoloader.php
   # Uncomment if you want PhpMyAdmin on localhost:8080
   # phpmyadmin:
   #   image: phpmyadmin/phpmyadmin

@@ -23,9 +23,8 @@
 
 $moduleCache = true;
 $configCache = false;
-if (file_exists(__DIR__ . '/definitions.local.php')) {
-    require_once __DIR__ . '/definitions.local.php';
-}
+
+require __DIR__ . '/definitions.local.php';
 
 return [
     // This should be an array of module namespaces used in the application.
@@ -42,7 +41,6 @@ return [
         'ZfcRbac',
         'TwbBundle',
         'ZfcTwig',
-        'EwgoSolarium',
         'Common',
         'Authentication',
         'Ui',
@@ -99,8 +97,13 @@ return [
         // An array of paths from which to glob configuration files after
         // modules are loaded. These effectively override configuration
         // provided by modules themselves. Paths may use GLOB_BRACE notation.
+        // Current order:
+        // config/autoload/global.php
+        // config/autoload/*.global.php
+        // config/autoload/local.php
+        // config/autoload/*.local.php
         'config_glob_paths'        => [
-            'config/autoload/{,*.}{global,local}.php',
+            sprintf('config/autoload/{,*.}{global,%s,local}.php', $env),
             'config/instance/{,*.}{global,local}.php',
             'config/instance/navigation/*.php',
         ],

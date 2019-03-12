@@ -23,11 +23,6 @@
 namespace Blog;
 
 return [
-    'zendDiCompiler' => [
-        'scanDirectories' => [
-            __DIR__ . '/../src',
-        ],
-    ],
     'zfc_rbac'       => [
         'assertion_map' => [
             'blog.get'                   => 'Authorization\Assertion\InstanceAssertion',

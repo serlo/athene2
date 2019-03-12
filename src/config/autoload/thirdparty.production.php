@@ -20,33 +20,37 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 return [
-    'zfctwig' => [
-        'environment_options' => [
-            'debug' => true,
-            'strict_variables' => true,
-            'autoescape' => false,
-        ],
-    ],
-    'view_manager' => [
-        'strategies' => [
-            'Ui\Strategy\PhpRendererStrategy',
-        ],
-    ],
-    'strokercache' => [
-        'storage_adapter' => [
-            'name' => 'Zend\Cache\Storage\Adapter\Apc',
-            'options' => [
-                'ttl' => 1,
+    // doctrine/doctrine-orm-module
+    'doctrine' => [
+        'configuration' => [
+            'orm_default' => [
+                'metadata_cache' => 'apccache',
+                'query_cache' => 'apccache',
+                'result_cache' => 'apccache',
+                'hydration_cache' => 'apccache',
             ],
         ],
     ],
-    'mailmock' => [
-        'active' => true,
+
+    // stroker/cache
+    'strokercache' => [
+        'storage_adapter' => [
+            'name' => 'Zend\Cache\Storage\Adapter\Filesystem',
+            'options' => [
+                'cache_dir' => __DIR__ . '/../../data',
+                'ttl' => 60,
+            ],
+        ],
     ],
-    // 'assets' => [
-    //     'bundle_host' => 'http://localhost:8081/',
-    //     'assets_host' => 'http://localhost:8082/',
-    //     'editor_renderer' => 'http://host.docker.internal:3000/',
-    // ],
+
+    // zf-commons/zfc-twig
+    'zfctwig' => [
+        'environment_options' => [
+            'debug' => false,
+            'strict_variables' => false,
+            'autoescape' => false,
+        ],
+    ],
 ];

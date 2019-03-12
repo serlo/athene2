@@ -22,36 +22,15 @@
  */
 
 return [
-    'doctrine' => array(
-        'configuration' => array(
-            'orm_default' => array(
-                'metadata_cache' => 'apccache',
-                'query_cache' => 'apccache',
-                'result_cache' => 'apccache',
-                'hydration_cache' => 'apccache',
-            ),
-        ),
-    ),
+    // (Mailman Module)
+    'mailmock' => [
+        'active' => true,
+    ],
+
+    // (Ui Module)
     'view_manager' => [
-        'display_exceptions' => false,
-    ],
-    'zfctwig' => [
-        'environment_options' => [
-            'debug' => false,
-            'strict_variables' => false,
-            'autoescape' => false,
+        'strategies' => [
+            'Ui\Strategy\PhpRendererStrategy',
         ],
     ],
-    'log' => [
-        'exceptions' => true,
-    ],
-    'strokercache' => array(
-        'storage_adapter' => [
-            'name' => 'Zend\Cache\Storage\Adapter\Filesystem',
-            'options' => [
-                'cache_dir' => __DIR__ . '/../../data',
-                'ttl' => 60 * 60 * 24 * 2,
-            ],
-        ],
-    ),
 ];

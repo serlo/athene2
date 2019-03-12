@@ -20,31 +20,18 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 namespace Markdown\Service;
 
-use DNode\DNode;
 use Markdown\Exception;
-use Markdown\Options\ModuleOptions;
-use React\EventLoop\StreamSelectLoop;
 use Zend\Cache\Storage\StorageInterface;
 
 class HtmlRenderService implements RenderServiceInterface
 {
-
     /**
-     * @var StreamSelectLoop
+     * @var string
      */
-    protected $loop;
-
-    /**
-     * @var DNode
-     */
-    protected $dnode;
-
-    /**
-     * @var ModuleOptions
-     */
-    protected $options;
+    protected $url;
 
     /**
      * @var StorageInterface
@@ -52,14 +39,12 @@ class HtmlRenderService implements RenderServiceInterface
     protected $storage;
 
     /**
-     * @param ModuleOptions    $options
+     * @param string $url
      * @param StorageInterface $storage
      */
-    public function __construct(ModuleOptions $options, StorageInterface $storage)
+    public function __construct($url, StorageInterface $storage)
     {
-        $this->loop    = new StreamSelectLoop();
-        $this->dnode   = new DNode($this->loop);
-        $this->options = $options;
+        $this->url = $url;
         $this->storage = $storage;
     }
 
@@ -68,39 +53,34 @@ class HtmlRenderService implements RenderServiceInterface
      */
     public function render($input)
     {
-        $key = 'html-renderer-' . hash('sha512', $input);
+        $key = 'legacy-editor-renderer-' . hash('sha512', $input);
 
         if ($this->storage->hasItem($key)) {
             return $this->storage->getItem($key);
         }
 
         $rendered = null;
+        $data = ['state' => $input];
 
-        $this->dnode->connect(
-            $this->options->getHost(),
-            $this->options->getPort(),
-            function ($remote, $connection) use ($input, &$rendered) {
-                $remote->render(
-                    $input,
-                    function ($output, $exception = null, $error = null) use (&$rendered, $connection) {
-                        if ($exception !== null) {
-                            $connection->end();
-                            throw new Exception\RuntimeException(sprintf(
-                                'Bridge threw exception "%s" with message "%s".',
-                                $exception,
-                                $error
-                            ));
-                        }
-                        $rendered = $output;
-                        $connection->end();
-                    }
-                );
-            }
-        );
 
-        $this->loop->run();
+        $httpHeader = [
+            'Accept: application/json',
+            'Content-Type: application/json',
+        ];
 
-        if ($rendered === null) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        try {
+            $rendered = json_decode($result, true)['html'];
+        } catch (Exception $e) {
             throw new Exception\RuntimeException(sprintf('Broken pipe'));
         }
 

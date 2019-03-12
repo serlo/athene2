@@ -5,21 +5,19 @@
   "license": "Apache-2.0",
   "require": {
     "doctrine/doctrine-orm-module": "=0.9.0",
-    "zf-commons/zfc-rbac": "=2.3",
-    "zf-commons/zfc-base": "=0.1.2",
-    "zendframework/zendframework": "=2.4.13",
-    "neilime/zf2-twb-bundle": "=2.6.1",
-    "zendframework/zend-developer-tools": "=0.0.2",
-    "dnode/dnode": "=v0.2.0",
-    "stroker/cache": "=0.3.2",
-    "zf-commons/zfc-twig": "=1.2",
-    "umpirsky/twig-gettext-extractor": "=1.1.5",
-    "ewgo/solarium-module": "=1.0.2",
-    "twig/twig": "=v1.20.0",
-    "twig/extensions": "=v1.3.0",
-    "google/cloud": "^0.32.1",
     "drewm/mailchimp-api": "^2.5",
-    "sentry/sentry": "^1.10"
+    "google/cloud": "^0.32.1",
+    "neilime/zf2-twb-bundle": "=2.6.1",
+    "sentry/sentry": "^1.10",
+    "stroker/cache": "=0.3.2",
+    "twig/extensions": "=v1.3.0",
+    "twig/twig": "=v1.20.0",
+    "umpirsky/twig-gettext-extractor": "=1.1.5",
+    "zendframework/zend-developer-tools": "=0.0.2",
+    "zendframework/zendframework": "=2.4.13",
+    "zf-commons/zfc-base": "=0.1.2",
+    "zf-commons/zfc-rbac": "=2.3",
+    "zf-commons/zfc-twig": "=1.2"
   },
   "config": {
     "platform": {

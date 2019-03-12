@@ -20,16 +20,17 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
+
 return [
+    // Mailman Module
     'mailman' => [
         'sender' => 'notifications@mail.serlo.org',
         'location' => 'https://www.serlo.org',
     ],
-    'newsletter_options' => [
-        'api_key' => 'SECRET',
-    ],
-    'instance' => [
-        'strategy' => 'Instance\Strategy\DomainStrategy',
+
+    // (Ui Module)
+    'view_manager' => [
+        'display_exceptions' => false,
     ],
     'tracking' => [
         'instances' => [

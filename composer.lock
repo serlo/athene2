@@ -4,58 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a7199215e5a6a45b5bc4a896d0befb4",
+    "content-hash": "7b7795c86dafc80832c271ce05a0914d",
     "packages": [
-        {
-            "name": "dnode/dnode",
-            "version": "v0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bergie/dnode-php.git",
-                "reference": "048deef50afe95e21ef25c026bd79b2917920f3b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bergie/dnode-php/zipball/048deef50afe95e21ef25c026bd79b2917920f3b",
-                "reference": "048deef50afe95e21ef25c026bd79b2917920f3b",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "~1.0",
-                "php": ">=5.3.0",
-                "react/socket": "0.3.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "DNode": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch",
-                    "homepage": "http://wiedler.ch/igor/"
-                },
-                {
-                    "name": "Henri Bergius",
-                    "email": "henri.bergius@iki.fi",
-                    "homepage": "http://bergie.iki.fi/"
-                }
-            ],
-            "description": "DNode RPC protocol for PHP 5.3",
-            "homepage": "https://github.com/bergie/dnode-php",
-            "keywords": [
-                "dnode",
-                "nodejs",
-                "rpc"
-            ],
-            "time": "2014-01-31T09:12:55+00:00"
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.4.0",
@@ -854,86 +804,6 @@
             "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper",
             "homepage": "https://github.com/drewm/mailchimp-api",
             "time": "2018-02-16T15:31:05+00:00"
-        },
-        {
-            "name": "evenement/evenement",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/igorw/evenement.git",
-                "reference": "fa966683e7df3e5dd5929d984a44abfbd6bafe8d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/igorw/evenement/zipball/fa966683e7df3e5dd5929d984a44abfbd6bafe8d",
-                "reference": "fa966683e7df3e5dd5929d984a44abfbd6bafe8d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Evenement": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch",
-                    "homepage": "http://wiedler.ch/igor/"
-                }
-            ],
-            "description": "Événement is a very simple event dispatching library for PHP 5.3",
-            "keywords": [
-                "event-dispatcher"
-            ],
-            "time": "2012-05-30T15:01:08+00:00"
-        },
-        {
-            "name": "ewgo/solarium-module",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ewgo/SolariumModule.git",
-                "reference": "7a98a584c9e3856b990bec25305324db8fc2a082"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ewgo/SolariumModule/zipball/7a98a584c9e3856b990bec25305324db8fc2a082",
-                "reference": "7a98a584c9e3856b990bec25305324db8fc2a082",
-                "shasum": ""
-            },
-            "require": {
-                "solarium/solarium": "3.*",
-                "zendframework/zendframework": "2.*"
-            },
-            "type": "zf2-module",
-            "autoload": {
-                "psr-0": {
-                    "EwgoSolarium": "src/"
-                },
-                "classmap": [
-                    "./Module.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Zend Framework 2 integration with solarium solr client",
-            "keywords": [
-                "search",
-                "solarium",
-                "solr",
-                "zf2"
-            ],
-            "time": "2013-08-26T15:23:19+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -1767,136 +1637,6 @@
             "time": "2018-07-19T23:38:55+00:00"
         },
         {
-            "name": "react/event-loop",
-            "version": "v0.3.5",
-            "target-dir": "React/EventLoop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/event-loop.git",
-                "reference": "13e03b17e54ea864c6653a2cf6d146dad8464e91"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/event-loop/zipball/13e03b17e54ea864c6653a2cf6d146dad8464e91",
-                "reference": "13e03b17e54ea864c6653a2cf6d146dad8464e91",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "ext-libev": "*",
-                "ext-libevent": ">=0.0.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "React\\EventLoop": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Event loop abstraction layer that libraries can use for evented I/O.",
-            "keywords": [
-                "event-loop"
-            ],
-            "time": "2016-12-28T22:48:03+00:00"
-        },
-        {
-            "name": "react/socket",
-            "version": "v0.3.4",
-            "target-dir": "React/Socket",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/socket.git",
-                "reference": "19bc0c4309243717396022ffb2e59be1cc784327"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket/zipball/19bc0c4309243717396022ffb2e59be1cc784327",
-                "reference": "19bc0c4309243717396022ffb2e59be1cc784327",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "1.0.*",
-                "php": ">=5.3.3",
-                "react/event-loop": "0.3.*",
-                "react/stream": "0.3.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "React\\Socket": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Library for building an evented socket server.",
-            "keywords": [
-                "Socket"
-            ],
-            "time": "2014-02-17T22:32:00+00:00"
-        },
-        {
-            "name": "react/stream",
-            "version": "v0.3.4",
-            "target-dir": "React/Stream",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/stream.git",
-                "reference": "feef56628afe3fa861f0da5f92c909e029efceac"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/stream/zipball/feef56628afe3fa861f0da5f92c909e029efceac",
-                "reference": "feef56628afe3fa861f0da5f92c909e029efceac",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "1.0.*",
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "react/event-loop": "0.3.*",
-                "react/promise": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "React\\Stream": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Basic readable and writable stream interfaces that support piping.",
-            "keywords": [
-                "pipe",
-                "stream"
-            ],
-            "time": "2014-02-16T19:48:52+00:00"
-        },
-        {
             "name": "rize/uri-template",
             "version": "0.3.2",
             "source": {
@@ -2005,64 +1745,6 @@
             "time": "2018-11-09T12:27:19+00:00"
         },
         {
-            "name": "solarium/solarium",
-            "version": "3.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/solariumphp/solarium.git",
-                "reference": "c353babec89fdbe8c64054bfec8e77bcb5da6705"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/c353babec89fdbe8c64054bfec8e77bcb5da6705",
-                "reference": "c353babec89fdbe8c64054bfec8e77bcb5da6705",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/event-dispatcher": "~2.3|~3.0"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "^3.8 || ^6.2",
-                "phpunit/phpunit": "~3.7",
-                "satooshi/php-coveralls": "~1.0",
-                "squizlabs/php_codesniffer": "~1.4",
-                "zendframework/zendframework1": "~1.12"
-            },
-            "suggest": {
-                "minimalcode/search": "Query builder compatible with Solarium, allows simplified solr-query handling"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "3.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Solarium\\": "library/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "See GitHub contributors",
-                    "homepage": "https://github.com/basdenooijer/solarium/contributors"
-                }
-            ],
-            "description": "PHP Solr client",
-            "homepage": "http://www.solarium-project.org",
-            "keywords": [
-                "php",
-                "search",
-                "solr"
-            ],
-            "time": "2017-02-02T13:32:22+00:00"
-        },
-        {
             "name": "stroker/cache",
             "version": "0.3.2",
             "source": {
@@ -2124,16 +1806,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "069bf3f0e8f871a2169a06e43d9f3f03f355e9be"
+                "reference": "71ce77f37af0c5ffb9590e43cc4f70e426945c5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/069bf3f0e8f871a2169a06e43d9f3f03f355e9be",
-                "reference": "069bf3f0e8f871a2169a06e43d9f3f03f355e9be",
+                "url": "https://api.github.com/repos/symfony/console/zipball/71ce77f37af0c5ffb9590e43cc4f70e426945c5e",
+                "reference": "71ce77f37af0c5ffb9590e43cc4f70e426945c5e",
                 "shasum": ""
             },
             "require": {
@@ -2192,20 +1874,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-25T10:42:12+00:00"
+            "time": "2019-02-23T15:06:07+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "667a26c4dd6bc75c67f06bc9bcd015bdecc7cbb8"
+                "reference": "8d8a9e877b3fcdc50ddecf8dcea146059753f782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/667a26c4dd6bc75c67f06bc9bcd015bdecc7cbb8",
-                "reference": "667a26c4dd6bc75c67f06bc9bcd015bdecc7cbb8",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/8d8a9e877b3fcdc50ddecf8dcea146059753f782",
+                "reference": "8d8a9e877b3fcdc50ddecf8dcea146059753f782",
                 "shasum": ""
             },
             "require": {
@@ -2248,34 +1930,31 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-25T10:19:25+00:00"
+            "time": "2019-02-24T15:45:11+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.22",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "ed5be1663fa66623b3a7004d5d51a14c4045399b"
+                "reference": "54da3ff63dec3c9c0e32ec3f95a7d94ef64baa00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ed5be1663fa66623b3a7004d5d51a14c4045399b",
-                "reference": "ed5be1663fa66623b3a7004d5d51a14c4045399b",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/54da3ff63dec3c9c0e32ec3f95a7d94ef64baa00",
+                "reference": "54da3ff63dec3c9c0e32ec3f95a7d94ef64baa00",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "conflict": {
-                "symfony/dependency-injection": "<3.3"
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0|~4.0",
-                "symfony/dependency-injection": "~3.3|~4.0",
-                "symfony/expression-language": "~2.8|~3.0|~4.0",
-                "symfony/stopwatch": "~2.8|~3.0|~4.0"
+                "symfony/config": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -2284,7 +1963,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -2311,7 +1990,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T13:27:11+00:00"
+            "time": "2016-07-19T10:44:15+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -2365,33 +2044,61 @@
         },
         {
             "name": "symfony/form",
-            "version": "2.0.6",
-            "target-dir": "Symfony/Component/Form",
+            "version": "v2.8.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "a229cc023d71b15c23de2c52d3686601f957e884"
+                "reference": "74382a47aa97496d181fbb598822fdfb9e1744e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/a229cc023d71b15c23de2c52d3686601f957e884",
-                "reference": "a229cc023d71b15c23de2c52d3686601f957e884",
+                "url": "https://api.github.com/repos/symfony/form/zipball/74382a47aa97496d181fbb598822fdfb9e1744e4",
+                "reference": "74382a47aa97496d181fbb598822fdfb9e1744e4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
-                "symfony/event-dispatcher": ">=2.0",
-                "symfony/locale": ">=2.0",
-                "symfony/validator": ">=2.0"
+                "php": ">=5.3.9",
+                "symfony/event-dispatcher": "~2.1|~3.0.0",
+                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
+                "symfony/options-resolver": "~2.6",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/property-access": "~2.3|~3.0.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/doctrine-bridge": "<2.7",
+                "symfony/framework-bundle": "<2.7",
+                "symfony/twig-bridge": "<2.7"
+            },
+            "require-dev": {
+                "doctrine/collections": "~1.0",
+                "symfony/dependency-injection": "~2.7|~3.0.0",
+                "symfony/http-foundation": "~2.2|~3.0.0",
+                "symfony/http-kernel": "~2.4|~3.0.0",
+                "symfony/security-csrf": "^2.8.31|^3.3.13",
+                "symfony/translation": "^2.0.5|~3.0.0",
+                "symfony/validator": "^2.8.18|~3.2.5"
             },
             "suggest": {
-                "symfony/http-foundation": ">=2.0"
+                "symfony/framework-bundle": "For templating with PHP.",
+                "symfony/security-csrf": "For protecting forms against CSRF attacks.",
+                "symfony/twig-bridge": "For templating with Twig.",
+                "symfony/validator": "For form validation."
             },
             "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Form": ""
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
                 }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Form\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2399,17 +2106,17 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Form Component",
-            "homepage": "http://symfony.com",
-            "time": "2011-11-11T23:58:46+00:00"
+            "homepage": "https://symfony.com",
+            "time": "2018-12-06T11:12:46+00:00"
         },
         {
             "name": "symfony/intl",
@@ -2487,22 +2194,21 @@
             "time": "2017-11-16T17:55:54+00:00"
         },
         {
-            "name": "symfony/locale",
+            "name": "symfony/options-resolver",
             "version": "v2.8.49",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/locale.git",
-                "reference": "c5e50d21e566cb685c1ee6802edadca643e8f83d"
+                "url": "https://github.com/symfony/options-resolver.git",
+                "reference": "7aaab725bb58f0e18aa12c61bdadd4793ab4c32b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/locale/zipball/c5e50d21e566cb685c1ee6802edadca643e8f83d",
-                "reference": "c5e50d21e566cb685c1ee6802edadca643e8f83d",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/7aaab725bb58f0e18aa12c61bdadd4793ab4c32b",
+                "reference": "7aaab725bb58f0e18aa12c61bdadd4793ab4c32b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5"
+                "php": ">=5.3.9"
             },
             "type": "library",
             "extra": {
@@ -2512,7 +2218,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Component\\Locale\\": ""
+                    "Symfony\\Component\\OptionsResolver\\": ""
                 },
                 "exclude-from-classmap": [
                     "/Tests/"
@@ -2532,9 +2238,13 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Locale Component",
+            "description": "Symfony OptionsResolver Component",
             "homepage": "https://symfony.com",
-            "abandoned": "symfony/intl",
+            "keywords": [
+                "config",
+                "configuration",
+                "options"
+            ],
             "time": "2018-11-11T11:18:13+00:00"
         },
         {
@@ -2711,6 +2421,66 @@
                 "shim"
             ],
             "time": "2018-09-21T13:07:52+00:00"
+        },
+        {
+            "name": "symfony/property-access",
+            "version": "v3.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/property-access.git",
+                "reference": "a4f1a668d0a269a65790f07d9ab2a97dd060fccb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/a4f1a668d0a269a65790f07d9ab2a97dd060fccb",
+                "reference": "a4f1a668d0a269a65790f07d9ab2a97dd060fccb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\PropertyAccess\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PropertyAccess Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "access",
+                "array",
+                "extraction",
+                "index",
+                "injection",
+                "object",
+                "property",
+                "property path",
+                "reflection"
+            ],
+            "time": "2016-07-30T07:22:48+00:00"
         },
         {
             "name": "symfony/routing",
@@ -2927,91 +2697,6 @@
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
             "time": "2015-10-11T09:39:48+00:00"
-        },
-        {
-            "name": "symfony/validator",
-            "version": "v3.4.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/validator.git",
-                "reference": "06af494d8634df6ad9655ec7d80cb61983253912"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/06af494d8634df6ad9655ec7d80cb61983253912",
-                "reference": "06af494d8634df6ad9655ec7d80cb61983253912",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-ctype": "~1.8",
-                "symfony/polyfill-mbstring": "~1.0",
-                "symfony/translation": "~2.8|~3.0|~4.0"
-            },
-            "conflict": {
-                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
-                "symfony/dependency-injection": "<3.3",
-                "symfony/http-kernel": "<3.3.5",
-                "symfony/yaml": "<3.4"
-            },
-            "require-dev": {
-                "doctrine/annotations": "~1.0",
-                "doctrine/cache": "~1.0",
-                "egulias/email-validator": "^1.2.8|~2.0",
-                "symfony/cache": "~3.1|~4.0",
-                "symfony/config": "~2.8|~3.0|~4.0",
-                "symfony/dependency-injection": "~3.3|~4.0",
-                "symfony/expression-language": "~2.8|~3.0|~4.0",
-                "symfony/http-foundation": "~2.8|~3.0|~4.0",
-                "symfony/http-kernel": "^3.3.5|~4.0",
-                "symfony/intl": "^2.8.18|^3.2.5|~4.0",
-                "symfony/property-access": "~2.8|~3.0|~4.0",
-                "symfony/var-dumper": "~3.3|~4.0",
-                "symfony/yaml": "~3.4|~4.0"
-            },
-            "suggest": {
-                "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
-                "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
-                "egulias/email-validator": "Strict (RFC compliant) email validation",
-                "psr/cache-implementation": "For using the metadata cache.",
-                "symfony/config": "",
-                "symfony/expression-language": "For using the Expression validator",
-                "symfony/http-foundation": "",
-                "symfony/intl": "",
-                "symfony/property-access": "For accessing properties within comparison constraints",
-                "symfony/yaml": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Validator\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Validator Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-01-30T09:03:33+00:00"
         },
         {
             "name": "twig/extensions",
@@ -4781,16 +4466,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "ba11776e9e6c15ad5759a07bffb15899bac75c2d"
+                "reference": "57f1ce82c997f5a8701b89ef970e36bb657fd09c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/ba11776e9e6c15ad5759a07bffb15899bac75c2d",
-                "reference": "ba11776e9e6c15ad5759a07bffb15899bac75c2d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/57f1ce82c997f5a8701b89ef970e36bb657fd09c",
+                "reference": "57f1ce82c997f5a8701b89ef970e36bb657fd09c",
                 "shasum": ""
             },
             "require": {
@@ -4836,7 +4521,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T10:59:17+00:00"
+            "time": "2019-02-23T15:06:07+00:00"
         },
         {
             "name": "webmozart/assert",

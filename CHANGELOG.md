@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+### Internal
+
+- Cleaned up configuration files, local configuration is now set in `src/config/definitions.local.php`
+- Added `Dockerfile`s for web and php server. Were possible, we use the same base configurations in development. Mind
+  the changes to `docker-compose.yml`.
+
 ## [Build 8] - 2019-02-20
 
 ### Fixed

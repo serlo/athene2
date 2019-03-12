@@ -36,9 +36,11 @@ class HtmlRenderServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $options = $serviceLocator->get('Markdown\Options\ModuleOptions');
+        $config = $serviceLocator->get('config');
         $storage = $serviceLocator->get('Markdown\Storage\MarkdownStorage');
-        $service = new HtmlRenderService($options, $storage);
+        $url = $config['assets']['legacy_editor_renderer'];
+
+        $service = new HtmlRenderService($url, $storage);
 
         return $service;
     }

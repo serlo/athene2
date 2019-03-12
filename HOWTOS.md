@@ -18,8 +18,6 @@ locale-gen de_DE.UTF-8
 # https://www.linode.com/docs/websites/apache/running-fastcgi-php-fpm-on-debian-7-with-apache
 # apt-get install -y apache2-mpm-worker php5-fpm php5 php5-intl php5-mysql php5-curl php-pear phpmyadmin php5-cli php-apc php-xml-parser
 
-apt-get install -y solr-tomcat nodejs npm ruby-sass ruby-compass
-
 # npm pm2 --unsafe-perm
 npm -g install bower grunt grunt-cli pm2 dnode
 
