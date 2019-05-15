@@ -2,11 +2,15 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [Build 9] - 2019-05-15
 
 ### Added
 
 - Enable `mediawiki-texvc` MathJax extension for `\Euro`
+
+### Fixed
+
+- Render notifications of events without a specific template correctly
 
 ## [Build 8] - 2019-02-20
 
@@ -148,7 +152,9 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo/
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo/athene2/compare/7...HEAD
+[unreleased]: https://github.com/serlo/athene2/compare/9...HEAD
+[build 9]: https://github.com/serlo/athene2/compare/8...9
+[build 8]: https://github.com/serlo/athene2/compare/7...8
 [build 7]: https://github.com/serlo/athene2/compare/6...7
 [build 6]: https://github.com/serlo/athene2/compare/5...6
 [build 5]: https://github.com/serlo/athene2/compare/4...5
