@@ -21,6 +21,9 @@ RUN yes no | pecl install apcu_bc
 #RUN yes DEFAULT | pecl install intl
 RUN echo "extension=apcu.so" >> /usr/local/etc/php/php.ini
 RUN echo "extension=apc.so" >> /usr/local/etc/php/php.ini
+RUN echo "apc.enabled=On" >> /usr/local/etc/php/php.ini
+RUN echo "apc.enable_cli=On" >> /usr/local/etc/php/php.ini
+RUN echo "memory_limit=1024M" >> /usr/local/etc/php/php.ini
 RUN echo "short_open_tag=Off" >> /usr/local/etc/php/php.ini
 
 RUN locale-gen de_DE.UTF-8
@@ -69,7 +72,6 @@ EXPOSE 80
 # Php hacks
 # RUN sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
 # RUN sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /usr/local/etc/php/php.ini
-# RUN sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /usr/local/etc/php/php.ini
 # RUN sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /usr/local/etc/php/php.ini
 # RUN sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /usr/local/etc/php/php.ini
 
