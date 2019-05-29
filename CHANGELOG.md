@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Build 10] - 2019-05-29
+
+### Changed
+
+- Updated logos of our partners
+
 ## [Build 9] - 2019-05-15
 
 ### Added
@@ -152,7 +158,8 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo/
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo/athene2/compare/9...HEAD
+[unreleased]: https://github.com/serlo/athene2/compare/10...HEAD
+[build 10]: https://github.com/serlo/athene2/compare/9...10
 [build 9]: https://github.com/serlo/athene2/compare/8...9
 [build 8]: https://github.com/serlo/athene2/compare/7...8
 [build 7]: https://github.com/serlo/athene2/compare/6...7
