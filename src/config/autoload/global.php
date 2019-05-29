@@ -112,7 +112,7 @@ return [
         ],
     ],
     'assets' => [
-        'bundle_host' => 'https://packages.serlo.org/athene2-assets@a/',
+        'bundle_host' => 'https://packages.serlo.org/athene2-assets@b/',
         'assets_host' => 'https://assets.serlo.org/athene2-assets/',
         'editor_renderer' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
     ],
