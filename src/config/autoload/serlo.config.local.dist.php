@@ -37,6 +37,7 @@ return [
                 'code' => <<<EOL
 <script type="text/javascript">
     (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:306257,hjsv:5};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
@@ -65,6 +66,7 @@ EOL
                 'code' => <<<EOL
 <script type="text/javascript">
     (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:306257,hjsv:5};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
@@ -93,6 +95,7 @@ EOL
                 'code' => <<<EOL
 <script type="text/javascript">
     (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:306257,hjsv:5};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
@@ -121,6 +124,7 @@ EOL
                 'code' => <<<EOL
 <script type="text/javascript">
     (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:306257,hjsv:5};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
