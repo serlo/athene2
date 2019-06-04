@@ -35,15 +35,15 @@ return [
         'instances' => [
             'deutsch' => [
                 'code' => <<<EOL
-<script type="text/javascript">
+<script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:306257,hjsv:5};
+        h._hjSettings={hjid:306257,hjsv:6};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <script type="text/javascript">
 var disableStr='ga-disable-UA-20283862-3';if(document.cookie.indexOf(disableStr+'=true')>-1){window[disableStr]=true;}
@@ -64,15 +64,15 @@ EOL
             ],
             'english' => [
                 'code' => <<<EOL
-<script type="text/javascript">
+<script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:306257,hjsv:5};
+        h._hjSettings={hjid:306257,hjsv:6};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <script type="text/javascript">
 var disableStr='ga-disable-UA-20283862-3';if(document.cookie.indexOf(disableStr+'=true')>-1){window[disableStr]=true;}
@@ -93,15 +93,15 @@ EOL
             ],
             'spanish' => [
                 'code' => <<<EOL
-<script type="text/javascript">
+<script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:306257,hjsv:5};
+        h._hjSettings={hjid:306257,hjsv:6};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <script type="text/javascript">
 var disableStr='ga-disable-UA-20283862-3';if(document.cookie.indexOf(disableStr+'=true')>-1){window[disableStr]=true;}
@@ -122,15 +122,15 @@ EOL
             ],
             'hindi' => [
                 'code' => <<<EOL
-<script type="text/javascript">
+<script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:306257,hjsv:5};
+        h._hjSettings={hjid:306257,hjsv:6};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <script type="text/javascript">
 var disableStr='ga-disable-UA-20283862-3';if(document.cookie.indexOf(disableStr+'=true')>-1){window[disableStr]=true;}
