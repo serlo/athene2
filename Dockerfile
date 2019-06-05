@@ -1,4 +1,4 @@
-FROM php:7.1.3-apache
+FROM php:7.0.33-apache
 
 RUN apt-get update -y
 RUN pecl channel-update pecl.php.net
@@ -18,11 +18,12 @@ RUN sed -ie 's/\/var\/www\/html/\/var\/www\/html\/src\/public/g' /etc/apache2/si
 RUN docker-php-ext-install pdo pdo_mysql mysqli gettext intl
 RUN pear config-set preferred_state beta
 RUN yes no | pecl install apcu_bc
-RUN yes DEFAULT | pecl install intl
+#RUN yes DEFAULT | pecl install intl
 RUN echo "extension=apcu.so" >> /usr/local/etc/php/php.ini
 RUN echo "extension=apc.so" >> /usr/local/etc/php/php.ini
 RUN echo "apc.enabled=On" >> /usr/local/etc/php/php.ini
 RUN echo "apc.enable_cli=On" >> /usr/local/etc/php/php.ini
+RUN echo "memory_limit=1024M" >> /usr/local/etc/php/php.ini
 RUN echo "short_open_tag=Off" >> /usr/local/etc/php/php.ini
 
 RUN locale-gen de_DE.UTF-8
@@ -33,6 +34,8 @@ RUN a2enmod rewrite proxy proxy_fcgi headers
 RUN sed -ie 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 RUN sed -ie 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/g' /etc/locale.gen
 RUN sed -ie 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/g' /etc/locale.gen
+RUN sed -ie 's/# hi_IN UTF-8/hi_IN UTF-8/g' /etc/locale.gen
+RUN sed -ie 's/# es_ES.UTF-8 UTF-8/es_ES.UTF-8 UTF-8/g' /etc/locale.gen
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
 VOLUME /var/www/html/src/config
@@ -63,9 +66,11 @@ EXPOSE 80
 # Xdebug fix
 # RUN sed -i "$ a\xdebug.max_nesting_level = 500" /usr/local/etc/php/php.ini
 
+# RUN pecl install apcu
+# RUN echo "extension=apcu.so" >> /usr/local/etc/php/php.ini
+
 # Php hacks
 # RUN sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /etc/php5/cli/php.ini
 # RUN sed -i "s/\;pcre\.backtrack\_limit=100000/pcre\.backtrack\_limit=10000/" /usr/local/etc/php/php.ini
-# RUN sed -i "s/\memory\_limit = 128M/memory\_limit = 1024M/" /usr/local/etc/php/php.ini
 # RUN sed -i "s/\upload\_max\_filesize = .*M/upload\_max\_filesize = 128M/" /usr/local/etc/php/php.ini
 # RUN sed -i "s/\post\_max\_size = .*M/post\_max\_size = 128M/" /usr/local/etc/php/php.ini

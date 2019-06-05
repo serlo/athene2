@@ -125,7 +125,7 @@ trait InstanceManagerTrait
 
         if ($this->checkClassInheritance && !$instance instanceof $class) {
             throw new \InvalidArgumentException('Expeted ' . $class . ' but got ' . get_class(
-                    $instance
+                $instance
                 ));
         }
 

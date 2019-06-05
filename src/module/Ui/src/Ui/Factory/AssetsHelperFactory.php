@@ -20,19 +20,24 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-namespace Ui\View\Helper;
+namespace Ui\Factory;
 
-use Zend\Form\View\Helper\AbstractHelper;
+use Ui\View\Helper\Assets;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AssetsHost extends AbstractHelper
+class AssetsHelperFactory implements FactoryInterface
 {
-    public function __construct($config)
+    /**
+     * Create service
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return mixed
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $this->config = $config;
-    }
-
-    public function __invoke()
-    {
-        return $this->config['assets_host'];
+        $serviceLocator = $serviceLocator->getServiceLocator();
+        $config = $serviceLocator->get('Config');
+        return new Assets($config['assets']);
     }
 }

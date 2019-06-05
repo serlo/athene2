@@ -19,4 +19,15 @@
  # @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  # @link      https://github.com/serlo-org/athene2 for the canonical source repository
  #}
-{% include 'mailman/messages/notification/body' with { 'plain': true } %}
+{% set user = user.getUsername() %}
+{% trans %}
+    Hello {{ user }}!
+{% endtrans %}
+
+
+{% include 'mailman/messages/notification/partials/discussions' with { 'notifications': discussionNotifications, 'plain': true } %}
+{% include 'mailman/messages/notification/partials/content' with { 'notifications': contentNotifications, 'plain': true } %}
+{% set href = url('subscriptions/manage', {}, {"force_canonical": true}) %}
+{% trans %}
+    You can change the settings for which content you want to receive notifications here: {{ href }}
+{% endtrans %}

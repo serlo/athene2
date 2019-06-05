@@ -36,7 +36,7 @@ echo $this->doctype();
             <nav id="header-nav">
                 <div id="mobile-nav-toggle">
                     <button>
-                        <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                        <span class="sr-only"><?php echo $this->translate('Toggle navigation'); ?></span>
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
                     <a href="https://de.serlo.org"><?php echo $this->brand()->getLogo(); ?>
@@ -139,7 +139,7 @@ echo $this->doctype();
                             </a>
                         </div>
                         <div class="home-column col-sm-6 col-lg-3 container">
-                            <a class="home-emph-link" href="/17744">
+                            <a class="home-emph-link" href="/nachhaltigkeit">
                                 <div class="row home-subject-column">
                                     <div class="col-xs-12 home-subject-symbol">
                                         <?php echo $this->partial('layout/de/home-sustain-symbol');?>
@@ -184,25 +184,19 @@ echo $this->doctype();
 
                 <div class="home-about-wrapper row">
                     <div class="home-column home-partner-row col-lg-9">
-
-                        <a href="/21456" class="home-emph-link">Partner und Förderer</a>
-
                         <div class="partners">
-                          <a href="/21456">
-                              <img src="/assets/images/de/home_logo_tum.svg" alt="Technische Universität München"/>
-                          </a>
-                          <a href="/21456">
-                              <img src="/assets/images/de/home_logo_eu.svg" alt="Europäische Kommission"/>
-                          </a>
-                          <a href="/21456">
-                              <img src="/assets/images/de/home_logo_lmu.svg" alt="Ludwig-Maximilians-Universität München"/>
-                          </a>
-                          <a href="/21456">
-                              <img src="/assets/images/de/home_logo_sauer.svg" alt="Hans Sauer Stiftung"/>
-                          </a>
-                          <a href="/21456">
-                              <img src="/assets/images/de/home_logo_wiki.svg" alt="Wikimedia Deutschland"/>
-                          </a>
+                            <a href="/21456" class="home-emph-link">Partner und Förderer</a>
+                            <a href="/21456" style="text-decoration: none;">
+                                <div class="partner-logos">
+                                <img src="<?php echo $this->assets()->getAsset('de/home/logo-beisheim.png'); ?>" alt="Beisheim Stiftung" title="Beisheim Stiftung" />
+                                <img src="<?php echo $this->assets()->getAsset('de/home/logo-lmu.svg'); ?>" alt="Ludwig-Maximilians-Universität München" title="Ludwig-Maximilians-Universität München"/>
+                                <img src="<?php echo $this->assets()->getAsset('de/home/logo-tum.svg'); ?>" alt="Technische Universität München" title="Technische Universität München"/>
+                                <img src="<?php echo $this->assets()->getAsset('de/home/logo-wikimedia.svg'); ?>" alt="Wikimedia Deutschland" title="Wikimedia Deutschland"/>
+                                <img src="<?php echo $this->assets()->getAsset('de/home/logo-eu.svg'); ?>" alt="Europäische Kommission" title="Europäische Kommission" style="max-height: 60px;"/>
+                                <img src="<?php echo $this->assets()->getAsset('de/home/logo-ashoka.png'); ?>" alt="Ashoka Deutschland" title="Ashoka Deutschland"/>
+                                <img src="<?php echo $this->assets()->getAsset('de/home/logo-hpi.png'); ?>" alt="Hasso-Plattner-Institut" title="Hasso-Plattner-Institut"/>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="home-row home-about-row col-lg-3">
@@ -225,7 +219,7 @@ echo $this->doctype();
                           <h2>Serlo.org ist die Wikipedia fürs Lernen<h2>
                         </div>
                         <div class="extra-icon col-xs-12 col-lg-2">
-                            <img src="assets/images/home_participate.svg" alt="together">
+                            <img src="<?php echo $this->assets()->getAsset('home/participate.svg'); ?>" alt="together">
                         </div>
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 col-lg-3 home-calls-column calls-column-1">
                             <p>Wir suchen LehrerInnen mit Begeisterung für ihr Fach.
@@ -263,7 +257,7 @@ echo $this->doctype();
                 </div>
 
                 <div class="home-row home-principle-row home-column col-md-12 col-lg-6 col-lg-offset-3">
-                    <img src="/assets/images/de/about_serlo.svg">
+                    <object data="<?php echo $this->assets()->getAsset('de/home/about-serlo.svg'); ?>"></object>
                 </div>
                 <div class="home-launch-img-row home-row"></div>
                 <div class="home-calls-wrapper">

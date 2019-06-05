@@ -28,7 +28,7 @@
             <th><?php echo $this->translate('ID'); ?></th>
             <th><?php echo $this->translate('Title'); ?></th>
             <th><?php echo $this->translate('Type'); ?></th>
-            <th><?php echo $this->translate('Timestamp') ?></th>
+            <th><?php echo $this->translate('Timestamp'); ?></th>
             <th><?php echo $this->translate('Actions'); ?></th>
         </tr>
     </thead>
@@ -38,7 +38,7 @@
         <?php $entity = $element["entity"]; ?>
         <?php $date = $element["date"]; ?>
             <tr>
-                <td><?php echo $entity->getId() ?></td>
+                <td><?php echo $entity->getId(); ?></td>
                 <td><?php echo $this->normalize()->toAnchor($entity); ?></td>
                 <td><?php echo $this->translate($this->normalize()->toType($entity)); ?></td>
                 <td><?php echo $this->timeago()->render($date); ?></td>

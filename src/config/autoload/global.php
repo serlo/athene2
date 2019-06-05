@@ -21,7 +21,39 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 return [
-    'version' => '6',
+    'version' => '12',
+    'brand' => [
+        'instances' => [
+            'deutsch' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'Die freie Lernplattform',
+                'description' => 'Serlo ist eine kostenlose Plattform mit freien Lernmaterialien, die alle mitgestalten können.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'lernen mit Serlo!',
+            ],
+            'english' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'The Open Learning Platform',
+                'description' => 'Serlo is a free service with open educational resources, which anyone can contribute to.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'learn with Serlo!',
+            ],
+            'spanish' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'La Plataforma para el Aprendizaje Abierto',
+                'description' => 'Serlo es una plataforma abierta gratuita que ofrece recursos educativos, a los que todos pueden contribuir',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'aprende con Serlo!',
+            ],
+            'hindi' => [
+                'name' => '<div class="serlo-brand">सेर्लो</div>',
+                'slogan' => 'ओपन लर्निंग प्लेटफॉर्म',
+                'description' => 'सेर्लो खुले शैक्षिक संसाधनों के साथ एक नि: शुल्क सेवा है, जो कोई भी योगदान दे सकता है.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'सेर्लो के साथ सीखो!',
+            ],
+        ],
+    ],
     'zfctwig'         => [
         'environment_options' => [
             'cache' => __DIR__ . '/../../data/twig',
@@ -79,8 +111,9 @@ return [
             'previous_uri_query_key'         => 'redir',
         ],
     ],
-    'assets_host'     => 'https://packages.serlo.org/athene2-assets@a/',
-    'editor_renderer' => [
-        'url' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
+    'assets' => [
+        'bundle_host' => 'https://packages.serlo.org/athene2-assets@b/',
+        'assets_host' => 'https://assets.serlo.org/athene2-assets/',
+        'editor_renderer' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
     ],
 ];

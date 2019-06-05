@@ -221,7 +221,7 @@ class InstanceAwareEntityManager extends EntityManager
         $identifiers = array(__CLASS__, get_class($this));
         if (isset($this->eventIdentifier)) {
             if ((is_string($this->eventIdentifier)) || (is_array(
-                    $this->eventIdentifier
+                $this->eventIdentifier
                 )) || ($this->eventIdentifier instanceof Traversable)
             ) {
                 $identifiers = array_unique(array_merge($identifiers, (array)$this->eventIdentifier));

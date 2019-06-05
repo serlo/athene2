@@ -131,7 +131,6 @@ $twig->addFunction(new \Twig_SimpleFunction('user', true));
 $twig->addFunction(new \Twig_SimpleFunction('singleChoice', true));
 $twig->addFunction(new \Twig_SimpleFunction('multipleChoice', true));
 $twig->addFunction(new \Twig_SimpleFunction('inputChallenge', true));
-$twig->addFunction(new \Twig_SimpleFunction('randomBanner', true));
 $twig->addFunction(new \Twig_SimpleFunction('shuffle', true));
 $twig->addFunction(new \Twig_SimpleFunction('dateFormat', true));
 $twig->addFunction(new \Twig_SimpleFunction('uuidForm', true));

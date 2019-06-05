@@ -154,7 +154,7 @@ class Json extends Menu
         /* @var $page AbstractPage */
         foreach ($container as $page) {
             if (!($page->isVisible() && $this->accept(
-                    $page
+                $page
                 ) && $currentDepth < $end && ($currentDepth > $activeDepth || $this->isActive($page)))
             ) {
                 continue;

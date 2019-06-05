@@ -32,7 +32,7 @@ class RelatedContentHelperFactory implements FactoryInterface
     {
         $instance = new RelatedContentHelper();
         $relatedContentManager = $serviceLocator->getServiceLocator()->get(
-                'RelatedContent\Manager\RelatedContentManager'
+            'RelatedContent\Manager\RelatedContentManager'
             );
 
         $instance->setRelatedContentManager($relatedContentManager);

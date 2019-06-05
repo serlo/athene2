@@ -85,7 +85,7 @@ class DiscussionForm extends AbstractForm
                 ->setAttribute('rows', '1')
         );
         $this->add(
-                (new Submit('start'))->setValue(t('Submit'))->setAttribute('class', 'btn btn-success pull-right discussion-submit')
+            (new Submit('start'))->setValue(t('Submit'))->setAttribute('class', 'btn btn-success pull-right discussion-submit')
         );
 
         $inputFilter->add(['name' => 'instance', 'required' => true]);

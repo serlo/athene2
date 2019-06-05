@@ -37,7 +37,7 @@ class MailRendererFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $renderer = $serviceLocator->get('ZfcTwigRenderer');
+        $renderer = $serviceLocator->get('ZfcTwig\View\TwigRenderer');
         return new MailRenderer($renderer);
     }
 }
