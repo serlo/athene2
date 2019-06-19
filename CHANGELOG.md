@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Build 13] - 2019-06-19
+
+### Added
+
+- https://de.serlo.org/beitrag
+
 ## [Build 12] - 2019-06-04
 
 ### Fixed
@@ -174,8 +180,9 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo/
 
 ## [Build 1] - 2017-10-05
 
-[unreleased]: https://github.com/serlo/athene2/compare/12...HEAD
-[build 12]: https://github.com/serlo/athene2/compare/10...12
+[unreleased]: https://github.com/serlo/athene2/compare/13...HEAD
+[build 13]: https://github.com/serlo/athene2/compare/12...13
+[build 12]: https://github.com/serlo/athene2/compare/11...12
 [build 11]: https://github.com/serlo/athene2/compare/10...11
 [build 10]: https://github.com/serlo/athene2/compare/9...10
 [build 9]: https://github.com/serlo/athene2/compare/8...9
