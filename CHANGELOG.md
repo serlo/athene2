@@ -187,7 +187,7 @@ This release uses athene2-assets@3 (blue) ([Changelog](https://github.com/serlo/
 ## [Build 1] - 2017-10-05
 
 [unreleased]: https://github.com/serlo/athene2/compare/14...HEAD
-[build 13]: https://github.com/serlo/athene2/compare/13...14
+[build 14]: https://github.com/serlo/athene2/compare/13...14
 [build 13]: https://github.com/serlo/athene2/compare/12...13
 [build 12]: https://github.com/serlo/athene2/compare/11...12
 [build 11]: https://github.com/serlo/athene2/compare/10...11
