@@ -21,7 +21,7 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 return [
-    'version' => '13',
+    'version' => '14',
     'brand' => [
         'instances' => [
             'deutsch' => [
@@ -112,8 +112,8 @@ return [
         ],
     ],
     'assets' => [
-        'bundle_host' => 'https://packages.serlo.org/athene2-assets@b/',
-        'assets_host' => 'https://assets.serlo.org/athene2-assets/',
+        'assets_host' => 'https://packages.serlo.org/static-assets@1/',
+        'bundle_host' => 'https://packages.serlo.org/athene2-assets@4/',
         'editor_renderer' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
     ],
 ];
