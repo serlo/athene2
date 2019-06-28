@@ -6,6 +6,7 @@ source ~/.profile
 cd "$(dirname "$0")"
 
 git status
+git fetch
 git pull
 git submodule update --init --recursive
 sh templatemap_generator.sh
