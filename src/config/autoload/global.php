@@ -21,7 +21,7 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 return [
-    'version' => '15',
+    'version' => '16',
     'brand' => [
         'instances' => [
             'deutsch' => [
@@ -51,6 +51,13 @@ return [
                 'description' => 'सेर्लो खुले शैक्षिक संसाधनों के साथ एक नि: शुल्क सेवा है, जो कोई भी योगदान दे सकता है.',
                 'logo' => '<span class="serlo-logo">V</span>',
                 'head_title' => 'सेर्लो के साथ सीखो!',
+            ],
+            'tamil' => [
+                'name' => '<div class="serlo-brand">Serlo</div>',
+                'slogan' => 'அனைவருக்கும் திறந்த உரிமம் உள்ள ஓர் இணையத் தளம்',
+                'description' => 'Serlo அனைவருக்கும் ஒரு இலவச மற்றும் திறந்த உரிமம் உள்ள சேவை.',
+                'logo' => '<span class="serlo-logo">V</span>',
+                'head_title' => 'Serlo வுடன் கற்றுக்கொள்ளுங்கள்!',
             ],
         ],
     ],
