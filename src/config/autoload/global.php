@@ -21,7 +21,7 @@
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
 return [
-    'version' => '17',
+    'version' => '18',
     'brand' => [
         'instances' => [
             'deutsch' => [
