@@ -22,6 +22,7 @@
  */
 namespace Markdown\View\Helper;
 
+use Markdown\Exception\RuntimeException;
 use Markdown\Service\RenderServiceAwareTrait;
 use Markdown\Service\RenderServiceInterface;
 use Zend\View\Helper\AbstractHelper;
@@ -48,7 +49,11 @@ class MarkdownHelper extends AbstractHelper
      */
     public function toHtml($content)
     {
-        $json = json_decode($content, true);
-        return ($json === null) ? htmlspecialchars($content) : $this->getRenderService()->render($content);
+        if (json_decode($content, true) === null) return htmlspecialchars($content);
+        try {
+            return $this->getRenderService()->render($content);
+        } catch (RuntimeException $e) {
+            return htmlspecialchars($content);
+        }
     }
 }
