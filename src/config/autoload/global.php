@@ -119,8 +119,8 @@ return [
         ],
     ],
     'assets' => [
-        'assets_host' => 'https://packages.serlo.org/static-assets@1/',
-        'bundle_host' => 'https://packages.serlo.org/athene2-assets@4/',
+        'assets_host' => 'https://packages.serlo.org/static-assets@2/',
+        'bundle_host' => 'https://packages.serlo.org/athene2-assets@5/',
         'editor_renderer' => 'https://europe-west1-serlo-assets.cloudfunctions.net/editor-renderer-a',
     ],
 ];
