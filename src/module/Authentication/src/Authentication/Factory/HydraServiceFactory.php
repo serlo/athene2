@@ -20,10 +20,25 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/athene2 for the canonical source repository
  */
-$template = 'layout/' . $this->subdomain . '/serlo-home';
-if ($this->resolver($template)) {
-    echo $this->partial($template);
-} else {
-    echo $this->partial('layout/default/serlo-home');
+namespace Authentication\Factory;
+
+use Authentication\Service\HydraService;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+class HydraServiceFactory implements FactoryInterface
+{
+    /**
+     * Create service
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return HydraService
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $config = $serviceLocator->get('Config');
+        $baseUrl = $config['assets']['hydra'];
+
+        return new HydraService($baseUrl);
+    }
 }
-?>
