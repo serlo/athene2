@@ -49,7 +49,9 @@ class MarkdownHelper extends AbstractHelper
      */
     public function toHtml($content)
     {
-        if (json_decode($content, true) === null) return htmlspecialchars($content);
+        if (json_decode($content, true) === null) {
+            return htmlspecialchars($content);
+        }
         try {
             return $this->getRenderService()->render($content);
         } catch (RuntimeException $e) {
